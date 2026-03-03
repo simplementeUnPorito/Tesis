@@ -43,6 +43,3 @@ La caracterización se divide en métodos invasivos y no invasivos.
 - Son más costo-efectivos que los métodos invasivos
 
 ![[Assets/Surface Wave Methods/ch1_image_1.png]]
-
-
-XDD
