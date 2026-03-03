@@ -16,7 +16,7 @@ En un cuerpo no acotado (unbounded), homogéneo y de elasticidad lineal se propa
 Un sólido elástico lineal puede caracterizarse mediante dos constantes elásticas (λ y μ, o alternativamente G) y su densidad de masa ρ.  
 Las velocidades de propagación están relacionadas con estos parámetros:
 
-![[image.png]]
+![[Assets/Surface Wave Methods/ch1_image.png]]
 
 (Ecuación 1.1)
 
@@ -42,4 +42,4 @@ La caracterización se divide en métodos invasivos y no invasivos.
 - Permiten explorar volúmenes más grandes y representativos
 - Son más costo-efectivos que los métodos invasivos
 
-![[image 1.png]]
+![[Assets/Surface Wave Methods/ch1_image_1.png]]
