@@ -24,12 +24,12 @@ Las pruebas se agrupan en dos categorías [3]:
 
 ### Comparativa: Invasivos vs. No Invasivos
 
-| Característica | Métodos Invasivos (Borehole) | Métodos No Invasivos |
-| :--- | :--- | :--- |
-| **Ejemplos** | Cross-hole (CHT), Down-hole, P-S logging [2, 24] | SASW, MASW, Reflexión, Refracción [2, 25] |
-| **Costo** | Elevado (requiere perforación) [2, 24] | Más costo-efectivo [2] |
-| **Volumen** | Puntual y localizado [2, 24] | Grandes volúmenes representativos [2, 26] |
-| **Incertidumbre** | Baja (medición más directa) [2, 24] | Mayor grado de incertidumbre [2] |
+| Característica    | Métodos Invasivos (Borehole)                     | Métodos No Invasivos                      |
+| :---------------- | :----------------------------------------------- | :---------------------------------------- |
+| **Ejemplos**      | Cross-hole (CHT), Down-hole, P-S logging [2, 24] | SASW, MASW, Reflexión, Refracción [2, 25] |
+| **Costo**         | Elevado (requiere perforación) [2, 24]           | Más costo-efectivo [2]                    |
+| **Volumen**       | Puntual y localizado [2, 24]                     | Grandes volúmenes representativos [2, 26] |
+| **Incertidumbre** | Baja (medición más directa) [2, 24]              | Mayor grado de incertidumbre [2]          |
 
 ### Métodos principales
 - **Cross-hole (CHT)**: medición directa entre pozos a la misma profundidad; alta precisión pero costo elevado por perforaciones [4].
