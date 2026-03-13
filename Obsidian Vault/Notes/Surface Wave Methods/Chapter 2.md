@@ -60,7 +60,7 @@ $$
 \phi(x,t) = A e^{i(kx-\omega t)}
 $$
 
-La relación funcional entre frecuencia y número de onda constituye la [[Relación de Dispersión]], concepto fundamental para describir ondas dispersivas.
+La relación funcional entre frecuencia y número de onda constituye la [[Dispersion Relation]], concepto fundamental para describir ondas dispersivas.
 
 ---
 
@@ -93,10 +93,10 @@ semi-espacio elástico
 Se estudian:
 
 - las condiciones de guiado de ondas
-- la [[Relación de Dispersión]]
+- la [[Dispersion Relation]]
 - la comparación con [[Rayleigh Waves]]
 
-Una diferencia fundamental es que las Love waves presentan propiedades **dispersivas** cuando el medio es estratificado, fenómeno asociado a la [[Dispersión Geométrica]].
+Una diferencia fundamental es que las Love waves presentan propiedades **dispersivas** cuando el medio es estratificado, fenómeno asociado a la [[Geometric Dispersion]].
 
 ---
 

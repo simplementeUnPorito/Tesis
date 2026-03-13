@@ -51,7 +51,7 @@ En un sólido elástico, lineal, homogéneo e infinito se propagan dos tipos de 
 ## 1.3 Ondas Superficiales
 Las ondas superficiales son particularmente útiles para la caracterización de geomateriales porque se originan a partir de la condición de **esfuerzo nulo** en un límite de dominio (p. ej. la superficie terrestre) [2, 4]. Su patrón de radiación es esencialmente bidimensional (2D), lo que les confiere propiedades de propagación distintas a las ondas de cuerpo [2, 5].
 
-![[Assets/Surface Wave Methods/ch1_2D_radiation_pattern_Rayleigh_surface.png]]
+![[ch1_2D_radiation_pattern_Rayleigh_surface.png]]
 *(Ref: Figura 1.1 - Patrón de radiación 2D de ondas Rayleigh generadas por una fuente puntual vertical [5])*
 
 ### Propiedades clave
@@ -59,7 +59,7 @@ Las ondas superficiales son particularmente útiles para la caracterización de 
 - **Dominancia en campo lejano**: debido a su menor tasa de decaimiento, a distancias del orden de una a dos longitudes de onda desde la fuente, las ondas de cuerpo se vuelven despreciables y el campo queda dominado por [[Rayleigh Waves]] [3, 5, 7].
 - **Confinamiento de energía**: la mayor parte de la energía de deformación asociada al movimiento de ondas superficiales se concentra a profundidades del orden de una longitud de onda $\lambda$ desde la superficie libre [8, 9]. (La amplitud decae rápidamente con la profundidad, por lo que la contribución del movimiento se vuelve pequeña al incrementar $z$) [9].
 
-![[Assets/Surface Wave Methods/ch1 Geometric Dispersion of rayleigh waves.png]]
+![[ch1 Geometric Dispersion of rayleigh waves.png]]
 *(Ref: Figura 1.2 - Movimiento de partículas a diferentes frecuencias en medios estratificados [10])*
 
 - **Relación frecuencia–profundidad**:
@@ -73,7 +73,7 @@ Las ondas superficiales son particularmente útiles para la caracterización de 
 
 ---
 
-## 1.3.1 [[Dispersión Geométrica]]
+## 1.3.1 [[Geometric Dispersion]]
 La dispersión geométrica es el fenómeno central que hace posible caracterizar el subsuelo desde mediciones superficiales [13, 14]. En un semiespacio elástico lineal, homogéneo e isótropo, las ondas de Rayleigh **no son dispersivas** (su velocidad no depende de la frecuencia) [11, 21, 22]. En medios verticalmente heterogéneos, la velocidad de fase se vuelve dependiente de la frecuencia, permitiendo inferir propiedades del medio mediante un proceso de **inversión** [11, 12, 23].
 
 - **Alta frecuencia**: longitudes de onda cortas que “ven” principalmente capas superficiales [14, 16].
@@ -91,7 +91,7 @@ Según la Figura 1.4, el procedimiento se divide en tres pasos interrelacionados
 2. [[Procesamiento de Señales]]: obtención de la curva de dispersión experimental (frecuencia vs. velocidad de fase).
 3. [[Inversión]]: estimación de propiedades del sitio (perfil $V_s$) a partir de la curva.
 
-![[Assets/Surface Wave Methods/ch1_flowchart_methodology.png]]
+![[ch1_flowchart_methodology.png]]
 *(Ref: Figura 1.4 - Diagrama de flujo de las pruebas de ondas superficiales [4])*
 
 ### 1.4.1 Adquisición
@@ -103,7 +103,7 @@ Los datos se recolectan típicamente con receptores en superficie configurados e
   - **Pasivas**: ruido ambiental o microtremores; ventaja: aportan bajas frecuencias para caracterizaciones profundas (decenas o cientos de metros) [6].
 - **Estrategia óptima**: combinación de mediciones activas y pasivas para cubrir un rango más amplio de frecuencias y mejorar la resolución tanto superficial como profunda [6, 8].
 
-![[Assets/Surface Wave Methods/ch1_active_passive_combination.png]]
+![[ch1_active_passive_combination.png]]
 *(Ref: Figura 1.5 - Combinación de fuentes activas y pasivas [9])*
 
 ### 1.4.2 [[Procesamiento de Señales|Procesamiento]]
@@ -113,7 +113,7 @@ Los datos de campo se procesan para estimar parámetros de propagación, siendo 
 - Permite estimar la velocidad de fase según la configuración del ensayo [1].
 - También puede obtenerse la curva de atenuación experimental para caracterizar amortiguamiento del suelo [2].
 
-![[Assets/Surface Wave Methods/ch1_Example of processing of experimental data using wavenumber analysis.png]]
+![[ch1_Example of processing of experimental data using wavenumber analysis.png]]
 
 ### 1.4.3 [[Inversión]]
 La inversión es el paso final de la interpretación [3].
@@ -123,7 +123,7 @@ La inversión es el paso final de la interpretación [3].
 - **Estrategias**: métodos de búsqueda local (rápidos pero con riesgo de mínimos locales) y búsqueda global (más robustos pero costosos computacionalmente) [4, 5].
 - **Desafío**: el problema es **ill-posed** y presenta **no unicidad**, pudiendo existir perfiles equivalentes para una misma curva [6].
 
-![[Assets/Surface Wave Methods/ch1 Example of inversion procecss.png]]
+![[ch1 Example of inversion procecss.png]]
 
 ---
 
@@ -140,4 +140,4 @@ Es el uso primario de estas pruebas en la actualidad: determinar el perfil $V_s$
   - **Ventaja sobre borehole**: receptores en superficie permiten verificar acople suelo–receptor y evitar errores de amplitud comunes en pozos [4].
   - **Frecuencias relevantes**: frecuencias de estas pruebas suelen estar más próximas a las de interés para respuesta sísmica que en pruebas cross-hole [4].
 
-![[Assets/Surface Wave Methods/ch1 Comparison of V_s30 determined with invasive test and surface wave tests.png]]
+![[ch1 Comparison of V_s30 determined with invasive test and surface wave tests.png]]

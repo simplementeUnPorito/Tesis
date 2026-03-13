@@ -1,3 +1,4 @@
+# Phase Velocity
 
 ## 1. Concepto
 
@@ -65,4 +66,16 @@ y describe la velocidad de propagación de la envolvente de un paquete de ondas.
 Relacionado con:
 
 - [[Group Velocity]]
-- [[Wave Dispersion]]
+- [[Dispersive Waves]]
+
+---
+
+## 5. Fuente
+
+- PDF: Sebastiano Foti Chapter 2
+- capítulo o sección: 2.1.1 Two categories of wave motion
+- página: 39–40
+
+- PDF: Sebastiano Foti Chapter 4
+- capítulo o sección: 4.1 Phase and Group Velocity
+- página: 206–207

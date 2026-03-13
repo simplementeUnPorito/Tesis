@@ -5,7 +5,7 @@ Son técnicas que requieren la intervención del terreno mediante perforaciones 
 
 ### Clasificación y Funcionamiento
 - **Cross-hole Test (CHT)**: Fuente y receptor se bajan a la misma profundidad en pozos distintos. Es la medición más directa y confiable de la velocidad de onda [4].
-	![[Assets/Surface Wave Methods/ch1_crosshole_testing.png]]
+	![[ch1_crosshole_testing.png]]
 	*(Referencia conceptual basada en la sección 1.1.1 [24])*
 - **Down-hole Test**: Las ondas se generan en la superficie y los tiempos de viaje se miden en un pozo a diferentes profundidades [4].
     - **Alternativas CPT/DMT**: Se montan receptores en sondas de penetración (Cone Penetration Test) o dilatógrafos (DMT), permitiendo mediciones durante la inserción sin necesidad de un pozo previo [4].
