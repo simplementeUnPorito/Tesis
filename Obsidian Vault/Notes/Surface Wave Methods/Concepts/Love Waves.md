@@ -8,3 +8,14 @@ Ondas superficiales que consisten en movimiento puramente de corte y polarizado 
 - **Polarización**: Horizontal (perpendicular a la dirección de propagación) vs. Vertical/Radial en Rayleigh [30].
 - **Dificultad**: Son más difíciles de generar en campo, requiriendo fuentes de impacto horizontal (como golpear lateralmente una viga cargada) [8, 31].
 - **Ventaja**: En sitios con grandes contrastes de velocidad, las ondas Love suelen mostrar curvas de dispersión más simples y fáciles de identificar que las Rayleigh [13, 32].
+### Dispersión
+
+Las ondas Love son fuertemente **dispersivas** en medios estratificados.
+
+La velocidad de fase depende de la frecuencia de excitación, lo que genera curvas de dispersión observables en arreglos sísmicos.
+
+Conceptos relacionados:
+
+- [[Wave Dispersion]]
+- [[Phase Velocity]]
+- [[Group Velocity]]
