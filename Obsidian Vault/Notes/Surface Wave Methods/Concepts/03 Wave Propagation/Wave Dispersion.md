@@ -2,60 +2,77 @@
 
 ## 1. Concepto
 
-La dispersión de ondas ocurre cuando diferentes componentes de frecuencia de una onda se propagan con diferentes velocidades.
+La **dispersión de ondas** es el fenómeno por el cual distintas componentes espectrales de una señal se propagan con velocidades diferentes.
 
-Como consecuencia, la forma de la señal cambia durante su propagación.
+Como consecuencia, una señal no monocromática cambia de forma durante la propagación.
 
 ---
 
 ## 2. Fundamento físico
 
-Una señal real generalmente está compuesta por múltiples frecuencias.
+Una señal real puede representarse como superposición de componentes con diferentes números de onda y frecuencias.
 
-Si cada frecuencia viaja con una velocidad distinta:
+Si la relación entre frecuencia angular y número de onda no es lineal, entonces cada componente puede propagarse con una velocidad de fase distinta. En ese caso, el paquete de ondas se deforma a medida que avanza.
 
-- las componentes se separan con la distancia
-- la forma de la señal cambia
-
-Este fenómeno se denomina **dispersión**.
+Por tanto, la dispersión no es simplemente “que haya muchas frecuencias”, sino que el medio impone una relación $\omega(k)$ que hace que esas componentes no viajen todas igual.
 
 ---
 
 ## 3. Formulación matemática
 
-Una onda dispersiva puede describirse como:
+Una onda dispersiva admite soluciones del tipo:
 
 $$
-\phi(x,t)=Ae^{i(kx-\omega(k)t)}
+\phi(x,t)=A e^{i[kx-\omega(k)t]}
 $$
 
-donde la frecuencia depende del número de onda.
+donde la frecuencia angular depende del número de onda.
 
 La velocidad de fase es:
 
 $$
-c=\frac{\omega(k)}{k}
+c_p=\frac{\omega(k)}{k}
 $$
 
-Si $\omega$ depende de $k$, entonces la velocidad depende de la frecuencia.
+y la velocidad de grupo es:
+
+$$
+c_g=\frac{d\omega}{dk}
+$$
+
+Si $c_p$ depende de $k$, la onda es dispersiva.
 
 ---
 
 ## 4. Aplicación a geófonos
 
-Las [[Rayleigh Waves]] propagándose en suelos estratificados son dispersivas.
+En caracterización del subsuelo con geófonos, la dispersión es clave porque las [[Rayleigh Waves]] propagándose en medios estratificados presentan velocidades dependientes de la frecuencia.
 
-Esto significa que:
+Eso permite construir curvas de dispersión y luego inferir propiedades del subsuelo.
 
-- cada frecuencia explora una profundidad distinta
-- la velocidad de fase depende de la frecuencia
-
-Esta relación genera la **curva de dispersión**, que es la base de los métodos de ondas superficiales.
+En near-surface geophysics, la práctica habitual se centra en la **velocidad de fase**; la velocidad de grupo existe y es físicamente relevante, pero se usa menos en inversión de sitio.
 
 ---
 
-## 5. Fuente
+## 5. Implicaciones para el diseño experimental
 
-PDF: Sebastiano Foti Chapter 2  
-Sección: 2.1  
-Página: 39–41
+- La dispersión observable depende del rango frecuencial excitado por la fuente.
+- La geometría del arreglo condiciona el rango de longitudes de onda muestreado.
+- No toda dispersión tiene el mismo origen: debe distinguirse entre [[Geometric Dispersion]] y [[Material Dispersion]].
+- En métodos de ondas superficiales, la dispersión dominante suele ser la geométrica.
+
+---
+
+## 6. Fuente
+
+- PDF: Sebastiano Foti Chapter 2
+- capítulo o sección: 2.1.1 Two categories of wave motion
+- página: 39–41
+
+- PDF: Sebastiano Foti Chapter 2
+- capítulo o sección: 2.1.2 Group velocity
+- página: 41–42
+
+- PDF: Sebastiano Foti Chapter 4
+- capítulo o sección: 4.1 Phase and Group Velocity
+- página: 205–206

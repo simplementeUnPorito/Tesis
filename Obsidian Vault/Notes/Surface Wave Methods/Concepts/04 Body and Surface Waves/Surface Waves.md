@@ -49,3 +49,12 @@ Esto permite estimar el perfil de velocidad de corte mediante métodos como:
 
 - [[Métodos Sísmicos No Invasivos]]
 - [[Inversión]]
+### Decaimiento con profundidad
+
+Las [[Surface Waves]] presentan una amplitud que decrece exponencialmente con la profundidad.
+
+La mayor parte de la energía está confinada dentro de una profundidad del orden de la [[Wavelength]].
+
+Relacionado con:
+
+- [[Skin Depth]]

@@ -66,7 +66,7 @@ y describe la velocidad de propagación de la envolvente de un paquete de ondas.
 Relacionado con:
 
 - [[Group Velocity]]
-- [[Dispersive Waves]]
+- [[Wave Dispersion]]
 
 ---
 

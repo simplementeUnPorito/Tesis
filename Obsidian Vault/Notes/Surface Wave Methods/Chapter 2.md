@@ -19,33 +19,29 @@ Las Rayleigh waves son particularmente importantes porque dominan el campo de on
 
 ---
 
-# Estructura del capítulo
+## Estructura del capítulo
 
 El capítulo se divide en cinco secciones principales.
 
----
-
-## 2.1 Basic notions of wave propagation
+### 2.1 Basic notions of wave propagation
 
 Esta sección introduce los fundamentos de propagación de ondas en medios continuos.
 
-Primero se describen dos clases fundamentales de movimiento ondulatorio:
+Primero se distinguen dos clases fundamentales de movimiento ondulatorio:
 
-- **ondas hiperbólicas**
-- **ondas dispersivas**
+- **[[Hyperbolic Waves]]**
+- **[[Wave Dispersion]]**
 
-Posteriormente se revisan:
+Luego se introducen las ecuaciones de movimiento en sólidos elásticos y la propagación de ondas de cuerpo en medios:
 
-- las ecuaciones de movimiento en sólidos elásticos
-- la propagación de ondas de cuerpo en medios:
-  - homogéneos
-  - isotrópicos
-  - elásticos lineales
+- homogéneos
+- isotrópicos
+- elásticos lineales
 
-Esto permite introducir parámetros fundamentales asociados a las ondas, como:
+Esto permite introducir parámetros fundamentales como:
 
-- número de onda
-- frecuencia
+- [[Wavenumber]]
+- [[Angular Frequency]]
 - [[Phase Velocity]]
 - [[Group Velocity]]
 
@@ -54,37 +50,34 @@ En este contexto aparecen las ondas de cuerpo:
 - [[P-waves]]
 - [[S-Waves]]
 
-También se introduce el concepto de **ondas armónicas**, que se describen mediante soluciones de la forma:
+También se introducen ondas armónicas de la forma:
 
 $$
 \phi(x,t) = A e^{i(kx-\omega t)}
 $$
 
-La relación funcional entre frecuencia y número de onda constituye la [[Dispersion Relation]], concepto fundamental para describir ondas dispersivas.
+La relación funcional entre frecuencia y número de onda constituye la [[Dispersion Relation]], que es central para describir ondas dispersivas.
 
----
-
-## 2.2 Rayleigh waves in homogeneous elastic continua
+### 2.2 Rayleigh waves in homogeneous elastic continua
 
 En esta sección se demuestra la existencia de [[Rayleigh Waves]] propagándose en un medio elástico homogéneo semi-infinito.
 
 El desarrollo teórico se realiza utilizando el método de [[Elastic Wave Potentials]].
 
-El resultado principal es la obtención de la **ecuación de dispersión de Rayleigh**, que relaciona:
+El resultado principal es la obtención de la ecuación de dispersión de Rayleigh, que relaciona:
 
 - propiedades elásticas del medio
 - velocidad de propagación de la onda
 
 Este resultado constituye la base teórica de los métodos modernos de caracterización de sitio mediante ondas superficiales.
 
----
-
-## 2.3 Love waves in layered media
+### 2.3 Love waves in layered media
 
 Esta sección analiza las condiciones necesarias para la existencia de [[Love Waves]].
 
 Las Love waves aparecen cuando existe la siguiente estructura del subsuelo:
-```
+
+```text
 capa elástica
 sobre
 semi-espacio elástico
@@ -92,15 +85,13 @@ semi-espacio elástico
 
 Se estudian:
 
-- las condiciones de guiado de ondas
-- la [[Dispersion Relation]]
-- la comparación con [[Rayleigh Waves]]
+- condiciones de guiado de ondas
+- [[Dispersion Relation]]
+- comparación con [[Rayleigh Waves]]
 
-Una diferencia fundamental es que las Love waves presentan propiedades **dispersivas** cuando el medio es estratificado, fenómeno asociado a la [[Geometric Dispersion]].
+Una diferencia fundamental es que las Love waves presentan comportamiento dispersivo cuando el medio es estratificado, fenómeno asociado a la [[Geometric Dispersion]].
 
----
-
-## 2.4 Surface waves in vertically inhomogeneous media
+### 2.4 Surface waves in vertically inhomogeneous media
 
 Esta sección extiende el análisis a medios donde las propiedades mecánicas varían con la profundidad.
 
@@ -117,20 +108,18 @@ Se introducen conceptos clave como:
 
 También se revisita el [[Lamb’s Problem]], que describe la generación de ondas superficiales por una fuente puntual aplicada sobre la superficie libre del medio.
 
-Este problema corresponde a la resolución de un **problema de contorno no homogéneo** asociado a la generación de ondas.
+Este problema corresponde a la resolución de un problema de contorno no homogéneo asociado a la generación de ondas.
 
----
+### 2.5 Wave propagation in dissipative media
 
-## 2.5 Wave propagation in dissipative media
-
-La última sección introduce la propagación de ondas en **medios disipativos**.
+La última sección introduce la propagación de ondas en medios disipativos.
 
 Se discuten:
 
 - modelos constitutivos de [[Viscoelastic Media]]
-- mecanismos de [[Attenuation]] de ondas
+- mecanismos de [[Attenuation]]
 
-Utilizando el **principio de correspondencia elastic-viscoelastic**, se obtienen las propiedades de propagación de ondas de cuerpo en medios viscoelásticos.
+Utilizando el principio de correspondencia elastic-viscoelastic, se obtienen las propiedades de propagación de ondas de cuerpo en medios viscoelásticos.
 
 Posteriormente se analiza la propagación de ondas superficiales en medios:
 
@@ -142,400 +131,278 @@ La atención se centra en la resolución del [[Rayleigh Eigenproblem]] en medios
 Este resultado constituye la base teórica de muchos procedimientos utilizados en geofísica para modelar la propagación de ondas superficiales en medios reales, donde la disipación de energía no puede despreciarse.
 
 ---
-# 2.1.1 Two Categories of Wave Motion
 
-## Definición general de onda
+## 2.1 Basic notions of wave propagation
 
-Una **[[Wave]]** puede definirse como cualquier perturbación reconocible que se transfiere de una parte de un medio a otra con una velocidad de propagación identificable. Durante su propagación la perturbación puede:
+### 2.1.1 Two Categories of Wave Motion
+
+Una [[Wave]] puede definirse como cualquier perturbación reconocible que se transfiere de una parte de un medio a otra con una velocidad de propagación identificable. Durante su propagación la perturbación puede:
 
 - deformarse
 - atenuarse
-- cambiar su velocidad    
+- cambiar su velocidad
 
-mientras la señal siga siendo identificable. 
+mientras la señal siga siendo identificable.
 
----
-
-# Clasificación fundamental del movimiento ondulatorio
-
-Un criterio fundamental para clasificar ondas es distinguir entre:
+Un criterio fundamental de clasificación distingue entre:
 
 - **[[Hyperbolic Waves]]**
-- **[[Dispersive Waves]]**
+- **[[Wave Dispersion]]**
 
-Esta clasificación sigue siendo válida incluso cuando se restringe el análisis a **[[Linear Waves]]**. 
+Esta clasificación sigue siendo útil incluso al restringirse al caso de [[Linear Waves]].
 
----
+#### [[Hyperbolic Waves]]
 
-# [[Hyperbolic Waves]]
+Las [[Hyperbolic Waves]] están descritas por [[Hyperbolic Partial Differential Equations]] y representan el caso más simple de propagación ondulatoria.
 
-Las **[[Hyperbolic Waves]]** están descritas por **[[Hyperbolic Partial Differential Equations]]**.
+Un ejemplo clásico es la [[1D Wave Equation]]:
 
-Representan el caso más simple de propagación ondulatoria.
-
-Un ejemplo clásico es la **[[1D Wave Equation]]**:
-
-$$  
-\frac{\partial^2 \phi}{\partial x^2} = \frac{1}{c_0^2}\frac{\partial^2 \phi}{\partial t^2}  
+$$
+\frac{\partial^2 \phi}{\partial x^2} = \frac{1}{c_0^2}\frac{\partial^2 \phi}{\partial t^2}
 $$
 
-- $\phi(x,t)$ : campo de la onda
-    
-- $x$ : coordenada espacial
-    
-- $t$ : tiempo
-    
-- $c_0$ : [[Phase Velocity]]
-    
+- $\phi(x,t)$: campo de la onda
+- $x$: coordenada espacial
+- $t$: tiempo
+- $c_0$: [[Phase Velocity]]
 
+La solución general es la [[d’Alembert Solution]]:
 
----
-
-# [[d’Alembert Solution]]
-
-La solución general de esta ecuación es la **[[d’Alembert Solution]]**:
-
-$$  
-\phi(x,t)=f(x-c_0t)+g(x+c_0t)  
+$$
+\phi(x,t)=f(x-c_0t)+g(x+c_0t)
 $$
 
-Esto representa la **[[Wave Superposition]]** de dos ondas:
+Esto representa la [[Wave Superposition]] de dos ondas:
 
-- \(f(x-c_0t)\) → onda propagándose hacia la derecha
-    
-- \(g(x+c_0t)\) → onda propagándose hacia la izquierda
-    
+- $f(x-c_0t)$ → propagándose hacia la derecha
+- $g(x+c_0t)$ → propagándose hacia la izquierda
 
-ambas con velocidad **$c_0$**. 
-
----
+ambas con velocidad $c_0$.
 
 ![[Pasted image 20260311151531.png]]
----
 
-# Propiedad clave de las ondas hiperbólicas
+La propiedad clave de las ondas hiperbólicas es que **no se distorsionan durante la propagación**, porque la velocidad de propagación no depende de la frecuencia y todos los números de onda viajan con la misma [[Phase Velocity]]:
 
-Las **[[Hyperbolic Waves]]** presentan una propiedad fundamental:
-
-**no se distorsionan durante la propagación.**
-
-Esto ocurre porque:
-
-- la velocidad de propagación **no depende de la frecuencia**
-- todos los números de onda viajan con la misma **[[Phase Velocity]]**
-
-$$  
-c = c_0  
+$$
+c = c_0
 $$
 
-Por lo tanto, la forma de la señal se conserva mientras se desplaza por el medio. 
+#### [[Wave Dispersion]]
 
----
+Las [[Wave Dispersion]] presentan un comportamiento distinto. Se caracterizan porque la [[Angular Frequency]] depende del [[Wavenumber]]:
 
-# [[Dispersive Waves]]
-
-Las **[[Dispersive Waves]]** presentan un comportamiento diferente.
-
-Se caracterizan porque la **[[Angular Frequency]]** depende del **[[Wavenumber]]**:
-
-$$  
-\phi(x,t)=A e^{i[kx-\omega(k)t]}  
+$$
+\phi(x,t)=A e^{i[kx-\omega(k)t]}
 $$
 
-- $A$ : amplitud
-- $k$ : [[Wavenumber]]
-- $\omega(k)$ : [[Angular Frequency]] dependiente de \(k\)
-    
+- $A$: amplitud
+- $k$: [[Wavenumber]]
+- $\omega(k)$: [[Angular Frequency]] dependiente de $k$
 
+La [[Phase Velocity]] corresponde a la velocidad de propagación de un punto de fase constante:
 
----
-
-# [[Phase Velocity]]
-
-La **[[Phase Velocity]]** corresponde a la velocidad de propagación de un punto de fase constante:
-
-$$  
-kx-\omega(k)t=const  
+$$
+kx-\omega(k)t=\text{const}
 $$
 
-lo que conduce a
+por lo que:
 
-$$  
-c=\frac{\omega(k)}{k}  
+$$
+c=\frac{\omega(k)}{k}
 $$
 
-Si $\omega(k)$ depende de $k$, entonces la velocidad de fase **no es constante**. 
-
----
-
-# Consecuencia física de la dispersión
+Si $\omega(k)$ depende de $k$, la velocidad de fase no es constante.
 
 Cuando distintas componentes espectrales viajan con diferentes velocidades:
 
 - cada frecuencia se propaga a una velocidad distinta
 - las señales con múltiples frecuencias cambian de forma
 
-Este fenómeno se denomina **[[Wave Dispersion]]**.
-
----
+este fenómeno se denomina [[Wave Dispersion]].
 
 ![[Pasted image 20260311152029.png]]
 
+La solución general de una ecuación de onda dispersiva puede expresarse mediante una [[Fourier Integral]]:
 
-# Representación general de soluciones dispersivas
-
-La solución general de una ecuación de onda dispersiva puede expresarse mediante una **[[Fourier Integral]]**:
-
-$$  
-\phi(x,t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}A(k)e^{i[kx-\omega(k)t]}dk  
+$$
+\phi(x,t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}A(k)e^{i[kx-\omega(k)t]}dk
 $$
 
-Esto representa una **[[Wave Superposition]]** de ondas monocromáticas.
+Esto representa una [[Wave Superposition]] de ondas monocromáticas, donde cada componente tiene su propio [[Wavenumber]] y su propia [[Phase Velocity]].
 
-Cada componente:
+#### Ejemplo físico: [[Water Waves]]
 
-- tiene su propio [[Wavenumber]]
-- tiene su propia [[Phase Velocity]]
+Un ejemplo clásico de dispersión ocurre en [[Surface Water Waves]], donde la [[Dispersion Relation]] depende de la profundidad del agua.
 
-
-
----
-
-# Ejemplo físico: [[Water Waves]]
-
-Un ejemplo clásico de dispersión ocurre en **[[Surface Water Waves]]**, donde la **[[Dispersion Relation]]** depende de la profundidad del agua.
-
-Tres aproximaciones típicas son:
-
-| Régimen                | Relación de dispersión      |
-| ---------------------- | --------------------------- |
-| Agua profunda          | $\omega=\sqrt{gk}$          |
-| Agua somera            | $\omega=k\sqrt{gh}$         |
+| Régimen | Relación de dispersión |
+| --- | --- |
+| Agua profunda | $\omega=\sqrt{gk}$ |
+| Agua somera | $\omega=k\sqrt{gh}$ |
 | Profundidad intermedia | $\omega=\sqrt{gk\tanh(kh)}$ |
 
-
-
----
-
 ![[Pasted image 20260311154523.png]]
----
 
-# Intersección entre ondas hiperbólicas y dispersivas
+#### Intersección entre ondas hiperbólicas y dispersivas
 
-Las categorías **no son mutuamente excluyentes**.
-
-Existen ondas que:
-
-- son soluciones de **[[Hyperbolic Partial Differential Equations]]**
-- pero presentan **[[Wave Dispersion]]**
+Las categorías no son mutuamente excluyentes. Existen ondas que son soluciones de [[Hyperbolic Partial Differential Equations]] y, sin embargo, pueden presentar [[Wave Dispersion]] dependiendo del medio.
 
 Ejemplos relevantes:
 
-- **[[Body Waves]] en medios elásticos homogéneos** → no dispersivas
-- **[[Body Waves]] en medios disipativos o porosos** → dispersivas
+- [[Body Waves]] en medios elásticos homogéneos → no dispersivas
+- [[Body Waves]] en medios disipativos o porosos → dispersivas
 
-fileciteturn1file8L59-L63
-
----
-
-# Tipos de dispersión
+#### Tipos de dispersión
 
 Es importante distinguir entre:
 
-### [[Material Dispersion]]
+##### [[Material Dispersion]]
 
-Originada por las **propiedades constitutivas del medio**.
+Originada por las propiedades constitutivas del medio.
 
-Ejemplo:
+Ejemplos:
 
 - [[Viscoelastic Media]]
 - [[Porous Media]]
 
----
+##### [[Geometric Dispersion]]
 
-### [[Geometric Dispersion]]
+Aparece cuando el medio es [[Vertically Inhomogeneous Media]] o estratificado.
 
-Aparece cuando el medio es **[[Vertically Inhomogeneous Media]]** o estratificado.
-
-Consecuencia:
+Consecuencias:
 
 - la [[Phase Velocity]] depende de la frecuencia
-- aparecen **[[Surface Wave Modes]]** múltiples
+- aparecen múltiples [[Surface Wave Modes]]
 
-
-
----
-
-# Implicación para [[Surface Waves]]
+#### Implicación para [[Surface Waves]]
 
 Un resultado importante discutido posteriormente en el capítulo es que:
 
-- las **[[Rayleigh Waves]] en un [[Elastic Half Space]] homogéneo** son **no dispersivas**
+- las [[Rayleigh Waves]] en un [[Elastic Half Space]] homogéneo son no dispersivas
+- se vuelven dispersivas cuando el medio es [[Layered Media]]
 
-pero
+### 2.1.2 Group Velocity
 
-- se vuelven **dispersivas cuando el medio es [[Layered Media]]**.
+La **velocidad de grupo** describe la velocidad a la que se propaga la envolvente de un paquete de ondas en un medio dispersivo.
 
-
-
----
-# Group Velocity
-
-## Definición
-
-La **velocidad de grupo** describe la velocidad a la que se propaga la **envolvente** de un paquete de ondas en un medio dispersivo.
-
-$$  
-c_g = \frac{d\omega}{dk}  
+$$
+c_g = \frac{d\omega}{dk}
 $$
 
-Si la velocidad de fase es
+Si la velocidad de fase es:
 
-$$  
-c_0 = \frac{\omega}{k}  
+$$
+c_0 = \frac{\omega}{k}
 $$
 
-entonces también puede escribirse como
+entonces también puede escribirse como:
 
-$$  
-c_g = c_0 + k\frac{dc_0}{dk}  
 $$
+c_g = c_0 + k\frac{dc_0}{dk}
+$$
+
 ![[Pasted image 20260311155937.png]]
-## Intuición física
 
-Si se superponen dos ondas de frecuencias y números de onda muy cercanos, aparece una oscilación rápida interna y una envolvente lenta que agrupa la energía visible de la señal.
+Si se superponen dos ondas de frecuencias y números de onda muy cercanos, aparece una oscilación rápida interna y una envolvente lenta:
 
-- la **onda portadora** se mueve con [[Phase Velocity]]
-    
-- la **envolvente** se mueve con **group velocity**
-    
+- la onda portadora se mueve con [[Phase Velocity]]
+- la envolvente se mueve con [[Group Velocity]]
 
 En un medio dispersivo, ambas velocidades no coinciden en general.
 
-## Desarrollo conceptual
+Si se consideran dos ondas monocromáticas de amplitud igual:
 
-La idea surge naturalmente al estudiar [[Dispersive Waves]]. Si se considera la superposición de dos ondas monocromáticas de amplitud igual:
-
-$$  
-\phi(x,t)=A\sin(k_1x-\omega_1t)+A\sin(k_2x-\omega_2t)  
+$$
+\phi(x,t)=A\sin(k_1x-\omega_1t)+A\sin(k_2x-\omega_2t)
 $$
 
 con
 
-$$  
-k_m = \frac{k_1+k_2}{2}, \qquad \Delta k = \frac{k_1-k_2}{2}  
+$$
+k_m = \frac{k_1+k_2}{2}, \qquad \Delta k = \frac{k_1-k_2}{2}
 $$
 
-$$  
-\omega_m = \frac{\omega_1+\omega_2}{2}, \qquad \Delta \omega = \frac{\omega_1-\omega_2}{2}  
+$$
+\omega_m = \frac{\omega_1+\omega_2}{2}, \qquad \Delta \omega = \frac{\omega_1-\omega_2}{2}
 $$
 
 la señal puede reescribirse como:
 
-$$  
-\phi(x,t)=2A\cos(\Delta k x-\Delta \omega t)\sin(k_m x-\omega_m t)  
+$$
+\phi(x,t)=2A\cos(\Delta k x-\Delta \omega t)\sin(k_m x-\omega_m t)
 $$
 
-Esta expresión muestra explícitamente:
+Esta expresión muestra:
 
 - una portadora senoidal de número de onda medio $k_m$ y frecuencia media $\omega_m$
-    
 - una envolvente moduladora que se desplaza con velocidad $\Delta\omega/\Delta k$
-    
 
 Al tomar el límite para $\Delta k \to 0$ se obtiene:
 
-$$  
-c_g = \lim_{\Delta k \to 0}\frac{\Delta \omega}{\Delta k}=\frac{d\omega}{dk}  
+$$
+c_g = \lim_{\Delta k \to 0}\frac{\Delta \omega}{\Delta k}=\frac{d\omega}{dk}
 $$
 
-## Interpretación física
-
-La velocidad de grupo puede interpretarse como la velocidad a la que se propaga la modulación de un paquete de ondas. En medios dispersivos, esto también se asocia con la propagación de energía de la perturbación.
+La velocidad de grupo puede interpretarse como la velocidad de propagación de la modulación de un paquete de ondas y, en medios dispersivos, se asocia con la propagación de energía de la perturbación.
 
 Esto implica que:
 
 - si $c_0 > c_g$, la portadora parece avanzar desde la parte trasera del grupo hacia el frente
-    
 - si $c_0 < c_g$, la portadora parece desplazarse desde el frente hacia atrás
-    
+
 ![[Pasted image 20260311155917.png]]
-## Aplicación a geófonos
+
+#### Aplicación a geófonos
 
 En arreglos de geófonos no se registra una onda monocromática ideal, sino paquetes de ondas con contenido espectral finito. Por eso, la velocidad de grupo tiene impacto directo en cómo llega la energía al arreglo.
 
 Impacto práctico:
 
 - controla el avance de la envolvente observable en el registro
-    
 - afecta la localización temporal de máximos de energía
-    
 - influye en la interpretación de señales dispersivas de [[Surface Waves]], [[Rayleigh Waves]] y [[Love Waves]]
-    
 - ayuda a distinguir entre propagación de fase y propagación efectiva del paquete registrado
-    
 
-## Implicaciones para el diseño experimental
+#### Implicaciones para el diseño experimental
 
 - El espaciamiento entre geófonos debe permitir resolver el desplazamiento de la envolvente.
-    
 - El largo total del arreglo debe ser suficiente para observar la dispersión del paquete.
-    
 - El ancho de banda de adquisición condiciona qué tan bien puede estimarse $d\omega/dk$.
-    
 - Confundir [[Phase Velocity]] con velocidad de transporte de energía lleva a interpretaciones físicas erróneas.
-    
-# Body Waves in Unbounded Homogeneous Elastic Media
+
+### 2.1.3 Body Waves in Unbounded Homogeneous Elastic Media
 
 Esta sección introduce el modelo fundamental de propagación de ondas en medios elásticos continuos.
 
-A partir de las ecuaciones de movimiento de la elastodinámica lineal se demuestra la existencia de dos tipos fundamentales de ondas de cuerpo:
+A partir de las ecuaciones de la elastodinámica lineal se demuestra la existencia de dos tipos fundamentales de ondas de cuerpo:
 
 - [[P-waves]]
 - [[S-Waves]]
 
 Estas ondas constituyen los modos básicos de propagación en sólidos elásticos y sirven como base física para la formación de [[Surface Waves]].
 
----
-
-# Marco físico
+#### Marco físico
 
 El modelo considera un medio continuo con las siguientes hipótesis:
 
-- medio **elástico lineal**
-- medio **isotrópico**
-- **deformaciones pequeñas**
-- medio **homogéneo**
-- dominio **no acotado**
+- medio elástico lineal
+- medio isotrópico
+- deformaciones pequeñas
+- medio homogéneo
+- dominio no acotado
 
-Bajo estas hipótesis el comportamiento mecánico del medio puede describirse mediante las ecuaciones de la [[Linear Waves]] en medios elásticos.
+#### Campo de desplazamiento
 
----
-
-# Campo de desplazamiento
-
-La variable fundamental es el **campo de desplazamiento**
+La variable fundamental es el campo de desplazamiento:
 
 $$
 u(x,t)
 $$
 
-donde:
-
-- $x$ → posición espacial
-- $t$ → tiempo
-
 Este campo describe el desplazamiento de cada punto material del continuo respecto a su posición de equilibrio.
 
-Las perturbaciones del campo de desplazamiento generan **deformaciones internas** del material.
+#### Tensor de deformación
 
----
-
-# Tensor de deformación
-
-Las deformaciones se describen mediante el [[Strain Tensor]].
-
-Para deformaciones pequeñas:
+Las deformaciones se describen mediante el [[Strain Tensor]]. Para deformaciones pequeñas:
 
 $$
 \varepsilon =
@@ -543,60 +410,28 @@ $$
 (\nabla u + (\nabla u)^T)
 $$
 
-Este tensor mide **cómo cambian las distancias entre puntos vecinos del medio**.
-
-Componentes:
-
-- términos diagonales → **deformaciones normales**
-- términos fuera de diagonal → **deformaciones de corte**
-
----
-
-# Tensor de esfuerzos
+#### Tensor de esfuerzos
 
 Las fuerzas internas del medio se describen mediante el [[Stress Tensor]].
 
-El tensor de Cauchy:
+#### Fuerzas internas y ecuación de movimiento
 
-$$
-\sigma
-$$
-
-es un tensor $3\times3$ cuyos elementos representan **fuerzas por unidad de área** actuando en planos internos del material.
-
-Cada columna del tensor puede interpretarse como el **vector de tracción** aplicado sobre una cara del volumen diferencial.
-
----
-
-# Fuerzas internas en el continuo
-
-Las fuerzas internas que actúan sobre un volumen diferencial se obtienen mediante la **divergencia del tensor de esfuerzos**:
+Las fuerzas internas que actúan sobre un volumen diferencial se obtienen mediante la divergencia del tensor de esfuerzos:
 
 $$
 \nabla \cdot \sigma
 $$
 
-Este término representa la **densidad de fuerza interna (fuerza por unidad de volumen)**.
-
-Aplicando el principio de [[d’Alembert Solution]] al continuo se obtiene la ecuación de movimiento:
+Aplicando el balance dinámico al continuo se obtiene:
 
 $$
 \nabla \cdot \sigma =
 \rho \frac{\partial^2 u}{\partial t^2}
 $$
 
-donde:
+#### Relación constitutiva
 
-- $\rho$ → densidad
-- $\partial^2 u / \partial t^2$ → aceleración
-
-Esta ecuación es la versión continua de la ley de Newton.
-
----
-
-# Relación constitutiva (ley de Hooke)
-
-Para un material elástico isotrópico el esfuerzo está relacionado con la deformación mediante:
+Para un material elástico isotrópico:
 
 $$
 \sigma =
@@ -605,31 +440,15 @@ $$
 2\mu\,\varepsilon
 $$
 
-donde:
+con:
 
 - $\lambda, \mu$ → constantes de Lamé
 - $I$ → tensor identidad
 - $tr(\varepsilon)$ → traza del tensor de deformación
 
-La traza del tensor de deformación:
+Esta separación distingue entre deformación volumétrica y deformación de corte.
 
-$$
-tr(\varepsilon) =
-\varepsilon_{11} + \varepsilon_{22} + \varepsilon_{33}
-$$
-
-representa el **cambio volumétrico relativo del material**.
-
-Por lo tanto:
-
-- término $ \lambda tr(\varepsilon)I $ → **deformación volumétrica**
-- término $ 2\mu\varepsilon $ → **deformación de corte**
-
-Esta separación física es la clave para entender la existencia de dos tipos de ondas.
-
----
-
-# Ecuaciones de Navier
+#### Ecuaciones de Navier
 
 Sustituyendo la ley de Hooke en la ecuación de movimiento se obtiene:
 
@@ -640,34 +459,21 @@ $$
 \rho \frac{\partial^2 u}{\partial t^2}
 $$
 
-Estas ecuaciones se conocen como **ecuaciones de Navier**.
+Estas ecuaciones constituyen un sistema de [[Hyperbolic Partial Differential Equations]].
 
-Matemáticamente constituyen un sistema de [[Hyperbolic Partial Differential Equations]].
+#### Descomposición del campo de desplazamiento
 
----
+Mediante la descomposición de Helmholtz, el campo admite:
 
-# Descomposición del campo de desplazamiento
-
-El campo de desplazamiento puede descomponerse mediante la **descomposición de Helmholtz**:
-
-- componente **irrotacional**
-- componente **rotacional**
-
-Esto implica:
-
-- el término $\nabla\cdot u$ describe **deformación volumétrica**
-- el término $\nabla\times u$ describe **deformación de corte**
+- una componente irrotacional
+- una componente rotacional
 
 Como consecuencia, el sistema admite dos tipos independientes de ondas:
 
-- [[P-waves]] → asociadas a $\nabla\cdot u$
-- [[S-Waves]] → asociadas a $\nabla\times u$
+- [[P-waves]] → asociadas a $\nabla \cdot u$
+- [[S-Waves]] → asociadas a $\nabla \times u$
 
----
-
-# Velocidades de propagación
-
-Las velocidades de propagación dependen de las propiedades elásticas del material.
+#### Velocidades de propagación
 
 Para [[P-waves]]:
 
@@ -693,51 +499,33 @@ $$
 V_S < V_P
 $$
 
-Estas velocidades corresponden a la [[Phase Velocity]] de las ondas de cuerpo.
+Estas velocidades corresponden a la [[Phase Velocity]] de las ondas de cuerpo. En medios homogéneos, además:
 
-En medios homogéneos las ondas son **no dispersivas**, por lo que:
+[[Group Velocity]] = [[Phase Velocity]]
 
-[[Group Velocity]] = [[Phase Velocity]].
-
----
-
-# Polarización de ondas S
+#### Polarización de ondas S
 
 Las [[S-Waves]] poseen dos posibles polarizaciones:
 
-- **SV** → polarización vertical
-- **SH** → polarización horizontal
+- SV → polarización vertical
+- SH → polarización horizontal
 
 Esto es fundamental para la clasificación de las [[Surface Waves]]:
 
-- [[Rayleigh Waves]] → acoplamiento **P + SV**
-- [[Love Waves]] → ondas **SH guiadas**
+- [[Rayleigh Waves]] → acoplamiento P + SV
+- [[Love Waves]] → ondas SH guiadas
 
----
+#### Conversión de modos
 
-# Conversión de modos
+Cuando una onda incide sobre una interfaz entre medios elásticos ocurre [[Mode Conversion]].
 
-Cuando una onda incide sobre una interfaz entre medios elásticos ocurre **conversión de modos**.
+- onda P incidente → ondas reflejadas y transmitidas P y SV
+- onda SV incidente → ondas reflejadas y transmitidas P y SV
+- onda SH incidente → solo ondas SH
 
-- **onda P incidente**
-  → ondas reflejadas y transmitidas **P y SV**
+Este fenómeno es esencial para comprender la propagación en [[Layered Media]] y [[Vertically Inhomogeneous Media]].
 
-- **onda SV incidente**
-  → ondas reflejadas y transmitidas **P y SV**
-
-- **onda SH incidente**
-  → solo ondas **SH**
-
-Este fenómeno es esencial para comprender la propagación en:
-
-- [[Layered Media]]
-- [[Vertically Inhomogeneous Media]]
-
-y la generación de [[Surface Waves]].
-
----
-
-# Ondas armónicas
+#### Ondas armónicas
 
 Una solución monocromática del campo de desplazamientos puede escribirse como:
 
@@ -761,18 +549,16 @@ Soluciones más generales pueden construirse mediante:
 - [[Fourier Integral]]
 - [[Wave Superposition]]
 
----
+#### Importancia para métodos de ondas superficiales
 
-# Importancia para métodos de ondas superficiales
-
-Aunque esta sección describe **ondas de cuerpo**, su análisis es esencial para comprender los métodos de caracterización basados en [[Surface Waves]].
+Aunque esta sección describe ondas de cuerpo, su análisis es esencial para comprender los métodos de caracterización basados en [[Surface Waves]].
 
 Las ondas superficiales pueden interpretarse como combinaciones de ondas de cuerpo que satisfacen condiciones de frontera en la superficie libre.
 
 En particular:
 
-- [[Rayleigh Waves]] → acoplamiento **P + SV**
-- [[Love Waves]] → ondas **SH guiadas**
+- [[Rayleigh Waves]] → acoplamiento P + SV
+- [[Love Waves]] → ondas SH guiadas
 
 Por lo tanto, las propiedades de las ondas superficiales dependen directamente de:
 
@@ -785,9 +571,352 @@ Estos principios constituyen la base física de los métodos utilizados en [[Mé
 
 ---
 
-# Fuente
+## Fuente
 
-PDF: **Sebastiano Foti Chapter 2**
+- PDF: Sebastiano Foti Chapter 2
+- sección: 2.1.3 Body waves in unbounded homogeneous elastic media
 
-Sección:  
-**2.1.3 Body waves in unbounded homogeneous elastic media**
+![[Pasted image 20260316135658.png]]
+
+
+
+
+### Relación entre $V_P$ y $V_S$
+
+Las velocidades de propagación de ondas de cuerpo dependen de las propiedades elásticas del medio:
+
+$$  
+V_P=\sqrt{\frac{\lambda+2\mu}{\rho}},  
+\qquad  
+V_S=\sqrt{\frac{\mu}{\rho}}  
+$$
+
+De estas expresiones se deduce que:
+
+$$  
+V_P > V_S  
+$$
+
+porque las ondas P dependen de la rigidez volumétrica y de corte, mientras que las ondas S dependen únicamente de la rigidez de corte.
+
+### Relación con el coeficiente de Poisson
+
+El cociente entre velocidades puede expresarse en función del coeficiente de Poisson $\nu$:
+
+# $$  
+\frac{V_P}{V_S}
+
+\sqrt{\frac{2(1-\nu)}{1-2\nu}}  
+$$
+
+Esto muestra que siempre se cumple:
+
+$$  
+V_S < V_P  
+$$
+
+Para un valor típico de varios materiales,
+
+$$  
+\nu = 0.25  
+$$
+
+se obtiene aproximadamente:
+
+$$  
+V_P = \sqrt{3},V_S  
+$$
+
+### Limitación en geomateriales saturados
+
+Aunque esta relación permite estimar $V_S$ a partir de $V_P$ y $\nu$, este procedimiento no debe utilizarse en geomateriales, especialmente en suelos saturados.
+
+Bajo condiciones no drenadas:
+
+- la compresibilidad del agua domina la respuesta volumétrica
+    
+- el coeficiente de Poisson se aproxima a $0.5$
+    
+- la velocidad de onda P aumenta fuertemente
+    
+
+En ese límite:
+
+$$  
+\nu \to 0.5  
+$$
+
+lo que llevaría idealmente a:
+
+$$  
+V_P \to \infty  
+$$
+
+Esto no significa que el suelo sea infinitamente rígido, sino que la onda P queda controlada principalmente por la muy baja compresibilidad del agua.
+
+### Implicación práctica para caracterización de suelos
+
+En suelos y depósitos saturados:
+
+- $V_P$ no representa bien la rigidez del esqueleto del suelo
+- $V_S$ es mucho más útil para caracterización geotécnica
+- los métodos de ondas superficiales se centran principalmente en recuperar perfiles de $V_S$
+
+### Valores típicos de velocidades en geomateriales
+
+Los valores de $V_P$ y $V_S$ pueden variar ampliamente según el material.
+![[Pasted image 20260316140452.png]]
+Ejemplos típicos cerca de superficie:
+- rocas cristalinas: velocidades altas de $V_P$ y $V_S$
+- arenas densas: valores intermedios
+- arcillas muy blandas: valores bajos
+
+En general:
+- materiales más rígidos presentan mayores velocidades
+- materiales blandos o poco consolidados presentan menores velocidades
+- la saturación incrementa especialmente $V_P$
+
+### Solución armónica general
+
+Una solución monocromática del campo de desplazamientos puede escribirse como:
+
+$$  
+u(x,t)=A_1 e^{i(\omega t-k_\chi \cdot x)} + A_2 e^{i(\omega t+k_\chi \cdot x)}  
+$$
+
+donde:
+
+- $A_1, A_2$ son amplitudes constantes
+- $\omega$ es la frecuencia angular
+- $k_\chi$ es el vector número de onda
+- $\chi = P, S$ indica si se trata de onda longitudinal o transversal
+
+Esta expresión representa una onda armónica propagándose en direcciones opuestas.
+![[Pasted image 20260316140712.png]]
+### Geometría de fase
+
+El vector número de onda es normal a los planos de fase constante, definidos por:
+
+$$  
+k_\chi \cdot x = \text{constante}  
+$$
+
+La velocidad de fase de la onda monocromática es:
+
+$$  
+c = \frac{\omega}{|k|}  
+$$
+
+### Polarización de ondas P y S
+
+La dirección del movimiento de partículas depende del tipo de onda:
+
+- en ondas P, la polarización es paralela a la dirección de propagación
+- en ondas S, la polarización es perpendicular a la dirección de propagación
+
+En una onda S, el movimiento puede descomponerse en dos componentes ortogonales.
+Cuando la propagación es vertical, aparecen dos polarizaciones importantes:
+
+- [[SV-wave]]: polarización vertical
+- [[SH-wave]]: polarización horizontal
+
+Esta distinción es fundamental porque:
+
+- [[Rayleigh Waves]] involucran acoplamiento P-SV
+- [[Love Waves]] corresponden a ondas SH guiadas
+
+### Conversión de modos en interfaces
+
+Cuando una onda incide sobre una interfaz entre medios elásticos:
+
+- una onda P incidente genera ondas P y SV reflejadas y transmitidas
+- una onda SV incidente genera ondas P y SV reflejadas y transmitidas
+- una onda SH incidente genera únicamente ondas SH reflejadas y transmitidas
+    
+![[Pasted image 20260316141217.png]]
+Este fenómeno de [[Mode Conversion]] es central para entender:
+
+- propagación en [[Layered Media]]
+- formación de [[Rayleigh Waves]]
+- existencia de [[Love Waves]]
+
+### Caso unidimensional
+
+Para propagación 1D, la solución armónica se simplifica a:
+
+$$  
+u(x,t)=A_1 e^{i(\omega t-kx)} + A_2 e^{i(\omega t+kx)}  
+$$
+
+y el número de onda queda definido por:
+
+$$  
+k = \frac{\omega}{V}  
+$$
+
+### Parámetros fundamentales de una onda armónica
+
+#### Frecuencia angular y frecuencia
+
+$$  
+\omega = 2\pi f  
+$$
+
+#### Periodo
+
+El periodo es el intervalo temporal entre dos puntos con la misma fase:
+
+$$  
+T = \frac{2\pi}{\omega}  
+$$
+
+#### Longitud de onda
+
+La longitud de onda es la distancia entre dos puntos con la misma fase:
+
+$$  
+\lambda = \frac{2\pi}{k}  
+$$
+
+Combinando con la definición de velocidad de fase:
+
+$$  
+\lambda = \frac{V}{f}  
+$$
+![[Pasted image 20260316141321.png]]
+Esta relación conecta directamente:
+
+- velocidad de propagación
+- frecuencia
+- longitud de onda
+
+### Importancia para métodos de ondas superficiales
+
+Estas relaciones son fundamentales porque permiten conectar el comportamiento de ondas armónicas con la interpretación experimental.
+
+En particular:
+
+- la frecuencia controla la longitud de onda    
+- la longitud de onda controla la profundidad efectiva de investigación
+- la dependencia entre velocidad y frecuencia es la base de las curvas de dispersión
+
+Por eso, estos parámetros serán esenciales en las secciones posteriores sobre:
+
+- [[Rayleigh Waves]]
+- [[Love Waves]]
+- [[Dispersion Relation]]
+- análisis de adquisición e inversión
+
+## 2.2 Rayleigh Waves in Homogeneous Elastic Half-Spaces
+
+### 2.2.1 Overview
+
+Los continuos elásticos **homogéneos, isotrópicos y no acotados** solo permiten la propagación de ondas de cuerpo:
+
+- [[P-waves]]
+- [[S-Waves]]
+
+Sin embargo, **la introducción de una frontera en el medio** permite la existencia de otro tipo de ondas llamadas **[[Surface Waves]]**, que se propagan **a lo largo de la superficie del medio** en lugar de propagarse a través de su interior.
+
+Las **[[Rayleigh Waves]]** fueron predichas por primera vez por **Lord Rayleigh en 1885**.
+
+Estas ondas aparecen como consecuencia de la **condición de esfuerzo nulo en la superficie libre** de un sólido elástico.
+
+---
+
+### Propagación superficial
+
+A diferencia de las [[Body Waves]], las [[Rayleigh Waves]] presentan un patrón de radiación esencialmente **bidimensional (2D)**.
+![[Pasted image 20260316143212.png]]
+Esto implica que la energía se propaga principalmente:
+
+- a lo largo de la superficie
+- con muy poca propagación hacia el interior del medio.
+
+Como consecuencia, las ondas superficiales presentan una **atenuación geométrica mucho menor** que las ondas de cuerpo.
+
+---
+
+### Atenuación geométrica
+
+El decaimiento espacial de la amplitud depende del tipo de fuente.
+
+Para un **medio elástico homogéneo semi-infinito**:
+
+**Fuente lineal vertical**
+
+- las [[Rayleigh Waves]] no presentan atenuación geométrica.
+
+**Fuente puntual vertical**
+
+- la amplitud decae proporcionalmente a:
+
+$$
+\frac{1}{\sqrt{r}}
+$$
+
+donde $r$ es la distancia a la fuente.
+
+En contraste, las [[Body Waves]] propagándose a lo largo de la superficie presentan una atenuación proporcional a:
+
+$$
+\frac{1}{r^2}
+$$
+
+Esto implica que a distancias del orden de **una o dos longitudes de onda desde la fuente**, la contribución de las ondas de cuerpo se vuelve **despreciable** y el campo de ondas queda dominado por **[[Rayleigh Waves]]**.
+
+Este fenómeno fue reconocido tempranamente en el contexto de [[Lamb’s Problem]], que estudia la generación de ondas por una carga aplicada en la superficie de un medio elástico.
+
+---
+
+### Decaimiento con profundidad
+
+El campo de desplazamientos generado por una [[Rayleigh Waves]] presenta una propiedad característica:
+
+la **amplitud decrece exponencialmente con la profundidad**.
+
+Esto ocurre porque la energía de estas ondas **no se propaga hacia el interior del medio**, sino que permanece confinada cerca de la superficie.
+
+De hecho, esta propiedad suele utilizarse como **definición operativa de una [[Surface Waves]]**.
+
+---
+
+### Profundidad efectiva de penetración
+
+La mayor parte de la energía de deformación asociada al movimiento de una [[Rayleigh Waves]] está confinada aproximadamente dentro de una profundidad del orden de:
+
+$$
+\lambda
+$$
+
+donde $\lambda$ es la **[[Wavelength]]** de la onda.
+
+Una forma de describir esta propiedad es mediante el concepto de **[[Skin Depth]]**, definido como la profundidad a la cual la amplitud disminuye por un factor:
+
+$$
+\frac{1}{e}
+$$
+
+Para las [[Rayleigh Waves]] en un medio homogéneo:
+
+$$
+\text{Skin depth} \approx 0.94 \lambda
+$$
+
+Esto implica que:
+
+- **longitudes de onda grandes → mayor profundidad de penetración**
+- **longitudes de onda pequeñas → menor profundidad de penetración**
+![[Pasted image 20260316144212.png]]
+---
+
+### Implicación geofísica fundamental
+
+Esta relación entre **longitud de onda y profundidad de penetración** es la base física de los métodos de caracterización del subsuelo mediante [[Surface Waves]].
+
+En particular:
+
+- frecuencias **bajas** (longitudes de onda grandes) investigan **mayores profundidades**
+- frecuencias **altas** investigan **capas superficiales**
+
+Este principio permite reconstruir perfiles de velocidad de corte del subsuelo mediante el análisis de la **[[Dispersion Relation]]** de [[Rayleigh Waves]].

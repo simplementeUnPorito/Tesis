@@ -4,22 +4,17 @@
 
 La **relación de dispersión** es la relación matemática que vincula la **frecuencia angular** $\omega$ con el **número de onda** $k$ para una onda que se propaga en un medio dado.
 
-Es la descripción matemática fundamental de cómo el medio permite la propagación de ciertas ondas.
+Es la descripción matemática fundamental de la propagación permitida por el sistema.
 
 ---
 
 ## 2. Fundamento físico
 
-No toda perturbación puede propagarse de cualquier manera en cualquier medio.
-
-La física del medio —elasticidad, geometría, estratificación, disipación, condiciones de borde— impone una relación entre:
-
-- qué tan rápido oscila la onda en el tiempo
-- qué tan rápido varía en el espacio
+La física del medio —elasticidad, estratificación, disipación, condiciones de borde y geometría— impone restricciones sobre cómo pueden relacionarse la variación temporal y espacial de una onda.
 
 Esa restricción se expresa mediante la relación de dispersión.
 
-Si $\omega$ es proporcional a $k$, la velocidad de fase es constante y el medio no es dispersivo. Si la dependencia no es lineal, diferentes componentes espectrales se propagan con velocidades distintas.
+Si $\omega$ es proporcional a $k$, la velocidad de fase es constante y no hay dispersión. Si la dependencia no es lineal, diferentes componentes se propagan con velocidades distintas.
 
 ---
 
@@ -28,40 +23,38 @@ Si $\omega$ es proporcional a $k$, la velocidad de fase es constante y el medio 
 La forma general es:
 
 $$
-\omega = \omega(k)
+\omega=\omega(k)
 $$
 
-A partir de esta relación se definen dos magnitudes centrales:
+A partir de esta relación se definen:
 
 ### Velocidad de fase
 
 $$
-c_p = \frac{\omega}{k}
+c_p=\frac{\omega}{k}
 $$
 
 ### Velocidad de grupo
 
 $$
-c_g = \frac{d\omega}{dk}
+c_g=\frac{d\omega}{dk}
 $$
 
-Cuando $\omega/k$ depende de $k$, la onda es dispersiva.
+Cuando $c_p$ depende de $k$, el sistema es dispersivo.
 
 ---
 
 ## 4. Aplicación a geófonos
 
-En ensayos con geófonos no se observa directamente la relación de dispersión teórica del medio idealizado, sino una manifestación experimental de ella a través de la dependencia de velocidad con frecuencia o longitud de onda.
-
-La extracción de curvas de dispersión experimentales es, en esencia, una estimación operativa de esta relación para las ondas superficiales medidas en campo.
+En ensayos con geófonos no se mide directamente la relación de dispersión teórica en forma cerrada. Lo que se estima experimentalmente son curvas de velocidad de fase o de grupo en función de frecuencia o longitud de onda, que constituyen manifestaciones observables de esa relación para las ondas presentes en el sitio.
 
 ---
 
 ## 5. Implicaciones para el diseño experimental
 
-- Toda interpretación de dispersión se apoya en una relación $\omega(k)$.
-- La identificación de modos de propagación depende de cómo esa relación se organiza para cada modo.
-- La inversión del perfil de velocidad del suelo depende de comparar relaciones de dispersión teóricas con mediciones experimentales.
+- Toda interpretación de dispersión parte de una relación $\omega(k)$.
+- La identificación de modos depende de la forma de la relación de dispersión.
+- Las curvas experimentales no deben confundirse con la relación teórica exacta: son una estimación observacional condicionada por fuente, arreglo, ruido y procesamiento.
 
 ---
 
@@ -73,4 +66,4 @@ La extracción de curvas de dispersión experimentales es, en esencia, una estim
 
 - PDF: Sebastiano Foti Chapter 2
 - capítulo o sección: 2.1.2 Group velocity
-- página: 41–43
+- página: 41–42
