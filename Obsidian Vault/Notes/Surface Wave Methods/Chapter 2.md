@@ -920,3 +920,292 @@ En particular:
 - frecuencias **altas** investigan **capas superficiales**
 
 Este principio permite reconstruir perfiles de velocidad de corte del subsuelo mediante el análisis de la **[[Dispersion Relation]]** de [[Rayleigh Waves]].
+
+### 2.2.2 Derivación mediante potenciales de onda elástica
+
+La existencia de las [[Rayleigh Waves]] se demuestra formalmente mediante la descomposición de Helmholtz del campo de desplazamientos, aplicando condiciones de frontera en la superficie libre.
+
+#### Planteamiento del problema
+
+Se considera un medio:
+
+- elástico lineal
+- homogéneo
+- isotrópico
+- semi-infinito: $z \geq 0$ (superficie libre en $z = 0$, medio se extiende hacia $z > 0$)
+
+El campo de desplazamientos $\mathbf{u}$ se descompone mediante los [[Elastic Wave Potentials]]:
+
+$$
+\mathbf{u} = \nabla \phi + \nabla \times \mathbf{\psi}
+$$
+
+donde:
+
+- $\phi$ → potencial escalar (asociado a [[P-waves]])
+- $\mathbf{\psi}$ → potencial vectorial (asociado a [[S-Waves]])
+
+Cada potencial satisface su propia ecuación de onda:
+
+$$
+\nabla^2 \phi = \frac{1}{V_P^2}\frac{\partial^2 \phi}{\partial t^2}
+$$
+
+$$
+\nabla^2 \mathbf{\psi} = \frac{1}{V_S^2}\frac{\partial^2 \mathbf{\psi}}{\partial t^2}
+$$
+
+#### Solución armónica en 2D
+
+Para el problema plano (propagación en $x$, profundidad $z$), se proponen soluciones de la forma:
+
+$$
+\phi = A \, e^{-\alpha z} \, e^{i(kx - \omega t)}
+$$
+
+$$
+\psi = B \, e^{-\beta z} \, e^{i(kx - \omega t)}
+$$
+
+donde:
+
+$$
+\alpha = \sqrt{k^2 - \frac{\omega^2}{V_P^2}}, \qquad \beta = \sqrt{k^2 - \frac{\omega^2}{V_S^2}}
+$$
+
+La condición $\text{Re}(\alpha) > 0$ y $\text{Re}(\beta) > 0$ garantiza que las amplitudes **decaigan con la profundidad** — condición necesaria para que sean ondas superficiales y no ondas de cuerpo.
+
+#### Condiciones de frontera en superficie libre
+
+En $z = 0$ los esfuerzos normales y de corte deben ser nulos (superficie libre sin carga aplicada):
+
+$$
+\sigma_{zz}\big|_{z=0} = 0, \qquad \sigma_{xz}\big|_{z=0} = 0
+$$
+
+Aplicando estas dos condiciones al campo de desplazamientos derivado de los potenciales se obtiene un sistema lineal homogéneo en $A$ y $B$.
+
+#### Ecuación secular de Rayleigh
+
+Para que el sistema tenga solución no trivial, el determinante de la matriz de coeficientes debe ser cero. Esto conduce a la **ecuación secular de Rayleigh**:
+
+$$
+\left(2 - \frac{c_R^2}{V_S^2}\right)^2 = 4\sqrt{1 - \frac{c_R^2}{V_P^2}}\sqrt{1 - \frac{c_R^2}{V_S^2}}
+$$
+
+donde $c_R$ es la velocidad de fase de las ondas de Rayleigh.
+
+Esta ecuación puede reescribirse en términos de la razón $\xi = c_R / V_S$ como un polinomio:
+
+$$
+\xi^6 - 8\xi^4 + \left(24 - 16\frac{V_S^2}{V_P^2}\right)\xi^2 - 16\left(1 - \frac{V_S^2}{V_P^2}\right) = 0
+$$
+
+Este polinomio cúbico en $\xi^2$ tiene en general una única raíz real físicamente admisible (con $0 < c_R < V_S$).
+
+#### Resultado fundamental
+
+La velocidad de Rayleigh $c_R$ depende únicamente de $V_S$ y del coeficiente de Poisson $\nu$ (que determina $V_P/V_S$).
+
+Para $\nu = 0.25$ (valor típico para muchas rocas):
+
+$$
+c_R \approx 0.9194 \, V_S
+$$
+
+En general, $c_R$ varía entre aproximadamente $0.87\,V_S$ y $0.96\,V_S$ para el rango de $\nu$ físicamente admisible ($0 \leq \nu < 0.5$).
+
+> **Implicación crítica para la tesis**: $c_R \approx 0.92\,V_S$ en condiciones típicas. Los geófonos miden la velocidad de Rayleigh. La conversión a $V_S$ requiere conocer $\nu$ o asumirlo, lo que introduce incertidumbre en el perfil final.
+
+---
+
+### 2.2.3 Movimiento de partícula
+
+El campo de desplazamientos asociado a las [[Rayleigh Waves]] en superficie presenta las siguientes características:
+
+- **Trayectoria elíptica** en el plano vertical de propagación (plano $x$–$z$)
+- En superficie: órbita **retrógrada** (sentido antihorario para propagación en $+x$)
+- A una profundidad crítica de aproximadamente $0.2\lambda$: el movimiento cambia a **progrado** (sentido horario)
+- El eje vertical de la elipse es mayor que el horizontal en superficie
+
+Esta polarización elíptica en el plano vertical explica por qué los **geófonos verticales** son los sensores preferidos para capturar [[Rayleigh Waves]]: detectan directamente la componente dominante del movimiento.
+
+> **Nota**: Los geófonos horizontales detectan la componente horizontal de la elipse, que es de menor amplitud en superficie. Para [[Love Waves]], en cambio, se requieren geófonos horizontales orientados transversalmente.
+
+---
+
+### 2.2.4 No-dispersividad en el half-space homogéneo
+
+Un resultado central del capítulo es que en un [[Elastic Half Space]] homogéneo:
+
+- $c_R$ **no depende de la frecuencia** ni del número de onda
+- la ecuación secular de Rayleigh no contiene $\omega$ ni $k$ de forma independiente, sino únicamente a través del cociente $c_R = \omega/k$
+- por tanto, las ondas de Rayleigh en este medio son **no dispersivas**
+
+Esto establece la referencia fundamental: **la dispersión que observamos experimentalmente es evidencia directa de la heterogeneidad del subsuelo**.
+
+---
+
+## 2.3 Love Waves in Layered Media
+
+### 2.3.1 Condición de existencia
+
+Las [[Love Waves]] **no pueden existir en un semiespacio homogéneo**. Requieren al menos una estructura del tipo:
+```text
+capa superficial (V_S1 < V_S2)
+────────────────────────────────
+semiespacio inferior (V_S2)
+```
+
+La condición física necesaria es:
+
+$$
+V_{S1} < c_L < V_{S2}
+$$
+
+donde $c_L$ es la velocidad de fase de las Love waves.
+
+Cuando esta condición se cumple, las ondas SH quedan **atrapadas** en la capa superior por reflexión total interna en la interfaz — es decir, la capa actúa como una **guía de ondas**.
+
+### 2.3.2 Relación de dispersión de Love
+
+La condición de frontera en la superficie libre ($z = 0$) y en la interfaz ($z = H$) conduce a la relación de dispersión de Love:
+
+$$
+\tan\left(\beta_1 H\right) = \frac{\mu_2 \beta_2}{\mu_1 \beta_1}
+$$
+
+donde:
+
+$$
+\beta_1 = \sqrt{\frac{\omega^2}{V_{S1}^2} - k^2}, \qquad \beta_2 = \sqrt{k^2 - \frac{\omega^2}{V_{S2}^2}}
+$$
+
+y $\mu_1$, $\mu_2$ son los módulos de corte de la capa y del semiespacio respectivamente.
+
+A diferencia de la ecuación secular de Rayleigh en el half-space homogéneo, esta relación **sí contiene $\omega$ y $k$ de forma separada**, lo que confirma que las Love waves son intrínsecamente **dispersivas** en medios estratificados.
+
+### 2.3.3 Modos de Love
+
+La relación de dispersión de Love admite múltiples soluciones:
+
+- **Modo fundamental** (modo 0): existe para todas las frecuencias
+- **Modos superiores** (modo 1, 2, ...): cada uno tiene una frecuencia de corte mínima
+
+A bajas frecuencias, la velocidad de fase del modo fundamental se aproxima a $V_{S2}$ (el semiespacio rígido domina). A altas frecuencias, se aproxima a $V_{S1}$ (la capa superficial domina).
+
+Esta dependencia frecuencial es la base de la [[Geometric Dispersion]] para Love waves.
+
+---
+
+## 2.4 Surface Waves in Vertically Inhomogeneous Media
+
+### 2.4.1 Extensión al caso general
+
+Cuando las propiedades mecánicas varían continuamente o en capas múltiples con la profundidad, la ecuación secular de Rayleigh ya no tiene una solución analítica cerrada.
+
+El problema debe resolverse **numéricamente**, lo que constituye el **problema directo (forward problem)** de los métodos de ondas superficiales.
+
+Los algoritmos más utilizados son:
+
+- **Método de la matriz de transferencia** (Thomson-Haskell): propaga condiciones de frontera capa por capa
+- **Método de la matriz de rigidez global**: más estable numéricamente para medios con alta impedancia
+
+### 2.4.2 Modos de propagación
+
+En medios estratificados, tanto [[Rayleigh Waves]] como [[Love Waves]] presentan **múltiples modos de propagación**:
+
+- modo fundamental: mayor amplitud, más fácil de identificar experimentalmente
+- modos superiores: pueden contribuir significativamente cuando hay fuertes contrastes de velocidad
+
+El campo de ondas registrado por un arreglo de geófonos es en general una **superposición de modos** — concepto central en [[Mode Superposition]].
+
+> **Implicación para el diseño experimental**: si solo se extrae e invierte el modo fundamental asumiendo que domina el campo medido, pero modos superiores tienen contribución significativa, el perfil $V_S$ resultante puede ser erróneo. Esto es una fuente de error no siempre controlada.
+
+### 2.4.3 Lamb's Problem revisitado
+
+El [[Lamb's Problem]] describe la respuesta de un semiespacio elástico a una carga puntual en la superficie. Su solución muestra que:
+
+- a distancias suficientemente grandes de la fuente, el campo está **dominado por ondas de Rayleigh**
+- las ondas de cuerpo decaen más rápido y quedan en segundo plano
+- la energía superficial se distribuye como un paquete de ondas con dispersión observable
+
+Este resultado justifica por qué en arreglos de geófonos con fuente activa, si los receptores están ubicados a distancia mínima adecuada de la fuente, el campo medido es mayormente de Rayleigh.
+
+---
+
+## 2.5 Wave Propagation in Dissipative Media
+
+### 2.5.1 Motivación
+
+Los suelos y rocas reales **no son elásticos perfectos**: parte de la energía sísmica se convierte en calor durante la propagación. Ignorar este fenómeno conduce a modelos que sobreestiman las amplitudes a distancia y no permiten caracterizar el amortiguamiento del material.
+
+### 2.5.2 Modelos viscoelásticos
+
+La disipación se modela mediante el concepto de [[Viscoelastic Media]]. Los modelos más utilizados en geofísica son:
+
+- **Modelo de Kelvin-Voigt**: esfuerzo proporcional a deformación más velocidad de deformación
+- **Modelo de Maxwell**: elemento elástico en serie con elemento viscoso
+- **Modelo de sólido estándar lineal**: combinación que reproduce mejor el comportamiento de geomateriales
+
+En todos ellos, las constantes de Lamé $\lambda$ y $\mu$ se reemplazan por módulos **complejos** que dependen de la frecuencia:
+
+$$
+\tilde{\mu}(\omega) = \mu_R(\omega) + i\,\mu_I(\omega)
+$$
+
+### 2.5.3 Principio de correspondencia elástico-viscoelástico
+
+El resultado fundamental que permite extender la teoría elástica a medios disipativos es el **principio de correspondencia**:
+
+> Las soluciones del problema viscoelástico se obtienen reemplazando las constantes elásticas reales por sus equivalentes complejos dependientes de la frecuencia en las expresiones del caso elástico.
+
+Esto implica que todas las fórmulas derivadas para medios elásticos (incluyendo la ecuación secular de Rayleigh) son válidas en medios viscoelásticos, simplemente haciendo $\lambda, \mu \in \mathbb{C}(\omega)$.
+
+### 2.5.4 Número de onda complejo y atenuación
+
+En un medio disipativo, el número de onda se vuelve complejo:
+
+$$
+\tilde{k} = k_R + i\,k_I
+$$
+
+La solución armónica toma la forma:
+
+$$
+u \propto e^{-k_I x} \, e^{i(k_R x - \omega t)}
+$$
+
+donde:
+
+- $k_R$ → controla la fase (velocidad de fase: $c = \omega/k_R$)
+- $k_I$ → controla la atenuación espacial de la amplitud
+
+El **factor de calidad** $Q$ (o su inverso, el **material damping ratio** $D = 1/(2Q)$) cuantifica la disipación:
+
+$$
+D = \frac{k_I}{2k_R} = \frac{1}{2Q}
+$$
+
+### 2.5.5 Rayleigh Eigenproblem en medios disipativos
+
+La extensión de las [[Rayleigh Waves]] a medios viscoelásticos verticalmente heterogéneos se formula como el [[Rayleigh Eigenproblem]] con coeficientes complejos.
+
+Para el caso de **amortiguamiento débil** ($D \ll 1$, típico en suelos: $D \sim 1\text{–}10\%$), se aplica una perturbación de primer orden alrededor de la solución elástica.
+
+El resultado es que:
+
+- la velocidad de fase se ve levemente afectada por el amortiguamiento (corrección de segundo orden en $D$)
+- la atenuación espacial es directamente proporcional a $D$
+
+Esto justifica el enfoque estándar en geofísica: **primero caracterizar el perfil de velocidades $V_S$ desde la curva de dispersión, luego caracterizar el perfil de $D$ desde la curva de atenuación**.
+
+> **Implicación para la tesis**: si el objetivo es solo el perfil $V_S$, ignorar la disipación introduce errores menores en la velocidad de fase (segundo orden en $D$). Si el objetivo es también el perfil de amortiguamiento, se requiere medir amplitudes con cuidado — lo que es significativamente más exigente instrumentalmente.
+
+---
+
+## Fuentes
+
+- PDF: Sebastiano Foti Chapter 2
+- Secciones: 2.2, 2.3, 2.4, 2.5
+- Conceptos relacionados: [[Elastic Wave Potentials]], [[Rayleigh Eigenproblem]], [[Love Waves]], [[Layered Media]], [[Viscoelastic Media]], [[Mode Superposition]], [[Lamb's Problem]], [[Attenuation]]
