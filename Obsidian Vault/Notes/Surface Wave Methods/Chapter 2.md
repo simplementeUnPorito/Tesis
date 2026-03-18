@@ -1046,167 +1046,349 @@ Esto establece la referencia fundamental: **la dispersión que observamos experi
 
 ---
 
-## 2.3 Love Waves in Layered Media
+## 2.3 Existence of Love Waves
 
-### 2.3.1 Condición de existencia
+Las [[Love Waves]] fueron predichas matemáticamente por A.E.H. Love en 1911. Son ondas transversales horizontalmente polarizadas (SH) que surgen de la interferencia constructiva de ondas SH en medios inhomogéneos estratificados.
 
-Las [[Love Waves]] **no pueden existir en un semiespacio homogéneo**. Requieren al menos una estructura del tipo:
+**Las Love waves no pueden existir en un semiespacio homogéneo.** Requieren al menos una capa superficial sobre un semiespacio más rígido:
+
 ```text
-capa superficial (V_S1 < V_S2)
-────────────────────────────────
-semiespacio inferior (V_S2)
+capa superficial   ρ₁, μ₁   V_S1   (0 ≤ x₂ ≤ h)
+──────────────────────────────────────────────────
+semiespacio        ρ₂, μ₂   V_S2   (x₂ > h)
 ```
 
-La condición física necesaria es:
+La condición física necesaria para la existencia de Love waves es:
 
 $$
 V_{S1} < c_L < V_{S2}
 $$
 
-donde $c_L$ es la velocidad de fase de las Love waves.
+donde $c_L = \omega/k$ es la velocidad de fase de las Love waves. Cuando esta condición se cumple, las ondas SH quedan **atrapadas** en la capa superior por reflexión total interna en la interfaz — la capa actúa como una **guía de ondas**. Si $V_{S2} \leq V_{S1}$, las Love waves no existen.
 
-Cuando esta condición se cumple, las ondas SH quedan **atrapadas** en la capa superior por reflexión total interna en la interfaz — es decir, la capa actúa como una **guía de ondas**.
+*(Fuente: Foti Ch. 2, Sec. 2.3, p. 60–61)*
 
-### 2.3.2 Relación de dispersión de Love
+---
 
-La condición de frontera en la superficie libre ($z = 0$) y en la interfaz ($z = H$) conduce a la relación de dispersión de Love:
+### Relación de dispersión de Love (Foti Ec. 2.54)
 
-$$
-\tan\left(\beta_1 H\right) = \frac{\mu_2 \beta_2}{\mu_1 \beta_1}
-$$
-
-donde:
+La combinación de condiciones de frontera — esfuerzo nulo en $x_2 = 0$, continuidad de desplazamiento y esfuerzo en $x_2 = h$, y condición de radiación $u_3 \to 0$ para $x_2 \to \infty$ — conduce a la **ecuación de dispersión de Love** (Foti Ec. 2.54):
 
 $$
-\beta_1 = \sqrt{\frac{\omega^2}{V_{S1}^2} - k^2}, \qquad \beta_2 = \sqrt{k^2 - \frac{\omega^2}{V_{S2}^2}}
+\tan\!\left(\frac{\omega h}{V_{S1}}\sqrt{1 - \left(\frac{V_{S1}}{c}\right)^2}\right) - \frac{V_{S2}}{V_{S1}}\cdot\frac{\rho_2}{\rho_1}\cdot\frac{\sqrt{\left(\frac{V_{S2}}{V_{S1}}\right)^2 - \left(\frac{c}{V_{S1}}\right)^2}}{\sqrt{\left(\frac{c}{V_{S1}}\right)^2 - 1}} = 0
 $$
 
-y $\mu_1$, $\mu_2$ son los módulos de corte de la capa y del semiespacio respectivamente.
+donde $c = \omega/k = V_L$ es la velocidad de fase de la Love wave y $h$ es el espesor de la capa.
 
-A diferencia de la ecuación secular de Rayleigh en el half-space homogéneo, esta relación **sí contiene $\omega$ y $k$ de forma separada**, lo que confirma que las Love waves son intrínsecamente **dispersivas** en medios estratificados.
+Esta ecuación es **trascendente y no tiene solución cerrada en general**. Sus propiedades clave:
 
-### 2.3.3 Modos de Love
+- $c$ depende de $\omega$: las Love waves son **intrínsecamente dispersivas** en medios estratificados (contraste directo con Rayleigh en half-space homogéneo)
+- En el límite de baja frecuencia: $c \to V_{S2}$ (domina el semiespacio)
+- En el límite de alta frecuencia: $c \to V_{S1}$ (domina la capa superficial)
+- La dispersión de Love es puramente geométrica: no requiere disipación
 
-La relación de dispersión de Love admite múltiples soluciones:
+*(Fuente: Foti Ch. 2, Sec. 2.3, p. 63, Ec. 2.54)*
 
-- **Modo fundamental** (modo 0): existe para todas las frecuencias
-- **Modos superiores** (modo 1, 2, ...): cada uno tiene una frecuencia de corte mínima
+---
 
-A bajas frecuencias, la velocidad de fase del modo fundamental se aproxima a $V_{S2}$ (el semiespacio rígido domina). A altas frecuencias, se aproxima a $V_{S1}$ (la capa superficial domina).
+### Modos de Love y frecuencia de corte (Foti Ec. 2.55)
 
-Esta dependencia frecuencial es la base de la [[Geometric Dispersion]] para Love waves.
+La relación de dispersión admite múltiples ramas (modos):
+
+- **Modo fundamental** ($n = 1$): existe para **todas** las frecuencias
+- **Modos superiores** ($n = 2, 3, \ldots$): existen solo por encima de una **frecuencia de corte**
+
+La frecuencia angular de corte del $n$-ésimo modo es (Foti Ec. 2.55):
+
+$$
+\frac{\omega_c^n \cdot h}{V_{S1}} = \frac{\pi(n-1)}{\sqrt{1 - \left(\frac{V_{S1}}{V_{S2}}\right)^2}}, \qquad n = 1, 2, \ldots
+$$
+
+Esta dependencia frecuencial multimodal es la base de la [[Geometric Dispersion]] para Love waves.
+
+*(Fuente: Foti Ch. 2, Sec. 2.3, p. 65, Ec. 2.55)*
 
 ![[Pasted image 20260317202522.png]]
 ---
 
 ## 2.4 Surface Waves in Vertically Inhomogeneous Media
 
-### 2.4.1 Extensión al caso general
+### 2.4.1 Problema de autovalores asociado a ondas superficiales libres (Foti Ecs. 2.65–2.74)
 
-Cuando las propiedades mecánicas varían continuamente o en capas múltiples con la profundidad, la ecuación secular de Rayleigh ya no tiene una solución analítica cerrada.
+Cuando $\lambda = \lambda(x_2)$, $\mu = \mu(x_2)$, $\rho = \rho(x_2)$, las ecuaciones de Navier se generalizan (Foti Ec. 2.56). La búsqueda de soluciones del tipo ondas superficiales conduce a dos **problemas de autovalores diferenciales** con operador $d/dx_2$.
 
-El problema debe resolverse **numéricamente**, lo que constituye el **problema directo (forward problem)** de los métodos de ondas superficiales.
+#### Sistemas de EDOs de primer orden
 
-Los algoritmos más utilizados son:
+Para **Love waves** (Foti Ec. 2.65):
 
-- **Método de la matriz de transferencia** (Thomson-Haskell): propaga condiciones de frontera capa por capa
-- **Método de la matriz de rigidez global**: más estable numéricamente para medios con alta impedancia
+$$
+\frac{d}{dx_2}\begin{bmatrix}l_1\\l_2\end{bmatrix} = \begin{bmatrix}0 & \mu(x_2)^{-1}\\ k^2\mu(x_2)-\omega^2\rho(x_2) & 0\end{bmatrix}\begin{bmatrix}l_1\\l_2\end{bmatrix}
+$$
 
-### 2.4.2 Modos de propagación
+Para **Rayleigh waves** (Foti Ec. 2.66), sistema de cuarto orden $d\mathbf{f}/dx_2 = A(x_2)\cdot\mathbf{f}(x_2)$ donde $\mathbf{f} = [r_1, r_2, r_3, r_4]^T$ contiene las funciones propias de desplazamiento ($r_1$, $r_2$) y esfuerzo ($r_3$, $r_4$).
 
-En medios estratificados, tanto [[Rayleigh Waves]] como [[Love Waves]] presentan **múltiples modos de propagación**:
+#### Condiciones de contorno (Foti Ecs. 2.72–2.73)
 
-- modo fundamental: mayor amplitud, más fácil de identificar experimentalmente
-- modos superiores: pueden contribuir significativamente cuando hay fuertes contrastes de velocidad
+Para **Love waves**: $l_2 = 0$ en $x_2 = 0$, y $l_1 \to 0$ para $x_2 \to \infty$
 
-El campo de ondas registrado por un arreglo de geófonos es en general una **superposición de modos** — concepto central en [[Mode Superposition]].
+Para **Rayleigh waves**: $r_3 = r_4 = 0$ en $x_2 = 0$, y $r_1, r_2 \to 0$ para $x_2 \to \infty$
 
-> **Implicación para el diseño experimental**: si solo se extrae e invierte el modo fundamental asumiendo que domina el campo medido, pero modos superiores tienen contribución significativa, el perfil $V_S$ resultante puede ser erróneo. Esto es una fuente de error no siempre controlada.
+#### Ecuación de dispersión general (Foti Ec. 2.74)
 
-### 2.4.3 Lamb's Problem revisitado
+Soluciones no triviales existen solo para autovalores $k_j = k_j(\omega)$, $j = 1, \ldots, M$. La relación implícita que los define es:
 
-El [[Lamb's Problem]] describe la respuesta de un semiespacio elástico a una carga puntual en la superficie. Su solución muestra que:
+$$
+\Phi_{L/R}[\lambda(x_2),\, \mu(x_2),\, \rho(x_2),\, k,\, \omega] = 0
+$$
 
-- a distancias suficientemente grandes de la fuente, el campo está **dominado por ondas de Rayleigh**
-- las ondas de cuerpo decaen más rápido y quedan en segundo plano
-- la energía superficial se distribuye como un paquete de ondas con dispersión observable
+Esta es la ecuación de dispersión general: altamente no lineal, trascendente, sin solución cerrada.
 
-Este resultado justifica por qué en arreglos de geófonos con fuente activa, si los receptores están ubicados a distancia mínima adecuada de la fuente, el campo medido es mayormente de Rayleigh.
+#### Algoritmos numéricos (Foti Sec. 2.4.1.1, p. 72–74)
+
+- **Thomson–Haskell (transfer matrix)**: construye $\Phi_{L/R}[\cdot]$ multiplicando matrices de capa; las raíces son los autovalores. Más común por su simplicidad, pero numéricamente inestable a alta frecuencia
+- **Matriz de rigidez dinámica (Kausel–Roesset 1981)**: reemplaza las matrices de transferencia por matrices de rigidez de capa; más estable
+- **Coeficientes de reflexión–transmisión (Kennett)**: algoritmo recursivo; modela explícitamente la interferencia constructiva entre modos
+
+*(Fuente: Foti Ch. 2, Sec. 2.4.1, p. 65–74, Ecs. 2.56–2.74)*
 
 ---
 
-## 2.5 Wave Propagation in Dissipative Media
+### 2.4.2 Modos de propagación y superposición modal
 
-### 2.5.1 Motivación
+En medios estratificados, tanto [[Rayleigh Waves]] como [[Love Waves]] presentan **múltiples modos de propagación**:
 
-Los suelos y rocas reales **no son elásticos perfectos**: parte de la energía sísmica se convierte en calor durante la propagación. Ignorar este fenómeno conduce a modelos que sobreestiman las amplitudes a distancia y no permiten caracterizar el amortiguamiento del material.
+- modo fundamental: mayor amplitud en superficie, más fácil de identificar experimentalmente
+- modos superiores: mayor profundidad de penetración; pueden dominar cuando hay fuertes contrastes de velocidad
 
-### 2.5.2 Modelos viscoelásticos
+El campo de ondas registrado por un arreglo de geófonos es en general una **superposición de modos** — ver [[Mode Superposition]].
 
-La disipación se modela mediante el concepto de [[Viscoelastic Media]]. Los modelos más utilizados en geofísica son:
+> **Implicación crítica para la tesis**: en medios inversamente dispersivos, los modos superiores contribuyen de manera importante incluso a frecuencias bajas. Invertir la curva de dispersión aparente como si fuera del modo fundamental introduce errores sistemáticos en el perfil $V_S(z)$. Este es uno de los problemas más frecuentes en la práctica.
 
-- **Modelo de Kelvin-Voigt**: esfuerzo proporcional a deformación más velocidad de deformación
-- **Modelo de Maxwell**: elemento elástico en serie con elemento viscoso
-- **Modelo de sólido estándar lineal**: combinación que reproduce mejor el comportamiento de geomateriales
+---
 
-En todos ellos, las constantes de Lamé $\lambda$ y $\mu$ se reemplazan por módulos **complejos** que dependen de la frecuencia:
+### 2.4.3 El problema de la fuente: Lamb's Problem
 
-$$
-\tilde{\mu}(\omega) = \mu_R(\omega) + i\,\mu_I(\omega)
-$$
+#### Solución en el campo lejano (Foti Ec. 2.75)
 
-### 2.5.3 Principio de correspondencia elástico-viscoelástico
-
-El resultado fundamental que permite extender la teoría elástica a medios disipativos es el **principio de correspondencia**:
-
-> Las soluciones del problema viscoelástico se obtienen reemplazando las constantes elásticas reales por sus equivalentes complejos dependientes de la frecuencia en las expresiones del caso elástico.
-
-Esto implica que todas las fórmulas derivadas para medios elásticos (incluyendo la ecuación secular de Rayleigh) son válidas en medios viscoelásticos, simplemente haciendo $\lambda, \mu \in \mathbb{C}(\omega)$.
-
-### 2.5.4 Número de onda complejo y atenuación
-
-En un medio disipativo, el número de onda se vuelve complejo:
+El [[Lamb's Problem]] describe la respuesta de un semiespacio elástico homogéneo a una carga puntual vertical armónica $F\,e^{i\omega t}$ en la superficie libre. El desplazamiento vertical de Rayleigh en **aproximación de campo lejano** es (Foti Ec. 2.75):
 
 $$
-\tilde{k} = k_R + i\,k_I
+u_2(r,\omega) = \frac{F\,e^{i\omega t}}{2i\mu}\cdot k_R\cdot\Psi(k_R)\cdot H_0^{(2)}(k_R r)
 $$
 
-La solución armónica toma la forma:
+donde $r = \sqrt{x_1^2 + x_3^2}$, $k_R = \omega/V_R$, y $H_0^{(2)}(\cdot)$ es la función de Hankel de segundo tipo y orden cero. Para $|k_R r| \gg 1$, la expansión asintótica muestra que la amplitud decae como $r^{-0.5}$ (frentes de onda cilíndricos).
+
+Las ondas de cuerpo, en cambio, decaen como $r^{-2}$ en la superficie libre — mucho más rápido.
+
+#### Umbral de campo cercano / campo lejano
+
+El campo total se descompone en $\mathbf{u} = \mathbf{u}_B + \mathbf{u}_S$. En el **campo lejano**, la contribución de ondas de cuerpo es despreciable.
+
+**Umbral cuantitativo** (Foti Sec. 2.4.2, p. 86): en medios *normalmente dispersivos*, los efectos de campo cercano son significativos hasta:
 
 $$
-u \propto e^{-k_I x} \, e^{i(k_R x - \omega t)}
+r \lesssim \frac{\lambda_R}{2}
 $$
 
-donde:
+En medios *inversamente dispersivos*, el campo cercano puede extenderse hasta $r \approx 2\lambda_R$.
 
-- $k_R$ → controla la fase (velocidad de fase: $c = \omega/k_R$)
-- $k_I$ → controla la atenuación espacial de la amplitud
+> **Implicación para diseño experimental**: el primer geófono debe ubicarse al menos a $\lambda_R/2$ de la fuente — idealmente a $\lambda_R$. A baja frecuencia (longitudes de onda grandes), esta restricción obliga a usar arreglos con offset fuente-receptor largo.
 
-El **factor de calidad** $Q$ (o su inverso, el **material damping ratio** $D = 1/(2Q)$) cuantifica la disipación:
+*(Fuente: Foti Ch. 2, Sec. 2.4.2.1, p. 78–83, Ec. 2.75)*
+
+---
+
+### 2.4.4 Función de atenuación geométrica de Rayleigh (Foti Sec. 2.4.2.3)
+
+En un semiespacio homogéneo, la amplitud de las Rayleigh waves decae como $r^{-0.5}$ (ley de distribución cilíndrica). En un semiespacio verticalmente inhomogéneo, la ley de decaimiento se **modifica** por la interferencia entre modos.
+
+La función que describe este decaimiento generalizado es la **función de atenuación geométrica de Rayleigh** $Y_l(r, x_2, \omega)$, $l = r, 2$, obtenida de la superposición modal (Foti Ec. 2.90). El campo de desplazamiento se escribe como:
 
 $$
-D = \frac{k_I}{2k_R} = \frac{1}{2Q}
+u_l(r, x_2, \omega) = F \cdot Y_l(r, x_2, \omega) \cdot e^{i[\omega t - \psi_l(r, x_2, \omega)]}, \qquad l = r, 2
 $$
 
-### 2.5.5 Rayleigh Eigenproblem en medios disipativos
+En el caso homogéneo ($M=1$), $Y_l$ se reduce a $E_l/\sqrt{r}$, recuperando la ley $r^{-0.5}$. En medios estratificados, la forma de $Y_l$ depende de la frecuencia y del perfil de velocidades, y puede desviarse sustancialmente de $r^{-0.5}$ al aumentar la frecuencia.
 
-La extensión de las [[Rayleigh Waves]] a medios viscoelásticos verticalmente heterogéneos se formula como el [[Rayleigh Eigenproblem]] con coeficientes complejos.
+*(Fuente: Foti Ch. 2, Sec. 2.4.2.3, p. 84–90, Ec. 2.90)*
 
-Para el caso de **amortiguamiento débil** ($D \ll 1$, típico en suelos: $D \sim 1\text{–}10\%$), se aplica una perturbación de primer orden alrededor de la solución elástica.
+---
 
-El resultado es que:
+### 2.4.5 Velocidad de fase aparente (efectiva) de Rayleigh (Foti Sec. 2.4.2.4) ★
 
-- la velocidad de fase se ve levemente afectada por el amortiguamiento (corrección de segundo orden en $D$)
-- la atenuación espacial es directamente proporcional a $D$
+**Este es el concepto más crítico de la tesis**: lo que los geófonos miden no es la velocidad de fase de ningún modo individual, sino la **velocidad de fase aparente** o efectiva resultante de la superposición de todos los modos activos.
 
-Esto justifica el enfoque estándar en geofísica: **primero caracterizar el perfil de velocidades $V_S$ desde la curva de dispersión, luego caracterizar el perfil de $D$ desde la curva de atenuación**.
+#### Definición (Foti Ec. 2.93)
 
-> **Implicación para la tesis**: si el objetivo es solo el perfil $V_S$, ignorar la disipación introduce errores menores en la velocidad de fase (segundo orden en $D$). Si el objetivo es también el perfil de amortiguamiento, se requiere medir amplitudes con cuidado — lo que es significativamente más exigente instrumentalmente.
+A partir de la condición de fase constante del campo resultante, la velocidad de fase aparente es:
+
+$$
+V_l^{app}(r, x_2, \omega) = \frac{\omega}{\partial\psi_l(r, x_2, \omega)/\partial r}, \qquad l = r, 2
+$$
+
+Es una cantidad **local**: su valor depende de la posición del receptor $r$. Al variar con $\omega$ y $r$ define una **superficie de dispersión** $V_l^{app}(r, 0, \omega)$ en el plano $(\omega, r)$.
+
+#### Expresión explícita en términos de autofunciones (Foti Ec. 2.95)
+
+$$
+V_r^{app}(r,x_2,\omega) = 2\omega\cdot\frac{\displaystyle\sum_{i=1}^{M}\sum_{j=1}^{M}\frac{r_1(x_2,k_i)\,r_1(x_2,k_j)\,r_2(0,k_i)\,r_2(0,k_j)\,\cos[r(k_i-k_j)]}{\left[(V_R)_i(U_R)_i(I_R)_i\right]\left[(V_R)_j(U_R)_j(I_R)_j\right]\sqrt{k_i k_j}}}{\displaystyle\sum_{n=1}^{M}\sum_{m=1}^{M}\frac{r_1(x_2,k_n)\,r_1(x_2,k_m)\,r_2(0,k_n)\,r_2(0,k_m)\,(k_n+k_m)\,\cos[r(k_n-k_m)]}{\left[(V_R)_n(U_R)_n(I_R)_n\right]\left[(V_R)_m(U_R)_m(I_R)_m\right]\sqrt{k_n k_m}}}
+$$
+
+donde $(V_R)_j$, $(U_R)_j$ y $(I_R)_j$ son la velocidad de fase, velocidad de grupo e integral de energía del $j$-ésimo modo.
+
+#### Implicaciones para la inversión
+![[Pasted image 20260318140813.png]]
+- En medios **normalmente dispersivos**: la curva aparente está cerca del modo fundamental a frecuencias intermedias; la aproximación monomodal suele ser aceptable
+- En medios **inversamente dispersivos**: la curva aparente diverge significativamente del modo fundamental desde frecuencias bajas (~8 Hz en los ejemplos de Foti) — invertirla como modo fundamental introduce errores severos en $V_S(z)$
+- Lo que los métodos experimentales (MASW, f-k) extraen es $V^{app}$, no curvas modales; el proceso de inversión debe tener esto en cuenta
+
+*(Fuente: Foti Ch. 2, Sec. 2.4.2.4, p. 90–95, Ecs. 2.93–2.95)*
+
+---
+
+## 2.5 Surface Waves in Vertically Inhomogeneous, Inelastic Continua
+
+### 2.5.1 Motivación y marco constitutivo
+
+Los suelos y rocas reales **no son elásticos perfectos**: parte de la energía sísmica se disipa como calor. La **viscoelasticidad lineal** es el marco formal más simple para describir este comportamiento a pequeñas deformaciones cíclicas (por debajo del umbral lineal de deformación cíclica).
+
+Las cuatro hipótesis necesarias son: (1) pequeñas deformaciones, (2) invariancia temporal, (3) postulado de herencia (el esfuerzo actual depende de la historia de deformación), y (4) hipótesis de memoria débil.
+
+*(Fuente: Foti Ch. 2, Sec. 2.5.1, p. 96–106)*
+
+---
+
+### 2.5.2 Modelo constitutivo: ecuación de Boltzmann (Foti Ec. 2.96)
+![[Pasted image 20260318141045.png]]
+Bajo esas hipótesis, la relación esfuerzo–historia de deformación es (Foti Ec. 2.96):
+
+$$
+\boldsymbol{\sigma}(t) = \int_{-\infty}^{t} \mathbf{G}(t-\tau):\frac{d\boldsymbol{\varepsilon}(\tau)}{d\tau}\,d\tau
+$$
+
+donde $\mathbf{G}(t)$ es el **tensor función de relajación** del material. Para un material isotrópico, solo dos funciones escalares son necesarias: $G_S(t)$ (corte) y $G_B(t)$ (volumétrica).
+
+En el dominio frecuencial, para excitación armónica $\boldsymbol{\varepsilon}(t) = \boldsymbol{\varepsilon}_0 e^{i\omega t}$, la relación se convierte en (Foti Ec. 2.98):
+
+$$
+\boldsymbol{\sigma}(t) = \mathbf{G}^*(\omega):\boldsymbol{\varepsilon}_0\,e^{i\omega t}
+$$
+
+donde $\mathbf{G}^*(\omega) = \mathbf{G}_{(1)}(\omega) + i\,\mathbf{G}_{(2)}(\omega)$ es el **módulo complejo**. Las partes real e imaginaria son los módulos de *storage* y de *loss*.
+
+*(Fuente: Foti Ch. 2, Sec. 2.5.1, p. 98–100, Ec. 2.96)*
+
+---
+
+### 2.5.3 Relaciones de Kramers–Krönig y causalidad (Foti Ec. 2.99)
+
+Las partes real e imaginaria del módulo complejo **no son independientes**. Están ligadas por las **relaciones de Kramers–Krönig** (Foti Ec. 2.99):
+
+$$
+G_{(1)}(\omega) = G_{(e)} + \frac{2}{\pi}\int_0^{\infty}\frac{G_{(2)}(\tau)\cdot\omega^2}{\tau\cdot(\omega^2-\tau^2)}\,d\tau
+$$
+
+donde $G_{(e)} = G(t \to \infty)$ es la respuesta de equilibrio.
+
+Estas relaciones son consecuencia directa del **principio de causalidad física** — la respuesta no puede preceder a la excitación. En términos de parámetros físicos de propagación ($V_\chi(\omega)$ y $D_\chi(\omega)$), la restricción análoga es (Foti Ec. 2.130):
+
+$$
+V_\chi^2(\omega) + \omega^2\cdot\frac{4}{\pi}\int_0^{\infty}\frac{D_\chi(\tau)}{\tau\cdot(\tau^2-\omega^2)}\cdot V_\chi^2(\tau)\,d\tau = G_{(e)\chi}\cdot\frac{2(1+4D_\chi^2)}{1+\sqrt{1+4D_\chi^2}}
+$$
+
+**Implicación directa**: la velocidad de fase $V_\chi(\omega)$ y el amortiguamiento $D_\chi(\omega)$ de ondas en un suelo real **no pueden asignarse independientemente** — están restringidos por la Ec. 2.130. Esto implica que los materiales viscoelásticos son **inherentemente dispersivos**.
+
+*(Fuente: Foti Ch. 2, Sec. 2.5.1–2.5.2, p. 100, 111, Ecs. 2.99, 2.130)*
+
+---
+
+### 2.5.4 Ondas viscoelásticas en medios homogéneos: principio de correspondencia
+
+La analogía entre las ecuaciones de campo de la elasticidad y la viscoelasticidad en el dominio frecuencial constituye el **principio de correspondencia elástico–viscoelástico** (Foti Sec. 2.5.2):
+
+> Las soluciones del problema viscoelástico en dominio frecuencial se obtienen reemplazando las constantes elásticas reales $\lambda$, $\mu$ por sus equivalentes complejos $G_S^*(\omega)$, $G_B^*(\omega)$ en las expresiones del caso elástico.
+
+Esto hace que todas las fórmulas derivadas para medios elásticos (incluyendo la ecuación secular de Rayleigh) sean válidas en medios viscoelásticos, con $\lambda, \mu \in \mathbb{C}(\omega)$.
+
+#### Velocidades complejas de ondas de cuerpo (Foti Ec. 2.118)
+
+$$
+V_P^*(\omega) = \sqrt{\frac{G_B^*(\omega) + \frac{4}{3}G_S^*(\omega)}{\rho}}, \qquad V_S^*(\omega) = \sqrt{\frac{G_S^*(\omega)}{\rho}}
+$$
+
+El número de onda complejo $k_\chi^* = \omega/V_\chi^* = k_\chi - i\alpha_\chi$ conduce a la solución armónica:
+
+$$
+u \propto e^{-\alpha_\chi x}\,e^{i(k_\chi x - \omega t)}
+$$
+
+donde $\alpha_\chi$ es el **coeficiente de atenuación espacial**.
+
+#### Razón de amortiguamiento material (Foti Ec. 2.115)
+
+$$
+D_\chi(\omega) = \frac{G_{(2)\chi}}{2G_{(1)\chi}}, \qquad \chi = P, S
+$$
+
+Su relación con el factor de calidad: $Q_\chi(\omega) = 1/(2D_\chi(\omega))$.
+
+*(Fuente: Foti Ch. 2, Sec. 2.5.2, p. 106–112, Ecs. 2.115, 2.118)*
+
+---
+
+### 2.5.5 Aproximación de disipación débil (Foti Ec. 2.128)
+
+Expandiendo la expresión exacta de $V_\chi^*$ en serie de MacLaurin en $D_\chi$ y reteniendo solo términos de **primer orden**:
+
+$$
+\boxed{V_\chi^*(\omega) \approx V_\chi(\omega)\,[1 + i\,D_\chi(\omega)]}
+$$
+
+Válida para:
+
+$$
+\sup[D_\chi(\omega)] \leq 0.05 \quad \text{(Foti Ec. 2.129)}
+$$
+
+Experimentalmente, los geomateriales dentro del umbral de deformación lineal cíclica satisfacen típicamente $D \sim 1\text{–}5\%$, por lo que esta aproximación es adecuada para la mayoría de aplicaciones geofísicas (Foti p. 110).
+
+**Consecuencia crítica**: la velocidad de fase $V_\chi(\omega)$ se ve afectada por $D$ solo en **segundo orden** — la disipación no afecta significativamente la curva de dispersión. Esto justifica el procedimiento estándar: inversión de dispersión primero (para $V_S$), inversión de atenuación después (para $D_S$), tratándolas como problemas desacoplados.
+
+*(Fuente: Foti Ch. 2, Sec. 2.5.2, p. 110, Ec. 2.128)*
+
+---
+
+### 2.5.6 Rayleigh Eigenproblem en medios débilmente disipativos (Foti Ec. 2.133)
+
+Aplicando principios variacionales de Love–Rayleigh bajo la hipótesis de disipación débil (Ecs. 2.128–2.129), se obtiene el resultado central de la sección (Foti Ec. 2.133):
+
+$$
+\begin{cases}
+V_R(\omega) = V_R^e + \displaystyle\int_0^\infty V_S\frac{\partial V_R}{\partial V_S}\bigg|_{\omega,V_P}\!\!\left[1-\frac{V_S^{e2}}{V_S^2}\right]dx_2 + \int_0^\infty V_P\frac{\partial V_R}{\partial V_P}\bigg|_{\omega,V_S}\!\!\left[1-\frac{V_P^{e2}}{V_P^2}\right]dx_2\\[12pt]
+\alpha_R(\omega) = \dfrac{\omega}{[V_R(\omega)]^2}\left\{\displaystyle\int_0^\infty V_S D_S\frac{\partial V_R}{\partial V_S}\bigg|_{\omega,V_P}dx_2 + \int_0^\infty V_P D_P\frac{\partial V_R}{\partial V_P}\bigg|_{\omega,V_S}dx_2\right\}
+\end{cases}
+$$
+
+donde $V_R^e$ es la velocidad de Rayleigh del medio elástico asociado ($D=0$), y las derivadas $\partial V_R/\partial V_S$, $\partial V_R/\partial V_P$ son las **sensitividades** de la velocidad de Rayleigh respecto al perfil de velocidades.
+
+#### Consecuencias fundamentales
+
+1. **Desacopla** los dos problemas inversos:
+   - Primero: invertir $V_R(\omega)$ para obtener $V_S(x_2)$ → problema **altamente no lineal**
+   - Luego: invertir $\alpha_R(\omega)$ para obtener $D_S(x_2)$ dado $V_S$ → problema **lineal**
+
+2. $V_R(\omega)$ y $\alpha_R(\omega)$ se calculan a partir de la solución del problema de autovalores **elástico** — no se requiere resolver el problema viscoelástico completo
+
+3. Validez: solo para $D \leq 5\%$ — dentro del rango típico de geomateriales
+
+> **Implicación para la tesis**: si el objetivo es el perfil $V_S$, la disipación es de segundo orden y puede ignorarse en la curva de dispersión. Si el objetivo incluye el perfil $D_S$, se requiere medir amplitudes con calibración cuidadosa — exigencia instrumental significativamente mayor.
+
+*(Fuente: Foti Ch. 2, Sec. 2.5.3, p. 113–119, Ec. 2.133)*
 
 ---
 
 ## Fuentes
 
-- PDF: Sebastiano Foti Chapter 2
-- Secciones: 2.2, 2.3, 2.4, 2.5
-- Conceptos relacionados: [[Elastic Wave Potentials]], [[Rayleigh Eigenproblem]], [[Love Waves]], [[Layered Media]], [[Viscoelastic Media]], [[Mode Superposition]], [[Lamb's Problem]], [[Attenuation]]
+- PDF: Sebastiano Foti Chapter 2 (book pages 37–120)
+- Secciones cubiertas: 2.1–2.5
+- Conceptos relacionados: [[Elastic Wave Potentials]], [[Rayleigh Eigenproblem]], [[Love Waves]], [[Rayleigh Waves]], [[Layered Media]], [[Viscoelastic Media]], [[Mode Superposition]], [[Lamb's Problem]], [[Attenuation]], [[Apparent Phase Velocity]], [[Kramers-Krönig Relations]]
