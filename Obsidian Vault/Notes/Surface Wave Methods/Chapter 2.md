@@ -1096,6 +1096,7 @@ A bajas frecuencias, la velocidad de fase del modo fundamental se aproxima a $V_
 
 Esta dependencia frecuencial es la base de la [[Geometric Dispersion]] para Love waves.
 
+![[Pasted image 20260317202522.png]]
 ---
 
 ## 2.4 Surface Waves in Vertically Inhomogeneous Media

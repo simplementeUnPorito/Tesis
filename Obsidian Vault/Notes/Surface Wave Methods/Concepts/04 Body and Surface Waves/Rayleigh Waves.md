@@ -70,3 +70,59 @@ Esto implica que:
 
 - longitudes de onda grandes investigan mayores profundidades
 - longitudes de onda pequeñas investigan capas superficiales
+
+### Ecuación secular de Rayleigh
+
+La existencia de las Rayleigh waves en un semiespacio homogéneo se demuestra imponiendo condiciones de esfuerzo nulo en la superficie libre sobre el campo derivado de [[Elastic Wave Potentials]].
+
+El resultado es la **ecuación secular de Rayleigh**:
+
+$$
+\left(2 - \frac{c_R^2}{V_S^2}\right)^2 = 4\sqrt{1 - \frac{c_R^2}{V_P^2}}\sqrt{1 - \frac{c_R^2}{V_S^2}}
+$$
+
+Expresada como polinomio en $\xi = c_R / V_S$:
+
+$$
+\xi^6 - 8\xi^4 + \left(24 - 16\frac{V_S^2}{V_P^2}\right)\xi^2 - 16\left(1 - \frac{V_S^2}{V_P^2}\right) = 0
+$$
+
+Este polinomio cúbico en $\xi^2$ tiene una única raíz real físicamente admisible ($0 < c_R < V_S$).
+
+### Velocidad de Rayleigh en función de $\nu$
+
+La velocidad $c_R$ depende únicamente de $V_S$ y del coeficiente de Poisson $\nu$ (que fija el cociente $V_P/V_S$):
+
+$$
+\frac{c_R}{V_S} \approx \frac{0.862 + 1.14\nu}{1 + \nu}
+$$
+
+(aproximación de Viktorov, válida para $0 \leq \nu < 0.5$)
+
+Valores numéricos de referencia:
+
+| $\nu$ | $c_R / V_S$ |
+|--------|-------------|
+| 0.00 | 0.874 |
+| 0.25 | 0.919 |
+| 0.33 | 0.932 |
+| 0.50 | 0.955 |
+
+### Implicación crítica para la tesis
+
+Los geófonos miden **velocidad de Rayleigh** $c_R$, no $V_S$ directamente. La conversión requiere conocer o asumir $\nu$. Si $\nu$ no se mide y se asume un valor fijo, se introduce un error sistemático no cuantificado en el perfil $V_S$ resultante.
+
+Para $\nu$ desconocido con incertidumbre $\pm 0.05$ en torno a $0.25$, el error en $c_R/V_S$ es del orden de $\pm 1\text{–}2\%$, lo que se traduce en un error similar en $V_S$.
+
+### No-dispersividad en el half-space homogéneo
+
+En un [[Elastic Half Space]] homogéneo, $c_R$ **no depende de la frecuencia**: la ecuación secular no contiene $\omega$ ni $k$ de forma independiente, solo el cociente $c_R = \omega/k$.
+
+Por lo tanto, las Rayleigh waves en este medio son **no dispersivas**.
+
+Esta es la referencia fundamental: toda dispersión observable en campo es evidencia directa de heterogeneidad vertical del subsuelo.
+
+### Fuente (sección 2.2)
+
+- PDF: Sebastiano Foti Chapter 2
+- Sección: 2.2 Rayleigh waves in homogeneous elastic continua
