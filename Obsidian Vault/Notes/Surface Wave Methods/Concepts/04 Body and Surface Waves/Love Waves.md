@@ -55,7 +55,28 @@ La relación de dispersión admite múltiples soluciones:
 - **Modo fundamental (modo 0):** existe para todas las frecuencias; a bajas frecuencias $c_L \to V_{S2}$, a altas frecuencias $c_L \to V_{S1}$.
 - **Modos superiores (modo 1, 2, ...):** cada uno tiene una frecuencia de corte mínima $f_c$ por debajo de la cual no puede propagarse.
 
-### Fuente (sección 2.3)
+### Adquisición en campo (Capítulo 8)
 
-- PDF: Sebastiano Foti Chapter 2
-- Sección: 2.3 Love waves in layered media
+Para excitar y registrar ondas Love en campo se requiere:
+
+- **Fuente horizontal:** una fuerza horizontal genera movimiento SH. La fuente más común es golpear un durmiente de madera en sentido perpendicular a la línea (el peso de personas sobre el durmiente aumenta la fricción con el suelo).
+- **Receptores horizontales:** geófonos o acelerómetros con orientación SH, perpendicular a la línea de adquisición.
+
+Una fuente horizontal también genera componentes de compresión (Rayleigh, refracciones P). Para aislar la componente SH se usa la **técnica de inversión de polaridad**: se disparan dos golpes en sentidos opuestos; la componente SH cambia de signo y la compresión no → la resta cancela la compresión y suma la SH. Existen receptores especialmente acoplados que realizan esta resta eléctricamente de forma sincrónica.
+
+### Resonancias SH en capas superficiales
+
+En sitios con capas superficiales muy someras y alto contraste de velocidad, las ondas Love presentan resonancias que producen señales de banda angosta. La frecuencia de resonancia se estima como:
+
+$$f_{res} \approx \frac{V_{S,\text{top}}}{4H}$$
+
+Aunque el espectro en una sola traza sea angosto, el análisis multicanal (f-k) permite recuperar la curva de dispersión en un rango amplio de frecuencias.
+
+### Ventaja en inversión conjunta Love + Rayleigh
+
+Las curvas de dispersión de Love son más regulares que las de Rayleigh: no presentan puntos de osculación entre modos. Esto facilita la identificación de modos. En sitios donde las curvas de Rayleigh muestran ambigüedades entre modos, la curva de Love puede confirmar cuál rama corresponde al modo fundamental. La inversión conjunta Love + Rayleigh (asumiendo isotropía) proporciona mayor constraño del perfil Vs que cualquiera de las dos por separado.
+
+### Fuentes
+
+- PDF: Sebastiano Foti Chapter 2 (sección 2.3 — propagación y relación de dispersión)
+- PDF: Sebastiano Foti Chapter 8 (sección 8.1 — adquisición, resonancias, ejemplo Terceira Island)

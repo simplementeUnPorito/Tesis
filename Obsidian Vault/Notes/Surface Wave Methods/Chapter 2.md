@@ -9,13 +9,11 @@ Este capítulo desarrolla la teoría de propagación de ondas superficiales en m
 
 con el objetivo de establecer la base física para el **modelado directo (forward modeling)** utilizado en métodos de caracterización del subsuelo mediante ondas superficiales.
 
-Aunque el desarrollo teórico incluye tanto [[Love Waves]] como [[Rayleigh Waves]], el capítulo se enfoca principalmente en **Rayleigh waves**, debido a su mayor relevancia en aplicaciones prácticas de:
+Aunque el desarrollo teórico incluye tanto [[Love Waves]] como [[Rayleigh Waves]], el capítulo se enfoca principalmente en **Rayleigh waves**, debido a su mayor relevancia en aplicaciones prácticas de exploración geofísica, ingeniería geotécnica y caracterización sísmica de sitio.
 
-- exploración geofísica
-- ingeniería geotécnica
-- caracterización sísmica de sitio
+Las [[Rayleigh Waves]] son particularmente importantes porque dominan el campo de ondas registrado por geófonos en mediciones de superficie y contienen información directa sobre el perfil de velocidades de [[S-Waves]]. En campo, a distancias de una o dos longitudes de onda desde la fuente, las ondas superficiales representan ~67% de la energía total generada por una fuente puntual vertical, con decaimiento geométrico $\propto r^{-0.5}$ frente a $r^{-2}$ de las ondas de cuerpo. Esta diferencia explica por qué el campo de ondas queda dominado por las componentes de Rayleigh a medida que se aleja de la fuente.
 
-Las Rayleigh waves son particularmente importantes porque dominan el campo de ondas registrado por geófonos en mediciones de superficie y contienen información directa sobre el perfil de velocidades de [[S-Waves]].
+El contenido del capítulo progresa desde los fundamentos de la mecánica ondulatoria (Sec. 2.1) hasta la derivación rigurosa de las eigenfunciones de Rayleigh en semiespacios homogéneos (Sec. 2.2), la teoría de Love waves (Sec. 2.3), la generalización a medios verticalmente heterogéneos con múltiples modos de propagación (Sec. 2.4), y finalmente la extensión al caso viscoelástico que fundamenta la medición de atenuación en campo (Sec. 2.5). Este arco argumental es la columna vertebral teórica de todos los métodos de adquisición, procesamiento e inversión discutidos en los capítulos siguientes.
 
 ---
 
@@ -569,17 +567,7 @@ y de la estructura del medio descrita en [[Layered Media]].
 
 Estos principios constituyen la base física de los métodos utilizados en [[Métodos Sísmicos No Invasivos]].
 
----
-
-## Fuente
-
-- PDF: Sebastiano Foti Chapter 2
-- sección: 2.1.3 Body waves in unbounded homogeneous elastic media
-
 ![[Pasted image 20260316135658.png]]
-
-
-
 
 ### Relación entre $V_P$ y $V_S$
 
@@ -599,14 +587,12 @@ $$
 
 porque las ondas P dependen de la rigidez volumétrica y de corte, mientras que las ondas S dependen únicamente de la rigidez de corte.
 
-### Relación con el coeficiente de Poisson
+### Relación con el [[Poisson Ratio|coeficiente de Poisson]]
 
-El cociente entre velocidades puede expresarse en función del coeficiente de Poisson $\nu$:
+El cociente entre velocidades puede expresarse en función del [[Poisson Ratio|coeficiente de Poisson]] $\nu$:
 
-# $$  
-\frac{V_P}{V_S}
-
-\sqrt{\frac{2(1-\nu)}{1-2\nu}}  
+$$
+\frac{V_P}{V_S} = \sqrt{\frac{2(1-\nu)}{1-2\nu}}
 $$
 
 Esto muestra que siempre se cumple:
@@ -634,11 +620,8 @@ Aunque esta relación permite estimar $V_S$ a partir de $V_P$ y $\nu$, este proc
 Bajo condiciones no drenadas:
 
 - la compresibilidad del agua domina la respuesta volumétrica
-    
 - el coeficiente de Poisson se aproxima a $0.5$
-    
 - la velocidad de onda P aumenta fuertemente
-    
 
 En ese límite:
 
@@ -1005,7 +988,7 @@ Este polinomio cúbico en $\xi^2$ tiene en general una única raíz real física
 
 #### Resultado fundamental
 
-La velocidad de Rayleigh $c_R$ depende únicamente de $V_S$ y del coeficiente de Poisson $\nu$ (que determina $V_P/V_S$).
+La velocidad de Rayleigh $c_R$ depende únicamente de $V_S$ y del [[Poisson Ratio|coeficiente de Poisson]] $\nu$ (que determina $V_P/V_S$).
 
 Para $\nu = 0.25$ (valor típico para muchas rocas):
 
@@ -1013,9 +996,32 @@ $$
 c_R \approx 0.9194 \, V_S
 $$
 
-En general, $c_R$ varía entre aproximadamente $0.87\,V_S$ y $0.96\,V_S$ para el rango de $\nu$ físicamente admisible ($0 \leq \nu < 0.5$).
+En general, $c_R$ varía entre $0.862\,V_S$ (para $\nu = 0$) y $0.955\,V_S$ (para $\nu \to 0.5$) para el rango de $\nu$ físicamente admisible ($0 \leq \nu < 0.5$), como ilustra la **Fig. 2.15** del texto.
 
 > **Implicación crítica para la tesis**: $c_R \approx 0.92\,V_S$ en condiciones típicas. Los geófonos miden la velocidad de Rayleigh. La conversión a $V_S$ requiere conocer $\nu$ o asumirlo, lo que introduce incertidumbre en el perfil final.
+
+#### Eigenfunciones de desplazamiento (Foti Ecs. 2.43–2.45)
+
+Una vez conocida $c_R$, los desplazamientos horizontal $u_1$ y vertical $u_2$ asociados a la onda de Rayleigh en el semiespacio son (Foti Ec. 2.43):
+
+$$
+\begin{cases}
+u_1 = \dfrac{ics\cdot B_4}{\omega(1-c^2/2V_S^2)}\left[\left(1 - \dfrac{c^2}{2V_S^2}\right)\cdot e^{-sx_2} - e^{-rx_2}\right]\cdot e^{i(kx_1-\omega t)}\\[10pt]
+u_2 = \dfrac{c^2rs\cdot B_4}{\omega^2(1-c^2/2V_S^2)}\left[\left(1 - \dfrac{c^2}{2V_S^2}\right)^{-1}\cdot e^{-sx_2} - e^{-rx_2}\right]\cdot e^{i(kx_1-\omega t)}
+\end{cases}
+$$
+
+donde $c = V_R$, $r = \sqrt{k^2 - \omega^2/V_P^2}$, $s = \sqrt{k^2 - \omega^2/V_S^2}$. Estas expresiones muestran que ambas componentes decaen exponencialmente con la profundidad $x_2$.
+
+Las eigenfunciones de profundidad $r_1(x_2)$ y $r_2(x_2)$ (Foti Ec. 2.45) satisfacen la **ecuación de la elipse** (Foti Ec. 2.44):
+
+$$
+\frac{u_1^2}{r_1^2(x_2)} + \frac{u_2^2}{r_2^2(x_2)} = 1
+$$
+
+Es decir, en cada profundidad la partícula describe una trayectoria elíptica en el plano $x_1$–$x_2$. En superficie, el cociente de amplitudes vertical/horizontal es aproximadamente 1.5 (Foti p. 60).
+
+*(Fuente: Foti Ch. 2, Sec. 2.2.3, pp. 58–60, Ecs. 2.43–2.45)*
 
 ---
 
@@ -1023,10 +1029,20 @@ En general, $c_R$ varía entre aproximadamente $0.87\,V_S$ y $0.96\,V_S$ para el
 
 El campo de desplazamientos asociado a las [[Rayleigh Waves]] en superficie presenta las siguientes características:
 
-- **Trayectoria elíptica** en el plano vertical de propagación (plano $x$–$z$)
-- En superficie: órbita **retrógrada** (sentido antihorario para propagación en $+x$)
-- A una profundidad crítica de aproximadamente $0.2\lambda$: el movimiento cambia a **progrado** (sentido horario)
-- El eje vertical de la elipse es mayor que el horizontal en superficie
+- **Trayectoria elíptica** en el plano vertical de propagación (plano $x_1$–$x_2$) — Foti Ec. 2.44, **Fig. 2.16**
+- En superficie: órbita **retrógrada** (sentido antihorario para propagación en $+x_1$)
+- A una profundidad crítica $x_2^c$ (profundidad donde la componente horizontal se anula): el movimiento cambia a **prógrado** (sentido horario)
+- El eje vertical de la elipse es mayor que el horizontal en superficie (~1.5:1)
+
+La profundidad crítica $x_2^c \approx 0.2\lambda$ se obtiene de (Foti Ec. 2.46):
+
+$$
+x_2^c = \frac{\ln\!\left(1 - \dfrac{V_R^2}{2V_S^2}\right)}{\omega\!\left(\sqrt{\dfrac{1}{V_R^2} - \dfrac{1}{V_S^2}} - \sqrt{\dfrac{1}{V_R^2} - \dfrac{1}{V_P^2}}\right)}
+$$
+
+donde ln(·) es el logaritmo natural. Corresponde a la profundidad a la que el desplazamiento horizontal se anula y el movimiento se vuelve puramente vertical.
+
+*(Fuente: Foti Ch. 2, Sec. 2.2.3, p. 60, Ec. 2.46)*
 
 Esta polarización elíptica en el plano vertical explica por qué los **geófonos verticales** son los sensores preferidos para capturar [[Rayleigh Waves]]: detectan directamente la componente dominante del movimiento.
 
@@ -1042,7 +1058,11 @@ Un resultado central del capítulo es que en un [[Elastic Half Space]] homogéne
 - la ecuación secular de Rayleigh no contiene $\omega$ ni $k$ de forma independiente, sino únicamente a través del cociente $c_R = \omega/k$
 - por tanto, las ondas de Rayleigh en este medio son **no dispersivas**
 
-Esto establece la referencia fundamental: **la dispersión que observamos experimentalmente es evidencia directa de la heterogeneidad del subsuelo**.
+La razón física de esta no-dispersividad es que el medio es homogéneo: no existe longitud de escala característica que introduzca un efecto de tamaño relativo. La onda de Rayleigh de cualquier frecuencia "ve" exactamente el mismo medio independientemente de su longitud de onda. En contraste, en un medio estratificado sí existe una longitud de escala natural (el espesor de las capas), y las ondas de diferente longitud de onda penetran profundidades diferentes y por tanto sienten medios distintos — esto es exactamente la dispersión geométrica.
+
+Esta referencia tiene consecuencias directas para la caracterización del subsuelo: **la dispersión que observamos experimentalmente es evidencia directa de la heterogeneidad vertical del subsuelo**. Si un sitio tiene propiedades uniformes con la profundidad, la curva de dispersión es plana; si hay gradiente o capas con velocidades distintas, la curva tiene pendiente. Esto es lo que permite extraer información del perfil $V_S(z)$ a partir de la curva de dispersión medida con geófonos: la variación de velocidad de fase con la frecuencia mapea la variación de rigidez con la profundidad.
+
+La no-dispersividad del semiespacio homogéneo sirve también como límite asintótico a alta y baja frecuencia en medios estratificados: cuando $\lambda \to 0$ (alta frecuencia), la onda "ve" solo la capa más superficial, y $c_R \to 0.92\,V_{S,\text{top}}$; cuando $\lambda \to \infty$ (baja frecuencia), la onda penetra todo el perfil y su velocidad tiende a $0.92\,V_{S,\text{semiespacio}}$.
 
 ---
 
@@ -1149,7 +1169,24 @@ Esta es la ecuación de dispersión general: altamente no lineal, trascendente, 
 - **Matriz de rigidez dinámica (Kausel–Roesset 1981)**: reemplaza las matrices de transferencia por matrices de rigidez de capa; más estable
 - **Coeficientes de reflexión–transmisión (Kennett)**: algoritmo recursivo; modela explícitamente la interferencia constructiva entre modos
 
-*(Fuente: Foti Ch. 2, Sec. 2.4.1, p. 65–74, Ecs. 2.56–2.74)*
+#### Ejemplo numérico (Foti Tabla 2.4 y Figs. 2.20–2.22)
+
+La **Fig. 2.20** ilustra el comportamiento de $|\Phi_R[\cdot]|$ calculada con Thomson–Haskell en función del número de onda a $f = 50\,\text{Hz}$, para el sistema estratificado de la **Tabla 2.4**:
+
+| Capa | Espesor (m) | $V_P$ (m/s) | $V_S$ (m/s) | $\rho$ (Mg/m³) |
+|------|-------------|-------------|-------------|-----------------|
+| 1 | 10 | 200 | 100 | 1.9 |
+| 2 | 10 | 400 | 200 | 1.9 |
+| 3 | 10 | 600 | 300 | 1.9 |
+| Semiespacio | ∞ | 1000 | 500 | 1.9 |
+
+La función oscila rápidamente con el número de onda (especialmente a alta frecuencia), lo que requiere técnicas robustas de *root-bracketing* con bisección para localizar confiablemente todas las raíces.
+
+La **Fig. 2.21** muestra las curvas de dispersión modales (24 modos identificados) para este sistema: velocidad de fase Rayleigh vs. frecuencia. Cada curva corresponde a un autovalor de la Ec. 2.71. Los modos superiores tienen mayor velocidad de fase y mayor profundidad de penetración. Al aumentar la frecuencia, aparecen nuevos modos y las curvas se empaquetan más densamente.
+
+La **Fig. 2.22** muestra los perfiles de profundidad de las eigenfunciones de desplazamiento $r_1$ (horizontal) y $r_2$ (vertical) a $f = 16\,\text{Hz}$ para los primeros 4 modos. El resultado clave es que **los modos superiores penetran más profundamente**, lo que fundamenta la posibilidad de invertir modos superiores para resolver estructuras a mayor profundidad.
+
+*(Fuente: Foti Ch. 2, Sec. 2.4.1, pp. 65–76, Ecs. 2.56–2.74, Tabla 2.4, Figs. 2.20–2.22)*
 
 ---
 
@@ -1250,9 +1287,13 @@ donde $(V_R)_j$, $(U_R)_j$ y $(I_R)_j$ son la velocidad de fase, velocidad de gr
 
 ### 2.5.1 Motivación y marco constitutivo
 
-Los suelos y rocas reales **no son elásticos perfectos**: parte de la energía sísmica se disipa como calor. La **viscoelasticidad lineal** es el marco formal más simple para describir este comportamiento a pequeñas deformaciones cíclicas (por debajo del umbral lineal de deformación cíclica).
+Los suelos y rocas reales **no son elásticos perfectos**: parte de la energía sísmica se disipa como calor por deformación viscosa interna (rozamiento entre partículas, movimiento de fluido poral). Este fenómeno es relevante para el diseño sísmico porque controla la amplificación del movimiento del suelo: mayor amortiguamiento → menor amplificación en la frecuencia de resonancia del depósito.
 
-Las cuatro hipótesis necesarias son: (1) pequeñas deformaciones, (2) invariancia temporal, (3) postulado de herencia (el esfuerzo actual depende de la historia de deformación), y (4) hipótesis de memoria débil.
+Cuantitativamente, el amortiguamiento material se expresa mediante la **razón de amortiguamiento** $D_S$ (también escrita $D$ o $\xi$ en literatura de ingeniería sísmica), que representa la fracción de energía disipada por ciclo de deformación. Para suelos dentro del rango de deformación lineal cíclica (típicamente deformación de corte $\gamma < 10^{-5}$), los valores típicos son $D_S \approx 1\text{–}5\%$.
+
+La **viscoelasticidad lineal** es el marco constitutivo más simple y físicamente consistente para describir este comportamiento. Se basa en cuatro hipótesis: (1) **pequeñas deformaciones** (linealización del tensor de deformación), (2) **invariancia temporal** (las propiedades del material no cambian con el tiempo), (3) **postulado de herencia** (el esfuerzo en el instante $t$ depende de toda la historia previa de deformación), y (4) **hipótesis de memoria débil** (la influencia del pasado remoto es despreciable, lo que garantiza la existencia de la integral de Boltzmann).
+
+El marco viscoelástico lineal es fundamentalmente diferente de la plasticidad o la histéresis no lineal: solo describe la disipación en el régimen de deformaciones infinitesimales. Para niveles de deformación mayores, se requieren modelos más complejos (hiperbólico, Ramberg-Osgood, etc.) que están fuera del alcance de los métodos de ondas superficiales estándar.
 
 *(Fuente: Foti Ch. 2, Sec. 2.5.1, p. 96–106)*
 
@@ -1391,4 +1432,3 @@ donde $V_R^e$ es la velocidad de Rayleigh del medio elástico asociado ($D=0$), 
 
 - PDF: Sebastiano Foti Chapter 2 (book pages 37–120)
 - Secciones cubiertas: 2.1–2.5
-- Conceptos relacionados: [[Elastic Wave Potentials]], [[Rayleigh Eigenproblem]], [[Love Waves]], [[Rayleigh Waves]], [[Layered Media]], [[Viscoelastic Media]], [[Mode Superposition]], [[Lamb's Problem]], [[Attenuation]], [[Apparent Phase Velocity]], [[Kramers-Krönig Relations]]

@@ -1,81 +1,85 @@
-# Phase Velocity
-
-## 1. Concepto
-
-La velocidad de fase es la velocidad a la que se propaga un punto de fase constante de una onda (por ejemplo un máximo o mínimo).
-
-Es una de las magnitudes fundamentales para describir la propagación de ondas en medios continuos.
-
+---
+name: Phase Velocity
+description: Velocidad a la que se propaga una frente de fase constante de una onda; magnitud fundamental de las curvas de dispersión experimentales en métodos MASW y SASW
+type: reference
 ---
 
-## 2. Fundamento físico
+# Velocidad de Fase (Phase Velocity)
 
-Una onda armónica puede escribirse como:
+> **Contexto:** La velocidad de fase $c_p = \omega/k$ describe la velocidad de propagación de un punto de fase constante (por ejemplo un máximo) de una onda armónica. En métodos de ondas superficiales es la **observable central**: los métodos MASW, SASW y pasivos estiman la velocidad de fase de [[Rayleigh Waves]] en función de la frecuencia, construyendo la curva de dispersión experimental.
+> **Fuente:** Foti et al. (2014), Cap. 2.1.1, pp. 39–40; Cap. 4.1, pp. 206–207.
 
-ϕ(x,t) = A e^{i(kx − ωt)}
+## Intuición física
 
-Un punto de fase constante satisface:
+Una onda monocromática de la forma $\phi(x,t) = A\,e^{i(kx-\omega t)}$ tiene crestas y valles que se desplazan en el espacio. La cresta ubicada en $x_0$ en el instante $t_0$ satisface $kx_0 - \omega t_0 = \text{const}$. Para seguir esa cresta en el tiempo, debe moverse a velocidad:
 
-kx − ωt = constante
+$$\frac{dx_0}{dt} = \frac{\omega}{k} = c_p$$
 
-lo que implica que el punto se mueve con velocidad:
+Esta es la velocidad de fase. Físicamente, es la velocidad a la que se "mueve" el patrón ondulatorio en el espacio. En medios sin dispersión, $c_p$ es constante e igual para todas las frecuencias. En medios [[Wave Dispersion|dispersivos]], $c_p$ varía con $\omega$ (y con $k$).
 
-dx/dt = ω/k
+**Importante**: la velocidad de fase no es necesariamente la velocidad a la que se transporta la energía. En medios dispersivos, la energía se propaga con la [[Group Velocity|velocidad de grupo]] $c_g = d\omega/dk$, que en general es distinta de $c_p$.
 
-Esta velocidad corresponde a la **velocidad de fase**.
+## Formulación matemática
 
----
+La velocidad de fase se define como:
 
-## 3. Formulación matemática
+$$c_p = \frac{\omega}{k}$$
 
-La velocidad de fase se define como
+donde:
+- $\omega = 2\pi f$ — frecuencia angular [rad/s]
+- $k$ — número de onda [rad/m]
+- $c_p$ — velocidad de fase [m/s]
 
-v_p = ω / k
+En medios dispersivos, $\omega$ y $k$ están relacionados por la [[Dispersion Relation|relación de dispersión]] $\omega = \omega(k)$, de modo que:
 
-donde
+$$c_p(k) = \frac{\omega(k)}{k} = \frac{\omega}{k} \neq \text{const}$$
 
-- ω → frecuencia angular
-- k → número de onda
+La **curva de dispersión experimental** es la representación de $c_p(f)$ — velocidad de fase de Rayleigh como función de la frecuencia — obtenida a partir de los registros de geófonos.
 
-Cuando ω depende de k, el medio es **dispersivo**.
+## Medición experimental
 
----
+En un arreglo de geófonos alineado con la dirección de propagación, la velocidad de fase se estima midiendo el retardo de fase entre receptores. Para un par de receptores separados $\Delta x$:
 
-## 4. Aplicación a geófonos
+$$c_p = \frac{2\pi f \cdot \Delta x}{\Delta\phi(f)}$$
 
-En métodos de ondas superficiales:
+donde $\Delta\phi(f)$ es la diferencia de fase entre los espectros de Fourier de los dos registros. En la práctica con múltiples receptores:
 
-- se mide la **velocidad de fase de Rayleigh waves**
-- en función de la frecuencia
+- **Análisis f-k**: $c_p = \omega/k$ donde $k$ es el número de onda del pico del espectro f-k.
+- **Análisis τ-p (slant-stack)**: la velocidad de fase se visualiza directamente en el dominio velocidad–frecuencia.
+- **SASW**: estimación punto a punto de $\Delta\phi(f)$ para cada par de receptores.
 
-Esto genera la **curva de dispersión**, que posteriormente se usa para estimar el perfil de velocidad de corte del suelo.
+## Velocidad de fase de Rayleigh
 
----
-### Relación con velocidad de grupo
+Para [[Rayleigh Waves]] en un [[Elastic Half Space|semiespacio elástico]] homogéneo, la velocidad de fase es constante (no dispersiva) e igual a:
 
-En medios dispersivos la velocidad de fase no coincide con la velocidad de transporte de energía.
+$$c_R \approx f(\nu) \cdot V_S \approx 0.92\,V_S \quad (\text{para } \nu = 0.25)$$
 
-La velocidad de grupo está dada por
+En un medio [[Layered Media|estratificado]], $c_R$ varía con la frecuencia: ondas de alta frecuencia (corta longitud de onda) son sensibles a las capas superficiales y tienen velocidades que reflejan la rigidez local. Ondas de baja frecuencia (longitud de onda larga) promedian el perfil hasta mayor profundidad. Esta dependencia es la [[Geometric Dispersion|dispersión geométrica]].
 
-$$
-c_g=\frac{d\omega}{dk}
-$$
+## Velocidad de fase aparente
 
-y describe la velocidad de propagación de la envolvente de un paquete de ondas.
+En medios estratificados con múltiples [[Surface Wave Modes|modos]], lo que los métodos experimentales miden es la **velocidad de fase aparente** resultante de la superposición de todos los modos activos (ver Foti Ec. 2.93):
 
-Relacionado con:
+$$V_R^{app}(r, \omega) = \frac{\omega}{\partial\psi(r,\omega)/\partial r}$$
 
-- [[Group Velocity]]
-- [[Wave Dispersion]]
+La velocidad aparente coincide con la del modo fundamental en medios normalmente dispersivos a distancias intermedias. En medios con fuertes contrastes de velocidad o capas rígidas superficiales, puede diferir significativamente del modo fundamental — lo que introduce sesgo en la inversión si se asume modo fundamental.
 
----
+## Relación con la inversión
 
-## 5. Fuente
+La curva de dispersión experimental $c_p^{exp}(f)$ es la entrada principal de la inversión. El algoritmo de inversión busca el modelo de capas $\mathbf{m} = [V_{S,n}, h_n]$ cuya curva de dispersión teórica $c_p^{teor}(f; \mathbf{m})$ minimiza el desajuste con $c_p^{exp}$:
 
-- PDF: Sebastiano Foti Chapter 2
-- capítulo o sección: 2.1.1 Two categories of wave motion
-- página: 39–40
+$$\text{misfit} = \sum_i \left[\frac{c_p^{exp}(f_i) - c_p^{teor}(f_i; \mathbf{m})}{\sigma_i}\right]^2$$
 
-- PDF: Sebastiano Foti Chapter 4
-- capítulo o sección: 4.1 Phase and Group Velocity
-- página: 206–207
+La sensibilidad de $c_p$ a $V_S$ es máxima en las capas cuya profundidad central es $\approx \lambda/3$ a $\lambda/2$.
+
+## Implicaciones para el diseño del arreglo de geófonos
+
+- **Rango de frecuencias medible**: determinado por la longitud del arreglo ($f_{\min} \approx V_{R}/L$) y el espaciado entre receptores ($f_{\max} \approx V_{R}/(2\Delta x)$).
+- **Resolución en velocidad**: depende del número de receptores y la longitud total.
+- **Error de fase**: el ruido en los registros introduce incertidumbre en $\Delta\phi(f)$, lo que se propaga a incertidumbre en $c_p$. La coherencia entre receptores es un indicador de la confiabilidad de la estimación.
+
+## Referencias
+
+- Foti et al. (2014), Cap. 2.1.1, pp. 39–40 — definición y relación con la relación de dispersión.
+- Foti et al. (2014), Cap. 4.1, pp. 206–207 — estimación experimental de velocidad de fase.
+- Foti et al. (2014), Cap. 2.4.2.4, pp. 90–95, Ec. 2.93 — velocidad de fase aparente.

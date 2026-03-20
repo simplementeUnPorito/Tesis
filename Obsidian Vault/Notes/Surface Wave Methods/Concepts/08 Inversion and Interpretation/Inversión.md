@@ -43,15 +43,27 @@ Existen diferentes enfoques para explorar el espacio de soluciones posibles.
 
 ---
 
-### Problemas Críticos
+### Problemas Críticos: Ill-posedness
 
-La inversión de curvas de dispersión presenta dificultades inherentes.
+La inversión de curvas de dispersión presenta dificultades inherentes conocidas como **ill-posedness** (mal condicionamiento).
 
-- **No Unicidad (Equivalencia)**  
-  Diferentes perfiles de suelo pueden producir **curvas de dispersión casi idénticas** [6].
+Según Hadamard (1923), un problema matemático está **bien puesto** (*well-posed*) si satisface tres condiciones:
+1. **Existencia:** para todos los datos admisibles, existe al menos una solución.
+2. **Unicidad:** para todos los datos admisibles, la solución es única.
+3. **Estabilidad:** la solución depende continuamente de los datos (pequeñas variaciones en los datos producen solo pequeñas variaciones en la solución).
 
-- **Ill-posedness**  
-  El problema está **mal condicionado matemáticamente**, lo que implica que pequeñas variaciones en los datos pueden generar grandes cambios en el modelo resultante [6, 11].
+Si alguna de estas condiciones falla, el problema es **ill-posed**. Los problemas inversos violan habitualmente las condiciones de **unicidad** y **estabilidad**:
 
-- **Mitigación**  
-  Para reducir la incertidumbre es importante incorporar **información a priori**, como registros de **sondeos (boreholes)** u otras pruebas geofísicas [6].
+- **No unicidad (equivalencia):**
+  Diferentes perfiles de suelo pueden producir **curvas de dispersión casi idénticas**. Una misma curva de dispersión experimental puede corresponder a más de un perfil de Vs. Esto no es un defecto del algoritmo: es una propiedad intrínseca del problema físico. Desde el punto de vista matemático, la información disponible (la curva de dispersión) no es suficiente para determinar unívocamente los parámetros del modelo.
+
+- **Inestabilidad:**
+  Pequeñas variaciones en los datos (causadas por ruido de medición) pueden generar grandes cambios en el modelo resultante. Para problemas lineales, esto se cuantifica mediante el **análisis de valores singulares** (SVD): el valor singular más pequeño controla la amplificación de los errores de perturbación. La tasa de decaimiento de los valores singulares mide el grado de inestabilidad del problema.
+
+**Estrategias de mitigación:**
+
+- **Información a priori:** incorporar datos externos como perfiles de pozo (boreholes), ensayos geotécnicos (SPT, CPT), mediciones de densidad o niveles freáticos, para restringir el espacio de soluciones admisibles.
+- **Restricciones de suavidad y acotamiento:** forzar que la solución satisfaga condiciones como suavidad del perfil o que los parámetros se mantengan dentro de rangos físicamente plausibles (por ejemplo, razón de amortiguamiento no negativa).
+- **Regularización de Tikhonov:** método matemático formal que convierte el problema ill-posed en una familia de problemas mejor condicionados, añadiendo un término de penalización que controla la complejidad de la solución. Los métodos de orden cero, primero y segundo controlan respectivamente la amplitud, la suavidad del primer gradiente o la curvatura del perfil. El **algoritmo de Occam** es un caso especial que busca el modelo más suave (mínima norma del gradiente) compatible con los datos.
+
+*Trazabilidad: Foti Cap. 6, §6.1.2, pp. 277–280; §6.4.2, pp. 292 ss.*
