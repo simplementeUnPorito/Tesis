@@ -1,0 +1,36 @@
+alias matlab='/home/elias-alvarez/MATLAB/bin/matlab -desktop'
+
+TESIS_DIR="/home/elias-alvarez/GitHub/Tesis"
+
+tesisDir() {
+  cd "$TESIS_DIR" || return
+}
+
+tmuxCall() {
+  if [ -z "$1" ]; then
+    echo "Uso: tmuxCall <nombre_sesion>"
+    return 1
+  fi
+
+  tmux new-session -A -s "$1"
+}
+
+startTesis() {
+  tesisDir || return
+
+  nohup obsidian >/dev/null 2>&1 &
+  disown
+
+  nohup code . >/dev/null 2>&1 &
+  disown
+}
+
+gpush() {
+  if [ -z "$1" ]; then
+    echo "Necesitás un mensaje."
+    return 1
+  fi
+  git add -A &&
+  git commit -m "$1" &&
+  git push
+}
