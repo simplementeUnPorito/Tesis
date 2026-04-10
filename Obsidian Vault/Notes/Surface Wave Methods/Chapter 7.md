@@ -5,7 +5,7 @@
 
 ## Introducción
 
-El capítulo 7 presenta aplicaciones reales del método de ondas superficiales para la caracterización de sitios. A diferencia de los capítulos anteriores —que desarrollan el marco teórico de adquisición, procesamiento e inversión—, este capítulo integra todo el flujo de trabajo sobre datos experimentales reales. El objetivo es mostrar cómo las decisiones metodológicas afectan el resultado final en condiciones de campo reales.
+El capítulo 7 presenta aplicaciones reales del método de [[Surface Waves|ondas superficiales]] para la caracterización de sitios. A diferencia de los capítulos anteriores —que desarrollan el marco teórico de [[Adquisición de Datos|adquisición]], [[Procesamiento de Señales|procesamiento]] e [[Inversión|inversión]]—, este capítulo integra todo el flujo de trabajo sobre datos experimentales reales. El objetivo es mostrar cómo las decisiones metodológicas afectan el resultado final en condiciones de campo reales.
 
 El capítulo está organizado en cinco secciones:
 
@@ -32,10 +32,10 @@ El diseño de dos configuraciones tiene como propósito cubrir rangos de frecuen
 El método de [[SASW Method|SASW]] (Spectral Analysis of Surface Waves) trabaja con pares de receptores. Para cada par, se evalúan las siguientes cantidades espectrales (Figura 7.2, p. 354):
 
 - **Fase del espectro cruzado (cross-power spectrum):** usada para estimar el retardo temporal dependiente de la frecuencia entre los dos receptores y, dado que la distancia es conocida, calcular la [[Phase Velocity|velocidad de fase]].
-- **Función de coherencia:** indica la frecuencia de confianza del análisis. Un valor de coherencia cercano a 1 señala alta relación señal/ruido (SNR). Solo se seleccionan los rangos de frecuencia donde la coherencia es alta (~10–35 Hz para el par de 18 m analizado).
+- **[[Coherence Function|Función de coherencia]]:** indica la frecuencia de confianza del análisis. Un valor de coherencia cercano a 1 señala alta relación señal/ruido (SNR). Solo se seleccionan los rangos de frecuencia donde la coherencia es alta (~10–35 Hz para el par de 18 m analizado).
 - **Autoespectro de potencia de cada receptor:** permite identificar la distribución de energía en frecuencia y verificar que ambos receptores registran el mismo modo.
 
-Un aspecto crítico en el análisis SASW es el **phase unwrapping**: la fase medida es periódica (−180° a +180°), y los errores en la identificación de los saltos de fase se propagan directamente como errores en la [[Dispersion Relation|curva de dispersión]]. Un SNR bajo (como ocurre por debajo de 10 Hz) dificulta la identificación correcta de dichos saltos. Las curvas de dispersión experimentales para distintas separaciones de receptores se muestran en la Figura 7.3 (p. 355).
+Un aspecto crítico en el análisis SASW es el **[[Phase Unwrapping|phase unwrapping]]**: la fase medida es periódica (−180° a +180°), y los errores en la identificación de los saltos de fase se propagan directamente como errores en la [[Dispersion Relation|curva de dispersión]]. Un SNR bajo (como ocurre por debajo de 10 Hz) dificulta la identificación correcta de dichos saltos. Las curvas de dispersión experimentales para distintas separaciones de receptores se muestran en la Figura 7.3 (p. 355).
 
 La estrategia práctica recomendada es procesar primero los pares con receptores cercanos (altas frecuencias, SNR alto) y luego verificar la consistencia con los pares más distantes. La superposición de ramas entre pares distintos permite detectar errores de unwrapping. Siempre se requiere juicio del operador.
 
@@ -43,13 +43,13 @@ La estrategia práctica recomendada es procesar primero los pares con receptores
 
 El análisis multiestación se realiza transformando los datos del dominio tiempo–espacio (x-t) al dominio frecuencia–número de onda (f-k). La curva de dispersión experimental se extrae como la localización de los máximos espectrales (Figura 7.4, p. 356).
 
-La transformada empleada es la **doble transformada de Fourier**, cuya aplicación se limita a arreglos con espaciado uniforme entre receptores. La resolución en el dominio f es función de la duración de la ventana temporal; la resolución en el dominio k está limitada por el número de receptores y la longitud del arreglo. Para mejorar la resolución en k, se aplica **zero padding en espacio** (por ejemplo, 1024 puntos, añadiendo señales de amplitud cero al dataset experimental). Con el arreglo de 3 m (70.5 m de longitud), se obtiene la curva de dispersión de forma consistente entre 8 y 43 Hz.
+La transformada empleada es la **[[2D Fourier Transform|doble transformada de Fourier]]**, cuya aplicación se limita a arreglos con espaciado uniforme entre receptores. La resolución en el dominio f es función de la duración de la ventana temporal; la resolución en el dominio k está limitada por el número de receptores y la longitud del arreglo. Para mejorar la resolución en k, se aplica **[[Zero Padding|zero padding]] en espacio** (por ejemplo, 1024 puntos, añadiendo señales de amplitud cero al dataset experimental). Con el arreglo de 3 m (70.5 m de longitud), se obtiene la curva de dispersión de forma consistente entre 8 y 43 Hz.
 
-La limitación en la frecuencia alta está determinada por la separación entre receptores (aliasing espacial) y por la atenuación de componentes de alta frecuencia en los geófonos distantes. La limitación en la frecuencia baja está determinada por la longitud total del arreglo.
+La limitación en la frecuencia alta está determinada por la separación entre receptores ([[Aliasing|aliasing espacial]]) y por la atenuación de componentes de alta frecuencia en los geófonos distantes. La limitación en la frecuencia baja está determinada por la longitud total del arreglo.
 
 Se muestra que las curvas de dispersión obtenidas con el análisis f-k son consistentes con las del análisis SASW para el rango de frecuencias donde ambas se solapan (Figura 7.5 y 7.8, pp. 357–360), confirmando que los dos métodos recuperan el mismo modo fundamental.
 
-También se aplicaron transformadas **τ-p** (slant-stack) y **MASW** (Multichannel Analysis of Surface Waves, véase Figura 7.6 y 7.7). En el dominio de frecuencia–lentitud (f-slowness), la curva de dispersión se recupera como localización de máximos, con la ventaja de que la velocidad de fase se visualiza directamente (ya que es el inverso de la lentitud). Para este dataset, las curvas obtenidas con f-k y τ-p son prácticamente indistinguibles (Figura 7.8, p. 360).
+También se aplicaron transformadas **[[Tau-P Transform|τ-p]]** (slant-stack) y **MASW** (Multichannel Analysis of Surface Waves, véase Figura 7.6 y 7.7). En el dominio de frecuencia–lentitud (f-slowness), la curva de dispersión se recupera como localización de máximos, con la ventaja de que la velocidad de fase se visualiza directamente (ya que es el inverso de la lentitud). Para este dataset, las curvas obtenidas con f-k y τ-p son prácticamente indistinguibles (Figura 7.8, p. 360).
 
 ### 7.1.3 Efecto del nivel freático en la inversión
 
@@ -59,7 +59,7 @@ El efecto del nivel freático es especialmente importante: en suelos secos, el r
 
 En el sitio Saluggia, el nivel freático fue identificado a 3 m de profundidad mediante un estudio de refracción de ondas P (que detecta la interfaz saturado/no saturado como un salto abrupto en la velocidad de onda P). Se realizaron tres inversiones con diferente hipótesis sobre el nivel freático (Figura 7.9, p. 362):
 
-- **Inversión 1** (nivel freático correcto, 3 m): perfil Vs con incremento gradual consistente con la estratigrafía y validado por ensayo cross-hole.
+- **Inversión 1** (nivel freático correcto, 3 m): perfil Vs con incremento gradual consistente con la estratigrafía y validado por ensayo [[Cross-Hole Test|cross-hole]].
 - **Inversión 2** (sin nivel freático): perfil Vs fuertemente incorrecto; las diferencias son atribuidas erróneamente a variaciones de Vs.
 - **Inversión 3** (nivel freático incorrecto a 7 m): sobreestimación sistemática de Vs a profundidad.
 
@@ -80,7 +80,7 @@ La moraleja es clara: **toda la información geotécnica disponible (incluyendo 
 
 **Datos activos:** 48 geófonos verticales de 4.5 Hz con espaciado de 1.5 m (longitud total del arreglo: 70.5 m). Fuente: maza de 8 kg. Se apilaron 30 disparos para reducir ruido. El análisis en el dominio f-k (Figura 7.12, p. 365) permite obtener la curva de dispersión en el rango 10–40 Hz.
 
-**Datos pasivos:** arreglo circular de 75 m de diámetro con geófonos verticales de 2 Hz. El procesamiento se realizó con el método de *frequency-domain beamformer* (Zywicki 1999): para cada frecuencia de interés, se construye el espectro de densidad espectral de potencia en función de número de onda en dos direcciones ortogonales (kx, ky). El pico del espectro identifica tanto la velocidad de propagación como la **dirección de llegada de la fuente dominante** (Figura 7.13, p. 365).
+**Datos pasivos:** arreglo circular de 75 m de diámetro con geófonos verticales de 2 Hz. El procesamiento se realizó con el método de *[[Beamforming|frequency-domain beamformer]]* (Zywicki 1999): para cada frecuencia de interés, se construye el espectro de densidad espectral de potencia en función de número de onda en dos direcciones ortogonales (kx, ky). El pico del espectro identifica tanto la velocidad de propagación como la **dirección de llegada de la fuente dominante** (Figura 7.13, p. 365).
 
 En este sitio, la fuente de microtremores (probablemente actividad de construcción a cientos de metros) llegaba desde una dirección preferencial. Esto invalida el uso de métodos que asumen campo difuso isotrópico (como [[SPAC Method|SPAC]]); el beamformer es apropiado porque no impone esa hipótesis. Se advierte que la identificación de fuentes también tiene aplicaciones en sismología urbana y estudios forenses.
 
@@ -117,9 +117,9 @@ El resultado es el **pseudo-perfil Vs** de la Figura 7.16a (p. 369): una curva c
 
 La inversión determinista aplica el algoritmo de mínimos cuadrados con amortiguamiento de Herrmann (1994): un método de búsqueda local iterativo que minimiza la diferencia entre la curva de dispersión teórica y la experimental. El perfil obtenido de la inversión empírica sirve como modelo inicial (Figura 7.17, p. 370).
 
-El perfil Vs resultante (Figura 7.18, p. 370) se compara con ensayos down-hole en dos sitios del mismo abanico aluvial (distancias ~1 km entre sitios). El acuerdo es significativo considerando la naturaleza del material y la heterogeneidad lateral esperada.
+El perfil Vs resultante (Figura 7.18, p. 370) se compara con ensayos [[Downhole Test|down-hole]] en dos sitios del mismo abanico aluvial (distancias ~1 km entre sitios). El acuerdo es significativo considerando la naturaleza del material y la heterogeneidad lateral esperada.
 
-La **incertidumbre del perfil Vs** se estima propagando la incertidumbre de la curva de dispersión experimental a través de la linealización del problema inverso (método FOSM, sección 6.5.3 del libro). Las barras de error sobre el perfil Vs muestran que:
+La **incertidumbre del perfil Vs** se estima propagando la incertidumbre de la curva de dispersión experimental a través de la linealización del problema inverso (método [[First-Order Second-Moment Method|FOSM]], sección 6.5.3 del libro). Las barras de error sobre el perfil Vs muestran que:
 
 - En capas superficiales (donde dominan los datos activos con bajo CV), el CV de Vs es <1%.
 - En capas profundas (donde dominan los datos pasivos con mayor CV), el CV de Vs sube hasta ~6%.
@@ -132,7 +132,7 @@ Crucialmente, **no hay amplificación del error**: el CV de salida no supera el 
 
 Los métodos de búsqueda local pueden quedar atrapados en mínimos locales de la función de desajuste (*misfit*). Para evaluar la [[Non-uniqueness|no-unicidad]] de la solución y obtener una caracterización probabilística del espacio de soluciones, se aplica el método de [[Monte Carlo Methods|Monte Carlo]] global de Socco & Boiero (2008).
 
-El algoritmo genera una **población de 10⁵ modelos** de perfil Vs mediante muestreo aleatorio. Aprovecha las propiedades de escala de las curvas modales para guiar el muestreo de manera eficiente. Se aplica un **test de Fisher** para seleccionar el subconjunto de modelos aceptables: aquellos cuyo desajuste es estadísticamente compatible con la incertidumbre experimental. Los perfiles seleccionados se grafican en escala de grises según el misfit (más oscuro = menor misfit), como en la Figura 7.19 (p. 372).
+El algoritmo genera una **población de 10⁵ modelos** de perfil Vs mediante muestreo aleatorio. Aprovecha las propiedades de escala de las curvas modales para guiar el muestreo de manera eficiente. Se aplica un **[[Fisher Test|test de Fisher]]** para seleccionar el subconjunto de modelos aceptables: aquellos cuyo desajuste es estadísticamente compatible con la incertidumbre experimental. Los perfiles seleccionados se grafican en escala de grises según el misfit (más oscuro = menor misfit), como en la Figura 7.19 (p. 372).
 
 Los resultados muestran que:
 - Las capas superficiales son bien constrenidas: pequeño rango de variación en Vs.
@@ -163,11 +163,11 @@ Este ejemplo ilustra que la elección del modelo de referencia (capas vs. contin
 
 La cuantificación del [[Shear Damping Ratio|amortiguamiento material]] Ds es relevante para aplicaciones sísmicas porque la disipación de energía en ciclos histéreticos condiciona la amplificación del movimiento del suelo. Un suelo con mayor amortiguamiento disipa parte de la energía sísmica incidente, reduciendo la amplificación en la frecuencia de resonancia del depósito. Este parámetro no puede derivarse del perfil Vs ni está relacionado biunívocamente con ningún índice geotécnico estático; por tanto, debe estimarse de forma independiente mediante ensayos específicos.
 
-Los ensayos de laboratorio (columna resonante, ensayos cíclicos triaxiales) pueden medir Ds sobre muestras, pero presentan dos limitaciones importantes: (1) representan volúmenes muy pequeños de suelo (~decenas de cm³), lo que dificulta la representatividad del volumen del depósito real, y (2) el valor de Ds depende del nivel de deformación impuesto, que en laboratorio puede diferir del nivel de campo bajo solicitación sísmica real.
+Los ensayos de laboratorio ([[Resonant Column Test|columna resonante]], ensayos cíclicos triaxiales) pueden medir Ds sobre muestras, pero presentan dos limitaciones importantes: (1) representan volúmenes muy pequeños de suelo (~decenas de cm³), lo que dificulta la representatividad del volumen del depósito real, y (2) el valor de Ds depende del nivel de deformación impuesto, que en laboratorio puede diferir del nivel de campo bajo solicitación sísmica real.
 
-Los ensayos in situ de ondas superficiales pueden estimar Ds en grandes volúmenes del depósito natural, bajo condiciones reales de presión de confinamiento y estructura del suelo. Sin embargo, para extraer Ds del coeficiente de atenuación experimental αR(ω), es necesario corregir la **atenuación geométrica** —disminución de amplitud por la expansión cilíndrica del frente de onda desde la fuente— y el efecto del [[Near-field Effect|campo cercano]] en los receptores más próximos. El incumplimiento de estas correcciones produce una sobreestimación sistemática de Ds (Capítulo 5).
+Los ensayos in situ de ondas superficiales pueden estimar Ds en grandes volúmenes del depósito natural, bajo condiciones reales de presión de confinamiento y estructura del suelo. Sin embargo, para extraer Ds del coeficiente de atenuación experimental αR(ω), es necesario corregir la **[[Geometric Spreading|atenuación geométrica]]** —disminución de amplitud por la expansión cilíndrica del frente de onda desde la fuente— y el efecto del [[Near-field Effect|campo cercano]] en los receptores más próximos. El incumplimiento de estas correcciones produce una sobreestimación sistemática de Ds (Capítulo 5).
 
-La metodología de inversión simultánea de las curvas de dispersión y atenuación para obtener perfiles conjuntos Vs(z) y Ds(z) fue descrita en la Sección 6.4.3.4. Este capítulo presenta dos casos de aplicación en condiciones de campo reales: el sitio de **Memphis** (Tennessee, EE.UU.), con geología sedimentaria simple y nivel freático conocido, y la **Torre de Pisa** (Italia), con una estratigrafía compleja de relevancia histórico-geotécnica donde la comparación con ensayos cross-hole y columna resonante permite validar la metodología.
+La metodología de inversión simultánea de las curvas de dispersión y atenuación para obtener perfiles conjuntos Vs(z) y Ds(z) fue descrita en la Sección 6.4.3.4. Este capítulo presenta dos casos de aplicación en condiciones de campo reales: el sitio de **Memphis** (Tennessee, EE.UU.), con geología sedimentaria simple y nivel freático conocido, y la **Torre de Pisa** (Italia), con una estratigrafía compleja de relevancia histórico-geotécnica donde la comparación con ensayos [[Cross-Hole Test|cross-hole]] y [[Resonant Column Test|columna resonante]] permite validar la metodología.
 
 ### 7.3.1 Memphis (Tennessee, EE.UU.)
 
@@ -179,7 +179,7 @@ La metodología de inversión simultánea de las curvas de dispersión y atenuac
 
 **Inversión:** Se aplicó mínimos cuadrados con amortiguamiento (Herrmann 1994) para invertir simultáneamente las curvas de dispersión y atenuación experimentales y obtener los perfiles de Vs(z) y Ds(z) (Sección 6.4.3.4 del libro). La Figura 7.25 (p. 377) compara las curvas experimentales y teóricas del mejor ajuste, tanto para dispersión como para atenuación.
 
-**Resultados:** La Figura 7.26 (p. 378) muestra el perfil Vs comparado con un ensayo de cono de penetración sísmica (SCPT), y el perfil Ds en función de la profundidad. El acuerdo del perfil Vs con el SCPT es bueno. El perfil Ds es plausible físicamente, aunque la comparación con datos independientes de laboratorio no se reporta en este caso.
+**Resultados:** La Figura 7.26 (p. 378) muestra el perfil Vs comparado con un ensayo de [[Seismic Cone Penetration Test|cono de penetración sísmica (SCPT)]], y el perfil Ds en función de la profundidad. El acuerdo del perfil Vs con el SCPT es bueno. El perfil Ds es plausible físicamente, aunque la comparación con datos independientes de laboratorio no se reporta en este caso.
 
 > Figuras clave: 7.24 (p. 376), 7.25 (p. 377), 7.26 (p. 378).
 
@@ -218,7 +218,7 @@ Existen dos enfoques principales para manejar esta situación:
 
 1. **Modelado de la curva aparente:** el modelo directo calcula la curva de dispersión aparente tomando en cuenta las contribuciones de todos los modos y la geometría de adquisición. El desajuste se define como la distancia entre la curva aparente experimental y la teórica. Es preciso pero computacionalmente costoso, y requiere evaluar derivadas parciales complejas para métodos de búsqueda local.
 
-2. **Desajuste por determinante** (*determinant misfit*, Maraschini et al. 2010): el desajuste se define como el valor del **determinante de la matriz de transferencia de Haskell-Thomson** evaluado en los números de onda experimentales. En un [[Layered Media|medio estratificado]], las curvas de dispersión modales son exactamente los ceros de este determinante. Por tanto, si un punto experimental (k_exp, f) pertenece a cualquier modo de Rayleigh del modelo de referencia, el valor del determinante será cero. Para cualquier modelo que no coincida, el valor del determinante será distinto de cero. El desajuste se calcula como la suma de los valores del determinante evaluados en todos los puntos experimentales.
+2. **Desajuste por determinante** (*determinant misfit*, Maraschini et al. 2010): el desajuste se define como el valor del **determinante de la [[Thomson-Haskell Matrix|matriz de transferencia de Haskell-Thomson]]** evaluado en los números de onda experimentales. En un [[Layered Media|medio estratificado]], las curvas de dispersión modales son exactamente los ceros de este determinante. Por tanto, si un punto experimental (k_exp, f) pertenece a cualquier modo de Rayleigh del modelo de referencia, el valor del determinante será cero. Para cualquier modelo que no coincida, el valor del determinante será distinto de cero. El desajuste se calcula como la suma de los valores del determinante evaluados en todos los puntos experimentales.
 
 Las ventajas del *determinant misfit* son dobles: (1) **no es necesario asignar a priori los puntos experimentales a un modo específico** — el algoritmo acepta puntos de cualquier modo; (2) la evaluación del modelo directo es muy ligera computacionalmente porque no requiere buscar los ceros del determinante, solo evaluarlo en puntos conocidos. Esto lo hace especialmente adecuado para métodos globales de búsqueda con poblaciones de millones de modelos. La Figura 7.30 (p. 382) ilustra la superficie del determinante en el espacio (frecuencia, velocidad): los valles corresponden a las curvas modales.
 
@@ -246,9 +246,9 @@ Si la geometría de adquisición no es demasiado agresiva contra las ondas super
 
 El caso presentado corresponde al mismo **sitio La Salle** (Alpes italianos) de la Sección 7.2, pero ahora usando dos líneas de reflexión sísmica previamente adquiridas (Socco et al. 2008, 2009). El mapa de la Figura 7.32 (p. 386) muestra las dos líneas de reflexión (L1 y L2), los pozos de down-hole y los puntos de ensayos activos/pasivos de ondas superficiales.
 
-**Extracción de curvas de dispersión:** se aplica la técnica de **ventana deslizante** sobre los sismogramas de reflexión (Figura 7.33, p. 386): se extraen subventanas temporales solapadas a lo largo de la línea, y para cada posición de ventana se calcula el espectro f-k y se extrae la curva de dispersión experimental. Esto produce un conjunto de curvas de dispersión distribuidas espacialmente a lo largo de cada línea (Figura 7.34, p. 387), representando las propiedades de velocidad locales en cada posición.
+**Extracción de curvas de dispersión:** se aplica la técnica de **[[Sliding Window|ventana deslizante]]** sobre los sismogramas de reflexión (Figura 7.33, p. 386): se extraen subventanas temporales solapadas a lo largo de la línea, y para cada posición de ventana se calcula el espectro f-k y se extrae la curva de dispersión experimental. Esto produce un conjunto de curvas de dispersión distribuidas espacialmente a lo largo de cada línea (Figura 7.34, p. 387), representando las propiedades de velocidad locales en cada posición.
 
-**Inversión con restricción lateral:** los perfiles Vs obtenidos para cada ventana se invierten con un esquema de **inversión con restricciones laterales** (*laterally constrained inversion*): los perfiles 1D individuales están acoplados entre sí mediante penalizaciones que favorecen la suavidad lateral. Las Figuras 7.35 (p. 388) y 7.36 (p. 389) muestran los modelos Vs pseudo-2D para L1 y L2, superpuestos sobre las secciones de reflexión sísmica. Los resultados se comparan con ensayos down-hole (flechas largas) y ensayos activos/pasivos de ondas superficiales (flechas cortas), con buen acuerdo.
+**Inversión con restricción lateral:** los perfiles Vs obtenidos para cada ventana se invierten con un esquema de **inversión con restricciones laterales** (*laterally constrained inversion*): los perfiles 1D individuales están acoplados entre sí mediante penalizaciones que favorecen la suavidad lateral ([[Laterally Constrained Inversion|inversión con restricciones laterales]]). Las Figuras 7.35 (p. 388) y 7.36 (p. 389) muestran los modelos Vs pseudo-2D para L1 y L2, superpuestos sobre las secciones de reflexión sísmica. Los resultados se comparan con ensayos down-hole (flechas largas) y ensayos activos/pasivos de ondas superficiales (flechas cortas), con buen acuerdo.
 
 La limitación de profundidad es ~50 m, impuesta por el uso de geófonos de alta frecuencia en la reflexión (no adecuados para extraer bajas frecuencias de ondas superficiales). La extensión a mayor profundidad se logra combinando con los ensayos pasivos dedicados (Sección 7.2).
 

@@ -2,18 +2,18 @@
 
 ## Introducción
 
-Este capítulo desarrolla la teoría de propagación de ondas superficiales en medios:
+Este capítulo desarrolla la teoría de propagación de [[Surface Waves|ondas superficiales]] en medios:
 
-- elásticos lineales
-- viscoelásticos lineales
+- [[Elasticity|elásticos lineales]]
+- [[Viscoelastic Media|viscoelásticos lineales]]
 
-con el objetivo de establecer la base física para el **modelado directo (forward modeling)** utilizado en métodos de caracterización del subsuelo mediante ondas superficiales.
+con el objetivo de establecer la base física para el **modelado directo (forward modeling)** utilizado en métodos de caracterización del subsuelo mediante [[Surface Waves|ondas superficiales]].
 
 Aunque el desarrollo teórico incluye tanto [[Love Waves]] como [[Rayleigh Waves]], el capítulo se enfoca principalmente en **Rayleigh waves**, debido a su mayor relevancia en aplicaciones prácticas de exploración geofísica, ingeniería geotécnica y caracterización sísmica de sitio.
 
-Las [[Rayleigh Waves]] son particularmente importantes porque dominan el campo de ondas registrado por geófonos en mediciones de superficie y contienen información directa sobre el perfil de velocidades de [[S-Waves]]. En campo, a distancias de una o dos longitudes de onda desde la fuente, las ondas superficiales representan ~67% de la energía total generada por una fuente puntual vertical, con decaimiento geométrico $\propto r^{-0.5}$ frente a $r^{-2}$ de las ondas de cuerpo. Esta diferencia explica por qué el campo de ondas queda dominado por las componentes de Rayleigh a medida que se aleja de la fuente.
+Las [[Rayleigh Waves]] son particularmente importantes porque dominan el campo de ondas registrado por geófonos en mediciones de superficie y contienen información directa sobre el perfil de velocidades de [[S-Waves]]. En campo, a distancias de una o dos [[Wavelength|longitudes de onda]] desde la fuente, las [[Surface Waves|ondas superficiales]] representan ~67% de la energía total generada por una fuente puntual vertical, con decaimiento geométrico $\propto r^{-0.5}$ frente a $r^{-2}$ de las [[Body Waves|ondas de cuerpo]]. Esta diferencia explica por qué el campo de ondas queda dominado por las componentes de Rayleigh a medida que se aleja de la fuente.
 
-El contenido del capítulo progresa desde los fundamentos de la mecánica ondulatoria (Sec. 2.1) hasta la derivación rigurosa de las eigenfunciones de Rayleigh en semiespacios homogéneos (Sec. 2.2), la teoría de Love waves (Sec. 2.3), la generalización a medios verticalmente heterogéneos con múltiples modos de propagación (Sec. 2.4), y finalmente la extensión al caso viscoelástico que fundamenta la medición de atenuación en campo (Sec. 2.5). Este arco argumental es la columna vertebral teórica de todos los métodos de adquisición, procesamiento e inversión discutidos en los capítulos siguientes.
+El contenido del capítulo progresa desde los fundamentos de la mecánica ondulatoria (Sec. 2.1) hasta la derivación rigurosa de las eigenfunciones de Rayleigh en semiespacios homogéneos (Sec. 2.2), la teoría de Love waves (Sec. 2.3), la generalización a medios verticalmente heterogéneos con múltiples modos de propagación (Sec. 2.4), y finalmente la extensión al caso viscoelástico que fundamenta la medición de [[Attenuation|atenuación]] en campo (Sec. 2.5). Este arco argumental es la columna vertebral teórica de todos los métodos de [[Adquisición de Datos|adquisición]], [[Procesamiento de Señales|procesamiento]] e [[Inversión|inversión]] discutidos en los capítulos siguientes.
 
 ---
 
@@ -30,7 +30,7 @@ Primero se distinguen dos clases fundamentales de movimiento ondulatorio:
 - **[[Hyperbolic Waves]]**
 - **[[Wave Dispersion]]**
 
-Luego se introducen las ecuaciones de movimiento en sólidos elásticos y la propagación de ondas de cuerpo en medios:
+Luego se introducen las ecuaciones de movimiento en sólidos elásticos y la propagación de [[Body Waves|ondas de cuerpo]] en medios:
 
 - homogéneos
 - isotrópicos
@@ -43,7 +43,7 @@ Esto permite introducir parámetros fundamentales como:
 - [[Phase Velocity]]
 - [[Group Velocity]]
 
-En este contexto aparecen las ondas de cuerpo:
+En este contexto aparecen las [[Body Waves|ondas de cuerpo]]:
 
 - [[P-waves]]
 - [[S-Waves]]
@@ -97,14 +97,14 @@ Se analizan:
 
 - propagación de [[Rayleigh Waves]]
 - propagación de [[Love Waves]]
-- medios estratificados
+- [[Layered Media|medios estratificados]]
 
 Se introducen conceptos clave como:
 
 - [[Mode Superposition]]
 - velocidad de fase efectiva ([[Phase Velocity]])
 
-También se revisita el [[Lamb’s Problem]], que describe la generación de ondas superficiales por una fuente puntual aplicada sobre la superficie libre del medio.
+También se revisita el [[Lamb’s Problem]], que describe la generación de [[Surface Waves|ondas superficiales]] por una fuente puntual aplicada sobre la superficie libre del medio.
 
 Este problema corresponde a la resolución de un problema de contorno no homogéneo asociado a la generación de ondas.
 
@@ -117,7 +117,7 @@ Se discuten:
 - modelos constitutivos de [[Viscoelastic Media]]
 - mecanismos de [[Attenuation]]
 
-Utilizando el principio de correspondencia elastic-viscoelastic, se obtienen las propiedades de propagación de ondas de cuerpo en medios viscoelásticos.
+Utilizando el [[Correspondence Principle|principio de correspondencia elástico–viscoelástico]], se obtienen las propiedades de propagación de [[Body Waves|ondas de cuerpo]] en [[Viscoelastic Media|medios viscoelásticos]].
 
 Posteriormente se analiza la propagación de ondas superficiales en medios:
 
@@ -280,7 +280,7 @@ Un resultado importante discutido posteriormente en el capítulo es que:
 
 ### 2.1.2 Group Velocity
 
-La **velocidad de grupo** describe la velocidad a la que se propaga la envolvente de un paquete de ondas en un medio dispersivo.
+La **[[Group Velocity|velocidad de grupo]]** describe la velocidad a la que se propaga la envolvente de un paquete de ondas en un medio dispersivo.
 
 $$
 c_g = \frac{d\omega}{dk}
@@ -371,7 +371,7 @@ Impacto práctico:
 
 Esta sección introduce el modelo fundamental de propagación de ondas en medios elásticos continuos.
 
-A partir de las ecuaciones de la elastodinámica lineal se demuestra la existencia de dos tipos fundamentales de ondas de cuerpo:
+A partir de las ecuaciones de la elastodinámica lineal se demuestra la existencia de dos tipos fundamentales de [[Body Waves|ondas de cuerpo]]:
 
 - [[P-waves]]
 - [[S-Waves]]
@@ -440,7 +440,7 @@ $$
 
 con:
 
-- $\lambda, \mu$ → constantes de Lamé
+- $\lambda, \mu$ → [[Lamé Constants|constantes de Lamé]]
 - $I$ → tensor identidad
 - $tr(\varepsilon)$ → traza del tensor de deformación
 
@@ -461,7 +461,7 @@ Estas ecuaciones constituyen un sistema de [[Hyperbolic Partial Differential Equ
 
 #### Descomposición del campo de desplazamiento
 
-Mediante la descomposición de Helmholtz, el campo admite:
+Mediante la [[Helmholtz Decomposition|descomposición de Helmholtz]], el campo admite:
 
 - una componente irrotacional
 - una componente rotacional
@@ -505,8 +505,8 @@ Estas velocidades corresponden a la [[Phase Velocity]] de las ondas de cuerpo. E
 
 Las [[S-Waves]] poseen dos posibles polarizaciones:
 
-- SV → polarización vertical
-- SH → polarización horizontal
+- [[SV-wave|SV]] → polarización vertical
+- [[SH-wave|SH]] → polarización horizontal
 
 Esto es fundamental para la clasificación de las [[Surface Waves]]:
 
@@ -571,7 +571,7 @@ Estos principios constituyen la base física de los métodos utilizados en [[Mé
 
 ### Relación entre $V_P$ y $V_S$
 
-Las velocidades de propagación de ondas de cuerpo dependen de las propiedades elásticas del medio:
+Las velocidades de propagación de [[Body Waves|ondas de cuerpo]] dependen de las propiedades elásticas del medio:
 
 $$  
 V_P=\sqrt{\frac{\lambda+2\mu}{\rho}},  
@@ -585,7 +585,7 @@ $$
 V_P > V_S  
 $$
 
-porque las ondas P dependen de la rigidez volumétrica y de corte, mientras que las ondas S dependen únicamente de la rigidez de corte.
+porque las [[P-waves|ondas P]] dependen de la rigidez volumétrica y de corte, mientras que las [[S-Waves|ondas S]] dependen únicamente de la rigidez de corte.
 
 ### Relación con el [[Poisson Ratio|coeficiente de Poisson]]
 
@@ -755,7 +755,7 @@ $$
 
 #### Longitud de onda
 
-La longitud de onda es la distancia entre dos puntos con la misma fase:
+La [[Wavelength|longitud de onda]] es la distancia entre dos puntos con la misma fase:
 
 $$  
 \lambda = \frac{2\pi}{k}  
@@ -779,22 +779,22 @@ Estas relaciones son fundamentales porque permiten conectar el comportamiento de
 
 En particular:
 
-- la frecuencia controla la longitud de onda    
+- la frecuencia controla la longitud de onda
 - la longitud de onda controla la profundidad efectiva de investigación
-- la dependencia entre velocidad y frecuencia es la base de las curvas de dispersión
+- la dependencia entre velocidad y frecuencia es la base de las [[Dispersion Relation|curvas de dispersión]]
 
 Por eso, estos parámetros serán esenciales en las secciones posteriores sobre:
 
 - [[Rayleigh Waves]]
 - [[Love Waves]]
 - [[Dispersion Relation]]
-- análisis de adquisición e inversión
+- análisis de [[Adquisición de Datos|adquisición]] e [[Inversión|inversión]]
 
 ## 2.2 Rayleigh Waves in Homogeneous Elastic Half-Spaces
 
 ### 2.2.1 Overview
 
-Los continuos elásticos **homogéneos, isotrópicos y no acotados** solo permiten la propagación de ondas de cuerpo:
+Los continuos elásticos **homogéneos, isotrópicos y no acotados** solo permiten la propagación de [[Body Waves|ondas de cuerpo]]:
 
 - [[P-waves]]
 - [[S-Waves]]
@@ -816,7 +816,7 @@ Esto implica que la energía se propaga principalmente:
 - a lo largo de la superficie
 - con muy poca propagación hacia el interior del medio.
 
-Como consecuencia, las ondas superficiales presentan una **atenuación geométrica mucho menor** que las ondas de cuerpo.
+Como consecuencia, las ondas superficiales presentan una **[[Attenuation|atenuación]] geométrica mucho menor** que las ondas de cuerpo.
 
 ---
 
@@ -828,7 +828,7 @@ Para un **medio elástico homogéneo semi-infinito**:
 
 **Fuente lineal vertical**
 
-- las [[Rayleigh Waves]] no presentan atenuación geométrica.
+- las [[Rayleigh Waves]] no presentan [[Geometric Spreading|atenuación geométrica]].
 
 **Fuente puntual vertical**
 
@@ -904,7 +904,7 @@ En particular:
 
 Este principio permite reconstruir perfiles de velocidad de corte del subsuelo mediante el análisis de la **[[Dispersion Relation]]** de [[Rayleigh Waves]].
 
-### 2.2.2 Derivación mediante potenciales de onda elástica
+### 2.2.2 Derivación mediante [[Elastic Wave Potentials|potenciales de onda elástica]]
 
 La existencia de las [[Rayleigh Waves]] se demuestra formalmente mediante la descomposición de Helmholtz del campo de desplazamientos, aplicando condiciones de frontera en la superficie libre.
 
@@ -928,7 +928,7 @@ donde:
 - $\phi$ → potencial escalar (asociado a [[P-waves]])
 - $\mathbf{\psi}$ → potencial vectorial (asociado a [[S-Waves]])
 
-Cada potencial satisface su propia ecuación de onda:
+Cada potencial satisface su propia [[1D Wave Equation|ecuación de onda]]:
 
 $$
 \nabla^2 \phi = \frac{1}{V_P^2}\frac{\partial^2 \phi}{\partial t^2}
@@ -976,7 +976,7 @@ $$
 \left(2 - \frac{c_R^2}{V_S^2}\right)^2 = 4\sqrt{1 - \frac{c_R^2}{V_P^2}}\sqrt{1 - \frac{c_R^2}{V_S^2}}
 $$
 
-donde $c_R$ es la velocidad de fase de las ondas de Rayleigh.
+donde $c_R$ es la [[Phase Velocity|velocidad de fase]] de las [[Rayleigh Waves|ondas de Rayleigh]].
 
 Esta ecuación puede reescribirse en términos de la razón $\xi = c_R / V_S$ como un polinomio:
 
@@ -1056,7 +1056,7 @@ Un resultado central del capítulo es que en un [[Elastic Half Space]] homogéne
 
 - $c_R$ **no depende de la frecuencia** ni del número de onda
 - la ecuación secular de Rayleigh no contiene $\omega$ ni $k$ de forma independiente, sino únicamente a través del cociente $c_R = \omega/k$
-- por tanto, las ondas de Rayleigh en este medio son **no dispersivas**
+- por tanto, las [[Rayleigh Waves|ondas de Rayleigh]] en este medio son **no dispersivas**
 
 La razón física de esta no-dispersividad es que el medio es homogéneo: no existe longitud de escala característica que introduzca un efecto de tamaño relativo. La onda de Rayleigh de cualquier frecuencia "ve" exactamente el mismo medio independientemente de su longitud de onda. En contraste, en un medio estratificado sí existe una longitud de escala natural (el espesor de las capas), y las ondas de diferente longitud de onda penetran profundidades diferentes y por tanto sienten medios distintos — esto es exactamente la dispersión geométrica.
 
@@ -1068,7 +1068,7 @@ La no-dispersividad del semiespacio homogéneo sirve también como límite asint
 
 ## 2.3 Existence of Love Waves
 
-Las [[Love Waves]] fueron predichas matemáticamente por A.E.H. Love en 1911. Son ondas transversales horizontalmente polarizadas (SH) que surgen de la interferencia constructiva de ondas SH en medios inhomogéneos estratificados.
+Las [[Love Waves]] fueron predichas matemáticamente por A.E.H. Love en 1911. Son ondas transversales horizontalmente polarizadas ([[SH-wave|SH]]) que surgen de la interferencia constructiva de ondas SH en [[Layered Media|medios inhomogéneos estratificados]].
 
 **Las Love waves no pueden existir en un semiespacio homogéneo.** Requieren al menos una capa superficial sobre un semiespacio más rígido:
 
@@ -1084,7 +1084,7 @@ $$
 V_{S1} < c_L < V_{S2}
 $$
 
-donde $c_L = \omega/k$ es la velocidad de fase de las Love waves. Cuando esta condición se cumple, las ondas SH quedan **atrapadas** en la capa superior por reflexión total interna en la interfaz — la capa actúa como una **guía de ondas**. Si $V_{S2} \leq V_{S1}$, las Love waves no existen.
+donde $c_L = \omega/k$ es la velocidad de fase de las Love waves. Cuando esta condición se cumple, las [[SH-wave|ondas SH]] quedan **atrapadas** en la capa superior por reflexión total interna en la interfaz — la capa actúa como una **[[Wave Guide|guía de ondas]]**. Si $V_{S2} \leq V_{S1}$, las Love waves no existen.
 
 *(Fuente: Foti Ch. 2, Sec. 2.3, p. 60–61)*
 
@@ -1118,7 +1118,7 @@ La relación de dispersión admite múltiples ramas (modos):
 - **Modo fundamental** ($n = 1$): existe para **todas** las frecuencias
 - **Modos superiores** ($n = 2, 3, \ldots$): existen solo por encima de una **frecuencia de corte**
 
-La frecuencia angular de corte del $n$-ésimo modo es (Foti Ec. 2.55):
+La [[Angular Frequency|frecuencia angular]] de corte del $n$-ésimo modo es (Foti Ec. 2.55):
 
 $$
 \frac{\omega_c^n \cdot h}{V_{S1}} = \frac{\pi(n-1)}{\sqrt{1 - \left(\frac{V_{S1}}{V_{S2}}\right)^2}}, \qquad n = 1, 2, \ldots
@@ -1135,7 +1135,7 @@ Esta dependencia frecuencial multimodal es la base de la [[Geometric Dispersion]
 
 ### 2.4.1 Problema de autovalores asociado a ondas superficiales libres (Foti Ecs. 2.65–2.74)
 
-Cuando $\lambda = \lambda(x_2)$, $\mu = \mu(x_2)$, $\rho = \rho(x_2)$, las ecuaciones de Navier se generalizan (Foti Ec. 2.56). La búsqueda de soluciones del tipo ondas superficiales conduce a dos **problemas de autovalores diferenciales** con operador $d/dx_2$.
+Cuando $\lambda = \lambda(x_2)$, $\mu = \mu(x_2)$, $\rho = \rho(x_2)$, las ecuaciones de Navier se generalizan (Foti Ec. 2.56). La búsqueda de soluciones del tipo ondas superficiales conduce a dos **[[Eigenvalue Problem|problemas de autovalores diferenciales]]** con operador $d/dx_2$.
 
 #### Sistemas de EDOs de primer orden
 
@@ -1165,7 +1165,7 @@ Esta es la ecuación de dispersión general: altamente no lineal, trascendente, 
 
 #### Algoritmos numéricos (Foti Sec. 2.4.1.1, p. 72–74)
 
-- **Thomson–Haskell (transfer matrix)**: construye $\Phi_{L/R}[\cdot]$ multiplicando matrices de capa; las raíces son los autovalores. Más común por su simplicidad, pero numéricamente inestable a alta frecuencia
+- **[[Thomson-Haskell Matrix|Thomson–Haskell]] (transfer matrix)**: construye $\Phi_{L/R}[\cdot]$ multiplicando matrices de capa; las raíces son los autovalores. Más común por su simplicidad, pero numéricamente inestable a alta frecuencia
 - **Matriz de rigidez dinámica (Kausel–Roesset 1981)**: reemplaza las matrices de transferencia por matrices de rigidez de capa; más estable
 - **Coeficientes de reflexión–transmisión (Kennett)**: algoritmo recursivo; modela explícitamente la interferencia constructiva entre modos
 
@@ -1207,13 +1207,13 @@ El campo de ondas registrado por un arreglo de geófonos es en general una **sup
 
 #### Solución en el campo lejano (Foti Ec. 2.75)
 
-El [[Lamb's Problem]] describe la respuesta de un semiespacio elástico homogéneo a una carga puntual vertical armónica $F\,e^{i\omega t}$ en la superficie libre. El desplazamiento vertical de Rayleigh en **aproximación de campo lejano** es (Foti Ec. 2.75):
+El [[Lamb's Problem]] describe la respuesta de un [[Elastic Half Space|semiespacio elástico]] homogéneo a una carga puntual vertical armónica $F\,e^{i\omega t}$ en la superficie libre. El desplazamiento vertical de Rayleigh en **aproximación de campo lejano** es (Foti Ec. 2.75):
 
 $$
 u_2(r,\omega) = \frac{F\,e^{i\omega t}}{2i\mu}\cdot k_R\cdot\Psi(k_R)\cdot H_0^{(2)}(k_R r)
 $$
 
-donde $r = \sqrt{x_1^2 + x_3^2}$, $k_R = \omega/V_R$, y $H_0^{(2)}(\cdot)$ es la función de Hankel de segundo tipo y orden cero. Para $|k_R r| \gg 1$, la expansión asintótica muestra que la amplitud decae como $r^{-0.5}$ (frentes de onda cilíndricos).
+donde $r = \sqrt{x_1^2 + x_3^2}$, $k_R = \omega/V_R$, y $H_0^{(2)}(\cdot)$ es la [[Hankel Function|función de Hankel]] de segundo tipo y orden cero. Para $|k_R r| \gg 1$, la expansión asintótica muestra que la amplitud decae como $r^{-0.5}$ (frentes de onda cilíndricos).
 
 Las ondas de cuerpo, en cambio, decaen como $r^{-2}$ en la superficie libre — mucho más rápido.
 
@@ -1221,7 +1221,7 @@ Las ondas de cuerpo, en cambio, decaen como $r^{-2}$ en la superficie libre — 
 
 El campo total se descompone en $\mathbf{u} = \mathbf{u}_B + \mathbf{u}_S$. En el **campo lejano**, la contribución de ondas de cuerpo es despreciable.
 
-**Umbral cuantitativo** (Foti Sec. 2.4.2, p. 86): en medios *normalmente dispersivos*, los efectos de campo cercano son significativos hasta:
+**Umbral cuantitativo** (Foti Sec. 2.4.2, p. 86): en medios *normalmente dispersivos*, los efectos de [[Near-field Effect|campo cercano]] son significativos hasta:
 
 $$
 r \lesssim \frac{\lambda_R}{2}
@@ -1277,7 +1277,7 @@ donde $(V_R)_j$, $(U_R)_j$ y $(I_R)_j$ son la velocidad de fase, velocidad de gr
 ![[Pasted image 20260318140813.png]]
 - En medios **normalmente dispersivos**: la curva aparente está cerca del modo fundamental a frecuencias intermedias; la aproximación monomodal suele ser aceptable
 - En medios **inversamente dispersivos**: la curva aparente diverge significativamente del modo fundamental desde frecuencias bajas (~8 Hz en los ejemplos de Foti) — invertirla como modo fundamental introduce errores severos en $V_S(z)$
-- Lo que los métodos experimentales (MASW, f-k) extraen es $V^{app}$, no curvas modales; el proceso de inversión debe tener esto en cuenta
+- Lo que los métodos experimentales ([[MASW Method|MASW]], f-k) extraen es $V^{app}$, no curvas modales; el proceso de [[Inversión|inversión]] debe tener esto en cuenta
 
 *(Fuente: Foti Ch. 2, Sec. 2.4.2.4, p. 90–95, Ecs. 2.93–2.95)*
 
@@ -1289,9 +1289,9 @@ donde $(V_R)_j$, $(U_R)_j$ y $(I_R)_j$ son la velocidad de fase, velocidad de gr
 
 Los suelos y rocas reales **no son elásticos perfectos**: parte de la energía sísmica se disipa como calor por deformación viscosa interna (rozamiento entre partículas, movimiento de fluido poral). Este fenómeno es relevante para el diseño sísmico porque controla la amplificación del movimiento del suelo: mayor amortiguamiento → menor amplificación en la frecuencia de resonancia del depósito.
 
-Cuantitativamente, el amortiguamiento material se expresa mediante la **razón de amortiguamiento** $D_S$ (también escrita $D$ o $\xi$ en literatura de ingeniería sísmica), que representa la fracción de energía disipada por ciclo de deformación. Para suelos dentro del rango de deformación lineal cíclica (típicamente deformación de corte $\gamma < 10^{-5}$), los valores típicos son $D_S \approx 1\text{–}5\%$.
+Cuantitativamente, el amortiguamiento material se expresa mediante la **[[Shear Damping Ratio|razón de amortiguamiento]]** $D_S$ (también escrita $D$ o $\xi$ en literatura de ingeniería sísmica), que representa la fracción de energía disipada por ciclo de deformación. Para suelos dentro del rango de deformación lineal cíclica (típicamente deformación de corte $\gamma < 10^{-5}$), los valores típicos son $D_S \approx 1\text{–}5\%$.
 
-La **viscoelasticidad lineal** es el marco constitutivo más simple y físicamente consistente para describir este comportamiento. Se basa en cuatro hipótesis: (1) **pequeñas deformaciones** (linealización del tensor de deformación), (2) **invariancia temporal** (las propiedades del material no cambian con el tiempo), (3) **postulado de herencia** (el esfuerzo en el instante $t$ depende de toda la historia previa de deformación), y (4) **hipótesis de memoria débil** (la influencia del pasado remoto es despreciable, lo que garantiza la existencia de la integral de Boltzmann).
+La **[[Viscoelastic Media|viscoelasticidad]] lineal** es el marco constitutivo más simple y físicamente consistente para describir este comportamiento. Se basa en cuatro hipótesis: (1) **pequeñas deformaciones** (linealización del tensor de deformación), (2) **invariancia temporal** (las propiedades del material no cambian con el tiempo), (3) **postulado de herencia** (el esfuerzo en el instante $t$ depende de toda la historia previa de deformación), y (4) **hipótesis de memoria débil** (la influencia del pasado remoto es despreciable, lo que garantiza la existencia de la integral de Boltzmann).
 
 El marco viscoelástico lineal es fundamentalmente diferente de la plasticidad o la histéresis no lineal: solo describe la disipación en el régimen de deformaciones infinitesimales. Para niveles de deformación mayores, se requieren modelos más complejos (hiperbólico, Ramberg-Osgood, etc.) que están fuera del alcance de los métodos de ondas superficiales estándar.
 
@@ -1323,7 +1323,7 @@ donde $\mathbf{G}^*(\omega) = \mathbf{G}_{(1)}(\omega) + i\,\mathbf{G}_{(2)}(\om
 
 ### 2.5.3 Relaciones de Kramers–Krönig y causalidad (Foti Ec. 2.99)
 
-Las partes real e imaginaria del módulo complejo **no son independientes**. Están ligadas por las **relaciones de Kramers–Krönig** (Foti Ec. 2.99):
+Las partes real e imaginaria del módulo complejo **no son independientes**. Están ligadas por las **[[Kramers-Kronig Relations|relaciones de Kramers–Krönig]]** (Foti Ec. 2.99):
 
 $$
 G_{(1)}(\omega) = G_{(e)} + \frac{2}{\pi}\int_0^{\infty}\frac{G_{(2)}(\tau)\cdot\omega^2}{\tau\cdot(\omega^2-\tau^2)}\,d\tau
@@ -1345,7 +1345,7 @@ $$
 
 ### 2.5.4 Ondas viscoelásticas en medios homogéneos: principio de correspondencia
 
-La analogía entre las ecuaciones de campo de la elasticidad y la viscoelasticidad en el dominio frecuencial constituye el **principio de correspondencia elástico–viscoelástico** (Foti Sec. 2.5.2):
+La analogía entre las ecuaciones de campo de la elasticidad y la viscoelasticidad en el dominio frecuencial constituye el **[[Correspondence Principle|principio de correspondencia elástico–viscoelástico]]** (Foti Sec. 2.5.2):
 
 > Las soluciones del problema viscoelástico en dominio frecuencial se obtienen reemplazando las constantes elásticas reales $\lambda$, $\mu$ por sus equivalentes complejos $G_S^*(\omega)$, $G_B^*(\omega)$ en las expresiones del caso elástico.
 
@@ -1371,7 +1371,7 @@ $$
 D_\chi(\omega) = \frac{G_{(2)\chi}}{2G_{(1)\chi}}, \qquad \chi = P, S
 $$
 
-Su relación con el factor de calidad: $Q_\chi(\omega) = 1/(2D_\chi(\omega))$.
+Su relación con el [[Quality Factor|factor de calidad]]: $Q_\chi(\omega) = 1/(2D_\chi(\omega))$.
 
 *(Fuente: Foti Ch. 2, Sec. 2.5.2, p. 106–112, Ecs. 2.115, 2.118)*
 
@@ -1399,9 +1399,9 @@ Experimentalmente, los geomateriales dentro del umbral de deformación lineal c�
 
 ---
 
-### 2.5.6 Rayleigh Eigenproblem en medios débilmente disipativos (Foti Ec. 2.133)
+### 2.5.6 [[Rayleigh Eigenproblem]] en medios débilmente disipativos (Foti Ec. 2.133)
 
-Aplicando principios variacionales de Love–Rayleigh bajo la hipótesis de disipación débil (Ecs. 2.128–2.129), se obtiene el resultado central de la sección (Foti Ec. 2.133):
+Aplicando [[Variational Principles|principios variacionales de Love–Rayleigh]] bajo la hipótesis de disipación débil (Ecs. 2.128–2.129), se obtiene el resultado central de la sección (Foti Ec. 2.133):
 
 $$
 \begin{cases}
@@ -1410,7 +1410,7 @@ V_R(\omega) = V_R^e + \displaystyle\int_0^\infty V_S\frac{\partial V_R}{\partial
 \end{cases}
 $$
 
-donde $V_R^e$ es la velocidad de Rayleigh del medio elástico asociado ($D=0$), y las derivadas $\partial V_R/\partial V_S$, $\partial V_R/\partial V_P$ son las **sensitividades** de la velocidad de Rayleigh respecto al perfil de velocidades.
+donde $V_R^e$ es la velocidad de Rayleigh del medio elástico asociado ($D=0$), y las derivadas $\partial V_R/\partial V_S$, $\partial V_R/\partial V_P$ son las **[[Sensitivity Kernel|sensitividades]]** de la velocidad de Rayleigh respecto al perfil de velocidades.
 
 #### Consecuencias fundamentales
 

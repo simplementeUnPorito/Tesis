@@ -30,11 +30,11 @@ Las ondas Love son **modales y dispersivas**. La Figura 8.2 (p. 395) muestra las
 - Las curvas de Love son más regulares: los modos no se cruzan ni presentan puntos de osculación.
 - Las curvas de Rayleigh presentan puntos de osculación (la curva del modo fundamental y la del primer modo superior se tocan en el recuadro discontinuo), lo que puede introducir ambigüedades en la identificación de modos experimentales.
 
-Las **resonancias SH** en capas superficiales poco profundas producen señales de banda angosta en los registros de ondas Love. La frecuencia de resonancia puede estimarse con la regla de cuarto de longitud de onda:
+Las **resonancias SH** en capas superficiales poco profundas producen señales de banda angosta en los registros de ondas Love. La frecuencia de resonancia puede estimarse con la regla de cuarto de [[Wavelength|longitud de onda]]:
 
 $$f_{res} \approx \frac{V_{S,\text{top}}}{4H}$$
 
-donde H es el espesor de la capa superficial. Aunque el espectro de amplitud de una traza individual pueda parecer de banda angosta, la curva de dispersión experimental puede recuperarse en un rango amplio de frecuencias mediante el análisis multicanal (Figura 8.6, p. 400).
+donde H es el espesor de la capa superficial. Aunque el espectro de amplitud de una traza individual pueda parecer de banda angosta, la [[Dispersion Relation|curva de dispersión]] experimental puede recuperarse en un rango amplio de frecuencias mediante el análisis multicanal (Figura 8.6, p. 400).
 
 En lo que respecta a la **polarización**: en materiales anisótropos, las ondas Love están asociadas a las velocidades de corte SH y las ondas Rayleigh a las velocidades SV. En medios isotrópicos, ambas ondas sensorizan el mismo parámetro Vs, lo que permite la inversión conjunta asumiendo isotropía.
 
@@ -50,7 +50,7 @@ En cambio, la adquisición de ondas Love requiere:
 
 **Técnica de inversión de polaridad:** dado que la fuerza horizontal genera tanto componentes SH (→ Love + SH refracciones) como componentes de compresión (→ Rayleigh + P refracciones), es posible separar las primeras invirtiendo la polaridad de la fuente (golpear en sentido opuesto). La componente SH cambia de signo al invertir la polaridad; la componente de compresión no. La **resta** de los dos registros cancela la componente de compresión y deja la componente SH. Una alternativa operacionalmente más eficiente es el uso de receptores acoplados que realizan esta resta eléctricamente de forma sincrónica (Sambuelli et al. 2001), aumentando la precisión y reduciendo el tiempo de adquisición.
 
-**Covariables:** incluso con fuente horizontal, los registros contienen refracciones de ondas P y Rayleigh que se superponen. Su separación en el procesamiento (p.ej., mediante análisis f-k) puede ser difícil y requiere juicio del operador. La presencia de modos superiores bien definidos en Love puede facilitar la separación respecto a Rayleigh.
+**Covariables:** incluso con fuente horizontal, los registros contienen refracciones de ondas P y Rayleigh que se superponen. Su separación en el procesamiento (p.ej., mediante [[2D Fourier Transform|análisis f-k]]) puede ser difícil y requiere juicio del operador. La presencia de [[Surface Wave Modes|modos superiores]] bien definidos en Love puede facilitar la separación respecto a Rayleigh.
 
 ### 8.1.3 Ejemplo real — Isla Terceira (Azores)
 
@@ -60,7 +60,7 @@ En cambio, la adquisición de ondas Love requiere:
 
 **Procesamiento:**
 
-- **Rayleigh (Figura 8.7, p. 401):** el sismograma y su espectro f-k muestran dos ramas de dispersión. El modo fundamental sufre una atenuación fuerte (>1.3 dB/m), lo que lo debilita en el espectro. El modo superior, con mayor número de onda (mayor frecuencia), está menos atenuado por su menor profundidad de penetración y es claramente visible.
+- **Rayleigh (Figura 8.7, p. 401):** el sismograma y su espectro f-k muestran dos ramas de dispersión. El modo fundamental sufre una [[Attenuation|atenuación]] fuerte (>1.3 dB/m), lo que lo debilita en el espectro. El modo superior, con mayor número de onda (mayor frecuencia), está menos atenuado por su menor profundidad de penetración y es claramente visible.
 - **Love (Figura 8.8, p. 402):** el sismograma muestra un tren de ondas dominante de modo fundamental con baja velocidad (inicio ≈ 130 m/s, extremo ≈ 80 m/s en alta frecuencia) y buena coherencia espacial. El modo fundamental está mejor definido que el de Rayleigh.
 
 **Resolución de ambigüedades:** la rama de velocidades de fase Love es consistente con la rama de menor velocidad del espectro de Rayleigh (modo fundamental). Esto permite confirmar qué rama del espectro f-k de Rayleigh corresponde al modo fundamental, resolviendo la ambigüedad generada por la presencia y visibilidad del modo superior. En síntesis, la **inversión conjunta Love + Rayleigh** proporciona mayor constraño del perfil Vs y mayor robustez en la identificación de modos.
@@ -84,7 +84,7 @@ Las [[Scholte Waves|ondas de Scholte]] se propagan en la interfaz sólido-líqui
 **Características físicas:**
 - **Movimiento de partícula:** elíptico retrógrado, similar a Rayleigh. La energía se concentra en la interfaz. Para dos semiespacios en contacto, la penetración es ≈ una longitud de onda en el sólido y ≈ media longitud de onda en el líquido.
 - **Dispersión:** modales y dispersivas. El modo fundamental **no tiene frecuencia de corte** (existe para cualquier frecuencia), a diferencia de los modos superiores.
-- **Velocidad:** siempre menor que la velocidad de Rayleigh para el mismo sólido. A frecuencia → 0, la velocidad de Scholte tiende a la velocidad de Rayleigh del semiespacio sólido. A frecuencia → ∞, tiende a la velocidad de onda de Stoneley en la interfaz sólido-líquido.
+- **Velocidad:** siempre menor que la velocidad de Rayleigh para el mismo sólido. A frecuencia → 0, la velocidad de Scholte tiende a la velocidad de Rayleigh del semiespacio sólido. A frecuencia → ∞, tiende a la velocidad de [[Stoneley Wave|onda de Stoneley]] en la interfaz sólido-líquido.
 
 **Efecto de la capa de agua:** incluso una capa de agua muy delgada (0.5–3 m) modifica la curva de dispersión de Scholte respecto a la de Rayleigh (sin agua). La Figura 8.10b (p. 406) muestra que para Hw = 0.5 m ya existe una diferencia apreciable, y que la diferencia aumenta con Hw. En consecuencia, **analizar datos de Scholte con un modelo directo de ondas de Rayleigh** (ignorando la capa de agua) lleva a una **subestimación sistemática de Vs** en los sedimentos. Es imprescindible incluir el espesor y la velocidad del agua como parámetros en el modelo de inversión.
 
@@ -96,11 +96,11 @@ La Figura 8.12 (p. 407) muestra la diferencia relativa de velocidad entre Scholt
 
 ### 8.2.2 Ondas guiadas de tipo P
 
-Además de las ondas de Scholte, el sistema agua-sedimentos permite la propagación de **[[P-guided Waves|ondas guiadas de tipo P]]** (*P-guided waves*), que corresponden a los **modos fugaces** (*leaky modes*) de la ecuación de dispersión: raíces complejas cuya parte real de la velocidad de fase supera la velocidad compresional del agua.
+Además de las ondas de Scholte, el sistema agua-sedimentos permite la propagación de **[[P-guided Waves|ondas guiadas de tipo P]]** (*P-guided waves*), que corresponden a los **modos fugaces** (*leaky modes*) de la ecuación de dispersión: raíces complejas cuya parte real de la [[Phase Velocity|velocidad de fase]] supera la velocidad compresional del agua.
 
 Físicamente son ondas P multireflejadas en la capa de agua (entre la superficie libre y el fondo marino), con energía parcialmente atrapada. Sus propiedades dependen principalmente de la **velocidad de onda P del agua y del subfondo**, no de Vs. Por eso son complementarias a las ondas de Scholte: juntas permiten estimar tanto Vs como Vp del subfondo.
 
-En oceanografía acústica se denominan ondas ULF (*ultra-low frequency*), típicamente en el rango 1–100 Hz en plataformas continentales. En aguas muy someras, el rango de frecuencias se desplaza hacia valores más altos. La **aproximación acústica** (medio líquido homogéneo, Vs_sólido = 0, alto ratio de Poisson) es válida cuando el ratio de Poisson es alto, como es habitual en sedimentos saturados blandos.
+En oceanografía acústica se denominan ondas ULF (*ultra-low frequency*), típicamente en el rango 1–100 Hz en plataformas continentales. En aguas muy someras, el rango de frecuencias se desplaza hacia valores más altos. La **aproximación acústica** (medio líquido homogéneo, Vs_sólido = 0, alto [[Poisson Ratio|ratio de Poisson]]) es válida cuando el ratio de Poisson es alto, como es habitual en sedimentos saturados blandos.
 
 **Información a priori necesaria:** la velocidad del agua (medible con un sensor de temperatura/salinidad o asumida ≈ 1500 m/s) y la velocidad compresional del subfondo (a priori o estimada del tiempo de llegada del primer arribo).
 
@@ -147,7 +147,7 @@ La representación esquemática de la Figura 8.18 (p. 414) ilustra el contraste:
 
 El vínculo más simple entre dominios es la similitud geométrica de los modelos. Aunque los parámetros geofísicos de dos dominios sean aparentemente no correlacionados en valores, pueden compartir la misma estructura espacial porque ambos están controlados por los mismos rasgos geológicos.
 
-El vínculo geométrico se incluye en la inversión conjunta mediante la **función cross-gradient** (Gallardo y Meju 2003), definida como el producto vectorial de los gradientes de los campos m₁ y m₂ en los dos dominios:
+El vínculo geométrico se incluye en la inversión conjunta mediante la **[[Cross-Gradient Function|función cross-gradient]]** (Gallardo y Meju 2003), definida como el producto vectorial de los gradientes de los campos m₁ y m₂ en los dos dominios:
 
 $$\bar{\tau} = \nabla m_1(x,y,z) \times \nabla m_1(x,y,z) \tag{8.1}$$
 
@@ -157,7 +157,7 @@ La función objetivo del ajuste geométrico incorpora los residuales de ambos da
 
 #### 8.3.1.2 Inversión conjunta petrofísica
 
-Cuando los parámetros de los diferentes dominios tienen una relación petrofísica intrínseca, el vínculo se puede establecer mediante una **relación local entre parámetros**. Estas relaciones pueden ser leyes físicas analíticas o relaciones empíricas entre parámetros geofísicos; por ejemplo: la ley de Archie (1942) relaciona resistividad eléctrica y porosidad, la ecuación de Wyllie et al. (1956) relaciona velocidad sísmica con porosidad, y las relaciones de Gardner et al. (1974) vinculan velocidad P y densidad.
+Cuando los parámetros de los diferentes dominios tienen una relación petrofísica intrínseca, el vínculo se puede establecer mediante una **relación local entre parámetros**. Estas relaciones pueden ser leyes físicas analíticas o relaciones empíricas entre parámetros geofísicos; por ejemplo: la [[Archie's Law|ley de Archie]] (1942) relaciona resistividad eléctrica y porosidad, la [[Wyllie Equation|ecuación de Wyllie et al.]] (1956) relaciona velocidad sísmica con porosidad, y las [[Gardner Relations|relaciones de Gardner et al.]] (1974) vinculan velocidad P y densidad.
 
 La función objetivo del ajuste petrofísico tiene tres elementos que se combinan con distintos pesos: los residuales de los datos de cada dominio, las regularizaciones monodominio, y los vínculos entre dominios. El vínculo petrofísico puede imponerse como restricción de igualdad (forzando exactamente la relación a priori) o como minimización del residual local entre la relación a priori y la relación obtenida del modelo (en este caso los parámetros de la relación petrofísica se convierten en incógnitas adicionales de la inversión; Jegen et al. 2009, De Stefano et al. 2011).
 
@@ -165,7 +165,7 @@ La función objetivo del ajuste petrofísico tiene tres elementos que se combina
 
 ### 8.3.2 Inversión conjunta de ondas superficiales
 
-Los métodos de ondas superficiales estiman mediante inversión los parámetros incógnitos del subsuelo (velocidad de onda S y razón de amortiguamiento). La inversión acoplada de velocidad y atenuación descrita en el [[Inversión|Capítulo 6]] ya puede considerarse una forma de inversión conjunta single-domain. En esta sección se discute la inversión conjunta de datos de ondas superficiales con otras mediciones geofísicas, sísmicas y no sísmicas.
+Los métodos de ondas superficiales estiman mediante inversión los parámetros incógnitos del subsuelo (velocidad de onda S y [[Shear Damping Ratio|razón de amortiguamiento]]). La inversión acoplada de velocidad y atenuación descrita en el [[Inversión|Capítulo 6]] ya puede considerarse una forma de inversión conjunta single-domain. En esta sección se discute la inversión conjunta de datos de ondas superficiales con otras mediciones geofísicas, sísmicas y no sísmicas.
 
 El objetivo es doble: (1) mejorar la estimación de propiedades del suelo a las que la onda superficial tiene sensibilidad limitada —en particular Vp y el ratio de Poisson, que condicionan la presencia del nivel freático y la compresibilidad del medio—, y (2) mitigar la no-unicidad del problema inverso incorporando información estructural complementaria. El argumento central es que las fronteras litológicas del subsuelo afectan simultáneamente las propiedades mecánicas, eléctricas y compresionales del medio: al imponer que los modelos de diferentes dominios compartan la misma geometría, se reduce el espacio de soluciones aceptables.
 
@@ -175,7 +175,7 @@ La sección se organiza en tres bloques de aplicación: (1) inversión conjunta 
 
 La inversión conjunta de la [[Dispersion Relation|curva de dispersión]] de ondas superficiales con datos eléctricos y electromagnéticos 1D puede explotar vínculos geométricos para imponer fronteras litológicas comunes. Los límites litológicos en el subsuelo somero afectan tanto la velocidad de onda S como la resistividad de las capas; por tanto, una inversión geométricamente acoplada es posible (Hering et al. 1995).
 
-Los datos de sondeo eléctrico vertical (VES) y electromagnético en el dominio del tiempo (TDEM) proporcionan curvas de resistividad aparente en función de la geometría del arreglo de electrodos, que son análogas a las curvas de dispersión: ambas proporcionan información integral sobre los parámetros físicos correspondientes. Además, ambos modelos directos se basan en una **matriz de transferencia global** construida a partir de las matrices de cada capa para la solución 1D.
+Los datos de sondeo eléctrico vertical (VES) y electromagnético en el dominio del tiempo (TDEM) proporcionan curvas de resistividad aparente en función de la geometría del arreglo de electrodos, que son análogas a las curvas de dispersión: ambas proporcionan información integral sobre los parámetros físicos correspondientes. Además, ambos modelos directos se basan en una **[[Thomson-Haskell Matrix|matriz de transferencia global]]** construida a partir de las matrices de cada capa para la solución 1D.
 
 En la inversión conjunta VES + ondas superficiales, los parámetros del modelo son el espesor, la velocidad de corte y la resistividad de cada capa. El Jacobiano combinado es una **única matriz** con las derivadas parciales de ambos conjuntos de datos respecto a todos los parámetros: las filas corresponden a los p valores de resistividad aparente ρ_app más los m valores de velocidad de fase v_r; las columnas contienen las derivadas respecto a los n−1 espesores h y los n valores Vs (más los n valores de resistividad ρ). La ausencia de un vínculo petrofísico se refleja en que las derivadas cruzadas entre dominios son cero.
 
@@ -191,7 +191,7 @@ El mismo enfoque es aplicable a datos TDEM y a datos magnetotelúricos en combin
 
 **Ondas superficiales + refracción de ondas P:** esta combinación es especialmente interesante porque los dos datasets frecuentemente están disponibles juntos (son adquiribles en el mismo ensayo sísmico con coste operacional mínimo adicional), y los métodos se complementan en muchos aspectos (Foti et al. 2003):
 
-- Los métodos de ondas superficiales superan algunas limitaciones inherentes de la refracción: son insensibles al **problema de capa oculta**, a inversiones de velocidad y a variaciones graduales de velocidad. Además, la sensibilidad a Vs es especialmente importante en sedimentos saturados donde Vp está controlada principalmente por la compresibilidad del fluido.
+- Los métodos de ondas superficiales superan algunas limitaciones inherentes de la refracción: son insensibles al **[[Hidden Layer Problem|problema de capa oculta]]**, a inversiones de velocidad y a variaciones graduales de velocidad. Además, la sensibilidad a Vs es especialmente importante en sedimentos saturados donde Vp está controlada principalmente por la compresibilidad del fluido.
 - La refracción aporta información a priori muy útil para la interpretación de ondas superficiales: la posición del substrato rocoso, la profundidad de la tabla de agua (que permite estimar el ratio de Poisson para el modelado de ondas superficiales), y una advertencia en caso de variaciones laterales de velocidad (topografía de los refractores).
 - Cuando los dos métodos producen resultados independientemente confiables, la combinación Vp + Vs permite estimar propiedades mecánicas y porosidad del depósito. La relación entre los parámetros elásticos puede usarse como vínculo petrofísico (ratio de Poisson) o la similitud entre distribuciones espaciales puede usarse como vínculo geométrico.
 
@@ -214,9 +214,9 @@ Para aplicaciones a **gran escala** (líneas de exploración de varios km, geome
 
 ## 8.4 Interferometría sísmica pasiva
 
-La [[Seismic Interferometry|interferometría sísmica]] designa el principio de generar trazas sísmicas desde fuentes virtuales mediante la cross-correlación o la convolución de observaciones en diferentes receptores. Las dos aplicaciones principales son: (1) la estimación o aislamiento de una componente del campo de ondas, y (2) la estimación de las propiedades del medio de propagación. En esta sección se discuten aspectos de la interferometría sísmica pasiva como herramienta para analizar ondas superficiales en datos de ruido ambiental o microtremores.
+La [[Seismic Interferometry|interferometría sísmica]] designa el principio de generar trazas sísmicas desde fuentes virtuales mediante la [[Cross-Correlation|cross-correlación]] o la convolución de observaciones en diferentes receptores. Las dos aplicaciones principales son: (1) la estimación o aislamiento de una componente del campo de ondas, y (2) la estimación de las propiedades del medio de propagación. En esta sección se discuten aspectos de la interferometría sísmica pasiva como herramienta para analizar ondas superficiales en datos de ruido ambiental o [[Microtremor|microtremores]].
 
-Estudios teóricos recientes demostraron que el campo difuso de ruido ambiental puede transformarse, mediante cross-correlación, en una respuesta de impulso sísmica determinista, estimando la **función de Green** entre receptores (Weaver y Lobkis 2001, 2002; Snieder 2004; Wapenaar 2004; Wapenaar y Fokkema 2006). En sismología global, con ondas coda y registros largos de ruido, se demostró que la componente de onda superficial de la función de Green entre dos receptores puede recuperarse de la cross-correlación de las observaciones en esos receptores (Campillo y Paul 2003; Shapiro y Campillo 2004). El potencial de este enfoque en el rango de frecuencias altas, en la escala de la ingeniería sísmica, también ha sido demostrado.
+Estudios teóricos recientes demostraron que el campo difuso de ruido ambiental puede transformarse, mediante cross-correlación, en una respuesta de impulso sísmica determinista, estimando la **[[Green Function|función de Green]]** entre receptores (Weaver y Lobkis 2001, 2002; Snieder 2004; Wapenaar 2004; Wapenaar y Fokkema 2006). En sismología global, con ondas coda y registros largos de ruido, se demostró que la componente de onda superficial de la función de Green entre dos receptores puede recuperarse de la cross-correlación de las observaciones en esos receptores (Campillo y Paul 2003; Shapiro y Campillo 2004). El potencial de este enfoque en el rango de frecuencias altas, en la escala de la ingeniería sísmica, también ha sido demostrado.
 
 **Principio de la interferometría sísmica pasiva** (siguiendo la revisión de Wapenaar et al. 2010a):
 
@@ -275,7 +275,7 @@ En la práctica, la energía salta del modo fundamental al modo superior, creand
 
 ### 8.5.2 H/V pasivo
 
-Las técnicas monoestación pasivas basadas en la relación espectral H/V (**HVSR**) han sido extensamente debatidas e investigadas. La técnica fue introducida por Nogoshi e Igarashi (1971) y se popularizó con los trabajos de Nakamura (1989, 1996, 2000). La interpretación original de Nakamura atribuye la curva H/V directamente a la respuesta sísmica de ondas S en el sitio; el acuerdo general en la comunidad es, sin embargo, que las **ondas superficiales dominan la respuesta H/V** en la mayoría de los casos.
+Las técnicas monoestación pasivas basadas en la relación espectral H/V (**[[HVSR|HVSR]]**) han sido extensamente debatidas e investigadas. La técnica fue introducida por Nogoshi e Igarashi (1971) y se popularizó con los trabajos de Nakamura (1989, 1996, 2000). La interpretación original de Nakamura atribuye la curva H/V directamente a la respuesta sísmica de ondas S en el sitio; el acuerdo general en la comunidad es, sin embargo, que las **ondas superficiales dominan la respuesta H/V** en la mayoría de los casos.
 
 Un gran número de estudios experimentales y teóricos ha demostrado que, en la mayoría de las situaciones, el campo de ruido ambiental está dominado por ondas superficiales (Horike 1985; Arai y Tokimatsu 1998) y que el pico observado en la curva de razón espectral está relacionado con la elipticidad de las [[Rayleigh Waves|ondas de Rayleigh]].
 
@@ -285,7 +285,7 @@ Cuando los datos se adquieren y procesan correctamente, el ratio H/V depende de 
 - **Fuentes lejanas:** puede aparecer un segundo pico relacionado con la resonancia de ondas de corte de la onda head-wave.
 - **Fuentes profundas (en el substrato):** los picos se deben a la resonancia de la onda head.
 
-La importancia relativa de las [[Rayleigh Waves|ondas de Rayleigh]] y [[Love Waves|ondas de Love]] puede afectar la forma de la curva H/V y varía de sitio a sitio. Los métodos de vibración ambiental con estaciones multicomponente monoestación y el método H/V pueden contribuir eficazmente a la evaluación del efecto de sitio sísmico, especialmente en microzonación sísmica urbana y en países en desarrollo por su bajo costo.
+La importancia relativa de las [[Rayleigh Waves|ondas de Rayleigh]] y [[Love Waves|ondas de Love]] puede afectar la forma de la curva H/V y varía de sitio a sitio. Los métodos de vibración ambiental con estaciones multicomponente monoestación y el método H/V pueden contribuir eficazmente a la evaluación del efecto de sitio sísmico, especialmente en [[Seismic Microzonation|microzonación sísmica urbana]] y en países en desarrollo por su bajo costo.
 
 ### 8.5.3 Adquisición y procesamiento de H/V
 
