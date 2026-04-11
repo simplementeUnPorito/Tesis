@@ -53,7 +53,7 @@ En contraste, las ondas de cuerpo en la misma superficie decaen como $r^{-2}$ �
 
 ## Distinción experimental
 
-En un arreglo de geófonos, la amplitud registrada incluye ambas contribuciones:
+En un arreglo de [[Geophone|geófono]], la amplitud registrada incluye ambas contribuciones:
 
 $$A(r, \omega) = \frac{C(\omega)}{\sqrt{r}} \cdot e^{-\alpha_R(\omega) \cdot r}$$
 

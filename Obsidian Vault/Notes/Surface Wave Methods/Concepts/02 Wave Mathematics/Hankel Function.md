@@ -29,7 +29,7 @@ El factor $r^{-1/2}$ del campo lejano se denomina **decaimiento geométrico cil�
 | Rayleigh (campo lejano) | Cilíndrica | $\propto r^{-1/2}$ |
 | P confinada (guía de agua) | Cilíndrica | $\propto r^{-1/2}$ |
 
-La atenuación total de la onda Rayleigh es:
+La [[Attenuation|atenuación]] total de la onda Rayleigh es:
 $$A(r) = A_0 \cdot r^{-1/2} \cdot e^{-\alpha_R r}$$
 donde $\alpha_R$ es el [[Attenuation Coefficient|coeficiente de atenuación]] por pérdidas materiales. La corrección por *geometrical spreading* es esencial para estimar $\alpha_R$ a partir de la razón de amplitudes entre dos receptores en [[MASW Method|MASW]].
 

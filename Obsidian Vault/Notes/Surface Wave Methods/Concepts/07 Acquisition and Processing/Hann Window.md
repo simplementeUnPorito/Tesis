@@ -9,7 +9,7 @@ type: reference
 > [!CONCEPT] Definición
 > La **ventana de Hann** (también llamada "ventana de von Hann" o incorrectamente "ventana de Hanning") es una función de apodización temporal que reduce la **fuga espectral** (*spectral leakage*) en el análisis de Fourier de señales sísmicas. Se define como:
 > $$w(n) = \frac{1}{2}\left[1 - \cos\!\left(\frac{2\pi n}{N-1}\right)\right], \quad n = 0, 1, \ldots, N-1$$
-> La aplicación de la ventana multiplica la señal temporal antes de la [[2D Fourier Transform|Transformada de Fourier]]: $x_w(n) = x(n) \cdot w(n)$. Esto hace que la señal comience y termine en cero, eliminando las discontinuidades en los bordes del segmento que causan fuga espectral — energía que se "derrama" desde el pico real hacia frecuencias adyacentes. En [[MASW Method|MASW]], la ventana de Hann se aplica tanto en el **dominio temporal** (antes de la FFT temporal) como en el **dominio espacial** (sobre el arreglo de geófonos antes de la FFT espacial) para mejorar la resolución del espectrograma f-k y reducir los lóbulos laterales. **Compromiso**: la ventana reduce el ancho de banda efectivo de la señal en un factor ~1.5, disminuyendo la resolución espectral; se compensa usando segmentos suficientemente largos.
+> La aplicación de la ventana multiplica la señal temporal antes de la [[2D Fourier Transform|Transformada de Fourier]]: $x_w(n) = x(n) \cdot w(n)$. Esto hace que la señal comience y termine en cero, eliminando las discontinuidades en los bordes del segmento que causan fuga espectral — energía que se "derrama" desde el pico real hacia frecuencias adyacentes. En [[MASW Method|MASW]], la ventana de Hann se aplica tanto en el **dominio temporal** (antes de la FFT temporal) como en el **dominio espacial** (sobre el arreglo de [[Geophone|geófono]] antes de la FFT espacial) para mejorar la resolución del espectrograma f-k y reducir los lóbulos laterales. **Compromiso**: la ventana reduce el ancho de banda efectivo de la señal en un factor ~1.5, disminuyendo la resolución espectral; se compensa usando segmentos suficientemente largos.
 >
 > — Foti et al. (2018), Cap. 4, §4.2; Harris (1978), *Proc. IEEE*.
 
@@ -28,7 +28,7 @@ La Transformada de Fourier de la ventana de Hann es una sinc modificada con lób
 
 ## Aplicación en el dominio espacial
 
-En el dominio espacial (a lo largo del arreglo de $N$ geófonos), la ventana de Hann actúa como un **tapering** del arreglo:
+En el dominio espacial (a lo largo del arreglo de $N$ [[Geophone|geófono]]), la ventana de Hann actúa como un **tapering** del arreglo:
 
 $$g_w(x_j) = g(x_j) \cdot w(j)$$
 
@@ -36,7 +36,7 @@ El efecto en el espectrograma f-k es análogo al temporal: reduce los **grating 
 
 ## Comparación con otras ventanas en contexto sísmico
 
-| Ventana | Atenuación lóbulos | Resolución | Uso típico |
+| Ventana | [[Attenuation|Atenuación]] lóbulos | Resolución | Uso típico |
 |---------|-------------------|------------|------------|
 | Rectangular | −13 dB | Máxima | Sin ventana (no recomendado) |
 | Hann | −31.5 dB | Media | [[MASW Method|MASW]] estándar |

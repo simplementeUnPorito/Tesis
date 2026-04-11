@@ -1,13 +1,13 @@
 ---
 name: Lamé Constants
-description: Parámetros elásticos de un medio isótropo (λ, μ) — μ es el módulo de corte (directamente relacionado con VS); λ controla la compresibilidad y junto con μ determina VP
+description: Parámetros elásticos de un medio isótropo (λ, μ) — μ es el [[Shear Modulus|módulo de corte]] (directamente relacionado con VS); λ controla la compresibilidad y junto con μ determina VP
 type: reference
 ---
 
 # Constantes de Lamé (Lamé Constants)
 
 > [!CONCEPT] Definición
-> Las **constantes de Lamé** $(\lambda, \mu)$ son los dos parámetros que caracterizan completamente un medio elástico isótropo lineal. En la ley de Hooke generalizada: $\sigma_{ij} = \lambda \varepsilon_{kk} \delta_{ij} + 2\mu \varepsilon_{ij}$. El módulo de corte $\mu = \rho V_S^2$ es el parámetro geotécnico primario — relacionado directamente con la velocidad de corte $V_S$. El primer parámetro de Lamé $\lambda = \rho(V_P^2 - 2V_S^2)$ controla la compresibilidad volumétrica. Las velocidades de propagación de ondas elásticas se expresan directamente en función de $(\lambda, \mu)$: $V_P = \sqrt{(\lambda+2\mu)/\rho}$, $V_S = \sqrt{\mu/\rho}$. En [[Viscoelastic Media|medios viscoelásticos]], $\lambda$ y $\mu$ se reemplazan por módulos complejos dependientes de la frecuencia $\tilde{\lambda}(\omega)$, $\tilde{\mu}(\omega)$ — principio de correspondencia. El [[Poisson Ratio|coeficiente de Poisson]] $\nu = \lambda/(2(\lambda+\mu))$ es un parámetro derivado que describe la relación entre deformación lateral y axial.
+> Las **constantes de Lamé** $(\lambda, \mu)$ son los dos parámetros que caracterizan completamente un medio elástico isótropo lineal. En la ley de Hooke generalizada: $\sigma_{ij} = \lambda \varepsilon_{kk} \delta_{ij} + 2\mu \varepsilon_{ij}$. El [[Shear Modulus|módulo de corte]] $\mu = \rho V_S^2$ es el parámetro geotécnico primario — relacionado directamente con la velocidad de corte $V_S$. El primer parámetro de Lamé $\lambda = \rho(V_P^2 - 2V_S^2)$ controla la compresibilidad volumétrica. Las velocidades de propagación de ondas elásticas se expresan directamente en función de $(\lambda, \mu)$: $V_P = \sqrt{(\lambda+2\mu)/\rho}$, $V_S = \sqrt{\mu/\rho}$. En [[Viscoelastic Media|medios viscoelásticos]], $\lambda$ y $\mu$ se reemplazan por módulos complejos dependientes de la frecuencia $\tilde{\lambda}(\omega)$, $\tilde{\mu}(\omega)$ — principio de correspondencia. El [[Poisson Ratio|coeficiente de Poisson]] $\nu = \lambda/(2(\lambda+\mu))$ es un parámetro derivado que describe la relación entre deformación lateral y axial.
 >
 > — Foti et al. (2018), Cap. 2, §2.1; Aki & Richards (2002), *Quantitative Seismology*.
 
@@ -50,7 +50,7 @@ $$\tilde{\mu}(\omega) = \mu(1 + 2iD_s), \qquad \tilde{\lambda}(\omega) = \lambda
 donde $D_s$ es el [[Shear Damping Ratio|amortiguamiento al corte]] y $D_p$ el amortiguamiento compresional (generalmente $D_p \approx D_s/2$ en geomateriales).
 
 > [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — μ como parámetro primario en inversión [[MASW Method|MASW]]
-> **Paper 002 (Xia et al. 1999)** demuestra mediante kernels de sensibilidad que la [[Phase Velocity|velocidad de fase]] de Rayleigh $c_R(f)$ depende principalmente del módulo de corte $\mu = \rho V_S^2$ (sensibilidad 80–95%) y muy poco de $\lambda$ (a través de $V_P$, <10%) y $\rho$ (<2%). Esto justifica que la inversión [[MASW Method|MASW]] tenga como objetivo único $V_S(z)$ — equivalente a invertir $\mu(z)/\rho(z)$ — mientras $\lambda$ (equivalente a fijar $V_P$ o el [[Poisson Ratio|coeficiente de Poisson]]) se asume conocido a priori desde datos de refracción sísmica o tablas de litología. El resultado confirma que las constantes de Lamé tienen roles muy distintos en la propagación de [[Surface Waves|ondas superficiales]]: $\mu$ controla la respuesta cinemática (velocidad de Rayleigh), mientras $\lambda$ tiene efecto secundario.
+> **Paper 002 (Xia et al. 1999)** demuestra mediante kernels de sensibilidad que la [[Phase Velocity|velocidad de fase]] de Rayleigh $c_R(f)$ depende principalmente del [[Shear Modulus|módulo de corte]] $\mu = \rho V_S^2$ (sensibilidad 80–95%) y muy poco de $\lambda$ (a través de $V_P$, <10%) y $\rho$ (<2%). Esto justifica que la inversión [[MASW Method|MASW]] tenga como objetivo único $V_S(z)$ — equivalente a invertir $\mu(z)/\rho(z)$ — mientras $\lambda$ (equivalente a fijar $V_P$ o el [[Poisson Ratio|coeficiente de Poisson]]) se asume conocido a priori desde datos de refracción sísmica o tablas de litología. El resultado confirma que las constantes de Lamé tienen roles muy distintos en la propagación de [[Surface Waves|ondas superficiales]]: $\mu$ controla la respuesta cinemática (velocidad de Rayleigh), mientras $\lambda$ tiene efecto secundario.
 >
 > — Research Database, entrada 002 (core); Xia et al. (1999), *Geophysics* 64(3).
 

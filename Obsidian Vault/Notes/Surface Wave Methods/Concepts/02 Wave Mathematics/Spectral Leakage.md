@@ -35,10 +35,10 @@ La [[Hann Window|ventana de Hann]] (coseno elevado) es el estándar en procesami
 
 ## Extensión al dominio espacial
 
-El mismo fenómeno ocurre en el dominio espacial: el arreglo finito de $N$ geófonos sobre longitud $D$ actúa como una ventana rectangular espacial $W_x(x)$. El spectral leakage espacial limita la separación de modos en $k$ y puede generar **alias espaciales** si $\Delta x > \lambda_{\min}/2$ (condición de Nyquist espacial).
+El mismo fenómeno ocurre en el dominio espacial: el arreglo finito de $N$ [[Geophone|geófono]] sobre longitud $D$ actúa como una ventana rectangular espacial $W_x(x)$. El spectral leakage espacial limita la separación de modos en $k$ y puede generar **alias espaciales** si $\Delta x > \lambda_{\min}/2$ (condición de Nyquist espacial).
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — efecto del ventaneo en el panel f-k del sitio Pisa
-> Foti et al. (2018, §3.3.5, Figs. 3.14–3.15) comparan el panel $f$-$k$ del sitio Pisa obtenido con ventana rectangular vs. ventana Hann para un arreglo de 24 geófonos a $\Delta x = 2$ m. Con ventana rectangular, los lóbulos laterales del modo fundamental de Rayleigh a 10 Hz (dominante) contaminan la región del primer modo superior a 12 Hz, impidiendo su identificación. Con ventana Hann (lóbulos a -31.5 dB), el primer modo superior aparece claramente como cresta secundaria en el panel $f$-$k$, permitiendo su extracción para inversión multimodal. La diferencia cuantitativa: reducción de los lóbulos de -13 dB (rectangular) a -31.5 dB (Hann) — equivalente a que señales 37× más débiles puedan identificarse sin contaminación del modo dominante.
+> Foti et al. (2018, §3.3.5, Figs. 3.14–3.15) comparan el panel $f$-$k$ del sitio Pisa obtenido con ventana rectangular vs. ventana Hann para un arreglo de 24 [[Geophone|geófono]] a $\Delta x = 2$ m. Con ventana rectangular, los lóbulos laterales del modo fundamental de Rayleigh a 10 Hz (dominante) contaminan la región del primer modo superior a 12 Hz, impidiendo su identificación. Con ventana Hann (lóbulos a -31.5 dB), el primer modo superior aparece claramente como cresta secundaria en el panel $f$-$k$, permitiendo su extracción para inversión multimodal. La diferencia cuantitativa: reducción de los lóbulos de -13 dB (rectangular) a -31.5 dB (Hann) — equivalente a que señales 37× más débiles puedan identificarse sin contaminación del modo dominante.
 >
 > — Foti et al. (2018), §3.3.5, pp. 135–138, Figs. 3.14–3.15.
 

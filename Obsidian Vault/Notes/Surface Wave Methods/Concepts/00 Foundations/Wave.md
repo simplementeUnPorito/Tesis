@@ -7,7 +7,7 @@ type: reference
 # Onda (Wave)
 
 > [!CONCEPT] Definición
-> Una **onda** es cualquier perturbación reconocible que se transfiere a través de un medio con una velocidad de propagación identificable, transportando energía sin transporte neto de materia. En geofísica near-surface, las ondas elásticas — clasificadas como [[Body Waves]] ([[P-waves]], [[S-Waves]]) y [[Surface Waves]] ([[Rayleigh Waves]], [[Love Waves]]) — son el fundamento de todos los métodos de caracterización del subsuelo con geófonos.
+> Una **onda** es cualquier perturbación reconocible que se transfiere a través de un medio con una velocidad de propagación identificable, transportando energía sin transporte neto de materia. En geofísica near-surface, las ondas elásticas — clasificadas como [[Body Waves]] ([[P-waves]], [[S-Waves]]) y [[Surface Waves]] ([[Rayleigh Waves]], [[Love Waves]]) — son el fundamento de todos los métodos de caracterización del subsuelo con [[Geophone|geófono]].
 >
 > — Foti et al. (2018), §2.1.1, pp. 38–41.
 
@@ -61,14 +61,14 @@ Para una fuente puntual en la superficie (ver [[Lamb's Problem]]):
 
 A distancias mayores que unas pocas longitudes de onda, las [[Surface Waves|ondas superficiales]] dominan el registro. Esta propiedad es la que hace práctico el método [[MASW Method|MASW]]: el [[Ground Roll|ground-roll]] de [[Rayleigh Waves|ondas Rayleigh]] es la señal predominante en los sismogramas superficiales.
 
-## Instrumentación: qué miden los geófonos
+## Instrumentación: qué miden los [[Geophone|geófono]]
 
-Los geófonos estándar (verticales) miden la **velocidad de partícula** del suelo en la dirección vertical, $\dot{u}_z(x, t)$. Son sensibles a:
+Los [[Geophone|geófono]] estándar (verticales) miden la **velocidad de partícula** del suelo en la dirección vertical, $\dot{u}_z(x, t)$. Son sensibles a:
 - Ondas de Rayleigh (componente vertical de la elipse).
 - Ondas P (componente vertical al llegar en incidencia oblicua).
 - Ruido sísmico ambiental de origen diverso.
 
-Los geófonos horizontales son necesarios para registrar [[Love Waves|ondas Love]] (movimiento transversal horizontal) y la componente horizontal de Rayleigh.
+Los [[Geophone|geófono]] horizontales son necesarios para registrar [[Love Waves|ondas Love]] (movimiento transversal horizontal) y la componente horizontal de Rayleigh.
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) — dominancia de Rayleigh en registros [[MASW Method|MASW]]
 > **Paper 001 (Park, Miller & Xia 1999)** documenta que en registros sísmicos superficiales con fuente activa (martillo), el **[[Ground Roll|ground-roll]]** de [[Rayleigh Waves]] domina el sismograma a distancias > 5–10 m de la fuente, concentrando > 67% de la energía sísmica total. Esta propiedad — consecuencia directa del decaimiento diferencial $r^{-0.5}$ vs $r^{-2}$ — es la que hace práctico el [[MASW Method]]: la señal útil (Rayleigh) domina sobre el ruido (body waves) sin necesidad de filtrado agresivo.

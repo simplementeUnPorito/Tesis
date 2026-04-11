@@ -56,7 +56,7 @@ Dentro del campo cercano, la [[Phase Velocity|velocidad de fase]] aparente puede
 
 ## 4. Implicaciones para el diseño experimental
 
-- El **primer geófono** debe ubicarse al menos a $\lambda_R/2$ de la fuente, idealmente a $\lambda_R$.
+- El **primer [[Geophone|geófono]]** debe ubicarse al menos a $\lambda_R/2$ de la fuente, idealmente a $\lambda_R$.
 - Para frecuencias bajas esto impone offsets largos, que a su vez reducen el SNR → tradeoff fundamental del diseño [[MASW Method|MASW]].
 - Algunas técnicas de procesamiento permiten identificar y enmudecer (*mute*) los receptores afectados por campo cercano a cada frecuencia (Foti §4.4).
 - En arreglos pasivos ([[ReMi Method]], [[SPAC Method]]), el near-field es menos crítico porque no hay fuente controlada.

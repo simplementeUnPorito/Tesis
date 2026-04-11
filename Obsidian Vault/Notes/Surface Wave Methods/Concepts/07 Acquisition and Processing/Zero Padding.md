@@ -13,7 +13,7 @@ type: reference
 
 ## Efecto en el panel f-k
 
-En [[MASW Method|MASW]] 2D, el zero padding espacial extiende el arreglo de $N$ geófonos a $N_{zp}$ puntos antes de la DFT espacial:
+En [[MASW Method|MASW]] 2D, el zero padding espacial extiende el arreglo de $N$ [[Geophone|geófono]] a $N_{zp}$ puntos antes de la DFT espacial:
 
 - **Sin zero padding**: $N_k = N/2$ frecuencias espaciales, resolución $\Delta k = 2\pi/D$ (apertura del arreglo)
 - **Con zero padding (×4)**: $4N_k$ frecuencias espaciales, resolución aparente $\Delta k' = \Delta k/4$
@@ -22,14 +22,14 @@ La resolución verdadera no mejora (el criterio de Rayleigh $\Delta k_{min} = 2\
 
 ## Regla práctica para [[MASW Method|MASW]]
 
-Para el análisis $f$-$k$ de un arreglo de $N$ geófonos:
+Para el análisis $f$-$k$ de un arreglo de $N$ [[Geophone|geófono]]:
 - **Dominio temporal**: rellenar hasta $N' = 2^p$ donde $2^p \geq 4N_t$ (al menos 4× la longitud original)
 - **Dominio espacial**: rellenar hasta $N_{zp} = 8N$ o más para obtener interpolación suave del panel
 
 El zero padding no introduce información nueva — solo facilita la interpolación. La mejora en la estimación de $V_R(f)$ es válida siempre que el pico en el panel $f$-$k$ sea la componente dominante (campo lejano, baja contaminación de ondas de cuerpo).
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — zero padding en análisis [[MASW Method|MASW]] del sitio Memphis
-> Foti et al. (2018, §3.4.1, Fig. 7.16) ilustran el efecto del zero padding en el análisis [[MASW Method|MASW]] del sitio Mud Island, Memphis. Con $N = 24$ geófonos a $\Delta x = 2$ m (apertura $D = 46$ m), la resolución espectral nativa es $\Delta k = 0.137$ rad/m, equivalente a $\pm 5$ m/s de incertidumbre en $V_R$ a 10 Hz. Con zero padding ×8 ($N_{zp} = 192$), la [[Dispersion Curve|curva de dispersión]] extraída del panel $f$-$k$ muestra una dispersión de ±0.6 m/s entre realizaciones — reducción ×8 del error de cuantización. La comparación con el perfil SCPT muestra acuerdo dentro del 5% en el rango 5–30 Hz tras la inversión — confirmando que la precisión mejorada por zero padding se traslada a mejor resolución del perfil $V_S(z)$.
+> Foti et al. (2018, §3.4.1, Fig. 7.16) ilustran el efecto del zero padding en el análisis [[MASW Method|MASW]] del sitio Mud Island, Memphis. Con $N = 24$ [[Geophone|geófono]] a $\Delta x = 2$ m (apertura $D = 46$ m), la resolución espectral nativa es $\Delta k = 0.137$ rad/m, equivalente a $\pm 5$ m/s de incertidumbre en $V_R$ a 10 Hz. Con zero padding ×8 ($N_{zp} = 192$), la [[Dispersion Curve|curva de dispersión]] extraída del panel $f$-$k$ muestra una dispersión de ±0.6 m/s entre realizaciones — reducción ×8 del error de cuantización. La comparación con el perfil SCPT muestra acuerdo dentro del 5% en el rango 5–30 Hz tras la inversión — confirmando que la precisión mejorada por zero padding se traslada a mejor resolución del perfil $V_S(z)$.
 >
 > — Foti et al. (2018), §3.4.1, pp. 147–152, Fig. 7.16.
 

@@ -60,7 +60,7 @@ $$\sigma_{ij} = \lambda\,\theta\,\delta_{ij} + 2\mu\,\varepsilon_{ij}$$
 
 donde $\lambda$ y $\mu$ son las **constantes de Lamé**:
 - $\lambda$ — parámetro que relaciona esfuerzo normal con cambio de volumen.
-- $\mu = G$ — módulo de corte: relaciona esfuerzo de corte con deformación de corte.
+- $\mu = G$ — [[Shear Modulus|módulo de corte]]: relaciona esfuerzo de corte con deformación de corte.
 
 ## Desde deformaciones a ondas elásticas
 

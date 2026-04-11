@@ -1,13 +1,13 @@
 ---
 name: Viscoelastic Media
-description: Modelo constitutivo que combina comportamiento elástico y viscoso — base de la propagación de ondas con atenuación en suelos; módulos complejos y principio de correspondencia
+description: Modelo constitutivo que combina comportamiento elástico y viscoso — base de la propagación de ondas con [[Attenuation|atenuación]] en suelos; módulos complejos y principio de correspondencia
 type: reference
 ---
 
 # Viscoelastic Media — Medios Viscoelásticos
 
 > [!CONCEPT] Definición
-> Un **medio viscoelástico** combina comportamiento elástico (recuperable) y viscoso (disipativo). En propagación de ondas sísmicas, los módulos de Lamé se reemplazan por **módulos complejos** dependientes de la frecuencia: $\tilde{\mu}(\omega) = \mu_R(\omega) + i\mu_I(\omega)$. Por el **principio de correspondencia elástico-viscoelástico**, todas las soluciones del problema elástico se extienden al caso disipativo con la sustitución $\lambda, \mu \to \tilde{\lambda}, \tilde{\mu}$. Esto permite extender directamente la [[Rayleigh Eigenproblem|ecuación secular de Rayleigh]] y el [[Layered Media|método de Thomson-Haskell]] a medios con atenuación. El [[Wavenumber|número de onda]] se vuelve complejo $\tilde{k} = k_R + ik_I$: $k_R$ controla la fase ([[Phase Velocity|velocidad de fase]] real) y $k_I$ controla la atenuación espacial, relacionada con el [[Shear Damping Ratio|razón de amortiguamiento]] $D_s = k_I/(2k_R) = 1/(2Q)$.
+> Un **medio viscoelástico** combina comportamiento elástico (recuperable) y viscoso (disipativo). En propagación de ondas sísmicas, los módulos de Lamé se reemplazan por **módulos complejos** dependientes de la frecuencia: $\tilde{\mu}(\omega) = \mu_R(\omega) + i\mu_I(\omega)$. Por el **principio de correspondencia elástico-viscoelástico**, todas las soluciones del problema elástico se extienden al caso disipativo con la sustitución $\lambda, \mu \to \tilde{\lambda}, \tilde{\mu}$. Esto permite extender directamente la [[Rayleigh Eigenproblem|ecuación secular de Rayleigh]] y el [[Layered Media|método de Thomson-Haskell]] a medios con [[Attenuation|atenuación]]. El [[Wavenumber|número de onda]] se vuelve complejo $\tilde{k} = k_R + ik_I$: $k_R$ controla la fase ([[Phase Velocity|velocidad de fase]] real) y $k_I$ controla la [[Attenuation|atenuación]] espacial, relacionada con el [[Shear Damping Ratio|razón de amortiguamiento]] $D_s = k_I/(2k_R) = 1/(2Q)$.
 >
 > — Foti et al. (2018), Cap. 2, §2.5; Lai & Rix (1998).
 
@@ -33,7 +33,7 @@ donde $D_s \ll 1$ (amortiguamiento débil típico en suelos: $D_s \sim 1$–$10\
 
 Todas las soluciones del problema elástico son válidas en el viscoelástico con la sustitución $\lambda, \mu \to \tilde{\lambda}(\omega), \tilde{\mu}(\omega)$. Esto permite extender directamente la ecuación secular de Rayleigh y el método de [[Thomson-Haskell Matrix|Thomson-Haskell]] a medios disipativos.
 
-### [[Wavenumber|número de onda]] complejo y atenuación
+### [[Wavenumber|número de onda]] complejo y [[Attenuation|atenuación]]
 
 En un medio disipativo el [[Wavenumber|número de onda]] es complejo:
 
@@ -43,7 +43,7 @@ La solución armónica es:
 
 $$u \propto e^{-k_I x}\, e^{i(k_R x - \omega t)}$$
 
-La amplitud decae exponencialmente con la distancia $x$ a una tasa $k_I$ — la **atenuación espacial**.
+La amplitud decae exponencialmente con la distancia $x$ a una tasa $k_I$ — la **[[Attenuation|atenuación]] espacial**.
 
 ### Factor de calidad y damping ratio
 
@@ -57,17 +57,17 @@ En condiciones de amortiguamiento débil ($D_s \ll 1$), la [[Phase Velocity|velo
 
 $$V_R(\omega) \approx V_R^{(\text{elástico})}(\omega)\left[1 + O(D_s^2)\right]$$
 
-La corrección por disipación es de **segundo orden en $D_s$** — despreciable para estimar $V_S$. La atenuación espacial $k_I$ es de **primer orden en $D_s$** — directamente medible. Esto justifica la práctica estándar: primero invertir la [[Dispersion Curve|curva de dispersión]] para $V_S$, luego invertir la curva de atenuación para $D_s$ ([[Shear Damping Ratio]]).
+La corrección por disipación es de **segundo orden en $D_s$** — despreciable para estimar $V_S$. La [[Attenuation|atenuación]] espacial $k_I$ es de **primer orden en $D_s$** — directamente medible. Esto justifica la práctica estándar: primero invertir la [[Dispersion Curve|curva de dispersión]] para $V_S$, luego invertir la curva de [[Attenuation|atenuación]] para $D_s$ ([[Shear Damping Ratio]]).
 
 ## Implicaciones experimentales
 
 Medir amplitudes con precisión para extraer el perfil de $D_s$ es más exigente instrumentalmente que medir velocidades de fase. Requiere:
-- Control del acoplamiento suelo–geófono (afecta la amplitud registrada)
-- Corrección de **atenuación geométrica** ($\propto 1/\sqrt{r}$ para ondas de superficie en 2D)
+- Control del acoplamiento suelo–[[Geophone|geófono]] (afecta la amplitud registrada)
+- Corrección de **[[Attenuation|atenuación]] geométrica** ($\propto 1/\sqrt{r}$ para ondas de superficie en 2D)
 - Estimación o eliminación del **factor de fuente** (variaciones de acoplamiento fuente–suelo entre disparos)
 
-> [!EXAMPLE] Evidencia empírica: Lai & Rix (1998) — inversión simultánea VS y DS desde [[Dispersion Curve|curvas de dispersión]] y atenuación
-> Lai & Rix (1998) desarrollan el marco teórico completo para la inversión simultánea de la [[Dispersion Curve|curva de dispersión]] $c_R(f)$ y la curva de atenuación $\alpha_R(f)$ en medios viscoelásticos estratificados. Demuestran que la extensión del método de [[Layered Media|Thomson-Haskell]] a módulos complejos produce una ecuación secular compleja cuyas partes real e imaginaria están acopladas, de modo que la inversión simultánea es más consistente que la inversión secuencial. La relación $D_s \approx \alpha_R V_R / (2\pi f)$ es exacta al primer orden en $D_s$ y proporciona la conversión directa entre la curva de atenuación medida y el perfil $D_s(z)$. El método fue validado en el sitio de Pisa con resultados consistentes con ensayos de columna resonante (RCT).
+> [!EXAMPLE] Evidencia empírica: Lai & Rix (1998) — inversión simultánea VS y DS desde [[Dispersion Curve|curvas de dispersión]] y [[Attenuation|atenuación]]
+> Lai & Rix (1998) desarrollan el marco teórico completo para la inversión simultánea de la [[Dispersion Curve|curva de dispersión]] $c_R(f)$ y la curva de [[Attenuation|atenuación]] $\alpha_R(f)$ en medios viscoelásticos estratificados. Demuestran que la extensión del método de [[Layered Media|Thomson-Haskell]] a módulos complejos produce una ecuación secular compleja cuyas partes real e imaginaria están acopladas, de modo que la inversión simultánea es más consistente que la inversión secuencial. La relación $D_s \approx \alpha_R V_R / (2\pi f)$ es exacta al primer orden en $D_s$ y proporciona la conversión directa entre la curva de [[Attenuation|atenuación]] medida y el perfil $D_s(z)$. El método fue validado en el sitio de Pisa con resultados consistentes con ensayos de columna resonante (RCT).
 >
 > — Lai & Rix (1998), *Georgia Tech Research Report*; Foti et al. (2018), Cap. 2, §2.5; Cap. 5, §5.3.
 
@@ -76,5 +76,5 @@ Medir amplitudes con precisión para extraer el perfil de $D_s$ es más exigente
 | Fuente | Sección / Página |
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | Cap. 2, §2.5 — propagación en medios disipativos |
-| Foti et al. (2018), *Surface Wave Methods* | Cap. 5, §5.3 — estimación de la curva de atenuación |
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 5, §5.3 — estimación de la curva de [[Attenuation|atenuación]] |
 | Lai & Rix (1998), *Georgia Tech Research Report* | Marco teórico para inversión simultánea VS + DS |

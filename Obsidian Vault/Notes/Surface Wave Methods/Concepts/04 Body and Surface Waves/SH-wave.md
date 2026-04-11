@@ -61,7 +61,7 @@ donde $c$ es la [[Phase Velocity|velocidad de fase]] de Love. Esta ecuación tie
 
 Las ondas SH se excitan con fuentes de tipo horizontal (golpe lateral, vibrador horizontal). Las fuentes verticales estándar (martillo, peso) generan principalmente ondas P y SV, con mínima energía SH. Esto tiene implicaciones para la adquisición:
 
-- **Adquisición de Love waves**: requiere fuentes y geófonos horizontales orientados perpendicularmente a la línea del arreglo.
+- **Adquisición de Love waves**: requiere fuentes y [[Geophone|geófono]] horizontales orientados perpendicularmente a la línea del arreglo.
 - **Geófonos verticales** (los más comunes en [[MASW Method|MASW]]) no registran SH: son insensibles al movimiento horizontal transversal.
 - **Ventaja de Love vs. Rayleigh**: al no involucrar ondas P, la inversión de Love es más limpia y su [[Dispersion Curve|curva de dispersión]] solo depende del perfil $V_S$ y las densidades — no requiere $V_P$ como parámetro a priori.
 
@@ -74,7 +74,7 @@ $$u_y^{(j)}(z) = A_j e^{i k_{z,j} z} + B_j e^{-i k_{z,j} z}, \quad k_{z,j} = \sq
 Las amplitudes $A_j, B_j$ se conectan entre capas mediante una matriz de transferencia $2\times 2$ (vs. $4\times 4$ para el caso P–SV del método de [[Layered Media|Thomson-Haskell]]). Esto hace que el cálculo de [[Dispersion Curve|curvas de dispersión]] de Love sea computacionalmente más eficiente.
 
 > [!EXAMPLE] Evidencia empírica: Dal Moro & Ferigo (2011) — ventaja del desacoplamiento SH en inversión Love
-> **Paper 045 (Dal Moro & Ferigo 2011)** aprovecha el desacoplamiento de las ondas SH para construir [[Dispersion Curve|curvas de dispersión]] de Love independientes de $V_P$. En el sitio con fuerte contraste de velocidad estudiado, las curvas de Love (basadas en SH) son más regulares y libres de osculaciones que las curvas de Rayleigh (P–SV acoplado). La [[Joint Inversion|inversión conjunta]] Love + Rayleigh, utilizando geófonos horizontales para SH, produce un perfil $V_S(z)$ con menor [[Non-uniqueness|no-unicidad]] que la inversión solo de Rayleigh — validando el beneficio del desacoplamiento SH como ventaja analítica.
+> **Paper 045 (Dal Moro & Ferigo 2011)** aprovecha el desacoplamiento de las ondas SH para construir [[Dispersion Curve|curvas de dispersión]] de Love independientes de $V_P$. En el sitio con fuerte contraste de velocidad estudiado, las curvas de Love (basadas en SH) son más regulares y libres de osculaciones que las curvas de Rayleigh (P–SV acoplado). La [[Joint Inversion|inversión conjunta]] Love + Rayleigh, utilizando [[Geophone|geófono]] horizontales para SH, produce un perfil $V_S(z)$ con menor [[Non-uniqueness|no-unicidad]] que la inversión solo de Rayleigh — validando el beneficio del desacoplamiento SH como ventaja analítica.
 >
 > — Research Database, entrada 045 (core).
 

@@ -17,7 +17,7 @@ La columna de suelo se monta en un aparato que aplica una torsión controlada en
 
 $$f_r = \frac{1}{2\pi}\sqrt{\frac{k_{suelo}}{m_{cabeza}}}$$
 
-donde $k_{suelo} = G \cdot A / H$ es la rigidez al corte del suelo, $G = \rho V_S^2$ el módulo de corte y $m_{cabeza}$ la masa polar de la cabeza vibrante.
+donde $k_{suelo} = G \cdot A / H$ es la rigidez al corte del suelo, $G = \rho V_S^2$ el [[Shear Modulus|módulo de corte]] y $m_{cabeza}$ la masa polar de la cabeza vibrante.
 
 La velocidad de onda de corte: $V_S = 2\pi f_r H \cdot C$ donde $C$ es un factor de corrección que depende de la geometría y la masa relativa cabeza/suelo.
 
@@ -46,7 +46,7 @@ El RCT proporciona la referencia de laboratorio para los perfiles $D_s(z)$ obten
 Acuerdo típico: diferencias de 0.5–1.5% en $D_s$ absoluto — considerado razonable dado que el RCT mide una muestra y el [[MASW Method|MASW]] mide el comportamiento promedio del suelo in situ.
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — validación DS [[MASW Method|MASW]] vs RCT en Pisa y Memphis
-> Foti et al. (2018, §7.3) comparan el perfil $D_s(z)$ obtenido por inversión de la curva de atenuación de ondas de Rayleigh con ensayos RCT en dos sitios de referencia: la Torre de Pisa (arcilla de alta plasticidad) y el sitio de Memphis (depósitos aluviales). En Pisa, los valores de $D_s$ [[MASW Method|MASW]] oscilan entre 2–6% en los primeros 30 m, con diferencias respecto al RCT de ±1–1.5% en valor absoluto. En Memphis, el acuerdo es similar (±0.5–1%) excepto en la capa más superficial donde el [[MASW Method|MASW]] sobreestima el $D_s$ por efectos de scattering superficial. El estudio confirma que la inversión de la curva de atenuación de Rayleigh es un estimador válido de $D_s$ in situ, aunque con mayor incertidumbre que el RCT.
+> Foti et al. (2018, §7.3) comparan el perfil $D_s(z)$ obtenido por inversión de la curva de [[Attenuation|atenuación]] de ondas de Rayleigh con ensayos RCT en dos sitios de referencia: la Torre de Pisa (arcilla de alta plasticidad) y el sitio de Memphis (depósitos aluviales). En Pisa, los valores de $D_s$ [[MASW Method|MASW]] oscilan entre 2–6% en los primeros 30 m, con diferencias respecto al RCT de ±1–1.5% en valor absoluto. En Memphis, el acuerdo es similar (±0.5–1%) excepto en la capa más superficial donde el [[MASW Method|MASW]] sobreestima el $D_s$ por efectos de scattering superficial. El estudio confirma que la inversión de la curva de [[Attenuation|atenuación]] de Rayleigh es un estimador válido de $D_s$ in situ, aunque con mayor incertidumbre que el RCT.
 >
 > — Foti et al. (2018), §7.3, pp. 375–380, Figs. 7.25–7.29.
 

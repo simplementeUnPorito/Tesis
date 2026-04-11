@@ -47,7 +47,7 @@ A grandes distancias, la solución puede aproximarse por expansión asintótica.
 ### Campo cercano ( \lesssim \lambda_R/2$)
 
 Cerca de la fuente, las contribuciones de ondas P, S y Rayleigh no están separadas; sus frentes de onda se superponen y el campo es complejo. En esta zona:
-- La [[Phase Velocity|velocidad de fase]] **aparente** medida por un arreglo de geófonos difiere de la [[Phase Velocity|velocidad de fase]] real de Rayleigh.
+- La [[Phase Velocity|velocidad de fase]] **aparente** medida por un arreglo de [[Geophone|geófono]] difiere de la [[Phase Velocity|velocidad de fase]] real de Rayleigh.
 - La superposición de ondas de cuerpo introduce un sesgo sistemático en la [[Dispersion Curve|curva de dispersión]].
 - La hipótesis de onda plana del análisis f-k estándar no es válida.
 
@@ -59,7 +59,7 @@ donde $\lambda_{R,\max} = V_{R,\min}/f_{\min}$ es la longitud de onda más larga
 
 ## Implicaciones para el diseño del arreglo [[MASW Method|MASW]]
 
-La condición de campo lejano implica que el primer geófono del arreglo debe estar al menos a {\min}$ de la fuente:
+La condición de campo lejano implica que el primer [[Geophone|geófono]] del arreglo debe estar al menos a {\min}$ de la fuente:
 
 274271x_{\min} pprox rac{\lambda_{R,\max}}{2} = rac{V_{R,\min}}{2\,f_{\min}}274271
 
@@ -68,7 +68,7 @@ Si este offset mínimo no se respeta, las frecuencias bajas (correspondientes a 
 **Ejemplo**: con  pprox 200$ m/s y {\min} = 5$ Hz:
 274271x_{\min} pprox rac{200}{2 	imes 5} = 20 	ext{ m}274271
 
-El arreglo debe comenzar a $\geq m de la fuente para que todas las frecuencias estén en campo lejano. Esto está en tensión con el requisito de distancia máxima para atenuación (offset máximo $pprox L/2$): el diseño del arreglo requiere equilibrar ambos criterios.
+El arreglo debe comenzar a $\geq m de la fuente para que todas las frecuencias estén en campo lejano. Esto está en tensión con el requisito de distancia máxima para [[Attenuation|atenuación]] (offset máximo $pprox L/2$): el diseño del arreglo requiere equilibrar ambos criterios.
 
 ## Extensiones del Problema de Lamb
 
@@ -78,7 +78,7 @@ La solución original de Lamb (1904) para fuente vertical impulsiva ha sido exte
 - **Medio estratificado**: la solución exacta no existe analíticamente; se calcula numéricamente mediante el [[Layered Media|método de la matriz de transferencia]].
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) — validación del criterio de campo lejano en [[MASW Method|MASW]]
-> **Paper 001 (Park, Miller & Xia 1999)** utiliza el criterio de campo lejano del Problema de Lamb como justificación para excluir los geófonos más cercanos a la fuente en los registros [[MASW Method|MASW]]. Los sismogramas de Kansas muestran que a distancias $\geq 5$–$10$ m de la fuente el [[Ground Roll|ground-roll]] de Rayleigh domina claramente sobre las llegadas de ondas de cuerpo, en acuerdo con la predicción de Lamb. El análisis f-k resultante produce [[Dispersion Curve|curvas de dispersión]] sin contaminación de campo cercano para frecuencias entre 5 y 30 Hz.
+> **Paper 001 (Park, Miller & Xia 1999)** utiliza el criterio de campo lejano del Problema de Lamb como justificación para excluir los [[Geophone|geófono]] más cercanos a la fuente en los registros [[MASW Method|MASW]]. Los sismogramas de Kansas muestran que a distancias $\geq 5$–$10$ m de la fuente el [[Ground Roll|ground-roll]] de Rayleigh domina claramente sobre las llegadas de ondas de cuerpo, en acuerdo con la predicción de Lamb. El análisis f-k resultante produce [[Dispersion Curve|curvas de dispersión]] sin contaminación de campo cercano para frecuencias entre 5 y 30 Hz.
 >
 > — Research Database, entrada 001 (core).
 

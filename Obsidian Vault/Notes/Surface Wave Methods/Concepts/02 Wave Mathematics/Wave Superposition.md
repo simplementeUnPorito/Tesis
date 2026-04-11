@@ -37,9 +37,9 @@ donde cada componente $e^{i(kx-\omega t)}$ viaja con su propia [[Phase Velocity]
 
 ---
 
-## 3. Aplicación a geófonos
+## 3. Aplicación a [[Geophone|geófono]]
 
-Los registros de geófonos contienen superposición de múltiples componentes:
+Los registros de [[Geophone|geófono]] contienen superposición de múltiples componentes:
 
 | Componente | Origen |
 |-----------|--------|

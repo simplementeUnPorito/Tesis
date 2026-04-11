@@ -85,7 +85,7 @@ La **[[Joint Inversion|inversión conjunta]]** de ondas de Scholte (Vs) y P-guia
 
 ## Aplicación en la orilla (*shoreline*)
 
-Un arreglo híbrido con geófonos en tierra e hidrófonos en el fondo permite registrar simultáneamente:
+Un arreglo híbrido con [[Geophone|geófono]] en tierra e hidrófonos en el fondo permite registrar simultáneamente:
 - **Ondas de Rayleigh** en la parte terrestre.
 - **Ondas de Scholte** en la parte submarina.
 

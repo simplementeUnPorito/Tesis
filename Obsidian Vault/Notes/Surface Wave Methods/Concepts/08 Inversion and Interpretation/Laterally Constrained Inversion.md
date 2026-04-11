@@ -50,4 +50,4 @@ donde $\mathbf{L}$ es el operador de diferencias laterales de primer orden y $\m
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | §7.5 — LCI en secciones pseudo-2D [[MASW Method|MASW]] rolling |
 | Auken & Christiansen (2004), *Geophysics* | Formulación original del LCI para métodos EM |
-| Bergamo et al. (2016), *Near Surface Geophysics* | Aplicación del LCI a [[MASW Method|MASW]] rodante con grupos de geófonos |
+| Bergamo et al. (2016), *Near Surface Geophysics* | Aplicación del LCI a [[MASW Method|MASW]] rodante con grupos de [[Geophone|geófono]] |

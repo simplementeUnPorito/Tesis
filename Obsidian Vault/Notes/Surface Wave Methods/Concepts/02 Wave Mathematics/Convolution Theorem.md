@@ -23,7 +23,7 @@ type: reference
 El sistema de medición [[MASW Method|MASW]] puede modelarse como un sistema lineal:
 $$u_{obs}(t) = s(t) * G(t, r) * i(t) + n(t)$$
 
-donde $s(t)$ es la fuente, $G(t,r)$ es la función de Green del medio a distancia $r$, e $i(t)$ es la respuesta del geófono. En el dominio de la frecuencia:
+donde $s(t)$ es la fuente, $G(t,r)$ es la función de Green del medio a distancia $r$, e $i(t)$ es la respuesta del [[Geophone|geófono]]. En el dominio de la frecuencia:
 $$U_{obs}(\omega) = S(\omega) \cdot G(\omega, r) \cdot I(\omega) + N(\omega)$$
 
 La deconvolución fuente-receptor divide por $S(\omega)$ — razón por la que la [[Cross-Correlation|correlación cruzada]] entre dos receptores cancela $S(\omega)$ automáticamente.

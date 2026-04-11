@@ -35,7 +35,7 @@ El resultado es un **conjunto de perfiles equivalentes** que representan la solu
 
 ## Ejemplo: La Salle (Cap. 7.2.4)
 
-- $10^5$ modelos generados; dataset activo+pasivo (48 geófonos, 1.5 m), rango 5–55 Hz.
+- $10^5$ modelos generados; dataset activo+pasivo (48 [[Geophone|geófono]], 1.5 m), rango 5–55 Hz.
 - Test de Fisher al 95%: selección de ~500 modelos aceptables.
 - Capas superficiales bien constrenidas: pequeño rango de variación de Vs.
 - Capas profundas (>20 m): mayor incertidumbre — el rango de Vs aceptable se amplía (Foti Fig. 7.19).
@@ -73,7 +73,7 @@ Todos comparten el objetivo de explorar el espacio de parámetros globalmente y 
 > — Research Database, entrada 037 (core); Bergamo et al. (2011), *Soil Dyn. Earthq. Eng.* 31(3):530–534.
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — Monte Carlo en La Salle, VS30 robusto ante [[Non-uniqueness|no-unicidad]]
-> Foti et al. (2018, §7.2.4) aplican el algoritmo de Monte Carlo global (Socco & Boiero 2008) al sitio La Salle con el dataset activo+pasivo (48 geófonos, espaciado 1.5 m, rango 5–55 Hz). Se generan **$10^5$ modelos** aleatorios; el test de Fisher al 95% selecciona ~500 modelos aceptables. Los perfiles seleccionados concuerdan en las capas superficiales (<15 m) — bien constrenidas por la alta frecuencia del dataset — pero divergen sustancialmente a mayor profundidad, demostrando la [[Non-uniqueness|no-unicidad]] real del problema. Sin embargo, los espectros de respuesta sísmica 1D calculados para cada perfil aceptable son **prácticamente indistinguibles** (Fig. 7.21), y los valores de $[[Vs30|Vs,30]]$ caen en el rango estrecho de **480–505 m/s** (Fig. 7.22) — todos en la misma clase de sitio EC8. El resultado demuestra que la [[Non-uniqueness|no-unicidad]] de la solución $V_S(z)$ raramente compromete las decisiones de ingeniería basadas en $[[Vs30|Vs,30]]$.
+> Foti et al. (2018, §7.2.4) aplican el algoritmo de Monte Carlo global (Socco & Boiero 2008) al sitio La Salle con el dataset activo+pasivo (48 [[Geophone|geófono]], espaciado 1.5 m, rango 5–55 Hz). Se generan **$10^5$ modelos** aleatorios; el test de Fisher al 95% selecciona ~500 modelos aceptables. Los perfiles seleccionados concuerdan en las capas superficiales (<15 m) — bien constrenidas por la alta frecuencia del dataset — pero divergen sustancialmente a mayor profundidad, demostrando la [[Non-uniqueness|no-unicidad]] real del problema. Sin embargo, los espectros de respuesta sísmica 1D calculados para cada perfil aceptable son **prácticamente indistinguibles** (Fig. 7.21), y los valores de $[[Vs30|Vs,30]]$ caen en el rango estrecho de **480–505 m/s** (Fig. 7.22) — todos en la misma clase de sitio EC8. El resultado demuestra que la [[Non-uniqueness|no-unicidad]] de la solución $V_S(z)$ raramente compromete las decisiones de ingeniería basadas en $[[Vs30|Vs,30]]$.
 >
 > — Foti et al. (2018), §7.2.4, pp. 371–374, Figs. 7.19–7.22.
 

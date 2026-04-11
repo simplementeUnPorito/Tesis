@@ -28,7 +28,7 @@ Desde la perspectiva de reflexión, el ground-roll **contamina** las reflexiones
 ## Prácticas de supresión y sus efectos sobre las [[Surface Waves|ondas superficiales]]
 
 En la adquisición de reflexión, se aplican varias técnicas para atenuar el ground-roll:
-- **Arreglos de geófonos:** promedian señales de múltiples receptores en una posición, cancelando las longitudes de onda cortas del ground-roll pero preservando las reflexiones.
+- **Arreglos de [[Geophone|geófono]]:** promedian señales de múltiples receptores en una posición, cancelando las longitudes de onda cortas del ground-roll pero preservando las reflexiones.
 - **Geófonos de alta frecuencia:** reducen la sensibilidad en las bajas frecuencias donde domina el ground-roll.
 - **Fuentes de alta frecuencia** (vibroseis con sweep mínimo alto): reducen la energía inyectada en la banda del ground-roll.
 - **Filtros f-k en procesamiento:** aplican máscaras en el dominio f-k para eliminar el cono de velocidades del ground-roll.
@@ -61,12 +61,12 @@ Estas prácticas, desde la perspectiva del análisis de [[Surface Waves|ondas su
 
 ## Limitaciones
 
-- La **profundidad de investigación** está limitada por el contenido de baja frecuencia, que a su vez depende de los geófonos usados. En reflexión de ingeniería (geófonos de 100 Hz), la profundidad puede ser solo 20–50 m. En reflexión de exploración con geófonos de 10 Hz, puede alcanzar cientos de metros.
+- La **profundidad de investigación** está limitada por el contenido de baja frecuencia, que a su vez depende de los [[Geophone|geófono]] usados. En reflexión de ingeniería ([[Geophone|geófono]] de 100 Hz), la profundidad puede ser solo 20–50 m. En reflexión de exploración con [[Geophone|geófono]] de 10 Hz, puede alcanzar cientos de metros.
 - La necesidad de separar el ground-roll de reflexiones y refracciones requiere que los datos tengan suficiente separación en el espacio f-k.
 - La calibración del modelo de [[Attenuation|atenuación]] es difícil porque la fuente introduce distorsiones de amplitud.
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) — ground-roll como fuente de [[Surface Waves|ondas superficiales]] en [[MASW Method|MASW]]
-> **Paper 001 (Park, Miller & Xia 1999)** identifica explícitamente que en registros sísmicos con fuente activa (sledgehammer), el **ground-roll domina la energía total registrada**: en un sismograma típico de 24 geófonos en Kansas, el 80%+ de la energía visible corresponde a ondas de Rayleigh dispersivas (ground-roll), no a reflexiones ni refracciones. Esta observación es la base del [[MASW Method|MASW]]: en lugar de suprimir el ground-roll (como hace la reflexión sísmica), se extrae su [[Dispersion Curve|curva de dispersión]] para caracterizar $V_S(z)$. El espectrograma f-k muestra que el modo fundamental de Rayleigh es la cresta más prominente entre 5–30 Hz. El trabajo demuestra que un arreglo de 24 geófonos con offset adecuado captura el ground-roll con SNR suficiente para inversión confiable.
+> **Paper 001 (Park, Miller & Xia 1999)** identifica explícitamente que en registros sísmicos con fuente activa (sledgehammer), el **ground-roll domina la energía total registrada**: en un sismograma típico de 24 [[Geophone|geófono]] en Kansas, el 80%+ de la energía visible corresponde a ondas de Rayleigh dispersivas (ground-roll), no a reflexiones ni refracciones. Esta observación es la base del [[MASW Method|MASW]]: en lugar de suprimir el ground-roll (como hace la reflexión sísmica), se extrae su [[Dispersion Curve|curva de dispersión]] para caracterizar $V_S(z)$. El espectrograma f-k muestra que el modo fundamental de Rayleigh es la cresta más prominente entre 5–30 Hz. El trabajo demuestra que un arreglo de 24 [[Geophone|geófono]] con offset adecuado captura el ground-roll con SNR suficiente para inversión confiable.
 >
 > — Research Database, entrada 001 (core); Park, Miller & Xia (1999), *Geophysics* 64(3).
 

@@ -36,11 +36,11 @@ En medios dispersivos, $\omega$ y $k$ están relacionados por la [[Dispersion Re
 
 $$c_p(k) = \frac{\omega(k)}{k} = \frac{\omega}{k} \neq \text{const}$$
 
-La **[[Dispersion Curve|curva de dispersión]] experimental** es la representación de $c_p(f)$ — velocidad de fase de Rayleigh como función de la frecuencia — obtenida a partir de los registros de geófonos.
+La **[[Dispersion Curve|curva de dispersión]] experimental** es la representación de $c_p(f)$ — velocidad de fase de Rayleigh como función de la frecuencia — obtenida a partir de los registros de [[Geophone|geófono]].
 
 ## Medición experimental
 
-En un arreglo de geófonos alineado con la dirección de propagación, la velocidad de fase se estima midiendo el retardo de fase entre receptores. Para un par de receptores separados $\Delta x$:
+En un arreglo de [[Geophone|geófono]] alineado con la dirección de propagación, la velocidad de fase se estima midiendo el retardo de fase entre receptores. Para un par de receptores separados $\Delta x$:
 
 $$c_p = \frac{2\pi f \cdot \Delta x}{\Delta\phi(f)}$$
 
@@ -74,7 +74,7 @@ $$\text{misfit} = \sum_i \left[\frac{c_p^{exp}(f_i) - c_p^{teor}(f_i; \mathbf{m}
 
 La sensibilidad de $c_p$ a $V_S$ es máxima en las capas cuya profundidad central es $\approx \lambda/3$ a $\lambda/2$.
 
-## Implicaciones para el diseño del arreglo de geófonos
+## Implicaciones para el diseño del arreglo de [[Geophone|geófono]]
 
 - **Rango de frecuencias medible**: determinado por la longitud del arreglo ($f_{\min} \approx V_{R}/L$) y el espaciado entre receptores ($f_{\max} \approx V_{R}/(2\Delta x)$).
 - **Resolución en velocidad**: depende del número de receptores y la longitud total.

@@ -15,7 +15,7 @@ Las Rayleigh Waves resultan del acoplamiento entre [[P-waves]] y [[SV-wave|ondas
 - **Retrógrado** en superficie (sentido antihorario para propagación en $+x$)
 - **Prograde** por debajo de la profundidad crítica $x_2^c \approx 0.2\lambda$
 
-La amplitud vertical es ~1.5 veces la horizontal en superficie. Esta dominancia vertical hace que los **geófonos verticales** las capturen eficientemente sin necesidad de componentes horizontales.
+La amplitud vertical es ~1.5 veces la horizontal en superficie. Esta dominancia vertical hace que los **[[Geophone|geófono]] verticales** las capturen eficientemente sin necesidad de componentes horizontales.
 
 ---
 
@@ -45,7 +45,7 @@ La solución depende únicamente de $V_S$ y del [[Poisson Ratio]]:
 Aproximación de Viktorov: $c_R/V_S \approx (0.862 + 1.14\nu)/(1 + \nu)$.
 
 > [!NOTE] Implicación para la tesis
-> Los geófonos miden $c_R$, no $V_S$ directamente. La conversión requiere conocer $\nu$. Una incertidumbre de $\pm 0.05$ en $\nu$ alrededor de 0.25 introduce un error de $\pm 1$–$2\%$ en $V_S$.
+> Los [[Geophone|geófono]] miden $c_R$, no $V_S$ directamente. La conversión requiere conocer $\nu$. Una incertidumbre de $\pm 0.05$ en $\nu$ alrededor de 0.25 introduce un error de $\pm 1$–$2\%$ en $V_S$.
 
 ---
 
@@ -57,7 +57,7 @@ Toda dispersión observable en campo es evidencia directa de heterogeneidad vert
 
 ---
 
-## 4. Decaimiento con profundidad y atenuación geométrica
+## 4. Decaimiento con profundidad y [[Attenuation|atenuación]] geométrica
 
 Los desplazamientos decaen exponencialmente con la profundidad — la energía queda confinada cerca de la superficie ([[Skin Depth]] $\approx 0.94\lambda_R$). Esta propiedad establece la **regla de investigación**: la profundidad máxima explorada es $\approx \lambda_R/2$ a $\lambda_R$.
 
@@ -92,7 +92,7 @@ Cuando hay [[Surface Wave Modes|modos superiores]] activos, la [[Phase Velocity|
 - [[Love Waves]] — otro tipo de onda superficial (SH guiada)
 - [[Rayleigh Eigenproblem]] — formulación matemática del problema de valores propios
 - [[Near-field Effect]] — artefacto que contamina $c_R$ medida en campo cercano
-- [[Attenuation]] — amortiguamiento material medible en la curva de atenuación $\alpha_R(f)$
+- [[Attenuation]] — amortiguamiento material medible en la curva de [[Attenuation|atenuación]] $\alpha_R(f)$
 - [[MASW Method]], [[SASW Method]], [[ReMi Method]] — métodos que explotan Rayleigh Waves
 
 ---

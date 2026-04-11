@@ -161,7 +161,7 @@ Estas simplificaciones permiten modelar la propagación de ondas en:
 La teoría de la elasticidad proporciona la base física para:
 
 - propagación de ondas sísmicas
-- interpretación de datos de geófonos
+- interpretación de datos de [[Geophone|geófono]]
 - estimación de propiedades del subsuelo
 
 En particular, las velocidades de:

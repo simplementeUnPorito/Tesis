@@ -17,13 +17,13 @@ type: reference
 
 1. Se perforan dos o más pozos separados una distancia $d$ = 3–6 m (típicamente $d$ = 3 m para el estándar ASTM D4428)
 2. La fuente en el pozo S genera ondas impulsivas (martillo automático, explosivo, spark-gap)
-3. Los receptores (geófonos tri-axiales) en el pozo R registran la onda directa
+3. Los receptores ([[Geophone|geófono]] tri-axiales) en el pozo R registran la onda directa
 
 ### Tipos de onda medidos
 
 | Onda | Fuente | Receptor | Velocidad obtenida |
 |------|--------|----------|--------------------|
-| Compresión (P) | Pistón axial | Hidrófonos / geófonos axiales | $V_P$ |
+| Compresión (P) | Pistón axial | Hidrófonos / [[Geophone|geófono]] axiales | $V_P$ |
 | Corte (SH) | Martillo lateral (horizontal) | Geófonos horizontales | $V_S$ (SH) |
 | Corte (SV) | Martillo axial | Geófonos verticales | $V_S$ (SV) |
 

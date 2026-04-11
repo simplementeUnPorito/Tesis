@@ -12,7 +12,7 @@ type: reference
 > donde $W(f)$ es la transformada de Fourier de la ventana. El diseño de una función de ventana implica el **compromiso fundamental** entre:
 > - **Lóbulo principal** (*main lobe*): ancho $\Delta f_{\text{ML}}$ — determina la resolución espectral; un lóbulo más estrecho da mejor resolución
 > - **Lóbulos laterales** (*side lobes*): nivel en dB — determinan la contaminación por [[Spectral Leakage|fuga espectral]]; lóbulos más bajos dan menor contaminación
-> Matemáticamente, ambos objetivos son incompatibles: reducir los lóbulos laterales requiere ensanchar el lóbulo principal. En [[MASW Method|MASW]], las ventanas se aplican tanto en el dominio temporal (a cada traza) como en el dominio espacial (sobre el arreglo de geófonos) antes de la transformada $f$-$k$, controlando la calidad del panel espectral para la extracción de la [[Dispersion Curve|curva de dispersión]].
+> Matemáticamente, ambos objetivos son incompatibles: reducir los lóbulos laterales requiere ensanchar el lóbulo principal. En [[MASW Method|MASW]], las ventanas se aplican tanto en el dominio temporal (a cada traza) como en el dominio espacial (sobre el arreglo de [[Geophone|geófono]]) antes de la transformada $f$-$k$, controlando la calidad del panel espectral para la extracción de la [[Dispersion Curve|curva de dispersión]].
 >
 > — Foti et al. (2018), §3.3.5, pp. 135–138; Harris (1978), *Proc. IEEE* 66(1), 51–83.
 

@@ -56,7 +56,7 @@ La velocidad de Rayleigh $c_R$ depende únicamente de $V_S$ y del [[Poisson Rati
 
 Para $\nu = 0.25$ (valor clásico de muchas rocas): $c_R \approx 0.919\,V_S$.
 
-**Consecuencia práctica**: los geófonos miden $c_R$. Para obtener $V_S$ se necesita conocer $\nu$. Si $\nu$ no se conoce, se introduce una incertidumbre del orden de 4–9% en $V_S$ según el rango plausible de $\nu$.
+**Consecuencia práctica**: los [[Geophone|geófono]] miden $c_R$. Para obtener $V_S$ se necesita conocer $\nu$. Si $\nu$ no se conoce, se introduce una incertidumbre del orden de 4–9% en $V_S$ según el rango plausible de $\nu$.
 
 ## Movimiento de partícula
 
@@ -66,7 +66,7 @@ En el semiespacio, las partículas en superficie describen una **elipse retrógr
 - A profundidad crítica $x_2^c \approx 0.2\lambda$: la componente horizontal se anula, inversión de sentido de la órbita.
 - Por debajo de esa profundidad: movimiento prograde.
 
-Esta polarización elíptica con dominancia vertical es la razón por la que los **geófonos verticales** capturan eficientemente las ondas de Rayleigh.
+Esta polarización elíptica con dominancia vertical es la razón por la que los **[[Geophone|geófono]] verticales** capturan eficientemente las ondas de Rayleigh.
 
 ## Decaimiento con profundidad
 

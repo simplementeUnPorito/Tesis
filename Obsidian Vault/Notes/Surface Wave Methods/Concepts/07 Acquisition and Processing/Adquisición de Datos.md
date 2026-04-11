@@ -28,13 +28,13 @@ Las **fuentes activas** permiten controlar la forma de onda, la posición y el t
 
 ### 2. Receptores y arreglos
 
-Los receptores estándar en [[MASW Method|MASW]] son **geófonos verticales** (14 Hz, 28 Hz o 4.5 Hz) que miden la componente vertical del movimiento → sensibles a [[Rayleigh Waves|ondas de Rayleigh]]. Para medir [[Love Waves|ondas de Love]] se requieren geófonos horizontales transversales.
+Los receptores estándar en [[MASW Method|MASW]] son **[[Geophone|geófono]] verticales** (14 Hz, 28 Hz o 4.5 Hz) que miden la componente vertical del movimiento → sensibles a [[Rayleigh Waves|ondas de Rayleigh]]. Para medir [[Love Waves|ondas de Love]] se requieren [[Geophone|geófono]] horizontales transversales.
 
 **Geometría del arreglo** ([[MASW Method|MASW]] activo):
 
 | Parámetro | Símbolo | Efecto sobre la [[Dispersion Curve|curva de dispersión]] |
 |---|---|---|
-| Espaciado entre geófonos | $\Delta x$ | Longitud de onda mínima: $\lambda_{min} \approx 2\Delta x$ |
+| Espaciado entre [[Geophone|geófono]] | $\Delta x$ | Longitud de onda mínima: $\lambda_{min} \approx 2\Delta x$ |
 | Apertura total | $D = N\Delta x$ | Longitud de onda máxima: $\lambda_{max} \approx D$ |
 | Offset de fuente | $L_s$ | Exclusión de [[Near-field Effect|efectos de campo cercano]]: $L_s \geq \lambda_{max}/2$ |
 | Número de canales | $N$ | Resolución modal: mayor $N$ → mejor separación de modos |
@@ -47,7 +47,7 @@ Los **sismógrafos multicanal** deben ofrecer:
 - Frecuencia de muestreo temporal $f_s \geq 2 f_{max}$ (criterio de Nyquist).
 - Sincronización temporal precisa entre canales (trigger desde la fuente).
 
-Una ventaja operativa de la adquisición en superficie es la posibilidad de **verificar visualmente el acoplamiento geófono–suelo**, relevante especialmente para estimar el [[Shear Damping Ratio|amortiguamiento]] $D_s$ a partir de la curva de atenuación.
+Una ventaja operativa de la adquisición en superficie es la posibilidad de **verificar visualmente el acoplamiento [[Geophone|geófono]]–suelo**, relevante especialmente para estimar el [[Shear Damping Ratio|amortiguamiento]] $D_s$ a partir de la curva de [[Attenuation|atenuación]].
 
 ## Desafíos en la adquisición
 
@@ -64,7 +64,7 @@ Los receptores demasiado cercanos a la fuente reciben ondas con **frentes curvos
 Un espaciado excesivamente grande $\Delta x$ produce [[Aliasing|aliasing]] espacial (ambigüedad en el [[Wavenumber|número de onda]]): las ondas de longitud $\lambda < 2\Delta x$ se presentan en el espectro f-k con velocidad aparente incorrecta. La condición anti-[[Aliasing|aliasing]] es $\Delta x \leq \lambda_{min}/2$.
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) — diseño del arreglo de adquisición [[MASW Method|MASW]] en Kansas
-> **Paper 001 (Park, Miller & Xia 1999)** establece los criterios de diseño del arreglo [[MASW Method|MASW]] en el estudio de campo en Kansas: 24 geófonos verticales (14 Hz de frecuencia natural), espaciado $\Delta x = 1.5$ m, apertura total $D = 34.5$ m, offset de fuente $L_s = 10$ m. El sledgehammer (10 lb sobre placa metálica) produce energía predominante en 5–50 Hz. Las reglas de diseño demostraron que: (1) el offset de fuente $L_s = 10$ m ≈ $\lambda_{max}/2$ es suficiente para excluir efectos de campo cercano en el rango de profundidades de interés (<20 m); (2) el espaciado de 1.5 m previene [[Aliasing|aliasing]] espacial hasta ~50 Hz; (3) 24 canales proporcionan resolución modal suficiente para separar el modo fundamental de los superiores entre 5–30 Hz.
+> **Paper 001 (Park, Miller & Xia 1999)** establece los criterios de diseño del arreglo [[MASW Method|MASW]] en el estudio de campo en Kansas: 24 [[Geophone|geófono]] verticales (14 Hz de frecuencia natural), espaciado $\Delta x = 1.5$ m, apertura total $D = 34.5$ m, offset de fuente $L_s = 10$ m. El sledgehammer (10 lb sobre placa metálica) produce energía predominante en 5–50 Hz. Las reglas de diseño demostraron que: (1) el offset de fuente $L_s = 10$ m ≈ $\lambda_{max}/2$ es suficiente para excluir efectos de campo cercano en el rango de profundidades de interés (<20 m); (2) el espaciado de 1.5 m previene [[Aliasing|aliasing]] espacial hasta ~50 Hz; (3) 24 canales proporcionan resolución modal suficiente para separar el modo fundamental de los superiores entre 5–30 Hz.
 >
 > — Research Database, entrada 001 (core); Park, Miller & Xia (1999), *Geophysics* 64(3).
 

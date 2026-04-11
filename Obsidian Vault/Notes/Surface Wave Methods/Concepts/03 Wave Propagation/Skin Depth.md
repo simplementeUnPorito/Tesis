@@ -51,7 +51,7 @@ $$\lambda_{\max} = \frac{200}{5} = 40\,\text{m} \quad \Rightarrow \quad z_{\max}
 
 ## Influencia en el diseño del arreglo
 
-El skin depth determina directamente los requerimientos de diseño del arreglo de geófonos:
+El skin depth determina directamente los requerimientos de diseño del arreglo de [[Geophone|geófono]]:
 
 | Objetivo | Requerimiento | Relación con skin depth |
 |---|---|---|

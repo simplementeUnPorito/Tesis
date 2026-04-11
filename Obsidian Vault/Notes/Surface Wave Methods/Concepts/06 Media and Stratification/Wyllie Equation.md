@@ -25,7 +25,7 @@ Para suelos saturados, la [[Biot Theory|ecuación de Gassmann]] es más rigurosa
 | Biot-Gassmann | $V_P = \sqrt{(K_{sat} + 4G/3)/\rho}$ | General, incluyendo suelos blandos |
 | Empirical | $V_P = f(\phi, \text{tipo de suelo})$ | Correlaciones locales |
 
-Para $V_S$ (módulo de corte), Wyllie no aplica directamente ya que $G_{fluido} = 0$. La relación $V_S$-porosidad es empírica: $V_S \approx (1-\phi)^n V_{S,mineral}$ con $n \approx 1.5$–2 para arenas.
+Para $V_S$ ([[Shear Modulus|módulo de corte]]), Wyllie no aplica directamente ya que $G_{fluido} = 0$. La relación $V_S$-porosidad es empírica: $V_S \approx (1-\phi)^n V_{S,mineral}$ con $n \approx 1.5$–2 para arenas.
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — Wyllie para conversión VP-porosidad en sitio fluvial
 > Foti et al. (2018, §8.6.1) usan la ecuación de Wyllie con $V_f = 1480$ m/s (agua a 15°C) y $V_m = 5800$ m/s (cuarzo impuro con arcilla) para convertir el perfil $V_P$ del sitio La Salle (obtenido por [[Seismic Refraction|refracción sísmica]]) en un perfil de porosidad $\phi(z)$. Para la zona saturada ($V_P \approx 1500$–1700 m/s, 4–20 m), Wyllie predice $\phi \approx 0.38$–0.45 — ligeramente sobreestimado respecto al valor de laboratorio en testigos ($\phi_{lab} = 0.33$–0.40). La discrepancia (8%) se atribuye a que en suelos blandos la ecuación de Wyllie no captura correctamente el acoplamiento fluido-esqueleto de [[Biot Theory|Biot]]. No obstante, el perfil de $\phi$ es suficientemente preciso para la conversión cualitativa ERT→[[MASW Method|MASW]] requerida en la [[Joint Inversion|inversión conjunta]].

@@ -30,7 +30,7 @@ En oceanografía acústica se denominan ondas ULF (*ultra-low frequency*), típi
 
 ## Condición de existencia y aproximación acústica
 
-Las ondas guiadas P existen cuando la capa de agua puede funcionar como guía acústica, es decir, cuando la velocidad compresional del sedimento supera la del agua. La **aproximación acústica** (tratar el sedimento como un fluido con Vs = 0) es válida cuando el ratio de Poisson es alto, como ocurre en sedimentos saturados blandos (Vs << Vp). Esta aproximación simplifica el modelado directo.
+Las ondas guiadas P existen cuando la capa de agua puede funcionar como guía acústica, es decir, cuando la velocidad compresional del sedimento supera la del agua. La **aproximación acústica** (tratar el sedimento como un fluido con Vs = 0) es válida cuando el [[Poisson Ratio|razón de Poisson]] es alto, como ocurre en sedimentos saturados blandos (Vs << Vp). Esta aproximación simplifica el modelado directo.
 
 ## Información a priori necesaria
 

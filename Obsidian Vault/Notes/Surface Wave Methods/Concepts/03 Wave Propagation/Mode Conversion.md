@@ -41,13 +41,13 @@ Las [[Love Waves]] son ondas SH guiadas en una capa superficial. No involucran c
 
 ### Modos superiores de Rayleigh
 
-En medios [[Layered Media|estratificados]], las múltiples reflexiones P–SV en distintas interfaces dan lugar a los [[Surface Wave Modes|modos superiores de Rayleigh]]. La conversión de modos en cada interfaz determina cuánta energía se transfiere entre modos, condicionando la amplitud relativa del modo fundamental y los superiores en el registro del arreglo de geófonos.
+En medios [[Layered Media|estratificados]], las múltiples reflexiones P–SV en distintas interfaces dan lugar a los [[Surface Wave Modes|modos superiores de Rayleigh]]. La conversión de modos en cada interfaz determina cuánta energía se transfiere entre modos, condicionando la amplitud relativa del modo fundamental y los superiores en el registro del arreglo de [[Geophone|geófono]].
 
 ## Importancia para la adquisición
 
 La conversión de modos tiene consecuencias prácticas en el diseño del arreglo:
 
-1. **Contaminación de registros**: si la fuente genera ondas P, en las interfaces del subsuelo se generan ondas SV convertidas que llegan a los geófonos con diferentes moveouts. En ciertos casos pueden interferir con el tren de [[Surface Waves|ondas superficiales]].
+1. **Contaminación de registros**: si la fuente genera ondas P, en las interfaces del subsuelo se generan ondas SV convertidas que llegan a los [[Geophone|geófono]] con diferentes moveouts. En ciertos casos pueden interferir con el tren de [[Surface Waves|ondas superficiales]].
 
 2. **Separación en procesamiento**: el análisis f-k permite separar ondas con diferentes velocidades de fase (y por tanto diferentes pendientes en el sismograma). Las ondas de cuerpo convertidas tienen velocidades mayores que las [[Surface Waves|ondas superficiales]] y se distinguen en el espectro f-k.
 

@@ -7,7 +7,7 @@ type: reference
 # Sliding Window — Ventana Deslizante (Rolling Array)
 
 > [!CONCEPT] Definición
-> La **ventana deslizante** (*sliding window* o *rolling array*) es la técnica que extiende el [[MASW Method|MASW]] 1D a un perfil pseudo-2D: el arreglo de geófonos se desplaza lateralmente en incrementos regulares $\Delta L$ (tipicamente $\Delta x$ o $2\Delta x$) mientras se adquiere una nueva fuente en cada posición. Para cada posición de la ventana, se extrae una [[Dispersion Curve|curva de dispersión]] y se invierte para obtener un perfil 1D $V_S(z)$; la yuxtaposición de los perfiles genera la **sección pseudo-2D de VS**. La resolución lateral es aproximadamente igual a la longitud de la ventana $D$ (apertura total del arreglo), no al incremento $\Delta L$ — cada perfil 1D representa el promedio lateral del subsuelo bajo la ventana completa. El balance fundamental: ventanas más largas (mayor $D$) tienen mejor resolución en profundidad y resolución de modos, pero menor resolución lateral; ventanas más cortas tienen mejor resolución lateral pero peor [[Dispersion Curve|curva de dispersión]].
+> La **ventana deslizante** (*sliding window* o *rolling array*) es la técnica que extiende el [[MASW Method|MASW]] 1D a un perfil pseudo-2D: el arreglo de [[Geophone|geófono]] se desplaza lateralmente en incrementos regulares $\Delta L$ (tipicamente $\Delta x$ o $2\Delta x$) mientras se adquiere una nueva fuente en cada posición. Para cada posición de la ventana, se extrae una [[Dispersion Curve|curva de dispersión]] y se invierte para obtener un perfil 1D $V_S(z)$; la yuxtaposición de los perfiles genera la **sección pseudo-2D de VS**. La resolución lateral es aproximadamente igual a la longitud de la ventana $D$ (apertura total del arreglo), no al incremento $\Delta L$ — cada perfil 1D representa el promedio lateral del subsuelo bajo la ventana completa. El balance fundamental: ventanas más largas (mayor $D$) tienen mejor resolución en profundidad y resolución de modos, pero menor resolución lateral; ventanas más cortas tienen mejor resolución lateral pero peor [[Dispersion Curve|curva de dispersión]].
 >
 > — Foti et al. (2018), Cap. 7, §7.5; Park et al. (2002), *Geophysics*.
 
@@ -15,7 +15,7 @@ type: reference
 
 ### Adquisición en campo
 
-1. Desplegar el arreglo completo de $N$ geófonos con espaciado $\Delta x$ → apertura total $D = (N-1)\Delta x$
+1. Desplegar el arreglo completo de $N$ [[Geophone|geófono]] con espaciado $\Delta x$ → apertura total $D = (N-1)\Delta x$
 2. Mover la fuente (sledgehammer) en incrementos $\Delta L$ manteniendo el arreglo fijo → múltiples posiciones de fuente con el mismo arreglo
 3. O bien: desplazar todo el arreglo más la fuente → muestreo completamente deslizante
 
@@ -41,7 +41,7 @@ La resolución lateral del [[MASW Method|MASW]] rolling depende de:
 Una discontinuidad lateral abrupta (por ejemplo, un relleno sobre roca o una falla) aparece "suavizada" en la sección 2D con una zona de transición de ancho ~$D$.
 
 > [!EXAMPLE] Evidencia empírica: Miller et al. (1999) — 2D [[MASW Method|MASW]] vía CMP roll-along para mapeo de bedrock
-> **Paper 030 (Miller, Xia, Park & Ivanov 1999, The Leading Edge, 462 citas)** introduce el perfil 2D de VS mediante adquisición CMP roll-along: un arreglo de 48 canales (geófonos 4.5 Hz Geospace GS11D, espaciado 2 ft = 0.6 m) con sismógrafo de 60 canales Geometrics StrataView registra múltiples disparos desplazados en increments de 4 ft en el sitio contaminado de Olathe (Kansas). Para cada posición CMP se extrae una [[Dispersion Curve|curva de dispersión]] y se invierte un perfil 1D que luego se yuxtapone lateralmente para generar la sección 2D. El mapa de bedrock resultante muestra acuerdo < 1 ft con perforaciones independientes en un rango de profundidad 0.6–10.7 m. La ventaja respecto al [[MASW Method|MASW]] 1D convencional es la resolución lateral detallada, comparable a la sísmica de reflexión pero sin sus limitaciones de inversiones de velocidad. Este trabajo es el antecedente directo de la técnica de ventana deslizante moderna.
+> **Paper 030 (Miller, Xia, Park & Ivanov 1999, The Leading Edge, 462 citas)** introduce el perfil 2D de VS mediante adquisición CMP roll-along: un arreglo de 48 canales ([[Geophone|geófono]] 4.5 Hz Geospace GS11D, espaciado 2 ft = 0.6 m) con sismógrafo de 60 canales Geometrics StrataView registra múltiples disparos desplazados en increments de 4 ft en el sitio contaminado de Olathe (Kansas). Para cada posición CMP se extrae una [[Dispersion Curve|curva de dispersión]] y se invierte un perfil 1D que luego se yuxtapone lateralmente para generar la sección 2D. El mapa de bedrock resultante muestra acuerdo < 1 ft con perforaciones independientes en un rango de profundidad 0.6–10.7 m. La ventaja respecto al [[MASW Method|MASW]] 1D convencional es la resolución lateral detallada, comparable a la sísmica de reflexión pero sin sus limitaciones de inversiones de velocidad. Este trabajo es el antecedente directo de la técnica de ventana deslizante moderna.
 >
 > — Research Database, entrada 030 (core); Miller et al. (1999), *The Leading Edge* 18(12):1402–1407.
 

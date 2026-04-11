@@ -33,14 +33,14 @@ En ensayos near-surface, la dispersión observada está **dominada por la estrat
 1. **Alto amortiguamiento**: $D_s > 5\%$ (arcillas blandas, rellenos contaminados) → el gradiente de [[Phase Velocity|velocidad de fase]] tiene contribución viscoelástica no despreciable.
 2. **Saturación parcial**: la transición zona no saturada / zona saturada introduce variaciones de $V_P$ y $\nu$ que afectan la velocidad de Rayleigh (ver [[Poisson Ratio]]).
 3. **Medios porosos con alta frecuencia de Biot**: en arenas limpias con frecuencias sísmicas elevadas (>100 Hz), la dispersión de Biot puede contribuir.
-4. **Atenuación de sitio marcada**: si la fuente es muy próxima, la curva de atenuación $\alpha_R(f)$ contiene dispersión material del [[Shear Damping Ratio|coeficiente de amortiguamiento]] $D_s(z)$.
+4. **[[Attenuation|Atenuación]] de sitio marcada**: si la fuente es muy próxima, la curva de [[Attenuation|atenuación]] $\alpha_R(f)$ contiene dispersión material del [[Shear Damping Ratio|coeficiente de amortiguamiento]] $D_s(z)$.
 
 ## Implicación práctica
 
 No se debe atribuir **toda** la dispersión observada a la estratificación vertical. En sitios con suelos altamente atenuantes o saturados, la dispersión material introduce un sesgo sistemático en la [[Dispersion Curve|curva de dispersión]] si no se corrige. La separación entre ambos tipos de dispersión requiere un modelo físico explícito — no es posible por inspección visual de la curva. En práctica estándar, se asume dispersión material despreciable y se modela la [[Dispersion Curve|curva de dispersión]] con medios elásticos; esto es válido cuando $D_s < 5\%$.
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — dispersión material vs geométrica en sitio de Pisa
-> Foti et al. (2018, §7.3) realizan la inversión simultánea de la [[Dispersion Curve|curva de dispersión]] y la curva de atenuación en la Torre de Pisa (arcilla de alta plasticidad con $D_s \sim 3$–$5\%$). Al modelar solo la dispersión geométrica (medio elástico), el ajuste de la [[Dispersion Curve|curva de dispersión]] es bueno — el efecto de $D_s$ sobre $c_R(f)$ es de segundo orden y menor que la incertidumbre experimental (~1%). Sin embargo, la curva de atenuación $\alpha_R(f)$ solo se ajusta correctamente cuando se incluye el modelo viscoelástico (dispersión material del amortiguamiento). El resultado confirma que para estimación de $V_S$ se puede despreciar la dispersión material, pero para estimación de $D_s$ es imprescindible incluirla.
+> Foti et al. (2018, §7.3) realizan la inversión simultánea de la [[Dispersion Curve|curva de dispersión]] y la curva de [[Attenuation|atenuación]] en la Torre de Pisa (arcilla de alta plasticidad con $D_s \sim 3$–$5\%$). Al modelar solo la dispersión geométrica (medio elástico), el ajuste de la [[Dispersion Curve|curva de dispersión]] es bueno — el efecto de $D_s$ sobre $c_R(f)$ es de segundo orden y menor que la incertidumbre experimental (~1%). Sin embargo, la curva de [[Attenuation|atenuación]] $\alpha_R(f)$ solo se ajusta correctamente cuando se incluye el modelo viscoelástico (dispersión material del amortiguamiento). El resultado confirma que para estimación de $V_S$ se puede despreciar la dispersión material, pero para estimación de $D_s$ es imprescindible incluirla.
 >
 > — Foti et al. (2018), §7.3, pp. 375–380; §2.1.1, pp. 40–41.
 

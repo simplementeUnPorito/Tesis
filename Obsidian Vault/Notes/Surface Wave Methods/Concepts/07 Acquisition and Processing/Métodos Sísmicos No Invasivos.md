@@ -34,9 +34,9 @@ Explotan la **dispersión** de las [[Surface Waves|ondas superficiales]] para in
 
 | Método | Fuente | Geometría | Observable |
 |---|---|---|---|
-| [[MASW Method|MASW]] | Activa (martillo/vibrador) | Línea de geófonos | Espectro f-k → [[Dispersion Curve|curva de dispersión]] |
+| [[MASW Method|MASW]] | Activa (martillo/vibrador) | Línea de [[Geophone|geófono]] | Espectro f-k → [[Dispersion Curve|curva de dispersión]] |
 | [[SASW Method|SASW]] | Activa | 2 receptores, offset variable | Función de transferencia → fase |
-| [[ReMi Method|ReMi]] | Pasiva (ruido ambiente) | Línea de geófonos | p-f slantstack → [[Dispersion Curve|curva de dispersión]] |
+| [[ReMi Method|ReMi]] | Pasiva (ruido ambiente) | Línea de [[Geophone|geófono]] | p-f slantstack → [[Dispersion Curve|curva de dispersión]] |
 | [[SPAC Method|SPAC]] | Pasiva (ruido ambiente) | Arreglo 2D (triángulo, anillo) | Autocorrelación espacial → $J_0$ |
 | [[Seismic Interferometry|Interferometría]] | Pasiva | Cualquier arreglo | Cross-correlación → función de Green |
 
@@ -52,7 +52,7 @@ Los métodos de [[Surface Waves|ondas superficiales]] tienen ventajas específic
 
 2. **Miden directamente $V_S$**: La [[Dispersion Curve|curva de dispersión]] de Rayleigh es sensible principalmente a $V_S$ (con sensibilidad menor a $V_P$ y $\rho$), y el producto de la inversión es directamente el perfil $V_S(z)$.
 
-3. **Representatividad espacial**: Un arreglo de geófonos de longitud $L$ promedia las propiedades del suelo lateralmente. Esto es una ventaja para heterogeneidades horizontales pero una limitación si el suelo varía significativamente a lo largo del arreglo.
+3. **Representatividad espacial**: Un arreglo de [[Geophone|geófono]] de longitud $L$ promedia las propiedades del suelo lateralmente. Esto es una ventaja para heterogeneidades horizontales pero una limitación si el suelo varía significativamente a lo largo del arreglo.
 
 4. **Rango de profundidades**: Ajustando la longitud del arreglo y la fuente se puede investigar desde <1 m hasta >50 m de profundidad en condiciones típicas.
 

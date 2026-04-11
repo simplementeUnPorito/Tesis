@@ -38,9 +38,9 @@ $$\tilde{\mu}(\omega) = \mu_R(\omega)(1 + 2iD_S)$$
 
 La [[Phase Velocity|velocidad de fase]] y el [[Wavenumber|número de onda]] se vuelven complejos. Para amortiguamiento débil ($D \ll 1$):
 - La [[Phase Velocity|velocidad de fase]] cambia en orden $D^2$ (segundo orden)
-- La atenuación espacial $\alpha_R$ es proporcional a $D$ (primer orden)
+- La [[Attenuation|atenuación]] espacial $\alpha_R$ es proporcional a $D$ (primer orden)
 
-Esto permite estimar el perfil de amortiguamiento $D_S(z)$ a partir de la curva de atenuación $\alpha_R(f)$ medida experimentalmente.
+Esto permite estimar el perfil de amortiguamiento $D_S(z)$ a partir de la curva de [[Attenuation|atenuación]] $\alpha_R(f)$ medida experimentalmente.
 
 > [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — Rayleigh Eigenproblem como núcleo del forward modeling
 > **Paper 002 (Xia, Miller & Park 1999)** implementa el Rayleigh Eigenproblem mediante la formulación de [[Thomson-Haskell Matrix|Thomson-Haskell]] como núcleo del [[Forward Problem|problema directo]] de [[MASW Method|MASW]]. El Jacobiano analítico $\partial c_R/\partial V_S$ — derivado de las eigenfunciones de Rayleigh — permite la inversión iterativa convergente en menos de 10 iteraciones para todos los sitios de Kansas ensayados. La estructura de eigenvalores del problema garantiza que la [[Dispersion Curve|curva de dispersión]] es una función suave de $V_S(z)$, lo que estabiliza la inversión y facilita la convergencia.

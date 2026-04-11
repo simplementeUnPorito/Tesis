@@ -40,7 +40,7 @@ Para [[MASW Method|MASW]] estándar con sledgehammer (fuente activa, 5–80 Hz),
 
 ## Acoplamiento suelo-geófono
 
-El geófono debe estar mecánicamente acoplado al suelo para que $\dot{u}_{suelo} \approx \dot{u}_{geófono}$. Un acoplamiento deficiente (por superficie dura, geófono inclinado, o suelo blando no compactado) introduce una resonancia espuria en la respuesta y puede alterar la amplitud y la fase de la señal registrada — crítico para la estimación del [[Shear Damping Ratio|coeficiente de amortiguamiento]] $D_s$ desde la curva de atenuación.
+El geófono debe estar mecánicamente acoplado al suelo para que $\dot{u}_{suelo} \approx \dot{u}_{geófono}$. Un acoplamiento deficiente (por superficie dura, geófono inclinado, o suelo blando no compactado) introduce una resonancia espuria en la respuesta y puede alterar la amplitud y la fase de la señal registrada — crítico para la estimación del [[Shear Damping Ratio|coeficiente de amortiguamiento]] $D_s$ desde la curva de [[Attenuation|atenuación]].
 
 ## MEMS Accelerometer como alternativa
 

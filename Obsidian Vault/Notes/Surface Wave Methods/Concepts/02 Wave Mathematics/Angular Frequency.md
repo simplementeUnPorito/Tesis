@@ -58,10 +58,10 @@ La frecuencia angular (y su análogo $f$) está limitada en la práctica por:
 | Límite | Expresión | Controlado por |
 |---|---|---|
 | $f_{\max}$ (temporal) | $f_{\max} = 1/(2\Delta t)$ | Intervalo de muestreo $\Delta t$ (Nyquist) |
-| $f_{\max}$ (espacial) | $f_{\max} = c_p/(2\Delta x)$ | Espaciado entre geófonos $\Delta x$ |
+| $f_{\max}$ (espacial) | $f_{\max} = c_p/(2\Delta x)$ | Espaciado entre [[Geophone|geófono]] $\Delta x$ |
 | $f_{\min}$ | $f_{\min} \approx c_p/L$ | Longitud total del arreglo $L$ |
 
-Donde $\Delta x$ es el espaciado entre geófonos y $L$ es la apertura total. La frecuencia mínima determina la máxima longitud de onda accesible y, por tanto, la [[Skin Depth|profundidad de investigación]].
+Donde $\Delta x$ es el espaciado entre [[Geophone|geófono]] y $L$ es la apertura total. La frecuencia mínima determina la máxima longitud de onda accesible y, por tanto, la [[Skin Depth|profundidad de investigación]].
 
 ## Notación y conversión práctica
 

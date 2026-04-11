@@ -13,7 +13,7 @@ type: reference
 
 ## Intuición física
 
-En un depósito sedimentario real, la rigidez del suelo no cambia en saltos abruptos sino que aumenta gradualmente con la profundidad, principalmente por el incremento de la presión de confinamiento (que cierra los contactos entre partículas y aumenta el módulo de corte efectivo). Un abanico aluvial, una arena uniforme depositada en capas sucesivas, o un suelo residual profundo son ejemplos donde la transición entre "capas" es suave y gradual.
+En un depósito sedimentario real, la rigidez del suelo no cambia en saltos abruptos sino que aumenta gradualmente con la profundidad, principalmente por el incremento de la presión de confinamiento (que cierra los contactos entre partículas y aumenta el [[Shear Modulus|módulo de corte]] efectivo). Un abanico aluvial, una arena uniforme depositada en capas sucesivas, o un suelo residual profundo son ejemplos donde la transición entre "capas" es suave y gradual.
 
 El modelo de [[Layered Media|capas]] discretas aproxima este comportamiento con escalones: en cada interfaz las propiedades cambian abruptamente. Esta aproximación introduce artefactos matemáticos (discontinuidades en las derivadas de las eigenfunciones) que pueden afectar la precisión numérica del modelo directo. El modelo continuo evita esta limitación pero requiere esquemas numéricos distintos.
 

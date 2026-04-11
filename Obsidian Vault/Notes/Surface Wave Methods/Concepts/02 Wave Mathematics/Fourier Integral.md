@@ -46,7 +46,7 @@ Esto muestra que la energía asociada al [[Wavenumber|número de onda]] $k^*$ ll
 
 ## Transformada de Fourier discreta y 2D en [[MASW Method|MASW]]
 
-En la práctica, el sismograma es un array discreto de muestras $u(x_j, t_n)$ medidas en $N_x$ geófonos a tiempos $t_n$. La transformada de Fourier continua se reemplaza por la **transformada de Fourier discreta (DFT)**, calculada eficientemente con el algoritmo FFT.
+En la práctica, el sismograma es un array discreto de muestras $u(x_j, t_n)$ medidas en $N_x$ [[Geophone|geófono]] a tiempos $t_n$. La transformada de Fourier continua se reemplaza por la **transformada de Fourier discreta (DFT)**, calculada eficientemente con el algoritmo FFT.
 
 El análisis f-k en [[MASW Method|MASW]] aplica la **transformada de Fourier 2D** al sismograma:
 
@@ -65,7 +65,7 @@ La discretización temporal y espacial impone restricciones al espectro estimado
 | Limitación | Expresión | Origen |
 |---|---|---|
 | $f_{\max}$ (Nyquist temporal) | $f_{\max} = 1/(2\Delta t)$ | Intervalo de muestreo $\Delta t$ |
-| $k_{\max}$ (Nyquist espacial) | $k_{\max} = \pi/\Delta x$ | Espaciado entre geófonos $\Delta x$ |
+| $k_{\max}$ (Nyquist espacial) | $k_{\max} = \pi/\Delta x$ | Espaciado entre [[Geophone|geófono]] $\Delta x$ |
 | Resolución en $f$ | $\Delta f = 1/(N_t \Delta t)$ | Duración total del registro |
 | Resolución en $k$ | $\Delta k = 2\pi/(N_x \Delta x)$ | Longitud total del arreglo |
 
@@ -80,7 +80,7 @@ $$\int_{-\infty}^{\infty} |\phi(x, t)|^2\, dt = \frac{1}{2\pi} \int_{-\infty}^{\
 Esto garantiza que la transformada f-k es un cambio de representación, no una pérdida de información: toda la energía del sismograma está contenida en su espectro f-k, distribuida entre los diferentes modos y frecuencias.
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) — implementación discreta de la integral de Fourier en [[MASW Method|MASW]]
-> **Paper 001 (Park, Miller & Xia 1999)** implementa la transformada de Fourier 2D discreta (FFT 2D) sobre el sismograma de 24 geófonos, produciendo el espectrograma f-k que muestra los modos de Rayleigh como crestas de alta amplitud. El método transforma el registro $u(x_j, t_n)$ al dominio $(f, k)$ y extrae la [[Dispersion Curve|curva de dispersión]] como el lugar geométrico de los máximos espectrales. La eficiencia del algoritmo FFT permite calcular el espectrograma en tiempo real durante la adquisición, facilitando el control de calidad en campo.
+> **Paper 001 (Park, Miller & Xia 1999)** implementa la transformada de Fourier 2D discreta (FFT 2D) sobre el sismograma de 24 [[Geophone|geófono]], produciendo el espectrograma f-k que muestra los modos de Rayleigh como crestas de alta amplitud. El método transforma el registro $u(x_j, t_n)$ al dominio $(f, k)$ y extrae la [[Dispersion Curve|curva de dispersión]] como el lugar geométrico de los máximos espectrales. La eficiencia del algoritmo FFT permite calcular el espectrograma en tiempo real durante la adquisición, facilitando el control de calidad en campo.
 >
 > — Research Database, entrada 001 (core).
 

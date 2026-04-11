@@ -61,7 +61,7 @@ $$
 
 Ambas se propagan sin dispersión en medios homogéneos. La dispersión aparece cuando el medio es [[Layered Media]] — esto es la [[Geometric Dispersion]] que explotan los métodos de [[Surface Waves|ondas superficiales]].
 
-La 1D Wave Equation sirve como **referencia**: cuando un registro de geófonos muestra dispersión, es porque el subsuelo real se aleja del ideal homogéneo que esta ecuación describe.
+La 1D Wave Equation sirve como **referencia**: cuando un registro de [[Geophone|geófono]] muestra dispersión, es porque el subsuelo real se aleja del ideal homogéneo que esta ecuación describe.
 
 ---
 

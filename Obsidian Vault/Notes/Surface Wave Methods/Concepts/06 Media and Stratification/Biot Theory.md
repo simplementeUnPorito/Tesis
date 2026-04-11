@@ -1,6 +1,6 @@
 ---
 name: Biot Theory
-description: Teoría de la poroelasticidad de Biot (1956) que describe la propagación de ondas en medios porosos saturados — predice tres tipos de ondas (P rápida, P lenta difusiva, S) y la independencia del módulo de corte G respecto a la saturación
+description: Teoría de la poroelasticidad de Biot (1956) que describe la propagación de ondas en medios porosos saturados — predice tres tipos de ondas (P rápida, P lenta difusiva, S) y la independencia del [[Shear Modulus|módulo de corte]] G respecto a la saturación
 type: reference
 ---
 
@@ -11,10 +11,10 @@ type: reference
 > $$\rho_{11} \ddot{\mathbf{u}} + \rho_{12} \ddot{\mathbf{U}} = \nabla \cdot \boldsymbol{\sigma} + b(\dot{\mathbf{U}} - \dot{\mathbf{u}})$$
 > $$\rho_{12} \ddot{\mathbf{u}} + \rho_{22} \ddot{\mathbf{U}} = -\nabla p - b(\dot{\mathbf{U}} - \dot{\mathbf{u}})$$
 > donde $\mathbf{u}$ es el desplazamiento del sólido, $\mathbf{U}$ el del fluido, $\boldsymbol{\sigma}$ el tensor de esfuerzos del esqueleto, $p$ la presión de poros, y $b$ el coeficiente de acoplamiento viscoso. La teoría predice la existencia de **tres tipos de ondas** en medios porosos saturados:
-> 1. **Onda P rápida (P₁)**: movimiento en fase fluido-sólido; $V_{P1} > V_P^{drenado}$; baja atenuación a bajas frecuencias
-> 2. **Onda P lenta (P₂, onda de Biot)**: movimiento en contrafase fluido-sólido; $V_{P2} \ll V_{P1}$; muy alta atenuación — se comporta como onda difusiva a frecuencias sísmicas
+> 1. **Onda P rápida (P₁)**: movimiento en fase fluido-sólido; $V_{P1} > V_P^{drenado}$; baja [[Attenuation|atenuación]] a bajas frecuencias
+> 2. **Onda P lenta (P₂, onda de Biot)**: movimiento en contrafase fluido-sólido; $V_{P2} \ll V_{P1}$; muy alta [[Attenuation|atenuación]] — se comporta como onda difusiva a frecuencias sísmicas
 > 3. **Onda S**: cizallamiento del esqueleto; $V_S$ **no depende de la saturación** ($G$ es igual en condiciones drenadas y no drenadas)
-> La consecuencia más importante para [[MASW Method|MASW]]: $G_{\text{sat}} = G_{\text{drained}}$ (módulo de corte independiente de la saturación), razón por la que $V_S$ es robusta respecto al nivel freático (ver [[Porous Media]]).
+> La consecuencia más importante para [[MASW Method|MASW]]: $G_{\text{sat}} = G_{\text{drained}}$ ([[Shear Modulus|módulo de corte]] independiente de la saturación), razón por la que $V_S$ es robusta respecto al nivel freático (ver [[Porous Media]]).
 >
 > — Biot (1956), *J. Acoust. Soc. Am.* 28(2), 168–191; Foti et al. (2018), §2.1.1, pp. 40–45; Gassmann (1951).
 
@@ -30,7 +30,7 @@ donde:
 - $K_f$: módulo del fluido (agua: ~2.25 GPa)
 - $n$: porosidad
 
-El módulo de corte es **invariante**: $G_{sat} = G_{sk}$ — consecuencia directa de que el fluido no resiste esfuerzos de corte.
+El [[Shear Modulus|módulo de corte]] es **invariante**: $G_{sat} = G_{sk}$ — consecuencia directa de que el fluido no resiste esfuerzos de corte.
 
 ## Implicaciones prácticas para [[Surface Waves|ondas superficiales]]
 
@@ -51,7 +51,7 @@ $$f_c = \frac{\eta \, n}{2\pi \, k_0 \, \rho_f}$$
 donde $\eta$ es la viscosidad del fluido, $k_0$ la permeabilidad intrínseca del suelo, y $\rho_f$ la densidad del fluido. Para $f < f_c$ (rango sísmico típico: < 1 kHz), la onda P lenta es esencialmente difusiva. Para $f > f_c$ (ultrasonidos), se vuelve propagante.
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — validación Biot en sitio La Salle (VP vs VS en tabla de agua)
-> Foti et al. (2018, §6.3, pp. 293–298) demuestran experimentalmente la predicción de Biot en el sitio La Salle: el perfil de [[Seismic Refraction|refracción sísmica]] muestra un salto abrupto de $V_P$ de ~500 m/s (suelo no saturado) a ~1500 m/s (suelo saturado) a ~4 m de profundidad — marcando la tabla de agua. En contraste, el perfil $V_S$ ([[MASW Method|MASW]]) varía suavemente de 180 a 280 m/s sin discontinuidad a esa profundidad. El coeficiente de Poisson efectivo salta de $\nu \approx 0.30$ (no saturado) a $\nu \approx 0.49$ (saturado) — confirma predicción de Biot-Gassmann: $G = G_{sk}$ invariante, pero $K_{sat} \gg K_{sk}$ por la contribución del fluido. Foti concluye que asumir $\nu$ fijo en la inversión de Rayleigh introduce sesgo en $V_S$ si no se conoce la posición de la tabla de agua.
+> Foti et al. (2018, §6.3, pp. 293–298) demuestran experimentalmente la predicción de Biot en el sitio La Salle: el perfil de [[Seismic Refraction|refracción sísmica]] muestra un salto abrupto de $V_P$ de ~500 m/s (suelo no saturado) a ~1500 m/s (suelo saturado) a ~4 m de profundidad — marcando la tabla de agua. En contraste, el perfil $V_S$ ([[MASW Method|MASW]]) varía suavemente de 180 a 280 m/s sin discontinuidad a esa profundidad. El [[Poisson Ratio|razón de Poisson]] efectivo salta de $\nu \approx 0.30$ (no saturado) a $\nu \approx 0.49$ (saturado) — confirma predicción de Biot-Gassmann: $G = G_{sk}$ invariante, pero $K_{sat} \gg K_{sk}$ por la contribución del fluido. Foti concluye que asumir $\nu$ fijo en la inversión de Rayleigh introduce sesgo en $V_S$ si no se conoce la posición de la tabla de agua.
 >
 > — Foti et al. (2018), §6.3, pp. 293–298; Biot (1956), *J. Acoust. Soc. Am.* 28(2), 168–191.
 

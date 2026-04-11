@@ -21,7 +21,7 @@ donde $H$ es la profundidad de la interfaz. Graficando $t(x)$ vs $x$, la pendien
 
 ## Geometría y equipamiento
 
-La refracción usa el mismo hardware que el [[MASW Method|MASW]] activo (geófonos, sismógrafo, sledgehammer) con la misma geometría de arreglo. Las primeras llegadas de ondas P se identifican en el sismograma (arribo más temprano, mayor velocidad que Rayleigh) y se interpolan para obtener la curva de tiempo-distancia $t(x)$.
+La refracción usa el mismo hardware que el [[MASW Method|MASW]] activo ([[Geophone|geófono]], sismógrafo, sledgehammer) con la misma geometría de arreglo. Las primeras llegadas de ondas P se identifican en el sismograma (arribo más temprano, mayor velocidad que Rayleigh) y se interpolan para obtener la curva de tiempo-distancia $t(x)$.
 
 ## Rol en el flujo de trabajo [[MASW Method|MASW]]
 
@@ -34,7 +34,7 @@ La refracción usa el mismo hardware que el [[MASW Method|MASW]] activo (geófon
 Si existe una **capa blanda bajo una capa dura** (inversión de velocidad), las ondas P no se refractan de vuelta a la superficie desde la capa blanda → el método de refracción omite esa capa. El perfil de $V_P$ resultante aparece simplificado, sin la capa blanda. El [[MASW Method|MASW]] puede detectar inversiones de velocidad (aunque la inversión se complica), lo que es una ventaja clave sobre la refracción.
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — refracción como complemento de [[MASW Method|MASW]] para estimar VP a priori
-> Foti et al. (2018, §6.3) describen el protocolo estándar para usar datos de refracción sísmica como entrada a la inversión de la [[Dispersion Curve|curva de dispersión]]. En el sitio La Salle, el perfil $V_P(z)$ de refracción muestra un salto claro a ~4 m de profundidad (de ~500 m/s a ~1500 m/s) identificado como la posición de la tabla de agua. Este valor de $V_P \approx 1500$ m/s se fija en las capas saturadas durante la inversión de la [[Dispersion Curve|curva de dispersión]] de Rayleigh, reduciendo el número de parámetros libres y mejorando el condicionamiento del problema inverso. Sin la información de $V_P$ de refracción, la [[Non-uniqueness|no-unicidad]] de la inversión de Rayleigh sería mayor — el coeficiente de Poisson en la zona saturada sería un parámetro libre que el [[MASW Method|MASW]] no puede estimar confiablemente.
+> Foti et al. (2018, §6.3) describen el protocolo estándar para usar datos de refracción sísmica como entrada a la inversión de la [[Dispersion Curve|curva de dispersión]]. En el sitio La Salle, el perfil $V_P(z)$ de refracción muestra un salto claro a ~4 m de profundidad (de ~500 m/s a ~1500 m/s) identificado como la posición de la tabla de agua. Este valor de $V_P \approx 1500$ m/s se fija en las capas saturadas durante la inversión de la [[Dispersion Curve|curva de dispersión]] de Rayleigh, reduciendo el número de parámetros libres y mejorando el condicionamiento del problema inverso. Sin la información de $V_P$ de refracción, la [[Non-uniqueness|no-unicidad]] de la inversión de Rayleigh sería mayor — el [[Poisson Ratio|razón de Poisson]] en la zona saturada sería un parámetro libre que el [[MASW Method|MASW]] no puede estimar confiablemente.
 >
 > — Foti et al. (2018), §6.3, pp. 293–298.
 

@@ -16,7 +16,7 @@ type: reference
 El producto del procesamiento es la [[Dispersion Curve|curva de dispersión]] experimental: para cada frecuencia $f$ dentro del rango accesible del experimento, se estima la [[Phase Velocity|velocidad de fase]] $c_p(f)$ del modo dominante (generalmente el modo fundamental de Rayleigh). Esta curva es la huella dactilar del perfil de rigidez del subsuelo: cada perfil $V_S(z)$ produce una [[Dispersion Curve|curva de dispersión]] característica.
 
 El procesamiento determina:
-- El **rango de frecuencias** accesible: de $f_{\min}$ (controlado por la longitud del arreglo) a $f_{\max}$ (controlado por el espaciado de geófonos y la fuente).
+- El **rango de frecuencias** accesible: de $f_{\min}$ (controlado por la longitud del arreglo) a $f_{\max}$ (controlado por el espaciado de [[Geophone|geófono]] y la fuente).
 - La **resolución en velocidad**: capacidad de separar modos próximos en velocidad.
 - La **incertidumbre** de cada punto de la curva: propagada a la inversión.
 
@@ -66,7 +66,7 @@ La incertidumbre de $c_p(f)$ se propaga desde:
 La incertidumbre se cuantifica como una banda de velocidad $c_p \pm \delta c$ para cada frecuencia y se usa en la inversión como pesos o como función de misfit.
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) — análisis f-k multicanal como estándar [[MASW Method|MASW]]
-> **Paper 001 (Park, Miller & Xia 1999)** demuestra que el análisis f-k aplicado a 24 geófonos verticales (espaciado 1.5 m, offset 10 m) en Kansas separa con claridad el **modo fundamental de Rayleigh** entre 5 y 30 Hz del resto de la energía sísmica (ondas P, refractadas, ruido). La cresta del modo fundamental en el espectrograma $|U(\omega, k)|$ es visiblemente estrecha (alta resolución modal) gracias a la apertura total de 34.5 m. La comparación de espectrogramas entre disparos repetidos confirma reproducibilidad. El estudio establece el análisis f-k como el método de extracción de [[Dispersion Curve|curva de dispersión]] estándar para [[MASW Method|MASW]], superando el [[SASW Method|SASW]] en resolución modal y en inmunidad al *phase unwrapping*.
+> **Paper 001 (Park, Miller & Xia 1999)** demuestra que el análisis f-k aplicado a 24 [[Geophone|geófono]] verticales (espaciado 1.5 m, offset 10 m) en Kansas separa con claridad el **modo fundamental de Rayleigh** entre 5 y 30 Hz del resto de la energía sísmica (ondas P, refractadas, ruido). La cresta del modo fundamental en el espectrograma $|U(\omega, k)|$ es visiblemente estrecha (alta resolución modal) gracias a la apertura total de 34.5 m. La comparación de espectrogramas entre disparos repetidos confirma reproducibilidad. El estudio establece el análisis f-k como el método de extracción de [[Dispersion Curve|curva de dispersión]] estándar para [[MASW Method|MASW]], superando el [[SASW Method|SASW]] en resolución modal y en inmunidad al *phase unwrapping*.
 >
 > — Research Database, entrada 001 (core); Park et al. (1999), *Geophysics* 64(3), pp. 800–808.
 

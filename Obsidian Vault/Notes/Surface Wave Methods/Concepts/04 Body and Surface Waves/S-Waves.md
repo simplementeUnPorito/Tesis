@@ -23,7 +23,7 @@ La velocidad de propagación de las ondas S en un medio elástico isótropo:
 
 $$V_S = \sqrt{\frac{\mu}{\rho}} = \sqrt{\frac{G}{\rho}}$$
 
-donde $\mu = G$ es el módulo de corte (rigidez de corte) y $\rho$ es la densidad. En términos de las [[Strain Tensor|constantes de Lamé]] $\lambda, \mu$:
+donde $\mu = G$ es el [[Shear Modulus|módulo de corte]] (rigidez de corte) y $\rho$ es la densidad. En términos de las [[Strain Tensor|constantes de Lamé]] $\lambda, \mu$:
 
 $$\frac{V_P}{V_S} = \sqrt{\frac{\lambda + 2\mu}{\mu}} = \sqrt{\frac{2(1-\nu)}{1-2\nu}}$$
 
@@ -42,7 +42,7 @@ Esta distinción es fundamental: las ondas SV participan en la formación de [[R
 
 ## Relación con propiedades geotécnicas
 
-La importancia de $V_S$ en geotecnia deriva de su relación directa con el **módulo de corte a pequeñas deformaciones** $G_{\max}$:
+La importancia de $V_S$ en geotecnia deriva de su relación directa con el **[[Shear Modulus|módulo de corte]] a pequeñas deformaciones** $G_{\max}$:
 
 $$G_{\max} = \rho\, V_S^2$$
 

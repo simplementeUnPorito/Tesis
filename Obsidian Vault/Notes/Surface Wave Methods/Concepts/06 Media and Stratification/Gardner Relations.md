@@ -1,6 +1,6 @@
 ---
 name: Gardner Relations
-description: Relación empírica ρ=0.31·VP^0.25 entre densidad bulk y velocidad VP — usada para estimar densidad a partir de perfiles sísmicos en [[Joint Inversion|inversión conjunta]] y en la conversión de perfiles [[MASW Method|MASW]] a módulo de corte G=ρVS²
+description: Relación empírica ρ=0.31·VP^0.25 entre densidad bulk y velocidad VP — usada para estimar densidad a partir de perfiles sísmicos en [[Joint Inversion|inversión conjunta]] y en la conversión de perfiles [[MASW Method|MASW]] a [[Shear Modulus|módulo de corte]] G=ρVS²
 type: reference
 ---
 
@@ -10,7 +10,7 @@ type: reference
 > Las **relaciones de Gardner** (Gardner et al. 1974) son las correlaciones empíricas entre la **densidad bulk** $\rho$ y la **velocidad de onda P** $V_P$ de rocas y suelos sedimentarios:
 > $$\rho = a \, V_P^b$$
 > con los parámetros empíricos de Gardner: $a = 0.31$ (con $V_P$ en m/s y $\rho$ en g/cm³) y $b = 0.25$. La relación potencial refleja la covarianza general entre densidad y rigidez en materiales sedimentarios: litologías más compactas y de mayor rigidez tienden también a ser más densas. En el contexto de los métodos de [[Surface Waves|ondas superficiales]], las relaciones de Gardner son útiles en dos aplicaciones principales:
-> (1) **Conversión $V_S \to G_{max}$**: el módulo de corte máximo $G_{\max} = \rho V_S^2$ requiere estimar $\rho$ cuando no hay mediciones directas de densidad — las relaciones de Gardner permiten estimarla a partir del perfil $V_P$ (obtenido por [[Seismic Refraction|refracción sísmica]]) sin necesidad de sondeos adicionales; (2) **[[Joint Inversion|inversión conjunta]]**: en problemas de inversión multi-parámetro ($V_S$, $V_P$, $\rho$), la relación de Gardner actúa como vínculo petrofísico que reduce los grados de libertad del modelo, mejorando la estabilidad de la inversión.
+> (1) **Conversión $V_S \to G_{max}$**: el [[Shear Modulus|módulo de corte]] máximo $G_{\max} = \rho V_S^2$ requiere estimar $\rho$ cuando no hay mediciones directas de densidad — las relaciones de Gardner permiten estimarla a partir del perfil $V_P$ (obtenido por [[Seismic Refraction|refracción sísmica]]) sin necesidad de sondeos adicionales; (2) **[[Joint Inversion|inversión conjunta]]**: en problemas de inversión multi-parámetro ($V_S$, $V_P$, $\rho$), la relación de Gardner actúa como vínculo petrofísico que reduce los grados de libertad del modelo, mejorando la estabilidad de la inversión.
 >
 > — Gardner et al. (1974), *Geophysics* 39(6), 770–780; Foti et al. (2018), §8.6.1; Sheriff & Geldart (1995).
 

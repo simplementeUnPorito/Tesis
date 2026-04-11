@@ -64,7 +64,7 @@ donde $\mathbf{m}$ es el modelo de capas. Resolver esta ecuación para distintas
 
 Los parámetros del modelo de capas son:
 - **Incógnitas primarias**: $V_{S,n}$ (espesores $h_n$ pueden también ser incógnitas)
-- **Parámetros a priori**: $V_{P,n}$ (o ratio de Poisson), $\rho_n$, posición del nivel freático
+- **Parámetros a priori**: $V_{P,n}$ (o [[Poisson Ratio|razón de Poisson]]), $\rho_n$, posición del nivel freático
 
 La sensibilidad de la [[Dispersion Curve|curva de dispersión]] a $V_S$ es alta; la sensibilidad a $V_P$ y $\rho$ es mucho menor. Esto justifica el procedimiento estándar de fijar $V_P$ y $\rho$ a partir de información geológica o refracción P y concentrar la inversión en $V_S$.
 

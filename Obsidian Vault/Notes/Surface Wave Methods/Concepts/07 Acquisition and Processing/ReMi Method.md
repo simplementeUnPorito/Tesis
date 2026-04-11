@@ -1,19 +1,19 @@
 # ReMi Method (Refraction Microtremor)
 
 > [!CONCEPT] Definición
-> El **ReMi** (*Refraction Microtremor*, Louie 2001) es un método pasivo que extrae la [[Dispersion Curve|curva de dispersión]] de [[Rayleigh Waves|ondas de Rayleigh]] desde ruido sísmico ambiental (*microtremores*) usando un arreglo lineal estándar de geófonos — el mismo hardware que el [[MASW Method|MASW]] activo. El procedimiento consiste en: (1) registrar ruido ambiental, (2) calcular el espectro f-k o tau-p, (3) identificar el **borde mínimo de velocidad** (lowermost velocity boundary) en el espectrograma como estimador de la [[Dispersion Curve|curva de dispersión]] del modo fundamental. La principal hipótesis es que el campo de ruido es aproximadamente **isotrópico**: si las fuentes dominan en una sola dirección, se produce **sobreestimación de la [[Phase Velocity|velocidad de fase]]** (velocidad aparente > velocidad real). La [[Seismic Interferometry|interferometría sísmica pasiva]] supera esta limitación; ReMi es más simple pero menos riguroso en campos de ruido direccionales.
+> El **ReMi** (*Refraction Microtremor*, Louie 2001) es un método pasivo que extrae la [[Dispersion Curve|curva de dispersión]] de [[Rayleigh Waves|ondas de Rayleigh]] desde ruido sísmico ambiental (*microtremores*) usando un arreglo lineal estándar de [[Geophone|geófono]] — el mismo hardware que el [[MASW Method|MASW]] activo. El procedimiento consiste en: (1) registrar ruido ambiental, (2) calcular el espectro f-k o tau-p, (3) identificar el **borde mínimo de velocidad** (lowermost velocity boundary) en el espectrograma como estimador de la [[Dispersion Curve|curva de dispersión]] del modo fundamental. La principal hipótesis es que el campo de ruido es aproximadamente **isotrópico**: si las fuentes dominan en una sola dirección, se produce **sobreestimación de la [[Phase Velocity|velocidad de fase]]** (velocidad aparente > velocidad real). La [[Seismic Interferometry|interferometría sísmica pasiva]] supera esta limitación; ReMi es más simple pero menos riguroso en campos de ruido direccionales.
 >
 > — Louie (2001), *Seismological Research Letters*; Foti et al. (2018), Cap. 3, §3.4.3.3; Cap. 8, §8.4.
 
 ## Principio
 
-El **método ReMi** (*Refraction Microtremor*, Louie 2001) extrae la [[Phase Velocity|velocidad de fase]] de [[Surface Waves|ondas superficiales]] a partir del **ruido sísmico ambiental** (*microtremors*), registrado con un arreglo lineal de geófonos estándar de adquisición.
+El **método ReMi** (*Refraction Microtremor*, Louie 2001) extrae la [[Phase Velocity|velocidad de fase]] de [[Surface Waves|ondas superficiales]] a partir del **ruido sísmico ambiental** (*microtremors*), registrado con un arreglo lineal de [[Geophone|geófono]] estándar de adquisición.
 
 La idea central: el campo de ruido ambiental contiene [[Surface Waves|ondas superficiales]] que se propagan en todas las direcciones. En el espectro f-k de un arreglo lineal, estas ondas producen energía que puede usarse para estimar la [[Dispersion Relation|curva de dispersión]], bajo la hipótesis de que el campo de ruido es **aproximadamente isotrópico** (fuentes distribuidas uniformemente alrededor del arreglo) o que al menos contiene ondas propagándose en la dirección del arreglo.
 
 ## Procesamiento
 
-1. Registrar ruido ambiental con un arreglo lineal de geófonos (típicamente 24–48 canales).
+1. Registrar ruido ambiental con un arreglo lineal de [[Geophone|geófono]] (típicamente 24–48 canales).
 2. Calcular el espectro f-k de los registros de ruido (típicamente mediante la transformada p-τ o f-k directa).
 3. Identificar el **borde mínimo de velocidad** en el espectro f-k: los puntos de mínimo [[Wavenumber|número de onda]] para cada frecuencia corresponden a la [[Phase Velocity|velocidad de fase]] de Rayleigh.
 4. Trazar la [[Dispersion Curve|curva de dispersión]] a lo largo de ese borde.
@@ -49,7 +49,7 @@ La **[[Seismic Interferometry|interferometría sísmica]] pasiva** (Cap. 8) supe
 > — Research Database, entrada 036 (core); Stephenson (2005), *Bull. Seismol. Soc. Am.*
 
 > [!EXAMPLE] Evidencia empírica: Park & Miller (2008) — Roadside Passive [[MASW Method|MASW]] con arreglo lineal en entorno urbano
-> **Paper 048 (Park & Miller 2008, JEEG 13:1–11, 152 citas)** desarrolla una versión pasiva del [[MASW Method|MASW]] con arreglo lineal convencional en borde de carretera, usando el tráfico vehicular como fuente pasiva distribuida. El método aplica un **escaneo azimutal 0–180°** del wavefield registrado para separar ondas propagadas desde distintos azimuts; sumando trazas por azimut se mejora la relación señal/ruido y se obtiene una [[Dispersion Curve|curva de dispersión]] equivalente a la de fuente activa, con el mismo equipamiento estándar (geófonos + sismógrafo multicanal). Los resultados de campo en sitios urbanos de Kansas demuestran que el arreglo roadside es prácticamente viable cuando no es posible desplegar arreglos 2D y la fuente activa no es factible. Conexión directa con ReMi (arreglo lineal, fuente pasiva) pero con separación azimutal explícita que corrige el sesgo de velocidad aparente de fuentes offline.
+> **Paper 048 (Park & Miller 2008, JEEG 13:1–11, 152 citas)** desarrolla una versión pasiva del [[MASW Method|MASW]] con arreglo lineal convencional en borde de carretera, usando el tráfico vehicular como fuente pasiva distribuida. El método aplica un **escaneo azimutal 0–180°** del wavefield registrado para separar ondas propagadas desde distintos azimuts; sumando trazas por azimut se mejora la relación señal/ruido y se obtiene una [[Dispersion Curve|curva de dispersión]] equivalente a la de fuente activa, con el mismo equipamiento estándar ([[Geophone|geófono]] + sismógrafo multicanal). Los resultados de campo en sitios urbanos de Kansas demuestran que el arreglo roadside es prácticamente viable cuando no es posible desplegar arreglos 2D y la fuente activa no es factible. Conexión directa con ReMi (arreglo lineal, fuente pasiva) pero con separación azimutal explícita que corrige el sesgo de velocidad aparente de fuentes offline.
 >
 > — Research Database, entrada 048 (core); Park & Miller (2008), *J. Environ. Eng. Geophys.* 13:1–11.
 

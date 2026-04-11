@@ -12,7 +12,7 @@ type: reference
 > La refracción sísmica complementa al [[MASW Method|MASW]] en el flujo de trabajo estándar:
 > - Proporciona el perfil $V_P(z)$ necesario para calcular el [[Poisson Ratio|coeficiente de Poisson]] que se fija en la [[Inversión|inversión]] de la [[Dispersion Curve|curva de dispersión]] de Rayleigh
 > - Detecta la profundidad de la **tabla de agua** (salto de $V_P$ de ~300–600 m/s a ~1500 m/s)
-> - Usa el mismo equipamiento que el [[MASW Method|MASW]] activo (geófonos, sismógrafo, sledgehammer) y se adquiere simultáneamente
+> - Usa el mismo equipamiento que el [[MASW Method|MASW]] activo ([[Geophone|geófono]], sismógrafo, sledgehammer) y se adquiere simultáneamente
 >
 > **Limitación crítica**: falla ante **inversiones de velocidad** (capa blanda bajo capa dura) — situación donde el [[MASW Method|MASW]] tiene ventaja.
 

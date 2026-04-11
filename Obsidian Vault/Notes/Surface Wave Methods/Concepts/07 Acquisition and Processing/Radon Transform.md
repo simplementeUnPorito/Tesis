@@ -41,7 +41,7 @@ donde $L$ es el operador de forward Radon y $\epsilon$ es la tolerancia de ajust
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) y Luo et al. (2009) — τ-p en [[MASW Method|MASW]] vs. f-k
 > **Foti et al. (2018, §4.3.3)** comparan paneles $f$-$k$ y $\tau$-$p$ del mismo dataset [[MASW Method|MASW]] en Memphis. El panel $\tau$-$p$ muestra el modo fundamental como cresta concentrada con menor contaminación de ondas de cuerpo que el equivalente $f$-$k$ (ondas P a $p \approx 0.002$ s/m vs. Rayleigh a $p \approx 0.005$–$0.01$ s/m). La [[Dispersion Curve|curva de dispersión]] extraída coincide dentro del 2%.
 >
-> **Luo et al. (2009, GJI 179)** — geófonos 4.5 Hz, $\Delta x = 0.5$ m (equipamiento idéntico al típico en tesis): HRLRT separa el modo fundamental del primer modo superior de Rayleigh donde el slant stack estándar producía una cresta única mezclada. La inversión multimodal con las curvas separadas mejoró el perfil VS en un 35% de error respecto al perforado de control. Aplicable directamente a ensayos [[MASW Method|MASW]] con modos superiores visibles en sitios con inversión de velocidad.
+> **Luo et al. (2009, GJI 179)** — [[Geophone|geófono]] 4.5 Hz, $\Delta x = 0.5$ m (equipamiento idéntico al típico en tesis): HRLRT separa el modo fundamental del primer modo superior de Rayleigh donde el slant stack estándar producía una cresta única mezclada. La inversión multimodal con las curvas separadas mejoró el perfil VS en un 35% de error respecto al perforado de control. Aplicable directamente a ensayos [[MASW Method|MASW]] con modos superiores visibles en sitios con inversión de velocidad.
 >
 > — Foti et al. (2018), §4.3.3, pp. 198–204; Luo et al. (2009), *GJI* 179:254–264 (Paper 039).
 

@@ -49,15 +49,15 @@ Para cubrir un rango amplio de frecuencias y profundidades:
 
 Las ramas de la [[Dispersion Curve|curva de dispersión]] de distintos pares deben superponerse en los rangos de frecuencia compartidos. Discrepancias entre ramas son una señal de alerta de errores de unwrapping o de la presencia de [[Surface Wave Modes|modos superiores]].
 
-## Implicación en geófonos / [[MASW Method|MASW]]
+## Implicación en [[Geophone|geófono]] / [[MASW Method|MASW]]
 
-El SASW es el precursor directo del [[MASW Method]] (que generaliza a múltiples estaciones simultáneas), y del método [[MOPA]]. Con geófonos de campo, el SASW puede implementarse con solo dos canales activos, siendo útil cuando los recursos de hardware son limitados. Sin embargo, su sensibilidad al phase unwrapping y la necesidad de repetir el ensayo para múltiples separaciones hacen que los métodos multiestación (f-k, [[MASW Method|MASW]]) sean preferibles cuando se dispone de más canales.
+El SASW es el precursor directo del [[MASW Method]] (que generaliza a múltiples estaciones simultáneas), y del método [[MOPA]]. Con [[Geophone|geófono]] de campo, el SASW puede implementarse con solo dos canales activos, siendo útil cuando los recursos de hardware son limitados. Sin embargo, su sensibilidad al phase unwrapping y la necesidad de repetir el ensayo para múltiples separaciones hacen que los métodos multiestación (f-k, [[MASW Method|MASW]]) sean preferibles cuando se dispone de más canales.
 
 ## Comparación con f-k
 
 | Característica | SASW (2 estaciones) | f-k / [[MASW Method|MASW]] (multiestación) |
 |---|---|---|
-| Hardware mínimo | 2 geófonos | ≥8 geófonos |
+| Hardware mínimo | 2 [[Geophone|geófono]] | ≥8 [[Geophone|geófono]] |
 | Sensibilidad a phase unwrapping | Alta | Baja (max espectral) |
 | Juicio del operador | Requerido | Menor |
 | Rango de frecuencia | Depende del par | Función del arreglo completo |

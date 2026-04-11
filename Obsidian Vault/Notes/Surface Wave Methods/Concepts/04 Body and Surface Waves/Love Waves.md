@@ -16,7 +16,7 @@ type: reference
 Las ondas de Love resultan de ondas [[SH-wave|SH]] guiadas en la capa superficial. El movimiento de partícula es:
 - **Horizontal**, perpendicular a la dirección de propagación
 - Sin componente vertical ni radial
-- Requieren **receptores horizontales** (geófonos SH orientados perpendicularmente a la línea)
+- Requieren **receptores horizontales** ([[Geophone|geófono]] SH orientados perpendicularmente a la línea)
 
 A diferencia de las [[Rayleigh Waves]], las Love no presentan movimiento elíptico vertical.
 

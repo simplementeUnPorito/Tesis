@@ -45,9 +45,9 @@ Esta relación funcional es la **[[Dispersion Curve|curva de dispersión]]** —
 
 ---
 
-## 3. Aplicación a la instrumentación con geófonos
+## 3. Aplicación a la instrumentación con [[Geophone|geófono]]
 
-Con arreglos de geófonos se mide cómo cambia la [[Phase Velocity]] de las [[Rayleigh Waves]] con la frecuencia:
+Con arreglos de [[Geophone|geófono]] se mide cómo cambia la [[Phase Velocity]] de las [[Rayleigh Waves]] con la frecuencia:
 
 | Método | Arreglo | Extracción de c_R(ω) |
 |--------|---------|----------------------|
@@ -63,7 +63,7 @@ La explotación sistemática de la dispersión geométrica para caracterización
 ## 4. Implicaciones para el diseño experimental
 
 - El **contenido frecuencial de la fuente** controla la profundidad investigada: fuentes impulsivas ligeras generan frecuencias altas (resolución superficial); masas de impacto más pesadas o vibradores aportan frecuencias bajas (mayor profundidad).
-- La **longitud del arreglo** y la separación entre geófonos condicionan el rango útil de longitudes de onda: separación mínima → λ mínima → profundidad mínima; longitud total → λ máxima → profundidad máxima.
+- La **longitud del arreglo** y la separación entre [[Geophone|geófono]] condicionan el rango útil de longitudes de onda: separación mínima → λ mínima → profundidad mínima; longitud total → λ máxima → profundidad máxima.
 - Si el subsuelo es casi homogéneo, la dispersión observable será débil — la [[Dispersion Curve|curva de dispersión]] será casi plana.
 - Si hay fuerte estratificación (e.g., suelo blando sobre roca), la dispersión será marcada y la curva tendrá alta pendiente a baja frecuencia.
 - El [[Near-field Effect]] puede contaminar la curva a bajas frecuencias cuando el offset fuente-receptor es insuficiente.
@@ -80,7 +80,7 @@ La explotación sistemática de la dispersión geométrica para caracterización
 > — Fuente: Research Database, entradas 001, 002, 009 (core).
 
 > [!EXAMPLE] Evidencia empírica: Nazarian & Stokoe (1984) — origen del método
-> **Paper 003 (Nazarian & Stokoe 1984)** es el primer uso sistemático de la dispersión geométrica para caracterización in situ. Con solo dos geófonos y separaciones variables, midieron c_R(f) mediante cross-power spectrum y la invirtieron para obtener Vs(z).
+> **Paper 003 (Nazarian & Stokoe 1984)** es el primer uso sistemático de la dispersión geométrica para caracterización in situ. Con solo dos [[Geophone|geófono]] y separaciones variables, midieron c_R(f) mediante cross-power spectrum y la invirtieron para obtener Vs(z).
 >
 > Esta demostración seminal (>3000 citas) estableció el principio que hoy sustentan todos los métodos de [[Surface Waves|ondas superficiales]]: la frecuencia controla la profundidad de investigación vía dispersión geométrica.
 >

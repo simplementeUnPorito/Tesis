@@ -44,7 +44,7 @@ $$\sigma_{V_R}(f) = \text{std}[V_R^{(k)}(f)]$$
 Esta incertidumbre se propaga a la inversión como peso en el funcional de mínimos cuadrados: puntos de picking con alta incertidumbre contribuyen menos al ajuste (Foti et al. 2018, §6.2).
 
 > [!EXAMPLE] Evidencia empírica (Park et al. 1999, Foti et al. 2018)
-> - **Park et al. (1999)** — Kansas field test (19 geófonos, 1.5 m, fuente sledgehammer): el picking manual del modo fundamental en el panel f-k produjo la [[Dispersion Curve|curva de dispersión]] en el rango 5–50 Hz. La ventana de Hann previa al picking redujo la contaminación de lóbulos laterales ~18 dB, permitiendo identificar el modo fundamental sin ambigüedad hasta 50 Hz (longitudes de onda 1–15 m, sondeo efectivo 0.5–7.5 m).
+> - **Park et al. (1999)** — Kansas field test (19 [[Geophone|geófono]], 1.5 m, fuente sledgehammer): el picking manual del modo fundamental en el panel f-k produjo la [[Dispersion Curve|curva de dispersión]] en el rango 5–50 Hz. La ventana de Hann previa al picking redujo la contaminación de lóbulos laterales ~18 dB, permitiendo identificar el modo fundamental sin ambigüedad hasta 50 Hz (longitudes de onda 1–15 m, sondeo efectivo 0.5–7.5 m).
 > - **Foti et al. (2018, §7.3)** — Sitio Memphis, TN: picking combinado activo (5–70 Hz) + pasivo (0.5–10 Hz) produciendo [[Dispersion Curve|curva de dispersión]] en 0.5–70 Hz. La zona de solapamiento (5–10 Hz) mostró consistencia entre activo y pasivo dentro de ±3%, validando la concatenación de curvas.
 > - **Xia et al. (1999)** — Lawrence, Kansas: picking automático con búsqueda de máximo en 19 columnas del panel f-v (5–50 Hz). Error de picking ≈ ±2 m/s (±1% a 200 m/s), propagado a error de inversión ±8% en Vs.
 

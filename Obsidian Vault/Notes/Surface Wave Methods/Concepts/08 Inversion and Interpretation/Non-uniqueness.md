@@ -19,7 +19,7 @@ La no-unicidad en [[Surface Waves|ondas superficiales]] tiene tres raíces físi
 
 2. **Equivalencia entre parámetros**: distintas combinaciones de espesor de capa y velocidad de corte pueden producir la misma respuesta cinemática. El efecto de una capa delgada rígida puede reproducirse con una capa gruesa de menor rigidez.
 
-3. **Insensibilidad a Vp**: la [[Phase Velocity|velocidad de fase]] de Rayleigh es relativamente insensible a cambios en la velocidad compresional Vp (o equivalentemente a la razón de Poisson). Esto produce un "fondo plano" en la función de error cuando se intenta invertir Vp, de modo que Vp debe asumirse conocida a priori (Foti Fig. 6.11d, p. 308).
+3. **Insensibilidad a Vp**: la [[Phase Velocity|velocidad de fase]] de Rayleigh es relativamente insensible a cambios en la velocidad compresional Vp (o equivalentemente a la [[Poisson Ratio|razón de Poisson]]). Esto produce un "fondo plano" en la función de error cuando se intenta invertir Vp, de modo que Vp debe asumirse conocida a priori (Foti Fig. 6.11d, p. 308).
 
 ## Manifestación práctica
 
@@ -37,7 +37,7 @@ En la práctica, los perfiles con capas blandas intercaladas (*velocity inversio
 ### Información a priori
 Incorporar datos externos restringe el espacio de soluciones admisibles:
 - **Registros de pozo** (boreholes, SPT): fijan espesor o velocidad de algunas capas.
-- **Posición del nivel freático**: permite estimar Vp en la zona saturada mediante la razón de Poisson de fluido saturado (Vp ≈ 1500 m/s).
+- **Posición del nivel freático**: permite estimar Vp en la zona saturada mediante la [[Poisson Ratio|razón de Poisson]] de fluido saturado (Vp ≈ 1500 m/s).
 - **Conocimiento geológico**: limitar el número de capas, fijar rangos de Vs plausibles por litología.
 
 ### [[Regularization|Regularización]]

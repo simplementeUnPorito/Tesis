@@ -30,7 +30,7 @@ El resultado clave: **cada función mantiene su forma** al propagarse — no hay
 
 ## Interpretación física
 
-La solución de d'Alembert es la [[Wave Superposition|superposición]] de dos ondas que no interactúan entre sí. En medios 1D sin reflexiones, la solución se reduce a una sola función viajera. En presencia de interfaces, las reflexiones introducen la función $g$: la señal registrada por un geófono es la superposición de la onda directa ($f$) y las reflexiones ($g$).
+La solución de d'Alembert es la [[Wave Superposition|superposición]] de dos ondas que no interactúan entre sí. En medios 1D sin reflexiones, la solución se reduce a una sola función viajera. En presencia de interfaces, las reflexiones introducen la función $g$: la señal registrada por un [[Geophone|geófono]] es la superposición de la onda directa ($f$) y las reflexiones ($g$).
 
 ## Limitaciones y contexto
 

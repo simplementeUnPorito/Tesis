@@ -44,7 +44,7 @@ Si el campo de microtremores tiene una dirección preferencial (fuente dominante
 ## Adquisición de microtremores
 
 - **Duración mínima**: 10–30 minutos para $f_0 > 1$ Hz; hasta 1 hora para $f_0 < 1$ Hz (SESAME 2004)
-- **Sensores**: sismómetros de banda ancha (0.008–50 Hz) o geófonos de baja frecuencia (4.5 Hz o menos) para capturar el rango de bajas frecuencias
+- **Sensores**: sismómetros de banda ancha (0.008–50 Hz) o [[Geophone|geófono]] de baja frecuencia (4.5 Hz o menos) para capturar el rango de bajas frecuencias
 - **Horario**: preferiblemente de noche (menor ruido cultural, campo más isotrópico)
 - **Selección de ventanas**: descartar transitorios (pasos de camión, impactos) que violan la estacionariedad
 

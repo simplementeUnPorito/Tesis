@@ -32,9 +32,9 @@ La [[1D Wave Equation]] es el ejemplo canónico de ecuación lineal de ondas —
 
 ---
 
-## 3. Aplicación a geófonos
+## 3. Aplicación a [[Geophone|geófono]]
 
-En geofísica near-surface, la teoría usada para interpretar registros de geófonos se construye bajo hipótesis de propagación lineal. Esto habilita:
+En geofísica near-surface, la teoría usada para interpretar registros de [[Geophone|geófono]] se construye bajo hipótesis de propagación lineal. Esto habilita:
 
 - Análisis espectral vía [[Fourier Integral]]
 - Separación de [[Surface Wave Modes]]

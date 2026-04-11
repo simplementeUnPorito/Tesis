@@ -25,7 +25,7 @@ La curva de dispersión se extrae del sismograma $u(x_j, t_n)$ mediante:
 | Límite | Controlado por | Corresponde a |
 |---|---|---|
 | $f_{min}$ | Longitud total del arreglo $D$ | Profundidad máxima de investigación |
-| $f_{max}$ | Espaciado de geófonos $\Delta x$ y fuente | Resolución superficial |
+| $f_{max}$ | Espaciado de [[Geophone|geófono]] $\Delta x$ y fuente | Resolución superficial |
 
 Las frecuencias fuera del rango $[f_{min}, f_{max}]$ tienen alta incertidumbre → no se usan en la inversión.
 
@@ -42,7 +42,7 @@ La incertidumbre $\sigma_{c_R}(f)$ proviene de:
 Cuando hay superposición de modos ([[Mode Superposition]]), la cresta del espectrograma no corresponde a ningún modo individual sino a la **[[Phase Velocity|velocidad de fase]] aparente** — superposición ponderada por energía. Esto puede sesgarse respecto al modo fundamental real, produciendo errores en la inversión (hasta 50% en $V_S$ de capas profundas, Xu et al. 2006).
 
 > [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — curva de dispersión como entrada de la inversión [[MASW Method|MASW]]
-> **Paper 002 (Xia et al. 1999)** es el estudio canónico que establece el flujo procesamiento → curva de dispersión → inversión. La curva de dispersión experimental se extrae del espectrograma f-k de registros de 24 geófonos en Kansas (rango 5–50 Hz). El análisis de sensibilidad demuestra que cada punto $(f_i, c_R(f_i))$ de la curva contiene información principalmente de $V_S$ a profundidad $\approx \lambda_i/3$–$\lambda_i/2$. La inversión por mínimos cuadrados ajusta la curva teórica a la experimental minimizando el RMS: con modelo inicial de 3 capas, la curva teórica converge en <10 iteraciones y el perfil $V_S(z)$ resultante concuerda con borehole en error RMS < 15%.
+> **Paper 002 (Xia et al. 1999)** es el estudio canónico que establece el flujo procesamiento → curva de dispersión → inversión. La curva de dispersión experimental se extrae del espectrograma f-k de registros de 24 [[Geophone|geófono]] en Kansas (rango 5–50 Hz). El análisis de sensibilidad demuestra que cada punto $(f_i, c_R(f_i))$ de la curva contiene información principalmente de $V_S$ a profundidad $\approx \lambda_i/3$–$\lambda_i/2$. La inversión por mínimos cuadrados ajusta la curva teórica a la experimental minimizando el RMS: con modelo inicial de 3 capas, la curva teórica converge en <10 iteraciones y el perfil $V_S(z)$ resultante concuerda con borehole en error RMS < 15%.
 >
 > — Research Database, entrada 002 (core); Xia et al. (1999), *Geophysics* 64(3).
 
