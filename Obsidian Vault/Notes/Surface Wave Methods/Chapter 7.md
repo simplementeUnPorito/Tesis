@@ -41,7 +41,7 @@ La estrategia práctica recomendada es procesar primero los pares con receptores
 
 ### 7.1.2 Análisis frecuencia–número de onda (f-k)
 
-El análisis multiestación se realiza transformando los datos del dominio tiempo–espacio (x-t) al dominio frecuencia–número de onda (f-k). La curva de dispersión experimental se extrae como la localización de los máximos espectrales (Figura 7.4, p. 356).
+El análisis multiestación se realiza transformando los datos del dominio tiempo–espacio (x-t) al dominio frecuencia–número de onda (f-k). La [[Dispersion Curve|curva de dispersión experimental]] se extrae como la localización de los máximos espectrales mediante [[Picking|picking]] (Figura 7.4, p. 356).
 
 La transformada empleada es la **[[2D Fourier Transform|doble transformada de Fourier]]**, cuya aplicación se limita a arreglos con espaciado uniforme entre receptores. La resolución en el dominio f es función de la duración de la ventana temporal; la resolución en el dominio k está limitada por el número de receptores y la longitud del arreglo. Para mejorar la resolución en k, se aplica **[[Zero Padding|zero padding]] en espacio** (por ejemplo, 1024 puntos, añadiendo señales de amplitud cero al dataset experimental). Con el arreglo de 3 m (70.5 m de longitud), se obtiene la curva de dispersión de forma consistente entre 8 y 43 Hz.
 
@@ -141,7 +141,7 @@ Los resultados muestran que:
 
 **Implicación en respuesta sísmica:** aunque los perfiles Vs difieren entre sí en profundidad, los espectros de respuesta 1D calculados con cada perfil son prácticamente idénticos (Figura 7.21, p. 373). Esto muestra que la **no-unicidad de la solución no necesariamente se traduce en incertidumbre práctica** para aplicaciones de ingeniería sísmica.
 
-**Estimación de Vs,30:** el [[Vs30|parámetro Vs,30]] (velocidad de corte promedio en los primeros 30 m) calculado para cada perfil aceptable varía entre ~480 y 505 m/s (Figura 7.22, p. 374). La variación es estrecha, confirmando que Vs,30 es un parámetro robusto incluso ante la no-unicidad de la inversión.
+**Estimación de Vs,30:** el [[Vs30|parámetro Vs,30]] (velocidad de corte promedio en los primeros 30 m) calculado para cada perfil aceptable varía entre ~480 y 505 m/s (Figura 7.22, p. 374). La variación es estrecha, confirmando que Vs,30 es un parámetro robusto incluso ante la no-unicidad de la inversión. Según el [[Eurocode 8]], este rango corresponde a clase de sitio B (360–800 m/s).
 
 > Figuras clave: 7.19 (p. 372), 7.20 (p. 372), 7.21 (p. 373), 7.22 (p. 374).
 

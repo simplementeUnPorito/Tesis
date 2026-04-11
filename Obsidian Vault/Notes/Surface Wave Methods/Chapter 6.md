@@ -54,7 +54,7 @@ En el caso de ondas superficiales, la no unicidad implica que **una misma curva 
 **Estrategias de mitigación:**
 - **Información a priori:** incorporar datos externos como perfiles de pozo (boreholes), ensayos SPT, mediciones de densidad, para restringir el espacio de soluciones admisibles.
 - **Restricciones de suavidad o acotamiento:** forzar que los parámetros varíen dentro de rangos físicamente plausibles (por ejemplo, que la razón de amortiguamiento sea no negativa).
-- **Métodos de regularización:** aproximar el problema ill-posed mediante una familia de problemas mejor condicionados. Los métodos de **regularización de Tikhonov** son los más utilizados y se desarrollan en la sección 6.4.
+- **Métodos de [[Regularization|regularización]]:** aproximar el problema ill-posed mediante una familia de problemas mejor condicionados. Los métodos de **regularización de Tikhonov** son los más utilizados y se desarrollan en la sección 6.4.
 
 *Trazabilidad: Foti Cap. 6, §6.1.2, pp. 277–280*
 
@@ -127,7 +127,7 @@ donde $V_s = [(V_s)_1, \ldots, (V_s)_{nl}]$ es el vector de velocidades de corte
 **Atenuación (lineal bajo disipación débil):**
 $$G \cdot D_s = \alpha_{R/L}$$
 
-donde $D_s$ es el vector de razones de amortiguamiento por capa y $\alpha_{R/L}$ la curva de atenuación. Este problema es **lineal**, lo que lo hace matemáticamente más tratable.
+donde $D_s$ es el vector de razones de amortiguamiento por capa y $\alpha_{R/L}$ es el [[Attenuation Coefficient|coeficiente de atenuación]] de Rayleigh/Love. Este problema es **lineal**, lo que lo hace matemáticamente más tratable.
 
 En resumen, existen tres tipos de problema directo en ondas superficiales: (I) predecir la dispersión desde $V_s$, (II) predecir la atenuación desde $D_s$, y (III) predecir la función de dispersión compleja desde el perfil de velocidad complejo $V_s^*$. Los problemas I y III son no lineales; el problema II es lineal.
 

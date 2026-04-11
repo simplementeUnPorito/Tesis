@@ -131,8 +131,8 @@ La integración de múltiples datasets mejora la resolución del subsuelo y miti
 
 Se distinguen dos clases según el dominio de los parámetros:
 
-- **Single-domain joint inversion:** múltiples datasets se usan para estimar un único dominio físico. Ejemplo: estimar el perfil Vs a partir de las curvas de dispersión de [[Rayleigh Waves|ondas de Rayleigh]] y [[Love Waves|ondas de Love]] simultáneamente, usando el mismo modelo de capas.
-- **Multiple-domain joint inversion:** los datasets estiman múltiples propiedades físicas. Ejemplo: estimar Vp y Vs a partir de [[Refraction Seismics|refracción de ondas P]] y ondas superficiales, obteniendo un modelo conjunto con ambos parámetros.
+- **Single-domain [[Joint Inversion|joint inversion]]:** múltiples datasets se usan para estimar un único dominio físico. Ejemplo: estimar el perfil Vs a partir de las curvas de dispersión de [[Rayleigh Waves|ondas de Rayleigh]] y [[Love Waves|ondas de Love]] simultáneamente, usando el mismo modelo de capas.
+- **Multiple-domain [[Joint Inversion|joint inversion]]:** los datasets estiman múltiples propiedades físicas. Ejemplo: estimar Vp y Vs a partir de [[Refraction Seismics|refracción de ondas P]] y ondas superficiales, obteniendo un modelo conjunto con ambos parámetros.
 
 Dentro de la inversión conjunta simultánea, el vínculo entre dominios puede ser de dos naturalezas:
 
