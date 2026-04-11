@@ -51,7 +51,7 @@ Combinar la curva de dispersión con otros datos (refracción de ondas P, H/V, r
 
 ## Implicación para la práctica
 
-La no-unicidad no invalida el método: **el rango de variación de las propiedades de ingeniería** (como Vs,30) dentro del conjunto de soluciones equivalentes suele ser estrecho, aunque los perfiles individuales de Vs difieran. El ejemplo del Capítulo 7 (La Salle, Foti Fig. 7.22, p. 374) muestra que Vs,30 varía entre ~480 y 505 m/s para 10⁵ modelos igualmente aceptables — una incertidumbre prácticamente relevante pero gestionable.
+La no-unicidad no invalida el método: **el rango de variación de las propiedades de ingeniería** (como Vs,30) dentro del conjunto de soluciones equivalentes suele ser estrecho, aunque los perfiles individuales de Vs difieran. El ejemplo del Capítulo 7 (La Salle, Foti Fig. 7.22, p. 374) muestra que Vs,30 varía entre ~480 y 505 m/s para 10⁵ modelos igualmente aceptables. Griffiths et al. (2016) confirman en dos sitios InterPACIFIC que los perfiles VS directos de inversión MASW producen una variabilidad más realista en la respuesta sísmica de sitio que los métodos estadísticos indirectos (perfiles bounding o percentiles), justificando el uso del ensemble de soluciones Monte Carlo en lugar de un único perfil determinístico.
 
 > [!EXAMPLE] Evidencia empírica: Maraschini & Foti (2010) — misfit de determinante elimina la no-unicidad modal
 > **Paper 034 (Maraschini & Foti 2010)** propone reemplazar la función de misfit estándar (diferencia entre curvas de dispersión modales calculadas y observadas) por el **misfit de determinante**: mínimo de $|\det[\mathbf{M}(c, f)]|$ donde $\mathbf{M}$ es la matriz de estratificación. El misfit de determinante es independiente de la identificación de modos porque incluye automáticamente todos los modos en la función objetivo. En los experimentos sintéticos del paper (modelos con inversión de velocidad severa), el misfit de determinante converge a perfiles $V_S$ correctos desde modelos iniciales muy distintos, mientras que el misfit modal estándar queda atrapado en mínimos locales asociados a confusión de modos. La no-unicidad residual se reduce sustancialmente al no tener que elegir qué modo comparar.
@@ -65,3 +65,4 @@ La no-unicidad no invalida el método: **el rango de variación de las propiedad
 | Foti et al. (2018), *Surface Wave Methods* | Cap. 6.1.2 (ill-posedness), Cap. 6.4.3 (búsqueda global), pp. 277–310 |
 | Hadamard, J. (1923), *Lectures on Cauchy's Problem* | Condiciones de bien-posedness |
 | Maraschini & Foti (2010), *Geophysics* 75(3) | Paper 034 — misfit de determinante vs. misfit modal |
+| Griffiths et al. (2016), *JGGE/ASCE* 142 | Paper 047 — impacto de incertidumbre VS en respuesta sísmica de sitio |

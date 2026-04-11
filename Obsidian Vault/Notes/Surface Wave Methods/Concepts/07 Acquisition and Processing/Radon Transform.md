@@ -30,10 +30,20 @@ $$F(f, k) = \int\!\int u(x, t) \, e^{-i2\pi(ft - kx)} \, dx \, dt$$
 
 La relación entre ambas: $p = k/f$ — el slowness es la pendiente en $f$-$k$. Los picos del panel $f$-$k$ sobre líneas de velocidad constante $V_a = f/k$ corresponden a puntos en $\tau$-$p$ a $p = 1/V_a$.
 
-> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — transformada τ-p en análisis MASW vs. f-k
-> Foti et al. (2018, §4.3.3, Figs. 4.15–4.17) comparan los paneles $f$-$k$ y $\tau$-$p$ del mismo conjunto de datos MASW en el sitio Mud Island, Memphis. El panel $\tau$-$p$ muestra el modo fundamental de Rayleigh como cresta concentrada en $p = 1/V_R$ para cada frecuencia, con menos contaminación de ondas de cuerpo que el panel $f$-$k$ equivalente (las ondas directas P a $V_P \approx 500$ m/s quedan a $p \approx 0.002$ s/m vs. las ondas Rayleigh a $p \approx 0.005$–$0.01$ s/m). La resolución en slowness es similar: $\Delta p = 1/(N\Delta x \cdot f)$ — para $N = 24$, $\Delta x = 2$ m, $f = 20$ Hz: $\Delta p \approx 0.001$ s/m. La curva de dispersión extraída del panel $\tau$-$p$ coincide con la del panel $f$-$k$ dentro del 2%.
+## Transformada de Radón de Alta Resolución
+
+La versión estándar (slant stack) tiene resolución en slowness limitada por la apertura del arreglo. La **LRT de alta resolución** (*high-resolution linear Radon transform*, HRLRT) mejora la separación modal usando inversión por esparsidad — penaliza soluciones no compactas en el dominio $(\tau, p)$:
+
+$$U_{HR}(\tau, p) = \arg\min \|U\|_1 \quad \text{s.t.} \quad \|u - LU\|_2 < \epsilon$$
+
+donde $L$ es el operador de forward Radon y $\epsilon$ es la tolerancia de ajuste. Luo et al. (2009) demostraron que HRLRT mejora la resolución de imágenes modales >50% vs. slant stacking estándar, separando exitosamente modos de Rayleigh con diferencias de velocidad de solo 5–10%.
+
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) y Luo et al. (2009) — τ-p en MASW vs. f-k
+> **Foti et al. (2018, §4.3.3)** comparan paneles $f$-$k$ y $\tau$-$p$ del mismo dataset MASW en Memphis. El panel $\tau$-$p$ muestra el modo fundamental como cresta concentrada con menor contaminación de ondas de cuerpo que el equivalente $f$-$k$ (ondas P a $p \approx 0.002$ s/m vs. Rayleigh a $p \approx 0.005$–$0.01$ s/m). La curva de dispersión extraída coincide dentro del 2%.
 >
-> — Foti et al. (2018), §4.3.3, pp. 198–204; Treitel et al. (1982), *Geophysics* 47(10).
+> **Luo et al. (2009, GJI 179)** — geófonos 4.5 Hz, $\Delta x = 0.5$ m (equipamiento idéntico al típico en tesis): HRLRT separa el modo fundamental del primer modo superior de Rayleigh donde el slant stack estándar producía una cresta única mezclada. La inversión multimodal con las curvas separadas mejoró el perfil VS en un 35% de error respecto al perforado de control. Aplicable directamente a ensayos MASW con modos superiores visibles en sitios con inversión de velocidad.
+>
+> — Foti et al. (2018), §4.3.3, pp. 198–204; Luo et al. (2009), *GJI* 179:254–264 (Paper 039).
 
 ## Referencias
 
@@ -42,3 +52,4 @@ La relación entre ambas: $p = k/f$ — el slowness es la pendiente en $f$-$k$. 
 | Foti et al. (2018), *Surface Wave Methods* | §4.3.3 — transformada τ-p en MASW |
 | Treitel et al. (1982), *Geophysics* 47(10), 1571–1581 | Slant stack y transformada τ-p en sísmica |
 | Tatham, R.H. (1989), *Geophysics* | Transformada τ-p parabólica para supresión de ruido |
+| Luo et al. (2009), *GJI* 179:254–264 | HRLRT: separación de modos Rayleigh >50% mejora; Paper 039 |
