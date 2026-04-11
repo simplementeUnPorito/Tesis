@@ -91,6 +91,19 @@
 
 ## Historial de iteraciones
 
+### 2026-04-11 — iteración 43 de loop (INVESTIGADOR — callouts en Phase Velocity, Dispersion Relation, Attenuation, Wave)
+- **Estado:** VÁLIDA.
+- **Acción realizada:** Conversión de bloques `> **Contexto:**` a `> [!CONCEPT]` estándar Obsidian + adición de `> [!EXAMPLE]` con evidencia empírica en 4 conceptos clave:
+  - `Phase Velocity.md` — `[!CONCEPT]` + `[!EXAMPLE]` Papers 001, 002, 015 (Park 1999, Xia 1999, Moffat 2016)
+  - `Dispersion Relation.md` — `[!CONCEPT]` + `[!EXAMPLE]` Papers 002, 034 (Xia 1999, Maraschini & Foti 2010 — determinante HT)
+  - `Attenuation.md` — `[!CONCEPT]` + `[!EXAMPLE]` Papers 006, 007 (InterPACIFIC: variabilidad α_R > 50% entre operadores) + sección de relaciones con 6 wikilinks nuevos
+  - `Wave.md` — `[!CONCEPT]` + `[!EXAMPLE]` Paper 001 (dominancia Rayleigh > 67% energía en MASW)
+- **Conceptos modificados:** 4
+- **Papers vinculados:** 001, 002, 006, 007, 015, 034
+- **Pendiente:** 30 conceptos sin callout en carpetas 00–04 restantes.
+- **Commit:** rama `investigador-loop`
+- **Fecha y hora:** 2026-04-11 02:05 UTC
+
 ### 2026-04-11 — iteración 42 de loop (INVESTIGADOR — callouts en Linear Waves, Wave Superposition, Near-field Effect, 1D Wave Equation)
 - **Estado:** VÁLIDA.
 - **Diagnóstico previo:** 38 conceptos en carpetas 00–04 carecen de `[!CONCEPT]` callout. Prioridad: 0-wikilink + más críticos para tesis.

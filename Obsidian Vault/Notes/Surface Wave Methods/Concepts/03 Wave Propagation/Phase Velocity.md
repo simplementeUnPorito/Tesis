@@ -6,8 +6,10 @@ type: reference
 
 # Velocidad de Fase (Phase Velocity)
 
-> **Contexto:** La velocidad de fase $c_p = \omega/k$ describe la velocidad de propagación de un punto de fase constante (por ejemplo un máximo) de una onda armónica. En métodos de ondas superficiales es la **observable central**: los métodos MASW, SASW y pasivos estiman la velocidad de fase de [[Rayleigh Waves]] en función de la frecuencia, construyendo la curva de dispersión experimental.
-> **Fuente:** Foti et al. (2014), Cap. 2.1.1, pp. 39–40; Cap. 4.1, pp. 206–207.
+> [!CONCEPT] Definición
+> La **velocidad de fase** $c_p = \omega/k$ es la velocidad a la que se propaga un frente de fase constante (por ejemplo un máximo) de una onda armónica. En métodos de ondas superficiales es la **observable central**: los métodos [[MASW Method|MASW]], [[SASW Method|SASW]] y pasivos ([[SPAC Method|SPAC]], [[ReMi Method|ReMi]]) estiman $c_p$ de las [[Rayleigh Waves]] en función de la frecuencia, construyendo la curva de dispersión experimental que alimenta la [[Inversión|inversión]].
+>
+> — Foti et al. (2018), §2.1.1, pp. 39–40; §4.1, pp. 206–207.
 
 ## Intuición física
 
@@ -78,8 +80,22 @@ La sensibilidad de $c_p$ a $V_S$ es máxima en las capas cuya profundidad centra
 - **Resolución en velocidad**: depende del número de receptores y la longitud total.
 - **Error de fase**: el ruido en los registros introduce incertidumbre en $\Delta\phi(f)$, lo que se propaga a incertidumbre en $c_p$. La coherencia entre receptores es un indicador de la confiabilidad de la estimación.
 
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) y Xia et al. (1999) — medición e inversión de c_R(f)
+> **Paper 001 (Park, Miller & Xia 1999)** demuestra que la transformada f-k de registros MASW produce imágenes espectrales donde los máximos de energía trazan directamente la curva $c_p(f)$ de las [[Rayleigh Waves]]. La extracción de la fase velocity experimental es robusta incluso en presencia de ruido ambiental moderado.
+>
+> **Paper 002 (Xia, Miller & Park 1999)** utiliza la curva $c_p(f)$ así obtenida como entrada del algoritmo de inversión iterativa (Jacobiano ∂V_R/∂Vs), recuperando Vs(z) con error < 15% respecto a borehole en sitios de Kansas.
+>
+> **Paper 015 (Moffat, Correia & Pastén 2016)** valida $c_p(f)$ obtenida por MASW contra ensayos downhole en Chile, confirmando que la curva experimental es representativa del perfil real cuando el offset y la frecuencia están correctamente seleccionados.
+>
+> — Research Database, entradas 001, 002, 015 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.1.1, pp. 39–40 — definición y relación con la relación de dispersión.
-- Foti et al. (2014), Cap. 4.1, pp. 206–207 — estimación experimental de velocidad de fase.
-- Foti et al. (2014), Cap. 2.4.2.4, pp. 90–95, Ec. 2.93 — velocidad de fase aparente.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.1, pp. 39–40 |
+| Foti et al. (2018), *Surface Wave Methods* | §4.1, pp. 206–207 |
+| Foti et al. (2018), *Surface Wave Methods* | §2.4.2.4, pp. 90–95, Ec. 2.93 |
+| Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 |
+| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 |
+| Moffat, Correia & Pastén (2016) | Paper 015 |

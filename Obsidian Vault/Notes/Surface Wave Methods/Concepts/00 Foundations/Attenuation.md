@@ -6,8 +6,10 @@ type: reference
 
 # Atenuación (Attenuation)
 
-> **Contexto:** Describe la disminución de amplitud de una onda superficial a medida que se aleja de la fuente. En la práctica, la atenuación observada resulta de la contribución simultánea de dos mecanismos físicamente distintos: la atenuación material (intrínseca) y la atenuación geométrica.
-> **Fuente:** Foti et al. (2014), Cap. 2.5, pp. 96–120; Cap. 5, pp. 255–271.
+> [!CONCEPT] Definición
+> La **atenuación** describe la disminución de amplitud de una onda a medida que se propaga. En geofísica de ondas superficiales es crucial distinguir dos mecanismos físicamente distintos: (1) **atenuación geométrica** — la energía se distribuye sobre un área creciente sin disipación real; (2) **atenuación material** — el medio [[Viscoelastic Media|viscoelástico]] disipa energía en calor. Separar ambas contribuciones es imprescindible para caracterizar el [[Shear Damping Ratio|amortiguamiento material]] $D_S$ del suelo.
+>
+> — Foti et al. (2018), §2.5, pp. 96–120; §5, pp. 255–271.
 
 ## Intuición física
 
@@ -66,7 +68,27 @@ Para extraer $\alpha_R(\omega)$, se grafica $\ln[A(r,\omega)\sqrt{r}]$ vs. $r$: 
 
 Si el objetivo es solo el perfil $V_S$, la atenuación es de segundo orden en la velocidad de fase (efecto $\propto D^2$) y puede ignorarse. Si el objetivo incluye el perfil $D_S$, los requisitos instrumentales son significativamente más exigentes: calibración de amplitud, fuente calibrada (para función de transferencia), y corrección cuidadosa de la geometría.
 
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) InterPACIFIC — variabilidad en curvas de atenuación
+> **Paper 006 (Foti et al. 2018)** y **Paper 007 (Garofalo et al. 2016)** del ejercicio InterPACIFIC muestran que la dispersión inter-laboratorio en curvas de **atenuación** $\alpha_R(f)$ es significativamente mayor que en curvas de velocidad $c_p(f)$. Mientras el coeficiente de variación de $c_p$ es típicamente < 5%, el de $\alpha_R$ puede superar el 50% entre operadores distintos.
+>
+> Esto confirma que la medición de atenuación requiere calibración de amplitud de los receptores, corrección cuidadosa de la atenuación geométrica y supresión del [[Near-field Effect|efecto de campo cercano]] — condiciones que la mayoría de ensayos MASW de rutina no cumplen.
+>
+> — Research Database, entradas 006, 007 (core).
+
+## Relaciones con otros conceptos
+
+- [[Viscoelastic Media]] — fuente de la atenuación material
+- [[Rayleigh Waves]] — ondas cuya atenuación se mide experimentalmente
+- [[Shear Damping Ratio]] — parámetro material derivado de $\alpha_R(\omega)$
+- [[Near-field Effect]] — artefacto que contamina la estimación de $\alpha_R$
+- [[Layered Media]] — la atenuación geométrica real se desvía de $r^{-0.5}$ en medios estratificados
+- [[Porous Media]] — atenuación adicional por flujo poral (onda P lenta de Biot)
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.5, pp. 96–120, Ec. 2.133 — atenuación material en Rayleigh.
-- Foti et al. (2014), Cap. 5, pp. 255–271 — procedimientos experimentales para medir αR(ω).
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.5, pp. 96–120, Ec. 2.133 |
+| Foti et al. (2018), *Surface Wave Methods* | §5, pp. 255–271 |
+| Foti et al. (2018), *Geophysics* — InterPACIFIC | Paper 006 |
+| Garofalo et al. (2016), *Soil Dyn. Earthq. Eng.* | Paper 007 |

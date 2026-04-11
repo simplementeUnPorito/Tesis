@@ -6,8 +6,10 @@ type: reference
 
 # Relación de Dispersión (Dispersion Relation)
 
-> **Contexto:** La relación de dispersión $\omega(k)$ es la función que codifica cómo las propiedades elásticas del medio restringen los pares $(\omega, k)$ posibles para una onda propagante. En medios homogéneos es lineal (no dispersiva); en medios estratificados ([[Layered Media]]) es no lineal e implícita: se obtiene como la condición de que el determinante de la matriz de transferencia de Thomson-Haskell sea cero. Su evaluación numérica produce la [[Dispersion Curve|curva de dispersión]] teórica que se compara con la experimental en la [[Inversión|inversión]].
-> **Fuente:** Foti et al. (2014), Cap. 2.1.2, pp. 41–43; Cap. 2.2.2–2.2.3, pp. 55–62.
+> [!CONCEPT] Definición
+> La **relación de dispersión** $\omega(k)$ codifica cómo las propiedades elásticas del medio restringen los pares $(\omega, k)$ posibles para una onda propagante. En medios homogéneos es lineal (no dispersiva); en medios [[Layered Media|estratificados]] es no lineal e implícita: se obtiene como la condición de que el determinante de la matriz de transferencia Thomson-Haskell sea cero. Su evaluación numérica produce la curva de dispersión teórica que se compara con la experimental en la [[Inversión|inversión]].
+>
+> — Foti et al. (2018), §2.1.2, pp. 41–43; §2.2.2–2.2.3, pp. 55–62.
 
 ## Intuición física
 
@@ -63,8 +65,19 @@ $$\chi^2(\mathbf{m}) = \sum_i \frac{\left[c_p^{\text{exp}}(f_i) - c_p^{\text{teo
 
 Minimizar $\chi^2$ equivale a encontrar el modelo $\mathbf{m}$ cuya relación de dispersión teórica mejor reproduce la curva experimental. Ver [[Non-uniqueness]] para las implicaciones del carácter no-único de esta inversión.
 
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) y Maraschini & Foti (2010) — uso del determinante en inversión
+> **Paper 002 (Xia, Miller & Park 1999)** implementa el cálculo de la relación de dispersión teórica via Thomson-Haskell como núcleo del algoritmo de inversión MASW. El Jacobiano ∂V_R/∂Vs se calcula analíticamente a partir de la relación de dispersión, haciendo la inversión computacionalmente eficiente (< 10 iteraciones en convergencia).
+>
+> **Paper 034 (Maraschini & Foti 2010)** propone usar directamente el **determinante de Haskell-Thomson** $\det[\mathbf{T}(\omega,k)]$ como función de misfit alternativa, más robusta ante superposición modal que el misfit estándar sobre $c_p(f)$. Los resultados en el sitio La Salle muestran que el determinante identifica la solución global con mayor fiabilidad en perfiles con inversión de velocidad.
+>
+> — Research Database, entradas 002, 034 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.1.2, pp. 41–43 — relación de dispersión general, $c_p$ y $c_g$.
-- Foti et al. (2014), Cap. 2.2.2, pp. 55–59 — relación de dispersión de Rayleigh en semiespacio homogéneo.
-- Foti et al. (2014), Cap. 2.2.3, pp. 59–62 — Thomson-Haskell y condición de determinante para medio estratificado.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.2, pp. 41–43 |
+| Foti et al. (2018), *Surface Wave Methods* | §2.2.2, pp. 55–59 |
+| Foti et al. (2018), *Surface Wave Methods* | §2.2.3, pp. 59–62 |
+| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 |
+| Maraschini & Foti (2010), *GJI* | Paper 034 |

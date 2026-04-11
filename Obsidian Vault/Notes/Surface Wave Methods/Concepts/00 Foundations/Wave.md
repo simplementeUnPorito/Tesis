@@ -6,8 +6,10 @@ type: reference
 
 # Onda (Wave)
 
-> **Contexto:** Una onda es cualquier perturbación reconocible que se transfiere de una parte de un medio a otra con una velocidad de propagación identificable. En sismología, las ondas elásticas son perturbaciones del campo de desplazamiento del suelo que se propagan por el subsuelo transportando energía sísmica. Su clasificación (ondas de cuerpo P y S, ondas superficiales de Rayleigh y Love) y sus propiedades de dispersión son el fundamento de todos los métodos de caracterización geotécnica con ondas.
-> **Fuente:** Foti et al. (2014), Cap. 2.1.1, pp. 38–41.
+> [!CONCEPT] Definición
+> Una **onda** es cualquier perturbación reconocible que se transfiere a través de un medio con una velocidad de propagación identificable, transportando energía sin transporte neto de materia. En geofísica near-surface, las ondas elásticas — clasificadas como [[Body Waves]] ([[P-waves]], [[S-Waves]]) y [[Surface Waves]] ([[Rayleigh Waves]], [[Love Waves]]) — son el fundamento de todos los métodos de caracterización del subsuelo con geófonos.
+>
+> — Foti et al. (2018), §2.1.1, pp. 38–41.
 
 ## Intuición física
 
@@ -68,7 +70,15 @@ Los geófonos estándar (verticales) miden la **velocidad de partícula** del su
 
 Los geófonos horizontales son necesarios para registrar ondas Love (movimiento transversal horizontal) y la componente horizontal de Rayleigh.
 
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — dominancia de Rayleigh en registros MASW
+> **Paper 001 (Park, Miller & Xia 1999)** documenta que en registros sísmicos superficiales con fuente activa (martillo), el **ground-roll** de [[Rayleigh Waves]] domina el sismograma a distancias > 5–10 m de la fuente, concentrando > 67% de la energía sísmica total. Esta propiedad — consecuencia directa del decaimiento diferencial $r^{-0.5}$ vs $r^{-2}$ — es la que hace práctico el [[MASW Method]]: la señal útil (Rayleigh) domina sobre el ruido (body waves) sin necesidad de filtrado agresivo.
+>
+> — Research Database, entrada 001 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.1.1, pp. 38–41 — definición de onda y representación armónica.
-- Foti et al. (2014), Cap. 2.1.3, pp. 43–50 — clasificación P, S y superficiales.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.1, pp. 38–41 |
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.3, pp. 43–50 |
+| Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 |
