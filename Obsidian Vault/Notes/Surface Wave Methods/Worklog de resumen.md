@@ -734,3 +734,21 @@ Añadir `[!CONCEPT]` (definición técnica con wikilinks) y `[!EXAMPLE]` (eviden
 - Pendientes Ch8: Cross-Gradient Function, Archie's Law, Wyllie Equation, Gardner Relations, Hidden Layer Problem (1x c/u)
 - Pendientes Ch4: Bessel Function, Radon Transform, MUSIC Algorithm, Arias Intensity (1x c/u)
 - Continuar loop hasta 2026-04-13 08:00 AM
+
+### 2026-04-11 — iteración 77 (commits 787664a, 940b91f, 4e8334a, 5c89edb) — 10 nuevos conceptos
+- `Concepts/08/Total Variation Regularization.md` — norma L1, perfiles escalonados vs Tikhonov/Occam, IRLS, TV-vs-Occam en Hveragerdi interfaz roca-sedimento (1x Ch6)
+- `Concepts/07/Hidden Layer Problem.md` — capa oculta en refracción (inversión de velocidad), MASW no tiene este problema, La Salle arena suelta invisible en Vp (1x Ch8)
+- `Concepts/02/Bessel Function.md` — J₀(kr) en fórmula de Aki (1957) para SPAC isótropo, J₀=Re{H₀⁽²⁾}, ceros de J₀, validación en microtremores Tokio (1x Ch4)
+- `Concepts/07/Radon Transform.md` — transformada τ-p, slant stack, separación modos en (τ,p), supresión ondas cuerpo, relación con f-k: p=k/f (1x Ch4)
+- `Concepts/07/Arias Intensity.md` — IA=(π/2g)∫a²dt, factor amplificación ×15 en clase E vs A, umbral licuefacción IA>0.3 m/s Kayen&Mitchell, Memphis (1x Ch4)
+- `Concepts/08/Cross-Gradient Function.md` — t=∇m1×∇m2, co-localización de interfaces sin relación petrofísica, inversión conjunta MASW+ERT dique del Po (1x Ch8)
+- `Concepts/06/Archie's Law.md` — ρ=a·ρw·φ⁻ᵐ·S⁻ⁿ, factor de formación, conversión ERT→porosidad, validación La Salle r²=0.73 (1x Ch8)
+- `Concepts/06/Wyllie Equation.md` — 1/VP=φ/Vf+(1-φ)/Vm, cadena ERT→φ→VP, comparación con Biot-Gassmann, La Salle error 8% (1x Ch8)
+- `Concepts/06/Gardner Relations.md` — ρ=0.31·VP^0.25, uso para Gmax=ρVS², incertidumbre ±10-15%, La Salle error +3% (1x Ch8)
+- `Concepts/07/MUSIC Algorithm.md` — pseudoespectro subespacio ruido, resolución super-Rayleigh, 12 geófonos Zywicki&Rix 2005, reducción incertidumbre VS 35% (1x Ch4)
+
+**🏆 HITO MAYOR — FASE 6 COMPLETA: 0 wikilinks rotos en capítulos (excepto Lamb's Problem unicode U+2019).**
+- Total archivos en Concepts/: 140
+- Wikilinks rotos reales en capítulos: 1 (Lamb's Problem — problema de unicode U+2019 vs U+0027, archivo existe en disco)
+- NUEVA FASE 7: Revisión final de coherencia entre capítulos y conceptos — verificar cross-references bidireccionales
+- Continuar loop hasta 2026-04-13 08:00 AM
