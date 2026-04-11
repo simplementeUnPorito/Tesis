@@ -18,7 +18,27 @@
 - Página final aproximada: 20
 - Pendiente Chapter 1: ninguno — capítulo en estado comparable al resto del vault
 
-## Conceptos creados o actualizados en la última iteración (iteración 83 — 2026-04-11)
+## Conceptos creados o actualizados en la última iteración (iteración 84 — 2026-04-11)
+- **Fase 9 completa (enriquecimiento cross-links en toda la vault)**:
+  - Ronda 6: Wavelength(82), Body Waves(51) — 50 archivos, 122 cambios
+  - Ronda 5: Attenuation(81), Geophone(161), Shear Modulus(24), Poisson Ratio(10), Picking(8) — 90 archivos
+  - Ronda 4: Surface Waves(182), SPAC(23), Aliasing(34), Beamforming(6), Seismic Interferometry(7) — 94 archivos
+  - Ronda 3: Regularization(52), Jacobian(29), Vs30(19), Monte Carlo(18), Thomson-Haskell(16), ReMi(16) — 49 archivos
+  - Ronda 2: Wavenumber(68), Joint Inversion(50), Forward Problem(25), Non-uniqueness(28), Ground Roll(32) — 93 archivos
+  - Ronda 1: MASW(455), SASW(48), curva de dispersión(~200), velocidad de fase(~100) — 143 archivos
+  - Caps 6-8: correcciones capitalized variants
+  - Caps 1-5: enriquecimiento sistemático completo (186, 260, 128, 126 links resp.)
+- **Estado final del vault (2026-04-11 ~20:30 UTC)**:
+  - 144 concept files, 7 chapter files
+  - 162,767 palabras totales
+  - 4,107 wikilinks totales (densidad 2.52/100w)
+  - 52/52 papers de la research database referenciados
+  - 0 archivos de concepto con [!CONCEPT] faltante
+  - 0 archivos de concepto con [!EXAMPLE] faltante
+  - 0 archivos de concepto < 100 palabras
+- Commits en esta sesión: 12 commits pusheados a investigador-loop
+
+## Conceptos creados o actualizados en iteraciones anteriores (iteración 83 — 2026-04-11)
 - **Fase 9 (enriquecimiento cross-links en archivos de conceptos)**:
   - **Ronda 1** (143 archivos, 706 cambios): MASW(455), SASW(48), curva(s) de dispersión(~200), velocidad de fase(~100) en todos los conceptos cruzados
   - **Ronda 2** (93 archivos, 215 cambios): Rayleigh Waves(10), Love Waves(3), Ground Roll(32), Dispersion Relation(18), Wavenumber(68), Forward Problem(25), Non-uniqueness(28), Joint Inversion(50)
