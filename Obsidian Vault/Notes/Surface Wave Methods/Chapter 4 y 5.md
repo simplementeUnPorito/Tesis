@@ -153,7 +153,7 @@ donde $\chi$ es el lag espacial y $E[\cdot]$ es el valor esperado. Esta expresi�
 
 #### Caso de fuente única (ondas unidireccionales)
 
-Para una onda plana de amplitud unitaria con [[Wave Number|número de onda]] $\mathbf{k}_0$, la función de autocorrelación normalizada resulta (Foti Ec. 4.32–4.33):
+Para una onda plana de amplitud unitaria con [[Wavenumber|número de onda]] $\mathbf{k}_0$, la función de autocorrelación normalizada resulta (Foti Ec. 4.32–4.33):
 
 $$\rho(\chi) = \cos(\mathbf{k}_0 \cdot \chi) \tag{4.33}$$
 
@@ -161,7 +161,7 @@ La estimación experimental se realiza mediante los espectros de potencia cruzad
 
 $$\rho(\chi,\omega) = \frac{\mathfrak{Re}\!\left(\hat{S}_{ij}(\omega)\right)}{\sqrt{\hat{S}_{ii}(\omega)\,\hat{S}_{jj}(\omega)}} \tag{4.34}$$
 
-donde $\hat{S}_{ij}$ es el espectro cruzado promediado y $\hat{S}_{ii}$, $\hat{S}_{jj}$ son los espectros de potencia individuales. El [[Wave Number|número de onda]] $k_0(f)$ se obtiene minimizando el error de mínimos cuadrados entre Ec. 4.33 y los coeficientes de autocorrelación experimentales. La Figura 4.24 (p. 233) muestra ejemplos de ajuste a cuatro frecuencias; la [[Dispersion Curve|curva de dispersión]] resultante se muestra en la Figura 4.25 (p. 233).
+donde $\hat{S}_{ij}$ es el espectro cruzado promediado y $\hat{S}_{ii}$, $\hat{S}_{jj}$ son los espectros de potencia individuales. El [[Wavenumber|número de onda]] $k_0(f)$ se obtiene minimizando el error de mínimos cuadrados entre Ec. 4.33 y los coeficientes de autocorrelación experimentales. La Figura 4.24 (p. 233) muestra ejemplos de ajuste a cuatro frecuencias; la [[Dispersion Curve|curva de dispersión]] resultante se muestra en la Figura 4.25 (p. 233).
 
 #### Caso de campo isótropo (microtremores pasivos)
 
@@ -193,11 +193,11 @@ Tanto Ec. 4.33 (unidireccional) como Ec. 4.40 (isótropa) pueden usarse con ESAC
 
 ### 4.6 Métodos basados en transformadas
 
-Los métodos de transformada convierten el campo de ondas del dominio espacio–tiempo al dominio **frecuencia–[[Wave Number|número de onda]]** (f–k) o **frecuencia–lentitud** (f–p), donde la [[Dispersion Curve|curva de dispersión]] aparece como un lugar de máximos de energía.
+Los métodos de transformada convierten el campo de ondas del dominio espacio–tiempo al dominio **frecuencia–[[Wavenumber|número de onda]]** (f–k) o **frecuencia–lentitud** (f–p), donde la [[Dispersion Curve|curva de dispersión]] aparece como un lugar de máximos de energía.
 
-#### 4.6.1 Dominio f–k (frecuencia–[[Wave Number|número de onda]])
+#### 4.6.1 Dominio f–k (frecuencia–[[Wavenumber|número de onda]])
 
-La [[2D Fourier Transform|transformada de Fourier 2D]] del sismograma $u(x,t)$ produce el espectro $U(k,\omega)$. Los máximos de $|U|^2$ a cada frecuencia corresponden a los [[Wave Number|número de onda]] modales, de donde se extrae la [[Phase Velocity|velocidad de fase]]:
+La [[2D Fourier Transform|transformada de Fourier 2D]] del sismograma $u(x,t)$ produce el espectro $U(k,\omega)$. Los máximos de $|U|^2$ a cada frecuencia corresponden a los [[Wavenumber|número de onda]] modales, de donde se extrae la [[Phase Velocity|velocidad de fase]]:
 
 $$V_{ph}(\omega) = \frac{\omega}{k_{max}(\omega)}$$
 
@@ -210,7 +210,7 @@ donde $\mathbf{R}$ es la matriz de correlación espaciospectral y $\mathbf{e}$ e
 
 El método [[MASW Method|MASW]] (Park et al. 1999) es equivalente a beamforming con peso $w_m = 1/|S(x_m,\omega)|$ (normalización de amplitud). El peso óptimo para corrección de [[Geometric Spreading|spreading geométrico]] es $w_m = \sqrt{x_m}$ (Zywicki 1999).
 
-*Nota práctica:* se requiere zero-padding en el dominio espacial para mejorar la resolución del [[Wave Number|número de onda]], y ventaneo ([[Hann Window|Hanning]]) para suprimir lóbulos laterales.
+*Nota práctica:* se requiere zero-padding en el dominio espacial para mejorar la resolución del [[Wavenumber|número de onda]], y ventaneo ([[Hann Window|Hanning]]) para suprimir lóbulos laterales.
 
 #### 4.6.2 Análisis frecuencia–lentitud (τ–p / [[MASW Method|MASW]])
 
@@ -230,7 +230,7 @@ La [[Tau-P Transform|transformada τ–p]] puede calcularse a través del espect
 
 $$k_x = k \cdot \cos\vartheta$$
 
-La velocidad aparente medida siempre sobrestima la verdadera ($V_{app} \geq V_{true}$). Sin embargo, si el campo de ondas es **isótropo**, el espectro ReMi tiene simetría y sus máximos se aproximan al [[Wave Number|número de onda]] verdadero.
+La velocidad aparente medida siempre sobrestima la verdadera ($V_{app} \geq V_{true}$). Sin embargo, si el campo de ondas es **isótropo**, el espectro ReMi tiene simetría y sus máximos se aproximan al [[Wavenumber|número de onda]] verdadero.
 
 El procedimiento de Strobbia y Cassiani (2011) permite la inversión automática del espectro ReMi sin picking manual, verificando además la hipótesis de isotropía por la simetría positiva/negativa del espectro.
 
@@ -309,7 +309,7 @@ Esta simplificación introduce errores cuando los modos superiores son relevante
 
 ---
 
-### 5.3 Función de transferencia y [[Wave Number|número de onda]] complejo
+### 5.3 Función de transferencia y [[Wavenumber|número de onda]] complejo
 
 Dispersión y atenuación son dos aspectos del mismo fenómeno propagativo: el [[Wavenumber|número de onda]] complejo $k^*(\omega) = k_R(\omega) - i\alpha_R(\omega)$ contiene ambos. Es posible estimarlos **simultáneamente** a partir de la función de transferencia de desplazamiento:
 
@@ -327,9 +327,9 @@ Esta eliminación de la firma de la fuente hace el método robusto frente a ince
 
 ---
 
-### 5.4 Estimación multicanal multimodal del [[Wave Number|número de onda]] complejo
+### 5.4 Estimación multicanal multimodal del [[Wavenumber|número de onda]] complejo
 
-La [[Mode Superposition|superposición modal]] produce oscilaciones en la amplitud vs offset que contaminan la estimación de $\alpha_R$. Misbah y Strobbia (2014) propusieron un método basado en la extensión del algoritmo **[[MUSIC Algorithm|MUSIC]]** (*Multiple Signal Classification*, Schmidt 1986) al caso del [[Wave Number|número de onda]] complejo, capaz de:
+La [[Mode Superposition|superposición modal]] produce oscilaciones en la amplitud vs offset que contaminan la estimación de $\alpha_R$. Misbah y Strobbia (2014) propusieron un método basado en la extensión del algoritmo **[[MUSIC Algorithm|MUSIC]]** (*Multiple Signal Classification*, Schmidt 1986) al caso del [[Wavenumber|número de onda]] complejo, capaz de:
 
 - Separar las contribuciones de amplitud de múltiples modos.
 - Estimar las curvas de atenuación modales (no solo la aparente).
@@ -351,11 +351,11 @@ El método del **ancho de banda a mitad de potencia** (Badsar et al. 2010) extra
 
 El concepto se basa en la analogía con el análisis de resonancia de estructuras (Clough y Penzien 1993): para un sistema con amortiguamiento, el ancho del pico de respuesta en frecuencia medido a la amplitud $1/\sqrt{2}$ del máximo (criterio de "media potencia") está relacionado con la razón de amortiguamiento. En un espectro f-k, el pico de energía de un modo de propagación tiene un ancho que depende tanto de la resolución espectral del array (efecto de ventana) como del amortiguamiento intrínseco del suelo.
 
-El mismo concepto se aplica al espectro frecuencia–[[Wave Number|número de onda]]: la anchura del pico espectral a la amplitud $1/\sqrt{2}$ del máximo en la dirección del [[Wave Number|número de onda]], para una frecuencia fija, se relaciona con el coeficiente de atenuación espacial $\alpha_R(\omega)$ (Badsar et al. 2010).
+El mismo concepto se aplica al espectro frecuencia–[[Wavenumber|número de onda]]: la anchura del pico espectral a la amplitud $1/\sqrt{2}$ del máximo en la dirección del [[Wavenumber|número de onda]], para una frecuencia fija, se relaciona con el coeficiente de atenuación espacial $\alpha_R(\omega)$ (Badsar et al. 2010).
 
 ##### El problema del ventaneo espacial
 
-El principal obstáculo del método es el efecto del **muestreo espacial finito**: la limitación de la ventana espacial (apertura finita del array) produce un ensanchamiento artificial del pico espectral en el dominio del [[Wave Number|número de onda]] — exactamente el *spectral leakage* discutido en la Sec. 3.3.5. Este ensanchamiento artificial **sobreestima** el amortiguamiento: el ancho observado del pico es mayor que el atribuible únicamente a la atenuación intrínseca.
+El principal obstáculo del método es el efecto del **muestreo espacial finito**: la limitación de la ventana espacial (apertura finita del array) produce un ensanchamiento artificial del pico espectral en el dominio del [[Wavenumber|número de onda]] — exactamente el *spectral leakage* discutido en la Sec. 3.3.5. Este ensanchamiento artificial **sobreestima** el amortiguamiento: el ancho observado del pico es mayor que el atribuible únicamente a la atenuación intrínseca.
 
 Badsar et al. (2010) resolvieron este problema evaluando la **atenuación artificial** introducida por el ventaneo espacial mediante el estudio de la función de respuesta del array (función de ventana espacial). La atenuación espacial verdadera se obtiene substrayendo la contribución artificial de la estimada:
 

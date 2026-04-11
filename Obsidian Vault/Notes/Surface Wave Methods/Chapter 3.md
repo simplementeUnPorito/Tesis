@@ -69,7 +69,7 @@ La medición de ondas superficiales requiere estimar con precisión las propieda
 - Las limitaciones del muestreo espacial y temporal afectan la **exactitud y el ancho de banda** de las propiedades estimadas — no solo la resolución espacial.
 - La medición puede modelarse como un problema de **muestreo de señal multidimensional**: las restricciones del [[Nyquist Theorem|teorema de Nyquist–Shannon]] se aplican tanto en el dominio del tiempo como en el del espacio.
 
-> **Por qué el dominio frecuencial es peculiar a las ondas superficiales**: en la sísmica de refracción, la información útil está en los tiempos de llegada de las primeras ondas. En la sísmica de reflexión, en los tiempos de reflexión de interfaces. En ondas superficiales, la información útil está en la **distribución de energía en el plano f-k** a lo largo de toda la duración del registro. Esto hace que las relaciones entre los dominios tiempo–frecuencia y espacio–[[Wave Number|número de onda]] sean **esenciales para entender las limitaciones de la adquisición** — lo que motiva la sección 3.3 sobre señales digitales.
+> **Por qué el dominio frecuencial es peculiar a las ondas superficiales**: en la sísmica de refracción, la información útil está en los tiempos de llegada de las primeras ondas. En la sísmica de reflexión, en los tiempos de reflexión de interfaces. En ondas superficiales, la información útil está en la **distribución de energía en el plano f-k** a lo largo de toda la duración del registro. Esto hace que las relaciones entre los dominios tiempo–frecuencia y espacio–[[Wavenumber|número de onda]] sean **esenciales para entender las limitaciones de la adquisición** — lo que motiva la sección 3.3 sobre señales digitales.
 
 *(Fuente: Foti Ch. 3, Sec. 3.1.2, pp. 125–126)*
 
@@ -109,7 +109,7 @@ La Figura 3.5 (p. 129) compara el experimento ideal (campo continuo de ondas sup
 
 En los métodos de ondas superficiales, el **muestreo en espacio** es incluso más crítico que el muestreo en tiempo. El efecto de la propagación de ondas es detectado por un número finito de receptores: el campo se registra en un conjunto finito y discreto de puntos en tiempo y espacio. Las limitaciones del muestreo espacial y temporal se suman al ruido físico y determinan qué información útil puede extraerse del dato.
 
-> **Implicación para la tesis**: el geófono no registra el campo continuo, sino su versión muestreada, filtrada por el instrumento y contaminada por ruido. La resolución en frecuencia y en [[Wave Number|número de onda]] del dato experimental es siempre limitada. Entender estas limitaciones es previo a cualquier interpretación de la [[Dispersion Curve|curva de dispersión]].
+> **Implicación para la tesis**: el geófono no registra el campo continuo, sino su versión muestreada, filtrada por el instrumento y contaminada por ruido. La resolución en frecuencia y en [[Wavenumber|número de onda]] del dato experimental es siempre limitada. Entender estas limitaciones es previo a cualquier interpretación de la [[Dispersion Curve|curva de dispersión]].
 
 *(Fuente: Foti Ch. 3, Sec. 3.2, p. 126–129, Ecs. 3.1–3.2)*
 
@@ -133,12 +133,12 @@ Los operadores matemáticos que realizan esta descomposición se denominan **[[F
 | Tiempo $t$       | Frecuencia $f$       | Ciclos por segundo [Hz] |
 | Espacio $x$      | [[Wavenumber|Número de onda]] $k$   | Ciclos por metro [1/m]  |
 
-Esta dualidad tiempo–frecuencia y espacio–[[Wave Number|número de onda]] es fundamental en el análisis de ondas superficiales porque:
+Esta dualidad tiempo–frecuencia y espacio–[[Wavenumber|número de onda]] es fundamental en el análisis de ondas superficiales porque:
 - La **[[Phase Velocity|velocidad de fase]]** se estima directamente como la razón $c = f/k$ en el [[2D Fourier Transform|dominio transformado 2D]]
 - La distribución de energía en el plano $f$–$k$ revela los modos de propagación y sus velocidades
 - Las limitaciones del muestreo en tiempo y espacio se traducen directamente en resolución en frecuencia y en [[Wavenumber|número de onda]]
 
-> **Por qué el dominio frecuencial es el dominio natural de las ondas superficiales**: a diferencia de los métodos de refracción (que trabajan en tiempo–offset), los métodos de ondas superficiales trabajan en el dominio frecuencia–[[Wave Number|número de onda]] porque la propiedad que se estima ([[Phase Velocity|velocidad de fase]]) es inherentemente frecuencia-dependiente. La caracterización del subsuelo require estimar la [[Dispersion Relation|curva de dispersión]] $c(f)$, que es justamente la relación entre $f$ y $k$.
+> **Por qué el dominio frecuencial es el dominio natural de las ondas superficiales**: a diferencia de los métodos de refracción (que trabajan en tiempo–offset), los métodos de ondas superficiales trabajan en el dominio frecuencia–[[Wavenumber|número de onda]] porque la propiedad que se estima ([[Phase Velocity|velocidad de fase]]) es inherentemente frecuencia-dependiente. La caracterización del subsuelo require estimar la [[Dispersion Relation|curva de dispersión]] $c(f)$, que es justamente la relación entre $f$ y $k$.
 
 *(Fuente: Foti Ch. 3, Sec. 3.3.1, p. 130–131)*
 
@@ -168,7 +168,7 @@ $$
 
 El par $(g, G)$ recibe el nombre de **par de Fourier** y se denota $g(t) \xleftrightarrow{F} G(f)$ (Foti Ec. 3.5). Las dos representaciones son **complementarias**: contienen exactamente la misma información sobre la señal, solo organizada de diferente manera.
 
-#### Transformada en el dominio espacial: el [[Wave Number|número de onda]]
+#### Transformada en el dominio espacial: el [[Wavenumber|número de onda]]
 
 El mismo concepto se aplica cuando la variable independiente es el **espacio** $x$ en lugar del tiempo $t$. La variable dual del espacio es el **[[Wavenumber|número de onda]]** $k$ (ciclos por metro), y la transformada de Fourier espacial es (Foti Ec. 3.6):
 
@@ -176,7 +176,7 @@ $$
 g(x) \xleftrightarrow{F} G(k) \tag{3.6}
 $$
 
-El [[Wave Number|número de onda]] $k$ es el análogo espacial de la frecuencia temporal: mide cuántos ciclos por unidad de distancia contiene la señal. En muchos textos se usa el **[[Wave Number|número de onda]] circular** $\kappa = 2\pi k$ (radianes por metro), análogo a $\omega = 2\pi f$.
+El [[Wavenumber|número de onda]] $k$ es el análogo espacial de la frecuencia temporal: mide cuántos ciclos por unidad de distancia contiene la señal. En muchos textos se usa el **[[Wavenumber|número de onda]] circular** $\kappa = 2\pi k$ (radianes por metro), análogo a $\omega = 2\pi f$.
 
 > **Por qué esto importa para ondas superficiales**: la [[Phase Velocity|velocidad de fase]] de una onda es $c = f/k$. Al aplicar la [[2D Fourier Transform|transformada de Fourier 2D]] (espacio + tiempo) a un sismograma multicanal, cada modo de propagación aparece como un punto (o pico) en el plano $f$–$k$ con coordenadas $(f_0, k_0)$. La [[Phase Velocity|velocidad de fase]] se lee directamente como la pendiente $c = f_0/k_0$ de la recta que une ese punto con el origen.
 
@@ -243,11 +243,11 @@ El aliasing genera distorsiones y artefactos irreversibles en la señal reconstr
 
 #### Aliasing espacial en arreglos de geófonos
 
-El mismo mecanismo se aplica al **muestreo espacial** del array: el espaciado $\Delta X$ entre geófonos define el [[Wave Number|número de onda]] de Nyquist:
+El mismo mecanismo se aplica al **muestreo espacial** del array: el espaciado $\Delta X$ entre geófonos define el [[Wavenumber|número de onda]] de Nyquist:
 
 $$k_{Nyq} = \frac{1}{2\Delta X}$$
 
-Las ondas con $k > k_{Nyq}$ (velocidades de fase muy bajas) aparecen como componentes ficticias de [[Wave Number|número de onda]] negativo. En arreglos *end-off*, esta información aliasada puede recuperarse extendiendo el análisis al cuadrante negativo del dominio f-k, aumentando el [[Wave Number|número de onda]] máximo efectivo a $2k_{Nyq}$.
+Las ondas con $k > k_{Nyq}$ (velocidades de fase muy bajas) aparecen como componentes ficticias de [[Wavenumber|número de onda]] negativo. En arreglos *end-off*, esta información aliasada puede recuperarse extendiendo el análisis al cuadrante negativo del dominio f-k, aumentando el [[Wavenumber|número de onda]] máximo efectivo a $2k_{Nyq}$.
 
 > **Regla práctica para [[MASW Method|MASW]]**: el espaciado entre geófonos debe ser menor que la mitad de la [[Wavelength|longitud de onda]] mínima de interés: $\Delta X < \lambda_{min}/2$. Para frecuencias altas (alta resolución superficial) se requieren espaciados más pequeños; para profundidades mayores se pueden usar espaciados más grandes.
 
@@ -288,11 +288,11 @@ Para reducir los lóbulos laterales se usan ventanas con transición suave de 0 
 
 #### Extensión al dominio espacial: apertura del arreglo
 
-El concepto de ventana se aplica directamente al **dominio espacial**: la longitud observada es la **apertura del arreglo** $D = N \cdot \Delta X$. La ventana espacial tiene el mismo efecto en el dominio del [[Wave Number|número de onda]]:
+El concepto de ventana se aplica directamente al **dominio espacial**: la longitud observada es la **apertura del arreglo** $D = N \cdot \Delta X$. La ventana espacial tiene el mismo efecto en el dominio del [[Wavenumber|número de onda]]:
 
 $$\Delta k = \frac{2\pi}{D}$$
 
-- Mayor apertura $D$ → mayor resolución en [[Wave Number|número de onda]] → mayor capacidad de separar modos con valores de $k$ cercanos.
+- Mayor apertura $D$ → mayor resolución en [[Wavenumber|número de onda]] → mayor capacidad de separar modos con valores de $k$ cercanos.
 - Apertura insuficiente → los modos se superponen en el espacio f-k → la [[Dispersion Curve|curva de dispersión]] extraída es una "curva aparente" que mezcla contribuciones de varios modos.
 
 > **Implicación crítica para la tesis**: la resolución modal en la estimación de la [[Dispersion Relation|curva de dispersión]] está directamente controlada por la apertura del arreglo de geófonos. Para sitios donde los [[Surface Wave Modes|modos superiores]] son relevantes (inversión de velocidad en subsuelo), la apertura insuficiente es la principal fuente de error en el perfil $V_S(z)$. Este es uno de los criterios de diseño más importantes en ensayos [[MASW Method|MASW]].
@@ -359,7 +359,7 @@ Las variables conjugadas son $t \leftrightarrow f$ y $x \leftrightarrow k$. El p
 
 #### Onda plana armónica en f-k: el caso ideal
 
-Una onda plana armónica unitaria con [[Wave Number|número de onda]] circular $k_0$ y [[Angular Frequency|frecuencia angular]] $\omega_0$ se escribe (Foti Ec. 3.19):
+Una onda plana armónica unitaria con [[Wavenumber|número de onda]] circular $k_0$ y [[Angular Frequency|frecuencia angular]] $\omega_0$ se escribe (Foti Ec. 3.19):
 
 $$s(x,t) = e^{i(\omega_0 t - k_0 x)} \tag{3.19}$$
 
@@ -391,7 +391,7 @@ donde $W(k,\omega)$ es la transformada 2D de la ventana. Para ventana boxcar 2D 
 
 $$Z(k,\omega) = |D||T|\,\text{sinc}\!\left[\frac{D}{2}(k - k_0)\right]\text{sinc}\!\left[\frac{T}{2}(\omega - \omega_0)\right] \tag{3.26}$$
 
-El resultado es un **producto de dos sinc**: la resolución en [[Wave Number|número de onda]] es $\Delta k_{Rayleigh} = 2\pi/D$ y la resolución en frecuencia es $\Delta f \approx 1/T$. La Figura 3.17 (p. 146) muestra la superficie espectral 3D: el pico ideal se convierte en un lóbulo principal 2D con lóbulos laterales en ambas dimensiones. La resolución y el *leakage* presentados en las secciones anteriores se aplican directamente al dominio 2D en ambas dimensiones simultáneamente.
+El resultado es un **producto de dos sinc**: la resolución en [[Wavenumber|número de onda]] es $\Delta k_{Rayleigh} = 2\pi/D$ y la resolución en frecuencia es $\Delta f \approx 1/T$. La Figura 3.17 (p. 146) muestra la superficie espectral 3D: el pico ideal se convierte en un lóbulo principal 2D con lóbulos laterales en ambas dimensiones. La resolución y el *leakage* presentados en las secciones anteriores se aplican directamente al dominio 2D en ambas dimensiones simultáneamente.
 ![[Pasted image 20260410154258.png]]
 #### Consecuencias para la resolución multimodal (Figura 3.18)
 
@@ -483,7 +483,7 @@ El campo de ondas sísmico es muestreado con una ventana 2D en tiempo (duración
 #### 3.4.2.1 Muestreo discreto y finito
 
 La ventana 2D en tiempo-offset actúa como multiplicación por una función boxcar 2D → en el dominio f-k es una convolución con la transformada de esa ventana (función sinc 2D). El efecto:
-- Resolución limitada en frecuencia y en [[Wave Number|número de onda]].
+- Resolución limitada en frecuencia y en [[Wavenumber|número de onda]].
 - Dispersión de energía (spectral leakage) fuera del pico real.
 
 La [[Dispersion Relation|curva de dispersión]] experimental es siempre una **curva aparente** que depende de los parámetros de adquisición, no solo de las propiedades del subsuelo.
@@ -492,7 +492,7 @@ La [[Dispersion Relation|curva de dispersión]] experimental es siempre una **cu
 
 #### 3.4.2.2 Wavenumber máximo y aliasing espacial
 
-El espaciado entre receptores $\Delta X$ determina el **[[Wave Number|número de onda]] de Nyquist**:
+El espaciado entre receptores $\Delta X$ determina el **[[Wavenumber|número de onda]] de Nyquist**:
 
 $$
 k_{Nyq} = \frac{1}{2\Delta X}
@@ -506,7 +506,7 @@ Para velocidades bajas (wavenumbers altos), ocurre aliasing espacial: el wavenum
 
 #### 3.4.2.3 Resolución espectral y apertura
 
-La **apertura** del arreglo $D$ determina la resolución en [[Wave Number|número de onda]]:
+La **apertura** del arreglo $D$ determina la resolución en [[Wavenumber|número de onda]]:
 
 $$
 \Delta k_{Rayleigh} = \frac{2\pi}{D}
@@ -581,7 +581,7 @@ En sitios urbanos o industriales, el ruido sísmico de fondo que degrada los dat
 
 ##### Diferencias fundamentales respecto a la adquisición activa
 
-La posición de la fuente en métodos pasivos es **desconocida y variable durante la adquisición**, lo que impide aplicar directamente las técnicas de análisis diseñadas para fuentes activas. La diferencia clave es que la fuente genera un **vector [[Wave Number|número de onda]]** $\mathbf{k}$ con componentes $(k_x, k_y)$. Un arreglo lineal solo detecta la proyección de $\mathbf{k}$ a lo largo del eje del arreglo, obteniendo una **velocidad aparente** que no es en general la [[Phase Velocity|velocidad de fase]] real de la onda. Para estimar correctamente la [[Phase Velocity|velocidad de fase]] se necesita conocer la dirección de propagación, lo que requiere un **arreglo 2D**.
+La posición de la fuente en métodos pasivos es **desconocida y variable durante la adquisición**, lo que impide aplicar directamente las técnicas de análisis diseñadas para fuentes activas. La diferencia clave es que la fuente genera un **vector [[Wavenumber|número de onda]]** $\mathbf{k}$ con componentes $(k_x, k_y)$. Un arreglo lineal solo detecta la proyección de $\mathbf{k}$ a lo largo del eje del arreglo, obteniendo una **velocidad aparente** que no es en general la [[Phase Velocity|velocidad de fase]] real de la onda. Para estimar correctamente la [[Phase Velocity|velocidad de fase]] se necesita conocer la dirección de propagación, lo que requiere un **arreglo 2D**.
 
 ##### Diseño del arreglo para datos pasivos
 
@@ -602,7 +602,7 @@ El proceso de adquisición es fundamentalmente diferente del activo: no hay un m
 
 Por razones logísticas, hay interés en usar arreglos lineales también para mediciones pasivas, ya que permiten usar el mismo tendido del ensayo [[MASW Method|MASW]] activo. El método [[ReMi Method|ReMi]] (*Refraction Microtremor*) adopta esta estrategia. Bajo la hipótesis de que el campo de ruido es uniforme e isótropo (fuentes distribuidas en todas las direcciones con igual probabilidad), puede demostrarse que el array lineal sí detecta el [[Wavenumber|número de onda]] real de las ondas superficiales (Sec. 4.6.3).
 
-Sin embargo, las **limitaciones del array lineal para datos pasivos son severas**: solo puede identificar la proyección del [[Wave Number|número de onda]] a lo largo del eje del array. Si el campo no es isótropo (lo que ocurre frecuentemente en zonas urbanas con fuentes direccionales dominantes), los resultados pueden ser erróneos. El método [[ReMi Method|ReMi]] tiene ventajas logísticas importantes pero debe aplicarse con cautela y verificar la hipótesis de isotropía.
+Sin embargo, las **limitaciones del array lineal para datos pasivos son severas**: solo puede identificar la proyección del [[Wavenumber|número de onda]] a lo largo del eje del array. Si el campo no es isótropo (lo que ocurre frecuentemente en zonas urbanas con fuentes direccionales dominantes), los resultados pueden ser erróneos. El método [[ReMi Method|ReMi]] tiene ventajas logísticas importantes pero debe aplicarse con cautela y verificar la hipótesis de isotropía.
 
 *(Fuente: Foti Ch. 3, Sec. 3.4.3.3, pp. 179–181, Fig. 3.44)*
 
