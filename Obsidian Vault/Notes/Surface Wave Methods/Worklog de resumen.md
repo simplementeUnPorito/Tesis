@@ -18,7 +18,16 @@
 - Página final aproximada: 20
 - Pendiente Chapter 1: ninguno — capítulo en estado comparable al resto del vault
 
-## Conceptos creados o actualizados en la última iteración (iteración 80 — 2026-04-11)
+## Conceptos creados o actualizados en la última iteración (iteración 81 — 2026-04-11)
+- **Fase 8 (enriquecimiento de wikilinks en Capítulos 6, 7, 8)**: enriquecimiento sistemático de wikilinks en los capítulos de resumen
+  - **Chapter 6.md**: +SASW(4), +Joint Inversion(6), +Viscoelasticity(1), +curva de dispersión(17), +MASW(7), +Phase Velocity(5), +Non-uniqueness(4), +Forward Problem(13) → 60 links verificados
+  - **Chapter 7.md**: +SASW(4), +HVSR(varios), +Seismic Interferometry(5), +ReMi(3), +Beamforming(2), +curva de dispersión(29), +MASW(1), +Phase Velocity(3), +Non-uniqueness(3), +Ground Roll(2), +Vs30(4) → 47 links verificados
+  - **Chapter 8.md**: +Joint Inversion(27), +HVSR(varias), +Seismic Interferometry(5), +ReMi(3), +curva de dispersión(11), +Love Waves(9), +Rayleigh Waves(2), +Phase Velocity(3), +Non-uniqueness(6) → 76 links verificados
+  - **Total wikilinks verificados capítulos 6-8**: 183 linked, 0 unlinked para términos principales
+- Papers nuevos integrados: ninguno en esta iteración (foco en wikilinks)
+- Commits: `[INVESTIGADOR] enrich: wikilinks Capítulos 6-8 (iteración 81)`
+
+## Conceptos creados o actualizados en iteraciones anteriores (iteración 80 — 2026-04-11)
 - **Fase 7+ (enriquecimiento base de datos)**: integrados 14 papers antes no referenciados en 10 conceptos existentes
   - `HVSR.md` — Papers 018 (Lermo 1993, BSSA, 1103 citas) + 049 (Bonnefoy 2009, GJI, Santiago de Chile)
   - `Vs30.md` — Papers 021 (Uma Maheswari 2010, Chennai India, correlación VS-SPT) + 050 (Wald & Allen 2007, BSSA, 861 citas, VS30 desde topografía)
