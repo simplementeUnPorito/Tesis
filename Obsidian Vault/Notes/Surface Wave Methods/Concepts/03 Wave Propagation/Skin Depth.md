@@ -6,8 +6,10 @@ type: reference
 
 # Profundidad de Piel / Profundidad de Investigación (Skin Depth)
 
-> **Contexto:** El skin depth (profundidad de piel) cuantifica cómo decae la amplitud de las [[Rayleigh Waves]] con la profundidad y establece la **profundidad efectiva de investigación** de los métodos de ondas superficiales. Es la base física de la regla práctica que relaciona longitud de onda con profundidad sondeable.
-> **Fuente:** Foti et al. (2014), Cap. 2.2.1, pp. 52–55.
+> [!CONCEPT] Definición
+> El **skin depth** (profundidad de piel) cuantifica cómo decae la amplitud de las [[Rayleigh Waves]] con la profundidad y establece la **profundidad efectiva de investigación** de los métodos de ondas superficiales. Se define como la profundidad $\delta$ a la que la amplitud cae a $1/e \approx 37\%$ del valor superficial, aproximadamente $\delta \approx \lambda/2\pi$. La regla práctica derivada es $z_{\max} \approx \lambda_{\max}/2$ a $\lambda_{\max}$, donde $\lambda_{\max}$ es la longitud de onda máxima accesible con el arreglo — es decir, la profundidad de investigación está controlada por la frecuencia mínima medible.
+>
+> — Foti et al. (2018), §2.2.1, pp. 52–55.
 
 ## Intuición física
 
@@ -62,7 +64,15 @@ El skin depth determina directamente los requerimientos de diseño del arreglo d
 
 La regla $z_{\max} \approx \lambda/2$ es válida para el modo fundamental en un medio normalmente dispersivo. En medios con inversiones de velocidad (capas blandas intercaladas), la profundidad efectiva puede ser mayor porque los modos superiores penetran más. La sensibilidad real a cada profundidad se cuantifica mediante las **derivadas parciales** $\partial V_R/\partial V_S(z)$ (kernels de sensibilidad), que pueden calcularse numéricamente para cualquier modelo.
 
+> [!EXAMPLE] Evidencia empírica: Socco & Strobbia (2004) — validación de la regla del skin depth en diseño de arreglos
+> **Paper 008 (Socco & Strobbia 2004)** analiza sistemáticamente la relación entre longitud de onda máxima, longitud del arreglo y profundidad de investigación efectiva en múltiples sitios. El análisis de kernels de sensibilidad ($\partial c_R/\partial V_S$ vs $z$) demuestra que la sensibilidad de la curva de dispersión de modo fundamental a $V_S$ se concentra entre $\lambda/3$ y $\lambda/2$ de profundidad, validando la regla $z_{max} \approx \lambda_{max}/2$ como un estimador conservador apropiado. En sitios con inversiones de velocidad, la regla puede subestimar la profundidad de investigación real porque los modos superiores contribuyen a frecuencias donde el fundamental perdería sensibilidad.
+>
+> — Research Database, entrada 008 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.2.1, pp. 52–55 — derivación de eigenfunciones y decaimiento con profundidad.
-- Foti et al. (2014), Cap. 3.4, pp. 163–180 — aplicación al diseño de arreglos.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.2.1, pp. 52–55 — eigenfunciones y decaimiento con profundidad |
+| Foti et al. (2018), *Surface Wave Methods* | §3.4, pp. 163–180 — diseño de arreglos y profundidad de investigación |
+| Socco & Strobbia (2004) | Paper 008 — validación de la regla $z_{max} \approx \lambda_{max}/2$ |

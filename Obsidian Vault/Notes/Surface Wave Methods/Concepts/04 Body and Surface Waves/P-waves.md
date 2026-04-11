@@ -6,8 +6,10 @@ type: reference
 
 # Ondas P (P-waves / Compressional Waves)
 
-> **Contexto:** Las ondas P (Primary / Pressure / Compressional) son ondas de cuerpo donde el movimiento de la partícula es paralelo a la dirección de propagación. Son las ondas más rápidas en medios sólidos y viajan también en fluidos. En el contexto de ondas superficiales, su velocidad $V_P$ es un parámetro a priori necesario (aunque de sensibilidad limitada) en la inversión de la curva de dispersión de Rayleigh.
-> **Fuente:** Foti et al. (2014), Cap. 2.1.3, pp. 43–50.
+> [!CONCEPT] Definición
+> Las **ondas P** (Primary / Pressure / Compressional) son ondas de cuerpo donde el movimiento de la partícula es **paralelo** a la dirección de propagación — deformación volumétrica alternante sin corte puro. Son las ondas más rápidas en sólidos y viajan también en fluidos ($\mu = 0$). En el contexto de [[MASW Method|MASW]], $V_P$ es un **parámetro a priori** de baja sensibilidad en la inversión de la curva de dispersión de [[Rayleigh Waves]], pero crítico en suelos saturados donde $V_P \approx 1500$ m/s (dominado por el agua poral) y puede afectar el perfil $V_S$ si se ignora.
+>
+> — Foti et al. (2018), §2.1.3, pp. 43–50.
 
 ## Intuición física
 
@@ -60,7 +62,14 @@ En la inversión de la curva de dispersión de [[Rayleigh Waves]], $V_P$ (o equi
 
 En el método de **refracción sísmica**, las ondas P son el observable primario: los tiempos de llegada de los primeros arrivals se usan para inferir el contraste de $V_P$ entre capas, incluyendo la detección de la tabla de agua.
 
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — impacto de VP y nivel freático en la inversión MASW
+> Foti et al. (2018, §7.1.3) documentan que ignorar la posición del nivel freático (que produce un salto de $V_P$ de ~300 m/s a ~1500 m/s) puede introducir errores sistemáticos en el perfil $V_S$ invertido, especialmente en el rango de frecuencias bajas donde la onda de Rayleigh penetra hasta la zona saturada. En los casos estudiados (sitios de Bélgica e Italia), el error en $V_S$ por $V_P$ incorrecto fue de 5–10% — significativo pero menor que el error por $V_S$ incorrecto. Este resultado justifica la recomendación de medir $V_P$ por refracción P como dato a priori de la inversión de ondas superficiales.
+>
+> — Foti et al. (2018), §7.1.3, pp. 361–363.
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.1.3, pp. 43–50 — derivación desde ecuaciones de Navier.
-- Foti et al. (2014), Cap. 7.1.3, pp. 361–363 — impacto del nivel freático (VP) en la inversión.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.3, pp. 43–50 — derivación de $V_P$ desde ecuaciones de Navier |
+| Foti et al. (2018), *Surface Wave Methods* | §7.1.3, pp. 361–363 — impacto de $V_P$ y nivel freático en inversión |

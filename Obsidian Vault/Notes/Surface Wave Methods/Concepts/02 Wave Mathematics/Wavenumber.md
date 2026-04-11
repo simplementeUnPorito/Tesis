@@ -6,8 +6,10 @@ type: reference
 
 # Número de Onda (Wavenumber)
 
-> **Contexto:** El número de onda $k = 2\pi/\lambda$ es la representación espacial de la frecuencia: mide cuántos ciclos de fase (en radianes) ocurren por metro en la dirección de propagación. Es el análogo espacial de la [[Angular Frequency|frecuencia angular]] $\omega$, y junto con ella define completamente el comportamiento de una onda plana. En MASW, $k$ es uno de los dos ejes del espectrograma f-k; la velocidad de fase se lee directamente como $c_p = \omega/k$.
-> **Fuente:** Foti et al. (2014), Cap. 2.1.1, pp. 39–41.
+> [!CONCEPT] Definición
+> El **número de onda** $k = 2\pi/\lambda$ es la representación espacial de la frecuencia: mide cuántos ciclos de fase (en radianes) ocurren por metro en la dirección de propagación. Es el análogo espacial de la [[Angular Frequency|frecuencia angular]] $\omega$, y junto con ella define el comportamiento de una onda plana $\phi = A\,e^{i(kx-\omega t)}$. En [[MASW Method|MASW]], $k$ es el eje horizontal del espectrograma f-k; la [[Phase Velocity|velocidad de fase]] se lee directamente como $c_p = \omega/k$ y la [[Dispersion Relation|relación de dispersión]] $\omega(k)$ codifica toda la física del medio.
+>
+> — Foti et al. (2018), §2.1.1, pp. 39–41.
 
 ## Intuición física
 
@@ -63,7 +65,15 @@ $$\Delta k = \frac{2\pi}{L}$$
 
 Una longitud mayor permite resolver con más precisión el pico de cada modo en el espectrograma, mejorando la precisión de la curva de dispersión extraída. El aliasing espacial ocurre cuando $k > \pi/\Delta x$ (donde $\Delta x$ es el espaciado entre geófonos).
 
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — resolución en k y longitud del arreglo
+> **Paper 001 (Park, Miller & Xia 1999)** analiza la relación entre longitud del arreglo $L$ y resolución en $k$ ($\Delta k = 2\pi/L$) para diferentes configuraciones de 24–48 geófonos. Los autores demuestran que un arreglo más largo mejora la resolución de la curva de dispersión a bajas frecuencias, permitiendo extraer $c_p(f)$ con menor incertidumbre. También identifican que el aliasing espacial ($k > \pi/\Delta x$) limita las frecuencias altas y restringe el rango de la curva de dispersión accesible — estableciendo el compromiso fundamental entre longitud del arreglo y espaciado entre geófonos.
+>
+> — Research Database, entrada 001 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.1.1, pp. 39–41 — definición de $k$ en el contexto de ondas armónicas.
-- Foti et al. (2014), Cap. 4.1, pp. 194–210 — número de onda en el análisis f-k y curva de dispersión experimental.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.1, pp. 39–41 — número de onda en ondas armónicas |
+| Foti et al. (2018), *Surface Wave Methods* | §4.1, pp. 194–210 — análisis f-k y curva de dispersión |
+| Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — resolución en k vs longitud de arreglo |

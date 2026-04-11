@@ -6,8 +6,10 @@ type: reference
 
 # Ondas SV (Shear Vertical Waves)
 
-> **Contexto:** Las ondas SV son un tipo de [[S-Waves|onda de corte]] cuya polarización ocurre en el **plano vertical que contiene la dirección de propagación**. Junto con las [[P-waves|ondas P]], las ondas SV están matemáticamente acopladas en las condiciones de contorno de interfaces planas horizontales: inciden, se reflejan y se transmiten generando conversiones P↔SV (ver [[Mode Conversion]]). Este acoplamiento es el mecanismo que da lugar a las [[Rayleigh Waves|ondas de Rayleigh]] en la superficie libre.
-> **Fuente:** Foti et al. (2014), Cap. 2.1.3, pp. 43–50.
+> [!CONCEPT] Definición
+> Las **ondas SV** (Shear Vertical) son ondas de corte cuya polarización ocurre en el **plano vertical sagital** (el plano que contiene la dirección de propagación y la vertical). Junto con las [[P-waves|ondas P]], las ondas SV están matemáticamente acopladas en cualquier interfaz plana horizontal — una onda SV incidente genera conversiones P↔SV en reflexión y transmisión (ver [[Mode Conversion]]). Este acoplamiento P–SV es el mecanismo físico que da lugar a las [[Rayleigh Waves|ondas de Rayleigh]] en la superficie libre.
+>
+> — Foti et al. (2018), §2.1.3, pp. 43–50.
 
 ## Intuición física
 
@@ -51,7 +53,15 @@ Las amplitudes relativas de cada onda generada se calculan con las **ecuaciones 
 
 Los geófonos verticales estándar registran la componente $z$ del movimiento. Las ondas SV incidentes desde el interior del suelo tienen componente vertical y son detectadas. Sin embargo, en el análisis f-k de MASW, las ondas SV directas (generadas por la fuente con mayor amplitud en dirección vertical) llegan antes que el ground-roll y se separan por su mayor velocidad de fase.
 
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — acoplamiento P–SV como generador del ground-roll en sismogramas de campo
+> **Paper 001 (Park, Miller & Xia 1999)** documenta sismogramas de campo en Kansas donde el ground-roll de Rayleigh emerge claramente del acoplamiento P–SV en la superficie libre. El tren de ondas superficiales tiene amplitud mayor que las llegadas P y SV directas a distancias $> 5$ m, confirmando que la conversión de modos P↔SV en la superficie libre genera un modo de Rayleigh energéticamente dominante. La fuente vertical (maza) genera principalmente ondas P y SV, que se acoplan en la superficie libre y producen el ground-roll observable.
+>
+> — Research Database, entrada 001 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.1.3, pp. 43–50 — polarización SV/SH, acoplamiento P–SV y ecuaciones de Navier.
-- Foti et al. (2014), Cap. 2.2, pp. 50–55 — formación de ondas de Rayleigh por acoplamiento P–SV en la superficie libre.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.3, pp. 43–50 — polarización SV/SH y acoplamiento P–SV |
+| Foti et al. (2018), *Surface Wave Methods* | §2.2, pp. 50–55 — formación de Rayleigh por acoplamiento P–SV |
+| Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — acoplamiento P–SV en sismogramas de campo |
