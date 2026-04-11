@@ -33,10 +33,15 @@ La geometría básica es un **arreglo lineal de receptores uniformemente espacia
 | Número de canales | $N$ | Sobredeterminación del sistema |
 | Duración del registro | $T$ | Resolución en frecuencia |
 
-**Reglas prácticas**:
-- Espaciado típico: 1–5 m para caracterización de suelos superficiales (<30 m)
-- Apertura típica: 20–100 m para aplicaciones de ingeniería
-- Offset mínimo de fuente: $\lambda_R/2$ (para excluir campo cercano)
+**Parámetros recomendados (Park, Miller & Miura 2002 — Tabla 1, Paper 026)**:
+
+| Geófono (Hz) | Prof. máx. (m) | Offset mín. (m) | Offset máx. (m) | Espaciamiento (m) |
+|---|---|---|---|---|
+| 4.5 | 50 | 10 | 100 | 1 |
+| 10 | 30 | 10 | 100 | 1 |
+| 40 | 15 | 10 | 100 | 1 |
+
+El **MASW es el método sísmico más tolerante a variaciones de parámetros** — un offset mínimo de 10 m es suficiente para la mayoría de suelos (más tolerante que el criterio $\lambda/2$ del SASW). La fuente recomendada es un sledgehammer ≥ 10 lb con buena acoplamiento al suelo.
 
 ## Relación frecuencia–profundidad
 
@@ -81,4 +86,5 @@ El método [[SASW Method|SASW]] (*Spectral Analysis of Surface Waves*) usa solo 
 | Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — método MASW original |
 | Xia et al. (2002), *J. Environ. Eng. Geophys.* | Paper 009 — validación vs borehole, error < 15% |
 | Long & Donohue (2007), *Canadian Geotechnical Journal* | Paper 035 — 8 sitios noruegos; sesgo +10% vs SCPT/crosshole |
+| Park, Miller & Miura (2002), SEG-J abstract | Paper 026 — guía de parámetros óptimos de campo (Tabla 1) |
 | Foti et al. (2018), *Surface Wave Methods* | Caps. 3 (adquisición), 4–5 (procesamiento), 6–7 (inversión) |

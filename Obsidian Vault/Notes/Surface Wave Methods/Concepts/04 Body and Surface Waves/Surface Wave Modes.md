@@ -68,7 +68,7 @@ donde $\psi$ es la fase del campo total. En medios normalmente dispersivos, la c
 3. **Longitud de arreglo**: debe ser suficiente para resolver las diferencias en número de onda entre modos a las frecuencias de interés.
 
 4. **Estrategias de inversión**:
-   - Inversión multimodal: se incluyen varias curvas modales en la función de desajuste, lo que constraña mejor el perfil de $V_S$ a mayor profundidad.
+   - **Inversión multimodal** (Xia et al. 2003): se incluyen curvas del modo fundamental y modos superiores en la función de desajuste simultáneamente; mejora resolución en profundidad y detección de inversiones de velocidad. Implementado en MASWaves, Geopsy, SurfSeis. 448 citas (Paper 025).
    - *Determinant misfit* (Maraschini et al. 2010): evita asignar a priori puntos experimentales a modos específicos; evalúa la función secular directamente en los puntos experimentales.
 
 > [!EXAMPLE] Evidencia empírica: Maraschini & Foti (2010) + Socco, Foti & Boiero (2010)
@@ -85,3 +85,4 @@ donde $\psi$ es la fase del campo total. En medios normalmente dispersivos, la c
 | Foti et al. (2018), *Surface Wave Methods* | §2.4, pp. 64–95 — curvas modales y eigenfunciones |
 | Maraschini & Foti (2010), *Geophysics* | Paper 034 — determinant misfit multimodal |
 | Socco, Foti & Boiero (2010), *Geophysics* | Paper 033 — revisión: solo 33% publica modos superiores; 462 citas |
+| Xia et al. (2003), *J. Appl. Geophys.* 52:45–57 | Paper 025 — inversión MASW multimodal; mejora resolución profunda; 448 citas |
