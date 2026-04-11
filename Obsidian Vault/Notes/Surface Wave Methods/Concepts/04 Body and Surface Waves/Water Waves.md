@@ -55,6 +55,11 @@ Ambos sistemas son **dispersivos geométricos**: la velocidad de fase varía con
 
 ---
 
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — dispersión geométrica de Water Waves como modelo mental para MASW
+> Foti et al. (2018, §2.1.2) introducen la relación de dispersión $\omega^2 = gk\tanh(kh)$ como el caso más simple de dispersión geométrica — antes de presentar la ecuación secular de Rayleigh — precisamente porque el mecanismo físico es idéntico: **la velocidad de fase depende de cuánto dominio "ve" la onda en profundidad**. En aguas poco profundas ($kh \ll 1$), todas las frecuencias ven el fondo → no-dispersión ($c_p = \sqrt{gh}$). En aguas profundas ($kh \gg 1$), cada frecuencia ve una profundidad efectiva diferente → dispersión normal. Este marco permite explicar intuitivamente por qué la curva de dispersión de Rayleigh a altas frecuencias (longitudes de onda cortas) refleja las capas superficiales del suelo y a bajas frecuencias refleja las capas profundas — la misma física que governa Water Waves pero ahora con el perfil $V_S(z)$ controlando la dispersión en lugar del perfil batimétrico $h$.
+>
+> — Foti et al. (2018), §2.1.2, pp. 41–43.
+
 ## 4. Fuentes
 
 | Fuente | Sección / Página |

@@ -77,6 +77,11 @@ Entender la superposición es esencial para:
 
 ---
 
+> [!EXAMPLE] Evidencia empírica: Xu et al. (2006) — error por superposición modal en MASW
+> **Paper 014 (Xu et al. 2006)** demuestra cuantitativamente las consecuencias de ignorar la superposición de modos superiores en la inversión MASW. Cuando el espectrograma f-k muestra energía de dos o más modos superpuestos sin separación clara, tomar la cresta del espectrograma como velocidad del modo fundamental produce una curva de dispersión "aparente" sesgada — una superposición ponderada por energía de los modos presentes. En los experimentos sintéticos del paper (modelos con inversión de velocidad), este sesgo produce perfiles $V_S(z)$ con errores de hasta **50%** en las capas profundas respecto al modelo verdadero. La solución propuesta es la inversión multimodal: en lugar de separar modos en el espectrograma, se invierte la velocidad de fase aparente directamente, incluyendo la superposición modal en el cálculo teórico. El resultado demuestra que la superposición modal — consecuencia directa del principio de superposición — es el artefacto dominante en sitios con perfiles de velocidad complejos.
+>
+> — Research Database, entrada 014 (core); Xu et al. (2006), *Journal of Applied Geophysics* 59(4).
+
 ## 6. Fuentes
 
 | Fuente | Sección / Página |
