@@ -1,7 +1,9 @@
 # MOPA (Multi-Offset Phase Analysis)
 
-> **Contexto:** Método de análisis de fase multicanal para estimar la curva de dispersión a partir de un array lineal, con estimación directa de incertidumbre y detección de efectos de campo cercano.
-> **Fuente:** Foti et al. (2014), Cap. 4.4, pp. 220–230.
+> [!CONCEPT] Definición
+> El **MOPA** (*Multi-Offset Phase Analysis*) es la extensión multicanal del [[SASW Method|método SASW]]: usa el array completo de receptores en una sola adquisición para estimar la [[Dispersion Curve|curva de dispersión]] mediante ajuste de mínimos cuadrados a la relación lineal entre fase y posición de receptor $\varphi_i(\omega) = -k(\omega)x_i + \varphi_0(\omega)$. El número de onda $k(\omega)$ y su incertidumbre $\sigma_k$ se obtienen directamente del ajuste — sin necesidad de repetir disparos. Un **test $\chi^2$ de linealidad** permite detectar objetivamente: (1) receptores en campo cercano (desviación de la tendencia lineal), (2) variaciones laterales de impedancia (cambio de pendiente), y (3) contaminación por modos superiores. MOPA asume modo único de propagación; en sitios con modos múltiples significativos, el [[MASW Method|análisis f-k]] proporciona mejor resolución modal.
+>
+> — Foti et al. (2018), Cap. 4.4, pp. 220–230.
 
 ## Principio
 
@@ -70,7 +72,14 @@ Esta capacidad de detectar heterogeneidades laterales hace de MOPA una herramien
 - No proporciona imagen del campo de onda en el dominio $f$-$k$: la visualización de la curva de dispersión depende de la calidad del ajuste lineal por frecuencia, no de un espectro 2D.
 - Sensible a ruido coherente (reflexiones, refracciones) que contamine la fase de la onda superficial directa.
 
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — MOPA como referencia de incertidumbre en curva de dispersión
+> Foti et al. (2018, §4.4) aplican MOPA a datos de campo MASW y demuestran que la incertidumbre estimada directamente por el ajuste de mínimos cuadrados ($\sigma_V$ como función de $f$) es coherente con la variabilidad empírica observada entre disparos repetidos. En el ejemplo del sitio de referencia, el test $\chi^2$ identifica automáticamente las frecuencias donde los receptores del extremo cercano (campo cercano a la fuente) producen desviaciones sistemáticas de la tendencia lineal de fase — eliminando la necesidad de determinar el offset mínimo de fuente por reglas empíricas. La incertidumbre MOPA propagada a través de la inversión produce bandas de confianza en $V_S(z)$ equivalentes a las obtenidas por Monte Carlo con un costo computacional mínimo. MOPA se recomienda como análisis complementario al espectrograma f-k para cuantificar la incertidumbre de la curva de dispersión.
+>
+> — Foti et al. (2018), §4.4, pp. 220–230.
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 4.4, pp. 220–230, Ecs. 4.12–4.27.
-- Vignoli, G., Cassiani, G. (2009), *Near Surface Geophysics*.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 4.4, pp. 220–230, Ecs. 4.12–4.27 |
+| Vignoli & Cassiani (2009), *Near Surface Geophysics* | Segmentación adaptativa del array para variaciones laterales |

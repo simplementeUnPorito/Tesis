@@ -1,7 +1,9 @@
 # ReMi Method (Refraction Microtremor)
 
-> **Contexto:** Método pasivo de adquisición de ondas superficiales usando ruido ambiental y un arreglo lineal.
-> **Fuente:** Foti et al. Cap. 3 (p. 179–181), Cap. 4, Cap. 8.
+> [!CONCEPT] Definición
+> El **ReMi** (*Refraction Microtremor*, Louie 2001) es un método pasivo que extrae la [[Dispersion Curve|curva de dispersión]] de [[Rayleigh Waves|ondas de Rayleigh]] desde ruido sísmico ambiental (*microtremores*) usando un arreglo lineal estándar de geófonos — el mismo hardware que el [[MASW Method|MASW]] activo. El procedimiento consiste en: (1) registrar ruido ambiental, (2) calcular el espectro f-k o tau-p, (3) identificar el **borde mínimo de velocidad** (lowermost velocity boundary) en el espectrograma como estimador de la curva de dispersión del modo fundamental. La principal hipótesis es que el campo de ruido es aproximadamente **isotrópico**: si las fuentes dominan en una sola dirección, se produce **sobreestimación de la velocidad de fase** (velocidad aparente > velocidad real). La [[Seismic Interferometry|interferometría sísmica pasiva]] supera esta limitación; ReMi es más simple pero menos riguroso en campos de ruido direccionales.
+>
+> — Louie (2001), *Seismological Research Letters*; Foti et al. (2018), Cap. 3, §3.4.3.3; Cap. 8, §8.4.
 
 ## Principio
 
@@ -41,7 +43,15 @@ La **interferometría sísmica pasiva** (Cap. 8) supera la limitación de la vel
 - Cuando se requieren profundidades de investigación > 30 m y no hay energía suficiente con sledgehammer.
 - Ensayos sísmicos de sitio (Vs30) combinados con refracción de primeros arrivals.
 
+> [!EXAMPLE] Evidencia empírica: Garofalo et al. (2016) — ReMi en InterPACIFIC: limitaciones en campo de ruido no isotrópico
+> **Papers 006+007 (Garofalo et al. 2016a/b)** incluyen resultados ReMi para los 3 sitios InterPACIFIC, revelando una limitación sistemática: en el sitio Grenoble (zona alpina con fuentes de ruido predominantemente direccionales), los equipos que usaron ReMi obtuvieron curvas de dispersión con velocidades de fase **sistematicamente sobreestimadas** (~10–15%) respecto a los métodos activos y los datos de borehole, consistente con la hipótesis de velocidad aparente en campo no isotrópico. En contraste, los equipos que aplicaron interferometría sísmica o SPAC sobre los mismos datos de ruido reprodujeron las curvas de referencia con mejor acuerdo. La comparación confirma que ReMi es confiable cuando el campo de ruido es globalmente isotrópico, pero debe verificarse con criterios de calidad adicionales antes de usar las curvas en inversión.
+>
+> — Research Database, entradas 006, 007 (core); Garofalo et al. (2016a/b), *Near Surface Geophysics*.
+
 ## Referencias
 
-- Louie (2001), *Seismological Research Letters*.
-- Foti et al. (2014), Cap. 3 Sec. 3.4.3.3, Cap. 4, Cap. 8 Sec. 8.4.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Louie (2001), *Seismological Research Letters* | Método ReMi original — borde mínimo de velocidad |
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 3, §3.4.3.3; Cap. 8, §8.4 — ReMi y comparativa pasivos |
+| Garofalo et al. (2016a/b) | Papers 006, 007 — ReMi vs interferometría en InterPACIFIC |

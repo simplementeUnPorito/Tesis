@@ -1,7 +1,9 @@
 # Interferometría Sísmica Pasiva (Seismic Interferometry)
 
-> **Contexto:** Técnica pasiva para recuperar la función de Green entre receptores mediante la cross-correlación de registros de ruido ambiental.
-> **Fuente:** Foti et al. (2014), Cap. 8.4, pp. 427–430; Wapenaar et al. (2010); Shapiro y Campillo (2004).
+> [!CONCEPT] Definición
+> La **interferometría sísmica** recupera la **función de Green** entre dos receptores — equivalente a la respuesta de impulso que se observaría si uno de los receptores fuera una fuente virtual — mediante la **cross-correlación** de sus registros de ruido ambiental. La base teórica (Weaver & Lobkis 2001; Wapenaar 2004; Snieder 2004) establece que en un campo difuso isótropo, la cross-correlación entre señales en $R_1$ y $R_2$ converge a la función de Green $G(R_1, R_2)$. El resultado puede procesarse exactamente como datos activos con el receptor fuente virtual en $R_1$. Su principal ventaja sobre el [[ReMi Method|método ReMi]] es que al sumar contribuciones de fuentes en posiciones opuestas se cancelan las velocidades aparentes — el espectro f-k del interferograma presenta máximos en el **número de onda verdadero**, no en el aparente. Además, el *correlogram gather* permite validar la hipótesis de campo difuso: fuentes localizadas producen eventos no lineales detectables.
+>
+> — Foti et al. (2018), Cap. 8.4, pp. 427–430; Wapenaar et al. (2010); Shapiro & Campillo (2004).
 
 ## Principio
 
@@ -48,8 +50,16 @@ La interferometría sísmica y la [[Dispersion Relation|autocorrelación espacia
 - La contaminación por fuentes transitorias fuertes (tráfico, maquinaria) degrada el resultado; se requiere selección de ventanas o robustización estadística.
 - Los modos superiores de ondas superficiales son más difíciles de aislar que con métodos activos.
 
+> [!EXAMPLE] Evidencia empírica: Shapiro & Campillo (2004) — tomografía de ondas de Rayleigh por interferometría de ruido ambiental
+> Shapiro & Campillo (2004) demuestran que la cross-correlación de registros de ruido sísmico ambiental entre pares de estaciones de la red USArray produce la componente de onda de Rayleigh de la función de Green con suficiente coherencia para medir velocidades de fase en el rango 5–150 s. Las curvas de dispersión extraídas coinciden con las obtenidas por análisis de terremotos convencionales. El trabajo establece que el **ruido ambiental** (dominado por interacciones océano-atmósfera en ese rango de períodos) actúa como campo difuso suficientemente isótropo para que la hipótesis de la interferometría sea válida globalmente. En el rango de frecuencias de ingeniería (1–100 Hz), el mismo principio se aplica con ruido de tráfico y actividad urbana, aunque la isotropía es menor y requiere más cuidado en la selección de ventanas.
+>
+> — Shapiro & Campillo (2004), *GRL* 31, L07614; Foti et al. (2018), Cap. 8.4, pp. 427–430.
+
 ## Referencias
 
-- Shapiro, N.M., Campillo, M. (2004), *GRL*.
-- Wapenaar, K. et al. (2010a), *Geophysics*.
-- Foti et al. (2014), Cap. 8.4, pp. 427–430.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 8.4, pp. 427–430 — interferometría en ingeniería |
+| Shapiro & Campillo (2004), *GRL* 31 | Demostración de tomografía Rayleigh por cross-correlación de ruido |
+| Wapenaar et al. (2010), *Geophysics* | Marco teórico unificado de interferometría sísmica |
+| Weaver & Lobkis (2001) | Base termodinámica — campo difuso → función de Green |

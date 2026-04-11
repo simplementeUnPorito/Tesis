@@ -1,43 +1,76 @@
-
-
-La **adquisición de datos** es el primer paso crítico en los métodos de ondas superficiales. Consiste en **generar y registrar los efectos de la propagación de ondas en el tiempo y el espacio**, produciendo los registros sísmicos que luego serán analizados en las etapas de procesamiento e inversión [10].
-
+---
+name: Adquisición de Datos
+description: Primer paso del flujo MASW — generación y registro de ondas sísmicas en campo; parámetros de diseño del arreglo, fuentes activas/pasivas y desafíos operativos
+type: reference
 ---
 
-### Componentes Clave
+# Adquisición de Datos Sísmicos
 
-El sistema de adquisición se compone de tres elementos principales:
+> [!CONCEPT] Definición
+> La **adquisición de datos** es el primer paso crítico del flujo de trabajo de los métodos de ondas superficiales: consiste en generar ondas sísmicas y registrar su propagación en tiempo y espacio, produciendo los **sismogramas multicanal** $u(x_j, t_n)$ que alimentan el [[Procesamiento de Señales|procesamiento]] y la [[Inversión|inversión]]. El sistema se compone de tres elementos: (1) **fuente** (activa o pasiva) que determina el contenido en frecuencias y la profundidad de investigación, (2) **arreglo de receptores** cuya geometría determina la resolución modal y el rango de longitudes de onda accesible, y (3) **sistema de registro** (sismógrafo multicanal) que digitaliza las señales. Los parámetros de diseño — espaciado $\Delta x$, apertura total $D$, offset de fuente $L_s$, duración del registro $T$ — controlan la calidad de la curva de dispersión extraída y, por tanto, la resolución del perfil $V_S(z)$ final.
+>
+> — Foti et al. (2018), Cap. 3, pp. 77–192.
 
-1. **Fuentes de Señal**  
-   Determinan el **contenido de frecuencia** de las ondas generadas.  
-   - Las **fuentes activas** (por ejemplo, martillos o vibradores) generan principalmente **frecuencias altas**, sensibles a las capas superficiales.  
-   - Las **fuentes pasivas** (ruido ambiental o tráfico) aportan **frecuencias bajas**, que permiten investigar mayores profundidades [6, 11].
+## Componentes del sistema de adquisición
 
-2. **Arreglos de Receptores (Arrays)**  
-   La **geometría del arreglo** —incluyendo la distancia entre sensores y la longitud total del arreglo— determina la **resolución espacial** del método y la capacidad de identificar distintos **modos de propagación** de las ondas superficiales [12].
+### 1. Fuentes sísmicas
 
-3. **Sistema de Registro**  
-   Se utilizan **sismógrafos multicanal** para registrar simultáneamente las señales provenientes de múltiples sensores, lo que permite capturar el **campo de ondas** de forma redundante y mejorar la calidad del análisis posterior [13, 14].
+Las fuentes determinan el **rango de frecuencias** de las ondas generadas y, por tanto, la profundidad de investigación ($z_{max} \approx \lambda_{max}/2$):
 
----
+| Fuente | Tipo | Rango de frecuencia típico | Profundidad |
+|---|---|---|---|
+| Sledgehammer (martillo + placa) | Activa | 5–100 Hz | <30 m |
+| Caída de peso | Activa | 3–50 Hz | <50 m |
+| Vibroseis (sweep) | Activa | 1–100 Hz | <100 m |
+| Ruido ambiental (tráfico, viento) | Pasiva | 0.1–10 Hz | >50 m |
 
-### Ventaja Operativa
+Las **fuentes activas** permiten controlar la forma de onda, la posición y el timing → análisis f-k con alta resolución. Las **fuentes pasivas** aportan energía en bajas frecuencias (mayor profundidad) pero dependen de la distribución del ruido ambiental.
 
-Una ventaja importante en la adquisición de ondas superficiales es la posibilidad de **verificar visualmente el acople entre el suelo y el receptor** en la superficie.
+### 2. Receptores y arreglos
 
-Esto permite asegurar mediciones de **amplitud confiables**, lo cual es particularmente relevante para estimar el **amortiguamiento del suelo (\(D\))**, algo que resulta más difícil de garantizar en sensores instalados dentro de pozos.
+Los receptores estándar en MASW son **geófonos verticales** (14 Hz, 28 Hz o 4.5 Hz) que miden la componente vertical del movimiento → sensibles a [[Rayleigh Waves|ondas de Rayleigh]]. Para medir [[Love Waves|ondas de Love]] se requieren geófonos horizontales transversales.
 
----
+**Geometría del arreglo** (MASW activo):
 
-### Desafíos en la Adquisición
+| Parámetro | Símbolo | Efecto sobre la curva de dispersión |
+|---|---|---|
+| Espaciado entre geófonos | $\Delta x$ | Longitud de onda mínima: $\lambda_{min} \approx 2\Delta x$ |
+| Apertura total | $D = N\Delta x$ | Longitud de onda máxima: $\lambda_{max} \approx D$ |
+| Offset de fuente | $L_s$ | Exclusión de [[Near-field Effect\|efectos de campo cercano]]: $L_s \geq \lambda_{max}/2$ |
+| Número de canales | $N$ | Resolución modal: mayor $N$ → mejor separación de modos |
+| Duración del registro | $T$ | Resolución en frecuencia: $\Delta f = 1/T$ |
 
-Durante la adquisición pueden surgir diversos problemas que afectan la calidad de los datos registrados:
+### 3. Sistema de registro
 
-- **Ruido Incoherente**  
-  Vibraciones aleatorias presentes en el sitio que degradan la señal registrada [15].
+Los **sismógrafos multicanal** deben ofrecer:
+- Suficiente rango dinámico (≥90 dB) para registrar simultáneamente la onda directa (alta amplitud) y las ondas de largo offset (baja amplitud).
+- Frecuencia de muestreo temporal $f_s \geq 2 f_{max}$ (criterio de Nyquist).
+- Sincronización temporal precisa entre canales (trigger desde la fuente).
 
-- **Efectos de Campo Cercano**  
-  Si los receptores se encuentran demasiado cerca de la fuente, las ondas no pueden aproximarse como **ondas planas**, lo que complica su análisis [16, 17].
+Una ventaja operativa de la adquisición en superficie es la posibilidad de **verificar visualmente el acoplamiento geófono–suelo**, relevante especialmente para estimar el [[Shear Damping Ratio|amortiguamiento]] $D_s$ a partir de la curva de atenuación.
 
-- **Muestreo Espacial**  
-  Un espaciamiento inadecuado entre geófonos puede provocar **aliasing espacial**, dificultando la correcta identificación de las velocidades de propagación [18].
+## Desafíos en la adquisición
+
+### Ruido incoherente
+
+Vibraciones aleatorias (tráfico, maquinaria, viento) degradan la señal. Se mitigan mediante apilamiento (*stacking*) de disparos repetidos — el ruido incoherente decrece como $1/\sqrt{N}$ mientras la señal es coherente.
+
+### Efectos de campo cercano
+
+Los receptores demasiado cercanos a la fuente reciben ondas con **frentes curvos** (hipótesis de onda plana violada) y componentes de ondas de cuerpo significativas. El offset mínimo debe ser $L_s \geq \lambda_{max}/2$ (regla empírica de Park et al. 1999). El [[MOPA|test chi-cuadrado de MOPA]] permite detectar los receptores afectados de forma objetiva.
+
+### Aliasing espacial
+
+Un espaciado excesivamente grande $\Delta x$ produce aliasing espacial (ambigüedad en el número de onda): las ondas de longitud $\lambda < 2\Delta x$ se presentan en el espectro f-k con velocidad aparente incorrecta. La condición anti-aliasing es $\Delta x \leq \lambda_{min}/2$.
+
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — diseño del arreglo de adquisición MASW en Kansas
+> **Paper 001 (Park, Miller & Xia 1999)** establece los criterios de diseño del arreglo MASW en el estudio de campo en Kansas: 24 geófonos verticales (14 Hz de frecuencia natural), espaciado $\Delta x = 1.5$ m, apertura total $D = 34.5$ m, offset de fuente $L_s = 10$ m. El sledgehammer (10 lb sobre placa metálica) produce energía predominante en 5–50 Hz. Las reglas de diseño demostraron que: (1) el offset de fuente $L_s = 10$ m ≈ $\lambda_{max}/2$ es suficiente para excluir efectos de campo cercano en el rango de profundidades de interés (<20 m); (2) el espaciado de 1.5 m previene aliasing espacial hasta ~50 Hz; (3) 24 canales proporcionan resolución modal suficiente para separar el modo fundamental de los superiores entre 5–30 Hz.
+>
+> — Research Database, entrada 001 (core); Park, Miller & Xia (1999), *Geophysics* 64(3).
+
+## Referencias
+
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 3, pp. 77–192 — adquisición completa |
+| Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — diseño del arreglo MASW |
