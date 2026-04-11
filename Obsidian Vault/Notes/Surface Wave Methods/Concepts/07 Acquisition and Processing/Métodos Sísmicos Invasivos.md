@@ -7,7 +7,7 @@ type: reference
 # Métodos Sísmicos Invasivos (Borehole Methods)
 
 > [!CONCEPT] Definición
-> Los **métodos sísmicos invasivos** miden $V_S$ directamente en el subsuelo mediante instrumentación introducida en perforaciones o sondas de penetración. Ofrecen la mayor precisión y resolución vertical de todos los métodos geofísicos de caracterización de sitio ($\pm5$–$10\%$ en $V_S$), pero su costo es elevado y la medición es puntual (1D). Se usan como **referencia de validación** para los [[Métodos Sísmicos No Invasivos|métodos no invasivos]] (borehole vs. [[MASW Method|MASW]]) y para proporcionar los parámetros a priori ($V_P$, [[Poisson Ratio|$\nu$]]) en la inversión de ondas superficiales.
+> Los **métodos sísmicos invasivos** miden $V_S$ directamente en el subsuelo mediante instrumentación introducida en perforaciones o sondas de penetración. Ofrecen la mayor precisión y resolución vertical de todos los métodos geofísicos de caracterización de sitio ($\pm5$–$10\%$ en $V_S$), pero su costo es elevado y la medición es puntual (1D). Se usan como **referencia de validación** para los [[Métodos Sísmicos No Invasivos|métodos no invasivos]] (borehole vs. [[MASW Method|MASW]]) y para proporcionar los parámetros a priori ($V_P$, [[Poisson Ratio|$\nu$]]) en la inversión de [[Surface Waves|ondas superficiales]].
 >
 > — Foti et al. (2018), §1.1, pp. 1–10; ASTM D4428, D7400.
 
@@ -53,7 +53,7 @@ Un único instrumento con fuente y dos receptores se suspende en un **pozo lleno
 | Costo relativo | Alto | Bajo |
 | Inversión de velocidades | Detecta directamente | Difícil ([[Non-uniqueness|no-unicidad]]) |
 
-## Rol en el contexto de ondas superficiales
+## Rol en el contexto de [[Surface Waves|ondas superficiales]]
 
 Los métodos invasivos cumplen dos roles fundamentales en la práctica de [[MASW Method|MASW]]:
 

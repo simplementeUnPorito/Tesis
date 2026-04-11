@@ -48,7 +48,7 @@ $$\hat{\phi}_{12}(f) = \angle\left[\frac{U_2(f)}{U_1(f)}\right]$$
 
 $$c_p(f) = \frac{2\pi f \Delta x}{\hat{\phi}_{12}(f)}$$
 
-Este método es más susceptible a aliasing espacial (ambigüedad de $2\pi$ en la fase) y a la contaminación por [[Surface Wave Modes|modos superiores]], pero requiere solo dos sensores y es útil para validación rápida.
+Este método es más susceptible a [[Aliasing|aliasing]] espacial (ambigüedad de $2\pi$ en la fase) y a la contaminación por [[Surface Wave Modes|modos superiores]], pero requiere solo dos sensores y es útil para validación rápida.
 
 ## Identificación de modos y selección de la curva
 

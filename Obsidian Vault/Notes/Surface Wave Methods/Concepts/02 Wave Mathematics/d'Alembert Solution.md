@@ -1,6 +1,6 @@
 ---
 name: d'Alembert Solution
-description: Solución general de la ecuación de onda 1D; superposición de dos ondas viajeras en sentidos opuestos; base pedagógica para entender propagación no dispersiva antes de ondas superficiales
+description: Solución general de la ecuación de onda 1D; superposición de dos ondas viajeras en sentidos opuestos; base pedagógica para entender propagación no dispersiva antes de [[Surface Waves|ondas superficiales]]
 type: reference
 ---
 

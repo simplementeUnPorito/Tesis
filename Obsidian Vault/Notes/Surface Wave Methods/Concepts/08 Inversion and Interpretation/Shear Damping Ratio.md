@@ -1,13 +1,13 @@
 ---
 name: Shear Damping Ratio
-description: Parámetro de amortiguamiento material del suelo (Ds) estimado a partir de ondas superficiales — mide la disipación de energía en ciclos de deformación
+description: Parámetro de amortiguamiento material del suelo (Ds) estimado a partir de [[Surface Waves|ondas superficiales]] — mide la disipación de energía en ciclos de deformación
 type: reference
 ---
 
 # Shear Damping Ratio (Ds) — Amortiguamiento al Corte Material
 
 > [!CONCEPT] Definición
-> El **Shear Damping Ratio** $D_s$ cuantifica la disipación de energía en un suelo bajo deformación cíclica de corte. En el modelo [[Viscoelastic Media|viscoelástico]] lineal, $D_s = G''/(2G')$ donde $G^* = G'(1+2iD_s)$ es el módulo de corte complejo. En métodos de ondas superficiales, $D_s$ se estima a partir de la **curva de atenuación** $\alpha_R(f)$ de las [[Rayleigh Waves]]: $D_s \approx \alpha_R V_R/(2\pi f)$. Es el parámetro de amortiguamiento dinámico a pequeña deformación, relevante para cálculos de amplificación sísmica de sitio.
+> El **Shear Damping Ratio** $D_s$ cuantifica la disipación de energía en un suelo bajo deformación cíclica de corte. En el modelo [[Viscoelastic Media|viscoelástico]] lineal, $D_s = G''/(2G')$ donde $G^* = G'(1+2iD_s)$ es el módulo de corte complejo. En métodos de [[Surface Waves|ondas superficiales]], $D_s$ se estima a partir de la **curva de atenuación** $\alpha_R(f)$ de las [[Rayleigh Waves]]: $D_s \approx \alpha_R V_R/(2\pi f)$. Es el parámetro de amortiguamiento dinámico a pequeña deformación, relevante para cálculos de amplificación sísmica de sitio.
 >
 > — Foti et al. (2018), Caps. 2, 5, 7; Lai & Rix (1998).
 
@@ -36,7 +36,7 @@ donde $\alpha_R$ es el coeficiente de atenuación espacial (1/m) y $V_R$ la [[Ph
 
 También se expresa como $D_s = 1/(2Q)$, donde $Q$ es el factor de calidad del material.
 
-## Obtención desde ondas superficiales
+## Obtención desde [[Surface Waves|ondas superficiales]]
 
 El procedimiento experimental para determinar el perfil Ds(z) desde mediciones de superficie involucra tres pasos:
 
@@ -55,7 +55,7 @@ El procedimiento experimental para determinar el perfil Ds(z) desde mediciones d
   - Scattering de energía en heterogeneidades (produce atenuación aparente no material)
   - Disipación por fricción de contacto entre partículas, no modelada en el medio viscoelástico
   - Alta frecuencia → mayor dependencia con la rugosidad del medio
-- El Ds obtenido desde ondas superficiales representa el **amortiguamiento dinámico a pequeña deformación** (small-strain), coherente con las condiciones de propagación de ondas sísmicas.
+- El Ds obtenido desde [[Surface Waves|ondas superficiales]] representa el **amortiguamiento dinámico a pequeña deformación** (small-strain), coherente con las condiciones de propagación de ondas sísmicas.
 - La hipótesis del **modo fundamental** de Rayleigh puede no ser satisfecha si hay modos superiores presentes, lo que afecta tanto la [[Dispersion Curve|curva de dispersión]] como la de atenuación.
 
 ## Relevancia en ingeniería sísmica
@@ -64,7 +64,7 @@ El perfil Ds(z) entra directamente en los cálculos de **respuesta sísmica loca
 
 ## Diferencias con damping de laboratorio
 
-| Característica | Ensayo de laboratorio (RCT) | Ondas superficiales (SWM) |
+| Característica | Ensayo de laboratorio (RCT) | [[Surface Waves|Ondas superficiales]] (SWM) |
 |---|---|---|
 | Volumen representativo | Pequeño (muestra) | Grande (columna de suelo) |
 | Perturbación del suelo | Extracción de muestra | No invasivo |
@@ -73,7 +73,7 @@ El perfil Ds(z) entra directamente en los cálculos de **respuesta sísmica loca
 | Consistencia con datos sísmicos | Posible | Directa |
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — validación Ds en sitios Pisa y Memphis
-> Foti et al. (2018, §7.3) presentan la inversión simultánea de la [[Dispersion Curve|curva de dispersión]] (para $V_S$) y la curva de atenuación (para $D_s$) en dos sitios de referencia: la Torre de Pisa y el sitio de Memphis. Los perfiles $D_s(z)$ obtenidos por ondas superficiales ([[MASW Method|MASW]] activo + pasivo) muestran acuerdo razonable con ensayos de columna resonante (RCT) independientes, con diferencias típicas de 0.5–1.5% en $D_s$ absoluto. El estudio confirma que la inversión de la curva de atenuación de Rayleigh es una estimación in situ válida del amortiguamiento dinámico a pequeña deformación, aunque con mayor incertidumbre que la estimación de $V_S$.
+> Foti et al. (2018, §7.3) presentan la inversión simultánea de la [[Dispersion Curve|curva de dispersión]] (para $V_S$) y la curva de atenuación (para $D_s$) en dos sitios de referencia: la Torre de Pisa y el sitio de Memphis. Los perfiles $D_s(z)$ obtenidos por [[Surface Waves|ondas superficiales]] ([[MASW Method|MASW]] activo + pasivo) muestran acuerdo razonable con ensayos de columna resonante (RCT) independientes, con diferencias típicas de 0.5–1.5% en $D_s$ absoluto. El estudio confirma que la inversión de la curva de atenuación de Rayleigh es una estimación in situ válida del amortiguamiento dinámico a pequeña deformación, aunque con mayor incertidumbre que la estimación de $V_S$.
 >
 > — Foti et al. (2018), §7.3, pp. 375–380, Figs. 7.25–7.29.
 
@@ -83,4 +83,4 @@ El perfil Ds(z) entra directamente en los cálculos de **respuesta sísmica loca
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | Caps. 2, 5, 7 — definición, estimación e inversión de $D_s$ |
 | Lai & Rix (1998), *Georgia Tech Research Report* | Inversión simultánea $c_R$ + $\alpha_R$ para $V_S$ y $D_s$ |
-| Foti (2003), *Géotechnique* 53 | $D_s$ de arcilla de Pisa desde ondas superficiales |
+| Foti (2003), *Géotechnique* 53 | $D_s$ de arcilla de Pisa desde [[Surface Waves|ondas superficiales]] |

@@ -1,9 +1,9 @@
 # Water Waves
 
 > [!CONCEPT] Definición
-> Las **water waves** (ondas de agua) son ondas superficiales gravitacionales que se propagan en la interfaz agua-aire. Son el ejemplo pedagógico clásico de ondas **dispersivas**: su [[Phase Velocity]] depende fuertemente de la frecuencia y de la profundidad del agua $h$.
+> Las **water waves** (ondas de agua) son [[Surface Waves|ondas superficiales]] gravitacionales que se propagan en la interfaz agua-aire. Son el ejemplo pedagógico clásico de ondas **dispersivas**: su [[Phase Velocity]] depende fuertemente de la frecuencia y de la profundidad del agua $h$.
 >
-> En el contexto de ondas superficiales geofísicas, las water waves sirven como analogía intuitiva para comprender la [[Geometric Dispersion]] de las [[Rayleigh Waves]] en medios estratificados.
+> En el contexto de [[Surface Waves|ondas superficiales]] geofísicas, las water waves sirven como analogía intuitiva para comprender la [[Geometric Dispersion]] de las [[Rayleigh Waves]] en medios estratificados.
 >
 > — Foti et al., *Surface Wave Methods for Near-Surface Site Characterization*, CRC Press (2018), §2.1.2.
 
@@ -29,7 +29,7 @@ Esto da lugar a dos regímenes límite:
 
 ---
 
-## 2. Analogía con ondas superficiales sísmicas
+## 2. Analogía con [[Surface Waves|ondas superficiales]] sísmicas
 
 La dispersión de water waves es **geométrica** — no proviene de las propiedades del agua, sino de la geometría del dominio (profundidad $h$). Esta es exactamente la misma física que la [[Geometric Dispersion]] de [[Rayleigh Waves]] en suelos estratificados:
 

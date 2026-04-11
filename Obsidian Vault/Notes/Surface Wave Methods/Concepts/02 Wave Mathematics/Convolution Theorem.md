@@ -16,7 +16,7 @@ type: reference
 >
 > — Foti et al. (2018), §3.3.1, pp. 124–128; Bracewell (2000), *The Fourier Transform and Its Applications*, §3.
 
-## Aplicaciones en análisis de ondas superficiales
+## Aplicaciones en análisis de [[Surface Waves|ondas superficiales]]
 
 ### Función de transferencia
 

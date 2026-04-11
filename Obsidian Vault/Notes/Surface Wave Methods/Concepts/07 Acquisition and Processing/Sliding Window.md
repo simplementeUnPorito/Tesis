@@ -36,7 +36,7 @@ Para mejorar la continuidad lateral de la sección, se puede aplicar una **inver
 
 La resolución lateral del [[MASW Method|MASW]] rolling depende de:
 - **Apertura de la ventana $D$**: determina la longitud mínima de escala resolvible lateralmente → heterogeneidades más cortas que $D$ se promedian
-- **Incremento de desplazamiento $\Delta L$**: determina el muestreo lateral → $\Delta L \leq D/2$ para evitar aliasing lateral (criterio de Nyquist lateral)
+- **Incremento de desplazamiento $\Delta L$**: determina el muestreo lateral → $\Delta L \leq D/2$ para evitar [[Aliasing|aliasing]] lateral (criterio de Nyquist lateral)
 
 Una discontinuidad lateral abrupta (por ejemplo, un relleno sobre roca o una falla) aparece "suavizada" en la sección 2D con una zona de transición de ancho ~$D$.
 

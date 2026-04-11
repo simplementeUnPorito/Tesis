@@ -1,6 +1,6 @@
 ---
 name: Surface Wave Modes
-description: Modos de propagación de ondas superficiales en medios estratificados; cada modo tiene su propia [[Phase Velocity|velocidad de fase]], frecuencia de corte y patrón de desplazamiento profundo
+description: Modos de propagación de [[Surface Waves|ondas superficiales]] en medios estratificados; cada modo tiene su propia [[Phase Velocity|velocidad de fase]], frecuencia de corte y patrón de desplazamiento profundo
 type: reference
 ---
 
@@ -74,7 +74,7 @@ donde $\psi$ es la fase del campo total. En medios normalmente dispersivos, la c
 > [!EXAMPLE] Evidencia empírica: Maraschini & Foti (2010) + Socco, Foti & Boiero (2010)
 > **Paper 034 (Maraschini & Foti 2010)** introduce el *determinant misfit* como función de desajuste que evalúa el determinante de la matriz de [[Thomson-Haskell Matrix|Thomson-Haskell]] directamente en los puntos experimentales del espectro f-k, sin necesidad de asignar cada punto a un modo específico. Este enfoque elimina el problema de identificación de modos — el principal obstáculo en sitios con fuertes contrastes de velocidad donde las curvas modales se oscilan. La validación en el sitio La Salle (Italia) demuestra que el perfil $V_S(z)$ recuperado con esta función es más robusto que el obtenido forzando la inversión en modo fundamental cuando los modos superiores son activos.
 >
-> **Paper 033 (Socco, Foti & Boiero 2010, Geophysics, 462 citas)** — revisión de 200+ publicaciones sobre métodos de ondas superficiales: solo ~33% de los trabajos incluyen modos superiores en la inversión, a pesar de que son relevantes en un alto porcentaje de sitios de ingeniería. Los modos superiores son especialmente importantes cuando VS aumenta monotónicamente con la profundidad (perfil normalmente dispersivo) y se requiere resolución profunda. La [[Dispersion Curve|curva de dispersión]] aparente puede estar dominada por modos superiores a frecuencias donde el fundamental pierde energía relativa.
+> **Paper 033 (Socco, Foti & Boiero 2010, Geophysics, 462 citas)** — revisión de 200+ publicaciones sobre métodos de [[Surface Waves|ondas superficiales]]: solo ~33% de los trabajos incluyen modos superiores en la inversión, a pesar de que son relevantes en un alto porcentaje de sitios de ingeniería. Los modos superiores son especialmente importantes cuando VS aumenta monotónicamente con la profundidad (perfil normalmente dispersivo) y se requiere resolución profunda. La [[Dispersion Curve|curva de dispersión]] aparente puede estar dominada por modos superiores a frecuencias donde el fundamental pierde energía relativa.
 >
 > — Research Database, entradas 034 y 033 (core).
 

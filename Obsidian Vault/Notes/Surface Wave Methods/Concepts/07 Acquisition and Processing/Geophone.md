@@ -29,14 +29,14 @@ Para $\omega \gg \omega_n$: $H \approx 1$ → respuesta plana → el geófono mi
 
 ## Tipos según frecuencia natural
 
-| $f_n$ (Hz) | Aplicación típica | Rango útil | Uso en ondas superficiales |
+| $f_n$ (Hz) | Aplicación típica | Rango útil | Uso en [[Surface Waves|ondas superficiales]] |
 |---|---|---|---|
 | 4.5 Hz | Exploración profunda, pasiva | 3–200 Hz | Pasivo (microtremores, bajas frecuencias) |
 | 10 Hz | Multiusos | 8–200 Hz | Activo + pasivo |
 | 14 Hz | [[MASW Method|MASW]] estándar | 12–200 Hz | Activo (sledgehammer) |
 | 28 Hz | Alta resolución superficial | 22–200 Hz | Activo, capas muy superficiales |
 
-Para [[MASW Method|MASW]] estándar con sledgehammer (fuente activa, 5–80 Hz), los geófonos de 14 Hz son los más comunes. Para pasivo ([[ReMi Method|ReMi]], SPAC), se recomiendan ≤4.5 Hz para capturar el rango de 1–5 Hz necesario para profundidades >30 m.
+Para [[MASW Method|MASW]] estándar con sledgehammer (fuente activa, 5–80 Hz), los geófonos de 14 Hz son los más comunes. Para pasivo ([[ReMi Method|ReMi]], [[SPAC Method|SPAC]]), se recomiendan ≤4.5 Hz para capturar el rango de 1–5 Hz necesario para profundidades >30 m.
 
 ## Acoplamiento suelo-geófono
 

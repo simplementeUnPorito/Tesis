@@ -27,7 +27,7 @@ donde $U(x_j, f) = \text{FFT}[u(x_j, \cdot)]$. El máximo de $|S(f, p)|$ para ca
 |---|---|---|
 | Variable de salida | Intercepción $\tau$, slowness $p$ | Frecuencia $f$, [[Wavenumber|número de onda]] $k$ |
 | Resolución en velocidad | $\Delta c \propto c^2/(D \cdot f)$ — varía con $c$ | $\Delta c = c^2 \Delta k / (2\pi f)$ — uniforme en $k$ |
-| Presencia de aliasing | Posible si muestreo $\Delta x$ inadecuado | Igual |
+| Presencia de [[Aliasing|aliasing]] | Posible si muestreo $\Delta x$ inadecuado | Igual |
 | Implementación | DFT espacial por frecuencia | DFT 2D completa |
 | Equivalencia matemática | Sí (misma información) | Referencia |
 
@@ -49,5 +49,5 @@ La diferencia práctica principal: la resolución en slowness es **no uniforme e
 | Fuente | Sección / Página |
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | Cap. 4, §4.3, pp. 216–220 — tau-p en [[MASW Method|MASW]] |
-| McMechan & Yedlin (1981), *Bull. Seism. Soc. Am.* | Introducción de la transformada tau-p para ondas superficiales |
+| McMechan & Yedlin (1981), *Bull. Seism. Soc. Am.* | Introducción de la transformada tau-p para [[Surface Waves|ondas superficiales]] |
 | Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — f-k vs tau-p en [[MASW Method|MASW]] |

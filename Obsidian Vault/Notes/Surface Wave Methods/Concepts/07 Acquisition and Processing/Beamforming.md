@@ -29,7 +29,7 @@ Para una señal de [[Wavenumber|número de onda]] verdadero $k_0$, el beamformer
 
 $$\Delta k \approx \frac{2\pi}{D} \quad \text{(ventana uniforme)}, \quad \Delta k \approx \frac{4\pi}{D} \quad \text{(ventana Hann)}$$
 
-Los lóbulos laterales (aliasing espacial) aparecen a $k = k_0 \pm 2\pi n/\Delta x$ para $n \in \mathbb{Z}$.
+Los lóbulos laterales ([[Aliasing|aliasing]] espacial) aparecen a $k = k_0 \pm 2\pi n/\Delta x$ para $n \in \mathbb{Z}$.
 
 ## Beamformer de alta resolución (CAPON/MVDR)
 

@@ -1,6 +1,6 @@
 ---
 name: Group Velocity
-description: Velocidad de propagación de la envolvente de un paquete de ondas; controla la llegada de energía en registros dispersivos y es observable en sismología de ondas superficiales de largo período
+description: Velocidad de propagación de la envolvente de un paquete de ondas; controla la llegada de energía en registros dispersivos y es observable en sismología de [[Surface Waves|ondas superficiales]] de largo período
 type: reference
 ---
 
@@ -55,7 +55,7 @@ En un medio normalmente dispersivo (velocidad crece con profundidad), la curva $
 
 | Contexto | Uso de $c_g$ vs. $c_p$ |
 |---|---|
-| Sismología global (períodos largos) | $c_g$ observable como velocidad del tren de ondas; usada en tomografía de ondas superficiales |
+| Sismología global (períodos largos) | $c_g$ observable como velocidad del tren de ondas; usada en tomografía de [[Surface Waves|ondas superficiales]] |
 | Métodos [[MASW Method|MASW]]/[[SASW Method|SASW]] (near-surface) | $c_p$ es el observable primario; $c_g$ es de importancia secundaria en inversión |
 | Análisis de registros dispersivos | $c_g$ controla la llegada temporal de las componentes de energía |
 
@@ -65,7 +65,7 @@ En métodos [[MASW Method|MASW]] estándar, el análisis f-k extrae $c_p$. La ve
 
 - En registros de arreglos sísmicos, la **forma del tren de ondas de Rayleigh** (su estiramiento temporal) depende de $c_g$. Si el tren de ondas es muy corto en tiempo, puede haber interferencia entre diferentes modos.
 - Para métodos que analizan la **forma de onda** directamente (como la inversión de forma de onda completa), $c_g$ es tan relevante como $c_p$.
-- En el método de análisis [[MASW Method|MASW]] con ventana temporal de análisis, conviene asegurarse de que la ventana capture el tren completo de ondas superficiales — cuyo tamaño temporal depende de $c_g$ y la dispersión del arreglo.
+- En el método de análisis [[MASW Method|MASW]] con ventana temporal de análisis, conviene asegurarse de que la ventana capture el tren completo de [[Surface Waves|ondas superficiales]] — cuyo tamaño temporal depende de $c_g$ y la dispersión del arreglo.
 
 > [!EXAMPLE] Evidencia empírica: Forbriger (2003) — inversión de forma de onda usando c_g
 > **Paper 043 (Forbriger 2003)** propone invertir directamente la transformada de onda superficial incluyendo tanto $c_p$ como $c_g$ implícitamente. El análisis muestra que los registros sísmicos dispersivos tienen una firma temporal característica controlada por $c_g$: a mayor dispersión (mayor variación $c_R(f)$), mayor estiramiento temporal del tren de ondas. Ignorar $c_g$ en el diseño de la ventana de análisis puede truncar el tren de ondas e introducir sesgo en la [[Dispersion Curve|curva de dispersión]] a bajas frecuencias.

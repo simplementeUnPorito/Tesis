@@ -11,7 +11,7 @@ type: reference
 > $$Q = 2\pi \frac{E_{almacenada}}{E_{disipada/ciclo}} = \frac{1}{2D_s}$$
 > donde $D_s$ es el [[Shear Damping Ratio|coeficiente de amortiguamiento]] del suelo. Para suelos, $Q_S$ = 5–200 ($D_s$ = 0.25–10%); para rocas, $Q_S$ = 50–1000 ($D_s$ = 0.05–1%). El factor Q aparece en la expresión del [[Attenuation Coefficient|coeficiente de atenuación]]:
 > $$\alpha = \frac{\omega}{2Q c} = \frac{\pi f}{Qc} \quad [\text{Np/m}]$$
-> y en el **modelo de Q constante** (*constant-Q model*), ampliamente usado en sismología aplicada: el coeficiente de amortiguamiento es independiente de la frecuencia ($Q$ = constante, $D_s$ = constante), lo que implica atenuación proporcional a la frecuencia $\alpha \propto f$. En métodos de ondas superficiales, $Q_R$ es el factor de calidad de la onda de Rayleigh, relacionado con $Q_S$ (dominante) y $Q_P$ (secundario) por los [[Sensitivity Kernel|kernels de sensibilidad]]:
+> y en el **modelo de Q constante** (*constant-Q model*), ampliamente usado en sismología aplicada: el coeficiente de amortiguamiento es independiente de la frecuencia ($Q$ = constante, $D_s$ = constante), lo que implica atenuación proporcional a la frecuencia $\alpha \propto f$. En métodos de [[Surface Waves|ondas superficiales]], $Q_R$ es el factor de calidad de la onda de Rayleigh, relacionado con $Q_S$ (dominante) y $Q_P$ (secundario) por los [[Sensitivity Kernel|kernels de sensibilidad]]:
 > $$\frac{1}{Q_R(\omega)} \approx \frac{1}{Q_S} \cdot w_S(\omega) + \frac{1}{Q_P} \cdot w_P(\omega), \quad w_S \approx 0.8{-}0.95$$
 >
 > — Foti et al. (2018), §2.2; Aki & Richards (2002), §5.5; Knopoff (1964).

@@ -1,7 +1,7 @@
 # Rayleigh Waves
 
 > [!CONCEPT] Definición
-> Las **ondas de Rayleigh** son ondas superficiales que se propagan a lo largo de la superficie libre de un medio elástico, resultando del acoplamiento entre ondas P y SV bajo la condición de esfuerzo nulo en la superficie. Predichas teóricamente por Lord Rayleigh en 1885 y verificadas experimentalmente, son la señal primaria de todos los métodos de caracterización del subsuelo con ondas superficiales ([[MASW Method]], [[SASW Method]], [[ReMi Method]]).
+> Las **ondas de Rayleigh** son [[Surface Waves|ondas superficiales]] que se propagan a lo largo de la superficie libre de un medio elástico, resultando del acoplamiento entre ondas P y SV bajo la condición de esfuerzo nulo en la superficie. Predichas teóricamente por Lord Rayleigh en 1885 y verificadas experimentalmente, son la señal primaria de todos los métodos de caracterización del subsuelo con [[Surface Waves|ondas superficiales]] ([[MASW Method]], [[SASW Method]], [[ReMi Method]]).
 >
 > — Lord Rayleigh (1885), *Proc. London Math. Soc.*, 17, 4–11; Foti et al. (2018), §2.2, pp. 50–62.
 

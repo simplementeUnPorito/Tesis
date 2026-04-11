@@ -32,7 +32,7 @@ donde:
 
 El módulo de corte es **invariante**: $G_{sat} = G_{sk}$ — consecuencia directa de que el fluido no resiste esfuerzos de corte.
 
-## Implicaciones prácticas para ondas superficiales
+## Implicaciones prácticas para [[Surface Waves|ondas superficiales]]
 
 | Propiedad | Efecto de la saturación |
 |-----------|------------------------|
@@ -61,4 +61,4 @@ donde $\eta$ es la viscosidad del fluido, $k_0$ la permeabilidad intrínseca del
 |--------|-----------------|
 | Biot, M.A. (1956), *J. Acoust. Soc. Am.* 28(2), 168–191 | Teoría original de propagación de ondas en medios porosos |
 | Gassmann, F. (1951), *Vierteljahrsschr. Naturf. Ges. Zürich* 96 | Ecuación de Gassmann para módulos saturados |
-| Foti et al. (2018), *Surface Wave Methods* | §2.1.1 — implicaciones para ondas superficiales |
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.1 — implicaciones para [[Surface Waves|ondas superficiales]] |

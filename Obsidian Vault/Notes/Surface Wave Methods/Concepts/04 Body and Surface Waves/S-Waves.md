@@ -1,13 +1,13 @@
 ---
 name: S-Waves
-description: Ondas de cuerpo de corte (transversales); velocidad VS = √(μ/ρ) refleja la rigidez del esqueleto sólido; parámetro objetivo en la caracterización geotécnica mediante métodos de ondas superficiales
+description: Ondas de cuerpo de corte (transversales); velocidad VS = √(μ/ρ) refleja la rigidez del esqueleto sólido; parámetro objetivo en la caracterización geotécnica mediante métodos de [[Surface Waves|ondas superficiales]]
 type: reference
 ---
 
 # Ondas S (S-Waves / Shear Waves)
 
 > [!CONCEPT] Definición
-> Las **ondas S** (Secondary / Shear / Transversal) son ondas de cuerpo en las que el movimiento de la partícula es **perpendicular** a la dirección de propagación, produciendo deformación de corte puro sin cambio de volumen. Su velocidad $V_S = \sqrt{\mu/\rho}$ depende únicamente de la rigidez de corte $\mu$ del esqueleto sólido — haciéndola **insensible a la presencia del agua poral** y por tanto el **parámetro objetivo fundamental** de todos los métodos de ondas superficiales ([[MASW Method|MASW]], [[SASW Method|SASW]], [[ReMi Method|ReMi]], [[SPAC Method|SPAC]]).
+> Las **ondas S** (Secondary / Shear / Transversal) son ondas de cuerpo en las que el movimiento de la partícula es **perpendicular** a la dirección de propagación, produciendo deformación de corte puro sin cambio de volumen. Su velocidad $V_S = \sqrt{\mu/\rho}$ depende únicamente de la rigidez de corte $\mu$ del esqueleto sólido — haciéndola **insensible a la presencia del agua poral** y por tanto el **parámetro objetivo fundamental** de todos los métodos de [[Surface Waves|ondas superficiales]] ([[MASW Method|MASW]], [[SASW Method|SASW]], [[ReMi Method|ReMi]], [[SPAC Method|SPAC]]).
 >
 > — Foti et al. (2018), §2.1.3, pp. 43–50.
 
@@ -54,7 +54,7 @@ $G_{\max}$ es la propiedad mecánica del suelo para deformaciones de corte en el
 
 ## Por qué VS y no VP
 
-En suelos saturados bajo carga no drenada, $V_P$ salta a ~1500 m/s (velocidad del sonido en agua), independientemente de la rigidez del esqueleto. Esto hace que $V_P$ no sea representativo de las propiedades mecánicas del suelo. $V_S$, en cambio, es insensible a la presencia del agua poral y refleja fielmente la rigidez del esqueleto. Por esta razón, todos los métodos de ondas superficiales ([[MASW Method|MASW]], [[SASW Method|SASW]], [[ReMi Method|ReMi]], SPAC) apuntan a medir el **perfil de $V_S$ con la profundidad**.
+En suelos saturados bajo carga no drenada, $V_P$ salta a ~1500 m/s (velocidad del sonido en agua), independientemente de la rigidez del esqueleto. Esto hace que $V_P$ no sea representativo de las propiedades mecánicas del suelo. $V_S$, en cambio, es insensible a la presencia del agua poral y refleja fielmente la rigidez del esqueleto. Por esta razón, todos los métodos de [[Surface Waves|ondas superficiales]] ([[MASW Method|MASW]], [[SASW Method|SASW]], [[ReMi Method|ReMi]], [[SPAC Method|SPAC]]) apuntan a medir el **perfil de $V_S$ con la profundidad**.
 
 ## Valores típicos en suelos
 

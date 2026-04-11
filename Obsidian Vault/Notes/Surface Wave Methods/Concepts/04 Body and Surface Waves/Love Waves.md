@@ -1,13 +1,13 @@
 ---
 name: Love Waves
-description: Ondas superficiales SH que requieren estratificación para existir; dispersivas; su [[Joint Inversion|inversión conjunta]] con Rayleigh reduce la [[Non-uniqueness|no-unicidad]] del perfil VS
+description: [[Surface Waves|Ondas superficiales]] SH que requieren estratificación para existir; dispersivas; su [[Joint Inversion|inversión conjunta]] con Rayleigh reduce la [[Non-uniqueness|no-unicidad]] del perfil VS
 type: reference
 ---
 
 # Ondas de Love (Love Waves)
 
 > [!CONCEPT] Definición
-> Las **ondas de Love** son ondas superficiales polarizadas horizontalmente (SH) que **requieren estratificación**: no pueden existir en un [[Elastic Half Space|semiespacio homogéneo]]. Se propagan cuando una capa superficial con menor velocidad de corte $V_{S1}$ suprayace un semiespacio más rígido ($V_{S2} > V_{S1}$), atrapando la energía SH por reflexión total interna. Sus [[Dispersion Curve|curvas de dispersión]] dependen únicamente de $V_S$ y densidades — no de $V_P$ — lo que las hace complementarias a las [[Rayleigh Waves]] en [[Joint Inversion|inversión conjunta]].
+> Las **ondas de Love** son [[Surface Waves|ondas superficiales]] polarizadas horizontalmente (SH) que **requieren estratificación**: no pueden existir en un [[Elastic Half Space|semiespacio homogéneo]]. Se propagan cuando una capa superficial con menor velocidad de corte $V_{S1}$ suprayace un semiespacio más rígido ($V_{S2} > V_{S1}$), atrapando la energía SH por reflexión total interna. Sus [[Dispersion Curve|curvas de dispersión]] dependen únicamente de $V_S$ y densidades — no de $V_P$ — lo que las hace complementarias a las [[Rayleigh Waves]] en [[Joint Inversion|inversión conjunta]].
 >
 > — Foti et al. (2018), §2.3, pp. 63–70; Cap. 8, §8.1.
 

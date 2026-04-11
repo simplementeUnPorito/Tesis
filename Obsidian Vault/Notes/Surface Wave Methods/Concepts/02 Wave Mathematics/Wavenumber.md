@@ -63,10 +63,10 @@ La resolución del espectrograma f-k en el eje $k$ depende de la longitud total 
 
 $$\Delta k = \frac{2\pi}{L}$$
 
-Una longitud mayor permite resolver con más precisión el pico de cada modo en el espectrograma, mejorando la precisión de la [[Dispersion Curve|curva de dispersión]] extraída. El aliasing espacial ocurre cuando $k > \pi/\Delta x$ (donde $\Delta x$ es el espaciado entre geófonos).
+Una longitud mayor permite resolver con más precisión el pico de cada modo en el espectrograma, mejorando la precisión de la [[Dispersion Curve|curva de dispersión]] extraída. El [[Aliasing|aliasing]] espacial ocurre cuando $k > \pi/\Delta x$ (donde $\Delta x$ es el espaciado entre geófonos).
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) — resolución en k y longitud del arreglo
-> **Paper 001 (Park, Miller & Xia 1999)** analiza la relación entre longitud del arreglo $L$ y resolución en $k$ ($\Delta k = 2\pi/L$) para diferentes configuraciones de 24–48 geófonos. Los autores demuestran que un arreglo más largo mejora la resolución de la [[Dispersion Curve|curva de dispersión]] a bajas frecuencias, permitiendo extraer $c_p(f)$ con menor incertidumbre. También identifican que el aliasing espacial ($k > \pi/\Delta x$) limita las frecuencias altas y restringe el rango de la [[Dispersion Curve|curva de dispersión]] accesible — estableciendo el compromiso fundamental entre longitud del arreglo y espaciado entre geófonos.
+> **Paper 001 (Park, Miller & Xia 1999)** analiza la relación entre longitud del arreglo $L$ y resolución en $k$ ($\Delta k = 2\pi/L$) para diferentes configuraciones de 24–48 geófonos. Los autores demuestran que un arreglo más largo mejora la resolución de la [[Dispersion Curve|curva de dispersión]] a bajas frecuencias, permitiendo extraer $c_p(f)$ con menor incertidumbre. También identifican que el [[Aliasing|aliasing]] espacial ($k > \pi/\Delta x$) limita las frecuencias altas y restringe el rango de la [[Dispersion Curve|curva de dispersión]] accesible — estableciendo el compromiso fundamental entre longitud del arreglo y espaciado entre geófonos.
 >
 > — Research Database, entrada 001 (core).
 

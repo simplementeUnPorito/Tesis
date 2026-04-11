@@ -1,7 +1,7 @@
 # Surface Water Waves
 
 > [!CONCEPT] Definición
-> Las **surface water waves** son un caso específico de [[Water Waves]]: ondas que se propagan en la **superficie libre** de un cuerpo de agua bajo la acción de la gravedad. Son el arquetipo de onda dispersiva y sirven en la literatura de geofísica de ondas superficiales como analogía pedagógica directa de las [[Rayleigh Waves]].
+> Las **surface water waves** son un caso específico de [[Water Waves]]: ondas que se propagan en la **superficie libre** de un cuerpo de agua bajo la acción de la gravedad. Son el arquetipo de onda dispersiva y sirven en la literatura de geofísica de [[Surface Waves|ondas superficiales]] como analogía pedagógica directa de las [[Rayleigh Waves]].
 >
 > — Foti et al., *Surface Wave Methods for Near-Surface Site Characterization*, CRC Press (2018), §2.1.2.
 
@@ -63,7 +63,7 @@ Esta analogía justifica el uso de modelos de water waves como introducción ped
 
 ---
 
-> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — analogía pedagógica con ondas superficiales sísmicas
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — analogía pedagógica con [[Surface Waves|ondas superficiales]] sísmicas
 > Foti et al. (2018, §2.1.2) usan las Surface Water Waves como introducción pedagógica a la [[Geometric Dispersion|dispersión geométrica]] antes de derivar la ecuación secular de Rayleigh. La [[Dispersion Relation|relación de dispersión]] $\omega^2 = gk\tanh(kh)$ ilustra visualmente que **longitudes de onda largas penetran más profundo** y "ven" más agua → mayor [[Phase Velocity|velocidad de fase]]. Esta misma lógica aplica a las ondas de Rayleigh: longitudes de onda largas penetran más en el subsuelo y reportan la velocidad de las capas más profundas. En la Fig. 2.1 del libro, la analogía es explícita: el perfil de rigidez del suelo $V_S(z)$ actúa como la profundidad del agua $h$ en el control de la dispersión. La utilidad práctica de la analogía es que permite calibrar la intuición sobre qué información geotécnica se puede extraer de cada rango de frecuencias de la [[Dispersion Curve|curva de dispersión]], antes de entrar en la complejidad de la ecuación secular de Rayleigh.
 >
 > — Foti et al. (2018), §2.1.2, pp. 41–43, Fig. 2.1.

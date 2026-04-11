@@ -1,6 +1,6 @@
 ---
 name: Radon Transform
-description: Transformada τ-p (tiempo de intercepción - parámetro de slowness) que mapea el campo de ondas sísmico al dominio de rayos planos — usada en [[MASW Method|MASW]] y sísmica de reflexión para separar modos de ondas superficiales y suprimir ruido coherente
+description: Transformada τ-p (tiempo de intercepción - parámetro de slowness) que mapea el campo de ondas sísmico al dominio de rayos planos — usada en [[MASW Method|MASW]] y sísmica de reflexión para separar modos de [[Surface Waves|ondas superficiales]] y suprimir ruido coherente
 type: reference
 ---
 
@@ -13,7 +13,7 @@ type: reference
 >
 > — Foti et al. (2018), §4.3.3, pp. 198–204; Treitel et al. (1982), *Geophysics* 47(10); Tatham (1989), *Geophysics*.
 
-## Propiedades de la transformada τ-p en ondas superficiales
+## Propiedades de la transformada τ-p en [[Surface Waves|ondas superficiales]]
 
 ### Separación de modos
 

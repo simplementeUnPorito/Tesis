@@ -53,11 +53,11 @@ La selección entre Ec. 4.33 (unidireccional) y Ec. 4.40 (isótropa) depende del
 
 ## Comparación con métodos de transformada (f-k, τ-p)
 
-| Aspecto | SPAC/ESAC | f-k / beamformer |
+| Aspecto | SPAC/ESAC | f-k / [[Beamforming|beamformer]] |
 |---|---|---|
 | Separación de modos | No (velocidad aparente) | Sí (resolución multimodal) |
 | Requisito geométrico | Array circular (SPAC) / libre (ESAC) | Array lineal o 2D |
-| Hipótesis de isotropía | Necesaria (datos pasivos) | No (beamformer) |
+| Hipótesis de isotropía | Necesaria (datos pasivos) | No ([[Beamforming|beamformer]]) |
 | Estimación directa de $V_{ph}$ | Por ajuste a $J_0$ o $\cos$ | Por posición del máximo en f-k |
 
 ## Limitaciones

@@ -1,13 +1,13 @@
 ---
 name: Layered Media
-description: Modelo del subsuelo como apilamiento de capas horizontales planas con propiedades elásticas distintas; base física de la dispersión geométrica de ondas superficiales
+description: Modelo del subsuelo como apilamiento de capas horizontales planas con propiedades elásticas distintas; base física de la dispersión geométrica de [[Surface Waves|ondas superficiales]]
 type: reference
 ---
 
 # Medios Estratificados (Layered Media)
 
 > [!CONCEPT] Definición
-> Los **medios estratificados** (layered media) son el modelo de subsuelo estándar en métodos de ondas superficiales: un apilamiento de $N$ capas horizontales planas, cada una con propiedades elásticas homogéneas ($V_S$, $V_P$, $\rho$, espesor $h$), sobre un semiespacio semi-infinito. La estratificación es la causa de la [[Geometric Dispersion|dispersión geométrica]] de las [[Rayleigh Waves]]: ondas de diferente frecuencia penetran distintas profundidades y "ven" diferentes velocidades, produciendo la [[Dispersion Curve|curva de dispersión]] $c_R(f)$ que se invierte para obtener $V_S(z)$.
+> Los **medios estratificados** (layered media) son el modelo de subsuelo estándar en métodos de [[Surface Waves|ondas superficiales]]: un apilamiento de $N$ capas horizontales planas, cada una con propiedades elásticas homogéneas ($V_S$, $V_P$, $\rho$, espesor $h$), sobre un semiespacio semi-infinito. La estratificación es la causa de la [[Geometric Dispersion|dispersión geométrica]] de las [[Rayleigh Waves]]: ondas de diferente frecuencia penetran distintas profundidades y "ven" diferentes velocidades, produciendo la [[Dispersion Curve|curva de dispersión]] $c_R(f)$ que se invierte para obtener $V_S(z)$.
 >
 > — Foti et al. (2018), §2.4, pp. 64–95; §6.1, pp. 273–280.
 
@@ -15,7 +15,7 @@ type: reference
 
 En un [[Elastic Half Space]] perfectamente homogéneo, las [[Rayleigh Waves]] no son dispersivas: cualquier frecuencia viaja a la misma velocidad (~0.92 Vs). Esto cambia radicalmente cuando el subsuelo está estratificado. Cada frecuencia tiene una longitud de onda diferente y, por tanto, *penetra una profundidad diferente*. Una onda de alta frecuencia (longitud de onda corta) "siente" solo las capas superficiales; una onda de baja frecuencia (longitud de onda larga) penetra profundamente y promedia las propiedades de muchas capas.
 
-Si las capas tienen rigideces distintas, esas ondas de diferente frecuencia viajan a diferentes velocidades: esto es la [[Geometric Dispersion|dispersión geométrica]]. La forma de la [[Dispersion Curve|curva de dispersión]] experimental es, en esencia, una firma de cómo varía la rigidez del subsuelo con la profundidad. Este es el principio físico que hace posible la caracterización del subsuelo con métodos de ondas superficiales.
+Si las capas tienen rigideces distintas, esas ondas de diferente frecuencia viajan a diferentes velocidades: esto es la [[Geometric Dispersion|dispersión geométrica]]. La forma de la [[Dispersion Curve|curva de dispersión]] experimental es, en esencia, una firma de cómo varía la rigidez del subsuelo con la profundidad. Este es el principio físico que hace posible la caracterización del subsuelo con métodos de [[Surface Waves|ondas superficiales]].
 
 ## Definición técnica
 
@@ -70,10 +70,10 @@ La sensibilidad de la [[Dispersion Curve|curva de dispersión]] a $V_S$ es alta;
 
 ## Implicación práctica en [[MASW Method|MASW]]
 
-El modelo de capas horizontales es el supuesto estándar de todos los métodos de inversión de ondas superficiales ([[MASW Method|MASW]], [[SASW Method|SASW]], métodos pasivos). Sus implicaciones en la adquisición:
+El modelo de capas horizontales es el supuesto estándar de todos los métodos de inversión de [[Surface Waves|ondas superficiales]] ([[MASW Method|MASW]], [[SASW Method|SASW]], métodos pasivos). Sus implicaciones en la adquisición:
 
 - **Apertura del arreglo**: debe cubrir al menos las longitudes de onda más largas de interés ($\lambda_{\max} = V_{R,\min}/f_{\min}$) para resolver las capas más profundas.
-- **Espaciado entre receptores**: determina la frecuencia máxima antes del aliasing espacial ($\Delta x \leq \lambda_{\min}/2$).
+- **Espaciado entre receptores**: determina la frecuencia máxima antes del [[Aliasing|aliasing]] espacial ($\Delta x \leq \lambda_{\min}/2$).
 - **Variaciones laterales**: el modelo de capas horizontales es un supuesto 1D. Si existen buzamientos o heterogeneidades laterales, la inversión produce un perfil promediado cuya representatividad depende de la longitud del arreglo.
 
 ## Relaciones con otros conceptos

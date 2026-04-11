@@ -26,7 +26,7 @@ En un medio elástico lineal ideal, las velocidades de fase de ondas P y S son i
 | [[Wave Dispersion|Dispersión geométrica]] | Estratificación vertical | Variación $c_R(f)$ — principal observable | Dominante (50–200%) |
 | Dispersión material | Propiedades constitutivas | Gradiente residual en $c_R(f)$ | Secundario (<5% para $D_s < 10\%$) |
 
-## Cuando la dispersión material es relevante en ondas superficiales
+## Cuando la dispersión material es relevante en [[Surface Waves|ondas superficiales]]
 
 En ensayos near-surface, la dispersión observada está **dominada por la estratificación** (dispersión geométrica). La dispersión material puede volverse apreciable cuando:
 

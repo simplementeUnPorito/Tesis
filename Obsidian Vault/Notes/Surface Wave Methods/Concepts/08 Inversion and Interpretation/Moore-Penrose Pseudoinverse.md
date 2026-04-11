@@ -1,6 +1,6 @@
 ---
 name: Moore-Penrose Pseudoinverse
-description: Generalización de la inversa matricial J⁺=VΣ⁺Uᵀ para matrices no cuadradas o singulares — solución de mínima norma al problema de mínimos cuadrados en inversión de ondas superficiales — obtenida de la SVD truncando valores singulares pequeños
+description: Generalización de la inversa matricial J⁺=VΣ⁺Uᵀ para matrices no cuadradas o singulares — solución de mínima norma al problema de mínimos cuadrados en inversión de [[Surface Waves|ondas superficiales]] — obtenida de la SVD truncando valores singulares pequeños
 type: reference
 ---
 

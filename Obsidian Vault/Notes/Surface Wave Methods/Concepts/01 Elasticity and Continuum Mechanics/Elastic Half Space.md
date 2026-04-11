@@ -7,7 +7,7 @@ type: reference
 # Semiespacio Elástico (Elastic Half Space)
 
 > [!CONCEPT] Definición
-> El **semiespacio elástico** es el modelo idealizado de subsuelo más simple: un medio [[Elasticity|elástico]], lineal, isotrópico y homogéneo que ocupa $z \geq 0$ con superficie libre en $z = 0$. Es el punto de partida teórico de la teoría de ondas superficiales y el caso en que las [[Rayleigh Waves]] existen en su forma más pura — **no dispersivas**, velocidad constante $c_R \approx 0.919\,V_S$ para $\nu = 0.25$.
+> El **semiespacio elástico** es el modelo idealizado de subsuelo más simple: un medio [[Elasticity|elástico]], lineal, isotrópico y homogéneo que ocupa $z \geq 0$ con superficie libre en $z = 0$. Es el punto de partida teórico de la teoría de [[Surface Waves|ondas superficiales]] y el caso en que las [[Rayleigh Waves]] existen en su forma más pura — **no dispersivas**, velocidad constante $c_R \approx 0.919\,V_S$ para $\nu = 0.25$.
 >
 > — Foti et al. (2018), §2.2, pp. 50–62; Lord Rayleigh (1885).
 

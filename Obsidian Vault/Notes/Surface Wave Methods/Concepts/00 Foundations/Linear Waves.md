@@ -1,7 +1,7 @@
 # Linear Waves
 
 > [!CONCEPT] Definición
-> Las **ondas lineales** son ondas cuya propagación puede describirse mediante ecuaciones diferenciales lineales. El principio fundamental que las caracteriza es la **superposición**: si dos soluciones son válidas por separado, su suma también lo es. Este principio es la base de todo el análisis espectral y de la separación modal en geofísica de ondas superficiales.
+> Las **ondas lineales** son ondas cuya propagación puede describirse mediante ecuaciones diferenciales lineales. El principio fundamental que las caracteriza es la **superposición**: si dos soluciones son válidas por separado, su suma también lo es. Este principio es la base de todo el análisis espectral y de la separación modal en geofísica de [[Surface Waves|ondas superficiales]].
 >
 > — Foti et al., *Surface Wave Methods for Near-Surface Site Characterization*, CRC Press (2018), §2.1.1, pp. 38–39.
 
@@ -47,7 +47,7 @@ En geofísica near-surface, la teoría usada para interpretar registros de geóf
 
 - La linealidad es una **hipótesis de trabajo**, no una verdad universal.
 - Si la fuente induce deformaciones grandes (explosivos, vibrador cercano), la aproximación lineal puede degradarse.
-- La mayor parte de la instrumentación y procesamiento estándar ([[MASW Method|MASW]], [[SASW Method|SASW]], SPAC) asume régimen lineal.
+- La mayor parte de la instrumentación y procesamiento estándar ([[MASW Method|MASW]], [[SASW Method|SASW]], [[SPAC Method|SPAC]]) asume régimen lineal.
 - Conviene mantener fuentes y acoplamientos dentro de un rango reproducible y estable.
 
 ---

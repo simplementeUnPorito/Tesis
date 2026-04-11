@@ -27,7 +27,7 @@ Las ecuaciones de Navier para este medio son (Foti Ec. 2.56):
 
 $$\nabla\cdot\boldsymbol{\sigma} = \rho(x_2)\,\ddot{\mathbf{u}}$$
 
-con la ley de Hooke correspondiente. La búsqueda de soluciones del tipo ondas superficiales conduce a sistemas de EDOs ordinarias con coeficientes variables (dependientes de $x_2$), que no tienen solución analítica cerrada en general.
+con la ley de Hooke correspondiente. La búsqueda de soluciones del tipo [[Surface Waves|ondas superficiales]] conduce a sistemas de EDOs ordinarias con coeficientes variables (dependientes de $x_2$), que no tienen solución analítica cerrada en general.
 
 ## Sistemas de EDOs para los modos
 

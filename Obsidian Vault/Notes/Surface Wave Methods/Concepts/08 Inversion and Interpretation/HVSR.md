@@ -9,7 +9,7 @@
 
 El **HVSR** (*Horizontal-to-Vertical Spectral Ratio*) es la razón entre la amplitud espectral de las componentes horizontales y la componente vertical del movimiento del terreno, medida sobre registros de **ruido sísmico ambiental** (*microtremores*). La técnica fue introducida por Nogoshi e Igarashi (1971) y popularizada por Nakamura (1989, 1996, 2000).
 
-La interpretación de Nakamura original atribuía el pico H/V directamente a la función de transferencia del sitio para ondas S. El consenso actual en la comunidad sismológica e ingenieril es diferente: **las ondas superficiales dominan la respuesta H/V en la mayoría de los casos**, y el pico observado está relacionado con la **elipticidad horizontal de las [[Rayleigh Waves|ondas de Rayleigh]]** (Horike 1985; Arai y Tokimatsu 1998).
+La interpretación de Nakamura original atribuía el pico H/V directamente a la función de transferencia del sitio para ondas S. El consenso actual en la comunidad sismológica e ingenieril es diferente: **las [[Surface Waves|ondas superficiales]] dominan la respuesta H/V en la mayoría de los casos**, y el pico observado está relacionado con la **elipticidad horizontal de las [[Rayleigh Waves|ondas de Rayleigh]]** (Horike 1985; Arai y Tokimatsu 1998).
 
 ## Fundamento físico
 
@@ -68,7 +68,7 @@ La **[[Joint Inversion|inversión conjunta]] de [[Dispersion Curve|curvas de dis
 > — Research Database, entrada 049 (core); Bonnefoy-Claudet et al. (2009), *Geophys. J. Int.* 176(3):925–937.
 
 > [!EXAMPLE] Evidencia empírica: Garofalo et al. (2016) — HVSR como dato complementario en InterPACIFIC
-> **Papers 006+007 (Garofalo et al. 2016a/b)** incluyen mediciones HVSR en los 3 sitios del estudio InterPACIFIC como dato complementario a los métodos de ondas superficiales ([[MASW Method|MASW]], [[ReMi Method|ReMi]], SPAC). Los resultados muestran que el pico H/V coincide con la frecuencia fundamental inferida de los perfiles $V_S(z)$ del borehole en los sitios donde el contraste de impedancia es alto (Mirandola: $f_0 \approx 0.5$ Hz, sedimentos blandos sobre roca a >150 m). La concordancia confirma el uso de HVSR para verificar independientemente la frecuencia de resonancia del sitio. Sin embargo, la [[Joint Inversion|inversión conjunta]] HVSR + [[Dispersion Curve|curva de dispersión]] muestra mejora en el condicionamiento del problema inverso en los sitios con alta [[Non-uniqueness|no-unicidad]], consistente con el resultado de Parolai et al. (2005).
+> **Papers 006+007 (Garofalo et al. 2016a/b)** incluyen mediciones HVSR en los 3 sitios del estudio InterPACIFIC como dato complementario a los métodos de [[Surface Waves|ondas superficiales]] ([[MASW Method|MASW]], [[ReMi Method|ReMi]], [[SPAC Method|SPAC]]). Los resultados muestran que el pico H/V coincide con la frecuencia fundamental inferida de los perfiles $V_S(z)$ del borehole en los sitios donde el contraste de impedancia es alto (Mirandola: $f_0 \approx 0.5$ Hz, sedimentos blandos sobre roca a >150 m). La concordancia confirma el uso de HVSR para verificar independientemente la frecuencia de resonancia del sitio. Sin embargo, la [[Joint Inversion|inversión conjunta]] HVSR + [[Dispersion Curve|curva de dispersión]] muestra mejora en el condicionamiento del problema inverso en los sitios con alta [[Non-uniqueness|no-unicidad]], consistente con el resultado de Parolai et al. (2005).
 >
 > — Research Database, entradas 006, 007 (core); Garofalo et al. (2016a/b), *Near Surface Geophysics*.
 

@@ -7,7 +7,7 @@ type: reference
 # Atenuación (Attenuation)
 
 > [!CONCEPT] Definición
-> La **atenuación** describe la disminución de amplitud de una onda a medida que se propaga. En geofísica de ondas superficiales es crucial distinguir dos mecanismos físicamente distintos: (1) **atenuación geométrica** — la energía se distribuye sobre un área creciente sin disipación real; (2) **atenuación material** — el medio [[Viscoelastic Media|viscoelástico]] disipa energía en calor. Separar ambas contribuciones es imprescindible para caracterizar el [[Shear Damping Ratio|amortiguamiento material]] $D_S$ del suelo.
+> La **atenuación** describe la disminución de amplitud de una onda a medida que se propaga. En geofísica de [[Surface Waves|ondas superficiales]] es crucial distinguir dos mecanismos físicamente distintos: (1) **atenuación geométrica** — la energía se distribuye sobre un área creciente sin disipación real; (2) **atenuación material** — el medio [[Viscoelastic Media|viscoelástico]] disipa energía en calor. Separar ambas contribuciones es imprescindible para caracterizar el [[Shear Damping Ratio|amortiguamiento material]] $D_S$ del suelo.
 >
 > — Foti et al. (2018), §2.5, pp. 96–120; §5, pp. 255–271.
 
@@ -49,7 +49,7 @@ $$A_R(r) \propto \frac{1}{\sqrt{r}}$$
 
 Esta ley $r^{-0.5}$ corresponde a la expansión cilíndrica del frente de onda. En medios [[Layered Media|estratificados]], la función de atenuación geométrica real $Y(r, \omega)$ puede desviarse de la ley $r^{-0.5}$ según la interferencia modal, especialmente a alta frecuencia.
 
-En contraste, las ondas de cuerpo en la misma superficie decaen como $r^{-2}$ — mucho más rápido. Por eso a distancias $r \gtrsim \lambda_R$ el campo queda dominado por ondas superficiales.
+En contraste, las ondas de cuerpo en la misma superficie decaen como $r^{-2}$ — mucho más rápido. Por eso a distancias $r \gtrsim \lambda_R$ el campo queda dominado por [[Surface Waves|ondas superficiales]].
 
 ## Distinción experimental
 

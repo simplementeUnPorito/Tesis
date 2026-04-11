@@ -13,15 +13,15 @@ En sismología global, la componente de onda superficial de la función de Green
 
 ## Procedimiento
 
-1. **Cross-correlación por fuente**: considérense dos receptores $R_1$ y $R_2$ que observan señales de ondas superficiales provenientes de fuentes $S_j$ distribuidas alrededor del array. Para cada fuente se cross-correlacionan las señales $T(S_j, R_1)$ y $T(S_j, R_2)$, produciendo una traza correlacionada $T_{12}(S_j)$. La correlación depende de la posición relativa de la fuente y de las propiedades del subsuelo entre los receptores (Fig. 8.28, p. 427).
+1. **Cross-correlación por fuente**: considérense dos receptores $R_1$ y $R_2$ que observan señales de [[Surface Waves|ondas superficiales]] provenientes de fuentes $S_j$ distribuidas alrededor del array. Para cada fuente se cross-correlacionan las señales $T(S_j, R_1)$ y $T(S_j, R_2)$, produciendo una traza correlacionada $T_{12}(S_j)$. La correlación depende de la posición relativa de la fuente y de las propiedades del subsuelo entre los receptores (Fig. 8.28, p. 427).
 
 2. **Correlogram gather**: las trazas correlacionadas para todas las fuentes se ordenan según el **azimut de la fuente**, formando un gather análogo al shot gather en sísmica activa (Fig. 8.29, p. 428). Este gather es regular y suave a pesar de las diferentes distancias de las fuentes, porque la cross-correlación cancela los efectos de trayectoria desde la fuente hasta los receptores.
 
 3. **Suma sobre fuentes**: al sumar las trazas correlacionadas, las contribuciones de fuentes en posiciones opuestas entre sí se anulan. Solo las fuentes en los **puntos estacionarios** —casi alineadas con los dos receptores— contribuyen constructivamente. El resultado es una traza causal/anticausal equivalente a la respuesta de impulso entre $R_1$ y $R_2$: se puede interpretar como si $R_1$ fuera una **fuente virtual** registrada en $R_2$.
 
-## Aplicación en ondas superficiales
+## Aplicación en [[Surface Waves|ondas superficiales]]
 
-Las señales extraídas pueden procesarse exactamente como datos activos virtuales. La aplicación principal es la **recuperación de la [[Phase Velocity|velocidad de fase]] de ondas superficiales** a partir de ruido ambiental (Shapiro y Campillo 2004). La mayoría de los estudios actuales usa arrays 2D dispersos para obtener una **distribución tomográfica** de las velocidades de ondas superficiales.
+Las señales extraídas pueden procesarse exactamente como datos activos virtuales. La aplicación principal es la **recuperación de la [[Phase Velocity|velocidad de fase]] de [[Surface Waves|ondas superficiales]]** a partir de ruido ambiental (Shapiro y Campillo 2004). La mayoría de los estudios actuales usa arrays 2D dispersos para obtener una **distribución tomográfica** de las velocidades de [[Surface Waves|ondas superficiales]].
 
 En arrays lineales, el interferograma permite usar un receptor de referencia como fuente virtual, generando un shot gather que se procesa con análisis [[MASW Method|f-k]] estándar.
 
@@ -36,19 +36,19 @@ El método [[ReMi Method|ReMi]] (*Refraction Microtremor*) procesa directamente 
 ## Hipótesis fundamentales
 
 - **Campo difuso**: el ruido ambiental debe ser estadísticamente isótropo (fuentes distribuidas en todas las direcciones con energía similar). Esta condición se degrada en entornos urbanos con fuentes direccionales dominantes.
-- **Ondas superficiales dominantes**: la mayor parte de la energía del ruido ambiental en frecuencias de ingeniería corresponde a ondas superficiales (ondas de [[Rayleigh Waves|Rayleigh]] y [[Love Waves|Love]]).
+- **[[Surface Waves|Ondas superficiales]] dominantes**: la mayor parte de la energía del ruido ambiental en frecuencias de ingeniería corresponde a [[Surface Waves|ondas superficiales]] (ondas de [[Rayleigh Waves|Rayleigh]] y [[Love Waves|Love]]).
 - **Medio homogéneo lateral**: el subsuelo entre los receptores se aproxima como un modelo 1D; variaciones laterales fuertes violan la hipótesis.
 
-## Relación con SPAC/ESAC
+## Relación con [[SPAC Method|SPAC]]/ESAC
 
-La interferometría sísmica y la [[Dispersion Relation|autocorrelación espacial]] (SPAC/ESAC, Aki 1957) comparten la misma base física: ambas explotan la coherencia espacial del campo de ruido para estimar la [[Phase Velocity|velocidad de fase]]. La interferometría trabaja en el dominio temporal (función de Green) mientras que SPAC/ESAC trabaja en el dominio frecuencial (coherencia espacial). En la práctica, el método ESAC puede verse como una implementación en frecuencia del mismo principio interferométrico.
+La interferometría sísmica y la [[Dispersion Relation|autocorrelación espacial]] ([[SPAC Method|SPAC]]/ESAC, Aki 1957) comparten la misma base física: ambas explotan la coherencia espacial del campo de ruido para estimar la [[Phase Velocity|velocidad de fase]]. La interferometría trabaja en el dominio temporal (función de Green) mientras que [[SPAC Method|SPAC]]/ESAC trabaja en el dominio frecuencial (coherencia espacial). En la práctica, el método ESAC puede verse como una implementación en frecuencia del mismo principio interferométrico.
 
 ## Limitaciones
 
 - Requiere registros largos (minutos a horas) para acumular suficiente estadística del campo difuso.
 - La recuperación correcta de la función de Green requiere distribución casi uniforme de fuentes alrededor del array.
 - La contaminación por fuentes transitorias fuertes (tráfico, maquinaria) degrada el resultado; se requiere selección de ventanas o robustización estadística.
-- Los modos superiores de ondas superficiales son más difíciles de aislar que con métodos activos.
+- Los modos superiores de [[Surface Waves|ondas superficiales]] son más difíciles de aislar que con métodos activos.
 
 > [!EXAMPLE] Evidencia empírica: Shapiro & Campillo (2004) — tomografía de ondas de Rayleigh por interferometría de ruido ambiental
 > Shapiro & Campillo (2004) demuestran que la cross-correlación de registros de ruido sísmico ambiental entre pares de estaciones de la red USArray produce la componente de onda de Rayleigh de la función de Green con suficiente coherencia para medir velocidades de fase en el rango 5–150 s. Las [[Dispersion Curve|curvas de dispersión]] extraídas coinciden con las obtenidas por análisis de terremotos convencionales. El trabajo establece que el **ruido ambiental** (dominado por interacciones océano-atmósfera en ese rango de períodos) actúa como campo difuso suficientemente isótropo para que la hipótesis de la interferometría sea válida globalmente. En el rango de frecuencias de ingeniería (1–100 Hz), el mismo principio se aplica con ruido de tráfico y actividad urbana, aunque la isotropía es menor y requiere más cuidado en la selección de ventanas.

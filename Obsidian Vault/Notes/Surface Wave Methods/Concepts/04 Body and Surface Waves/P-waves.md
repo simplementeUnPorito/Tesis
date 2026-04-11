@@ -56,14 +56,14 @@ En suelos saturados bajo carga no drenada, la compresibilidad del material está
 | Roca sedimentaria | 2000–4000 | 1000–2000 |
 | Roca cristalina | 4000–7000 | 2000–4000 |
 
-## Relevancia en métodos de ondas superficiales
+## Relevancia en métodos de [[Surface Waves|ondas superficiales]]
 
 En la inversión de la [[Dispersion Curve|curva de dispersión]] de [[Rayleigh Waves]], $V_P$ (o equivalentemente $\nu$) es un **parámetro a priori** — se fija basándose en información independiente (refracción P, nivel freático, ensayos SPT) y no se invierte directamente. La sensibilidad de la [[Dispersion Curve|curva de dispersión]] a $V_P$ es baja comparada con $V_S$, pero no despreciable: un $V_P$ incorrecto (especialmente ignorar el nivel freático) puede introducir errores sistemáticos en el perfil $V_S$ invertido.
 
 En el método de **refracción sísmica**, las ondas P son el observable primario: los tiempos de llegada de los primeros arrivals se usan para inferir el contraste de $V_P$ entre capas, incluyendo la detección de la tabla de agua.
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — impacto de VP y nivel freático en la inversión [[MASW Method|MASW]]
-> Foti et al. (2018, §7.1.3) documentan que ignorar la posición del nivel freático (que produce un salto de $V_P$ de ~300 m/s a ~1500 m/s) puede introducir errores sistemáticos en el perfil $V_S$ invertido, especialmente en el rango de frecuencias bajas donde la onda de Rayleigh penetra hasta la zona saturada. En los casos estudiados (sitios de Bélgica e Italia), el error en $V_S$ por $V_P$ incorrecto fue de 5–10% — significativo pero menor que el error por $V_S$ incorrecto. Este resultado justifica la recomendación de medir $V_P$ por refracción P como dato a priori de la inversión de ondas superficiales.
+> Foti et al. (2018, §7.1.3) documentan que ignorar la posición del nivel freático (que produce un salto de $V_P$ de ~300 m/s a ~1500 m/s) puede introducir errores sistemáticos en el perfil $V_S$ invertido, especialmente en el rango de frecuencias bajas donde la onda de Rayleigh penetra hasta la zona saturada. En los casos estudiados (sitios de Bélgica e Italia), el error en $V_S$ por $V_P$ incorrecto fue de 5–10% — significativo pero menor que el error por $V_S$ incorrecto. Este resultado justifica la recomendación de medir $V_P$ por refracción P como dato a priori de la inversión de [[Surface Waves|ondas superficiales]].
 >
 > — Foti et al. (2018), §7.1.3, pp. 361–363.
 

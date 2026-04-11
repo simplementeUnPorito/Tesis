@@ -18,7 +18,7 @@ El **método MASW** (*Multichannel Analysis of Surface Waves*, Park et al. 1999)
 El flujo de trabajo tiene tres etapas:
 
 1. **Adquisición**: registrar un sismograma multicanal con fuente activa (sledgehammer) y un arreglo lineal de geófonos verticales.
-2. **Procesamiento**: extraer la [[Dispersion Relation|curva de dispersión]] experimental $c(f)$ a partir del sismograma mediante transformada f-k, beamforming u otras técnicas.
+2. **Procesamiento**: extraer la [[Dispersion Relation|curva de dispersión]] experimental $c(f)$ a partir del sismograma mediante transformada f-k, [[Beamforming|beamforming]] u otras técnicas.
 3. **Inversión**: estimar el perfil $V_S(z)$ que mejor reproduce la [[Dispersion Curve|curva de dispersión]] observada.
 
 ## Geometría de adquisición

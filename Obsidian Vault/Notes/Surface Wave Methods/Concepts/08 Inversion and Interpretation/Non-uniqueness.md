@@ -1,19 +1,19 @@
 # No-unicidad (Non-uniqueness)
 
 > [!CONCEPT] Definición
-> La **no-unicidad** del problema inverso de ondas superficiales es la propiedad por la cual **múltiples perfiles de $V_S(z)$ producen [[Dispersion Curve|curvas de dispersión]] prácticamente idénticas**. No es una limitación del algoritmo de inversión sino una propiedad intrínseca del operador físico. El problema es *ill-posed* (Hadamard 1923): viola las condiciones de unicidad y estabilidad. Causas: resolución finita en profundidad, equivalencia espesor–velocidad entre capas, e insensibilidad de $c_R$ a $V_P$. Se mitiga con (1) **información a priori** (boreholes, nivel freático, geología), (2) [[Tikhonov Regularization|regularización]], (3) [[Monte Carlo Methods|búsqueda global]] para cuantificar el ensemble de soluciones equivalentes, y (4) **[[Joint Inversion|inversión conjunta]]** con otros datos ([[HVSR]], refracción). La no-unicidad raramente impide la clasificación de sitio porque el parámetro de ingeniería $[[Vs30|Vs,30]]$ es robusto: varía solo ~5% dentro del conjunto de soluciones equivalentes.
+> La **no-unicidad** del problema inverso de [[Surface Waves|ondas superficiales]] es la propiedad por la cual **múltiples perfiles de $V_S(z)$ producen [[Dispersion Curve|curvas de dispersión]] prácticamente idénticas**. No es una limitación del algoritmo de inversión sino una propiedad intrínseca del operador físico. El problema es *ill-posed* (Hadamard 1923): viola las condiciones de unicidad y estabilidad. Causas: resolución finita en profundidad, equivalencia espesor–velocidad entre capas, e insensibilidad de $c_R$ a $V_P$. Se mitiga con (1) **información a priori** (boreholes, nivel freático, geología), (2) [[Tikhonov Regularization|regularización]], (3) [[Monte Carlo Methods|búsqueda global]] para cuantificar el ensemble de soluciones equivalentes, y (4) **[[Joint Inversion|inversión conjunta]]** con otros datos ([[HVSR]], refracción). La no-unicidad raramente impide la clasificación de sitio porque el parámetro de ingeniería $[[Vs30|Vs,30]]$ es robusto: varía solo ~5% dentro del conjunto de soluciones equivalentes.
 >
 > — Foti et al. (2018), Cap. 6.1.2, pp. 277–280; Cap. 6.4, pp. 305–310.
 
 ## Definición
 
-La **no-unicidad** del problema inverso de ondas superficiales significa que **una misma [[Dispersion Curve|curva de dispersión]] experimental puede corresponder a más de un perfil de Vs**. No es una limitación del algoritmo de inversión elegido, sino una propiedad intrínseca del operador físico que relaciona el modelo del subsuelo con los datos observables.
+La **no-unicidad** del problema inverso de [[Surface Waves|ondas superficiales]] significa que **una misma [[Dispersion Curve|curva de dispersión]] experimental puede corresponder a más de un perfil de Vs**. No es una limitación del algoritmo de inversión elegido, sino una propiedad intrínseca del operador físico que relaciona el modelo del subsuelo con los datos observables.
 
 En términos matemáticos, el problema es **ill-posed** según los criterios de Hadamard (1923): un problema bien puesto debe cumplir (1) existencia, (2) unicidad y (3) estabilidad de la solución. Los problemas inversos geofísicos violan habitualmente las condiciones de unicidad y estabilidad.
 
 ## Causas físicas
 
-La no-unicidad en ondas superficiales tiene tres raíces físicas:
+La no-unicidad en [[Surface Waves|ondas superficiales]] tiene tres raíces físicas:
 
 1. **Resolución en profundidad finita**: la [[Dispersion Curve|curva de dispersión]] mide velocidades de fase en un rango finito de frecuencias, que corresponde a un rango finito de profundidades de investigación. Más allá de la profundidad máxima de investigación, el modelo es completamente no constrenido.
 

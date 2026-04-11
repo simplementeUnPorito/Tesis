@@ -1,6 +1,6 @@
 ---
 name: Green Function
-description: Función de respuesta del medio elástico a una fuente puntual impulsiva — G(x,t;x₀,τ) describe la propagación de ondas desde la fuente hasta el receptor y es el núcleo del modelo convolucional sísmico y de la interferometría sísmica
+description: Función de respuesta del medio elástico a una fuente puntual impulsiva — G(x,t;x₀,τ) describe la propagación de ondas desde la fuente hasta el receptor y es el núcleo del modelo convolucional sísmico y de la [[Seismic Interferometry|interferometría sísmica]]
 type: reference
 ---
 
@@ -30,7 +30,7 @@ $$G_{ij}(\mathbf{x}, t; \mathbf{x}_0, \tau) = G_{ji}(\mathbf{x}_0, t; \mathbf{x}
 
 Esto significa que fuente y receptor pueden intercambiarse — principio que justifica la [[Seismic Interferometry|interferometría sísmica]] y la tomografía de ruido ambiental.
 
-## Relación con la interferometría sísmica
+## Relación con la [[Seismic Interferometry|interferometría sísmica]]
 
 Wapenaar (2004, *PRL*) demuestra que la función de Green entre dos receptores puede extraerse de la correlación cruzada del campo difuso:
 $$G(\mathbf{x}_1, \mathbf{x}_2, t) + G(\mathbf{x}_1, \mathbf{x}_2, -t) \propto C(\mathbf{x}_1, \mathbf{x}_2, t)$$

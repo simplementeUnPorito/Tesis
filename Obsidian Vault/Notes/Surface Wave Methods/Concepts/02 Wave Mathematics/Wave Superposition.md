@@ -43,7 +43,7 @@ Los registros de geófonos contienen superposición de múltiples componentes:
 
 | Componente | Origen |
 |-----------|--------|
-| [[Rayleigh Waves]] modo fundamental | Ondas superficiales dominantes |
+| [[Rayleigh Waves]] modo fundamental | [[Surface Waves|Ondas superficiales]] dominantes |
 | [[Surface Wave Modes|Modos superiores]] | Superposición modal — altera velocidad aparente |
 | [[Love Waves]] | Componente horizontal superpuesta |
 | [[Body Waves]] | [[P-waves]] y [[S-Waves]] directas y reflejadas |

@@ -7,9 +7,9 @@
 
 ## Principio
 
-El **método ReMi** (*Refraction Microtremor*, Louie 2001) extrae la [[Phase Velocity|velocidad de fase]] de ondas superficiales a partir del **ruido sísmico ambiental** (*microtremors*), registrado con un arreglo lineal de geófonos estándar de adquisición.
+El **método ReMi** (*Refraction Microtremor*, Louie 2001) extrae la [[Phase Velocity|velocidad de fase]] de [[Surface Waves|ondas superficiales]] a partir del **ruido sísmico ambiental** (*microtremors*), registrado con un arreglo lineal de geófonos estándar de adquisición.
 
-La idea central: el campo de ruido ambiental contiene ondas superficiales que se propagan en todas las direcciones. En el espectro f-k de un arreglo lineal, estas ondas producen energía que puede usarse para estimar la [[Dispersion Relation|curva de dispersión]], bajo la hipótesis de que el campo de ruido es **aproximadamente isotrópico** (fuentes distribuidas uniformemente alrededor del arreglo) o que al menos contiene ondas propagándose en la dirección del arreglo.
+La idea central: el campo de ruido ambiental contiene [[Surface Waves|ondas superficiales]] que se propagan en todas las direcciones. En el espectro f-k de un arreglo lineal, estas ondas producen energía que puede usarse para estimar la [[Dispersion Relation|curva de dispersión]], bajo la hipótesis de que el campo de ruido es **aproximadamente isotrópico** (fuentes distribuidas uniformemente alrededor del arreglo) o que al menos contiene ondas propagándose en la dirección del arreglo.
 
 ## Procesamiento
 
@@ -35,7 +35,7 @@ La idea central: el campo de ruido ambiental contiene ondas superficiales que se
 | Velocidad aparente | Sí (posible sobrestimación) | No (fuente en extremo) | No (cancelación de contribuciones) |
 | Frecuencias bajas | Buenas (ruido natural) | Limitadas por fuente | Buenas |
 
-La **interferometría sísmica pasiva** (Cap. 8) supera la limitación de la velocidad aparente: el proceso de cross-correlación cancela las contribuciones de fuentes opuestas y el espectro f-k del interferograma tiene máximos en el [[Wavenumber|número de onda]] verdadero. El ReMi es más simple pero menos riguroso cuando el campo de ruido no es isotrópico.
+La **[[Seismic Interferometry|interferometría sísmica]] pasiva** (Cap. 8) supera la limitación de la velocidad aparente: el proceso de cross-correlación cancela las contribuciones de fuentes opuestas y el espectro f-k del interferograma tiene máximos en el [[Wavenumber|número de onda]] verdadero. El ReMi es más simple pero menos riguroso cuando el campo de ruido no es isotrópico.
 
 ## Aplicaciones
 
@@ -54,7 +54,7 @@ La **interferometría sísmica pasiva** (Cap. 8) supera la limitación de la vel
 > — Research Database, entrada 048 (core); Park & Miller (2008), *J. Environ. Eng. Geophys.* 13:1–11.
 
 > [!EXAMPLE] Evidencia empírica: Garofalo et al. (2016) — ReMi en InterPACIFIC: limitaciones en campo de ruido no isotrópico
-> **Papers 006+007 (Garofalo et al. 2016a/b)** incluyen resultados ReMi para los 3 sitios InterPACIFIC, revelando una limitación sistemática: en el sitio Grenoble (zona alpina con fuentes de ruido predominantemente direccionales), los equipos que usaron ReMi obtuvieron [[Dispersion Curve|curvas de dispersión]] con velocidades de fase **sistematicamente sobreestimadas** (~10–15%) respecto a los métodos activos y los datos de borehole, consistente con la hipótesis de velocidad aparente en campo no isotrópico. En contraste, los equipos que aplicaron interferometría sísmica o SPAC sobre los mismos datos de ruido reprodujeron las curvas de referencia con mejor acuerdo. La comparación confirma que ReMi es confiable cuando el campo de ruido es globalmente isotrópico, pero debe verificarse con criterios de calidad adicionales antes de usar las curvas en inversión.
+> **Papers 006+007 (Garofalo et al. 2016a/b)** incluyen resultados ReMi para los 3 sitios InterPACIFIC, revelando una limitación sistemática: en el sitio Grenoble (zona alpina con fuentes de ruido predominantemente direccionales), los equipos que usaron ReMi obtuvieron [[Dispersion Curve|curvas de dispersión]] con velocidades de fase **sistematicamente sobreestimadas** (~10–15%) respecto a los métodos activos y los datos de borehole, consistente con la hipótesis de velocidad aparente en campo no isotrópico. En contraste, los equipos que aplicaron [[Seismic Interferometry|interferometría sísmica]] o [[SPAC Method|SPAC]] sobre los mismos datos de ruido reprodujeron las curvas de referencia con mejor acuerdo. La comparación confirma que ReMi es confiable cuando el campo de ruido es globalmente isotrópico, pero debe verificarse con criterios de calidad adicionales antes de usar las curvas en inversión.
 >
 > — Research Database, entradas 006, 007 (core); Garofalo et al. (2016a/b), *Near Surface Geophysics*.
 

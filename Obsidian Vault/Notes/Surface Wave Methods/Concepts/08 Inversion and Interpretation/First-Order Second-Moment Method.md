@@ -53,4 +53,4 @@ La covarianza $\mathbf{C}_d$ se estima a partir de:
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | §6.5, pp. 330–338 — FOSM en incertidumbre [[MASW Method|MASW]] |
 | Tarantola (2005), *Inverse Problem Theory* | §3.4 — formulación general del FOSM |
-| Xia et al. (2000), *Pure Appl. Geophys.* | Aplicación de FOSM a inversión de ondas superficiales |
+| Xia et al. (2000), *Pure Appl. Geophys.* | Aplicación de FOSM a inversión de [[Surface Waves|ondas superficiales]] |

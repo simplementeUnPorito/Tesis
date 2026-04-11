@@ -42,7 +42,7 @@ La diferencia entre Hann y Hamming es el coeficiente de offset:
 - **Hann**: coeficientes $(0.5, 0.5)$ → los extremos llegan a cero → continuidad $C^0$ en los bordes → lóbulos caen como $1/f^3$
 - **Hamming**: coeficientes $(0.54, 0.46)$ → los extremos no llegan a cero → discontinuidad → lóbulos caen como $1/f$ pero el primer lóbulo lateral es más bajo
 
-En sísmica de ondas superficiales se prefiere Hann porque la continuidad en los extremos evita discontinuidades artificiales que se propagarían al panel $f$-$k$.
+En sísmica de [[Surface Waves|ondas superficiales]] se prefiere Hann porque la continuidad en los extremos evita discontinuidades artificiales que se propagarían al panel $f$-$k$.
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — comparación ventanas en [[MASW Method|MASW]] sitio Pisa
 > Foti et al. (2018, §3.3.5) presentan la comparación del panel $f$-$k$ del sitio Pisa con ventanas rectangular, Hann y Tukey ($\alpha = 0.5$). Con ventana rectangular: modo fundamental dominante a 10 Hz con lóbulos laterales a -13 dB que contaminan la región del primer modo superior (12 Hz). Con ventana Hann: lóbulos laterales a -31.5 dB — el primer modo superior emerge como cresta separada en $k$, identificable para inversión multimodal. Con ventana Tukey: resultado intermedio (-25 dB de lóbulos), con mejor resolución que Hann al precio de mayor contaminación. Foti concluye que la ventana Hann es la opción por defecto para análisis [[MASW Method|MASW]] estándar; Tukey es preferida cuando se requiere mayor resolución para separar modos próximos en frecuencia.

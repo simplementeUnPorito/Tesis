@@ -7,7 +7,7 @@ type: reference
 # Razón de Poisson (Coeficiente de Poisson)
 
 > [!CONCEPT] Definición
-> La **razón de Poisson** $\nu$ relaciona la contracción lateral con la elongación axial de un material bajo carga uniaxial. En el contexto de ondas superficiales, controla la razón $V_P/V_S = \sqrt{2(1-\nu)/(1-2\nu)}$ y la velocidad de [[Rayleigh Waves|Rayleigh]] $c_R \approx f(\nu)\cdot V_S$. Es necesario como **parámetro a priori** en la inversión [[MASW Method|MASW]]: un $\nu$ incorrecto — especialmente al ignorar el nivel freático que cambia $\nu$ de ~0.3 a ~0.5 en suelos saturados — introduce errores sistemáticos en el perfil $V_S$ invertido.
+> La **razón de Poisson** $\nu$ relaciona la contracción lateral con la elongación axial de un material bajo carga uniaxial. En el contexto de [[Surface Waves|ondas superficiales]], controla la razón $V_P/V_S = \sqrt{2(1-\nu)/(1-2\nu)}$ y la velocidad de [[Rayleigh Waves|Rayleigh]] $c_R \approx f(\nu)\cdot V_S$. Es necesario como **parámetro a priori** en la inversión [[MASW Method|MASW]]: un $\nu$ incorrecto — especialmente al ignorar el nivel freático que cambia $\nu$ de ~0.3 a ~0.5 en suelos saturados — introduce errores sistemáticos en el perfil $V_S$ invertido.
 >
 > — Foti et al. (2018), §2.1.3, pp. 43–45; §7.1.3, pp. 361–363.
 
@@ -66,9 +66,9 @@ En suelos saturados bajo carga rápida (drenaje impedido), la compresibilidad de
 
 $$\nu_{\text{saturado, no drenado}} \approx 0.45\text{–}0.50$$
 
-Como consecuencia, $V_P$ aumenta drásticamente (llega a ~1500 m/s = velocidad del agua), mientras que $V_S$ no cambia. Este efecto hace que $V_P$ **no sea un buen indicador de la rigidez del esqueleto** en suelos saturados — razón fundamental por la que los métodos de ondas superficiales (sensibles a $V_S$) son preferibles para caracterización geotécnica.
+Como consecuencia, $V_P$ aumenta drásticamente (llega a ~1500 m/s = velocidad del agua), mientras que $V_S$ no cambia. Este efecto hace que $V_P$ **no sea un buen indicador de la rigidez del esqueleto** en suelos saturados — razón fundamental por la que los métodos de [[Surface Waves|ondas superficiales]] (sensibles a $V_S$) son preferibles para caracterización geotécnica.
 
-## Implicación práctica en la inversión de ondas superficiales
+## Implicación práctica en la inversión de [[Surface Waves|ondas superficiales]]
 
 La [[Dispersion Curve|curva de dispersión]] de Rayleigh es **poco sensible** a $\nu$ (o equivalentemente a $V_P$), pero no completamente insensible. En la inversión, $\nu$ debe ser proporcionado como **parámetro a priori** (o como parámetro fijo).
 

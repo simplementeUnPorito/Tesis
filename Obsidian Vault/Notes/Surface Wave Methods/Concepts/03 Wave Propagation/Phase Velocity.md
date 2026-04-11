@@ -7,7 +7,7 @@ type: reference
 # Velocidad de Fase (Phase Velocity)
 
 > [!CONCEPT] Definición
-> La **velocidad de fase** $c_p = \omega/k$ es la velocidad a la que se propaga un frente de fase constante (por ejemplo un máximo) de una onda armónica. En métodos de ondas superficiales es la **observable central**: los métodos [[MASW Method|MASW]], [[SASW Method|SASW]] y pasivos ([[SPAC Method|SPAC]], [[ReMi Method|ReMi]]) estiman $c_p$ de las [[Rayleigh Waves]] en función de la frecuencia, construyendo la [[Dispersion Curve|curva de dispersión]] experimental que alimenta la [[Inversión|inversión]].
+> La **velocidad de fase** $c_p = \omega/k$ es la velocidad a la que se propaga un frente de fase constante (por ejemplo un máximo) de una onda armónica. En métodos de [[Surface Waves|ondas superficiales]] es la **observable central**: los métodos [[MASW Method|MASW]], [[SASW Method|SASW]] y pasivos ([[SPAC Method|SPAC]], [[ReMi Method|ReMi]]) estiman $c_p$ de las [[Rayleigh Waves]] en función de la frecuencia, construyendo la [[Dispersion Curve|curva de dispersión]] experimental que alimenta la [[Inversión|inversión]].
 >
 > — Foti et al. (2018), §2.1.1, pp. 39–40; §4.1, pp. 206–207.
 

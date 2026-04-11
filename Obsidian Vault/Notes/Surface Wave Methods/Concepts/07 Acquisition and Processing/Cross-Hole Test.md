@@ -1,13 +1,13 @@
 ---
 name: Cross-Hole Test
-description: Ensayo invasivo entre pozos que mide VS y VP directamente por propagación entre perforaciones — referencia de validación in situ para métodos de ondas superficiales
+description: Ensayo invasivo entre pozos que mide VS y VP directamente por propagación entre perforaciones — referencia de validación in situ para métodos de [[Surface Waves|ondas superficiales]]
 type: reference
 ---
 
 # Cross-Hole Test (CHT) — Ensayo Entre Pozos
 
 > [!CONCEPT] Definición
-> El **Cross-Hole Test (CHT)** es un ensayo sísmico invasivo que mide la **velocidad de onda de corte** $V_S$ y de onda de compresión $V_P$ directamente entre dos o más perforaciones. Una fuente sísmica en un pozo genera ondas que viajan horizontalmente hasta receptores ubicados a la misma profundidad en un pozo adyacente. Como el camino de propagación es conocido (la distancia entre pozos $d$) y el tiempo de viaje $t$ se registra, la velocidad se calcula directamente: $V_S = d/t$. El CHT mide $V_S$ a cada profundidad de forma directa y no-invasiva en términos de interpretación — no requiere inversión de ningún tipo. Es el estándar de referencia para la validación de los perfiles $V_S(z)$ obtenidos por [[MASW Method|MASW]] y otros métodos de ondas superficiales. **Limitaciones**: requiere perforación de al menos dos pozos (costo elevado, perturbación del terreno), mide solo en la línea entre pozos (representatividad limitada), y las condiciones de acoplamiento fuente-receptor afectan la calidad.
+> El **Cross-Hole Test (CHT)** es un ensayo sísmico invasivo que mide la **velocidad de onda de corte** $V_S$ y de onda de compresión $V_P$ directamente entre dos o más perforaciones. Una fuente sísmica en un pozo genera ondas que viajan horizontalmente hasta receptores ubicados a la misma profundidad en un pozo adyacente. Como el camino de propagación es conocido (la distancia entre pozos $d$) y el tiempo de viaje $t$ se registra, la velocidad se calcula directamente: $V_S = d/t$. El CHT mide $V_S$ a cada profundidad de forma directa y no-invasiva en términos de interpretación — no requiere inversión de ningún tipo. Es el estándar de referencia para la validación de los perfiles $V_S(z)$ obtenidos por [[MASW Method|MASW]] y otros métodos de [[Surface Waves|ondas superficiales]]. **Limitaciones**: requiere perforación de al menos dos pozos (costo elevado, perturbación del terreno), mide solo en la línea entre pozos (representatividad limitada), y las condiciones de acoplamiento fuente-receptor afectan la calidad.
 >
 > — Foti et al. (2018), §1.1; ASTM D4428; ISO 22476-11.
 
@@ -39,7 +39,7 @@ $$V_S(z_i) = \frac{d(z_i)}{t_S(z_i) - t_0}$$
 
 donde $t_0$ es el tiempo de disparo y $t_S$ el tiempo de llegada de la onda S a la profundidad $z_i$.
 
-## Comparación con métodos de ondas superficiales
+## Comparación con métodos de [[Surface Waves|ondas superficiales]]
 
 | Aspecto | Cross-Hole Test | [[MASW Method|MASW]] |
 |---------|----------------|------|

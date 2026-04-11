@@ -17,7 +17,7 @@ type: reference
 >
 > — Foti et al. (2018), §2.4.3, pp. 107–111, Ec. 2.75; Watson (1944), *Treatise on Bessel Functions*; Lamb (1904).
 
-## Propiedades relevantes para ondas superficiales
+## Propiedades relevantes para [[Surface Waves|ondas superficiales]]
 
 ### Decaimiento geométrico
 
@@ -44,13 +44,13 @@ $$r \gg \frac{\lambda_R}{2\pi} = \frac{V_R}{2\pi f}$$
 
 Para $V_R = 200$ m/s y $f = 10$ Hz: $r \gg 3.2$ m. En la práctica, se requiere una distancia mínima de la fuente al primer receptor $d_1 \geq \lambda_{\max}/2$ para asegurar campo lejano (véase [[Near-field Effect]]).
 
-## Aparición en SPAC y correlación cruzada
+## Aparición en [[SPAC Method|SPAC]] y correlación cruzada
 
 La función de Bessel $J_0(kr)$ — parte real de $H_0^{(2)}$ — aparece también en la **correlación cruzada** entre dos receptores a distancia $r$ para un campo de ondas isótropo (método [[SPAC Method|SPAC]]):
 
 $$\frac{\Re\{S_{12}(f)\}}{\sqrt{S_{11}(f) \cdot S_{22}(f)}} = J_0(kr) = J_0\left(\frac{2\pi f r}{V_R(f)}\right)$$
 
-Esto convierte la inversión SPAC en un ajuste de $J_0$ a los datos de correlación — el papel de las funciones de Hankel/Bessel en los métodos de ondas superficiales es, por tanto, doble: decaimiento de amplitud (Hankel) y coherencia espacial (Bessel).
+Esto convierte la inversión [[SPAC Method|SPAC]] en un ajuste de $J_0$ a los datos de correlación — el papel de las funciones de Hankel/Bessel en los métodos de [[Surface Waves|ondas superficiales]] es, por tanto, doble: decaimiento de amplitud (Hankel) y coherencia espacial (Bessel).
 
 > [!EXAMPLE] Evidencia empírica: Lamb (1904) — solución original de campo lejano para fuente superficial
 > Lamb (1904, *Phil. Trans. R. Soc. A*, 203) resuelve analíticamente el problema de la respuesta dinámica de un semiespacio elástico a una carga puntual en superficie — el [[Lamb's Problem|problema de Lamb]]. La solución en campo lejano expresa el desplazamiento vertical de Rayleigh exactamente mediante la función $H_0^{(2)}(k_R r)$, verificando la propagación cilíndrica del frente de onda. Foti et al. (2018, §2.4.3, Ec. 2.75) reproducen este resultado como base teórica del decaimiento $r^{-1/2}$ observado en ensayos [[MASW Method|MASW]]: las mediciones de amplitud en el tendido de receptores confirman el decaimiento $r^{-1/2}$ para distancias $r > \lambda/2$, validando la hipótesis de campo lejano cilindricamente simétrico. La desviación del decaimiento teórico a distancias cortas (campo cercano) es el [[Near-field Effect|efecto de campo cercano]].

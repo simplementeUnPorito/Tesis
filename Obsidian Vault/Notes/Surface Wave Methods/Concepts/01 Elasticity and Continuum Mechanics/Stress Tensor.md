@@ -66,7 +66,7 @@ En la superficie libre del suelo ($z = 0$), la condición de **esfuerzo libre** 
 
 $$\sigma_{zz}(z=0) = 0, \quad \sigma_{xz}(z=0) = 0, \quad \sigma_{yz}(z=0) = 0$$
 
-Estas tres condiciones son las que dan lugar a las [[Rayleigh Waves]] (por acoplamiento de $\sigma_{zz}$ y $\sigma_{xz}$ con ondas P–SV) y a las [[Love Waves]] (por la condición sobre $\sigma_{yz}$ para ondas SH). Sin estas condiciones de contorno, las ondas superficiales no existirían.
+Estas tres condiciones son las que dan lugar a las [[Rayleigh Waves]] (por acoplamiento de $\sigma_{zz}$ y $\sigma_{xz}$ con ondas P–SV) y a las [[Love Waves]] (por la condición sobre $\sigma_{yz}$ para ondas SH). Sin estas condiciones de contorno, las [[Surface Waves|ondas superficiales]] no existirían.
 
 ## Condiciones en interfaces entre capas
 

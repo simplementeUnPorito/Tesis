@@ -3,7 +3,7 @@
 > [!CONCEPT] Definición
 > Las **ecuaciones en derivadas parciales hiperbólicas** (Hyperbolic PDEs) son una clase de EDPs que gobiernan la propagación de perturbaciones a velocidad finita. Su nombre proviene de la analogía con la sección cónica hipérbola en la clasificación de Cauchy-Kowalewski de ecuaciones de segundo orden.
 >
-> En geofísica de ondas superficiales, las Hyperbolic PDEs son el marco matemático que describe la propagación de [[Body Waves]] y [[Rayleigh Waves]] en medios elásticos.
+> En geofísica de [[Surface Waves|ondas superficiales]], las Hyperbolic PDEs son el marco matemático que describe la propagación de [[Body Waves]] y [[Rayleigh Waves]] en medios elásticos.
 >
 > — Foti et al., *Surface Wave Methods for Near-Surface Site Characterization*, CRC Press (2018), §2.1.1.
 
@@ -69,7 +69,7 @@ Las Hyperbolic PDEs en medios homogéneos producen ondas **no dispersivas**: la 
 
 Sin embargo, cuando el medio es [[Layered Media]] o [[Viscoelastic Media]], las condiciones de contorno o el comportamiento reológico introducen [[Wave Dispersion]], aunque las ecuaciones sigan siendo hiperbólicas en cada capa.
 
-> Esta intersección — hiperbolicidad local + dispersión global — es la base matemática de los métodos de ondas superficiales para caracterización del subsuelo.
+> Esta intersección — hiperbolicidad local + dispersión global — es la base matemática de los métodos de [[Surface Waves|ondas superficiales]] para caracterización del subsuelo.
 
 Véase: [[Hyperbolic Waves]], [[Geometric Dispersion]], [[Material Dispersion]].
 

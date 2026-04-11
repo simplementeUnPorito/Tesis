@@ -7,7 +7,7 @@ type: reference
 # Fisher Test — Test F de Fisher
 
 > [!CONCEPT] Definición
-> El **Test F de Fisher** (o *F-test*) es una prueba de hipótesis estadística que compara dos varianzas o determina si el desajuste de un modelo dado es estadísticamente compatible con el desajuste mínimo — usado en [[Monte Carlo Methods|inversión de Monte Carlo]] de [[Dispersion Curve|curvas de dispersión]] para seleccionar el **ensemble de modelos equivalentes**. En el contexto de ondas superficiales, el test F de Fisher establece el umbral de aceptación $\phi_{acc}$:
+> El **Test F de Fisher** (o *F-test*) es una prueba de hipótesis estadística que compara dos varianzas o determina si el desajuste de un modelo dado es estadísticamente compatible con el desajuste mínimo — usado en [[Monte Carlo Methods|inversión de Monte Carlo]] de [[Dispersion Curve|curvas de dispersión]] para seleccionar el **ensemble de modelos equivalentes**. En el contexto de [[Surface Waves|ondas superficiales]], el test F de Fisher establece el umbral de aceptación $\phi_{acc}$:
 > $$\phi_{acc} = \phi_{min} \left[1 + \frac{N_p}{N - N_p} F_{N_p, N-N_p, \alpha}\right]$$
 > donde $\phi_{min}$ es el misfit mínimo del mejor modelo, $N_p$ es el número de parámetros del modelo, $N$ es el número de datos de dispersión, y $F_{N_p, N-N_p, \alpha}$ es el valor crítico de la distribución F con $(N_p, N - N_p)$ grados de libertad al nivel de significancia $\alpha$ (típicamente $\alpha = 0.05$ → 95% de confianza). Un modelo es **aceptable** si $\phi \leq \phi_{acc}$ — es decir, si su desajuste no es estadísticamente peor que el del mejor modelo al nivel de confianza especificado. El conjunto de modelos aceptables define el **espacio de soluciones equivalentes**, que cuantifica la [[Non-uniqueness|no-unicidad]] del problema inverso. Está estrechamente relacionado con el [[Chi-Squared Test|test chi-cuadrado]], que es la versión normalizada del mismo criterio cuando los errores de los datos son gaussianos independientes.
 >
@@ -40,5 +40,5 @@ Modelos con misfit hasta ~3.4× el del mejor modelo son estadísticamente acepta
 | Fuente | Sección / Página |
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | §7.2.4 — test F en [[Monte Carlo Methods|Monte Carlo]] La Salle |
-| Socco & Boiero (2008), *Geophysics* | Inversión [[Monte Carlo Methods|Monte Carlo]] de ondas superficiales con test F |
+| Socco & Boiero (2008), *Geophysics* | Inversión [[Monte Carlo Methods|Monte Carlo]] de [[Surface Waves|ondas superficiales]] con test F |
 | Menke (2012), *Geophysical Data Analysis* | §7 — estadística del test F en geofísica |

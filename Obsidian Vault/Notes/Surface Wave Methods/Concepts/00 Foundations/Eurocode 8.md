@@ -20,7 +20,7 @@ type: reference
 >
 > El valor VS,30 se determina preferiblemente mediante métodos no invasivos ([[MASW Method|MASW]], [[SASW Method|SASW]]) o invasivos ([[Downhole Test|downhole]]/[[Cross-Hole Test|cross-hole]]), y define el espectro de respuesta elástica mediante los factores de suelo S, TB, TC, TD.
 
-## Relación con métodos de ondas superficiales
+## Relación con métodos de [[Surface Waves|ondas superficiales]]
 
 La [[MASW Method|MASW]] es el método más eficiente para determinar VS,30 en la práctica de ingeniería:
 1. Adquisición sísmica en superficie (no invasiva, no requiere sondeo)

@@ -1,17 +1,17 @@
 ---
 name: Scholte Waves
-description: Ondas superficiales en la interfaz sólido-líquido (fondo marino); análogo marino de las ondas de Rayleigh; sensibles a VS del subfondo; velocidad siempre menor que la de Rayleigh del sólido equivalente
+description: [[Surface Waves|Ondas superficiales]] en la interfaz sólido-líquido (fondo marino); análogo marino de las ondas de Rayleigh; sensibles a VS del subfondo; velocidad siempre menor que la de Rayleigh del sólido equivalente
 type: reference
 ---
 
 # Ondas de Scholte (Scholte Waves)
 
 > [!CONCEPT] Definición
-> Las **ondas de Scholte** son ondas superficiales que se propagan en la **interfaz sólido-líquido** (fondo marino), análogas a las [[Rayleigh Waves|ondas de Rayleigh]] en la interfaz sólido-aire. Existen cuando $V_{S,\text{sólido}} < V_{P,\text{agua}} \approx 1500$ m/s (condición *soft bottom*), que se cumple casi universalmente en sedimentos no consolidados. Su velocidad es siempre menor que la de Rayleigh del sólido equivalente y su inversión permite estimar el perfil $V_S$ del subfondo marino de forma no invasiva.
+> Las **ondas de Scholte** son [[Surface Waves|ondas superficiales]] que se propagan en la **interfaz sólido-líquido** (fondo marino), análogas a las [[Rayleigh Waves|ondas de Rayleigh]] en la interfaz sólido-aire. Existen cuando $V_{S,\text{sólido}} < V_{P,\text{agua}} \approx 1500$ m/s (condición *soft bottom*), que se cumple casi universalmente en sedimentos no consolidados. Su velocidad es siempre menor que la de Rayleigh del sólido equivalente y su inversión permite estimar el perfil $V_S$ del subfondo marino de forma no invasiva.
 >
 > — Foti et al. (2018), Cap. 8, §8.2, pp. 403–412; Scholte (1947).
 
-Son ondas superficiales que se propagan en la **interfaz sólido-líquido** (fondo marino), de forma análoga a las [[Rayleigh Waves|ondas de Rayleigh]] en la interfaz sólido-aire. Fueron descritas por Scholte (1947) como los **modos normales reales** del sistema de capas para el caso *soft bottom* [12, 13].
+Son [[Surface Waves|ondas superficiales]] que se propagan en la **interfaz sólido-líquido** (fondo marino), de forma análoga a las [[Rayleigh Waves|ondas de Rayleigh]] en la interfaz sólido-aire. Fueron descritas por Scholte (1947) como los **modos normales reales** del sistema de capas para el caso *soft bottom* [12, 13].
 
 ## Condición de existencia (*soft bottom*)
 

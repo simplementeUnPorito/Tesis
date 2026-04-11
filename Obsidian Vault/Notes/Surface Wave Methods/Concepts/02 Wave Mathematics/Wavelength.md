@@ -7,7 +7,7 @@ type: reference
 # Longitud de Onda (Wavelength)
 
 > [!CONCEPT] Definición
-> La **longitud de onda** $\lambda = c/f$ es la distancia espacial entre dos puntos consecutivos de la misma fase. En los métodos de ondas superficiales, $\lambda_R = V_R/f$ es el parámetro que controla directamente la **profundidad de investigación** ($z_{max} \approx \lambda_{max}/2$) y la **resolución vertical** ($\Delta z_{min} \approx \lambda_{min}/2$) del perfil $V_S$ obtenido por inversión. El rango de longitudes de onda accesibles en el experimento determina el rango de profundidades caracterizable — estableciendo los criterios de diseño del arreglo de geófonos.
+> La **longitud de onda** $\lambda = c/f$ es la distancia espacial entre dos puntos consecutivos de la misma fase. En los métodos de [[Surface Waves|ondas superficiales]], $\lambda_R = V_R/f$ es el parámetro que controla directamente la **profundidad de investigación** ($z_{max} \approx \lambda_{max}/2$) y la **resolución vertical** ($\Delta z_{min} \approx \lambda_{min}/2$) del perfil $V_S$ obtenido por inversión. El rango de longitudes de onda accesibles en el experimento determina el rango de profundidades caracterizable — estableciendo los criterios de diseño del arreglo de geófonos.
 >
 > — Foti et al. (2018), §2.1.1, pp. 39–41; §3.4, pp. 163–180.
 
@@ -58,14 +58,14 @@ El rango de $\lambda_R$ accesible está determinado por el diseño del arreglo:
 
 | Parámetro | Controla | Expresión |
 |---|---|---|
-| Espaciado geófono $\Delta x$ | $\lambda_{\min}$ (aliasing espacial) | $\lambda_{\min} = 2\Delta x$ |
+| Espaciado geófono $\Delta x$ | $\lambda_{\min}$ ([[Aliasing|aliasing]] espacial) | $\lambda_{\min} = 2\Delta x$ |
 | Longitud arreglo $L$ | $\lambda_{\max}$ (resolución en $k$) | $\lambda_{\max} \approx L$ |
 | Frecuencia de muestreo $f_s$ | $f_{\max}$ temporal | $f_{\max} = f_s/2$ |
 | Fuente / terreno | $f_{\min}$ | Depende del experimento |
 
 Para una caracterización de sitio a 20 m de profundidad con $V_S \sim 200$ m/s, se necesita $\lambda_{\max} \approx 40$ m, lo que implica $L \geq 40$ m y $f_{\min} \leq 5$ Hz.
 
-## Aliasing espacial
+## [[Aliasing|Aliasing]] espacial
 
 El teorema de muestreo espacial impone que para medir una onda de longitud de onda $\lambda$ con un arreglo de geófonos de espaciado $\Delta x$, se necesitan al menos **dos muestras por longitud de onda**:
 

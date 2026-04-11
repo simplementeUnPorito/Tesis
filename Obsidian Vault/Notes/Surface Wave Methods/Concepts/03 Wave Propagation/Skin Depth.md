@@ -1,19 +1,19 @@
 ---
 name: Skin Depth
-description: Profundidad a la que la amplitud de una onda superficial cae a 1/e del valor en superficie; establece la profundidad efectiva de investigación de los métodos de ondas superficiales
+description: Profundidad a la que la amplitud de una onda superficial cae a 1/e del valor en superficie; establece la profundidad efectiva de investigación de los métodos de [[Surface Waves|ondas superficiales]]
 type: reference
 ---
 
 # Profundidad de Piel / Profundidad de Investigación (Skin Depth)
 
 > [!CONCEPT] Definición
-> El **skin depth** (profundidad de piel) cuantifica cómo decae la amplitud de las [[Rayleigh Waves]] con la profundidad y establece la **profundidad efectiva de investigación** de los métodos de ondas superficiales. Se define como la profundidad $\delta$ a la que la amplitud cae a $1/e \approx 37\%$ del valor superficial, aproximadamente $\delta \approx \lambda/2\pi$. La regla práctica derivada es $z_{\max} \approx \lambda_{\max}/2$ a $\lambda_{\max}$, donde $\lambda_{\max}$ es la longitud de onda máxima accesible con el arreglo — es decir, la profundidad de investigación está controlada por la frecuencia mínima medible.
+> El **skin depth** (profundidad de piel) cuantifica cómo decae la amplitud de las [[Rayleigh Waves]] con la profundidad y establece la **profundidad efectiva de investigación** de los métodos de [[Surface Waves|ondas superficiales]]. Se define como la profundidad $\delta$ a la que la amplitud cae a $1/e \approx 37\%$ del valor superficial, aproximadamente $\delta \approx \lambda/2\pi$. La regla práctica derivada es $z_{\max} \approx \lambda_{\max}/2$ a $\lambda_{\max}$, donde $\lambda_{\max}$ es la longitud de onda máxima accesible con el arreglo — es decir, la profundidad de investigación está controlada por la frecuencia mínima medible.
 >
 > — Foti et al. (2018), §2.2.1, pp. 52–55.
 
 ## Intuición física
 
-Las [[Rayleigh Waves]] están confinadas cerca de la superficie libre: la mayor parte de su energía de deformación se concentra en una capa de espesor comparable a la longitud de onda. A mayor profundidad, las partículas apenas se desplazan. Este confinamiento superficial es precisamente lo que define a las ondas superficiales como categoría: ondas cuya amplitud decae exponencialmente al alejarse de la interfaz.
+Las [[Rayleigh Waves]] están confinadas cerca de la superficie libre: la mayor parte de su energía de deformación se concentra en una capa de espesor comparable a la longitud de onda. A mayor profundidad, las partículas apenas se desplazan. Este confinamiento superficial es precisamente lo que define a las [[Surface Waves|ondas superficiales]] como categoría: ondas cuya amplitud decae exponencialmente al alejarse de la interfaz.
 
 La consecuencia práctica es que la profundidad que una onda de Rayleigh puede "sentir" está determinada por su longitud de onda: ondas largas (baja frecuencia) penetran más profundo que ondas cortas (alta frecuencia). Esta propiedad es el fundamento de la **estrategia de barrido en frecuencia** usada en [[MASW Method|MASW]] para explorar perfiles de $V_S$ con distintas profundidades.
 
@@ -39,7 +39,7 @@ Esta es la profundidad dentro de la cual se concentra ~95% de la energía total 
 
 ## Regla práctica de profundidad de investigación
 
-En la práctica de los métodos de ondas superficiales, se usa la regla empírica:
+En la práctica de los métodos de [[Surface Waves|ondas superficiales]], se usa la regla empírica:
 
 $$z_{\max} \approx \frac{\lambda_{\max}}{2} \quad \text{a} \quad \lambda_{\max}$$
 
@@ -58,7 +58,7 @@ El skin depth determina directamente los requerimientos de diseño del arreglo d
 | Mayor profundidad de investigación | Menor $f_{\min}$ | $\lambda_{\max} = V_R/f_{\min}$, $z_{\max} \propto \lambda_{\max}$ |
 | Mejor resolución superficial | Mayor $f_{\max}$ | $\lambda_{\min} = V_R/f_{\max}$, espesor mínimo resoluble $\propto \lambda_{\min}/2$ |
 | Frecuencia mínima accesible | Mayor longitud del arreglo $L$ | $f_{\min} \approx V_R/L$ |
-| Frecuencia máxima sin aliasing | Menor espaciado $\Delta x$ | $f_{\max} = V_R/(2\Delta x)$ |
+| Frecuencia máxima sin [[Aliasing|aliasing]] | Menor espaciado $\Delta x$ | $f_{\max} = V_R/(2\Delta x)$ |
 
 ## Limitaciones de la regla del skin depth
 

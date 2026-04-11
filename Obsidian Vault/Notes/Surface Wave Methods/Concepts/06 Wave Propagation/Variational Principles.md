@@ -1,17 +1,17 @@
 ---
 name: Variational Principles
-description: Principios de extremo (Hamilton, Rayleigh-Ritz) que expresan la propagación de ondas como la minimización de un funcional — base teórica del cálculo de sensibilidades en métodos de ondas superficiales
+description: Principios de extremo (Hamilton, Rayleigh-Ritz) que expresan la propagación de ondas como la minimización de un funcional — base teórica del cálculo de sensibilidades en métodos de [[Surface Waves|ondas superficiales]]
 type: reference
 ---
 
 # Variational Principles — Principios Variacionales
 
 > [!CONCEPT] Definición
-> Los **Principios Variacionales** son formulaciones de la mecánica y la física que expresan las leyes de movimiento como la condición de extremo (mínimo, máximo o punto de silla) de un **funcional** — una función de funciones. En la propagación de ondas elásticas y la teoría de ondas superficiales, el principio variacional más relevante es el **principio de Hamilton**: el movimiento real de un sistema es aquel que hace estacionario el funcional de acción $\mathcal{A} = \int_{t_1}^{t_2} (T - V) \, dt$ (diferencia entre energía cinética $T$ y potencial $V$). Para las ondas de Rayleigh en un [[Layered Media|medio estratificado]], el principio variacional se usa para derivar la **sensibilidad de la [[Phase Velocity|velocidad de fase]]** $c_R$ respecto a los parámetros del modelo $V_S(z)$: la variación de $c_R$ al perturbar ligeramente el perfil de velocidad se expresa como un **funcional lineal** de la perturbación, cuyo núcleo es el [[Sensitivity Kernel|kernel de sensibilidad]] $K(z)$. Esto permite calcular el Jacobiano $\partial c_R / \partial V_S(z)$ analíticamente sin diferencias finitas — base del cálculo eficiente de sensibilidades en [[Inversión|inversión]] de [[Dispersion Curve|curvas de dispersión]].
+> Los **Principios Variacionales** son formulaciones de la mecánica y la física que expresan las leyes de movimiento como la condición de extremo (mínimo, máximo o punto de silla) de un **funcional** — una función de funciones. En la propagación de ondas elásticas y la teoría de [[Surface Waves|ondas superficiales]], el principio variacional más relevante es el **principio de Hamilton**: el movimiento real de un sistema es aquel que hace estacionario el funcional de acción $\mathcal{A} = \int_{t_1}^{t_2} (T - V) \, dt$ (diferencia entre energía cinética $T$ y potencial $V$). Para las ondas de Rayleigh en un [[Layered Media|medio estratificado]], el principio variacional se usa para derivar la **sensibilidad de la [[Phase Velocity|velocidad de fase]]** $c_R$ respecto a los parámetros del modelo $V_S(z)$: la variación de $c_R$ al perturbar ligeramente el perfil de velocidad se expresa como un **funcional lineal** de la perturbación, cuyo núcleo es el [[Sensitivity Kernel|kernel de sensibilidad]] $K(z)$. Esto permite calcular el Jacobiano $\partial c_R / \partial V_S(z)$ analíticamente sin diferencias finitas — base del cálculo eficiente de sensibilidades en [[Inversión|inversión]] de [[Dispersion Curve|curvas de dispersión]].
 >
 > — Foti et al. (2018), §5.2; Aki & Richards (2002), §7.3; Anderson & Dziewonski (1982).
 
-## Principio de Rayleigh-Ritz para ondas superficiales
+## Principio de Rayleigh-Ritz para [[Surface Waves|ondas superficiales]]
 
 ### Velocidad de fase como cociente de Rayleigh
 
@@ -50,5 +50,5 @@ Los principios variacionales permiten:
 | Fuente | Sección / Página |
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | §5.2, pp. 215–225 — sensibilidades variacionales |
-| Aki & Richards (2002), *Quantitative Seismology* | §7.3 — principio variacional para ondas superficiales |
+| Aki & Richards (2002), *Quantitative Seismology* | §7.3 — principio variacional para [[Surface Waves|ondas superficiales]] |
 | Anderson & Dziewonski (1982), *Sci. Am.* | Principio variacional en sismología de la Tierra |

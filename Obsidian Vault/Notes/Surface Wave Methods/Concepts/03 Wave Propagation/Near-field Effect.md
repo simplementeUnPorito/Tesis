@@ -7,7 +7,7 @@ type: concept
 # Near-field Effect
 
 > [!CONCEPT] Definición
-> El **near-field effect** es la distorsión de la [[Phase Velocity]] aparente de las [[Rayleigh Waves]] que ocurre en la zona cercana a la fuente, donde las [[Body Waves]] ([[P-waves]], [[S-Waves]]) tienen amplitud comparable a las ondas superficiales. Solo a distancias suficientemente grandes (*far-field*) las [[Rayleigh Waves]] dominan y la velocidad aparente converge a la verdadera velocidad de Rayleigh del modo fundamental.
+> El **near-field effect** es la distorsión de la [[Phase Velocity]] aparente de las [[Rayleigh Waves]] que ocurre en la zona cercana a la fuente, donde las [[Body Waves]] ([[P-waves]], [[S-Waves]]) tienen amplitud comparable a las [[Surface Waves|ondas superficiales]]. Solo a distancias suficientemente grandes (*far-field*) las [[Rayleigh Waves]] dominan y la velocidad aparente converge a la verdadera velocidad de Rayleigh del modo fundamental.
 >
 > — Foti et al., *Surface Wave Methods*, §2.4.2, pp. 83–86; §3.4.1.6, pp. 160–162.
 
@@ -15,7 +15,7 @@ type: concept
 
 ## 1. Intuición física
 
-Una fuente puntual en superficie genera simultáneamente [[Body Waves]] y ondas superficiales. La diferencia clave está en cómo decae la amplitud con la distancia $r$:
+Una fuente puntual en superficie genera simultáneamente [[Body Waves]] y [[Surface Waves|ondas superficiales]]. La diferencia clave está en cómo decae la amplitud con la distancia $r$:
 
 | Tipo de onda | Decaimiento en superficie |
 |---|---|

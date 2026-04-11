@@ -34,7 +34,7 @@ La **onda P lenta** es característica exclusiva de los medios porosos. A frecue
 
 ---
 
-## 3. Implicaciones para ondas superficiales
+## 3. Implicaciones para [[Surface Waves|ondas superficiales]]
 
 Las [[Rayleigh Waves]] en medios porosos presentan [[Material Dispersion]] adicional a la [[Geometric Dispersion]]:
 

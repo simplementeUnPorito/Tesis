@@ -36,7 +36,7 @@ $$V_S^{intervalo}(z_1, z_2) = \frac{r(z_2) - r(z_1)}{t(z_2) - t(z_1)}$$
 
 donde $r(z_i) = \sqrt{x^2 + z_i^2}$ (corrección de la geometría inclinada).
 
-## Comparación con métodos de ondas superficiales
+## Comparación con métodos de [[Surface Waves|ondas superficiales]]
 
 | Aspecto | Downhole Test | [[Cross-Hole Test]] | [[MASW Method|MASW]] |
 |---------|--------------|-------------------|------|

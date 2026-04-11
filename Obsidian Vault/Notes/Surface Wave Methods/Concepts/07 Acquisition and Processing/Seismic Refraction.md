@@ -25,7 +25,7 @@ La refracción usa el mismo hardware que el [[MASW Method|MASW]] activo (geófon
 
 ## Rol en el flujo de trabajo [[MASW Method|MASW]]
 
-1. **Simultáneo con [[MASW Method|MASW]]**: los datos de refracción y de ondas superficiales se adquieren con el mismo disparo y el mismo arreglo.
+1. **Simultáneo con [[MASW Method|MASW]]**: los datos de refracción y de [[Surface Waves|ondas superficiales]] se adquieren con el mismo disparo y el mismo arreglo.
 2. **Proporciona $V_P(z)$**: la inversión de los tiempos de refracción da el perfil $V_P(z)$ que se usa para calcular el [[Poisson Ratio|coeficiente de Poisson]] $\nu = (V_P^2 - 2V_S^2)/(2(V_P^2 - V_S^2))$.
 3. **Detecta tabla de agua**: el salto de $V_P$ de ~300–600 m/s (no saturado) a ~1500 m/s (saturado) indica la profundidad freática — relevante para la corrección de $\nu$ en la inversión de Rayleigh (ver [[Poisson Ratio]]).
 

@@ -35,7 +35,7 @@ con:
 
 $$\alpha = \sqrt{k^2 - \frac{\omega^2}{V_P^2}}, \qquad \beta = \sqrt{k^2 - \frac{\omega^2}{V_S^2}}$$
 
-La condición $\text{Re}(\alpha) > 0$, $\text{Re}(\beta) > 0$ garantiza decaimiento con la profundidad — condición necesaria para que existan ondas superficiales (ligadas a la interfaz).
+La condición $\text{Re}(\alpha) > 0$, $\text{Re}(\beta) > 0$ garantiza decaimiento con la profundidad — condición necesaria para que existan [[Surface Waves|ondas superficiales]] (ligadas a la interfaz).
 
 ## 3. Ecuación secular de Rayleigh
 
@@ -47,7 +47,7 @@ que tiene exactamente una raíz real física en $0 < c_R < V_S$.
 
 ## 4. Importancia para el forward modeling
 
-Este formalismo es el punto de partida del **[[Forward Problem|problema directo]]** de ondas superficiales. Toda la teoría de inversión de ondas de Rayleigh descansa en la solución del sistema de potenciales con condiciones de frontera en cada interfaz del modelo de capas (método de [[Layered Media|Thomson-Haskell]]).
+Este formalismo es el punto de partida del **[[Forward Problem|problema directo]]** de [[Surface Waves|ondas superficiales]]. Toda la teoría de inversión de ondas de Rayleigh descansa en la solución del sistema de potenciales con condiciones de frontera en cada interfaz del modelo de capas (método de [[Layered Media|Thomson-Haskell]]).
 
 > [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — potenciales como núcleo del [[Forward Problem|problema directo]] [[MASW Method|MASW]]
 > **Paper 002 (Xia, Miller & Park 1999)** implementa el formalismo de potenciales de Helmholtz como núcleo del [[Forward Problem|problema directo]] de [[MASW Method|MASW]]. La ecuación secular generalizada al caso estratificado (derivada iterando las condiciones de frontera con el método de la matriz de transferencia) se evalúa numéricamente para calcular $c_R(\omega)$ dado un perfil $V_S(z)$. El Jacobiano $\partial c_R/\partial V_S$ — calculado analíticamente sobre la base de los potenciales — permite la inversión iterativa convergente en < 10 iteraciones. La validación contra borehole en Kansas confirma que el formalismo de potenciales es suficientemente preciso para caracterización geotécnica real.

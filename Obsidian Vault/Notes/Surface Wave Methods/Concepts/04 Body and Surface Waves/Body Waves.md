@@ -1,6 +1,6 @@
 ---
 name: Body Waves
-description: Ondas sísmicas que viajan a través del volumen del medio; comprenden ondas P (compresionales) y S (de corte); decaen 1/r en amplitud, más rápido que las ondas superficiales (1/√r)
+description: Ondas sísmicas que viajan a través del volumen del medio; comprenden ondas P (compresionales) y S (de corte); decaen 1/r en amplitud, más rápido que las [[Surface Waves|ondas superficiales]] (1/√r)
 type: reference
 ---
 
@@ -50,11 +50,11 @@ Para $\nu = 0.25$ (material Poisson estándar): $V_P/V_S = \sqrt{3} \approx 1.73
 | Onda de cuerpo (volumen 3D) | $\propto 1/r$ | Frente esférico: área $\propto r^2$ |
 | Onda superficial (superficie 2D) | $\propto 1/\sqrt{r}$ | Frente cilíndrico: perímetro $\propto r$ |
 
-La solución del **[[Lamb's Problem|Problema de Lamb]]** (Lamb, 1904) cuantificó esta partición: en la superficie de un semiespacio, el ~67% de la energía de una fuente puntual vertical queda en las [[Rayleigh Waves|ondas Rayleigh]], y el resto en ondas de cuerpo P y S. Esto valida el uso de ondas superficiales como el observable dominante en [[MASW Method|MASW]].
+La solución del **[[Lamb's Problem|Problema de Lamb]]** (Lamb, 1904) cuantificó esta partición: en la superficie de un semiespacio, el ~67% de la energía de una fuente puntual vertical queda en las [[Rayleigh Waves|ondas Rayleigh]], y el resto en ondas de cuerpo P y S. Esto valida el uso de [[Surface Waves|ondas superficiales]] como el observable dominante en [[MASW Method|MASW]].
 
 ## Ondas de cuerpo en [[MASW Method|MASW]]
 
-Las ondas de cuerpo son **ruido** en los métodos de ondas superficiales. Aparecen como:
+Las ondas de cuerpo son **ruido** en los métodos de [[Surface Waves|ondas superficiales]]. Aparecen como:
 
 1. **Primeras llegadas P**: arrivan antes que el [[Ground Roll|ground-roll]]; se eliminan con una ventana temporal o agente de mute.
 2. **Ondas P refractadas**: en arreglos cortos, llegadas refractadas pueden solaparse con el inicio del [[Ground Roll|ground-roll]] y contaminar las frecuencias altas.

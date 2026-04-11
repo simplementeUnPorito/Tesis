@@ -1,6 +1,6 @@
 ---
 name: Singular Value Decomposition
-description: Factorización de la [[Jacobian Matrix|matriz Jacobiana]] J=UΣVᵀ usada en inversión de ondas superficiales para analizar la resolución, el número de condición y construir la pseudo-inversa de Moore-Penrose para inversión estabilizada
+description: Factorización de la [[Jacobian Matrix|matriz Jacobiana]] J=UΣVᵀ usada en inversión de [[Surface Waves|ondas superficiales]] para analizar la resolución, el número de condición y construir la pseudo-inversa de Moore-Penrose para inversión estabilizada
 type: reference
 ---
 
@@ -9,12 +9,12 @@ type: reference
 > [!CONCEPT] Definición
 > La **Descomposición en Valores Singulares** (SVD) es la factorización de cualquier matriz real $\mathbf{J}$ (dimensiones $N \times M$) en tres matrices:
 > $$\mathbf{J} = \mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^T$$
-> donde $\mathbf{U}$ ($N \times N$) y $\mathbf{V}$ ($M \times M$) son matrices ortogonales (cuyos columnas son los **vectores singulares** izquierdos y derechos, respectivamente) y $\boldsymbol{\Sigma}$ ($N \times M$) es diagonal con elementos $\sigma_1 \geq \sigma_2 \geq \ldots \geq \sigma_r > 0$ llamados **valores singulares**. En la inversión de [[Dispersion Curve|curvas de dispersión]] de ondas superficiales, $\mathbf{J}$ es la [[Jacobian Matrix|matriz Jacobiana]] $\partial \mathbf{c}_R / \partial \mathbf{V}_S$, y la SVD permite analizar la resolución del sistema inverso. Los valores singulares pequeños corresponden a combinaciones de parámetros que no son observables en los datos — su razón con el mayor valor singular define el **[[Condition Number|número de condición]]** $\kappa = \sigma_1/\sigma_r$, indicador de mal condicionamiento. La **[[Moore-Penrose Pseudoinverse|pseudo-inversa de Moore-Penrose]]** se construye invirtiendo solo los valores singulares superiores a un umbral, eliminando las componentes inestables:
+> donde $\mathbf{U}$ ($N \times N$) y $\mathbf{V}$ ($M \times M$) son matrices ortogonales (cuyos columnas son los **vectores singulares** izquierdos y derechos, respectivamente) y $\boldsymbol{\Sigma}$ ($N \times M$) es diagonal con elementos $\sigma_1 \geq \sigma_2 \geq \ldots \geq \sigma_r > 0$ llamados **valores singulares**. En la inversión de [[Dispersion Curve|curvas de dispersión]] de [[Surface Waves|ondas superficiales]], $\mathbf{J}$ es la [[Jacobian Matrix|matriz Jacobiana]] $\partial \mathbf{c}_R / \partial \mathbf{V}_S$, y la SVD permite analizar la resolución del sistema inverso. Los valores singulares pequeños corresponden a combinaciones de parámetros que no son observables en los datos — su razón con el mayor valor singular define el **[[Condition Number|número de condición]]** $\kappa = \sigma_1/\sigma_r$, indicador de mal condicionamiento. La **[[Moore-Penrose Pseudoinverse|pseudo-inversa de Moore-Penrose]]** se construye invirtiendo solo los valores singulares superiores a un umbral, eliminando las componentes inestables:
 > $$\mathbf{J}^+ = \mathbf{V} \boldsymbol{\Sigma}^+ \mathbf{U}^T$$
 >
 > — Foti et al. (2018), §6.2.2, pp. 276–283; Menke (2012), *Geophysical Data Analysis*; Tarantola (2005).
 
-## Aplicación en inversión de ondas superficiales
+## Aplicación en inversión de [[Surface Waves|ondas superficiales]]
 
 ### Número de condición y mal condicionamiento
 
@@ -45,6 +45,6 @@ La matriz de resolución del modelo $\mathbf{R}_m = \mathbf{V}_p \mathbf{V}_p^T$
 
 | Fuente | Sección / Página |
 |--------|-----------------|
-| Foti et al. (2018), *Surface Wave Methods* | §6.2.2 — SVD en inversión de ondas superficiales |
+| Foti et al. (2018), *Surface Wave Methods* | §6.2.2 — SVD en inversión de [[Surface Waves|ondas superficiales]] |
 | Menke, W. (2012), *Geophysical Data Analysis* | §3 — SVD en problemas inversos geofísicos |
 | Tarantola, A. (2005), *Inverse Problem Theory* | §2 — SVD y resolución del modelo |

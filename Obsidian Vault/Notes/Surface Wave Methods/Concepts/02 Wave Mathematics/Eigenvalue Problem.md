@@ -1,6 +1,6 @@
 ---
 name: Eigenvalue Problem
-description: Problema de autovalores diferencial para ondas superficiales en medios continuamente estratificados — la [[Phase Velocity|velocidad de fase]] como autovalor y la distribución de amplitud vertical como autovector — generalización del [[Thomson-Haskell Matrix|Thomson-Haskell]] a perfiles continuos
+description: Problema de autovalores diferencial para [[Surface Waves|ondas superficiales]] en medios continuamente estratificados — la [[Phase Velocity|velocidad de fase]] como autovalor y la distribución de amplitud vertical como autovector — generalización del [[Thomson-Haskell Matrix|Thomson-Haskell]] a perfiles continuos
 type: reference
 ---
 
@@ -38,7 +38,7 @@ El operador $\mathbf{A}$ depende de $\lambda(x_2)$, $\mu(x_2)$, $\rho(x_2)$, $k$
 Las eigenfunctions $U_n(x_2)$ tienen interpretación física directa: son proporcionales a los **kernels de Fréchet** $\partial c_R/\partial V_S$ — la sensibilidad de la [[Phase Velocity|velocidad de fase]] al módulo de corte a cada profundidad (ver [[Jacobian Matrix]]). Esto hace que el cálculo de los autovectores sea equivalente al cálculo de las derivadas parciales necesarias para la inversión lineal.
 
 > [!EXAMPLE] Evidencia empírica: Kausel & Roësset (1981) — método de rigidez como eigenvalue problem
-> Kausel & Roësset (1981, *Bull. Seism. Soc. Am.*) reformulan el cálculo de modos propios de ondas superficiales como un problema de autovalores matricial global mediante el método de rigidez (*stiffness matrix method*). Para un sistema de 30 capas, el problema de autovalores de la matriz de rigidez global (60×60 para Rayleigh, 30×30 para Love) produce automáticamente todos los modos propios a una frecuencia dada. La eficiencia numérica es superior al [[Thomson-Haskell Matrix|método de Thomson-Haskell]] porque evita el overflow exponencial que ocurre con capas gruesas. Foti et al. (2018, §2.4.2) utilizan la formulación de autovalores de Kausel-Roësset como motor de cálculo forward en el software GPDC (Geopsy) usado en la inversión de ondas superficiales.
+> Kausel & Roësset (1981, *Bull. Seism. Soc. Am.*) reformulan el cálculo de modos propios de [[Surface Waves|ondas superficiales]] como un problema de autovalores matricial global mediante el método de rigidez (*stiffness matrix method*). Para un sistema de 30 capas, el problema de autovalores de la matriz de rigidez global (60×60 para Rayleigh, 30×30 para Love) produce automáticamente todos los modos propios a una frecuencia dada. La eficiencia numérica es superior al [[Thomson-Haskell Matrix|método de Thomson-Haskell]] porque evita el overflow exponencial que ocurre con capas gruesas. Foti et al. (2018, §2.4.2) utilizan la formulación de autovalores de Kausel-Roësset como motor de cálculo forward en el software GPDC (Geopsy) usado en la inversión de [[Surface Waves|ondas superficiales]].
 >
 > — Foti et al. (2018), §2.4.2, pp. 100–105; Kausel & Roësset (1981), *BSSA* 71(6), 1743–1761.
 

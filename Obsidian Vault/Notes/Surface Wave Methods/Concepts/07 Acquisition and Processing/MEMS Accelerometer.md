@@ -32,10 +32,10 @@ Como el MEMS mide aceleración $\ddot{u}(t)$, para comparar con la teoría de pr
 
 En el dominio de la frecuencia, la división por $i\omega$ o $(i\omega)^2$ es exacta. Para el análisis f-k del [[MASW Method|MASW]], la fase de la señal no cambia con la integración → la [[Dispersion Curve|curva de dispersión]] extraída es idéntica usando geófonos o MEMS.
 
-## Aplicaciones en métodos de ondas superficiales
+## Aplicaciones en métodos de [[Surface Waves|ondas superficiales]]
 
 - **[[MASW Method|MASW]] activo (5–100 Hz)**: los MEMS son equivalentes a los geófonos de 4.5–14 Hz. El ruido de piso elevado a <1 Hz no afecta el análisis.
-- **Pasivo ([[ReMi Method|ReMi]], SPAC, 0.1–5 Hz)**: los MEMS de alta calidad (de diseño sísmico) son comparables a los geófonos de 4.5 Hz en el rango 0.5–5 Hz — suficiente para profundidades de hasta 100–200 m.
+- **Pasivo ([[ReMi Method|ReMi]], [[SPAC Method|SPAC]], 0.1–5 Hz)**: los MEMS de alta calidad (de diseño sísmico) son comparables a los geófonos de 4.5 Hz en el rango 0.5–5 Hz — suficiente para profundidades de hasta 100–200 m.
 - **Monitoreo de largo plazo**: la robustez y el bajo consumo de los MEMS los hace ideales para redes de sensores distribuidos en monitoreo continuo (microzonificación, respuesta sísmica de sitio).
 
 > [!EXAMPLE] Evidencia empírica: Garofalo et al. (2016) — MEMS en arrays pasivos InterPACIFIC

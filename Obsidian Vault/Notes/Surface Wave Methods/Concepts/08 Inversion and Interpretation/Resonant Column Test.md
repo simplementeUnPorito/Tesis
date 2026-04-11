@@ -1,6 +1,6 @@
 ---
 name: Resonant Column Test
-description: Ensayo de laboratorio que mide VS y DS de pequeña deformación en muestras de suelo — referencia de validación para la estimación de DS mediante ondas superficiales
+description: Ensayo de laboratorio que mide VS y DS de pequeña deformación en muestras de suelo — referencia de validación para la estimación de DS mediante [[Surface Waves|ondas superficiales]]
 type: reference
 ---
 
@@ -25,9 +25,9 @@ El amortiguamiento $D_s$ se mide de dos formas:
 1. **Half-power bandwidth**: $D_s = (f_2 - f_1)/(2f_r)$ donde $f_1, f_2$ son las frecuencias a amplitud $1/\sqrt{2}$ del pico
 2. **Decaimiento libre**: ajuste de la envolvente de decaimiento $A(t) = A_0 e^{-\pi D_s f_r t}$
 
-## Comparación con estimación in situ por ondas superficiales
+## Comparación con estimación in situ por [[Surface Waves|ondas superficiales]]
 
-| Aspecto | Resonant Column Test | Ondas superficiales ([[MASW Method|MASW]]) |
+| Aspecto | Resonant Column Test | [[Surface Waves|Ondas superficiales]] ([[MASW Method|MASW]]) |
 |---|---|---|
 | Volumen representativo | Pequeño (muestra) | Grande (columna de suelo natural) |
 | Perturbación de la muestra | Inevitable | No invasivo |

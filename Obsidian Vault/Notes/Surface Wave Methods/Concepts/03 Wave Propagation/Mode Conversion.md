@@ -1,6 +1,6 @@
 ---
 name: Mode Conversion
-description: Fenómeno por el que una onda incidente sobre una interfaz elástica genera ondas reflejadas y transmitidas de distinto tipo; clave para la formación de ondas superficiales en medios estratificados
+description: Fenómeno por el que una onda incidente sobre una interfaz elástica genera ondas reflejadas y transmitidas de distinto tipo; clave para la formación de [[Surface Waves|ondas superficiales]] en medios estratificados
 type: reference
 ---
 
@@ -27,7 +27,7 @@ La excepción son las ondas SH: sus condiciones de frontera están desacopladas 
 
 La dirección y amplitud de cada onda generada se determinan por las **ecuaciones de Zoeppritz**, que aplican las condiciones de continuidad de cuatro cantidades en la interfaz: desplazamientos normales y tangenciales, y esfuerzos normales y de corte.
 
-## Relación con las ondas superficiales
+## Relación con las [[Surface Waves|ondas superficiales]]
 
 ### Formación de ondas de Rayleigh
 
@@ -47,9 +47,9 @@ En medios [[Layered Media|estratificados]], las múltiples reflexiones P–SV en
 
 La conversión de modos tiene consecuencias prácticas en el diseño del arreglo:
 
-1. **Contaminación de registros**: si la fuente genera ondas P, en las interfaces del subsuelo se generan ondas SV convertidas que llegan a los geófonos con diferentes moveouts. En ciertos casos pueden interferir con el tren de ondas superficiales.
+1. **Contaminación de registros**: si la fuente genera ondas P, en las interfaces del subsuelo se generan ondas SV convertidas que llegan a los geófonos con diferentes moveouts. En ciertos casos pueden interferir con el tren de [[Surface Waves|ondas superficiales]].
 
-2. **Separación en procesamiento**: el análisis f-k permite separar ondas con diferentes velocidades de fase (y por tanto diferentes pendientes en el sismograma). Las ondas de cuerpo convertidas tienen velocidades mayores que las ondas superficiales y se distinguen en el espectro f-k.
+2. **Separación en procesamiento**: el análisis f-k permite separar ondas con diferentes velocidades de fase (y por tanto diferentes pendientes en el sismograma). Las ondas de cuerpo convertidas tienen velocidades mayores que las [[Surface Waves|ondas superficiales]] y se distinguen en el espectro f-k.
 
 3. **Fuentes horizontales y Love**: las fuentes horizontales generan principalmente ondas SH, minimizando la conversión a P y SV. Esto es ventajoso para la adquisición de [[Love Waves]] con menor contaminación de componentes P–SV.
 

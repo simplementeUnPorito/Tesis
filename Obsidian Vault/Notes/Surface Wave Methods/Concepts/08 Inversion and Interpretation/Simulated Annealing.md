@@ -44,7 +44,7 @@ Para inversión de [[Dispersion Curve|curvas de dispersión]], el SA típicament
 - **Temperatura inicial** $T_0$: calibrada para aceptar ~80% de soluciones peores al inicio
 - **Criterio de convergencia**: temperatura final $T_f$ cuando la tasa de aceptación < 1%
 
-> [!EXAMPLE] Evidencia empírica: Sen & Stoffa (2013) — SA en inversión de ondas superficiales
+> [!EXAMPLE] Evidencia empírica: Sen & Stoffa (2013) — SA en inversión de [[Surface Waves|ondas superficiales]]
 > Sen & Stoffa (2013) comparan el SA con el [[Monte Carlo Methods|Monte Carlo]] y el SA "muy rápido" (Very Fast Simulated Annealing, VFSA) para la inversión de [[Dispersion Curve|curvas de dispersión]] de ondas de Rayleigh. El VFSA, con ley de enfriamiento más agresiva ($T_k = T_0 \cdot e^{-k^{1/N_p}}$), converge ~100× más rápido que el SA estándar sin perder capacidad de encontrar el mínimo global. En un ejemplo sintético de perfil con inversión de velocidad (capa blanda a 8–12 m), el VFSA encuentra el modelo correcto en 85% de los casos con 10,000 evaluaciones del modelo directo — comparable al [[Genetic Algorithm|GA]] (87%) pero con menor costo computacional (sin operaciones de cruce/selección). Los autores concluyen que para problemas de dimensionalidad media ($N_p$ < 30), el VFSA es competitivo con el GA en robustez y eficiencia.
 >
 > — Sen & Stoffa (2013), *Global Optimization Methods in Geophysical Inversion*, Cambridge UP.

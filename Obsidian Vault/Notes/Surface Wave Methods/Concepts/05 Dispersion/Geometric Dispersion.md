@@ -9,7 +9,7 @@
 
 ## 1. Fundamento físico
 
-Las ondas superficiales concentran la mayor parte de su energía en una zona superficial cuya profundidad efectiva de penetración es proporcional a la longitud de onda ([[Skin Depth]]).
+Las [[Surface Waves|ondas superficiales]] concentran la mayor parte de su energía en una zona superficial cuya profundidad efectiva de penetración es proporcional a la longitud de onda ([[Skin Depth]]).
 
 - **Longitudes de onda cortas (alta frecuencia)** → la energía queda confinada en las capas más someras → la velocidad refleja las propiedades superficiales.
 - **Longitudes de onda largas (baja frecuencia)** → la energía penetra más profundo → la velocidad integra propiedades de mayor profundidad.
@@ -41,7 +41,7 @@ $$
 Esta relación funcional es la **[[Dispersion Curve|curva de dispersión]]** — la firma observacional de la estratificación. Su forma depende directamente del perfil de [[Phase Velocity|velocidad de corte]] Vs(z).
 
 > [!NOTE] Conexión con el problema inverso
-> La [[Dispersion Curve|curva de dispersión]] experimental es el dato de entrada del **problema inverso** de ondas superficiales (Cap. 6–7 Foti). Recuperar Vs(z) a partir de c_R(ω) es un problema no lineal mal condicionado sujeto a [[Non-uniqueness]].
+> La [[Dispersion Curve|curva de dispersión]] experimental es el dato de entrada del **problema inverso** de [[Surface Waves|ondas superficiales]] (Cap. 6–7 Foti). Recuperar Vs(z) a partir de c_R(ω) es un problema no lineal mal condicionado sujeto a [[Non-uniqueness]].
 
 ---
 
@@ -82,7 +82,7 @@ La explotación sistemática de la dispersión geométrica para caracterización
 > [!EXAMPLE] Evidencia empírica: Nazarian & Stokoe (1984) — origen del método
 > **Paper 003 (Nazarian & Stokoe 1984)** es el primer uso sistemático de la dispersión geométrica para caracterización in situ. Con solo dos geófonos y separaciones variables, midieron c_R(f) mediante cross-power spectrum y la invirtieron para obtener Vs(z).
 >
-> Esta demostración seminal (>3000 citas) estableció el principio que hoy sustentan todos los métodos de ondas superficiales: la frecuencia controla la profundidad de investigación vía dispersión geométrica.
+> Esta demostración seminal (>3000 citas) estableció el principio que hoy sustentan todos los métodos de [[Surface Waves|ondas superficiales]]: la frecuencia controla la profundidad de investigación vía dispersión geométrica.
 >
 > — Fuente: Research Database, entrada 003 (core).
 
