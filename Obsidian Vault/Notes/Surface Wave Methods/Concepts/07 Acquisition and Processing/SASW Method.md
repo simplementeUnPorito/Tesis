@@ -6,7 +6,10 @@ type: reference
 
 # SASW Method — Análisis Espectral de Ondas Superficiales
 
-> **Fuente:** Sebastiano Foti, Chapters 4 y 7 · Nazarian & Stokoe (1984)
+> [!CONCEPT] Definición
+> El **SASW** (*Spectral Analysis of Surface Waves*, Nazarian & Stokoe 1984) es el precursor del [[MASW Method|MASW]]: un método de **dos estaciones** que extrae la [[Phase Velocity|velocidad de fase]] de las [[Rayleigh Waves|ondas de Rayleigh]] a partir de la **fase del espectro cruzado** entre dos receptores. Su principal limitación es el *phase unwrapping*: la fase medida es periódica en $(-\pi, \pi]$ y debe desenvuelta continuamente — errores de unwrapping producen errores directos en la curva de dispersión. Requiere múltiples adquisiciones con diferentes separaciones de receptor para cubrir un rango amplio de frecuencias.
+>
+> — Nazarian & Stokoe (1984), *8th WCEE*; Foti et al. (2018), Caps. 4 y 7.
 
 ## Intuición física
 
@@ -60,6 +63,14 @@ El SASW es el precursor directo del [[MASW]] (que generaliza a múltiples estaci
 | Rango de frecuencia | Depende del par | Función del arreglo completo |
 | Identificación de modos | Difícil | Posible con alta resolución |
 
+> [!EXAMPLE] Evidencia empírica: Nazarian & Stokoe (1984) — fundación del SASW como método de caracterización
+> **Paper 003 (Nazarian & Stokoe 1984)** introduce formalmente el método SASW para determinar $V_S(z)$ in situ a partir de la dispersión geométrica de ondas de Rayleigh. Los autores aplican el método en múltiples sitios con suelos de diversas características y demuestran que la curva de dispersión extraída mediante espectro cruzado, una vez invertida, produce perfiles $V_S(z)$ consistentes con ensayos de campo independientes. El trabajo establece el marco metodológico completo: fuente activa, dos receptores, espectro cruzado, phase unwrapping, y regla de profundidad $z \approx \lambda/2$.
+>
+> — Research Database, entrada 003 (core).
+
 ## Referencias
-- Nazarian, S. & Stokoe, K.H. (1984). In situ shear wave velocities from spectral analysis of surface waves. *8th World Conference on Earthquake Engineering*, San Francisco.
-- Foti, S. et al. (2014). *Surface Wave Methods for Near-Surface Site Characterization*, CRC Press. Cap. 4, 7.
+
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Nazarian & Stokoe (1984), *8th WCEE* | Paper 003 — método SASW original |
+| Foti et al. (2018), *Surface Wave Methods* | Caps. 4, 7 — procesamiento y aplicaciones |

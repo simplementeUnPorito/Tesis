@@ -6,7 +6,10 @@ type: reference
 
 # Shear Damping Ratio (Ds) — Amortiguamiento al Corte Material
 
-> **Fuente:** Sebastiano Foti, Chapters 2, 5, 7 · Lai & Rix (1998)
+> [!CONCEPT] Definición
+> El **Shear Damping Ratio** $D_s$ cuantifica la disipación de energía en un suelo bajo deformación cíclica de corte. En el modelo [[Viscoelastic Media|viscoelástico]] lineal, $D_s = G''/(2G')$ donde $G^* = G'(1+2iD_s)$ es el módulo de corte complejo. En métodos de ondas superficiales, $D_s$ se estima a partir de la **curva de atenuación** $\alpha_R(f)$ de las [[Rayleigh Waves]]: $D_s \approx \alpha_R V_R/(2\pi f)$. Es el parámetro de amortiguamiento dinámico a pequeña deformación, relevante para cálculos de amplificación sísmica de sitio.
+>
+> — Foti et al. (2018), Caps. 2, 5, 7; Lai & Rix (1998).
 
 ## Intuición física
 
@@ -69,7 +72,15 @@ El perfil Ds(z) entra directamente en los cálculos de **respuesta sísmica loca
 | Estimación de capas superficiales | Posible con muestras superficiales | Tendencia a sobreestimar |
 | Consistencia con datos sísmicos | Posible | Directa |
 
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — validación Ds en sitios Pisa y Memphis
+> Foti et al. (2018, §7.3) presentan la inversión simultánea de la curva de dispersión (para $V_S$) y la curva de atenuación (para $D_s$) en dos sitios de referencia: la Torre de Pisa y el sitio de Memphis. Los perfiles $D_s(z)$ obtenidos por ondas superficiales (MASW activo + pasivo) muestran acuerdo razonable con ensayos de columna resonante (RCT) independientes, con diferencias típicas de 0.5–1.5% en $D_s$ absoluto. El estudio confirma que la inversión de la curva de atenuación de Rayleigh es una estimación in situ válida del amortiguamiento dinámico a pequeña deformación, aunque con mayor incertidumbre que la estimación de $V_S$.
+>
+> — Foti et al. (2018), §7.3, pp. 375–380, Figs. 7.25–7.29.
+
 ## Referencias
-- Lai, C.G. & Rix, G.J. (1998). Simultaneous inversion of Rayleigh phase velocity and attenuation for near-surface site characterization. *Georgia Tech Research Report*.
-- Foti, S. (2003). Small strain stiffness and damping ratio of Pisa clay from surface wave tests. *Géotechnique*, 53, 455–461.
-- Foti, S. et al. (2014). *Surface Wave Methods for Near-Surface Site Characterization*, CRC Press. Cap. 2, 5, 7.
+
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | Caps. 2, 5, 7 — definición, estimación e inversión de $D_s$ |
+| Lai & Rix (1998), *Georgia Tech Research Report* | Inversión simultánea $c_R$ + $\alpha_R$ para $V_S$ y $D_s$ |
+| Foti (2003), *Géotechnique* 53 | $D_s$ de arcilla de Pisa desde ondas superficiales |

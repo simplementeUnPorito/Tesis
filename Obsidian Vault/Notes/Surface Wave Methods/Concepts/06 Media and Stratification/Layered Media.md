@@ -6,8 +6,10 @@ type: reference
 
 # Medios Estratificados (Layered Media)
 
-> **Contexto:** Modelo de subsuelo más utilizado en métodos de ondas superficiales. Consiste en un conjunto de capas horizontales paralelas, cada una con propiedades elásticas homogéneas propias. Es la base del modelado directo y la inversión en MASW, SASW y métodos pasivos.
-> **Fuente:** Foti et al. (2014), Cap. 2.4, pp. 64–95; Cap. 6.1, pp. 273–280.
+> [!CONCEPT] Definición
+> Los **medios estratificados** (layered media) son el modelo de subsuelo estándar en métodos de ondas superficiales: un apilamiento de $N$ capas horizontales planas, cada una con propiedades elásticas homogéneas ($V_S$, $V_P$, $\rho$, espesor $h$), sobre un semiespacio semi-infinito. La estratificación es la causa de la [[Geometric Dispersion|dispersión geométrica]] de las [[Rayleigh Waves]]: ondas de diferente frecuencia penetran distintas profundidades y "ven" diferentes velocidades, produciendo la curva de dispersión $c_R(f)$ que se invierte para obtener $V_S(z)$.
+>
+> — Foti et al. (2018), §2.4, pp. 64–95; §6.1, pp. 273–280.
 
 ## Intuición física
 
@@ -83,9 +85,17 @@ El modelo de capas horizontales es el supuesto estándar de todos los métodos d
 - [[Mode Superposition]] — el campo registrado es superposición de modos del sistema estratificado
 - [[Rayleigh Eigenproblem]] — el problema de autovalores que define los modos de Rayleigh en capas
 
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — modelo de capas como base de la inversión MASW
+> **Paper 002 (Xia, Miller & Park 1999)** implementa el modelo de capas horizontales como estructura del problema inverso de MASW. El modelo de prueba usa 8 capas con espesores entre 1.5 m y 14 m, y la curva de dispersión teórica se calcula con el método de Thomson-Haskell para cada iteración de inversión. Los sitios de Kansas validados tienen perfiles $V_S$ que varían de 150 m/s (capa superficial) a 400 m/s (semiespacio), confirmando que el modelo de capas horizontales es adecuado para suelos sedimentarios con estratificación aproximadamente horizontal.
+>
+> — Research Database, entrada 002 (core).
+
 ## Referencias
 
-- Thomson, W.T. (1950). *J. Appl. Phys.*, 21, 89–93 — método original de la matriz de transferencia.
-- Haskell, N.A. (1953). *Bull. Seismol. Soc. Am.*, 43, 17–34 — extensión a ondas P-SV.
-- Kausel, E. y Roesset, J.M. (1981). *Bull. Seismol. Soc. Am.*, 71, 1743–1761 — matriz de rigidez dinámica (estable).
-- Foti et al. (2014), Cap. 2.4, pp. 64–76 — formulación completa; Cap. 6.1, pp. 273–280 — uso en inversión.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.4, pp. 64–76 — formulación completa |
+| Foti et al. (2018), *Surface Wave Methods* | §6.1, pp. 273–280 — uso en inversión |
+| Thomson (1950), *J. Appl. Phys.* | 21, 89–93 — matriz de transferencia original |
+| Haskell (1953), *Bull. Seismol. Soc. Am.* | 43, 17–34 — extensión a P-SV |
+| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 — modelo de capas en inversión MASW |

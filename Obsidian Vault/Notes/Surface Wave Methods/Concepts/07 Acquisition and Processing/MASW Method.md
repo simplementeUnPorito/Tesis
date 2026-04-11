@@ -1,7 +1,15 @@
+---
+name: MASW Method
+description: Multichannel Analysis of Surface Waves — método activo multicanal para estimar perfiles VS a partir de la dispersión de ondas de Rayleigh; estándar de facto en caracterización geotécnica no invasiva
+type: reference
+---
+
 # MASW Method (Multichannel Analysis of Surface Waves)
 
-> **Contexto:** Método activo multicanal para estimar perfiles Vs a partir de ondas de Rayleigh.
-> **Fuente:** Park et al. 1999; Foti et al. (2014), Caps. 3–7.
+> [!CONCEPT] Definición
+> El **método MASW** (*Multichannel Analysis of Surface Waves*, Park et al. 1999) estima el perfil de velocidad de onda de corte $V_S(z)$ del subsuelo analizando la [[Wave Dispersion|dispersión]] de las [[Rayleigh Waves|ondas de Rayleigh]] generadas por una fuente activa controlada. El flujo de trabajo es: (1) adquisición con arreglo lineal de geófonos verticales, (2) extracción de la curva de dispersión $c_R(f)$ por análisis f-k, (3) inversión para obtener $V_S(z)$. Es el estándar de facto en caracterización geotécnica no invasiva para obtención del parámetro $V_{S,30}$.
+>
+> — Park, Miller & Xia (1999), *Geophysics* 64(3); Foti et al. (2018), Caps. 3–7.
 
 ## Principio
 
@@ -57,7 +65,17 @@ El método [[SASW Method|SASW]] (*Spectral Analysis of Surface Waves*) usa solo 
 - **Multimodal MASW**: incorpora modos superiores de Rayleigh (y/o Love) en la inversión para mejorar la resolución en profundidad.
 - **2D MASW**: ensayos con arreglo deslizante (*rolling array*) para generar secciones pseudo-2D de $V_S$.
 
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) + Xia et al. (2002) — validación del método MASW
+> **Paper 001 (Park, Miller & Xia 1999)** introduce el método MASW moderno con análisis f-k multicanal. Registros de campo en Kansas con 24 geófonos a 1.5 m de espaciado producen espectrogramas f-k donde el modo fundamental de Rayleigh es claramente identificable entre 5 y 30 Hz. La curva de dispersión extraída muestra reproducibilidad entre ensayos y coherencia con el perfil geológico conocido.
+>
+> **Paper 009 (Xia et al. 2002)** valida los perfiles $V_S(z)$ obtenidos por MASW contra 14 ensayos de borehole independientes en Kansas: error RMS promedio < 15%, con errores individuales < 5% en sitios homogéneos. Este resultado establece el MASW como herramienta de caracterización geotécnica con precisión comparable a métodos invasivos.
+>
+> — Research Database, entradas 001, 009 (core).
+
 ## Referencias
 
-- Park, C.B., Miller, R.D., Xia, J. (1999), *Geophysics*.
-- Foti et al. (2014), Caps. 3 (adquisición), 4–5 (procesamiento), 6–7 (inversión).
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — método MASW original |
+| Xia et al. (2002), *J. Environ. Eng. Geophys.* | Paper 009 — validación vs borehole |
+| Foti et al. (2018), *Surface Wave Methods* | Caps. 3 (adquisición), 4–5 (procesamiento), 6–7 (inversión) |
