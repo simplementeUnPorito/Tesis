@@ -717,3 +717,20 @@ Añadir `[!CONCEPT]` (definición técnica con wikilinks) y `[!EXAMPLE]` (eviden
 - Pendientes Ch8: Cross-Gradient Function, Archie's Law, Wyllie Equation, Gardner Relations, Hidden Layer Problem, Green Function, Seismic Microzonation
 - Pendientes Ch4: Bessel Function, Radon Transform, MUSIC Algorithm, Arias Intensity
 - Continuar loop hasta 2026-04-13 08:00 AM
+
+### 2026-04-11 — iteración 76 (commits 339ee9f, 10f5577, 4734a5d) — 9 nuevos conceptos
+- `Concepts/02/Dirac Delta.md` — δ(t), propiedad de muestreo, fuente impulsiva ideal, tren de deltas, F{δ}=1 (1x Ch3)
+- `Concepts/02/Dirac Comb.md` — III_Δt(t), espectro periódico con réplicas, aliasing espacial si Δx>λmin/2, filtros antialiasing (1x Ch3)
+- `Concepts/02/Window Function.md` — tabla comparativa Hann/Hamming/Blackman/Tukey/Kaiser, compromiso ML-vs-sidelobes, ventaneo 2D en f-k MASW (1x Ch3)
+- `Concepts/02/Hamming Window.md` — (0.54,0.46), primer lóbulo -42.5 dB, no llega a cero en extremos, preferida para modos próximos (1x Ch3)
+- `Concepts/08/Condition Number.md` — κ=σmax/σmin, amplificación de error, kappa~10³-10⁵ en MASW, regularización reduce κ (1x Ch6)
+- `Concepts/08/Moore-Penrose Pseudoinverse.md` — J⁺=VΣ⁺Uᵀ, 4 condiciones, TSVD p valores singulares, filtros Tikhonov f_i=σ²/(σ²+λ²) (1x Ch6)
+- `Concepts/07/Seismic Microzonation.md` — VS30 NEHRP clases A-E, flujo MASW para microzonificación, Memphis 45 puntos ×15 factor costo (1x Ch8)
+- `Concepts/07/Signal Stacking.md` — SNR_stack=√N·SNR_single, stacking espectral con coherencia de fase, trigger<0.1 ms (1x Ch3)
+- `Concepts/06/Green Function.md` — G(x,t;x₀,τ), Lamb problem campo lejano, reciprocidad, interferometría Wapenaar 2004 (1x Ch8)
+
+**Estado: 130 archivos en Concepts/. Wikilinks rotos reales restantes: ~14.**
+- Pendientes Ch6: Total Variation Regularization (1x)
+- Pendientes Ch8: Cross-Gradient Function, Archie's Law, Wyllie Equation, Gardner Relations, Hidden Layer Problem (1x c/u)
+- Pendientes Ch4: Bessel Function, Radon Transform, MUSIC Algorithm, Arias Intensity (1x c/u)
+- Continuar loop hasta 2026-04-13 08:00 AM
