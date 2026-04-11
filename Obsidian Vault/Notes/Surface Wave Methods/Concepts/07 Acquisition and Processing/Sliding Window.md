@@ -51,3 +51,4 @@ Una discontinuidad lateral abrupta (por ejemplo, un relleno sobre roca o una fal
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | Cap. 7, §7.5, pp. 384–392 — MASW rolling y secciones 2D |
 | Park et al. (2002), *Geophysics* | Extensión del MASW a perfiles 2D mediante arreglo deslizante |
+| Hayashi & Suzuki (2004), *Exploration Geophysics* 35:7–13 | Paper 040 — CMP cross-correlation para perfiles 2D de alta resolución; procesamiento en 4 pasos |

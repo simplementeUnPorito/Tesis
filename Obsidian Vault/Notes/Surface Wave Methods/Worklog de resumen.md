@@ -784,3 +784,19 @@ Añadir `[!CONCEPT]` (definición técnica con wikilinks) y `[!EXAMPLE]` (eviden
 - El vault es un grafo completamente conectado y bidireccional
 
 **Estado del vault**: Completado. Continuar loop verificando calidad de contenido y coherencia conceptual.
+
+### 2026-04-11 — iteración 79 (commits f591cce–006e0dc) — Fase 7+ enriquecimiento con papers de la DB
+
+**Objetivo**: Integrar papers core de la research database que no estaban referenciados en concepts
+
+**Enrichment de conceptos** (9 conceptos mejorados):
+- `Radon Transform.md`: +HRLRT Luo et al. 2009 (Paper 039) — separación modal >50% mejora vs slant stack
+- `Vs30.md`: +Boore 2004 (Paper 044) extrapolación desde perfiles someros; +Eurocode 8 para clasificación
+- `Non-uniqueness.md`: +Griffiths et al. 2016 (Paper 047) ensemble Monte Carlo vs perfiles estadísticos
+- `Surface Wave Modes.md`: +Socco, Foti & Boiero 2010 (Paper 033, 462 citas) — solo 33% incluye modos superiores; +Xia et al. 2003 (Paper 025, 448 citas) inversión multimodal
+- `MASW Method.md`: +Long & Donohue 2007 (Paper 035) sesgo +10% en Noruega; +Tabla 1 Park 2002 (Paper 026) parámetros óptimos de campo
+- `Mode Superposition.md`: +Tokimatsu et al. 1992 (Paper 031, 352 citas) — fundamento teórico de modos superiores
+- `2D Fourier Transform.md`: +Park, Miller & Xia 1998 (Paper 023, 761 citas) — phase-shift algorithm
+- `Sliding Window.md`: +Hayashi & Suzuki 2004 (Paper 040) — CMP cross-correlation para perfiles 2D
+
+**Estado**: 144 conceptos, 0 wikilinks rotos, 0 huérfanos, pappers DB representados: 44/52 (~85%)
