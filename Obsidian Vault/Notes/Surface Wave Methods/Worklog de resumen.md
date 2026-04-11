@@ -91,6 +91,19 @@
 
 ## Historial de iteraciones
 
+### 2026-04-11 — iteración 44 de loop (INVESTIGADOR — Rayleigh Waves reescrita + callouts en Elasticity, Elastic Half Space, Group Velocity)
+- **Estado:** VÁLIDA.
+- **Acción realizada:**
+  - `Rayleigh Waves.md` — **reescritura completa**: eliminados marcadores `[2,20]`, añadido H1, `[!CONCEPT]`, tabla $c_R/V_S$ vs $\nu$, sección de decaimiento, dispersión en estratificado, `[!NOTE]` implicación Poisson, `[!EXAMPLE]` Papers 001+009, sección de relaciones con 10 wikilinks, fuentes en tabla.
+  - `Elasticity.md` — `[!CONCEPT]` + 4 wikilinks nuevos + `[!EXAMPLE]` Paper 002 (Jacobiano basado en elasticidad lineal) + tabla de fuentes.
+  - `Elastic Half Space.md` — `> **Contexto:**` → `[!CONCEPT]` + `[!EXAMPLE]` Paper 002 (ecuación secular como base de inversión MASW) + tabla de fuentes.
+  - `Group Velocity.md` — `> **Contexto:**` → `[!CONCEPT]` + `[!EXAMPLE]` Paper 043 (Forbriger 2003 — estiramiento temporal por $c_g$) + sección de relaciones + tabla de fuentes.
+- **Conceptos modificados:** 4
+- **Papers vinculados:** 001, 002, 009, 043
+- **Pendiente:** 26 conceptos sin callout en carpetas 00–04 restantes.
+- **Commit:** rama `investigador-loop`
+- **Fecha y hora:** 2026-04-11 02:20 UTC
+
 ### 2026-04-11 — iteración 43 de loop (INVESTIGADOR — callouts en Phase Velocity, Dispersion Relation, Attenuation, Wave)
 - **Estado:** VÁLIDA.
 - **Acción realizada:** Conversión de bloques `> **Contexto:**` a `> [!CONCEPT]` estándar Obsidian + adición de `> [!EXAMPLE]` con evidencia empírica en 4 conceptos clave:

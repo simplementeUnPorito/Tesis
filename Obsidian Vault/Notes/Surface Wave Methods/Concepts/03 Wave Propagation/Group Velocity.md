@@ -6,8 +6,10 @@ type: reference
 
 # Velocidad de Grupo (Group Velocity)
 
-> **Contexto:** La velocidad de grupo $c_g = d\omega/dk$ describe la velocidad a la que se propaga la envolvente (paquete de energía) de una onda dispersiva. En sismología, es directamente observable como la velocidad de llegada del tren de ondas; en métodos MASW, es menos utilizada que la [[Phase Velocity|velocidad de fase]] pero fundamental para entender el comportamiento temporal de los registros.
-> **Fuente:** Foti et al. (2014), Cap. 2.1.2, pp. 41–43; Cap. 4.1, pp. 206–208.
+> [!CONCEPT] Definición
+> La **velocidad de grupo** $c_g = d\omega/dk$ es la velocidad de propagación de la envolvente de un paquete de ondas — es decir, la velocidad de transporte de energía. En medios [[Wave Dispersion|dispersivos]], $c_g \neq c_p$ ([[Phase Velocity]]): el paquete se deforma al propagarse porque sus componentes frecuenciales viajan a velocidades distintas. En sismología global la velocidad de grupo es directamente observable; en [[MASW Method|MASW]] near-surface, $c_p$ es el observable primario aunque $c_g$ controla el *moveout* temporal del ground-roll.
+>
+> — Foti et al. (2018), §2.1.2, pp. 41–43; §4.1, pp. 206–208.
 
 ## Intuición física
 
@@ -65,7 +67,23 @@ En métodos MASW estándar, el análisis f-k extrae $c_p$. La velocidad de grupo
 - Para métodos que analizan la **forma de onda** directamente (como la inversión de forma de onda completa), $c_g$ es tan relevante como $c_p$.
 - En el método de análisis MASW con ventana temporal de análisis, conviene asegurarse de que la ventana capture el tren completo de ondas superficiales — cuyo tamaño temporal depende de $c_g$ y la dispersión del arreglo.
 
+> [!EXAMPLE] Evidencia empírica: Forbriger (2003) — inversión de forma de onda usando c_g
+> **Paper 043 (Forbriger 2003)** propone invertir directamente la transformada de onda superficial incluyendo tanto $c_p$ como $c_g$ implícitamente. El análisis muestra que los registros sísmicos dispersivos tienen una firma temporal característica controlada por $c_g$: a mayor dispersión (mayor variación $c_R(f)$), mayor estiramiento temporal del tren de ondas. Ignorar $c_g$ en el diseño de la ventana de análisis puede truncar el tren de ondas e introducir sesgo en la curva de dispersión a bajas frecuencias.
+>
+> — Research Database, entrada 043 (core).
+
+## Relaciones con otros conceptos
+
+- [[Phase Velocity]] — velocidad de fase; $c_g \neq c_p$ en medios dispersivos
+- [[Dispersion Relation]] — $c_g = d\omega/dk$; $c_p = \omega/k$
+- [[Wave Dispersion]] — condición para que $c_g \neq c_p$
+- [[Rayleigh Waves]] — en medios normalmente dispersivos: $c_g < c_p$
+- [[Wave Superposition]] — derivación de $c_g$ por superposición de dos ondas
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.1.2, pp. 41–43, Ec. 2.13 — derivación de $c_g$ para superposición de dos ondas.
-- Foti et al. (2014), Cap. 4.1, pp. 206–208 — relación entre $c_p$ y $c_g$ en el contexto de métodos de ondas superficiales.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.2, pp. 41–43, Ec. 2.13 |
+| Foti et al. (2018), *Surface Wave Methods* | §4.1, pp. 206–208 |
+| Forbriger (2003), *GJI* | Paper 043 |

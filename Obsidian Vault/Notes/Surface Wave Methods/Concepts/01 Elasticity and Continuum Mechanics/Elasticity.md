@@ -1,5 +1,12 @@
 # Elasticity
 
+> [!CONCEPT] Definición
+> La **elasticidad** es la rama de la mecánica del continuo que estudia la deformación reversible de materiales bajo la acción de fuerzas. En un medio elástico ideal, la deformación desaparece completamente al retirar la carga — no hay disipación de energía. Las ecuaciones de Navier, derivadas de la ley de Hooke generalizada y la conservación de momento, gobiernan la propagación de [[Body Waves]] y [[Surface Waves]] y son la base teórica de todos los métodos sísmicos.
+>
+> — Foti et al. (2018), §2.1.1, pp. 38–41; Achenbach (1984), *Wave Propagation in Elastic Solids*.
+
+---
+
 ## 1. Concepto
 
 La **elasticidad** es la rama de la mecánica del continuo que estudia cómo los materiales se deforman bajo la acción de fuerzas y cómo recuperan su forma original cuando dichas fuerzas desaparecen.
@@ -173,3 +180,20 @@ dependen directamente de las constantes elásticas del material.
 - [[Linear Waves]]
 - [[Body Waves]]
 - [[Surface Waves]]
+- [[Rayleigh Waves]]
+- [[Elastic Half Space]]
+- [[Layered Media]]
+- [[Hyperbolic Partial Differential Equations]]
+
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — elasticidad lineal como base del problema directo MASW
+> **Paper 002 (Xia, Miller & Park 1999)** implementa el problema directo de propagación de Rayleigh Waves sobre la base de las ecuaciones de Navier en cada capa elástica lineal isotrópica. El Jacobiano analítico $\partial V_R / \partial V_S$ (núcleo del algoritmo de inversión) se deriva directamente de la teoría de elasticidad lineal, lo que hace posible la inversión en < 10 iteraciones con convergencia garantizada. La validez de la aproximación elástica lineal queda confirmada por el acuerdo con borehole en múltiples sitios.
+>
+> — Research Database, entrada 002 (core).
+
+## Fuentes
+
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.1, pp. 38–41 |
+| Achenbach, J.D. (1984), *Wave Propagation in Elastic Solids*, North-Holland | Cap. 1–3 |
+| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 |

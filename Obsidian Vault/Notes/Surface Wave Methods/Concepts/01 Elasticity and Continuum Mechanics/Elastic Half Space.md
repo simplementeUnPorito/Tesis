@@ -6,8 +6,10 @@ type: reference
 
 # Semiespacio Elástico (Elastic Half Space)
 
-> **Contexto:** Modelo idealizado de subsuelo consistente en un medio elástico, lineal, isotrópico y homogéneo que ocupa el semi-espacio $z \geq 0$ (superficie libre en $z = 0$). Es el punto de partida teórico de la teoría de ondas superficiales y el caso más simple en que las [[Rayleigh Waves]] existen.
-> **Fuente:** Foti et al. (2014), Cap. 2.2, pp. 50–62.
+> [!CONCEPT] Definición
+> El **semiespacio elástico** es el modelo idealizado de subsuelo más simple: un medio [[Elasticity|elástico]], lineal, isotrópico y homogéneo que ocupa $z \geq 0$ con superficie libre en $z = 0$. Es el punto de partida teórico de la teoría de ondas superficiales y el caso en que las [[Rayleigh Waves]] existen en su forma más pura — **no dispersivas**, velocidad constante $c_R \approx 0.919\,V_S$ para $\nu = 0.25$.
+>
+> — Foti et al. (2018), §2.2, pp. 50–62; Lord Rayleigh (1885).
 
 ## Intuición física
 
@@ -86,7 +88,17 @@ El semiespacio elástico es una idealización: ningún suelo real es perfectamen
 - La diferencia entre la curva de dispersión experimental y la velocidad constante del semiespacio equivalente **cuantifica la heterogeneidad** del perfil.
 - Los **métodos de inversión empírica** usan la relación $V_S \approx V_R/0.92$ como primera estimación antes de una inversión formal (véase [[Inversión]]).
 
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — uso de la ecuación secular en inversión MASW
+> **Paper 002 (Xia, Miller & Park 1999)** usa la ecuación secular del semiespacio generalizada al caso estratificado (Thomson-Haskell) como núcleo del problema directo de inversión. La relación $V_S \approx V_R/0.919$ sirve como estimación inicial del modelo antes de la inversión iterativa — primera aproximación derivada directamente del semiespacio homogéneo.
+>
+> Los sitios de validación en Kansas confirman que la ecuación secular del semiespacio estratificado predice $c_R(f)$ con precisión suficiente para recuperar $V_S(z)$ con error < 15% respecto a borehole.
+>
+> — Research Database, entrada 002 (core).
+
 ## Referencias
 
-- Lord Rayleigh (1885). *Proc. London Math. Soc.*, 17, 4–11 — predicción teórica original.
-- Foti et al. (2014), Cap. 2.2, pp. 50–62, Ecs. 2.36–2.46 — derivación completa incluyendo eigenfunciones y Fig. 2.15.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Lord Rayleigh (1885), *Proc. London Math. Soc.* | 17, 4–11 |
+| Foti et al. (2018), *Surface Wave Methods* | §2.2, pp. 50–62, Ecs. 2.36–2.46 |
+| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 |
