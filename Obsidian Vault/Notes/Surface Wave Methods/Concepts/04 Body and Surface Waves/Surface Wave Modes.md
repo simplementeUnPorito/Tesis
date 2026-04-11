@@ -71,10 +71,12 @@ donde $\psi$ es la fase del campo total. En medios normalmente dispersivos, la c
    - Inversión multimodal: se incluyen varias curvas modales en la función de desajuste, lo que constraña mejor el perfil de $V_S$ a mayor profundidad.
    - *Determinant misfit* (Maraschini et al. 2010): evita asignar a priori puntos experimentales a modos específicos; evalúa la función secular directamente en los puntos experimentales.
 
-> [!EXAMPLE] Evidencia empírica: Maraschini & Foti (2010) — inversión multimodal sin identificación previa
+> [!EXAMPLE] Evidencia empírica: Maraschini & Foti (2010) + Socco, Foti & Boiero (2010)
 > **Paper 034 (Maraschini & Foti 2010)** introduce el *determinant misfit* como función de desajuste que evalúa el determinante de la matriz de Thomson-Haskell directamente en los puntos experimentales del espectro f-k, sin necesidad de asignar cada punto a un modo específico. Este enfoque elimina el problema de identificación de modos — el principal obstáculo en sitios con fuertes contrastes de velocidad donde las curvas modales se oscilan. La validación en el sitio La Salle (Italia) demuestra que el perfil $V_S(z)$ recuperado con esta función es más robusto que el obtenido forzando la inversión en modo fundamental cuando los modos superiores son activos.
 >
-> — Research Database, entrada 034 (core).
+> **Paper 033 (Socco, Foti & Boiero 2010, Geophysics, 462 citas)** — revisión de 200+ publicaciones sobre métodos de ondas superficiales: solo ~33% de los trabajos incluyen modos superiores en la inversión, a pesar de que son relevantes en un alto porcentaje de sitios de ingeniería. Los modos superiores son especialmente importantes cuando VS aumenta monotónicamente con la profundidad (perfil normalmente dispersivo) y se requiere resolución profunda. La curva de dispersión aparente puede estar dominada por modos superiores a frecuencias donde el fundamental pierde energía relativa.
+>
+> — Research Database, entradas 034 y 033 (core).
 
 ## Referencias
 
@@ -82,3 +84,4 @@ donde $\psi$ es la fase del campo total. En medios normalmente dispersivos, la c
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | §2.4, pp. 64–95 — curvas modales y eigenfunciones |
 | Maraschini & Foti (2010), *Geophysics* | Paper 034 — determinant misfit multimodal |
+| Socco, Foti & Boiero (2010), *Geophysics* | Paper 033 — revisión: solo 33% publica modos superiores; 462 citas |

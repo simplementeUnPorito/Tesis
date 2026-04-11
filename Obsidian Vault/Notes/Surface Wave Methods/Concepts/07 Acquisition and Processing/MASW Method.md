@@ -70,12 +70,15 @@ El método [[SASW Method|SASW]] (*Spectral Analysis of Surface Waves*) usa solo 
 >
 > **Paper 009 (Xia et al. 2002)** valida los perfiles $V_S(z)$ obtenidos por MASW contra 14 ensayos de borehole independientes en Kansas: error RMS promedio < 15%, con errores individuales < 5% en sitios homogéneos. Este resultado establece el MASW como herramienta de caracterización geotécnica con precisión comparable a métodos invasivos.
 >
-> — Research Database, entradas 001, 009 (core).
+> **Paper 035 (Long & Donohue 2007, CGJ, 76 citas)** — 8 sitios de investigación geotécnica en Noruega (arcillas, limos, arenas) con geófonos 4.5 Hz y 10 Hz a 1 m de espaciado (RAS-24 Seistronix, setup equivalente al de la tesis). MASW sobreestima Vs ~10% respecto a SCPT y crosshole en arcillas; en arenas sueltas la sobreestimación puede ser mayor. Los perfiles Gmax = ρVs² tienen buena correlación con contenido de agua e índice de vacíos. Conclusión clave: MASW es rápido, repetible y consistente, con un sesgo sistemático de +10% que debe considerarse en la interpretación.
+>
+> — Research Database, entradas 001, 009, 035 (core).
 
 ## Referencias
 
 | Fuente | Sección / Página |
 |--------|-----------------|
 | Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — método MASW original |
-| Xia et al. (2002), *J. Environ. Eng. Geophys.* | Paper 009 — validación vs borehole |
+| Xia et al. (2002), *J. Environ. Eng. Geophys.* | Paper 009 — validación vs borehole, error < 15% |
+| Long & Donohue (2007), *Canadian Geotechnical Journal* | Paper 035 — 8 sitios noruegos; sesgo +10% vs SCPT/crosshole |
 | Foti et al. (2018), *Surface Wave Methods* | Caps. 3 (adquisición), 4–5 (procesamiento), 6–7 (inversión) |
