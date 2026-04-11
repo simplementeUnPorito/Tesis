@@ -79,6 +79,16 @@ El método [[SASW Method|SASW]] (*Spectral Analysis of Surface Waves*) usa solo 
 >
 > — Research Database, entradas 001, 009, 035 (core).
 
+> [!EXAMPLE] Evidencia empírica: Lima Júnior et al. (2012) — MASW en suelos tropicales residuales, Brasil
+> **Paper 028 (Lima Júnior, Prado & Mendes 2012, Rev. Bras. Geofísica 30(2):213–224)** aplica MASW en suelos tropicales residuales no saturados (regolito granítico-gnéisico) en ladera de Ubatuba, São Paulo (Brasil), con tres frecuencias de geófono simultáneas (4.5 Hz, 14 Hz, 28 Hz) para comparación experimental. Resultado clave: **geófonos de 4.5 Hz proporcionan la mayor profundidad de investigación** y mejor respuesta a bajas frecuencias — validando la elección para la presente tesis. El offset mínimo óptimo (~10 m) confirma experimentalmente el criterio de Park et al. 2002 en contexto tropical. Adicionalmente, los autores documentan una **variación estacional de Vs** (temporada seca > lluviosa) atribuida a la succión capilar en suelos no saturados — resultado directamente relevante para Paraguay con su régimen pluviométrico marcado.
+>
+> — Research Database, entrada 028 (core); Lima Júnior et al. (2012), *Rev. Bras. Geofísica* 30(2):213–224.
+
+> [!EXAMPLE] Evidencia empírica: Alhuay-León & Trejo-Noreña (2021) — MASW+SPT en arenas eólicas, Perú
+> **Paper 016 (Alhuay-León & Trejo-Noreña 2021, DYNA 88(217):247–255, 4 citas)** aplica MASW activo con 24 geófonos de 4.5 Hz (Geometrics Geode 24 canales) y martillo 25 lb en arenas eólicas de Olmos, Lambayeque (Perú) — zona de máxima sismicidad peruana (PGA 0.45g). Los perfiles VS obtenidos generan correlaciones empíricas con el SPT: $V_S = 65.5 \cdot N_{60}^{0.33}$ y $V_S = 21.6 \cdot N_{60}^{0.38} \cdot (\sigma'_v)^{0.24}$. El estudio confirma que con el mismo equipamiento básico candidato para la tesis (Geode 24-ch + 4.5 Hz + martillo) es posible caracterizar sísmicamente suelos granulares secos en contexto latinoamericano de recursos limitados, obteniendo VS30 en el rango Clase D (180–360 m/s). Es un **precedente sudamericano directo** del hardware y protocolo propuesto.
+>
+> — Research Database, entrada 016 (core); Alhuay-León & Trejo-Noreña (2021), *DYNA* 88(217):247–255.
+
 ## Referencias
 
 | Fuente | Sección / Página |
@@ -87,4 +97,6 @@ El método [[SASW Method|SASW]] (*Spectral Analysis of Surface Waves*) usa solo 
 | Xia et al. (2002), *J. Environ. Eng. Geophys.* | Paper 009 — validación vs borehole, error < 15% |
 | Long & Donohue (2007), *Canadian Geotechnical Journal* | Paper 035 — 8 sitios noruegos; sesgo +10% vs SCPT/crosshole |
 | Park, Miller & Miura (2002), SEG-J abstract | Paper 026 — guía de parámetros óptimos de campo (Tabla 1) |
+| Lima Júnior et al. (2012), *Rev. Bras. Geofísica* 30(2):213–224 | Paper 028 — MASW tropical Brasil; geófonos 4.5 Hz óptimos |
+| Alhuay-León & Trejo-Noreña (2021), *DYNA* 88(217):247–255 | Paper 016 — MASW+SPT Perú; precedente sudamericano 4.5 Hz |
 | Foti et al. (2018), *Surface Wave Methods* | Caps. 3 (adquisición), 4–5 (procesamiento), 6–7 (inversión) |

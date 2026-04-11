@@ -18,7 +18,21 @@
 - Página final aproximada: 20
 - Pendiente Chapter 1: ninguno — capítulo en estado comparable al resto del vault
 
-## Conceptos creados o actualizados en la última iteración
+## Conceptos creados o actualizados en la última iteración (iteración 80 — 2026-04-11)
+- **Fase 7+ (enriquecimiento base de datos)**: integrados 14 papers antes no referenciados en 10 conceptos existentes
+  - `HVSR.md` — Papers 018 (Lermo 1993, BSSA, 1103 citas) + 049 (Bonnefoy 2009, GJI, Santiago de Chile)
+  - `Vs30.md` — Papers 021 (Uma Maheswari 2010, Chennai India, correlación VS-SPT) + 050 (Wald & Allen 2007, BSSA, 861 citas, VS30 desde topografía)
+  - `ReMi Method.md` — Papers 036 (Stephenson 2005, BSSA, 141 citas, comparación ciega 200m) + 048 (Park & Miller 2008, JEEG, 152 citas, Roadside Passive MASW)
+  - `MASW Method.md` — Papers 028 (Lima Júnior 2012, suelos tropicales Brasil, 4.5 Hz óptimos) + 016 (Alhuay-León 2021, DYNA Perú, arenas eólicas, precedente sudamericano)
+  - `Regularization.md` — Paper 051 (Cox & Teague 2016, GJI, 115 citas, Layering Ratios sin a priori)
+  - `Monte Carlo Methods.md` — Paper 037 (Bergamo 2011, SDEE, inversión multimodal MC sin asignación previa)
+  - `Sliding Window.md` — Papers 030 (Miller 1999, The Leading Edge, 462 citas, CMP roll-along bedrock) + 011 (Xia 2004, SEG, inversión generalizada 2D)
+  - `2D Fourier Transform.md` — Paper 022 (Ólafsdóttir 2018, CGJ, MASWaves phase-shift, validación Geopsy)
+  - `Seismic Microzonation.md` — Paper 020 (Moya-Gutiérrez 2020, UNAL Colombia, MASW+TRS+SEV+SPT)
+  - `Mode Superposition.md` — Paper 032 (Eikmeier 2018, IAG-USP dissertação, activo/pasivo/Love/modos)
+- **Papers pendientes de la DB** (aún sin referencia en vault): 038 (Shapiro 2004, peripheral), ninguno más
+
+## Conceptos creados o actualizados en iteraciones anteriores
 - **Tercera fase**: creados 6 conceptos nuevos en Concepts/
   - `Concepts/08 Inversion and Interpretation/HVSR.md` — principio, singularidades f_H/f_V, f₀ = Vs/4H, SESAME 2004, inversión, limitaciones
   - `Concepts/07 Acquisition and Processing/Seismic Interferometry.md` — cross-correlación, función de Green, correlogram gather, puntos estacionarios, interferograma vs ReMi, hipótesis difuso, limitaciones

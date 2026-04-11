@@ -57,6 +57,16 @@ La **inversión conjunta de curvas de dispersión + H/V** es más robusta que ca
 - La hipótesis de campo difuso isótropo puede no cumplirse en entornos urbanos con fuentes de ruido direccionales.
 - La identificación del pico requiere criterios de calidad (SESAME 2004): al menos dos picos claros en la mitad del rango de frecuencias de interés.
 
+> [!EXAMPLE] Evidencia empírica: Lermo & Chávez-García (1993) — validación HVSR con registros de terremoto
+> **Paper 018 (Lermo & Chávez-García 1993, BSSA 83(5):1574–1594, 1103 citas)** proporciona la primera validación sistemática del método HVSR usando registros reales de terremoto en tres ciudades mexicanas (Oaxaca, Acapulco y Ciudad de México). Aplicando la razón H/V a la fase S de los registros, los autores reproducen cuantitativamente la función de transferencia empírica del sitio (*Standard Spectral Ratio*, SSR) obtenida con estación de referencia en roca — sin necesidad de dicha referencia. La concordancia entre H/V y SSR en los tres sitios valida que la técnica captura la respuesta fundamental del sitio de forma fiable. En Ciudad de México (zona lacustre, suelo muy blando), el pico H/V a ~0.5 Hz coincide con el período dominante de amplificación conocido. El estudio establece que la razón H/V de la onda S puede sustituir al SSR para evaluación rápida de efecto de sitio de primer orden, siendo particularmente valioso en regiones sin estación de referencia en roca.
+>
+> — Research Database, entrada 018 (core); Lermo & Chávez-García (1993), *Bull. Seismol. Soc. Am.* 83(5):1574–1594.
+
+> [!EXAMPLE] Evidencia empírica: Bonnefoy-Claudet et al. (2009) — HVSR en cuenca sedimentaria de Santiago de Chile
+> **Paper 049 (Bonnefoy-Claudet et al. 2009, GJI 176(3):925–937, 132 citas)** realiza mediciones extensas de HVSR en toda la cuenca sedimentaria urbana de Santiago de Chile. Las razones H/V analizadas según criterios SESAME revelan tres patrones espaciales: picos nítidos (zonas con alto contraste de impedancia suelo/roca), curvas planas (zonas sin contraste significativo) y picos anchos (variaciones laterales de estructura). Las frecuencias de resonancia $f_0$ cartografiadas desde 0.5 Hz (zona central, sedimentos profundos) hasta >5 Hz (borde oriente, roca próxima a superficie) coinciden con el patrón de daños históricos en terremotos. El estudio demuestra que HVSR es una herramienta confiable para microzonificación sísmica en cuencas sedimentarias urbanas complejas de Sudamérica, con instrumentación mínima y sin fuente activa.
+>
+> — Research Database, entrada 049 (core); Bonnefoy-Claudet et al. (2009), *Geophys. J. Int.* 176(3):925–937.
+
 > [!EXAMPLE] Evidencia empírica: Garofalo et al. (2016) — HVSR como dato complementario en InterPACIFIC
 > **Papers 006+007 (Garofalo et al. 2016a/b)** incluyen mediciones HVSR en los 3 sitios del estudio InterPACIFIC como dato complementario a los métodos de ondas superficiales (MASW, ReMi, SPAC). Los resultados muestran que el pico H/V coincide con la frecuencia fundamental inferida de los perfiles $V_S(z)$ del borehole en los sitios donde el contraste de impedancia es alto (Mirandola: $f_0 \approx 0.5$ Hz, sedimentos blandos sobre roca a >150 m). La concordancia confirma el uso de HVSR para verificar independientemente la frecuencia de resonancia del sitio. Sin embargo, la inversión conjunta HVSR + curva de dispersión muestra mejora en el condicionamiento del problema inverso en los sitios con alta no-unicidad, consistente con el resultado de Parolai et al. (2005).
 >
@@ -68,5 +78,7 @@ La **inversión conjunta de curvas de dispersión + H/V** es más robusta que ca
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | Cap. 8.5.2–8.5.4, pp. 430–440 — HVSR e inversión conjunta |
 | Nakamura (1989), *QR of RTRI* | Propuesta original HVSR como función de transferencia |
+| Lermo & Chávez-García (1993), *BSSA* 83(5):1574–1594 | Paper 018 — validación HVSR con terremotos; 1103 citas |
 | SESAME Project (2004) | Guías para implementación del método H/V |
+| Bonnefoy-Claudet et al. (2009), *GJI* 176(3):925–937 | Paper 049 — HVSR cuenca sedimentaria Santiago de Chile; 132 citas |
 | Garofalo et al. (2016a/b) | Papers 006, 007 — HVSR en InterPACIFIC |

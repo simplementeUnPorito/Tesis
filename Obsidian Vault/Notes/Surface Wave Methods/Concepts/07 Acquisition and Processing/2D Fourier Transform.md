@@ -55,6 +55,11 @@ El espectrograma $|U(\omega, k)|$ se analiza para identificar las crestas que co
 >
 > — Research Database, entrada 001 (core); Park, Miller & Xia (1999), *Geophysics* 64(3).
 
+> [!EXAMPLE] Evidencia empírica: Ólafsdóttir et al. (2018) — MASWaves: validación del phase-shift en 3 sitios islandeses
+> **Paper 022 (Ólafsdóttir, Erlingsson & Bessason 2018, CGJ 55(2):217–233)** presenta la herramienta open-source MASWaves (MATLAB) que implementa el phase-shift de Park et al. (1998) para extracción de curvas de dispersión con bandas de incertidumbre. Validada en 3 sitios de Islandia (Arnarbæli, Bakkafjara, Hella) con 24 geófonos GS-11D de 4.5 Hz y sledgehammer, los espectrogramas f-k obtenidos con MASWaves son **equivalentes a los de Geopsy** (software de referencia europea) en los mismos datos. La herramienta documentada incluye datos de muestra, guía de usuario y código fuente libre (también disponible en Python como MASWavesPy). Relevancia directa: mismo hardware que la presente tesis (4.5 Hz geophones); herramienta libre lista para aplicar sin software comercial.
+>
+> — Research Database, entrada 022 (core); Ólafsdóttir et al. (2018), *Can. Geotech. J.* 55(2):217–233.
+
 ## Referencias
 
 | Fuente | Sección / Página |
@@ -62,3 +67,4 @@ El espectrograma $|U(\omega, k)|$ se analiza para identificar las crestas que co
 | Foti et al. (2018), *Surface Wave Methods* | Cap. 4, §4.2, pp. 195–215 — análisis f-k completo |
 | Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — 2D FFT como estándar MASW |
 | Park, Miller & Xia (1998), SEG abstract | Paper 023 — algoritmo phase-shift, 761 citas; base de MASWaves y SurfSeis |
+| Ólafsdóttir et al. (2018), *CGJ* 55(2):217–233 | Paper 022 — MASWaves phase-shift; validación Geopsy en 3 sitios islandeses |

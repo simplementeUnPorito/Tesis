@@ -40,6 +40,11 @@ La resolución lateral del MASW rolling depende de:
 
 Una discontinuidad lateral abrupta (por ejemplo, un relleno sobre roca o una falla) aparece "suavizada" en la sección 2D con una zona de transición de ancho ~$D$.
 
+> [!EXAMPLE] Evidencia empírica: Miller et al. (1999) — 2D MASW vía CMP roll-along para mapeo de bedrock
+> **Paper 030 (Miller, Xia, Park & Ivanov 1999, The Leading Edge, 462 citas)** introduce el perfil 2D de VS mediante adquisición CMP roll-along: un arreglo de 48 canales (geófonos 4.5 Hz Geospace GS11D, espaciado 2 ft = 0.6 m) con sismógrafo de 60 canales Geometrics StrataView registra múltiples disparos desplazados en increments de 4 ft en el sitio contaminado de Olathe (Kansas). Para cada posición CMP se extrae una curva de dispersión y se invierte un perfil 1D que luego se yuxtapone lateralmente para generar la sección 2D. El mapa de bedrock resultante muestra acuerdo < 1 ft con perforaciones independientes en un rango de profundidad 0.6–10.7 m. La ventaja respecto al MASW 1D convencional es la resolución lateral detallada, comparable a la sísmica de reflexión pero sin sus limitaciones de inversiones de velocidad. Este trabajo es el antecedente directo de la técnica de ventana deslizante moderna.
+>
+> — Research Database, entrada 030 (core); Miller et al. (1999), *The Leading Edge* 18(12):1402–1407.
+
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — MASW rolling y ground-roll en la sección 2D de VS
 > Foti et al. (2018, §7.5, Figs. 7.33–7.36) presentan el análisis de [[Ground Roll|ground-roll]] de datos de reflexión sísmica en el sitio La Salle mediante ventana deslizante: el sismograma de reflexión (kilométrico) se divide en ventanas de $\sim$50 m de longitud con incrementos de 5 m. Para cada ventana se extrae una curva de dispersión y se invierte con inversión lateralmente restringida. La sección pseudo-2D de $V_S$ resultante (Fig. 7.35) muestra variaciones laterales suaves entre 200–400 m/s en los primeros 30 m, con mayor detalle en las heterogeneidades laterales respecto a una sección de inversión 1D sin restricciones. La superposición con la sección de reflexión (Fig. 7.36) confirma que las variaciones de $V_S$ correlacionan con las unidades estratigráficas visibles en los reflectores.
 >
@@ -50,5 +55,7 @@ Una discontinuidad lateral abrupta (por ejemplo, un relleno sobre roca o una fal
 | Fuente | Sección / Página |
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | Cap. 7, §7.5, pp. 384–392 — MASW rolling y secciones 2D |
+| Miller et al. (1999), *The Leading Edge* 18(12):1402–1407 | Paper 030 — 2D MASW CMP roll-along; mapeo bedrock Olathe Kansas; 462 citas |
+| Xia et al. (2004), SEG Expanded Abstracts | Paper 011 — inversión generalizada 2D para mejorar resolución horizontal sin cambio de hardware |
 | Park et al. (2002), *Geophysics* | Extensión del MASW a perfiles 2D mediante arreglo deslizante |
 | Hayashi & Suzuki (2004), *Exploration Geophysics* 35:7–13 | Paper 040 — CMP cross-correlation para perfiles 2D de alta resolución; procesamiento en 4 pasos |

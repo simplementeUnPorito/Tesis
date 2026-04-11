@@ -67,6 +67,11 @@ Todos comparten el objetivo de explorar el espacio de parámetros globalmente y 
 - La cobertura del espacio de parámetros depende de la parametrización del modelo (número de capas, rangos de búsqueda): una parametrización inadecuada puede sesgar la distribución de soluciones.
 - El test estadístico de aceptación requiere conocer la incertidumbre de los datos $\sigma_i$; si ésta no está bien estimada, el número de modelos aceptables puede estar sesgado.
 
+> [!EXAMPLE] Evidencia empírica: Bergamo et al. (2011) — Inversión Monte Carlo multimodal en sitios con basamento superficial
+> **Paper 037 (Bergamo, Comina, Foti & Maraschini 2011, SDEE 31(3):530–534)** aplica inversión Monte Carlo multimodal a sitios de la red acelerométrica italiana con basamento superficial (Liguria, Sicilia) a profundidades de 5–20 m. El método usa el paquete SWAT (MATLAB, análisis f-k) y una búsqueda Monte Carlo que incluye simultáneamente todos los modos de dispersión observados **sin asignarlos a priori** a un número de modo específico — ventaja crítica cuando modos superiores son visibles pero el analista no puede identificarlos con certeza. La inversión multimodal sin asignación previa de modos produce perfiles VS con menor [[Non-uniqueness|no-unicidad]] que la inversión en modo fundamental. Los perfiles se validan con razones espectrales H/V (frecuencia de resonancia f₀ observada vs predicha). Conexión directa con [[Monte Carlo Methods|Monte Carlo]] + [[Surface Wave Modes|modos superiores]]: la combinación es más robusta que el modo fundamental solo.
+>
+> — Research Database, entrada 037 (core); Bergamo et al. (2011), *Soil Dyn. Earthq. Eng.* 31(3):530–534.
+
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — Monte Carlo en La Salle, VS30 robusto ante no-unicidad
 > Foti et al. (2018, §7.2.4) aplican el algoritmo de Monte Carlo global (Socco & Boiero 2008) al sitio La Salle con el dataset activo+pasivo (48 geófonos, espaciado 1.5 m, rango 5–55 Hz). Se generan **$10^5$ modelos** aleatorios; el test de Fisher al 95% selecciona ~500 modelos aceptables. Los perfiles seleccionados concuerdan en las capas superficiales (<15 m) — bien constrenidas por la alta frecuencia del dataset — pero divergen sustancialmente a mayor profundidad, demostrando la [[Non-uniqueness|no-unicidad]] real del problema. Sin embargo, los espectros de respuesta sísmica 1D calculados para cada perfil aceptable son **prácticamente indistinguibles** (Fig. 7.21), y los valores de $V_{S,30}$ caen en el rango estrecho de **480–505 m/s** (Fig. 7.22) — todos en la misma clase de sitio EC8. El resultado demuestra que la no-unicidad de la solución $V_S(z)$ raramente compromete las decisiones de ingeniería basadas en $V_{S,30}$.
 >
@@ -79,3 +84,4 @@ Todos comparten el objetivo de explorar el espacio de parámetros globalmente y 
 | Foti et al. (2018), *Surface Wave Methods* | Cap. 6.1.3 (local vs global), Cap. 6.4.3, Cap. 7.2.4, pp. 280–374 |
 | Socco & Boiero (2008), *Near Surface Geophys* | Algoritmo de Monte Carlo global con propiedades de escala |
 | Olafsdottir, Erlingsson & Bessason (2020), *Geosciences* 10(8):322 | Paper 013 — MASWaves: herramienta open-source MATLAB para inversión Monte Carlo MASW; CC BY 4.0 |
+| Bergamo et al. (2011), *SDEE* 31(3):530–534 | Paper 037 — Monte Carlo multimodal sin asignación previa; sitios con basamento superficial |

@@ -65,6 +65,11 @@ que no coincide con ningún $c_n$ individual si hay mezcla modal.
 - [[MASW Method]] — el procesamiento f-k estándar puede verse afectado por superposición modal
 - [[Love Waves]] — también exhiben superposición modal, aunque sin osculaciones
 
+> [!EXAMPLE] Evidencia empírica: Eikmeier (2018) — comparación activo/pasivo + Rayleigh/Love + modos en IAG-USP
+> **Paper 032 (Eikmeier 2018, Dissertação de Mestrado IAG-USP, DOI: 10.11606/d.14.2018.tde-09042018-164758)** realiza una comparación sistemática de fuentes activas y pasivas, ondas Rayleigh y Love, y modos fundamental vs superior en el campus USP Butantã (São Paulo, Brasil). Con geófonos 4.5 Hz verticales (lineal) y 10 Hz triaxiales (2D), el estudio documenta que: (1) el compactador de suelo produce mejores espectros que el martillo (más energía, mayor banda); (2) la inversión conjunta modo fundamental + 1er modo superior da mejores perfiles que el modo fundamental solo; (3) el Passive Roadside MASW con tráfico vehicular ayuda a identificar modos superiores en los datos activos, pero no mejora directamente el perfil Vs. Todos los resultados convergen y se validan contra SPT del sitio. El estudio es la referencia de comparación más completa en contexto sudamericano: mismo hardware que la tesis + análisis multimodal + Love waves.
+>
+> — Research Database, entrada 032 (core); Eikmeier (2018), IAG-USP.
+
 ## Fuentes
 
 | Fuente | Sección / Página |
@@ -72,3 +77,4 @@ que no coincide con ningún $c_n$ individual si hay mezcla modal.
 | Foti et al. (2018), *Surface Wave Methods* | §2.4, pp. 64–95 — modos y superposición modal |
 | Tokimatsu et al. (1992), *ASCE JGGE* 118(10) | Paper 031 — modos superiores dominan curva aparente en perfiles con inversión Vs; 352 citas |
 | Xu et al. (2006) | Paper 014 — error por confusión de modos en inversión |
+| Eikmeier (2018), IAG-USP dissertação | Paper 032 — comparativo activo/pasivo + Rayleigh/Love + modos; São Paulo |
