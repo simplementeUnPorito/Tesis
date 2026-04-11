@@ -74,14 +74,44 @@
 - Priorizar PDFs por capítulo antes que el libro completo.
 - El resumen debe priorizar comprensión conceptual y física antes que desarrollo matemático extenso.
 
+## Instrucciones de commit (rama `investigador-loop`)
+- **Rama activa:** `investigador-loop` — todos los cambios del loop van a esta rama.
+- **Frecuencia de commit:** después de cada hito importante (concepto enriquecido, capítulo actualizado, nuevo concepto creado).
+- **Formato de mensaje:** `[INVESTIGADOR] <acción>: <archivo o concepto>` — ej. `[INVESTIGADOR] enrich: Geometric Dispersion con callouts y validación empírica`.
+- **Merge a main:** decisión del usuario cuando el loop finalice o a petición explícita.
+- **`.claude/` versionado:** skills, INVESTIGADOR.md y configuraciones del proyecto se rastrean en git para sincronizar entre dispositivos. Solo se excluye `.claude/scheduled_tasks.lock`.
+
 ## Próximos pasos
 1. **Chapter 1 consolidado** — todas las secciones presentes con trazabilidad Foti
 2. Capítulos 2–8 marcados como "consolidado (tercera fase completa)"; todos los wikilinks activos resueltos
 3. Excepción mantenida: [[Refraction Seismics]] (método externo, fuera del alcance del vault)
-4. Posible trabajo futuro: revisión de profundidad de conceptos en Concepts/ si hay algo pendiente; si no, marcar Trabajo completo
-5. **Candidatos a revisión**: [[Geometric Dispersion]] — el wikilink aparece en Chapter 1.md sección 1.3 (renombrada) pero no existe como archivo de concepto separado (era stub en la sección 1.3.1). Considerar si crear concepto propio o dejar el contenido en el capítulo (actualmente el contenido está en la sección 1.3.1 del capítulo, lo cual es suficiente dada la trazabilidad).
+4. **[[Geometric Dispersion]] — COMPLETADO** (2026-04-11): concepto enriquecido con callouts `[!CONCEPT]`/`[!EXAMPLE]`, wikilinks exhaustivos y evidencia empírica Papers 001, 002, 003.
+5. Siguiente candidato a revisión de Concepts/: verificar stubs en carpetas 00–04 y 06.
 
 ## Historial de iteraciones
+
+### 2026-04-11 — iteración 40 de loop (INVESTIGADOR — enriquecimiento Geometric Dispersion)
+- **Estado:** VÁLIDA.
+- **Acción realizada:**
+  - Leído Worklog: todos los capítulos 1–8 consolidados (tercera fase). Identificado [[Geometric Dispersion]] como único concepto pendiente de enriquecimiento.
+  - **Reescrito `Concepts/05 Dispersion/Geometric Dispersion.md`**: versión anterior era técnica pero carecía de wikilinks, callouts y validación empírica.
+    - Añadido `> [!CONCEPT]` con definición formal y referencia Foti §1.2.1.
+    - Añadido `> [!NOTE]` conectando con el problema inverso (Cap. 6–7).
+    - Añadidos dos `> [!EXAMPLE]`: evidencia empírica Papers 001+002 (Park & Xia 1999, MASW Kansas, validación borehole) y Paper 003 (Nazarian & Stokoe 1984, SASW fundacional).
+    - Wikilinks exhaustivos: [[Phase Velocity]], [[Rayleigh Waves]], [[Layered Media]], [[Skin Depth]], [[Dispersion Relation]], [[Rayleigh Eigenproblem]], [[Wave Dispersion]], [[Material Dispersion]], [[Group Velocity]], [[Near-field Effect]], [[Non-uniqueness]], [[MASW Method]], [[SASW Method]], [[ReMi Method]], [[SPAC Method]].
+    - Tabla comparativa de métodos que explotan dispersión geométrica.
+    - Tabla de fuentes con Papers 001, 002, 003 y Foti 2018.
+  - Configurado **git**: nueva rama `investigador-loop`; `.gitignore` creado para excluir solo `scheduled_tasks.lock` y rastrear `.claude/` (skills + configuraciones compartidas entre dispositivos).
+  - Actualizado Worklog: instrucciones de commit, rama activa, próximos pasos.
+- **Archivos modificados:**
+  - `Concepts/05 Dispersion/Geometric Dispersion.md` (enriquecido)
+  - `Worklog de resumen.md` (actualizado)
+  - `.gitignore` (creado)
+  - `INVESTIGADOR.md` (creado — skill definition)
+- **Conceptos creados o modificados:** [[Geometric Dispersion]] (enriquecido desde stub técnico a nota Zettelkasten completa)
+- **Papers vinculados:** 001 (Park 1999), 002 (Xia 1999), 003 (Nazarian 1984)
+- **Fecha y hora:** 2026-04-11 00:54 UTC
+- **Commit:** rama `investigador-loop`, mensaje `[INVESTIGADOR] enrich: Geometric Dispersion + .gitignore + INVESTIGADOR.md`
 
 ### 2026-03-19 — iteración 39 de loop (segunda fase Chapter 1 — secciones 1.3, 1.3.1, 1.4, 1.4.1–1.4.3)
 - **Estado:** VÁLIDA.
