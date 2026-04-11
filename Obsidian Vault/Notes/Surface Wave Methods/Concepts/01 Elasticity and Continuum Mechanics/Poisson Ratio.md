@@ -6,8 +6,10 @@ type: reference
 
 # Razón de Poisson (Coeficiente de Poisson)
 
-> **Contexto:** Parámetro elástico fundamental que relaciona la contracción lateral con la elongación axial de un material bajo carga uniaxial. En el contexto de ondas superficiales, controla la razón VP/VS y es necesario como parámetro a priori en la inversión.
-> **Fuente:** Foti et al. (2014), Cap. 2.1.3, pp. 43–45; Cap. 7.1.3, pp. 361–363.
+> [!CONCEPT] Definición
+> La **razón de Poisson** $\nu$ relaciona la contracción lateral con la elongación axial de un material bajo carga uniaxial. En el contexto de ondas superficiales, controla la razón $V_P/V_S = \sqrt{2(1-\nu)/(1-2\nu)}$ y la velocidad de [[Rayleigh Waves|Rayleigh]] $c_R \approx f(\nu)\cdot V_S$. Es necesario como **parámetro a priori** en la inversión MASW: un $\nu$ incorrecto — especialmente al ignorar el nivel freático que cambia $\nu$ de ~0.3 a ~0.5 en suelos saturados — introduce errores sistemáticos en el perfil $V_S$ invertido.
+>
+> — Foti et al. (2018), §2.1.3, pp. 43–45; §7.1.3, pp. 361–363.
 
 ## Definición
 
@@ -72,7 +74,14 @@ La curva de dispersión de Rayleigh es **poco sensible** a $\nu$ (o equivalentem
 
 Un error en $\nu$ — especialmente el no reconocer la presencia de un nivel freático que cambia $\nu$ de ~0.3 a ~0.5 — puede introducir errores sistemáticos en el perfil $V_S$ obtenido. Foti (Cap. 7.1.3) demuestra que ignorar el nivel freático a 3 m de profundidad produce un perfil $V_S$ fuertemente erróneo (Fig. 7.9). La sinergia con métodos de refracción P (que detectan el salto de $V_P$ en la tabla de agua) es esencial para usar $\nu$ correcto en la inversión.
 
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — impacto crítico del nivel freático sobre ν en inversión MASW
+> Foti et al. (2018, §7.1.3, Fig. 7.9) demuestran cuantitativamente que **ignorar un nivel freático a 3 m de profundidad** — que eleva $\nu$ de ~0.3 a ~0.5 en la zona saturada — produce un perfil $V_S(z)$ con errores sistemáticos que superan el 20% en las capas afectadas. La razón es que el aumento de $V_P$ por saturación (de ~300 m/s a ~1500 m/s) cambia la relación $c_R/V_S$ para las frecuencias que sondean esa profundidad, sesgando la inversión. La sinergia con un perfil de refracción P (que detecta el salto de $V_P$ en la tabla de agua) elimina este sesgo — recomendación activa en todos los estudios de sitio en zonas con nivel freático somero.
+>
+> — Foti et al. (2018), §7.1.3, pp. 361–363, Fig. 7.9.
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.1.3, pp. 43–45 — derivación de VP/VS en términos de ν.
-- Foti et al. (2014), Cap. 7.1.3, pp. 361–363 — ejemplo práctico del efecto del nivel freático sobre ν y su impacto en la inversión.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.3, pp. 43–45 — derivación de $V_P/V_S$ en términos de $\nu$ |
+| Foti et al. (2018), *Surface Wave Methods* | §7.1.3, pp. 361–363 — impacto del nivel freático sobre $\nu$ e inversión |

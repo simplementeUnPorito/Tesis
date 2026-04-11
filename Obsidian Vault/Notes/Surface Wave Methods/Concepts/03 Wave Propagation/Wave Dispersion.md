@@ -1,78 +1,67 @@
-# Wave Dispersion
+---
+name: Wave Dispersion
+description: Fenómeno por el que distintas componentes espectrales de una onda viajan a velocidades diferentes; la dispersión geométrica en medios estratificados es la base de MASW
+type: reference
+---
+
+# Dispersión de Ondas (Wave Dispersion)
+
+> [!CONCEPT] Definición
+> La **dispersión de ondas** es el fenómeno por el cual distintas componentes frecuenciales de una señal se propagan a velocidades de fase diferentes $c_p(\omega) \neq \text{const}$. En un medio no dispersivo, $\omega = ck$ con $c$ constante y el paquete mantiene su forma. En un medio dispersivo, la [[Dispersion Relation|relación de dispersión]] $\omega(k)$ es no lineal: el paquete se deforma al propagarse y la [[Phase Velocity|velocidad de fase]] difiere de la [[Group Velocity|velocidad de grupo]]. En geofísica de superficie, la **dispersión geométrica** de las [[Rayleigh Waves]] en [[Layered Media|medios estratificados]] es el observable que permite inferir $V_S(z)$.
+>
+> — Foti et al. (2018), §2.1.1, pp. 39–41; §2.1.2, pp. 41–42.
 
 ## 1. Concepto
 
-La **dispersión de ondas** es el fenómeno por el cual distintas componentes espectrales de una señal se propagan con velocidades diferentes.
+La dispersión de ondas ocurre cuando el medio impone una relación $\omega(k)$ no lineal: diferentes frecuencias viajan a velocidades de fase distintas. Una señal no monocromática se propaga como una superposición de ondas (ver [[Fourier Integral]]):
 
-Como consecuencia, una señal no monocromática cambia de forma durante la propagación.
+$$\phi(x,t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} A(k)\,e^{i[kx - \omega(k)t]}\,dk$$
 
----
+Si $\omega(k)$ es no lineal, el paquete se "estira" en el tiempo al propagarse: las componentes de alta frecuencia y las de baja frecuencia acumulan diferente retraso de fase.
 
-## 2. Fundamento físico
+## 2. Dos categorías de dispersión
 
-Una señal real puede representarse como superposición de componentes con diferentes números de onda y frecuencias.
+| Tipo | Origen | Ejemplo en geofísica |
+|---|---|---|
+| **[[Geometric Dispersion|Dispersión geométrica]]** | Estratificación del medio — diferentes $\lambda$ sondean distintas profundidades | [[Rayleigh Waves]] en suelo estratificado |
+| **Dispersión material** | Propiedades elásticas dependientes de $\omega$ — viscoelasticidad, [[Attenuation|atenuación]] | Suelos con rigidez dependiente de frecuencia |
 
-Si la relación entre frecuencia angular y número de onda no es lineal, entonces cada componente puede propagarse con una velocidad de fase distinta. En ese caso, el paquete de ondas se deforma a medida que avanza.
+En la práctica de métodos de ondas superficiales (MASW, SASW), la dispersión dominante es **geométrica**: el medio es estratificado y las ondas de Rayleigh de diferente longitud de onda penetran a diferentes profundidades, "viendo" diferentes velocidades.
 
-Por tanto, la dispersión no es simplemente “que haya muchas frecuencias”, sino que el medio impone una relación $\omega(k)$ que hace que esas componentes no viajen todas igual.
+## 3. Condición matemática de dispersividad
 
----
+Una onda es dispersiva si y solo si:
 
-## 3. Formulación matemática
+$$\frac{d c_p}{d k} \neq 0 \quad \Leftrightarrow \quad c_g \neq c_p$$
 
-Una onda dispersiva admite soluciones del tipo:
+donde $c_p = \omega/k$ es la [[Phase Velocity|velocidad de fase]] y $c_g = d\omega/dk$ es la [[Group Velocity|velocidad de grupo]]. En un medio no dispersivo, $c_p = c_g = c$ constante.
 
-$$
-\phi(x,t)=A e^{i[kx-\omega(k)t]}
-$$
+## 4. Implicaciones para el diseño experimental
 
-donde la frecuencia angular depende del número de onda.
+- La dispersión observable depende del rango frecuencial excitado por la fuente
+- La geometría del arreglo condiciona el rango de [[Wavelength|longitudes de onda]] muestreado
+- En métodos de ondas superficiales, la curva de dispersión $c_p(f)$ es el dato primario de la inversión para obtener $V_S(z)$
 
-La velocidad de fase es:
+> [!EXAMPLE] Evidencia empírica: Nazarian & Stokoe (1984) — primera medición sistemática de la dispersión geométrica en SASW
+> **Paper 003 (Nazarian & Stokoe 1984)** introduce el método SASW precisamente sobre la base de la dispersión geométrica de las ondas de Rayleigh: las componentes de baja frecuencia (longitud de onda larga) penetran más profundo y viajan más rápido en sitios con velocidad creciente con la profundidad (normalmente dispersivos). Midiendo la fase relativa entre dos geófonos separados una distancia $d$, extraen $c_p(f)$ directamente — y demuestran que la curva de dispersión así obtenida invierte de forma única para el perfil $V_S(z)$. Este trabajo fundacional validó la dispersión geométrica de Rayleigh como observable de caracterización de sitio.
+>
+> — Research Database, entrada 003 (core).
 
-$$
-c_p=\frac{\omega(k)}{k}
-$$
+## 5. Relaciones con otros conceptos
 
-y la velocidad de grupo es:
+- [[Geometric Dispersion]] — dispersión en medios estratificados (mecanismo dominante en MASW)
+- [[Dispersion Relation]] — $\omega(k)$: la función que codifica toda la dispersividad del medio
+- [[Phase Velocity]] — $c_p = \omega/k$: el observable experimental primario
+- [[Group Velocity]] — $c_g = d\omega/dk$: velocidad de transporte de energía; $c_g \neq c_p$ en dispersión
+- [[Fourier Integral]] — marco matemático de la superposición de componentes espectrales
+- [[Rayleigh Waves]] — el tipo de onda cuya dispersión se invierte en MASW
+- [[Layered Media]] — la causa física de la dispersión geométrica
 
-$$
-c_g=\frac{d\omega}{dk}
-$$
+## 6. Fuentes
 
-Si $c_p$ depende de $k$, la onda es dispersiva.
-
----
-
-## 4. Aplicación a geófonos
-
-En caracterización del subsuelo con geófonos, la dispersión es clave porque las [[Rayleigh Waves]] propagándose en medios estratificados presentan velocidades dependientes de la frecuencia.
-
-Eso permite construir curvas de dispersión y luego inferir propiedades del subsuelo.
-
-En near-surface geophysics, la práctica habitual se centra en la **velocidad de fase**; la velocidad de grupo existe y es físicamente relevante, pero se usa menos en inversión de sitio.
-
----
-
-## 5. Implicaciones para el diseño experimental
-
-- La dispersión observable depende del rango frecuencial excitado por la fuente.
-- La geometría del arreglo condiciona el rango de longitudes de onda muestreado.
-- No toda dispersión tiene el mismo origen: debe distinguirse entre [[Geometric Dispersion]] y [[Material Dispersion]].
-- En métodos de ondas superficiales, la dispersión dominante suele ser la geométrica.
-
----
-
-## 6. Fuente
-
-- PDF: Sebastiano Foti Chapter 2
-- capítulo o sección: 2.1.1 Two categories of wave motion
-- página: 39–41
-
-- PDF: Sebastiano Foti Chapter 2
-- capítulo o sección: 2.1.2 Group velocity
-- página: 41–42
-
-- PDF: Sebastiano Foti Chapter 4
-- capítulo o sección: 4.1 Phase and Group Velocity
-- página: 205–206
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.1, pp. 39–41 — dispersión en propagación de ondas |
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.2, pp. 41–42 — velocidades de fase y grupo |
+| Foti et al. (2018), *Surface Wave Methods* | §4.1, pp. 205–206 — dispersión geométrica en curva experimental |
+| Nazarian & Stokoe (1984) | Paper 003 — SASW basado en dispersión geométrica |

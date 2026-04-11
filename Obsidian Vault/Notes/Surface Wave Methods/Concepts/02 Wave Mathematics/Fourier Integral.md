@@ -6,8 +6,10 @@ type: reference
 
 # Integral de Fourier (Fourier Integral)
 
-> **Contexto:** La integral de Fourier es la herramienta matemática que permite representar cualquier perturbación elástica como una superposición de ondas planas monocromáticas, cada una con su propia frecuencia angular $\omega$, número de onda $k$, y amplitud $A(k)$. En medios dispersivos, cada componente viaja a su propia velocidad de fase $c_p = \omega/k$, y el paquete completo se deforma al propagarse. Este marco es el fundamento teórico del análisis f-k en MASW y de la distinción entre [[Phase Velocity|velocidad de fase]] y [[Group Velocity|velocidad de grupo]].
-> **Fuente:** Foti et al. (2014), Cap. 2.1.2, pp. 41–43.
+> [!CONCEPT] Definición
+> La **integral de Fourier** permite representar cualquier perturbación elástica como superposición de ondas planas monocromáticas, cada una con su propia [[Angular Frequency|frecuencia angular]] $\omega$, [[Wavenumber|número de onda]] $k$, y amplitud $A(k)$. En medios [[Wave Dispersion|dispersivos]], cada componente viaja a su propia [[Phase Velocity|velocidad de fase]] $c_p = \omega/k$, y el paquete se deforma al propagarse. Este marco es el fundamento teórico del análisis f-k en [[MASW Method|MASW]] y de la distinción entre velocidad de fase y [[Group Velocity|velocidad de grupo]] (derivada de la fase estacionaria).
+>
+> — Foti et al. (2018), §2.1.2, pp. 41–43.
 
 ## Intuición física
 
@@ -77,7 +79,15 @@ $$\int_{-\infty}^{\infty} |\phi(x, t)|^2\, dt = \frac{1}{2\pi} \int_{-\infty}^{\
 
 Esto garantiza que la transformada f-k es un cambio de representación, no una pérdida de información: toda la energía del sismograma está contenida en su espectro f-k, distribuida entre los diferentes modos y frecuencias.
 
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — implementación discreta de la integral de Fourier en MASW
+> **Paper 001 (Park, Miller & Xia 1999)** implementa la transformada de Fourier 2D discreta (FFT 2D) sobre el sismograma de 24 geófonos, produciendo el espectrograma f-k que muestra los modos de Rayleigh como crestas de alta amplitud. El método transforma el registro $u(x_j, t_n)$ al dominio $(f, k)$ y extrae la curva de dispersión como el lugar geométrico de los máximos espectrales. La eficiencia del algoritmo FFT permite calcular el espectrograma en tiempo real durante la adquisición, facilitando el control de calidad en campo.
+>
+> — Research Database, entrada 001 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.1.2, pp. 41–43 — representación de ondas dispersivas mediante integral de Fourier y fase estacionaria.
-- Foti et al. (2014), Cap. 4.1, pp. 194–210 — análisis f-k como implementación discreta de la transformada 2D de Fourier.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.2, pp. 41–43 — integral de Fourier y fase estacionaria |
+| Foti et al. (2018), *Surface Wave Methods* | §4.1, pp. 194–210 — análisis f-k como FFT 2D |
+| Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — implementación FFT en MASW |

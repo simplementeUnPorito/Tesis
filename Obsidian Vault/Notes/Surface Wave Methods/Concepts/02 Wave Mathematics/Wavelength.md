@@ -6,8 +6,10 @@ type: reference
 
 # Longitud de Onda (Wavelength)
 
-> **Contexto:** La longitud de onda $\lambda$ es la distancia espacial entre dos puntos consecutivos de la misma fase. En los métodos de ondas superficiales, la longitud de onda de Rayleigh $\lambda_R = V_R/f$ es el parámetro que controla directamente la profundidad de investigación y la resolución vertical del perfil $V_S$ obtenido por inversión. El rango de longitudes de onda accesibles en el experimento determina el rango de profundidades que se puede caracterizar.
-> **Fuente:** Foti et al. (2014), Cap. 2.1.1, pp. 39–41; Cap. 3.4, pp. 163–180.
+> [!CONCEPT] Definición
+> La **longitud de onda** $\lambda = c/f$ es la distancia espacial entre dos puntos consecutivos de la misma fase. En los métodos de ondas superficiales, $\lambda_R = V_R/f$ es el parámetro que controla directamente la **profundidad de investigación** ($z_{max} \approx \lambda_{max}/2$) y la **resolución vertical** ($\Delta z_{min} \approx \lambda_{min}/2$) del perfil $V_S$ obtenido por inversión. El rango de longitudes de onda accesibles en el experimento determina el rango de profundidades caracterizable — estableciendo los criterios de diseño del arreglo de geófonos.
+>
+> — Foti et al. (2018), §2.1.1, pp. 39–41; §3.4, pp. 163–180.
 
 ## Intuición física
 
@@ -79,7 +81,15 @@ Si esta condición no se cumple, las ondas de longitud de onda $\lambda < 2\Delt
 | 20 m | 150–300 m/s | ~7–15 Hz | ~20–40 m | ~40 m |
 | 50 m | 200–500 m/s | ~4–10 Hz | ~50–100 m | ~100 m |
 
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — rango de longitudes de onda y profundidad de investigación MASW
+> **Paper 002 (Xia, Miller & Park 1999)** reporta curvas de dispersión en el rango de 5–30 Hz para sitios en Kansas con $V_S \approx 150$–$400$ m/s. Las longitudes de onda accesibles van de $\lambda_{min} \approx 5$ m a $\lambda_{max} \approx 40$ m, lo que corresponde a una profundidad de investigación de ~20–40 m — confirmando la regla $z_{max} \approx \lambda_{max}/2$. La resolución vertical en el perfil invertido es del orden de $\lambda_{min}/2 \approx 2.5$ m para las capas superficiales, en acuerdo con las diferencias reportadas entre el perfil MASW y el borehole.
+>
+> — Research Database, entrada 002 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.1.1, pp. 39–41 — definición de longitud de onda y relaciones con número de onda.
-- Foti et al. (2014), Cap. 3.4, pp. 163–180 — criterios de diseño del arreglo en función de $\lambda$.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.1, pp. 39–41 — longitud de onda y número de onda |
+| Foti et al. (2018), *Surface Wave Methods* | §3.4, pp. 163–180 — criterios de diseño del arreglo |
+| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 — rango de λ y profundidad de investigación |
