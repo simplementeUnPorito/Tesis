@@ -56,6 +56,11 @@ El paso de inversión introduce la mayor incertidumbre: la [[Non-uniqueness|no-u
 >
 > — Foti et al. (2018), §7.4, pp. 378–390; NEHRP (2020), *FEMA P-2082*, Tabla 2.4-1.
 
+> [!EXAMPLE] Evidencia empírica: Ayele et al. (2022) — MASW para microzonificación en Hawassa, Etiopía
+> **Paper 012 (Ayele, Woldearegay & Meten 2022, Int. J. Geophys., CC BY 4.0, 14 citas)** aplica MASW activo para caracterización geotécnica urbana en Hawassa Town (Etiopía del Sur), un contexto económicamente comparable al de Paraguay: clima tropical/subtropical, recursos limitados y demanda de métodos no invasivos accesibles. Los perfiles VS30 obtenidos varían de 248.9 a 371.3 m/s (clases C y D según NEHRP), con zonas de baja velocidad superficial identificadas como críticas para diseño de fundaciones. El estudio confirma que el flujo MASW + VES (Sondeo Eléctrico Vertical) + SPT es reproducible en contexto africano con equipamiento básico. Geología sedimentaria tropical comparable a subsuelo aluvial de Asunción.
+>
+> — Research Database, entrada 012 (core); Ayele et al. (2022), *Int. J. Geophys.* 2022:7588306.
+
 > [!EXAMPLE] Evidencia empírica: Moya-Gutiérrez et al. (2020) — MASW+TRS+SEV+SPT en caracterización de sitio, Colombia
 > **Paper 020 (Moya-Gutiérrez, Torres-Peña & Contreras-Martínez 2020, *Boletín de Ciencias de la Tierra* UNAL 48:30–45)** aplica un workflow multi-método (MASW 1D/2D + TRS + SEV + SPT) para caracterización de sitio en la carretera Troncal Central Norte (Ruta 55, km 68+500) en Pamplona, Norte de Santander, Colombia (2322 m s.n.m.). Con Geometrics Geode 24 canales y 24 geófonos de 14 Hz (limitación: menor profundidad vs. 4.5 Hz), dos líneas de 80.5 m con espaciamiento 3.5 m generan perfiles Vs = 210–466 m/s y Vp = 499–1714 m/s. La clasificación resultante es Tipo D (NSR-10, equivalente NEHRP D). El estudio demuestra que la integración MASW + resistividad (SEV) + ensayo SPT es práctica en proyectos de infraestructura vial en contexto latinoamericano de recursos limitados. Nota: el uso de geófonos de 14 Hz en vez de 4.5 Hz limita la profundidad de investigación a ~20–30 m en vez de 40–50 m.
 >
@@ -70,4 +75,5 @@ El paso de inversión introduce la mayor incertidumbre: la [[Non-uniqueness|no-u
 | Eurocode 8 (EN 1998-1:2004) | §3.1.2 — clasificación de sitios por VS30 |
 | Wills & Clahan (2006), *Bull. Seism. Soc. Am.* | Metodología de mapeo VS30 para microzonificación |
 | Moya-Gutiérrez et al. (2020), *Bol. Cienc. Tierra* UNAL 48:30–45 | Paper 020 — MASW+TRS+SEV+SPT Colombia; clasificación sísmica sitio vial |
+| Ayele et al. (2022), *Int. J. Geophys.* art. 7588306 | Paper 012 — MASW Hawassa, Etiopía; VS30 248–371 m/s; contexto país en desarrollo |
 | Garofalo et al. (2016) Part II, *Soil Dyn. EE* 82:241–254 | Paper 046 — InterPACIFIC: MASW vs borehole; 153 citas; VS30 comparable dentro del 6.5% |
