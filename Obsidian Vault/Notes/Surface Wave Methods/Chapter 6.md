@@ -112,7 +112,7 @@ Determina cómo se representa matemáticamente el modelo geométrico:
 Describe el comportamiento mecánico de los geomateriales bajo excitaciones dinámicas de baja amplitud:
 
 - **Elasticidad lineal:** adecuada cuando la atenuación es despreciable o no interesa.
-- **[[Viscoelasticity|Viscoelasticidad lineal]]:** permite describir simultáneamente la dispersión y la atenuación. Es el modelo más común cuando se quiere invertir también la curva de atenuación.
+- **[[Viscoelastic Media|Viscoelasticidad lineal]]:** permite describir simultáneamente la dispersión y la atenuación. Es el modelo más común cuando se quiere invertir también la curva de atenuación.
 - **[[Biot Theory|Poroelasticidad (Biot)]]:** reconoce la naturaleza multicomponente de los suelos saturados. Rara vez se usa en inversión de ondas superficiales porque el [[Forward Problem|problema directo]] es considerablemente más complejo. Importante excepción: en sitios con nivel freático superficial, el [[Poisson Ratio|coeficiente de Poisson]] debe reflejar correctamente las condiciones de saturación, ya que es muy diferente en materiales saturados respecto a materiales secos bajo carga dinámica no drenada.
 
 ### 6.2.4 Formulación del [[Forward Problem|problema directo]] para inversión
@@ -351,7 +351,7 @@ La ventaja clave del Jacobiano analítico en ondas superficiales es que puede ca
 
 El **[[Occam Algorithm|algoritmo de Occam]]** (Constable et al. 1987, adaptado por Lai 2005) es el método más completo presentado en el capítulo: realiza la **[[Joint Inversion|inversión conjunta]]** de la [[Dispersion Curve|curva de dispersión]] y la curva de atenuación simultáneamente, usando la teoría de variables complejas para tratar ambas curvas como una sola función compleja.
 
-**Motivación física:** en medios [[Viscoelasticity|viscoelásticos]], la [[Phase Velocity|velocidad de fase]] y la atenuación no son independientes — están relacionadas por la dispersión material ([[Kramers-Kronig Relations|relaciones de Kramers-Krönig]]). Invertirlas por separado (inversión desacoplada) introduce errores sistemáticos porque:
+**Motivación física:** en medios [[Viscoelastic Media|viscoelásticos]], la [[Phase Velocity|velocidad de fase]] y la atenuación no son independientes — están relacionadas por la dispersión material ([[Kramers-Kronig Relations|relaciones de Kramers-Krönig]]). Invertirlas por separado (inversión desacoplada) introduce errores sistemáticos porque:
 1. Los parámetros Vs y Ds se obtienen de dos inversiones independientes, y la incertidumbre de la primera se propaga a la segunda.
 2. La inversión acoplada usa una restricción interna (las ecuaciones de Cauchy-Riemann) que mejora el condicionamiento del problema.
 
