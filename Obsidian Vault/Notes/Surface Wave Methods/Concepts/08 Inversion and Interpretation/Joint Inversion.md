@@ -18,7 +18,7 @@ type: reference
 | Combinación | Vínculo | Complementariedad |
 |-------------|---------|-------------------|
 | [[MASW Method|MASW]] + ERT | [[Cross-Gradient Function]] o petrofísico ([[Archie's Law]]) | ERT → φ → VP (vía [[Wyllie Equation]]); [[MASW Method|MASW]] → VS, Gmax |
-| [[MASW Method|MASW]] + HVSR | Elipticidad de Rayleigh | HVSR constrain f₀ = VS/4H → profundidad bedrock |
+| [[MASW Method|MASW]] + [[HVSR|HVSR]] | Elipticidad de Rayleigh | [[HVSR|HVSR]] constrain f₀ = VS/4H → profundidad bedrock |
 | [[MASW Method|MASW]] + refracción | VP y VS independientes | VP → saturación; VS → rigidez; Poisson ratio → estado tensional |
 | Activo + Pasivo | Mismo modelo 1D | Activo → altas frecuencias (z < 10 m); Pasivo → bajas frecuencias (z > 20 m) |
 | [[MASW Method|MASW]] + Love | Modos Love y Rayleigh | Love → VS puro (no contamina VP); Rayleigh → VS y VP acoplados |
@@ -34,7 +34,7 @@ $$\mathbf{t} = \nabla m_1 \times \nabla m_2 = 0$$
 Las interfaces deben co-localizarse, pero los valores pueden ser independientes. Útil cuando no se conoce la litología.
 
 ### 3. Ratio ponderado (acoplamiento débil)
-Los datasets simplemente comparten el mismo espacio de modelos sin imposición explícita. La información de uno actúa como regularización implícita del otro a través del peso relativo αᵢ.
+Los datasets simplemente comparten el mismo espacio de modelos sin imposición explícita. La información de uno actúa como [[Regularization|regularización]] implícita del otro a través del peso relativo αᵢ.
 
 ## Ventajas sobre inversión individual
 

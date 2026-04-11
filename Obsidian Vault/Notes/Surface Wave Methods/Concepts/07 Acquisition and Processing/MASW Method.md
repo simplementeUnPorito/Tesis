@@ -7,7 +7,7 @@ type: reference
 # MASW Method (Multichannel Analysis of Surface Waves)
 
 > [!CONCEPT] Definición
-> El **método MASW** (*Multichannel Analysis of Surface Waves*, Park et al. 1999) estima el perfil de velocidad de onda de corte $V_S(z)$ del subsuelo analizando la [[Wave Dispersion|dispersión]] de las [[Rayleigh Waves|ondas de Rayleigh]] generadas por una fuente activa controlada. El flujo de trabajo es: (1) adquisición con arreglo lineal de geófonos verticales, (2) extracción de la [[Dispersion Curve|curva de dispersión]] $c_R(f)$ por análisis f-k, (3) inversión para obtener $V_S(z)$. Es el estándar de facto en caracterización geotécnica no invasiva para obtención del parámetro $V_{S,30}$.
+> El **método MASW** (*Multichannel Analysis of Surface Waves*, Park et al. 1999) estima el perfil de velocidad de onda de corte $V_S(z)$ del subsuelo analizando la [[Wave Dispersion|dispersión]] de las [[Rayleigh Waves|ondas de Rayleigh]] generadas por una fuente activa controlada. El flujo de trabajo es: (1) adquisición con arreglo lineal de geófonos verticales, (2) extracción de la [[Dispersion Curve|curva de dispersión]] $c_R(f)$ por análisis f-k, (3) inversión para obtener $V_S(z)$. Es el estándar de facto en caracterización geotécnica no invasiva para obtención del parámetro $[[Vs30|Vs,30]]$.
 >
 > — Park, Miller & Xia (1999), *Geophysics* 64(3); Foti et al. (2018), Caps. 3–7.
 

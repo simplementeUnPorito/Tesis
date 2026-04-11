@@ -11,7 +11,7 @@ type: reference
 >
 > — Foti et al. (2018), §2.4–2.5, pp. 64–110.
 
-## Formulación matricial (Thomson-Haskell)
+## Formulación matricial ([[Thomson-Haskell Matrix|Thomson-Haskell]])
 
 Para un medio [[Layered Media|estratificado en capas]], las condiciones de continuidad de desplazamiento y esfuerzo en cada interfaz, junto con la condición de [[Elastic Wave Potentials|superficie libre]], se formulan como un sistema matricial. Para que existan soluciones de onda superficial (que decaigan con la profundidad), el determinante del sistema debe ser cero:
 
@@ -43,7 +43,7 @@ La [[Phase Velocity|velocidad de fase]] y el [[Wavenumber|número de onda]] se v
 Esto permite estimar el perfil de amortiguamiento $D_S(z)$ a partir de la curva de atenuación $\alpha_R(f)$ medida experimentalmente.
 
 > [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — Rayleigh Eigenproblem como núcleo del forward modeling
-> **Paper 002 (Xia, Miller & Park 1999)** implementa el Rayleigh Eigenproblem mediante la formulación de Thomson-Haskell como núcleo del [[Forward Problem|problema directo]] de [[MASW Method|MASW]]. El Jacobiano analítico $\partial c_R/\partial V_S$ — derivado de las eigenfunciones de Rayleigh — permite la inversión iterativa convergente en menos de 10 iteraciones para todos los sitios de Kansas ensayados. La estructura de eigenvalores del problema garantiza que la [[Dispersion Curve|curva de dispersión]] es una función suave de $V_S(z)$, lo que estabiliza la inversión y facilita la convergencia.
+> **Paper 002 (Xia, Miller & Park 1999)** implementa el Rayleigh Eigenproblem mediante la formulación de [[Thomson-Haskell Matrix|Thomson-Haskell]] como núcleo del [[Forward Problem|problema directo]] de [[MASW Method|MASW]]. El Jacobiano analítico $\partial c_R/\partial V_S$ — derivado de las eigenfunciones de Rayleigh — permite la inversión iterativa convergente en menos de 10 iteraciones para todos los sitios de Kansas ensayados. La estructura de eigenvalores del problema garantiza que la [[Dispersion Curve|curva de dispersión]] es una función suave de $V_S(z)$, lo que estabiliza la inversión y facilita la convergencia.
 >
 > — Research Database, entrada 002 (core).
 
@@ -61,4 +61,4 @@ Esto permite estimar el perfil de amortiguamiento $D_S(z)$ a partir de la curva 
 | Fuente | Sección / Página |
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | §2.4–2.5, pp. 64–110 — eigenproblem y eigenfunciones |
-| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 — implementación Thomson-Haskell en [[MASW Method|MASW]] |
+| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 — implementación [[Thomson-Haskell Matrix|Thomson-Haskell]] en [[MASW Method|MASW]] |

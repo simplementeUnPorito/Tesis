@@ -41,7 +41,7 @@ La **[[Dispersion Relation|relación de dispersión]]** $\omega(k)$ es la funci�
 - **Medio no dispersivo** (velocidad constante $c$): $\omega = ck$ — relación lineal, $c_p = c_g = c$ constantes.
 - **Medio dispersivo** (velocidad dependiente de $k$ o $\omega$): $\omega(k)$ es no lineal. La [[Phase Velocity|velocidad de fase]] $c_p = \omega/k$ y la [[Group Velocity|velocidad de grupo]] $c_g = d\omega/dk$ difieren.
 
-Para [[Rayleigh Waves]] en un [[Layered Media|medio estratificado]], la [[Dispersion Relation|relación de dispersión]] se obtiene del sistema de ecuaciones de frontera (método de la matriz de transferencia de Thomson-Haskell) y es implícita: no tiene forma analítica cerrada en general, pero puede evaluarse numéricamente para cada par $(\omega, k)$.
+Para [[Rayleigh Waves]] en un [[Layered Media|medio estratificado]], la [[Dispersion Relation|relación de dispersión]] se obtiene del sistema de ecuaciones de frontera (método de la matriz de transferencia de [[Thomson-Haskell Matrix|Thomson-Haskell]]) y es implícita: no tiene forma analítica cerrada en general, pero puede evaluarse numéricamente para cada par $(\omega, k)$.
 
 ## [[Dispersion Relation|relación de dispersión]] y análisis f-k
 

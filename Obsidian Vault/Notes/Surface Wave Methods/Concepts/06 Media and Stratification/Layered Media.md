@@ -38,7 +38,7 @@ $$[u_1]^- = [u_1]^+, \quad [u_2]^- = [u_2]^+, \quad [\sigma_{12}]^- = [\sigma_{1
 
 donde $u_1$, $u_2$ son desplazamientos horizontal y vertical, y $\sigma_{12}$, $\sigma_{22}$ son los esfuerzos de corte y normal. En la superficie libre ($z = 0$): $\sigma_{12} = \sigma_{22} = 0$.
 
-## Método de la matriz de transferencia (Thomson–Haskell)
+## Método de la matriz de transferencia ([[Thomson-Haskell Matrix|Thomson-Haskell]])
 
 El algoritmo de Thomson (1950) y Haskell (1953) propaga la solución analítica capa por capa mediante matrices de transferencia. Para cada capa se construye la **matriz de capa** $\mathbf{T}_n$ que relaciona el estado $\mathbf{f} = [u_1, u_2, \sigma_{12}, \sigma_{22}]^T$ en la superficie superior de la capa con el estado en su superficie inferior:
 
@@ -50,7 +50,7 @@ $$\Phi_R[k, \omega; \mathbf{m}] = 0$$
 
 donde $\mathbf{m}$ es el modelo de capas. Resolver esta ecuación para distintas frecuencias da la [[Dispersion Curve|curva de dispersión]].
 
-**Limitación numérica**: la matriz global de Thomson–Haskell es numéricamente inestable a alta frecuencia (los términos exponenciales crecientes/decrecientes de cada capa crean overflow). Esta limitación se supera con la **matriz de rigidez dinámica** (Kausel y Roesset, 1981) o el algoritmo recursivo de Kennett.
+**Limitación numérica**: la matriz global de [[Thomson-Haskell Matrix|Thomson-Haskell]] es numéricamente inestable a alta frecuencia (los términos exponenciales crecientes/decrecientes de cada capa crean overflow). Esta limitación se supera con la **matriz de rigidez dinámica** (Kausel y Roesset, 1981) o el algoritmo recursivo de Kennett.
 
 ## Tipos de perfiles estratificados
 
@@ -86,7 +86,7 @@ El modelo de capas horizontales es el supuesto estándar de todos los métodos d
 - [[Rayleigh Eigenproblem]] — el problema de autovalores que define los modos de Rayleigh en capas
 
 > [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — modelo de capas como base de la inversión [[MASW Method|MASW]]
-> **Paper 002 (Xia, Miller & Park 1999)** implementa el modelo de capas horizontales como estructura del problema inverso de [[MASW Method|MASW]]. El modelo de prueba usa 8 capas con espesores entre 1.5 m y 14 m, y la [[Dispersion Curve|curva de dispersión]] teórica se calcula con el método de Thomson-Haskell para cada iteración de inversión. Los sitios de Kansas validados tienen perfiles $V_S$ que varían de 150 m/s (capa superficial) a 400 m/s (semiespacio), confirmando que el modelo de capas horizontales es adecuado para suelos sedimentarios con estratificación aproximadamente horizontal.
+> **Paper 002 (Xia, Miller & Park 1999)** implementa el modelo de capas horizontales como estructura del problema inverso de [[MASW Method|MASW]]. El modelo de prueba usa 8 capas con espesores entre 1.5 m y 14 m, y la [[Dispersion Curve|curva de dispersión]] teórica se calcula con el método de [[Thomson-Haskell Matrix|Thomson-Haskell]] para cada iteración de inversión. Los sitios de Kansas validados tienen perfiles $V_S$ que varían de 150 m/s (capa superficial) a 400 m/s (semiespacio), confirmando que el modelo de capas horizontales es adecuado para suelos sedimentarios con estratificación aproximadamente horizontal.
 >
 > — Research Database, entrada 002 (core).
 

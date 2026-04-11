@@ -30,7 +30,7 @@ Para matrices de rango completo ($r = M$): $\mathbf{J}^+ = (\mathbf{J}^T\mathbf{
 La pseudo-inversa regularizada de Tikhonov tiene la forma SVD:
 $$\mathbf{m}_{Tikh} = \sum_{i=1}^{r} \frac{\sigma_i}{\sigma_i^2 + \lambda^2} (\mathbf{u}_i^T \mathbf{d}) \, \mathbf{v}_i$$
 
-Los factores $f_i = \sigma_i^2/(\sigma_i^2 + \lambda^2)$ son los **filtros de regularización de Tikhonov**: $f_i \to 1$ cuando $\sigma_i \gg \lambda$ (parámetro bien resuelto) y $f_i \to 0$ cuando $\sigma_i \ll \lambda$ (parámetro mal resuelto). La TSVD usa $f_i = 1$ para $i \leq p$ y $f_i = 0$ para $i > p$.
+Los factores $f_i = \sigma_i^2/(\sigma_i^2 + \lambda^2)$ son los **filtros de [[Regularization|regularización]] de Tikhonov**: $f_i \to 1$ cuando $\sigma_i \gg \lambda$ (parámetro bien resuelto) y $f_i \to 0$ cuando $\sigma_i \ll \lambda$ (parámetro mal resuelto). La TSVD usa $f_i = 1$ para $i \leq p$ y $f_i = 0$ para $i > p$.
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — TSVD en inversión de Rayleigh con 15 capas
 > Foti et al. (2018, §6.2.2) aplican la TSVD con $p = 10$ a la inversión del sitio La Salle (15 capas, $\kappa \approx 3\times10^3$). La pseudo-inversa truncada $\mathbf{J}_{TSVD}^+$ omite los 5 valores singulares más pequeños ($\sigma_{11}$ a $\sigma_{15}$, todos < 5 veces el nivel de ruido estimado $\epsilon/\|\mathbf{d}\| \approx 2\%$). El modelo recuperado reproduce los datos con $\chi^2 = 31 \approx N = 30$ (ajuste estadísticamente aceptable) y muestra perfil $V_S$ consistente con el SCPT en las primeras 15 m. Para capas > 20 m (controladas por $\sigma_{11}$–$\sigma_{15}$), la TSVD fuerza $\delta V_S \to 0$ — reconociendo explícitamente la falta de sensibilidad de los datos de dispersión a esas profundidades.
@@ -43,4 +43,4 @@ Los factores $f_i = \sigma_i^2/(\sigma_i^2 + \lambda^2)$ son los **filtros de re
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | §6.2.2 — TSVD en inversión [[MASW Method|MASW]] |
 | Penrose, R. (1955), *Proc. Cambridge Phil. Soc.* 51 | Definición original de la pseudo-inversa |
-| Menke, W. (2012), *Geophysical Data Analysis* | §3 — SVD, TSVD y regularización |
+| Menke, W. (2012), *Geophysical Data Analysis* | §3 — SVD, TSVD y [[Regularization|regularización]] |

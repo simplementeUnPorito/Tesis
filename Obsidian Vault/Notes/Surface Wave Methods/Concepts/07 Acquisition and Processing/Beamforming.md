@@ -45,7 +45,7 @@ Para arrays 2D (triángulo, espiral, aleatorio), el beamformer estima el vector 
 
 $$B(\omega, k_x, k_y) = \left|\sum_j w_j\, U(\mathbf{x}_j, \omega)\, e^{i(k_x x_j + k_y y_j)}\right|^2$$
 
-El máximo del mapa 2D da la [[Phase Velocity|velocidad de fase]] y la dirección de propagación dominante. Esto es más informativo que los métodos 1D ([[MASW Method|MASW]], ReMi) pero requiere más receptores y cobertura espacial.
+El máximo del mapa 2D da la [[Phase Velocity|velocidad de fase]] y la dirección de propagación dominante. Esto es más informativo que los métodos 1D ([[MASW Method|MASW]], [[ReMi Method|ReMi]]) pero requiere más receptores y cobertura espacial.
 
 > [!EXAMPLE] Evidencia empírica: Garofalo et al. (2016) — beamforming 2D en InterPACIFIC para arrays pasivos
 > **Papers 006+007 (Garofalo et al. 2016a/b)** incluyen resultados de beamforming 2D aplicado a arrays pasivos en los sitios InterPACIFIC (Grenoble, Mirandola, Cadarache). El beamforming 2D permite estimar la anisotropía del campo de ruido ambiental: en Grenoble, el mapa $(k_x, k_y)$ muestra una fuente de ruido dominante en una dirección (montañas cercanas), lo que explica los sesgos de velocidad aparente observados con [[ReMi Method|ReMi]] en ese sitio. En los sitios con ruido más isotrópico (Mirandola, Cadarache), el beamforming 2D y el [[MASW Method|MASW]] activo producen [[Dispersion Curve|curvas de dispersión]] consistentes en el rango de frecuencias compartido. El beamforming 2D es el diagnóstico estándar para validar si el campo de ruido pasivo es suficientemente isotrópico para métodos como [[SPAC Method|SPAC]] o [[ReMi Method|ReMi]].

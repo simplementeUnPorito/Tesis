@@ -26,7 +26,7 @@ Este comportamiento contrasta con la [[Material Dispersion]], donde la dependenc
 
 ## 2. Formulación matemática
 
-En el semiespacio homogéneo clásico, la [[Phase Velocity|velocidad de fase]] de Rayleigh es constante (≈ 0.919 Vs para ν = 0.25). La dispersión geométrica emerge cuando se resuelve el problema de valores propios del [[Rayleigh Eigenproblem]] para un medio estratificado:
+En el semiespacio homogéneo clásico, la [[Phase Velocity|velocidad de fase]] de Rayleigh es constante (≈ 0.919 Vs para ν = 0.25). La dispersión geométrica emerge cuando se resuelve el problema de valores propios del [[Rayleigh Eigenproblem]] para un [[Layered Media|medio estratificado]]:
 
 $$
 c_R = \frac{\omega}{k}

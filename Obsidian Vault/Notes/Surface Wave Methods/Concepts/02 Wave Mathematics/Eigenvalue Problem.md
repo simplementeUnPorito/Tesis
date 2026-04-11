@@ -1,6 +1,6 @@
 ---
 name: Eigenvalue Problem
-description: Problema de autovalores diferencial para ondas superficiales en medios continuamente estratificados — la [[Phase Velocity|velocidad de fase]] como autovalor y la distribución de amplitud vertical como autovector — generalización del Thomson-Haskell a perfiles continuos
+description: Problema de autovalores diferencial para ondas superficiales en medios continuamente estratificados — la [[Phase Velocity|velocidad de fase]] como autovalor y la distribución de amplitud vertical como autovector — generalización del [[Thomson-Haskell Matrix|Thomson-Haskell]] a perfiles continuos
 type: reference
 ---
 

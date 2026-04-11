@@ -46,7 +46,7 @@ $$z_{\max} \approx \frac{\lambda_{\max}}{2} \quad \text{a} \quad \lambda_{\max}$
 
 ## Dispersión en medios estratificados
 
-En un semiespacio homogéneo, la [[Phase Velocity|velocidad de fase]] de Rayleigh es $c_R \approx 0.92\,V_S$ — constante, no dependiente de la frecuencia ([[Elastic Half Space|no dispersiva]]). En un medio estratificado ([[Layered Media]]), la [[Phase Velocity|velocidad de fase]] depende de la frecuencia: ondas de baja frecuencia (longitud de onda larga) penetran más profundo y son sensibles a las capas más rígidas en profundidad; ondas de alta frecuencia son sensibles solo a la capa superficial.
+En un semiespacio homogéneo, la [[Phase Velocity|velocidad de fase]] de Rayleigh es $c_R \approx 0.92\,V_S$ — constante, no dependiente de la frecuencia ([[Elastic Half Space|no dispersiva]]). En un [[Layered Media|medio estratificado]] ([[Layered Media]]), la [[Phase Velocity|velocidad de fase]] depende de la frecuencia: ondas de baja frecuencia (longitud de onda larga) penetran más profundo y son sensibles a las capas más rígidas en profundidad; ondas de alta frecuencia son sensibles solo a la capa superficial.
 
 Esta variación de velocidad con la frecuencia — la **[[Dispersion Curve|curva de dispersión]]** $c(f)$ — es el observable que se invierte en [[MASW Method|MASW]] para obtener el perfil $V_S(z)$.
 

@@ -54,7 +54,7 @@ $G_{\max}$ es la propiedad mecánica del suelo para deformaciones de corte en el
 
 ## Por qué VS y no VP
 
-En suelos saturados bajo carga no drenada, $V_P$ salta a ~1500 m/s (velocidad del sonido en agua), independientemente de la rigidez del esqueleto. Esto hace que $V_P$ no sea representativo de las propiedades mecánicas del suelo. $V_S$, en cambio, es insensible a la presencia del agua poral y refleja fielmente la rigidez del esqueleto. Por esta razón, todos los métodos de ondas superficiales ([[MASW Method|MASW]], [[SASW Method|SASW]], ReMi, SPAC) apuntan a medir el **perfil de $V_S$ con la profundidad**.
+En suelos saturados bajo carga no drenada, $V_P$ salta a ~1500 m/s (velocidad del sonido en agua), independientemente de la rigidez del esqueleto. Esto hace que $V_P$ no sea representativo de las propiedades mecánicas del suelo. $V_S$, en cambio, es insensible a la presencia del agua poral y refleja fielmente la rigidez del esqueleto. Por esta razón, todos los métodos de ondas superficiales ([[MASW Method|MASW]], [[SASW Method|SASW]], [[ReMi Method|ReMi]], SPAC) apuntan a medir el **perfil de $V_S$ con la profundidad**.
 
 ## Valores típicos en suelos
 

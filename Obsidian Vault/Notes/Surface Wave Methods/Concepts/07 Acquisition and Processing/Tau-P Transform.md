@@ -35,7 +35,7 @@ La diferencia práctica principal: la resolución en slowness es **no uniforme e
 
 ## Aplicaciones en [[MASW Method|MASW]]
 
-- **Método ReMi**: la $\tau$-$p$ es la base del [[ReMi Method|método ReMi]] — el borde inferior de velocidad en el panel $\tau$-$p$ corresponde a la [[Dispersion Curve|curva de dispersión]] del modo fundamental.
+- **Método [[ReMi Method|ReMi]]**: la $\tau$-$p$ es la base del [[ReMi Method|método ReMi]] — el borde inferior de velocidad en el panel $\tau$-$p$ corresponde a la [[Dispersion Curve|curva de dispersión]] del modo fundamental.
 - **Separación de ondas directas y refractadas**: en el panel $\tau$-$p$, las ondas P (alta velocidad → baja slowness) y las ondas de Rayleigh (baja velocidad → alta slowness) ocupan regiones distintas → filtrado de uno u otro tipo es posible.
 - **Combinación activo-pasivo**: al apilar en $\tau$-$p$ datos de diferente duración y tipo de fuente, se combina información de diferentes rangos de frecuencia.
 

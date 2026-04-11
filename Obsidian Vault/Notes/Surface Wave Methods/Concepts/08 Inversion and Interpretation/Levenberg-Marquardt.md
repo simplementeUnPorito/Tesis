@@ -29,13 +29,13 @@ Estrategia de Marquardt (1963):
 - Si $\phi(\mathbf{m}_{k+1}) < \phi(\mathbf{m}_k)$: $\lambda_{k+1} = \lambda_k / 10$ (más Gauss-Newton)
 - Si $\phi(\mathbf{m}_{k+1}) \geq \phi(\mathbf{m}_k)$: $\lambda_{k+1} = \lambda_k \times 10$ (más gradiente, descartar $\mathbf{m}_{k+1}$)
 
-### Regularización combinada
+### [[Regularization|Regularización]] combinada
 
 En práctica, el LM se combina con [[Tikhonov Regularization|regularización]]:
 
 $$\mathbf{m}_{k+1} = \mathbf{m}_k - (\mathbf{J}^T\mathbf{W}\mathbf{J} + \lambda_k \mathbf{I} + \mu \mathbf{R}^T\mathbf{R})^{-1} (\mathbf{J}^T\mathbf{W}\mathbf{r}_k + \mu \mathbf{R}^T\mathbf{R}\mathbf{m}_k)$$
 
-donde $\mu$ controla la regularización y $\mathbf{W}$ pondera los datos por su incertidumbre.
+donde $\mu$ controla la [[Regularization|regularización]] y $\mathbf{W}$ pondera los datos por su incertidumbre.
 
 ## Comparación con otros optimizadores locales
 

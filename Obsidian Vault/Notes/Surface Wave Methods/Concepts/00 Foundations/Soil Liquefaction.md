@@ -43,9 +43,9 @@ La base de datos de Andrus & Stokoe (2000) incluye 26 terremotos con arenas fina
 | Costo | Medio-alto | Bajo |
 | Sensibilidad a cementación | Sí (sobrestima resistencia) | Sí (mismo sesgo) |
 
-## Relación con $V_{S,30}$ y normativa sísmica
+## Relación con $[[Vs30|Vs,30]]$ y normativa sísmica
 
-El parámetro $V_{S,30}$ (velocidad media en los primeros 30 m) de la normativa sísmica (NEHRP, Eurocode 8) está directamente vinculado con la susceptibilidad a la licuefacción: suelos clase D/E ($V_{S,30} < 200$ m/s) son los de mayor riesgo. El [[MASW Method|MASW]] es el método estándar para determinar $V_{S,30}$ de forma no invasiva (véase [[Vs30]]).
+El parámetro $[[Vs30|Vs,30]]$ (velocidad media en los primeros 30 m) de la normativa sísmica (NEHRP, Eurocode 8) está directamente vinculado con la susceptibilidad a la licuefacción: suelos clase D/E ($[[Vs30|Vs,30]] < 200$ m/s) son los de mayor riesgo. El [[MASW Method|MASW]] es el método estándar para determinar $[[Vs30|Vs,30]]$ de forma no invasiva (véase [[Vs30]]).
 
 > [!EXAMPLE] Evidencia empírica: Andrus & Stokoe (2000) — base de datos VS1 vs CRR en 26 terremotos
 > Andrus & Stokoe (2000, JGGE 126(11)) presentan la mayor base de datos empírica para evaluación de licuefacción por $V_S$: 225 sitios en terremotos históricos (Loma Prieta 1989, Kobe 1995, Northridge 1994, Imperial Valley 1979, entre otros). La curva CRR vs. $V_{S1}$ muestra que arenas con $V_{S1} > 215$ m/s no licuaron en ninguno de los eventos analizados (límite superior de susceptibilidad). El umbral crítico para arena limpia con FC < 5% se ubica en $V_{S1} \approx 200$ m/s para CSR = 0.30. La dispersión de la base de datos es menor que la del SPT equivalente, confirmando que $V_S$ es un indicador más robusto de la densidad intrínseca del suelo. Foti et al. (2018, §1.2.2) citan este trabajo como motivación principal del [[MASW Method|MASW]] en aplicaciones de riesgo sísmico.

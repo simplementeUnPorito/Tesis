@@ -1,13 +1,13 @@
 ---
 name: Microtremor
-description: Vibración sísmica ambiental de baja amplitud usada como fuente pasiva en [[MASW Method|MASW]], SPAC, ReMi y HVSR — generada por actividad humana, oceánica y atmosférica
+description: Vibración sísmica ambiental de baja amplitud usada como fuente pasiva en [[MASW Method|MASW]], SPAC, [[ReMi Method|ReMi]] y [[HVSR|HVSR]] — generada por actividad humana, oceánica y atmosférica
 type: reference
 ---
 
 # Microtremor — Ruido Sísmico Ambiental
 
 > [!CONCEPT] Definición
-> Los **microtremores** (o *ambient seismic noise*) son las vibraciones sísmicas de baja amplitud ($10^{-9}$–$10^{-6}$ m) presentes continuamente en la corteza terrestre, generadas por fuentes naturales y antropogénicas. Son la fuente de los métodos sísmicos pasivos: [[ReMi Method|ReMi]], [[SPAC Method|SPAC]], [[Seismic Interferometry|interferometría sísmica]] y [[HVSR]]. Están dominados por **ondas superficiales** ([[Rayleigh Waves|Rayleigh]] y [[Love Waves|Love]]) en el rango de frecuencias de ingeniería (0.1–100 Hz). Su principal ventaja como fuente es que aportan energía en **bajas frecuencias** (0.1–5 Hz) que fuentes activas (sledgehammer) no pueden generar — permitiendo investigar profundidades >50 m. Su limitación es que su distribución espacial puede ser anisotrópica, lo que sesga los métodos que asumen isotropía (ReMi, SPAC convencional).
+> Los **microtremores** (o *ambient seismic noise*) son las vibraciones sísmicas de baja amplitud ($10^{-9}$–$10^{-6}$ m) presentes continuamente en la corteza terrestre, generadas por fuentes naturales y antropogénicas. Son la fuente de los métodos sísmicos pasivos: [[ReMi Method|ReMi]], [[SPAC Method|SPAC]], [[Seismic Interferometry|interferometría sísmica]] y [[HVSR]]. Están dominados por **ondas superficiales** ([[Rayleigh Waves|Rayleigh]] y [[Love Waves|Love]]) en el rango de frecuencias de ingeniería (0.1–100 Hz). Su principal ventaja como fuente es que aportan energía en **bajas frecuencias** (0.1–5 Hz) que fuentes activas (sledgehammer) no pueden generar — permitiendo investigar profundidades >50 m. Su limitación es que su distribución espacial puede ser anisotrópica, lo que sesga los métodos que asumen isotropía ([[ReMi Method|ReMi]], SPAC convencional).
 >
 > — Foti et al. (2018), Cap. 3, §3.4.3; Cap. 8 — métodos pasivos; Peterson (1993) NLNM/NHNM.
 
@@ -37,7 +37,7 @@ Esta dominancia de ondas superficiales es lo que hace posible los métodos de on
 La mayoría de los métodos pasivos asumen que el campo de microtremores es **estadísticamente estacionario, ergódico e isotrópico** en el plano horizontal — el *campo difuso*. Bajo esta hipótesis:
 - SPAC: la autocorrelación espacial es $J_0(k_0 r)$
 - Interferometría: la cross-correlación converge a la función de Green
-- ReMi: el mínimo de velocidad en el panel tau-p corresponde a $c_R(f)$
+- [[ReMi Method|ReMi]]: el mínimo de velocidad en el panel tau-p corresponde a $c_R(f)$
 
 Si el campo de microtremores tiene una dirección preferencial (fuente dominante), estas hipótesis se violan y los resultados pueden ser sesgados.
 
@@ -59,5 +59,5 @@ Si el campo de microtremores tiene una dirección preferencial (fuente dominante
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | Cap. 3, §3.4.3; Cap. 8 — métodos pasivos |
 | Peterson (1993), *USGS OFR 93-322* | Modelos NLNM/NHNM de ruido sísmico de referencia |
-| SESAME Project (2004) | Guías de adquisición de microtremores para HVSR |
+| SESAME Project (2004) | Guías de adquisición de microtremores para [[HVSR|HVSR]] |
 | Garofalo et al. (2016a/b) | Papers 006, 007 — microtremores en InterPACIFIC |

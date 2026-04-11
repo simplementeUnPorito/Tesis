@@ -31,7 +31,7 @@ donde $D_s \ll 1$ (amortiguamiento débil típico en suelos: $D_s \sim 1$–$10\
 
 ### Principio de correspondencia elástico-viscoelástico
 
-Todas las soluciones del problema elástico son válidas en el viscoelástico con la sustitución $\lambda, \mu \to \tilde{\lambda}(\omega), \tilde{\mu}(\omega)$. Esto permite extender directamente la ecuación secular de Rayleigh y el método de Thomson-Haskell a medios disipativos.
+Todas las soluciones del problema elástico son válidas en el viscoelástico con la sustitución $\lambda, \mu \to \tilde{\lambda}(\omega), \tilde{\mu}(\omega)$. Esto permite extender directamente la ecuación secular de Rayleigh y el método de [[Thomson-Haskell Matrix|Thomson-Haskell]] a medios disipativos.
 
 ### [[Wavenumber|número de onda]] complejo y atenuación
 

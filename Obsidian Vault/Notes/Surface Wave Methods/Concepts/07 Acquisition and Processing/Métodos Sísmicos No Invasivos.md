@@ -1,6 +1,6 @@
 ---
 name: Métodos Sísmicos No Invasivos
-description: Técnicas de medición de VS realizadas íntegramente desde la superficie sin perforaciones; incluyen refracción, reflexión y métodos de ondas superficiales ([[MASW Method|MASW]], [[SASW Method|SASW]], ReMi, SPAC)
+description: Técnicas de medición de VS realizadas íntegramente desde la superficie sin perforaciones; incluyen refracción, reflexión y métodos de ondas superficiales ([[MASW Method|MASW]], [[SASW Method|SASW]], [[ReMi Method|ReMi]], SPAC)
 type: reference
 ---
 
@@ -40,7 +40,7 @@ Explotan la **dispersión** de las [[Surface Waves|ondas superficiales]] para in
 | [[SPAC Method|SPAC]] | Pasiva (ruido ambiente) | Arreglo 2D (triángulo, anillo) | Autocorrelación espacial → $J_0$ |
 | [[Seismic Interferometry|Interferometría]] | Pasiva | Cualquier arreglo | Cross-correlación → función de Green |
 
-### 4. HVSR (Microtremores)
+### 4. [[HVSR|HVSR]] (Microtremores)
 
 El método [[HVSR]] utiliza la razón espectral horizontal/vertical de microtremores para estimar la frecuencia fundamental del sitio $f_0 = V_S / (4H)$. No requiere fuente controlada ni arreglo de múltiples sensores — un único sensor triaxial es suficiente.
 
@@ -69,7 +69,7 @@ Los métodos de ondas superficiales tienen ventajas específicas sobre los otros
 | Validación necesaria | Referencia de oro | Recomendable vs. invasivo |
 
 > [!EXAMPLE] Evidencia empírica: InterPACIFIC (Garofalo et al. 2016) — comparativa masiva de métodos no invasivos
-> **Papers 006+007 (Garofalo et al. 2016a/b)** presentan el estudio InterPACIFIC: 30 equipos internacionales aplican métodos sísmicos no invasivos ([[MASW Method|MASW]], ReMi, SPAC, HVSR) en 3 sitios de referencia con datos de borehole disponibles. Los resultados muestran que: (1) los métodos de ondas superficiales reproducen el perfil $V_S(z)$ del borehole con acuerdo razonable en todos los sitios; (2) la variabilidad entre operadores es significativa (~15–20% en $V_{S,30}$) y está dominada por decisiones de procesamiento e inversión, no por el método en sí; (3) la concordancia mejora cuando se usan protocolos estandarizados y parámetros a priori compartidos.
+> **Papers 006+007 (Garofalo et al. 2016a/b)** presentan el estudio InterPACIFIC: 30 equipos internacionales aplican métodos sísmicos no invasivos ([[MASW Method|MASW]], [[ReMi Method|ReMi]], SPAC, [[HVSR|HVSR]]) en 3 sitios de referencia con datos de borehole disponibles. Los resultados muestran que: (1) los métodos de ondas superficiales reproducen el perfil $V_S(z)$ del borehole con acuerdo razonable en todos los sitios; (2) la variabilidad entre operadores es significativa (~15–20% en $[[Vs30|Vs,30]]$) y está dominada por decisiones de procesamiento e inversión, no por el método en sí; (3) la concordancia mejora cuando se usan protocolos estandarizados y parámetros a priori compartidos.
 >
 > — Research Database, entradas 006, 007 (core).
 

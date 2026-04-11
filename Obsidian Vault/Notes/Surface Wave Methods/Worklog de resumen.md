@@ -18,7 +18,16 @@
 - Página final aproximada: 20
 - Pendiente Chapter 1: ninguno — capítulo en estado comparable al resto del vault
 
-## Conceptos creados o actualizados en la última iteración (iteración 82 — 2026-04-11)
+## Conceptos creados o actualizados en la última iteración (iteración 83 — 2026-04-11)
+- **Fase 9 (enriquecimiento cross-links en archivos de conceptos)**:
+  - **Ronda 1** (143 archivos, 706 cambios): MASW(455), SASW(48), curva(s) de dispersión(~200), velocidad de fase(~100) en todos los conceptos cruzados
+  - **Ronda 2** (93 archivos, 215 cambios): Rayleigh Waves(10), Love Waves(3), Ground Roll(32), Dispersion Relation(18), Wavenumber(68), Forward Problem(25), Non-uniqueness(28), Joint Inversion(50)
+  - Auto-referencias excluidas en todos los casos (MASW Method.md no enlaza a sí misma, etc.)
+  - **Total acumulado vault**: 1,027 links en capítulos + ~900 links nuevos en conceptos ≈ 1,927+ wikilinks totales
+- Papers nuevos integrados: ninguno (foco en wikilinks)
+- Commits: `[INVESTIGADOR] enrich: wikilinks en 143+93 conceptos (iteración 83)`
+
+## Conceptos creados o actualizados en iteraciones anteriores (iteración 82 — 2026-04-11)
 - **Fase 8b (enriquecimiento wikilinks Capítulos 1, 2, 3, 4y5 + correcciones caps 6-8)**:
   - **Chapter 1.md**: +Dispersion Curve(33), +MASW(6), +SASW(5), +Phase Velocity(11), +Rayleigh Waves(4), +Non-uniqueness(3), +Forward Problem(7), +Wavenumber(2) → 186 links (2.61/100w)
   - **Chapter 2.md**: +Dispersion Curve(6), +Phase Velocity(18), +Wavenumber(11) → 260 links (3.30/100w)

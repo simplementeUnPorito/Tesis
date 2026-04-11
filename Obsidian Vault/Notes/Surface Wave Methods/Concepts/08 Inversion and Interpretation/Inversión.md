@@ -1,13 +1,13 @@
 ---
 name: Inversión
-description: Proceso de identificación de parámetros del subsuelo (perfil VS) a partir de la [[Dispersion Curve|curva de dispersión]] experimental — problema inverso ill-posed con múltiples estrategias de regularización y búsqueda
+description: Proceso de identificación de parámetros del subsuelo (perfil VS) a partir de la [[Dispersion Curve|curva de dispersión]] experimental — problema inverso ill-posed con múltiples estrategias de [[Regularization|regularización]] y búsqueda
 type: reference
 ---
 
 # Inversión de la Curva de Dispersión
 
 > [!CONCEPT] Definición
-> La **inversión** es el paso final del flujo de trabajo de ondas superficiales: determina el perfil de velocidad de corte $V_S(z)$ que mejor explica la **[[Dispersion Curve|curva de dispersión]] experimental** $c_R(f)$ medida en campo. Se formula como un problema de identificación de parámetros: dado el modelo $\mathbf{m} = \{V_{S,i}, V_{P,i}, \rho_i, h_i\}$ de capas planas, minimizar el desajuste $E(\mathbf{m}) = \|c_R^{\text{obs}}(f) - c_R^{\text{teórica}}(\mathbf{m}, f)\|$. El problema es **ill-posed** (Hadamard 1923): viola unicidad y estabilidad → requiere [[Non-uniqueness|información a priori]] y [[Tikhonov Regularization|regularización]]. Los enfoques van de métodos locales (gradiente, mínimos cuadrados) a globales ([[Monte Carlo Methods|Monte Carlo]], algoritmos genéticos). El producto es el perfil $V_S(z)$ para calcular $V_{S,30}$ y la clasificación sísmica del sitio.
+> La **inversión** es el paso final del flujo de trabajo de ondas superficiales: determina el perfil de velocidad de corte $V_S(z)$ que mejor explica la **[[Dispersion Curve|curva de dispersión]] experimental** $c_R(f)$ medida en campo. Se formula como un problema de identificación de parámetros: dado el modelo $\mathbf{m} = \{V_{S,i}, V_{P,i}, \rho_i, h_i\}$ de capas planas, minimizar el desajuste $E(\mathbf{m}) = \|c_R^{\text{obs}}(f) - c_R^{\text{teórica}}(\mathbf{m}, f)\|$. El problema es **ill-posed** (Hadamard 1923): viola unicidad y estabilidad → requiere [[Non-uniqueness|información a priori]] y [[Tikhonov Regularization|regularización]]. Los enfoques van de métodos locales (gradiente, mínimos cuadrados) a globales ([[Monte Carlo Methods|Monte Carlo]], algoritmos genéticos). El producto es el perfil $V_S(z)$ para calcular $[[Vs30|Vs,30]]$ y la clasificación sísmica del sitio.
 >
 > — Foti et al. (2018), Cap. 6, pp. 277–340; Xia et al. (1999), Paper 002.
 
@@ -48,7 +48,7 @@ Exploran el espacio completo de parámetros sin depender del modelo inicial.
 - **Ventaja**: robusto ante [[Non-uniqueness|no-unicidad]]; caracteriza el ensemble de soluciones.
 - **Limitación**: costo computacional alto (10³–10⁶ evaluaciones del [[Forward Problem|problema directo]]).
 
-## Ill-posedness y regularización
+## Ill-posedness y [[Regularization|regularización]]
 
 El problema inverso viola las condiciones de Hadamard en unicidad y estabilidad. Las estrategias de mitigación son:
 

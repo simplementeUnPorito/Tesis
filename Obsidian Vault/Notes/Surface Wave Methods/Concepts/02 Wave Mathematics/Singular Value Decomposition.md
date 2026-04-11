@@ -1,6 +1,6 @@
 ---
 name: Singular Value Decomposition
-description: Factorización de la matriz Jacobiana J=UΣVᵀ usada en inversión de ondas superficiales para analizar la resolución, el número de condición y construir la pseudo-inversa de Moore-Penrose para inversión estabilizada
+description: Factorización de la [[Jacobian Matrix|matriz Jacobiana]] J=UΣVᵀ usada en inversión de ondas superficiales para analizar la resolución, el número de condición y construir la pseudo-inversa de Moore-Penrose para inversión estabilizada
 type: reference
 ---
 
@@ -20,24 +20,24 @@ type: reference
 
 El número de condición $\kappa(\mathbf{J}) = \sigma_{\max}/\sigma_{\min}$ mide la sensibilidad del sistema inverso a perturbaciones en los datos:
 - $\kappa < 10$: bien condicionado — inversión estable
-- $\kappa \sim 10^2$–$10^4$: moderadamente mal condicionado — requiere regularización
+- $\kappa \sim 10^2$–$10^4$: moderadamente mal condicionado — requiere [[Regularization|regularización]]
 - $\kappa > 10^6$: muy mal condicionado — valores singulares pequeños dominan el error
 
 Para [[MASW Method|MASW]] típico ($N = 30$ puntos de dispersión, $M = 15$ parámetros $V_S$), $\kappa \sim 10^3$–$10^5$ — justificando la necesidad de [[Regularization|regularización de Tikhonov]] o [[Occam Algorithm|algoritmo de Occam]].
 
-### Truncation SVD como regularización
+### Truncation SVD como [[Regularization|regularización]]
 
 La inversión regularizada por truncamiento SVD (*TSVD*) conserva solo los $p < r$ valores singulares más grandes:
 $$\mathbf{m}_{TSVD} = \sum_{i=1}^{p} \frac{1}{\sigma_i} (\mathbf{u}_i^T \mathbf{d}) \mathbf{v}_i$$
 
-La elección de $p$ controla el trade-off resolución-estabilidad — equivalente conceptualmente al parámetro de regularización $\lambda$ en Tikhonov.
+La elección de $p$ controla el trade-off resolución-estabilidad — equivalente conceptualmente al parámetro de [[Regularization|regularización]] $\lambda$ en Tikhonov.
 
 ### Análisis de resolución
 
 La matriz de resolución del modelo $\mathbf{R}_m = \mathbf{V}_p \mathbf{V}_p^T$ (con $\mathbf{V}_p$ la submatriz de los $p$ vectores singulares derechos) describe qué combinaciones de parámetros son resolubles. En [[MASW Method|MASW]], la diagonal de $\mathbf{R}_m$ muestra alta resolución en las capas más superficiales (frecuencias altas) y baja resolución en capas profundas (frecuencias bajas).
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — SVD en inversión linealizada del sitio La Salle
-> Foti et al. (2018, §6.2.2) aplican la SVD a la matriz Jacobiana de la inversión linealizada del sitio La Salle (Fig. 6.10). Para un modelo de 15 capas con datos a 4–40 Hz, los valores singulares decaen 3 órdenes de magnitud de $\sigma_1 \approx 10^3$ a $\sigma_{15} \approx 1$, dando $\kappa \approx 10^3$. El análisis de los vectores singulares muestra que los primeros 8 valores singulares corresponden a capas bien resolubles (0–15 m), mientras los últimos 7 son prácticamente inobservables (>20 m). La TSVD con $p = 10$ produce un modelo estable que reproduce los datos con $\chi^2 \approx N = 30$ — validando que 10 combinaciones lineales de $V_S$ son suficientes para explicar los datos a la calidad de medición.
+> Foti et al. (2018, §6.2.2) aplican la SVD a la [[Jacobian Matrix|matriz Jacobiana]] de la inversión linealizada del sitio La Salle (Fig. 6.10). Para un modelo de 15 capas con datos a 4–40 Hz, los valores singulares decaen 3 órdenes de magnitud de $\sigma_1 \approx 10^3$ a $\sigma_{15} \approx 1$, dando $\kappa \approx 10^3$. El análisis de los vectores singulares muestra que los primeros 8 valores singulares corresponden a capas bien resolubles (0–15 m), mientras los últimos 7 son prácticamente inobservables (>20 m). La TSVD con $p = 10$ produce un modelo estable que reproduce los datos con $\chi^2 \approx N = 30$ — validando que 10 combinaciones lineales de $V_S$ son suficientes para explicar los datos a la calidad de medición.
 >
 > — Foti et al. (2018), §6.2.2, pp. 276–283, Figs. 6.10–6.11.
 

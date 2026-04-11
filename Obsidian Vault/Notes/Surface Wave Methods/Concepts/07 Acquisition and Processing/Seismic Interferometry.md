@@ -27,11 +27,11 @@ En arrays lineales, el interferograma permite usar un receptor de referencia com
 
 ## Interferograma vs. [[ReMi Method|ReMi]]
 
-El método [[ReMi Method|ReMi]] (*Refraction Microtremor*) procesa directamente los registros de ruido en el dominio f-k, asumiendo que el mínimo de la curva de slowness corresponde a la dispersión real. La interferometría sísmica ofrece ventajas prácticas respecto a ReMi:
+El método [[ReMi Method|ReMi]] (*Refraction Microtremor*) procesa directamente los registros de ruido en el dominio f-k, asumiendo que el mínimo de la curva de slowness corresponde a la dispersión real. La interferometría sísmica ofrece ventajas prácticas respecto a [[ReMi Method|ReMi]]:
 
-- En un campo de ondas **no isotrópico**, ReMi puede llevar a velocidades **sobreestimadas** porque el análisis utiliza la velocidad aparente. El interferograma, al cancelar las contribuciones de direcciones opuestas, extrae el [[Wavenumber|número de onda]] verdadero (Fig. 8.31, p. 429).
-- El espectro f-k del interferograma muestra los máximos **exactamente sobre el [[Wavenumber|número de onda]] teórico verdadero** (Fig. 8.30, p. 429), mientras que el espectro ReMi del mismo dataset sintético muestra los máximos sobre el [[Wavenumber|número de onda]] aparente.
-- La hipótesis de campo difuso isotrópico puede **validarse con el interferograma**: si existe una fuente dominante a distancia limitada, el interferograma muestra eventos no lineales que advierten sobre la invalidez de los resultados (Fig. 8.32, p. 430). ReMi no ofrece este diagnóstico directo.
+- En un campo de ondas **no isotrópico**, [[ReMi Method|ReMi]] puede llevar a velocidades **sobreestimadas** porque el análisis utiliza la velocidad aparente. El interferograma, al cancelar las contribuciones de direcciones opuestas, extrae el [[Wavenumber|número de onda]] verdadero (Fig. 8.31, p. 429).
+- El espectro f-k del interferograma muestra los máximos **exactamente sobre el [[Wavenumber|número de onda]] teórico verdadero** (Fig. 8.30, p. 429), mientras que el espectro [[ReMi Method|ReMi]] del mismo dataset sintético muestra los máximos sobre el [[Wavenumber|número de onda]] aparente.
+- La hipótesis de campo difuso isotrópico puede **validarse con el interferograma**: si existe una fuente dominante a distancia limitada, el interferograma muestra eventos no lineales que advierten sobre la invalidez de los resultados (Fig. 8.32, p. 430). [[ReMi Method|ReMi]] no ofrece este diagnóstico directo.
 
 ## Hipótesis fundamentales
 

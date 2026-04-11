@@ -36,7 +36,7 @@ Para $\omega \gg \omega_n$: $H \approx 1$ → respuesta plana → el geófono mi
 | 14 Hz | [[MASW Method|MASW]] estándar | 12–200 Hz | Activo (sledgehammer) |
 | 28 Hz | Alta resolución superficial | 22–200 Hz | Activo, capas muy superficiales |
 
-Para [[MASW Method|MASW]] estándar con sledgehammer (fuente activa, 5–80 Hz), los geófonos de 14 Hz son los más comunes. Para pasivo (ReMi, SPAC), se recomiendan ≤4.5 Hz para capturar el rango de 1–5 Hz necesario para profundidades >30 m.
+Para [[MASW Method|MASW]] estándar con sledgehammer (fuente activa, 5–80 Hz), los geófonos de 14 Hz son los más comunes. Para pasivo ([[ReMi Method|ReMi]], SPAC), se recomiendan ≤4.5 Hz para capturar el rango de 1–5 Hz necesario para profundidades >30 m.
 
 ## Acoplamiento suelo-geófono
 
