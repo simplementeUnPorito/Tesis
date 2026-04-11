@@ -696,3 +696,24 @@ Añadir `[!CONCEPT]` (definición técnica con wikilinks) y `[!EXAMPLE]` (eviden
 **Estado: 112 archivos en Concepts/. Wikilinks rotos en capítulos reducidos a: imágenes PNG (ignorar), Lamb's Problem (unicode), d'Alembert (unicode).**
 - Próximo paso: revisar Chapter 3 y Chapter 4 para cualquier wikilink pendiente de los 40 nuevos conceptos de Fase 5
 - Continuar loop hasta 2026-04-13 08:00 AM
+
+### 2026-04-11 — iteración 74 (commits 99af522, dec2dda, d9dcc25) — 7 nuevos conceptos + fix wikilinks
+- `Concepts/02/Fourier Series.md` — DFT, FFT, par de Fourier, análisis espectral en MASW, base para transformada f-k (1x Ch3)
+- `Concepts/02/Spectral Leakage.md` — truncamiento de señal, lóbulos laterales, ventanas Hann/Hamming/Blackman, efecto en panel f-k (1x Ch3)
+- `Concepts/02/Singular Value Decomposition.md` — SVD J=UΣVᵀ, número de condición, TSVD regularización, matriz de resolución (1x Ch6)
+- `Concepts/08/Gauss-Newton Method.md` — linearización iterativa, J^TJ δm = J^T r, Xia 1999, relación con Levenberg-Marquardt (1x Ch6)
+- `Concepts/08/L-Curve Criterion.md` — curva log||Jm-d|| vs log||Lm||, esquina de la L, comparación con chi-cuadrado y GCV (1x Ch6)
+- `Concepts/02/Convolution Theorem.md` — F{f*g}=F·G, modelo convolucional sísmico, correlación cruzada en frecuencia (1x Ch3)
+- `Concepts/07/Zero Padding.md` — relleno con ceros antes de FFT, interpolación espectral, mejora estimación VR(f) en panel f-k (1x Ch7)
+- Fix: wikilinks malformados `[[SASW Method\]]`, `[[MASW Method\]]`, `[[SPAC Method\]]`, `[[ReMi Method\]]` en Chapter 4 y 5 (backslash eliminado)
+
+### 2026-04-11 — iteración 75 (commit dd64307) — 2 nuevos conceptos
+- `Concepts/06/Biot Theory.md` — poroelasticidad Biot 1956, 3 ondas (P1, P2 difusiva, S), Gassmann, G_sat=G_sk, La Salle VP vs VS (1x Ch6)
+- `Concepts/04/Stoneley Wave.md` — onda interfacial sólido-sólido/sólido-fluido, c_St < min(VS1,VS2), perfilaje de pozos, OBS Mar del Norte (1x Ch8)
+
+**Estado: 121 archivos en Concepts/. Wikilinks rotos reales: ~15 — candidatos a resolver en próximas iteraciones.**
+- Pendientes prioritarios Ch3: Dirac Comb, Window Function, Hamming Window, Signal Stacking, Dirac Delta
+- Pendientes Ch6: Moore-Penrose Pseudoinverse, Condition Number, Total Variation Regularization
+- Pendientes Ch8: Cross-Gradient Function, Archie's Law, Wyllie Equation, Gardner Relations, Hidden Layer Problem, Green Function, Seismic Microzonation
+- Pendientes Ch4: Bessel Function, Radon Transform, MUSIC Algorithm, Arias Intensity
+- Continuar loop hasta 2026-04-13 08:00 AM
