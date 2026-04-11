@@ -78,3 +78,4 @@ Todos comparten el objetivo de explorar el espacio de parámetros globalmente y 
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | Cap. 6.1.3 (local vs global), Cap. 6.4.3, Cap. 7.2.4, pp. 280–374 |
 | Socco & Boiero (2008), *Near Surface Geophys* | Algoritmo de Monte Carlo global con propiedades de escala |
+| Olafsdottir, Erlingsson & Bessason (2020), *Geosciences* 10(8):322 | Paper 013 — MASWaves: herramienta open-source MATLAB para inversión Monte Carlo MASW; CC BY 4.0 |

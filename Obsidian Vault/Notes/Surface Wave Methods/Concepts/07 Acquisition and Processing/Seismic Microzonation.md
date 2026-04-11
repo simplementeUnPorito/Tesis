@@ -64,3 +64,4 @@ El paso de inversión introduce la mayor incertidumbre: la [[Non-uniqueness|no-u
 | NEHRP (2020), *FEMA P-2082* | Clasificación VS30 y factores de amplificación |
 | Eurocode 8 (EN 1998-1:2004) | §3.1.2 — clasificación de sitios por VS30 |
 | Wills & Clahan (2006), *Bull. Seism. Soc. Am.* | Metodología de mapeo VS30 para microzonificación |
+| Garofalo et al. (2016) Part II, *Soil Dyn. EE* 82:241–254 | Paper 046 — InterPACIFIC: MASW vs borehole; 153 citas; VS30 comparable dentro del 6.5% |

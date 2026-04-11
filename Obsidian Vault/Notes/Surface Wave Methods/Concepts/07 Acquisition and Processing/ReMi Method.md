@@ -55,3 +55,4 @@ La **interferometría sísmica pasiva** (Cap. 8) supera la limitación de la vel
 | Louie (2001), *Seismological Research Letters* | Método ReMi original — borde mínimo de velocidad |
 | Foti et al. (2018), *Surface Wave Methods* | Cap. 3, §3.4.3.3; Cap. 8, §8.4 — ReMi y comparativa pasivos |
 | Garofalo et al. (2016a/b) | Papers 006, 007 — ReMi vs interferometría en InterPACIFIC |
+| Park et al. (2007), *The Leading Edge* 26(1):60–64 | Paper 010 — review MASW activo+pasivo; complementariedad y flujo combinado; 258 citas |

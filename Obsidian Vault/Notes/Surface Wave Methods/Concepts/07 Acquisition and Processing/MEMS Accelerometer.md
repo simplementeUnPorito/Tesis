@@ -50,3 +50,4 @@ En el dominio de la frecuencia, la división por $i\omega$ o $(i\omega)^2$ es ex
 | Foti et al. (2018), *Surface Wave Methods* | Cap. 3, §3.2 — sensores para adquisición sísmica |
 | Muyzert (2007), *Geophysics* | MEMS para símica de exploración y near-surface |
 | Garofalo et al. (2016a/b) | Papers 006, 007 — MEMS vs geófonos en InterPACIFIC |
+| Kafadar (2020), *Geosci. Instrum.* 9(2):365–373 | Paper 052 — sistema de bajo costo con geófonos para HVSR; resultados comparables a equipos comerciales |
