@@ -6,8 +6,10 @@ type: reference
 
 # Medios Verticalmente Inhomogéneos (Vertically Inhomogeneous Media)
 
-> **Contexto:** Extensión del modelo de [[Layered Media|capas horizontales]] donde las propiedades elásticas ($\lambda$, $\mu$, $\rho$) son funciones continuas de la profundidad $x_2$. Relevante para depósitos granulares en los que la rigidez aumenta progresivamente con la presión de confinamiento.
-> **Fuente:** Foti et al. (2014), Cap. 2.4, pp. 64–95.
+> [!CONCEPT] Definición
+> Un **medio verticalmente inhomogéneo** generaliza el modelo de [[Layered Media|capas horizontales]] al permitir que las propiedades elásticas $(\lambda, \mu, \rho)$ sean **funciones continuas de la profundidad** $x_2$, en lugar de constantes por capa con saltos en interfaces. Las ecuaciones de onda resultan en sistemas de EDOs con coeficientes variables: para ondas de Love, un sistema de segundo orden; para ondas de [[Rayleigh Waves|Rayleigh]], un sistema de cuarto orden en las eigenfunciones de desplazamiento y esfuerzo. Se resuelven numéricamente ya sea (1) discretizando el perfil continuo en muchas capas delgadas (regresa al método de [[Rayleigh Eigenproblem|Thomson-Haskell]]) o (2) integrando directamente la EDO (Runge-Kutta). Es relevante para depósitos granulares con **gradiente de compactación** donde la rigidez aumenta progresivamente con la presión de confinamiento — sin interfaces litológicas abruptas.
+>
+> — Foti et al. (2018), Cap. 2, §2.4, pp. 64–76.
 
 ## Intuición física
 
@@ -69,8 +71,15 @@ Los códigos de inversión que usan el modelo continuo (como el de Rix & Lai, 20
 
 La **no-unicidad** de la inversión es si cabe mayor en el modelo continuo que en el modelo de capas, porque la dimensión del espacio de parámetros es efectivamente infinita (función continua). En la práctica se restringen las formas admisibles a una familia paramétrica de dimensión finita.
 
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — modelo continuo vs. capas en sitio La Salle
+> Foti et al. (2018, §7.2.5, Fig. 7.23) comparan la inversión con modelo de capas discretas y con modelo de perfil continuo ($V_S = a\cdot z^b$, parametrización potencial) para el sitio La Salle (arena fluvial con gradiente de compactación suave). Ambos modelos ajustan igualmente la curva de dispersión y producen valores de $V_{S,30}$ dentro del mismo rango estrecho (480–505 m/s). La diferencia principal: el modelo de capas puede representar la capa vegetal superficial (espesor ~0.3 m, $V_S \approx 100$ m/s) que el modelo continuo con función potencial suave no puede reproducir. El resultado confirma que para sitios con variación gradual de $V_S$ el modelo continuo es igualmente válido y computacionalmente más eficiente, pero para sitios con capas superficiales muy blandas (relleno, suelo vegetal) el modelo de capas es preferible.
+>
+> — Foti et al. (2018), §7.2.5, p. 375, Fig. 7.23.
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.4, pp. 64–76, Ecs. 2.56–2.74 — formulación matemática.
-- Foti et al. (2014), Cap. 7.2.5, p. 375, Fig. 7.23 — comparación práctica capas vs. continuo.
-- Rix, G.J. y Lai, C.G. (2013) — código de inversión con modelo continuo.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 2, §2.4, pp. 64–76, Ecs. 2.56–2.74 — formulación matemática |
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 7.2.5, p. 375, Fig. 7.23 — comparación práctica capas vs. continuo |
+| Rix & Lai (2013) | Código de inversión con modelo continuo (splines/potencia) |
