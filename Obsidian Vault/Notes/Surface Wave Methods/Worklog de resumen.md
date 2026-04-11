@@ -90,6 +90,19 @@
 
 ## Historial de iteraciones
 
+### 2026-04-11 — iteración 41 de loop (INVESTIGADOR — 4 stubs vacíos desarrollados)
+- **Estado:** VÁLIDA.
+- **Acción realizada:** Desarrollados los 4 únicos stubs vacíos (0 líneas) restantes en Concepts/:
+  - `Concepts/02 Wave Mathematics/Hyperbolic Partial Differential Equations.md` — clasificación PDEs (Δ = B²-4AC), ecuación de onda 1D, extensión elastodinámica 3D, relación con [[Wave Dispersion]] en medios heterogéneos.
+  - `Concepts/06 Media and Stratification/Porous Media.md` — teoría Biot 1956, onda P lenta, Gassmann, independencia de $G$ respecto a saturación, nota sobre Poisson Ratio y Non-uniqueness.
+  - `Concepts/04 Body and Surface Waves/Water Waves.md` — relación de dispersión $\omega^2 = gk\tanh(kh)$, tabla de regímenes, analogía con Rayleigh Waves.
+  - `Concepts/04 Body and Surface Waves/Surface Water Waves.md` — caso interfaz agua-aire, tabla comparativa con Rayleigh Waves (movimiento partícula, Skin Depth, $c_g = c_p/2$).
+- **Conceptos creados:** 4 (Hyperbolic PDEs, Porous Media, Water Waves, Surface Water Waves)
+- **Papers vinculados:** Biot 1956 (externo), Gassmann 1951 (externo), Foti 2018 §2.1.1–2.1.2, Lamb 1932
+- **Commit:** `2364342` — rama `investigador-loop`
+- **Siguiente:** revisar conceptos en carpetas 00–04 que puedan tener contenido pero sin callouts/wikilinks completos. Luego scan de wikilinks rotos en los capítulos.
+- **Fecha y hora:** 2026-04-11 01:20 UTC
+
 ### 2026-04-11 — iteración 40 de loop (INVESTIGADOR — enriquecimiento Geometric Dispersion)
 - **Estado:** VÁLIDA.
 - **Acción realizada:**
