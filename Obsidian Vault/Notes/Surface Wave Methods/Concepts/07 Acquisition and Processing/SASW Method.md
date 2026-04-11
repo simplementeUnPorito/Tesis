@@ -51,7 +51,7 @@ Las ramas de la curva de dispersión de distintos pares deben superponerse en lo
 
 ## Implicación en geófonos / MASW
 
-El SASW es el precursor directo del [[MASW]] (que generaliza a múltiples estaciones simultáneas), y del método [[MOPA]]. Con geófonos de campo, el SASW puede implementarse con solo dos canales activos, siendo útil cuando los recursos de hardware son limitados. Sin embargo, su sensibilidad al phase unwrapping y la necesidad de repetir el ensayo para múltiples separaciones hacen que los métodos multiestación (f-k, MASW) sean preferibles cuando se dispone de más canales.
+El SASW es el precursor directo del [[MASW Method]] (que generaliza a múltiples estaciones simultáneas), y del método [[MOPA]]. Con geófonos de campo, el SASW puede implementarse con solo dos canales activos, siendo útil cuando los recursos de hardware son limitados. Sin embargo, su sensibilidad al phase unwrapping y la necesidad de repetir el ensayo para múltiples separaciones hacen que los métodos multiestación (f-k, MASW) sean preferibles cuando se dispone de más canales.
 
 ## Comparación con f-k
 

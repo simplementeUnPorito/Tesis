@@ -38,7 +38,7 @@ donde $r(z_i) = \sqrt{x^2 + z_i^2}$ (corrección de la geometría inclinada).
 
 ## Comparación con métodos de ondas superficiales
 
-| Aspecto | Downhole Test | [[Cross-Hole Test]] | [[MASW Method\|MASW]] |
+| Aspecto | Downhole Test | [[Cross-Hole Test]] | [[MASW Method|MASW]] |
 |---------|--------------|-------------------|------|
 | Pozos requeridos | 1 | ≥2 | 0 |
 | Trayectoria onda | Inclinada (fuente-pozo) | Horizontal | Superficial |

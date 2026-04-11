@@ -19,8 +19,8 @@ type: reference
 
 | Regularización | Penalización | Tipo de perfil VS | Mejor para |
 |----------------|-------------|-------------------|-----------|
-| [[Regularization\|Tikhonov]] | $\|\mathbf{D}^1\mathbf{m}\|_2^2$ (suavizado 1er orden) | Gradual, interfaces difusas | Suelos con variación continua |
-| [[Occam Algorithm\|Occam]] | $\|\mathbf{D}^2\mathbf{m}\|_2^2$ (mínima curvatura) | Máxima suavidad (mínimas capas) | Perfiles simples, no invasivos |
+| [[Regularization|Tikhonov]] | $\|\mathbf{D}^1\mathbf{m}\|_2^2$ (suavizado 1er orden) | Gradual, interfaces difusas | Suelos con variación continua |
+| [[Occam Algorithm|Occam]] | $\|\mathbf{D}^2\mathbf{m}\|_2^2$ (mínima curvatura) | Máxima suavidad (mínimas capas) | Perfiles simples, no invasivos |
 | **TV** | $\|\mathbf{D}^1\mathbf{m}\|_1$ (variación total) | Escalonado, interfaces abruptas | Suelos estratificados con capas |
 | L2-norm ($\|\mathbf{m}\|_2^2$) | Amplitud del modelo | Cercano al modelo a priori | Con información a priori |
 

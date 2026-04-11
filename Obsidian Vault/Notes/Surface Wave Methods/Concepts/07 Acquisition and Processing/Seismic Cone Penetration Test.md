@@ -31,9 +31,9 @@ type: reference
 | Ensayo | Tipo | Profundidad | Pozos requeridos | Costo | Resolución vertical |
 |--------|------|-------------|-----------------|-------|---------------------|
 | SCPT | Invasivo (cono) | ~60 m en suelos blandos | 0 (solo penetración) | Medio | ~1 m |
-| [[Downhole Test\|DHT]] | Invasivo (pozo) | Depth del pozo | 1 | Medio | ~0.5 m |
-| [[Cross-Hole Test\|CHT]] | Invasivo (pozos) | Depth de los pozos | ≥2 | Alto | ~0.5 m |
-| [[MASW Method\|MASW]] | No invasivo | ~30–50 m | 0 | Bajo | λ/3–λ/2 |
+| [[Downhole Test|DHT]] | Invasivo (pozo) | Depth del pozo | 1 | Medio | ~0.5 m |
+| [[Cross-Hole Test|CHT]] | Invasivo (pozos) | Depth de los pozos | ≥2 | Alto | ~0.5 m |
+| [[MASW Method|MASW]] | No invasivo | ~30–50 m | 0 | Bajo | λ/3–λ/2 |
 
 ## Ventajas del SCPT sobre ensayos sísmicos dedicados
 

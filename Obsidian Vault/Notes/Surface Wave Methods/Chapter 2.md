@@ -104,7 +104,7 @@ Se introducen conceptos clave como:
 - [[Mode Superposition]]
 - velocidad de fase efectiva ([[Phase Velocity]])
 
-También se revisita el [[Lamb’s Problem]], que describe la generación de [[Surface Waves|ondas superficiales]] por una fuente puntual aplicada sobre la superficie libre del medio.
+También se revisita el [[Lamb's Problem]], que describe la generación de [[Surface Waves|ondas superficiales]] por una fuente puntual aplicada sobre la superficie libre del medio.
 
 Este problema corresponde a la resolución de un problema de contorno no homogéneo asociado a la generación de ondas.
 
@@ -164,7 +164,7 @@ $$
 - $t$: tiempo
 - $c_0$: [[Phase Velocity]]
 
-La solución general es la [[d’Alembert Solution]]:
+La solución general es la [[d'Alembert Solution]]:
 
 $$
 \phi(x,t)=f(x-c_0t)+g(x+c_0t)
@@ -848,7 +848,7 @@ $$
 
 Esto implica que a distancias del orden de **una o dos longitudes de onda desde la fuente**, la contribución de las ondas de cuerpo se vuelve **despreciable** y el campo de ondas queda dominado por **[[Rayleigh Waves]]**.
 
-Este fenómeno fue reconocido tempranamente en el contexto de [[Lamb’s Problem]], que estudia la generación de ondas por una carga aplicada en la superficie de un medio elástico.
+Este fenómeno fue reconocido tempranamente en el contexto de [[Lamb's Problem]], que estudia la generación de ondas por una carga aplicada en la superficie de un medio elástico.
 
 ---
 

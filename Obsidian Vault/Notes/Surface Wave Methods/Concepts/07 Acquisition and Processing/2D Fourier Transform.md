@@ -45,8 +45,8 @@ El espectrograma $|U(\omega, k)|$ se analiza para identificar las crestas que co
 | Método | Base matemática | Equivalencia |
 |---|---|---|
 | f-k directo | DFT 2D | Este método |
-| [[Procesamiento de Señales\|Tau-P / slant-stack]] | Transformada de Radon | Equivalente en el límite de densidad infinita de $p$ |
-| [[SASW Method\|Espectro cruzado]] | DFT 1D por par | Caso especial con $N_x = 2$ |
+| [[Procesamiento de Señales|Tau-P / slant-stack]] | Transformada de Radon | Equivalente en el límite de densidad infinita de $p$ |
+| [[SASW Method|Espectro cruzado]] | DFT 1D por par | Caso especial con $N_x = 2$ |
 | Beamforming | DFT espacial con pesos | Generalización con taper espacial |
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) — 2D FFT como estándar para extracción de la curva de dispersión MASW

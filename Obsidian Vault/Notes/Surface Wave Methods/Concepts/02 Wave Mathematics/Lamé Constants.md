@@ -29,7 +29,7 @@ $$V_P = \sqrt{\frac{\lambda + 2\mu}{\rho}}, \qquad V_S = \sqrt{\frac{\mu}{\rho}}
 |---|---|---|---|
 | Módulo de corte | $\mu$ | Rigidez al corte — resistencia a deformación de corte | $\mu = \rho V_S^2$; parámetro primario de MASW |
 | Primer parámetro de Lamé | $\lambda$ | Contribución de la dilatación a los esfuerzos normales | $\lambda = \rho(V_P^2 - 2V_S^2)$; controla compresibilidad |
-| [[Poisson Ratio\|Coeficiente de Poisson]] | $\nu = \lambda/[2(\lambda+\mu)]$ | Relación deformación lateral/axial | $\nu \to 0.5$ en suelos saturados ($\lambda \to \infty$) |
+| [[Poisson Ratio|Coeficiente de Poisson]] | $\nu = \lambda/[2(\lambda+\mu)]$ | Relación deformación lateral/axial | $\nu \to 0.5$ en suelos saturados ($\lambda \to \infty$) |
 
 ## Relación con parámetros sísmicos
 

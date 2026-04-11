@@ -38,10 +38,10 @@ Una señal arbitraria puede representarse como superposición de ondas armónica
 
 | Tipo | Deformación | Polarización | Velocidad |
 |---|---|---|---|
-| [[P-waves\|Onda P]] | Compresional (volumétrica) | Longitudinal (∥ propagación) | $V_P = \sqrt{(\lambda+2\mu)/\rho}$ |
-| [[S-Waves\|Onda S]] | Corte (deviatórica) | Transversal (⊥ propagación) | $V_S = \sqrt{\mu/\rho}$ |
-| [[Rayleigh Waves\|Onda Rayleigh]] | P + SV acopladas | Elipse retrógrada vertical | $c_R \approx 0.92\,V_S$ |
-| [[Love Waves\|Onda Love]] | SH guiada | Horizontal transversal | $V_{S1} < c_L < V_{S2}$ |
+| [[P-waves|Onda P]] | Compresional (volumétrica) | Longitudinal (∥ propagación) | $V_P = \sqrt{(\lambda+2\mu)/\rho}$ |
+| [[S-Waves|Onda S]] | Corte (deviatórica) | Transversal (⊥ propagación) | $V_S = \sqrt{\mu/\rho}$ |
+| [[Rayleigh Waves|Onda Rayleigh]] | P + SV acopladas | Elipse retrógrada vertical | $c_R \approx 0.92\,V_S$ |
+| [[Love Waves|Onda Love]] | SH guiada | Horizontal transversal | $V_{S1} < c_L < V_{S2}$ |
 
 ### Por confinamiento espacial
 

@@ -36,7 +36,7 @@ Las ondas S tienen **polarización transversal**: el vector de desplazamiento es
 | Tipo | Polarización | Acoplamiento con P |
 |---|---|---|
 | **SV** (Shear Vertical) | En el plano vertical de propagación | Sí — ver [[Mode Conversion]] |
-| **[[SH-wave\|SH]]** (Shear Horizontal) | Horizontal, ⊥ al plano de propagación | No — matemáticamente desacoplada |
+| **[[SH-wave|SH]]** (Shear Horizontal) | Horizontal, ⊥ al plano de propagación | No — matemáticamente desacoplada |
 
 Esta distinción es fundamental: las ondas SV participan en la formación de [[Rayleigh Waves]] por acoplamiento con P, mientras que las ondas SH son la base de las [[Love Waves]].
 

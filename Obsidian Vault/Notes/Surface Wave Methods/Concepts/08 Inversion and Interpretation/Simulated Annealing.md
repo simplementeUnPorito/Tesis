@@ -30,10 +30,10 @@ Para k = 1, ..., N_iteraciones:
 
 | Método | Escape de mínimos locales | Parámetros de control | Eficiencia |
 |--------|--------------------------|----------------------|------------|
-| [[Genetic Algorithm\|GA]] | Alto (selección + mutación) | Muchos ($p_m$, $p_c$, población) | Media |
+| [[Genetic Algorithm|GA]] | Alto (selección + mutación) | Muchos ($p_m$, $p_c$, población) | Media |
 | SA | Alto (temperatura) | Pocos ($T_0$, $\alpha$, schedule) | Media |
-| [[Neighbourhood Algorithm\|NA]] | Alto (Voronoi adaptativo) | Muy pocos ($n_s$, $n_r$) | Alta |
-| [[Monte Carlo Methods\|Monte Carlo]] | Bajo (aleatorio ciego) | Ninguno | Baja |
+| [[Neighbourhood Algorithm|NA]] | Alto (Voronoi adaptativo) | Muy pocos ($n_s$, $n_r$) | Alta |
+| [[Monte Carlo Methods|Monte Carlo]] | Bajo (aleatorio ciego) | Ninguno | Baja |
 
 ## Aplicación a inversión de MASW
 

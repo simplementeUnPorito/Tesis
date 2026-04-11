@@ -13,7 +13,7 @@ type: reference
 
 ## Comparación con geófonos
 
-| Característica | [[Geophone\|Geófono]] | MEMS Accelerometer |
+| Característica | [[Geophone|Geófono]] | MEMS Accelerometer |
 |---|---|---|
 | Magnitud medida | Velocidad de partícula | Aceleración |
 | Respuesta en frecuencia | Plana por encima de $f_n$ | Plana desde DC |

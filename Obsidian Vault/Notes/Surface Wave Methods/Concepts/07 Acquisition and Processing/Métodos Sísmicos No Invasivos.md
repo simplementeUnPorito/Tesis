@@ -34,11 +34,11 @@ Explotan la **dispersión** de las [[Surface Waves|ondas superficiales]] para in
 
 | Método | Fuente | Geometría | Observable |
 |---|---|---|---|
-| [[MASW Method\|MASW]] | Activa (martillo/vibrador) | Línea de geófonos | Espectro f-k → curva de dispersión |
-| [[SASW Method\|SASW]] | Activa | 2 receptores, offset variable | Función de transferencia → fase |
-| [[ReMi Method\|ReMi]] | Pasiva (ruido ambiente) | Línea de geófonos | p-f slantstack → curva de dispersión |
-| [[SPAC Method\|SPAC]] | Pasiva (ruido ambiente) | Arreglo 2D (triángulo, anillo) | Autocorrelación espacial → $J_0$ |
-| [[Seismic Interferometry\|Interferometría]] | Pasiva | Cualquier arreglo | Cross-correlación → función de Green |
+| [[MASW Method|MASW]] | Activa (martillo/vibrador) | Línea de geófonos | Espectro f-k → curva de dispersión |
+| [[SASW Method|SASW]] | Activa | 2 receptores, offset variable | Función de transferencia → fase |
+| [[ReMi Method|ReMi]] | Pasiva (ruido ambiente) | Línea de geófonos | p-f slantstack → curva de dispersión |
+| [[SPAC Method|SPAC]] | Pasiva (ruido ambiente) | Arreglo 2D (triángulo, anillo) | Autocorrelación espacial → $J_0$ |
+| [[Seismic Interferometry|Interferometría]] | Pasiva | Cualquier arreglo | Cross-correlación → función de Green |
 
 ### 4. HVSR (Microtremores)
 
@@ -58,7 +58,7 @@ Los métodos de ondas superficiales tienen ventajas específicas sobre los otros
 
 ## Comparativa geotécnica
 
-| Aspecto | [[Métodos Sísmicos Invasivos\|Invasivos]] | No invasivos (sup. waves) |
+| Aspecto | [[Métodos Sísmicos Invasivos|Invasivos]] | No invasivos (sup. waves) |
 |---|---|---|
 | Costo | Alto | Bajo |
 | Representatividad | Puntual (1D) | Volumétrica (promedio lateral) |

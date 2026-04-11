@@ -34,7 +34,7 @@ donde $\xi = \log \|\mathbf{r}(\lambda)\|$, $\eta = \log \|\mathbf{L}\mathbf{m}(
 | Criterio | Requiere $\sigma_i$ | Computacional | Robustez |
 |----------|--------------------|--------------|---------  |
 | L-Curve | No | Media (barrido en λ) | Media |
-| [[Chi-Squared Test\|Chi-cuadrado]] | Sí | Baja | Alta (con datos) |
+| [[Chi-Squared Test|Chi-cuadrado]] | Sí | Baja | Alta (con datos) |
 | Validación cruzada (GCV) | No | Alta | Alta |
 | Discrepancy principle | Sí (nivel de ruido) | Baja | Alta |
 

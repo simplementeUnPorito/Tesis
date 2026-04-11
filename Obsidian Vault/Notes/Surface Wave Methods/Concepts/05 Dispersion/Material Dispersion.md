@@ -23,7 +23,7 @@ En un medio elástico lineal ideal, las velocidades de fase de ondas P y S son i
 
 | Tipo | Origen | Observable en MASW | Magnitud típica |
 |---|---|---|---|
-| [[Wave Dispersion\|Dispersión geométrica]] | Estratificación vertical | Variación $c_R(f)$ — principal observable | Dominante (50–200%) |
+| [[Wave Dispersion|Dispersión geométrica]] | Estratificación vertical | Variación $c_R(f)$ — principal observable | Dominante (50–200%) |
 | Dispersión material | Propiedades constitutivas | Gradiente residual en $c_R(f)$ | Secundario (<5% para $D_s < 10\%$) |
 
 ## Cuando la dispersión material es relevante en ondas superficiales

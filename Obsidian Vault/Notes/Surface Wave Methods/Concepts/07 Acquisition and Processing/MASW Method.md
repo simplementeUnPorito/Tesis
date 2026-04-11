@@ -29,7 +29,7 @@ La geometría básica es un **arreglo lineal de receptores uniformemente espacia
 |---|---|---|
 | Espaciado entre geófonos | $\Delta X$ | Controla longitud de onda mínima (profundidad mínima) |
 | Apertura total | $D = N\cdot\Delta X$ | Resolución modal, profundidad máxima |
-| Offset de la fuente | $L_s$ | Excluye zona de [[Near-field Effect\|campo cercano]] |
+| Offset de la fuente | $L_s$ | Excluye zona de [[Near-field Effect|campo cercano]] |
 | Número de canales | $N$ | Sobredeterminación del sistema |
 | Duración del registro | $T$ | Resolución en frecuencia |
 
@@ -52,7 +52,7 @@ La profundidad máxima de investigación es aproximadamente $\lambda_{max}/2$ a 
 |---|---|
 | No invasivo (sin sondeos) | Resolución en profundidad limitada por longitud del arreglo |
 | Rápido en campo | Sensible a variaciones laterales (modelo 1D) |
-| Estima $V_S$ directamente | [[Non-uniqueness\|No-unicidad]] de la inversión |
+| Estima $V_S$ directamente | [[Non-uniqueness|No-unicidad]] de la inversión |
 | Compatible con refracción (mismo dataset) | Requiere diseño cuidadoso del arreglo |
 
 ## Diferencia con SASW

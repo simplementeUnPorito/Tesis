@@ -41,11 +41,11 @@ Los modelos con mayor $f_{fitness}$ (menor misfit) tienen mayor probabilidad de 
 
 | Método | Tipo | Mínimos locales | Costo computacional | Modelo inicial |
 |--------|------|----------------|--------------------|----|
-| [[Tikhonov Regularization\|Gradiente (LSM)]] | Local | Sensible | Bajo | Requerido |
-| [[Occam Algorithm\|Occam]] | Local + suavidad | Sensible | Medio | Requerido |
+| [[Tikhonov Regularization|Gradiente (LSM)]] | Local | Sensible | Bajo | Requerido |
+| [[Occam Algorithm|Occam]] | Local + suavidad | Sensible | Medio | Requerido |
 | GA | Global | Robusto | Alto | No requerido |
-| [[Neighbourhood Algorithm\|Neighbourhood Algorithm]] | Global | Robusto | Medio | No requerido |
-| [[Monte Carlo Methods\|Monte Carlo]] | Global | Robusto | Alto | No requerido |
+| [[Neighbourhood Algorithm|Neighbourhood Algorithm]] | Global | Robusto | Medio | No requerido |
+| [[Monte Carlo Methods|Monte Carlo]] | Global | Robusto | Alto | No requerido |
 
 ## Parámetros críticos de configuración
 

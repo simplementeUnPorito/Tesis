@@ -41,7 +41,7 @@ donde $t_0$ es el tiempo de disparo y $t_S$ el tiempo de llegada de la onda S a 
 
 ## Comparación con métodos de ondas superficiales
 
-| Aspecto | Cross-Hole Test | [[MASW Method\|MASW]] |
+| Aspecto | Cross-Hole Test | [[MASW Method|MASW]] |
 |---------|----------------|------|
 | Invasividad | Alta (≥2 pozos) | No invasivo |
 | Costo | Alto (perforación) | Bajo |

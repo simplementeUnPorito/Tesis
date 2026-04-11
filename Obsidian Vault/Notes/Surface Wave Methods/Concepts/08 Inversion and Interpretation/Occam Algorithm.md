@@ -36,7 +36,7 @@ El proceso converge en ~5–20 iteraciones; cada iteración resuelve un sistema 
 
 ## Diferencias con Tikhonov estándar
 
-| Aspecto | [[Tikhonov Regularization\|Tikhonov]] clásico | Occam |
+| Aspecto | [[Tikhonov Regularization|Tikhonov]] clásico | Occam |
 |---------|------|-------|
 | $\lambda$ | Fijo a priori | Buscado para $\chi^2 = \chi^2_{obj}$ |
 | Criterio de parada | Número de iteraciones | $\chi^2$ objetivo |

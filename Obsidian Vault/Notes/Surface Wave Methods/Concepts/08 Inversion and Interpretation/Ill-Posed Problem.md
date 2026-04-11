@@ -19,8 +19,8 @@ type: reference
 | Criterio | Estado en inversión MASW | Consecuencia |
 |---------|------------------------|-------------|
 | Existencia | Generalmente satisfecho | La curva de dispersión observada siempre tiene al menos un modelo consistente |
-| Unicidad | **Violado** | Familia de soluciones equivalentes → [[Non-uniqueness\|no-unicidad]] |
-| Estabilidad | **Violado parcialmente** | Amplificación del error de datos en el modelo → necesita [[Tikhonov Regularization\|regularización]] |
+| Unicidad | **Violado** | Familia de soluciones equivalentes → [[Non-uniqueness|no-unicidad]] |
+| Estabilidad | **Violado parcialmente** | Amplificación del error de datos en el modelo → necesita [[Tikhonov Regularization|regularización]] |
 
 ## Fuentes de la ill-posedness en MASW
 

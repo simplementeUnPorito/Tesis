@@ -44,7 +44,7 @@ Un único instrumento con fuente y dos receptores se suspende en un **pozo lleno
 
 ## Ventajas y limitaciones
 
-| Aspecto | Invasivos | [[Métodos Sísmicos No Invasivos\|No invasivos]] |
+| Aspecto | Invasivos | [[Métodos Sísmicos No Invasivos|No invasivos]] |
 |---|---|---|
 | Resolución vertical | Alta (0.5–2 m) | Moderada (gradiente suave) |
 | Precisión de $V_S$ | Alta (±5–10%) | Moderada–baja (±15–30%) |

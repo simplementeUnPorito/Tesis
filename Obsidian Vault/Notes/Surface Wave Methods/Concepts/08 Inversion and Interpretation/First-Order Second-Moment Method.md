@@ -34,7 +34,7 @@ La covarianza $\mathbf{C}_d$ se estima a partir de:
 
 ## Ventajas y limitaciones
 
-| Aspecto | FOSM | [[Monte Carlo Methods\|Monte Carlo]] |
+| Aspecto | FOSM | [[Monte Carlo Methods|Monte Carlo]] |
 |---------|------|------|
 | Costo computacional | Bajo (una inversión) | Alto (miles de inversiones) |
 | Asume linealidad | Sí | No |

@@ -36,7 +36,7 @@ Los receptores estándar en MASW son **geófonos verticales** (14 Hz, 28 Hz o 4.
 |---|---|---|
 | Espaciado entre geófonos | $\Delta x$ | Longitud de onda mínima: $\lambda_{min} \approx 2\Delta x$ |
 | Apertura total | $D = N\Delta x$ | Longitud de onda máxima: $\lambda_{max} \approx D$ |
-| Offset de fuente | $L_s$ | Exclusión de [[Near-field Effect\|efectos de campo cercano]]: $L_s \geq \lambda_{max}/2$ |
+| Offset de fuente | $L_s$ | Exclusión de [[Near-field Effect|efectos de campo cercano]]: $L_s \geq \lambda_{max}/2$ |
 | Número de canales | $N$ | Resolución modal: mayor $N$ → mejor separación de modos |
 | Duración del registro | $T$ | Resolución en frecuencia: $\Delta f = 1/T$ |
 

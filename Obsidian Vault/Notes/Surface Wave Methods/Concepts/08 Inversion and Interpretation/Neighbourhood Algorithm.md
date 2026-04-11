@@ -31,7 +31,7 @@ type: reference
 
 ## Ventajas sobre otros métodos de búsqueda global
 
-| Propiedad | [[Monte Carlo Methods\|Monte Carlo]] | [[Genetic Algorithm\|GA]] | NA |
+| Propiedad | [[Monte Carlo Methods|Monte Carlo]] | [[Genetic Algorithm|GA]] | NA |
 |-----------|------|----|----|
 | Muestreo | Uniforme (ciego) | Dirigido por aptitud | Dirigido por Voronoi |
 | Parámetros de control | Ninguno | Muchos ($p_m$, $p_c$, población) | Pocos ($n_s$, $n_r$) |

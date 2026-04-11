@@ -22,7 +22,7 @@ type: reference
 |---------|-------------------|----------|--------------|-------------|
 | Rectangular | $1$ | $2/T$ | -13 dB | Referencia; alias si señal no periódica |
 | Hann (Hanning) | $\frac{1}{2}(1 - \cos(2\pi t/T))$ | $4/T$ | -31.5 dB | Estándar en sísmica superficial |
-| [[Hamming Window\|Hamming]] | $0.54 - 0.46\cos(2\pi t/T)$ | $4/T$ | -42.5 dB | Mayor supresión a costa de lóbulo más alto |
+| [[Hamming Window|Hamming]] | $0.54 - 0.46\cos(2\pi t/T)$ | $4/T$ | -42.5 dB | Mayor supresión a costa de lóbulo más alto |
 | Blackman | $0.42 - 0.5\cos(2\pi t/T) + 0.08\cos(4\pi t/T)$ | $6/T$ | -58 dB | Máxima supresión; pérdida de resolución |
 | Tukey ($\alpha=0.5$) | Coseno en los extremos; 1 en el centro | $\approx 3/T$ | -25 dB | Compromiso Hann-rectangular |
 | Kaiser ($\beta=8$) | Función de Bessel modificada $I_0$ | Variable | Variable | Diseño paramétrico óptimo |

@@ -44,10 +44,10 @@ Los registros de geófonos contienen superposición de múltiples componentes:
 | Componente | Origen |
 |-----------|--------|
 | [[Rayleigh Waves]] modo fundamental | Ondas superficiales dominantes |
-| [[Surface Wave Modes\|Modos superiores]] | Superposición modal — altera velocidad aparente |
+| [[Surface Wave Modes|Modos superiores]] | Superposición modal — altera velocidad aparente |
 | [[Love Waves]] | Componente horizontal superpuesta |
 | [[Body Waves]] | [[P-waves]] y [[S-Waves]] directas y reflejadas |
-| [[Near-field Effect\|Campo cercano]] | Interferencia ondas de cuerpo + superficiales |
+| [[Near-field Effect|Campo cercano]] | Interferencia ondas de cuerpo + superficiales |
 
 Entender la superposición es esencial para:
 - Interpretar interferencia constructiva/destructiva en el espectro f-k
