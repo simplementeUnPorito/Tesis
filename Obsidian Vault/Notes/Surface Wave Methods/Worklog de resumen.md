@@ -669,4 +669,19 @@ Añadir `[!CONCEPT]` (definición técnica con wikilinks) y `[!EXAMPLE]` (eviden
 - `Concepts/07/Cross-Correlation.md` — R12(τ)=∫u1·u2(t+τ), función de Green por correlación, SASW y interferometría (2x)
 
 **Estado: 98 archivos en Concepts/. Wikilinks rotos reducidos de 108 a ~12 reales (d'Alembert y Lamb's Problem son unicode, resto son aliases o imágenes).**
+
+### 2026-04-11 — iteración 70 (commit 3df3838) — 3 nuevos conceptos
+- `Concepts/06/Attenuation Coefficient.md` — α decaimiento espacial, relación αR≈ωDs/cR, corrección dispersión geométrica, inversión DS (2x)
+- `Concepts/06/Helmholtz Decomposition.md` — φ+∇×ψ, ondas P/S desacopladas, base de Thomson-Haskell, movimiento elíptico Rayleigh (1x)
+- `Concepts/08/Ill-Posed Problem.md` — criterios Hadamard, violación unicidad/estabilidad, regularización como solución (1x)
+
+### 2026-04-11 — iteración 71 (commit a4c8d68) — 2 nuevos conceptos
+- `Concepts/08/Laterally Constrained Inversion.md` — acoplamiento λl entre perfiles 1D adyacentes, sistema aumentado, LCI vs inversión independiente (1x)
+- `Concepts/08/Simulated Annealing.md` — probabilidad de aceptación Boltzmann, ley de enfriamiento, VFSA como variante eficiente (1x)
+
+### 2026-04-11 — iteración 72 (commit 481b79b) — 2 nuevos conceptos
+- `Concepts/06/Quality Factor.md` — Q=1/(2Ds), modelos constant-Q, relación αR con QR dominada por QS (1x)
+- `Concepts/08/Jacobian Matrix.md` — ∂cR/∂VS,j, método variacional vs diferencias finitas, número de condición, MASW casi exclusivamente VS (1x)
+
+**Estado: 105 archivos en Concepts/. Fase 5 prácticamente completa — solo quedan d'Alembert (unicode), Lamb's Problem (unicode), y entradas de 1x de baja prioridad.**
 - Continuar loop hasta 2026-04-13 08:00 AM
