@@ -6,8 +6,10 @@ type: reference
 
 # Ondas Superficiales (Surface Waves)
 
-> **Contexto:** Las ondas superficiales son perturbaciones elásticas cuya energía queda **confinada cerca de una interfaz** — típicamente la superficie libre del suelo. A diferencia de las [[Body Waves|ondas de cuerpo]] que se propagan por el interior del medio y decaen como $1/r$, las ondas superficiales decaen exponencialmente con la profundidad y geométricamente como $1/\sqrt{r}$ en la superficie — lo que las hace dominantes en registros sísmicos a distancia. En medios estratificados son **dispersivas**: su velocidad depende de la frecuencia, y este fenómeno es la base de los métodos de caracterización del subsuelo (MASW, SASW, ReMi, SPAC).
-> **Fuente:** Foti et al. (2014), Cap. 2.2, pp. 50–68.
+> [!CONCEPT] Definición
+> Las **ondas superficiales** son perturbaciones elásticas cuya energía queda **confinada cerca de una interfaz** — típicamente la superficie libre del suelo. A diferencia de las [[Body Waves|ondas de cuerpo]] que se propagan por el interior del medio y decaen como $1/r$, las ondas superficiales decaen exponencialmente con la profundidad y geométricamente como $1/\sqrt{r}$ en la superficie. En medios estratificados son **dispersivas**: su velocidad depende de la frecuencia ([[Geometric Dispersion]]), y este fenómeno es la base de los métodos de caracterización del subsuelo ([[MASW Method|MASW]], [[SASW Method|SASW]], [[ReMi Method|ReMi]], [[SPAC Method|SPAC]]).
+>
+> — Foti et al. (2018), §2.2, pp. 50–68.
 
 ## Intuición física: confinamiento en la interfaz
 
@@ -56,7 +58,15 @@ La solución del [[Lamb's Problem|Problema de Lamb]] (1904) muestra que para una
 
 En medios estratificados, las ondas superficiales se propagan en **múltiples modos** (ver [[Surface Wave Modes]]): modo fundamental y modos superiores. Cada modo tiene su propia curva de dispersión. En la mayoría de los registros MASW el modo fundamental es dominante, pero en presencia de inversiones de velocidad los modos superiores pueden ser energéticamente comparables o incluso dominantes.
 
+> [!EXAMPLE] Evidencia empírica: Socco & Strobbia (2004) — tutorial de métodos de ondas superficiales
+> **Paper 008 (Socco & Strobbia 2004)** sistematiza los principios físicos de las ondas superficiales en el contexto de la caracterización de sitio. El trabajo demuestra que la dispersión geométrica es la propiedad fundamental que permite inferir $V_S(z)$ a partir de la curva $c_R(f)$: profundidades entre $\lambda/3$ y $\lambda/2$ son las mejor resueltas por la curva de dispersión, y la penetración máxima es $\approx \lambda_{max}$. El artículo establece las bases del análisis multicanal y es la referencia canónica para el concepto de profundidad de investigación en MASW y SASW.
+>
+> — Research Database, entrada 008 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.2, pp. 50–68 — derivación de Rayleigh y Love en semiespacio y medio estratificado.
-- Foti et al. (2014), Cap. 2.2.1, pp. 52–55 — decaimiento en profundidad y skin depth.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.2, pp. 50–68 — derivación de Rayleigh y Love |
+| Foti et al. (2018), *Surface Wave Methods* | §2.2.1, pp. 52–55 — decaimiento y skin depth |
+| Socco & Strobbia (2004) | Paper 008 — tutorial métodos de ondas superficiales |

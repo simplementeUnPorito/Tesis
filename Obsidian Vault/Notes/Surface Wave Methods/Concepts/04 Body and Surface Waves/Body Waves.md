@@ -6,8 +6,10 @@ type: reference
 
 # Ondas de Cuerpo (Body Waves)
 
-> **Contexto:** Las ondas de cuerpo son perturbaciones elásticas que se propagan a través del interior de un medio sólido, a diferencia de las [[Rayleigh Waves|ondas superficiales]] que se confinan cerca de una interfaz. Existen dos tipos: ondas P (compresionales) y ondas S (de corte). Su decaimiento geométrico más rápido (1/r en amplitud) respecto a las superficiales (1/√r) explica por qué los registros sísmicos a distancia están dominados por el ground-roll de ondas Rayleigh.
-> **Fuente:** Foti et al. (2014), Cap. 2.1.3, pp. 43–50.
+> [!CONCEPT] Definición
+> Las **ondas de cuerpo** son perturbaciones elásticas que se propagan a través del interior de un medio sólido, a diferencia de las [[Surface Waves|ondas superficiales]] que se confinan cerca de una interfaz. Existen dos tipos: ondas P (compresionales) y ondas S (de corte). Su decaimiento geométrico más rápido ($1/r$ en amplitud) respecto a las superficiales ($1/\sqrt{r}$) explica por qué los registros sísmicos a distancia están dominados por el ground-roll de [[Rayleigh Waves|ondas de Rayleigh]].
+>
+> — Foti et al. (2018), §2.1.3, pp. 43–50.
 
 ## Intuición física
 
@@ -64,7 +66,15 @@ En el análisis f-k, las ondas de cuerpo tienen velocidades de fase mucho mayore
 
 En **refracción sísmica**, las primeras llegadas de ondas P son el observable primario: se mapea la distribución de $V_P$ con la profundidad, incluyendo la detección de la tabla de agua (donde $V_P$ salta a ~1500 m/s). Esto proporciona el parámetro $V_P$ (o el [[Poisson Ratio|coeficiente de Poisson]]) necesario como información a priori en la inversión de la curva de dispersión de Rayleigh.
 
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — dominancia del ground-roll en registros de campo
+> **Paper 001 (Park, Miller & Xia 1999)** muestra sismogramas de múltiples sitios de Kansas donde las ondas de cuerpo (primeras llegadas P) son claramente separables del ground-roll de Rayleigh en tiempo. La transformada f-k extrae la curva de dispersión de Rayleigh directamente, sin interferencia de ondas de cuerpo, confirman que a distancias $> 5$ m las ondas de cuerpo ya son ruido de fondo respecto al ground-roll dominante. Esta separación temporal y de velocidad entre ondas de cuerpo y superficiales valida el resultado del [[Lamb's Problem|Problema de Lamb]] en condiciones de campo reales.
+>
+> — Research Database, entrada 001 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.1.3, pp. 43–50 — derivación de VP y VS desde ecuaciones de Navier.
-- Foti et al. (2014), Cap. 2.2.1, pp. 52–55 — decaimiento geométrico y Problema de Lamb.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.3, pp. 43–50 — derivación de $V_P$ y $V_S$ |
+| Foti et al. (2018), *Surface Wave Methods* | §2.2.1, pp. 52–55 — decaimiento geométrico y Problema de Lamb |
+| Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 |

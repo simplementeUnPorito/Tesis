@@ -6,8 +6,10 @@ type: reference
 
 # Problema de Lamb (Lamb's Problem)
 
-> **Contexto:** El Problema de Lamb es la solución analítica exacta para el campo de ondas generado por una carga puntual aplicada sobre la superficie de un [[Elastic Half Space|semiespacio elástico]] homogéneo e isótropo. Publicado por Horace Lamb en 1904, constituye la base teórica que justifica por qué los registros sísmicos de superficie están dominados por ondas de Rayleigh, y establece el criterio de **campo cercano vs. campo lejano** que determina el offset mínimo en MASW.
-> **Fuente:** Foti et al. (2014), Cap. 2.2.1, pp. 52–60.
+> [!CONCEPT] Definición
+> El **Problema de Lamb** es la solución analítica exacta para el campo de ondas generado por una carga puntual vertical aplicada sobre la superficie de un [[Elastic Half Space|semiespacio elástico]] homogéneo e isótropo (Lamb, 1904). Demuestra que las [[Rayleigh Waves]] reciben ~67% de la energía de la fuente y dominan el campo en el **campo lejano** ($r \gg \lambda_R$), mientras que las [[Body Waves|ondas de cuerpo]] decaen más rápido ($1/r$ vs $1/\sqrt{r}$). Establece el criterio de **campo cercano vs. campo lejano** que determina el offset mínimo en [[MASW Method|MASW]].
+>
+> — Foti et al. (2018), §2.2.1, pp. 52–60; Lamb (1904), *Phil. Trans. R. Soc. Lond. A*, 203, 1–42.
 
 ## Contexto histórico
 
@@ -75,7 +77,15 @@ La solución original de Lamb (1904) para fuente vertical impulsiva ha sido exte
 - **Fuente en el interior del semiespacio** (solución de Stokes): genera ondas de cuerpo directas y ondas de Rayleigh por conversión en la superficie.
 - **Medio estratificado**: la solución exacta no existe analíticamente; se calcula numéricamente mediante el [[Layered Media|método de la matriz de transferencia]].
 
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — validación del criterio de campo lejano en MASW
+> **Paper 001 (Park, Miller & Xia 1999)** utiliza el criterio de campo lejano del Problema de Lamb como justificación para excluir los geófonos más cercanos a la fuente en los registros MASW. Los sismogramas de Kansas muestran que a distancias $\geq 5$–$10$ m de la fuente el ground-roll de Rayleigh domina claramente sobre las llegadas de ondas de cuerpo, en acuerdo con la predicción de Lamb. El análisis f-k resultante produce curvas de dispersión sin contaminación de campo cercano para frecuencias entre 5 y 30 Hz.
+>
+> — Research Database, entrada 001 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.2.1, pp. 52–60 — solución de Lamb, partición de energía y criterio de campo cercano.
-- Lamb, H. (1904), *On the propagation of tremors over the surface of an elastic solid*, Phil. Trans. R. Soc. Lond. A, 203, 1–42.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.2.1, pp. 52–60 — solución de Lamb, partición de energía |
+| Lamb, H. (1904), *Phil. Trans. R. Soc. Lond. A* | 203, 1–42 — solución analítica original |
+| Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — validación en campo |
