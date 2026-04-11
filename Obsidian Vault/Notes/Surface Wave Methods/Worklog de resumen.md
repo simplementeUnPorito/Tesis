@@ -91,6 +91,19 @@
 
 ## Historial de iteraciones
 
+### 2026-04-11 — iteración 45 de loop (INVESTIGADOR — Love Waves reescrita + callouts Body/Surface Waves + Lamb's Problem)
+- **Estado:** VÁLIDA.
+- **Acción realizada:**
+  - `Love Waves.md` — **reescritura completa**: añadido H1, `[!CONCEPT]`, relación de dispersión $\tan(\beta_1 H) = \mu_2\beta_2/\mu_1\beta_1$, tabla comparativa Love vs Rayleigh, sección adquisición (fuente horizontal + inversión de polaridad), `[!EXAMPLE]` Paper 045 (Dal Moro & Ferigo 2011 — inversión conjunta Love+Rayleigh, reducción de no-unicidad), wikilinks: [[SH-wave]], [[Layered Media]], [[Phase Velocity]], [[Group Velocity]], [[Wave Dispersion]], [[Surface Wave Modes]], [[Elastic Half Space]], [[MASW Method]]. Eliminados marcadores `[2, 27]`.
+  - `Body Waves.md` — `> **Contexto:**` → `[!CONCEPT]` + `[!EXAMPLE]` Paper 001 (Park 1999 — dominancia ground-roll vs ondas de cuerpo en MASW Kansas) + tabla de fuentes.
+  - `Surface Waves.md` — `> **Contexto:**` → `[!CONCEPT]` + `[!EXAMPLE]` Paper 008 (Socco & Strobbia 2004 — tutorial, profundidad de investigación $\approx \lambda_{max}/2$) + tabla de fuentes.
+  - `Lamb's Problem.md` (Concepts/03) — `> **Contexto:**` → `[!CONCEPT]` + `[!EXAMPLE]` Paper 001 (validación criterio campo lejano en registros Kansas) + tabla de fuentes.
+- **Conceptos modificados:** 4
+- **Papers vinculados:** 001, 008, 045
+- **Pendiente:** ~22 conceptos sin callout en carpetas 00–04 restantes.
+- **Commit:** `382eff1` — rama `investigador-loop`
+- **Fecha y hora:** 2026-04-11 (sesión continua)
+
 ### 2026-04-11 — iteración 44 de loop (INVESTIGADOR — Rayleigh Waves reescrita + callouts en Elasticity, Elastic Half Space, Group Velocity)
 - **Estado:** VÁLIDA.
 - **Acción realizada:**
