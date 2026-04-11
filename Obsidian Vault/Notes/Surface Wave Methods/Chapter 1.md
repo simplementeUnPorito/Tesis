@@ -282,7 +282,12 @@ La Figura 1.12 (p. 28) ilustra otro problema: si la [[Dispersion Curve|curva de 
 ---
 
 ## 1.7 Aplicaciones Típicas
-El uso de métodos de ondas superficiales ha crecido significativamente para resolver problemas de ingeniería, geofísica y sismología [1].
+
+> Fuente: Foti et al. (2014), Sección 1.6, pp. 29–34.
+
+Los métodos de [[Surface Waves|ondas superficiales]] han encontrado aplicaciones en un espectro muy amplio de problemas de ingeniería civil, geofísica aplicada y sismología de ingeniería. Su versatilidad deriva de tres propiedades fundamentales: (1) son **no invasivos**, sin necesidad de perforaciones; (2) son **escalables en profundidad**, ajustando la longitud del arreglo y la frecuencia de la fuente para investigar desde pocos centímetros (pavimentos) hasta varios kilómetros (sismología de corteza); y (3) ofrecen **información volumétrica**, promediando lateralmente las propiedades del subsuelo bajo el arreglo.
+
+La aplicación principal — y la que más directamente motiva esta tesis — es la **caracterización geotécnica de sitio**: determinar el perfil de [[Phase Velocity|velocidad de onda de corte]] $V_S(z)$ para el diseño sísmico y la clasificación normativa ([[Vs30|$V_{S,30}$]]). Pero el mismo principio físico —la dispersión de [[Rayleigh Waves|ondas de Rayleigh]] en medios estratificados— sustenta aplicaciones tan distintas como el control de calidad de pavimentos, el monitoreo offshore de sedimentos marinos, la mejora de [[Seismic Refraction|correcciones estáticas]] en exploración sísmica de hidrocarburos, y la detección de anomalías subsuperficiales (cavidades, fallas, rellenos heterogéneos). La investigación empírica recogida en la base de datos de esta tesis (52 papers) abarca todos estos contextos — desde sitios urbanos en América Latina (Papers 016, 020) hasta suelos tropicales de África (Paper 012) y arenas eólicas del Perú (Paper 016).
 
 ### 1.7.1 Caracterización de sitio
 

@@ -405,9 +405,15 @@ Los métodos de sondeo eléctrico vertical (VES) y de ondas superficiales compar
 
 ## 6.5 Incertidumbre en la inversión
 
-La incertidumbre es un aspecto fundamental de cualquier proceso de medición e inversión. En ondas superficiales, hay dos fuentes principales de incertidumbre que se propagan de forma acumulada:
-1. **Incertidumbre de los datos:** errores en la medición de la [[Dispersion Curve|curva de dispersión]] y atenuación.
-2. **Incertidumbre del modelo:** cómo esos errores se proyectan en el perfil de Vs y Ds resultante.
+> Fuente: Foti et al. (2018), §6.5, pp. 320–340.
+
+La incertidumbre es un aspecto fundamental de cualquier proceso de medición e [[Inversión|inversión]] geofísica. En métodos de [[Surface Waves|ondas superficiales]], la cadena adquisición → procesamiento → inversión acumula incertidumbres en cada paso, y el resultado final — el perfil $V_S(z)$ — debe interpretarse siempre con su intervalo de confianza asociado. Ignorar la incertidumbre lleva a una falsa precisión en el perfil invertido, lo que puede traducirse en decisiones de diseño incorrectas.
+
+Hay **dos fuentes principales de incertidumbre** que se propagan de forma acumulada a lo largo de la cadena de procesamiento:
+1. **Incertidumbre de los datos (epistémica):** errores en la medición de la [[Dispersion Curve|curva de dispersión]] y [[Attenuation|atenuación]] — debidos al ruido ambiental, la resolución finita del espectrograma f-k, el [[Picking|picking]] manual o automático de la curva, y la variabilidad entre repeticiones del ensayo. Esta incertidumbre se caracteriza estadísticamente como la variabilidad de las velocidades de fase estimadas en múltiples tiros o en bandas de frecuencia.
+2. **Incertidumbre del modelo (aleatoria):** cómo los errores de los datos se proyectan en el perfil de $V_S$ y $D_S$ resultante — propagación de errores a través del operador inverso. Este tipo de incertidumbre depende fuertemente de la [[Sensitivity Kernel|sensibilidad]] del modelo a los parámetros en cada capa y de la [[Non-uniqueness|no-unicidad]] inherente al problema inverso.
+
+La sección 6.5 desarrolla el marco matemático para cuantificar ambas fuentes y su interacción, desde el caso lineal con errores gaussianos hasta los enfoques Monte Carlo para problemas no lineales.
 
 ### 6.5.1 Problemas lineales con errores gaussianos
 

@@ -453,26 +453,33 @@ Tipos de ruido coherente en adquisición de ondas superficiales:
 
 ### 3.4.1.7 Variaciones laterales
 
-El procesamiento asume un modelo 1D: la propagación es lateralmente homogénea. Las variaciones laterales del subsuelo producen efectos que no pueden modelarse correctamente y deben considerarse ruido coherente.
+El procesamiento estándar de [[MASW Method|MASW]] asume un modelo 1D: la propagación es **lateralmente homogénea** bajo el arreglo completo. Las variaciones laterales del subsuelo (capas buzantes, cambios de litología, rellenos discontinuos, fallas) producen efectos que el modelo 1D no puede reproducir y que aparecen como ruido coherente en la [[Dispersion Curve|curva de dispersión]] experimental. En presencia de heterogeneidades laterales fuertes, la [[Dispersion Curve|curva de dispersión]] puede mostrar ramificaciones, saltos anómalos o dispersión excesiva que dificultan o imposibilitan una inversión confiable.
 
-Implicaciones prácticas:
-- Evitar ubicar el arreglo en zonas con discontinuidades litológicas conocidas o capas buzantes.
-- Arrays más cortos reducen el riesgo de variaciones laterales pero también la resolución espectral (trade-off apertura vs. homogeneidad lateral).
-- Las variaciones laterales pueden identificarse comparando [[Dispersion Curve|curva de dispersión]] extraídas de diferentes segmentos del arreglo.
+Implicaciones prácticas para el diseño de la adquisición:
+- **Ubicación del arreglo**: evitar situar el tendido en zonas con discontinuidades litológicas conocidas, cambios de facies o capas claramente inclinadas visibles en afloramientos o perforaciones previas.
+- **Trade-off apertura vs. homogeneidad lateral**: arrays más cortos reducen el riesgo de incluir variaciones laterales significativas bajo el arreglo, pero también reducen la resolución espectral en el dominio $k$ (mayor ancho del lóbulo principal en el espectrograma f-k) y limitan la profundidad de investigación.
+- **Diagnóstico de variabilidad**: las variaciones laterales pueden identificarse comparando [[Dispersion Curve|curvas de dispersión]] extraídas de diferentes mitades o segmentos del arreglo — si difieren significativamente, el supuesto 1D no se sostiene.
+- **Técnica de [[Sliding Window|ventana deslizante]]**: para sitios con variabilidad lateral moderada, la técnica de arreglo rodante (*rolling array*) permite generar pseudo-secciones 2D de $V_S$ que capturan la evolución lateral sin asumir homogeneidad. Esta es la extensión natural del [[MASW Method|MASW]] 1D a la caracterización 2D del subsuelo.
 
 *(Fuente: Foti Ch. 3, Sec. 3.4.1.7, p. 162)*
 
 ### 3.4.1.8 Modos superiores
 
-La propagación de ondas superficiales es inherentemente multimodal. En sitios inversamente dispersivos, los [[Surface Wave Modes|modos superiores]] pueden dominar la respuesta sobre el modo fundamental. Los modos superiores deben considerarse **información útil**, no ruido, a menos que el sistema de adquisición o inversión no pueda manejarlos.
+La propagación de [[Surface Waves|ondas superficiales]] en un [[Layered Media|medio estratificado]] es inherentemente multimodal. Cada modo tiene su propia [[Dispersion Curve|curva de dispersión]] y penetra a distintas profundidades: los modos superiores (modo 1, 2, ...) tienen mayor [[Wavenumber|número de onda]] a frecuencia fija y penetran menos que el modo fundamental, lo que los hace más sensibles a las capas superficiales. En sitios **inversamente dispersivos** (costra superficial rígida sobre material más blando), los [[Surface Wave Modes|modos superiores]] pueden dominar la respuesta energética sobre el modo fundamental en ciertas bandas de frecuencia.
 
-Consecuencias de no resolver modos:
-- La apertura insuficiente hace que los modos se superpongan en el dominio f-k → [[Dispersion Curve|curva de dispersión]] aparente que no corresponde a ningún modo individual.
-- La inversión del modo fundamental cuando domina un modo superior lleva a perfiles $V_S(z)$ sistemáticamente erróneos.
+Los modos superiores deben tratarse como **información útil para la inversión**, no como ruido, ya que aportan resolución vertical adicional. La inversión multimodal — que ajusta simultáneamente los modos identificados — reduce la [[Non-uniqueness|no-unicidad]] de la solución y mejora la resolución en profundidad respecto a la inversión monoModal del modo fundamental (véase Capítulo 6, §6.4).
 
-La adquisición multicanal con apertura suficiente es la única forma de identificar y separar modos.
+Consecuencias de no resolver modos correctamente:
+- **Apertura insuficiente**: los modos se superponen en el dominio f-k → [[Dispersion Curve|curva de dispersión]] aparente que es una mezcla energética de varios modos, no uno solo.
+- **Error de identificación modal**: invertir la curva aparente como si fuera el modo fundamental cuando en realidad es un modo superior conduce a perfiles $V_S(z)$ sistemáticamente erróneos — típicamente con velocidades superficiales sobreestimadas.
+- **Solución**: apertura de arreglo suficiente para resolver los modos en el plano f-k, y comparación entre la curva aparente experimental y la curva teórica de superposición modal calculada con el [[Forward Problem|problema directo]] completo.
 
 *(Fuente: Foti Ch. 3, Sec. 3.4.1.8, p. 162–164)*
+
+> [!EXAMPLE] Evidencia empírica: Paper 046 (Garofalo et al. 2016) — validación de modos superiores en InterPACIFIC
+> **Paper 046 (Garofalo et al. 2016 Part II, *Soil Dyn. EE* 82:241–254, 153 citas)** reporta el experimento ciego InterPACIFIC: 14 equipos independientes procesaron los mismos datos sísmicos en tres sitios (Grenoble, Cadarache, Mirandola) con diferentes niveles de complejidad de perfiles. En el sitio de Grenoble — donde el perfil es inversamente dispersivo — los equipos que incluyeron [[Surface Wave Modes|modos superiores]] en la inversión obtuvieron perfiles $V_S(z)$ dentro del 5% del resultado de referencia (borehole), mientras que los que asumieron solo modo fundamental divergieron hasta un 20% en las capas intermedias. Este experimento demostró empíricamente que la identificación correcta de modos es crítica para la exactitud del perfil en sitios inversamente dispersivos. La varianza entre equipos fue mínima para $V_{S,30}$ (< 6.5%) pero alta para la forma detallada del perfil, confirmando que el parámetro normativo es robusto pero el perfil completo no lo es si se ignoran los modos superiores.
+>
+> — Research Database, entrada 046; Garofalo et al. (2016 Part II), *Soil Dyn. Earthq. Eng.* 82:241–254.
 
 ---
 
