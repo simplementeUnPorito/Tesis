@@ -1,10 +1,15 @@
 {
   "permissions": {
     "allow": [
+      "Bash(git checkout:*)",
+      "Bash(git -C /home/ealvarez/Github/Tesis check-ignore -v .claude)",
+      "Bash(git -C /home/ealvarez/Github/Tesis status --short .claude/)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git config:*)",
       "Bash(git:*)",
-      "Bash(date)",
-      "Bash(date:*)",
-      "Bash(wc:*)"
+      "Bash(find 'Obsidian Vault/Notes/Surface Wave Methods/Concepts' -name '*.md' -exec sh -c 'lines=$\\(wc -l < \"$1\"\\); [ \"$lines\" -lt 30 ] && echo \"$lines $1\"' _ '{}' ';')",
+      "Bash(ssh:*)"
     ]
   }
 }
