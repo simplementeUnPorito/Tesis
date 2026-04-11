@@ -78,6 +78,7 @@
 - **Rama activa:** `investigador-loop` — todos los cambios del loop van a esta rama.
 - **Frecuencia de commit:** después de cada hito importante (concepto enriquecido, capítulo actualizado, nuevo concepto creado).
 - **Formato de mensaje:** `[INVESTIGADOR] <acción>: <archivo o concepto>` — ej. `[INVESTIGADOR] enrich: Geometric Dispersion con callouts y validación empírica`.
+- **Push automático:** después de cada commit, ejecutar `git push` — token embebido en remote URL, sin prompts.
 - **Merge a main:** decisión del usuario cuando el loop finalice o a petición explícita.
 - **`.claude/` versionado:** skills, INVESTIGADOR.md y configuraciones del proyecto se rastrean en git para sincronizar entre dispositivos. Solo se excluye `.claude/scheduled_tasks.lock`.
 
