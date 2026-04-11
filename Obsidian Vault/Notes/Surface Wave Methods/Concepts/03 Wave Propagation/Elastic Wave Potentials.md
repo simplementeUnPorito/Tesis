@@ -1,83 +1,71 @@
-# Elastic Wave Potentials
-
-## 1. Concepto
-
-Los **potenciales de onda elástica** son funciones escalares y vectoriales que permiten descomponer el campo de desplazamientos en dos partes independientes: una irrotacional (asociada a [[P-waves]]) y una rotacional (asociada a [[S-Waves]]).
-
+---
+name: Elastic Wave Potentials
+description: Descomposición de Helmholtz del campo de desplazamientos en potencial escalar (ondas P) y vectorial (ondas S); fundamento matemático de la derivación de la ecuación secular de Rayleigh
+type: reference
 ---
 
-## 2. Fundamento físico
+# Potenciales de Onda Elástica (Elastic Wave Potentials)
 
-En un sólido elástico isotrópico, las ecuaciones de Navier acoplan los movimientos compresional y de corte. La descomposición de Helmholtz desacopla el sistema, permitiendo tratar cada tipo de onda por separado y luego recombinarlas satisfaciendo las condiciones de frontera.
+> [!CONCEPT] Definición
+> Los **potenciales de onda elástica** son funciones auxiliares que permiten descomponer el campo de desplazamientos $\mathbf{u}$ en dos partes independientes: un potencial escalar $\phi$ (campo irrotacional → [[P-waves|ondas P]]) y un potencial vectorial $\boldsymbol{\psi}$ (campo solenoidal → [[S-Waves|ondas S]]), via la **descomposición de Helmholtz**: $\mathbf{u} = \nabla\phi + \nabla\times\boldsymbol{\psi}$. Este formalismo desacopla las ecuaciones de Navier y permite derivar la ecuación secular de [[Rayleigh Waves]] aplicando las condiciones de superficie libre sobre los potenciales.
+>
+> — Foti et al. (2018), §2.2, pp. 50–62.
 
----
+## 1. Descomposición de Helmholtz
 
-## 3. Formulación matemática
+Las ecuaciones de Navier acoplan los movimientos compresional y de corte en un sólido. La descomposición de Helmholtz desacopla el sistema:
 
-### Descomposición de Helmholtz
-
-El campo de desplazamientos $\mathbf{u}$ se escribe como:
-
-$$
-\mathbf{u} = \nabla \phi + \nabla \times \mathbf{\psi}
-$$
+$$\mathbf{u} = \nabla \phi + \nabla \times \boldsymbol{\psi}$$
 
 donde:
+- $\phi$ — potencial escalar (irrotacional): $\nabla \times (\nabla\phi) = 0$ → ondas P
+- $\boldsymbol{\psi}$ — potencial vectorial (solenoidal): $\nabla \cdot (\nabla\times\boldsymbol{\psi}) = 0$ → ondas S
 
-- $\phi$ → potencial escalar (campo irrotacional, ondas P)
-- $\mathbf{\psi}$ → potencial vectorial (campo solenoidal, ondas S)
+Cada potencial satisface su propia ecuación de onda escalar (desacoplada):
 
-Cada potencial satisface su propia ecuación de onda:
+$$\nabla^2 \phi = \frac{1}{V_P^2}\frac{\partial^2 \phi}{\partial t^2}, \qquad \nabla^2 \boldsymbol{\psi} = \frac{1}{V_S^2}\frac{\partial^2 \boldsymbol{\psi}}{\partial t^2}$$
 
-$$
-\nabla^2 \phi = \frac{1}{V_P^2}\frac{\partial^2 \phi}{\partial t^2}
-$$
-
-$$
-\nabla^2 \mathbf{\psi} = \frac{1}{V_S^2}\frac{\partial^2 \mathbf{\psi}}{\partial t^2}
-$$
-
-### Solución armónica para el half-space (problema 2D)
+## 2. Solución armónica en el semiespacio (problema 2D)
 
 Para propagación en $x$ con profundidad $z \geq 0$, se proponen soluciones de la forma:
 
-$$
-\phi = A \, e^{-\alpha z} \, e^{i(kx - \omega t)}, \qquad \psi = B \, e^{-\beta z} \, e^{i(kx - \omega t)}
-$$
+$$\phi = A\,e^{-\alpha z}\,e^{i(kx - \omega t)}, \qquad \psi = B\,e^{-\beta z}\,e^{i(kx - \omega t)}$$
 
 con:
 
-$$
-\alpha = \sqrt{k^2 - \frac{\omega^2}{V_P^2}}, \qquad \beta = \sqrt{k^2 - \frac{\omega^2}{V_S^2}}
-$$
+$$\alpha = \sqrt{k^2 - \frac{\omega^2}{V_P^2}}, \qquad \beta = \sqrt{k^2 - \frac{\omega^2}{V_S^2}}$$
 
-La condición $\text{Re}(\alpha) > 0$, $\text{Re}(\beta) > 0$ garantiza decaimiento con la profundidad — condición necesaria para que existan como ondas superficiales.
+La condición $\text{Re}(\alpha) > 0$, $\text{Re}(\beta) > 0$ garantiza decaimiento con la profundidad — condición necesaria para que existan ondas superficiales (ligadas a la interfaz).
 
-### Condiciones de frontera en superficie libre
+## 3. Ecuación secular de Rayleigh
 
-En $z = 0$ los esfuerzos deben ser nulos:
+Las condiciones de superficie libre en $z = 0$ ($\sigma_{zz} = 0$, $\sigma_{xz} = 0$) imponen un sistema en $A$ y $B$. Para que tenga solución no trivial, el determinante del sistema debe ser cero — esto produce la **ecuación secular de Rayleigh**:
 
-$$
-\sigma_{zz}\big|_{z=0} = 0, \qquad \sigma_{xz}\big|_{z=0} = 0
-$$
+$$\xi^6 - 8\xi^4 + \left(24 - 16\frac{V_S^2}{V_P^2}\right)\xi^2 - 16\left(1-\frac{V_S^2}{V_P^2}\right) = 0, \quad \xi = c_R/V_S$$
 
-Estas dos condiciones sobre $A$ y $B$ conducen a la [[Rayleigh Waves|ecuación secular de Rayleigh]] como condición de solución no trivial.
+que tiene exactamente una raíz real física en $0 < c_R < V_S$.
 
----
+## 4. Importancia para el forward modeling
 
-## 4. Aplicación a geófonos
+Este formalismo es el punto de partida del **problema directo** de ondas superficiales. Toda la teoría de inversión de ondas de Rayleigh descansa en la solución del sistema de potenciales con condiciones de frontera en cada interfaz del modelo de capas (método de [[Layered Media|Thomson-Haskell]]).
 
-Este formalismo es el punto de partida para el **forward modeling** de ondas superficiales. Toda la teoría de inversión de ondas de Rayleigh descansa en la solución del sistema de potenciales con condiciones de frontera en cada interfaz del modelo de capas.
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — potenciales como núcleo del problema directo MASW
+> **Paper 002 (Xia, Miller & Park 1999)** implementa el formalismo de potenciales de Helmholtz como núcleo del problema directo de MASW. La ecuación secular generalizada al caso estratificado (derivada iterando las condiciones de frontera con el método de la matriz de transferencia) se evalúa numéricamente para calcular $c_R(\omega)$ dado un perfil $V_S(z)$. El Jacobiano $\partial c_R/\partial V_S$ — calculado analíticamente sobre la base de los potenciales — permite la inversión iterativa convergente en < 10 iteraciones. La validación contra borehole en Kansas confirma que el formalismo de potenciales es suficientemente preciso para caracterización geotécnica real.
+>
+> — Research Database, entrada 002 (core).
 
----
+## 5. Relaciones con otros conceptos
 
-## 5. Implicaciones para el diseño experimental
+- [[Elasticity]] — las ecuaciones de Navier son el punto de partida
+- [[P-waves]] — componente irrotacional de la descomposición
+- [[S-Waves]] — componente solenoidal
+- [[Rayleigh Waves]] — solución que emerge de las condiciones de frontera sobre los potenciales
+- [[Layered Media]] — extensión a medios estratificados mediante matrices de transferencia
+- [[Rayleigh Eigenproblem]] — formulación matricial del mismo problema
 
-Los potenciales muestran que la existencia de ondas superficiales es una consecuencia estricta de la condición de superficie libre. Sin ella, solo existirían [[Body Waves]]. Esto implica que cualquier irregularidad en la superficie (como un geófono mal acoplado o una capa de material suelto superficial) puede alterar las condiciones de frontera y distorsionar las amplitudes registradas.
+## 6. Fuentes
 
----
-
-## 6. Fuente
-
-- PDF: Sebastiano Foti Chapter 2
-- Sección: 2.2 Rayleigh waves in homogeneous elastic continua
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.2, pp. 50–62 — descomposición de Helmholtz y ecuación secular |
+| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 — implementación en forward modeling MASW |

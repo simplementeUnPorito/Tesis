@@ -1,7 +1,15 @@
-# P-guided Waves
+---
+name: P-guided Waves
+description: Modos fugantes (leaky modes) de alta velocidad de fase en el sistema agua-sedimentos; sensibles a VP del subfondo; complementarios a ondas de Scholte en caracterización marina
+type: reference
+---
 
-> **Contexto:** Exploración marina somera, adquisición con hidrófonos en el fondo o en la columna de agua.
-> **Fuente:** Foti et al. Cap. 8, pp. 403–412.
+# Ondas Guiadas de Tipo P (P-guided Waves)
+
+> [!CONCEPT] Definición
+> Las **ondas guiadas de tipo P** son **modos fugantes** (*leaky modes*) de la ecuación de dispersión del sistema agua-sedimentos: raíces complejas cuya velocidad de fase supera $V_{P,\text{agua}} \approx 1500$ m/s. Físicamente son ondas P multi-reflejadas en la capa de agua, con energía parcialmente atrapada y parcialmente radiada al subsuelo. Son sensibles a $V_P$ del subfondo — complementarias a las [[Scholte Waves|ondas de Scholte]] (sensibles a $V_S$) — y en la inversión conjunta permiten caracterizar completamente el subsuelo marino.
+>
+> — Foti et al. (2018), Cap. 8, §§8.2.2–8.2.3, pp. 403–412.
 
 ## Definición
 
@@ -34,6 +42,13 @@ Para modelar e invertir ondas guiadas P se necesita:
 
 Si se adquieren simultáneamente [[Scholte Waves|ondas de Scholte]] (sensibles a Vs) y ondas guiadas P (sensibles a Vp), la **inversión conjunta** permite estimar ambos perfiles acoplando los modelos geométricos (espesores de capa compartidos). Esta combinación hace posible la caracterización completa del subsuelo marino con un único dataset.
 
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — inversión conjunta ondas de Scholte + guiadas P
+> Foti et al. (2018, §8.2.3) presentan un caso de inversión conjunta de ondas de Scholte (sensibles a $V_S$) y ondas guiadas P (sensibles a $V_P$) en un sitio de plataforma continental. La inversión conjunta, con espesores de capa compartidos entre ambos tipos de datos, permite estimar el perfil completo $V_P(z)$, $V_S(z)$ con mayor constraño que cualquiera de los dos tipos por separado. Los datos de ondas guiadas P aportan información sobre la compresibilidad del sedimento y ayudan a fijar el nivel freático efectivo del subsuelo marino.
+>
+> — Foti et al. (2018), Cap. 8, §8.2.3, pp. 408–412.
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 8, Secciones 8.2.2 y 8.2.3.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 8, §§8.2.2–8.2.3, pp. 403–412 |
