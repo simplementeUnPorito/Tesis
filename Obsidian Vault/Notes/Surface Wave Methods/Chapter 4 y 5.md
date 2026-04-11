@@ -419,11 +419,11 @@ El análisis de dispersión produce la curva de [[Phase Velocity|velocidad de fa
 | Método | Tipo de fuente | Receptores | Puede separar modos | Incertidumbre estadística |
 |--------|---------------|------------|---------------------|--------------------------|
 | SSRM | Activa (vibrador) | 1 | No | Baja resolución |
-| [[SASW Method\|SASW]] | Activa | 2 | No | Limitada |
+| [[SASW Method|SASW]] | Activa | 2 | No | Limitada |
 | [[MOPA]] | Activa | Array lineal | No (asume modo único) | Estimación directa |
-| f–k / [[MASW Method\|MASW]] | Activa | Array lineal | Sí (teóricamente) | Por repetición de shots |
-| [[SPAC Method\|SPAC]] / ESAC | Activa o pasiva | Array 2D o lineal | No | Por ensemble |
-| [[ReMi Method\|ReMi]] | Pasiva | Array lineal | No | Requiere isotropía |
+| f–k / [[MASW Method|MASW]] | Activa | Array lineal | Sí (teóricamente) | Por repetición de shots |
+| [[SPAC Method|SPAC]] / ESAC | Activa o pasiva | Array 2D o lineal | No | Por ensemble |
+| [[ReMi Method|ReMi]] | Pasiva | Array lineal | No | Requiere isotropía |
 
 La curva de dispersión experimental es **siempre aparente**: refleja la influencia ponderada de varios modos. La distinción entre modos se vuelve crítica en el proceso de [[Inversión|inversión]] (ver Capítulo 6).
 
