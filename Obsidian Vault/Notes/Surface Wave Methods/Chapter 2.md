@@ -54,7 +54,7 @@ $$
 \phi(x,t) = A e^{i(kx-\omega t)}
 $$
 
-La relación funcional entre frecuencia y número de onda constituye la [[Dispersion Relation]], que es central para describir ondas dispersivas.
+La relación funcional entre frecuencia y [[Wavenumber|número de onda]] constituye la [[Dispersion Relation]], que es central para describir ondas dispersivas.
 
 ### 2.2 Rayleigh waves in homogeneous elastic continua
 
@@ -102,7 +102,7 @@ Se analizan:
 Se introducen conceptos clave como:
 
 - [[Mode Superposition]]
-- velocidad de fase efectiva ([[Phase Velocity]])
+- [[Phase Velocity|velocidad de fase]] efectiva ([[Phase Velocity]])
 
 También se revisita el [[Lamb's Problem]], que describe la generación de [[Surface Waves|ondas superficiales]] por una fuente puntual aplicada sobre la superficie libre del medio.
 
@@ -179,7 +179,7 @@ ambas con velocidad $c_0$.
 
 ![[Pasted image 20260311151531.png]]
 
-La propiedad clave de las ondas hiperbólicas es que **no se distorsionan durante la propagación**, porque la velocidad de propagación no depende de la frecuencia y todos los números de onda viajan con la misma [[Phase Velocity]]:
+La propiedad clave de las ondas hiperbólicas es que **no se distorsionan durante la propagación**, porque la velocidad de propagación no depende de la frecuencia y todos los [[Wavenumber|números de onda]] viajan con la misma [[Phase Velocity]]:
 
 $$
 c = c_0
@@ -209,7 +209,7 @@ $$
 c=\frac{\omega(k)}{k}
 $$
 
-Si $\omega(k)$ depende de $k$, la velocidad de fase no es constante.
+Si $\omega(k)$ depende de $k$, la [[Phase Velocity|velocidad de fase]] no es constante.
 
 Cuando distintas componentes espectrales viajan con diferentes velocidades:
 
@@ -286,7 +286,7 @@ $$
 c_g = \frac{d\omega}{dk}
 $$
 
-Si la velocidad de fase es:
+Si la [[Phase Velocity|velocidad de fase]] es:
 
 $$
 c_0 = \frac{\omega}{k}
@@ -300,7 +300,7 @@ $$
 
 ![[Pasted image 20260311155937.png]]
 
-Si se superponen dos ondas de frecuencias y números de onda muy cercanos, aparece una oscilación rápida interna y una envolvente lenta:
+Si se superponen dos ondas de frecuencias y [[Wavenumber|números de onda]] muy cercanos, aparece una oscilación rápida interna y una envolvente lenta:
 
 - la onda portadora se mueve con [[Phase Velocity]]
 - la envolvente se mueve con [[Group Velocity]]
@@ -331,7 +331,7 @@ $$
 
 Esta expresión muestra:
 
-- una portadora senoidal de número de onda medio $k_m$ y frecuencia media $\omega_m$
+- una portadora senoidal de [[Wavenumber|número de onda]] medio $k_m$ y frecuencia media $\omega_m$
 - una envolvente moduladora que se desplaza con velocidad $\Delta\omega/\Delta k$
 
 Al tomar el límite para $\Delta k \to 0$ se obtiene:
@@ -536,7 +536,7 @@ donde:
 - $\omega$ → [[Angular Frequency]]
 - $k$ → [[Wavenumber]]
 
-La velocidad de fase es:
+La [[Phase Velocity|velocidad de fase]] es:
 
 $$
 c=\frac{\omega}{k}
@@ -671,20 +671,20 @@ donde:
 
 - $A_1, A_2$ son amplitudes constantes
 - $\omega$ es la frecuencia angular
-- $k_\chi$ es el vector número de onda
+- $k_\chi$ es el vector [[Wavenumber|número de onda]]
 - $\chi = P, S$ indica si se trata de onda longitudinal o transversal
 
 Esta expresión representa una onda armónica propagándose en direcciones opuestas.
 ![[Pasted image 20260316140712.png]]
 ### Geometría de fase
 
-El vector número de onda es normal a los planos de fase constante, definidos por:
+El vector [[Wavenumber|número de onda]] es normal a los planos de fase constante, definidos por:
 
 $$  
 k_\chi \cdot x = \text{constante}  
 $$
 
-La velocidad de fase de la onda monocromática es:
+La [[Phase Velocity|velocidad de fase]] de la onda monocromática es:
 
 $$  
 c = \frac{\omega}{|k|}  
@@ -731,7 +731,7 @@ $$
 u(x,t)=A_1 e^{i(\omega t-kx)} + A_2 e^{i(\omega t+kx)}  
 $$
 
-y el número de onda queda definido por:
+y el [[Wavenumber|número de onda]] queda definido por:
 
 $$  
 k = \frac{\omega}{V}  
@@ -761,7 +761,7 @@ $$
 \lambda = \frac{2\pi}{k}  
 $$
 
-Combinando con la definición de velocidad de fase:
+Combinando con la definición de [[Phase Velocity|velocidad de fase]]:
 
 $$  
 \lambda = \frac{V}{f}  
@@ -1054,13 +1054,13 @@ Esta polarización elíptica en el plano vertical explica por qué los **geófon
 
 Un resultado central del capítulo es que en un [[Elastic Half Space]] homogéneo:
 
-- $c_R$ **no depende de la frecuencia** ni del número de onda
+- $c_R$ **no depende de la frecuencia** ni del [[Wavenumber|número de onda]]
 - la ecuación secular de Rayleigh no contiene $\omega$ ni $k$ de forma independiente, sino únicamente a través del cociente $c_R = \omega/k$
 - por tanto, las [[Rayleigh Waves|ondas de Rayleigh]] en este medio son **no dispersivas**
 
 La razón física de esta no-dispersividad es que el medio es homogéneo: no existe longitud de escala característica que introduzca un efecto de tamaño relativo. La onda de Rayleigh de cualquier frecuencia "ve" exactamente el mismo medio independientemente de su longitud de onda. En contraste, en un medio estratificado sí existe una longitud de escala natural (el espesor de las capas), y las ondas de diferente longitud de onda penetran profundidades diferentes y por tanto sienten medios distintos — esto es exactamente la dispersión geométrica.
 
-Esta referencia tiene consecuencias directas para la caracterización del subsuelo: **la dispersión que observamos experimentalmente es evidencia directa de la heterogeneidad vertical del subsuelo**. Si un sitio tiene propiedades uniformes con la profundidad, la curva de dispersión es plana; si hay gradiente o capas con velocidades distintas, la curva tiene pendiente. Esto es lo que permite extraer información del perfil $V_S(z)$ a partir de la curva de dispersión medida con geófonos: la variación de velocidad de fase con la frecuencia mapea la variación de rigidez con la profundidad.
+Esta referencia tiene consecuencias directas para la caracterización del subsuelo: **la dispersión que observamos experimentalmente es evidencia directa de la heterogeneidad vertical del subsuelo**. Si un sitio tiene propiedades uniformes con la profundidad, la [[Dispersion Curve|curva de dispersión]] es plana; si hay gradiente o capas con velocidades distintas, la curva tiene pendiente. Esto es lo que permite extraer información del perfil $V_S(z)$ a partir de la [[Dispersion Curve|curva de dispersión]] medida con geófonos: la variación de [[Phase Velocity|velocidad de fase]] con la frecuencia mapea la variación de rigidez con la profundidad.
 
 La no-dispersividad del semiespacio homogéneo sirve también como límite asintótico a alta y baja frecuencia en medios estratificados: cuando $\lambda \to 0$ (alta frecuencia), la onda "ve" solo la capa más superficial, y $c_R \to 0.92\,V_{S,\text{top}}$; cuando $\lambda \to \infty$ (baja frecuencia), la onda penetra todo el perfil y su velocidad tiende a $0.92\,V_{S,\text{semiespacio}}$.
 
@@ -1084,7 +1084,7 @@ $$
 V_{S1} < c_L < V_{S2}
 $$
 
-donde $c_L = \omega/k$ es la velocidad de fase de las Love waves. Cuando esta condición se cumple, las [[SH-wave|ondas SH]] quedan **atrapadas** en la capa superior por reflexión total interna en la interfaz — la capa actúa como una **[[Wave Guide|guía de ondas]]**. Si $V_{S2} \leq V_{S1}$, las Love waves no existen.
+donde $c_L = \omega/k$ es la [[Phase Velocity|velocidad de fase]] de las Love waves. Cuando esta condición se cumple, las [[SH-wave|ondas SH]] quedan **atrapadas** en la capa superior por reflexión total interna en la interfaz — la capa actúa como una **[[Wave Guide|guía de ondas]]**. Si $V_{S2} \leq V_{S1}$, las Love waves no existen.
 
 *(Fuente: Foti Ch. 2, Sec. 2.3, p. 60–61)*
 
@@ -1098,7 +1098,7 @@ $$
 \tan\!\left(\frac{\omega h}{V_{S1}}\sqrt{1 - \left(\frac{V_{S1}}{c}\right)^2}\right) - \frac{V_{S2}}{V_{S1}}\cdot\frac{\rho_2}{\rho_1}\cdot\frac{\sqrt{\left(\frac{V_{S2}}{V_{S1}}\right)^2 - \left(\frac{c}{V_{S1}}\right)^2}}{\sqrt{\left(\frac{c}{V_{S1}}\right)^2 - 1}} = 0
 $$
 
-donde $c = \omega/k = V_L$ es la velocidad de fase de la Love wave y $h$ es el espesor de la capa.
+donde $c = \omega/k = V_L$ es la [[Phase Velocity|velocidad de fase]] de la Love wave y $h$ es el espesor de la capa.
 
 Esta ecuación es **trascendente y no tiene solución cerrada en general**. Sus propiedades clave:
 
@@ -1171,7 +1171,7 @@ Esta es la ecuación de dispersión general: altamente no lineal, trascendente, 
 
 #### Ejemplo numérico (Foti Tabla 2.4 y Figs. 2.20–2.22)
 
-La **Fig. 2.20** ilustra el comportamiento de $|\Phi_R[\cdot]|$ calculada con Thomson–Haskell en función del número de onda a $f = 50\,\text{Hz}$, para el sistema estratificado de la **Tabla 2.4**:
+La **Fig. 2.20** ilustra el comportamiento de $|\Phi_R[\cdot]|$ calculada con Thomson–Haskell en función del [[Wavenumber|número de onda]] a $f = 50\,\text{Hz}$, para el sistema estratificado de la **Tabla 2.4**:
 
 | Capa | Espesor (m) | $V_P$ (m/s) | $V_S$ (m/s) | $\rho$ (Mg/m³) |
 |------|-------------|-------------|-------------|-----------------|
@@ -1180,9 +1180,9 @@ La **Fig. 2.20** ilustra el comportamiento de $|\Phi_R[\cdot]|$ calculada con Th
 | 3 | 10 | 600 | 300 | 1.9 |
 | Semiespacio | ∞ | 1000 | 500 | 1.9 |
 
-La función oscila rápidamente con el número de onda (especialmente a alta frecuencia), lo que requiere técnicas robustas de *root-bracketing* con bisección para localizar confiablemente todas las raíces.
+La función oscila rápidamente con el [[Wavenumber|número de onda]] (especialmente a alta frecuencia), lo que requiere técnicas robustas de *root-bracketing* con bisección para localizar confiablemente todas las raíces.
 
-La **Fig. 2.21** muestra las curvas de dispersión modales (24 modos identificados) para este sistema: velocidad de fase Rayleigh vs. frecuencia. Cada curva corresponde a un autovalor de la Ec. 2.71. Los modos superiores tienen mayor velocidad de fase y mayor profundidad de penetración. Al aumentar la frecuencia, aparecen nuevos modos y las curvas se empaquetan más densamente.
+La **Fig. 2.21** muestra las [[Dispersion Curve|curvas de dispersión]] modales (24 modos identificados) para este sistema: [[Phase Velocity|velocidad de fase]] Rayleigh vs. frecuencia. Cada curva corresponde a un autovalor de la Ec. 2.71. Los modos superiores tienen mayor [[Phase Velocity|velocidad de fase]] y mayor profundidad de penetración. Al aumentar la frecuencia, aparecen nuevos modos y las curvas se empaquetan más densamente.
 
 La **Fig. 2.22** muestra los perfiles de profundidad de las eigenfunciones de desplazamiento $r_1$ (horizontal) y $r_2$ (vertical) a $f = 16\,\text{Hz}$ para los primeros 4 modos. El resultado clave es que **los modos superiores penetran más profundamente**, lo que fundamenta la posibilidad de invertir modos superiores para resolver estructuras a mayor profundidad.
 
@@ -1199,7 +1199,7 @@ En medios estratificados, tanto [[Rayleigh Waves]] como [[Love Waves]] presentan
 
 El campo de ondas registrado por un arreglo de geófonos es en general una **superposición de modos** — ver [[Mode Superposition]].
 
-> **Implicación crítica para la tesis**: en medios inversamente dispersivos, los modos superiores contribuyen de manera importante incluso a frecuencias bajas. Invertir la curva de dispersión aparente como si fuera del modo fundamental introduce errores sistemáticos en el perfil $V_S(z)$. Este es uno de los problemas más frecuentes en la práctica.
+> **Implicación crítica para la tesis**: en medios inversamente dispersivos, los modos superiores contribuyen de manera importante incluso a frecuencias bajas. Invertir la [[Dispersion Curve|curva de dispersión]] aparente como si fuera del modo fundamental introduce errores sistemáticos en el perfil $V_S(z)$. Este es uno de los problemas más frecuentes en la práctica.
 
 ---
 
@@ -1251,13 +1251,13 @@ En el caso homogéneo ($M=1$), $Y_l$ se reduce a $E_l/\sqrt{r}$, recuperando la 
 
 ---
 
-### 2.4.5 Velocidad de fase aparente (efectiva) de Rayleigh (Foti Sec. 2.4.2.4) ★
+### 2.4.5 [[Phase Velocity|Velocidad de fase]] aparente (efectiva) de Rayleigh (Foti Sec. 2.4.2.4) ★
 
-**Este es el concepto más crítico de la tesis**: lo que los geófonos miden no es la velocidad de fase de ningún modo individual, sino la **velocidad de fase aparente** o efectiva resultante de la superposición de todos los modos activos.
+**Este es el concepto más crítico de la tesis**: lo que los geófonos miden no es la [[Phase Velocity|velocidad de fase]] de ningún modo individual, sino la **[[Phase Velocity|velocidad de fase]] aparente** o efectiva resultante de la superposición de todos los modos activos.
 
 #### Definición (Foti Ec. 2.93)
 
-A partir de la condición de fase constante del campo resultante, la velocidad de fase aparente es:
+A partir de la condición de fase constante del campo resultante, la [[Phase Velocity|velocidad de fase]] aparente es:
 
 $$
 V_l^{app}(r, x_2, \omega) = \frac{\omega}{\partial\psi_l(r, x_2, \omega)/\partial r}, \qquad l = r, 2
@@ -1271,7 +1271,7 @@ $$
 V_r^{app}(r,x_2,\omega) = 2\omega\cdot\frac{\displaystyle\sum_{i=1}^{M}\sum_{j=1}^{M}\frac{r_1(x_2,k_i)\,r_1(x_2,k_j)\,r_2(0,k_i)\,r_2(0,k_j)\,\cos[r(k_i-k_j)]}{\left[(V_R)_i(U_R)_i(I_R)_i\right]\left[(V_R)_j(U_R)_j(I_R)_j\right]\sqrt{k_i k_j}}}{\displaystyle\sum_{n=1}^{M}\sum_{m=1}^{M}\frac{r_1(x_2,k_n)\,r_1(x_2,k_m)\,r_2(0,k_n)\,r_2(0,k_m)\,(k_n+k_m)\,\cos[r(k_n-k_m)]}{\left[(V_R)_n(U_R)_n(I_R)_n\right]\left[(V_R)_m(U_R)_m(I_R)_m\right]\sqrt{k_n k_m}}}
 $$
 
-donde $(V_R)_j$, $(U_R)_j$ y $(I_R)_j$ son la velocidad de fase, velocidad de grupo e integral de energía del $j$-ésimo modo.
+donde $(V_R)_j$, $(U_R)_j$ y $(I_R)_j$ son la [[Phase Velocity|velocidad de fase]], velocidad de grupo e integral de energía del $j$-ésimo modo.
 
 #### Implicaciones para la inversión
 ![[Pasted image 20260318140813.png]]
@@ -1337,7 +1337,7 @@ $$
 V_\chi^2(\omega) + \omega^2\cdot\frac{4}{\pi}\int_0^{\infty}\frac{D_\chi(\tau)}{\tau\cdot(\tau^2-\omega^2)}\cdot V_\chi^2(\tau)\,d\tau = G_{(e)\chi}\cdot\frac{2(1+4D_\chi^2)}{1+\sqrt{1+4D_\chi^2}}
 $$
 
-**Implicación directa**: la velocidad de fase $V_\chi(\omega)$ y el amortiguamiento $D_\chi(\omega)$ de ondas en un suelo real **no pueden asignarse independientemente** — están restringidos por la Ec. 2.130. Esto implica que los materiales viscoelásticos son **inherentemente dispersivos**.
+**Implicación directa**: la [[Phase Velocity|velocidad de fase]] $V_\chi(\omega)$ y el amortiguamiento $D_\chi(\omega)$ de ondas en un suelo real **no pueden asignarse independientemente** — están restringidos por la Ec. 2.130. Esto implica que los materiales viscoelásticos son **inherentemente dispersivos**.
 
 *(Fuente: Foti Ch. 2, Sec. 2.5.1–2.5.2, p. 100, 111, Ecs. 2.99, 2.130)*
 
@@ -1357,7 +1357,7 @@ $$
 V_P^*(\omega) = \sqrt{\frac{G_B^*(\omega) + \frac{4}{3}G_S^*(\omega)}{\rho}}, \qquad V_S^*(\omega) = \sqrt{\frac{G_S^*(\omega)}{\rho}}
 $$
 
-El número de onda complejo $k_\chi^* = \omega/V_\chi^* = k_\chi - i\alpha_\chi$ conduce a la solución armónica:
+El [[Wavenumber|número de onda]] complejo $k_\chi^* = \omega/V_\chi^* = k_\chi - i\alpha_\chi$ conduce a la solución armónica:
 
 $$
 u \propto e^{-\alpha_\chi x}\,e^{i(k_\chi x - \omega t)}
@@ -1393,7 +1393,7 @@ $$
 
 Experimentalmente, los geomateriales dentro del umbral de deformación lineal cíclica satisfacen típicamente $D \sim 1\text{–}5\%$, por lo que esta aproximación es adecuada para la mayoría de aplicaciones geofísicas (Foti p. 110).
 
-**Consecuencia crítica**: la velocidad de fase $V_\chi(\omega)$ se ve afectada por $D$ solo en **segundo orden** — la disipación no afecta significativamente la curva de dispersión. Esto justifica el procedimiento estándar: inversión de dispersión primero (para $V_S$), inversión de atenuación después (para $D_S$), tratándolas como problemas desacoplados.
+**Consecuencia crítica**: la [[Phase Velocity|velocidad de fase]] $V_\chi(\omega)$ se ve afectada por $D$ solo en **segundo orden** — la disipación no afecta significativamente la [[Dispersion Curve|curva de dispersión]]. Esto justifica el procedimiento estándar: inversión de dispersión primero (para $V_S$), inversión de atenuación después (para $D_S$), tratándolas como problemas desacoplados.
 
 *(Fuente: Foti Ch. 2, Sec. 2.5.2, p. 110, Ec. 2.128)*
 
@@ -1422,7 +1422,7 @@ donde $V_R^e$ es la velocidad de Rayleigh del medio elástico asociado ($D=0$), 
 
 3. Validez: solo para $D \leq 5\%$ — dentro del rango típico de geomateriales
 
-> **Implicación para la tesis**: si el objetivo es el perfil $V_S$, la disipación es de segundo orden y puede ignorarse en la curva de dispersión. Si el objetivo incluye el perfil $D_S$, se requiere medir amplitudes con calibración cuidadosa — exigencia instrumental significativamente mayor.
+> **Implicación para la tesis**: si el objetivo es el perfil $V_S$, la disipación es de segundo orden y puede ignorarse en la [[Dispersion Curve|curva de dispersión]]. Si el objetivo incluye el perfil $D_S$, se requiere medir amplitudes con calibración cuidadosa — exigencia instrumental significativamente mayor.
 
 *(Fuente: Foti Ch. 2, Sec. 2.5.3, p. 113–119, Ec. 2.133)*
 

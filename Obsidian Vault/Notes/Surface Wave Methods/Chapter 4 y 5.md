@@ -4,7 +4,7 @@
 
 El objetivo central del análisis de dispersión es extraer la **[[Dispersion Relation|curva de dispersión]] experimental** a partir del campo de ondas registrado en superficie. Esta curva relaciona la [[Phase Velocity|velocidad de fase]] de las [[Rayleigh Waves|ondas de Rayleigh]] con la frecuencia y constituye el dato de entrada para la [[Inversión|inversión]] (Capítulo 6).
 
-### 4.1 Velocidad de fase y velocidad de grupo
+### 4.1 [[Phase Velocity|Velocidad de fase]] y [[Group Velocity|velocidad de grupo]]
 
 #### Definición física
 
@@ -21,25 +21,25 @@ La relación entre $V_g$ y $V_{ph}$ se obtiene derivando (Foti Ec. 4.2):
 
 $$V_g = V_{ph} + k\frac{dV_{ph}}{dk} = V_{ph}\left(1 - k\frac{dV_{ph}}{d\omega}\right)^{-1} \tag{4.2}$$
 
-En un medio **no dispersivo**, las derivadas de $V_{ph}$ son nulas y $V_g = V_{ph}$. En medios **normalmente dispersivos** (velocidad de fase decrece con la frecuencia, como en la mayoría de los sitios de ingeniería), $dV_{ph}/dk < 0$ y por tanto $V_g < V_{ph}$: el paquete de ondas llega después que cualquier componente individual. Esto es visible en el shot gather: la envolvente del tren de ondas superficiales se desplaza más lentamente que las crestas dentro del tren.
+En un medio **no dispersivo**, las derivadas de $V_{ph}$ son nulas y $V_g = V_{ph}$. En medios **normalmente dispersivos** ([[Phase Velocity|velocidad de fase]] decrece con la frecuencia, como en la mayoría de los sitios de ingeniería), $dV_{ph}/dk < 0$ y por tanto $V_g < V_{ph}$: el paquete de ondas llega después que cualquier componente individual. Esto es visible en el shot gather: la envolvente del tren de ondas superficiales se desplaza más lentamente que las crestas dentro del tren.
 
 #### Representación en el dominio f-k
 
-La Figura 4.4 (p. 209) ilustra cuatro modos de propagación en el dominio f-k. Para un punto en la curva de dispersión:
-- La **velocidad de fase** corresponde a la pendiente de la línea que une el origen con ese punto: $V_{ph} = f/k = \omega/k$.
-- La **velocidad de grupo** corresponde a la **pendiente tangente** a la curva en ese punto: $V_g = d\omega/dk$.
+La Figura 4.4 (p. 209) ilustra cuatro modos de propagación en el dominio f-k. Para un punto en la [[Dispersion Curve|curva de dispersión]]:
+- La **[[Phase Velocity|velocidad de fase]]** corresponde a la pendiente de la línea que une el origen con ese punto: $V_{ph} = f/k = \omega/k$.
+- La **[[Group Velocity|velocidad de grupo]]** corresponde a la **pendiente tangente** a la curva en ese punto: $V_g = d\omega/dk$.
 
-Las líneas de velocidad de fase constante son rectas radiales desde el origen; las velocidades de grupo varían con la frecuencia y no son rectas.
+Las líneas de [[Phase Velocity|velocidad de fase]] constante son rectas radiales desde el origen; las velocidades de grupo varían con la frecuencia y no son rectas.
 
 #### Caso multimodal
 
-En propagación multimodal, cada modo $n$ tiene sus propias curvas de dispersión de fase y de grupo (Figura 4.3, p. 208). Las curvas de grupo pueden cruzarse o acercarse entre modos incluso cuando las curvas de fase están bien separadas, lo que complica la identificación modal en el dominio del tiempo.
+En propagación multimodal, cada modo $n$ tiene sus propias [[Dispersion Curve|curva de dispersión]] de fase y de grupo (Figura 4.3, p. 208). Las curvas de grupo pueden cruzarse o acercarse entre modos incluso cuando las curvas de fase están bien separadas, lo que complica la identificación modal en el dominio del tiempo.
 
-#### Por qué se usa la velocidad de fase en inversión
+#### Por qué se usa la [[Phase Velocity|velocidad de fase]] en inversión
 
-Los métodos de ondas superficiales para caracterización de sitios explotan principalmente la **velocidad de fase**, por dos razones fundamentales:
-1. La velocidad de fase tiene una relación más directa y sensible con la estratigrafía $V_S(z)$ a través de la [[Dispersion Relation|curva de dispersión]].
-2. La velocidad de fase se puede medir con mayor precisión a distancias de arreglo típicas en ingeniería: es la razón $\omega/k$ directamente observable en el espacio f-k, mientras que la velocidad de grupo requiere resolución temporal suficiente para separar la envolvente del tren de ondas.
+Los métodos de ondas superficiales para caracterización de sitios explotan principalmente la **[[Phase Velocity|velocidad de fase]]**, por dos razones fundamentales:
+1. La [[Phase Velocity|velocidad de fase]] tiene una relación más directa y sensible con la estratigrafía $V_S(z)$ a través de la [[Dispersion Relation|curva de dispersión]].
+2. La [[Phase Velocity|velocidad de fase]] se puede medir con mayor precisión a distancias de arreglo típicas en ingeniería: es la razón $\omega/k$ directamente observable en el espacio f-k, mientras que la [[Group Velocity|velocidad de grupo]] requiere resolución temporal suficiente para separar la envolvente del tren de ondas.
 
 Como se indica al comienzo del capítulo (Foti p. 205): *"group velocities are rarely used for near-surface applications."*
 
@@ -62,7 +62,7 @@ El procedimiento de medición es el siguiente (Fig. 4.5, p. 210):
 1. El vibrador opera a una frecuencia $f$ fija y constante.
 2. El receptor se desplaza lateralmente alejándose del vibrador hasta encontrar la posición donde las señales del vibrador y del receptor están **en fase**.
 3. Esa posición corresponde a un número entero de [[Wavelength|longitudes de onda]] de separación — la distancia entre dos posiciones sucesivas en fase es la longitud de onda $\lambda_R$ a esa frecuencia.
-4. La velocidad de fase se calcula directamente como:
+4. La [[Phase Velocity|velocidad de fase]] se calcula directamente como:
 
 $$V_R = f \cdot \lambda_R$$
 
@@ -76,14 +76,14 @@ Ejemplo numérico del libro (Fig. 4.6): para $f = 10\,\text{Hz}$ se obtiene $\la
 
 #### Variante multicanal: el método CSW
 
-Una extensión con múltiples receptores en posiciones fijas es el *Continuous Surface Wave* (**CSW**) method (Matthews et al. 1996; Menzies y Matthews 1996). En este caso la velocidad de fase se calcula a partir de la pendiente del diagrama de ángulos de fase en función del offset fuente–receptor. Es conceptualmente análogo al [[MOPA]] (Sec. 4.4), pero con fuente vibratoria monocromática en lugar de impulsiva.
+Una extensión con múltiples receptores en posiciones fijas es el *Continuous Surface Wave* (**CSW**) method (Matthews et al. 1996; Menzies y Matthews 1996). En este caso la [[Phase Velocity|velocidad de fase]] se calcula a partir de la pendiente del diagrama de ángulos de fase en función del offset fuente–receptor. Es conceptualmente análogo al [[MOPA]] (Sec. 4.4), pero con fuente vibratoria monocromática en lugar de impulsiva.
 
 #### Limitaciones
 
-- **Velocidad de adquisición**: una frecuencia a la vez → curva de dispersión lenta de construir, especialmente si se necesita un rango amplio de frecuencias.
+- **Velocidad de adquisición**: una frecuencia a la vez → [[Dispersion Curve|curva de dispersión]] lenta de construir, especialmente si se necesita un rango amplio de frecuencias.
 - **Fuente activa controlada**: requiere un vibrador electromecánico, más costoso y menos portable que un sledgehammer.
-- **No separa modos**: la velocidad observada es la velocidad de fase aparente del campo total, no la del modo fundamental.
-- **Superado por métodos multicanal**: métodos como [[SASW Method|SASW]] (Sec. 4.3) y los métodos de transformada (Sec. 4.6) entregan la curva de dispersión completa en un solo disparo o registro.
+- **No separa modos**: la velocidad observada es la [[Phase Velocity|velocidad de fase]] aparente del campo total, no la del modo fundamental.
+- **Superado por métodos multicanal**: métodos como [[SASW Method|SASW]] (Sec. 4.3) y los métodos de transformada (Sec. 4.6) entregan la [[Dispersion Curve|curva de dispersión]] completa en un solo disparo o registro.
 
 A pesar de sus limitaciones, el SSRM demostró la viabilidad del concepto y sentó las bases para el desarrollo de todos los métodos posteriores de ondas superficiales en ingeniería.
 
@@ -91,13 +91,13 @@ A pesar de sus limitaciones, el SSRM demostró la viabilidad del concepto y sent
 
 ---
 
-### 4.3 SASW — Análisis espectral de ondas superficiales
+### 4.3 [[SASW Method|SASW]] — Análisis espectral de ondas superficiales
 
 El método [[SASW Method|SASW]] usa **dos receptores** y una fuente impulsiva. La [[Dispersion Relation|curva de dispersión]] se extrae del **[[Cross-Power Spectrum|espectro de potencia cruzado]]** entre las señales de los dos receptores:
 
 $$S_{12}(\omega) = \hat{u}_1(\omega) \cdot \overline{\hat{u}_2(\omega)}$$
 
-La fase del espectro cruzado $\theta_{12}(\omega) = \arg(S_{12})$ representa el desfase acumulado entre los dos receptores a cada frecuencia. La velocidad de fase se calcula como:
+La fase del espectro cruzado $\theta_{12}(\omega) = \arg(S_{12})$ representa el desfase acumulado entre los dos receptores a cada frecuencia. La [[Phase Velocity|velocidad de fase]] se calcula como:
 
 $$V_R(\omega) = \frac{\omega (x_2 - x_1)}{\theta_{12}(\omega)}$$
 
@@ -127,7 +127,7 @@ donde $\mathbf{\Phi} = [\varphi_1, \ldots, \varphi_N]^T$, $\mathbf{M} = [k, \var
 
 $$V = \frac{2\pi f}{k}, \quad \sigma_V = \frac{2\pi f}{k^2} \sigma_k$$
 
-**Ventajas respecto a SASW:**
+**Ventajas respecto a [[SASW Method|SASW]]:**
 - Utiliza toda la información del array → menor incertidumbre estadística.
 - Permite detección de **efectos de [[Near-field Effect|campo cercano]]**: las fases de los primeros receptores se desvían de la tendencia lineal.
 - Permite detectar **variaciones laterales**: un cambio de pendiente en la distribución fase-offset a una posición fija del array indica una discontinuidad lateral.
@@ -145,7 +145,7 @@ La no linealidad detectada en las fases puede deberse a:
 
 #### Principio matemático
 
-El método [[SPAC Method|SPAC]] (*Spatial Autocorrelation*), desarrollado por Aki (1957, 1965) para microtremores, extrae la velocidad de fase a partir de la **función de autocorrelación espacial** del campo de ondas. La autocorrelación espacial se define como (Foti Ec. 4.28):
+El método [[SPAC Method|SPAC]] (*Spatial Autocorrelation*), desarrollado por Aki (1957, 1965) para microtremores, extrae la [[Phase Velocity|velocidad de fase]] a partir de la **función de autocorrelación espacial** del campo de ondas. La autocorrelación espacial se define como (Foti Ec. 4.28):
 
 $$R(\chi) = E\!\left[s(\mathbf{x},t)\,s(\mathbf{x}+\chi,t)\right] = \frac{1}{2\pi}\int_{-\infty}^{\infty} S(\mathbf{k})\,e^{-i\mathbf{k}\cdot\chi}\,d\mathbf{k}$$
 
@@ -153,7 +153,7 @@ donde $\chi$ es el lag espacial y $E[\cdot]$ es el valor esperado. Esta expresi�
 
 #### Caso de fuente única (ondas unidireccionales)
 
-Para una onda plana de amplitud unitaria con número de onda $\mathbf{k}_0$, la función de autocorrelación normalizada resulta (Foti Ec. 4.32–4.33):
+Para una onda plana de amplitud unitaria con [[Wave Number|número de onda]] $\mathbf{k}_0$, la función de autocorrelación normalizada resulta (Foti Ec. 4.32–4.33):
 
 $$\rho(\chi) = \cos(\mathbf{k}_0 \cdot \chi) \tag{4.33}$$
 
@@ -161,7 +161,7 @@ La estimación experimental se realiza mediante los espectros de potencia cruzad
 
 $$\rho(\chi,\omega) = \frac{\mathfrak{Re}\!\left(\hat{S}_{ij}(\omega)\right)}{\sqrt{\hat{S}_{ii}(\omega)\,\hat{S}_{jj}(\omega)}} \tag{4.34}$$
 
-donde $\hat{S}_{ij}$ es el espectro cruzado promediado y $\hat{S}_{ii}$, $\hat{S}_{jj}$ son los espectros de potencia individuales. El número de onda $k_0(f)$ se obtiene minimizando el error de mínimos cuadrados entre Ec. 4.33 y los coeficientes de autocorrelación experimentales. La Figura 4.24 (p. 233) muestra ejemplos de ajuste a cuatro frecuencias; la curva de dispersión resultante se muestra en la Figura 4.25 (p. 233).
+donde $\hat{S}_{ij}$ es el espectro cruzado promediado y $\hat{S}_{ii}$, $\hat{S}_{jj}$ son los espectros de potencia individuales. El [[Wave Number|número de onda]] $k_0(f)$ se obtiene minimizando el error de mínimos cuadrados entre Ec. 4.33 y los coeficientes de autocorrelación experimentales. La Figura 4.24 (p. 233) muestra ejemplos de ajuste a cuatro frecuencias; la [[Dispersion Curve|curva de dispersión]] resultante se muestra en la Figura 4.25 (p. 233).
 
 #### Caso de campo isótropo (microtremores pasivos)
 
@@ -183,7 +183,7 @@ Tanto Ec. 4.33 (unidireccional) como Ec. 4.40 (isótropa) pueden usarse con ESAC
 
 #### Limitaciones
 
-- **No separa modos**: ambas expresiones entregan una velocidad de fase aparente (influencia ponderada de todos los modos). No es posible resolver modos individuales, independientemente de la resolución del arreglo.
+- **No separa modos**: ambas expresiones entregan una [[Phase Velocity|velocidad de fase]] aparente (influencia ponderada de todos los modos). No es posible resolver modos individuales, independientemente de la resolución del arreglo.
 - **[[Near-field Effect|Efecto de campo cercano]]**: puede sesgar el coeficiente de autocorrelación del receptor de referencia en datos activos.
 - **Hipótesis de isotropía**: para datos pasivos debe verificarse (por ejemplo, por la simetría del espectro f-k).
 
@@ -193,11 +193,11 @@ Tanto Ec. 4.33 (unidireccional) como Ec. 4.40 (isótropa) pueden usarse con ESAC
 
 ### 4.6 Métodos basados en transformadas
 
-Los métodos de transformada convierten el campo de ondas del dominio espacio–tiempo al dominio **frecuencia–número de onda** (f–k) o **frecuencia–lentitud** (f–p), donde la curva de dispersión aparece como un lugar de máximos de energía.
+Los métodos de transformada convierten el campo de ondas del dominio espacio–tiempo al dominio **frecuencia–[[Wave Number|número de onda]]** (f–k) o **frecuencia–lentitud** (f–p), donde la [[Dispersion Curve|curva de dispersión]] aparece como un lugar de máximos de energía.
 
-#### 4.6.1 Dominio f–k (frecuencia–número de onda)
+#### 4.6.1 Dominio f–k (frecuencia–[[Wave Number|número de onda]])
 
-La [[2D Fourier Transform|transformada de Fourier 2D]] del sismograma $u(x,t)$ produce el espectro $U(k,\omega)$. Los máximos de $|U|^2$ a cada frecuencia corresponden a los números de onda modales, de donde se extrae la velocidad de fase:
+La [[2D Fourier Transform|transformada de Fourier 2D]] del sismograma $u(x,t)$ produce el espectro $U(k,\omega)$. Los máximos de $|U|^2$ a cada frecuencia corresponden a los [[Wave Number|número de onda]] modales, de donde se extrae la [[Phase Velocity|velocidad de fase]]:
 
 $$V_{ph}(\omega) = \frac{\omega}{k_{max}(\omega)}$$
 
@@ -210,15 +210,15 @@ donde $\mathbf{R}$ es la matriz de correlación espaciospectral y $\mathbf{e}$ e
 
 El método [[MASW Method|MASW]] (Park et al. 1999) es equivalente a beamforming con peso $w_m = 1/|S(x_m,\omega)|$ (normalización de amplitud). El peso óptimo para corrección de [[Geometric Spreading|spreading geométrico]] es $w_m = \sqrt{x_m}$ (Zywicki 1999).
 
-*Nota práctica:* se requiere zero-padding en el dominio espacial para mejorar la resolución del número de onda, y ventaneo ([[Hann Window|Hanning]]) para suprimir lóbulos laterales.
+*Nota práctica:* se requiere zero-padding en el dominio espacial para mejorar la resolución del [[Wave Number|número de onda]], y ventaneo ([[Hann Window|Hanning]]) para suprimir lóbulos laterales.
 
-#### 4.6.2 Análisis frecuencia–lentitud (τ–p / MASW)
+#### 4.6.2 Análisis frecuencia–lentitud (τ–p / [[MASW Method|MASW]])
 
 La [[Tau-P Transform|transformada τ–p]] (*slant stack* o [[Radon Transform|transformada de Radon]] lineal) acumula amplitudes a lo largo de líneas de pendiente $p$ (lentitud = $1/V$) en el plano tiempo–offset:
 
 $$\bar{u}(\tau, p) = \int_{-\infty}^{\infty} u(\tau + px, x)\, dx$$
 
-En el dominio frecuencia–lentitud, los modos de propagación aparecen como picos a las lentitudes modales. La conversión a curva de dispersión es directa: $V_{ph} = 1/p_{max}$.
+En el dominio frecuencia–lentitud, los modos de propagación aparecen como picos a las lentitudes modales. La conversión a [[Dispersion Curve|curva de dispersión]] es directa: $V_{ph} = 1/p_{max}$.
 
 La [[Tau-P Transform|transformada τ–p]] puede calcularse a través del espectro f–k evaluando $U(f, k)$ a lo largo de la línea recta $k = fp$, lo que la convierte en una forma de la misma información bajo diferente parametrización.
 
@@ -230,7 +230,7 @@ La [[Tau-P Transform|transformada τ–p]] puede calcularse a través del espect
 
 $$k_x = k \cdot \cos\vartheta$$
 
-La velocidad aparente medida siempre sobrestima la verdadera ($V_{app} \geq V_{true}$). Sin embargo, si el campo de ondas es **isótropo**, el espectro ReMi tiene simetría y sus máximos se aproximan al número de onda verdadero.
+La velocidad aparente medida siempre sobrestima la verdadera ($V_{app} \geq V_{true}$). Sin embargo, si el campo de ondas es **isótropo**, el espectro ReMi tiene simetría y sus máximos se aproximan al [[Wave Number|número de onda]] verdadero.
 
 El procedimiento de Strobbia y Cassiani (2011) permite la inversión automática del espectro ReMi sin picking manual, verificando además la hipótesis de isotropía por la simetría positiva/negativa del espectro.
 
@@ -238,11 +238,11 @@ El procedimiento de Strobbia y Cassiani (2011) permite la inversión automática
 
 ---
 
-### 4.7 Análisis de velocidad de grupo
+### 4.7 Análisis de [[Group Velocity|velocidad de grupo]]
 
-La [[Group Velocity|velocidad de grupo]] puede estimarse mediante el **método de filtros múltiples** (Dziewonski et al. 1969): se aplican filtros de banda estrecha centrados en diferentes frecuencias; el pico de la envolvente de cada señal filtrada indica el tiempo de arribo del grupo de ondas y, por tanto, la velocidad de grupo.
+La [[Group Velocity|velocidad de grupo]] puede estimarse mediante el **método de filtros múltiples** (Dziewonski et al. 1969): se aplican filtros de banda estrecha centrados en diferentes frecuencias; el pico de la envolvente de cada señal filtrada indica el tiempo de arribo del grupo de ondas y, por tanto, la [[Group Velocity|velocidad de grupo]].
 
-**Utilidad limitada en aplicaciones de ingeniería:** la resolución es generalmente insuficiente para separar modos a corta distancia. Su uso principal es en geofísica sismológica (cuenca sedimentaria, corteza). Puede complementar el análisis de velocidad de fase para la separación modal previa a la extracción de la curva de dispersión (Al-Hunaidi 1994; Karray y Lefebre 2009).
+**Utilidad limitada en aplicaciones de ingeniería:** la resolución es generalmente insuficiente para separar modos a corta distancia. Su uso principal es en geofísica sismológica (cuenca sedimentaria, corteza). Puede complementar el análisis de [[Phase Velocity|velocidad de fase]] para la separación modal previa a la extracción de la [[Dispersion Curve|curva de dispersión]] (Al-Hunaidi 1994; Karray y Lefebre 2009).
 
 *Fuente: Foti Ch. 4, Sec. 4.7, pp. 251–253*
 
@@ -250,16 +250,16 @@ La [[Group Velocity|velocidad de grupo]] puede estimarse mediante el **método d
 
 ### 4.8 Errores e incertidumbres en el análisis de dispersión
 
-Las incertidumbres en la curva de dispersión experimental provienen de:
+Las incertidumbres en la [[Dispersion Curve|curva de dispersión]] experimental provienen de:
 
 1. **Ruido no correlado** (ruido ambiental externo): puede cuantificarse estadísticamente si se realizan repeticiones del ensayo.
 2. **Ruido coherente** ([[Near-field Effect|efectos de campo cercano]]): introduce sesgo sistemático — no se promedia.
 3. **Errores geométricos** (inclinación de geófonos, posicionamiento): efecto menor según O'Neill (2003).
 4. **Errores de procesamiento** (propagación de errores a través de las transformadas): difícil de cuantificar formalmente para métodos de transformada.
 
-**Mejor práctica:** realizar múltiples disparos independientes y estimar la distribución estadística de la curva de dispersión. [[MOPA]] proporciona estimación directa de incertidumbre (σ_V). Para métodos de transformada, la repetición de shots es el camino más robusto.
+**Mejor práctica:** realizar múltiples disparos independientes y estimar la distribución estadística de la [[Dispersion Curve|curva de dispersión]]. [[MOPA]] proporciona estimación directa de incertidumbre (σ_V). Para métodos de transformada, la repetición de shots es el camino más robusto.
 
-El **coeficiente de variación** de la velocidad de fase tiende a ser bajo en alta frecuencia y más elevado en baja frecuencia (longitudes de onda largas), en acuerdo con múltiples estudios (Tuomi y Hiltunen 1996; Lai et al. 2005).
+El **coeficiente de variación** de la [[Phase Velocity|velocidad de fase]] tiende a ser bajo en alta frecuencia y más elevado en baja frecuencia (longitudes de onda largas), en acuerdo con múltiples estudios (Tuomi y Hiltunen 1996; Lai et al. 2005).
 
 *Fuente: Foti Ch. 4, Sec. 4.8, pp. 253–254*
 
@@ -277,7 +277,7 @@ En un medio [[Viscoelastic Media|viscoelástico]], el [[Wavenumber|número de on
 
 $$k_n^* = k_n - i\alpha_n = \frac{\omega}{V_n} - i\alpha_n$$
 
-donde $V_n$ es la velocidad de fase del modo $n$ y $\alpha_n$ es el coeficiente de atenuación exponencial. La amplitud del modo $n$ decae en campo lejano como:
+donde $V_n$ es la [[Phase Velocity|velocidad de fase]] del modo $n$ y $\alpha_n$ es el coeficiente de atenuación exponencial. La amplitud del modo $n$ decae en campo lejano como:
 
 $$A_n(\omega, r) = A_{n,0}(\omega) \cdot \frac{1}{\sqrt{r}} \cdot e^{-\alpha_n(\omega) \cdot r}$$
 
@@ -285,7 +285,7 @@ La **razón de amortiguamiento de fase de Rayleigh** se define como:
 
 $$D(\omega) = \frac{\mathrm{Im}(k^{*2})}{2 \cdot \mathrm{Re}(k^{*2})}$$
 
-Esta cantidad es análoga a la razón de amortiguamiento en [[Body Waves|ondas de cuerpo]] y varía con la frecuencia por la [[Geometric Dispersion|dispersión geométrica]] (tal como varía la velocidad de fase). El perfil $D_s(z)$ se obtiene por [[Inversión|inversión]] de la curva de amortiguamiento de fase.
+Esta cantidad es análoga a la razón de amortiguamiento en [[Body Waves|ondas de cuerpo]] y varía con la frecuencia por la [[Geometric Dispersion|dispersión geométrica]] (tal como varía la [[Phase Velocity|velocidad de fase]]). El perfil $D_s(z)$ se obtiene por [[Inversión|inversión]] de la curva de amortiguamiento de fase.
 
 *Fuente: Foti Ch. 5, Sec. 5.1, pp. 255–258*
 
@@ -309,7 +309,7 @@ Esta simplificación introduce errores cuando los modos superiores son relevante
 
 ---
 
-### 5.3 Función de transferencia y número de onda complejo
+### 5.3 Función de transferencia y [[Wave Number|número de onda]] complejo
 
 Dispersión y atenuación son dos aspectos del mismo fenómeno propagativo: el [[Wavenumber|número de onda]] complejo $k^*(\omega) = k_R(\omega) - i\alpha_R(\omega)$ contiene ambos. Es posible estimarlos **simultáneamente** a partir de la función de transferencia de desplazamiento:
 
@@ -321,15 +321,15 @@ $$\tilde{F}(r,\omega) = \frac{F_i(\omega)}{F_1(\omega)}$$
 
 Esta eliminación de la firma de la fuente hace el método robusto frente a incertidumbres en la fuerza aplicada. La regresión no lineal sobre $k^*(\omega)$ entrega simultáneamente $V_R(\omega)$ y $\alpha_R(\omega)$.
 
-**Iteración necesaria:** $Y(r,\omega)$ requiere conocer el perfil $V_s(z)$, que se obtiene de la [[Inversión|inversión]] de la curva de dispersión. Por tanto, el procedimiento es iterativo: primero se invierte la dispersión, luego se calcula $Y$, luego se estima la atenuación, y se repite hasta convergencia (ver Sec. 6.4.3 para la inversión acoplada).
+**Iteración necesaria:** $Y(r,\omega)$ requiere conocer el perfil $V_s(z)$, que se obtiene de la [[Inversión|inversión]] de la [[Dispersion Curve|curva de dispersión]]. Por tanto, el procedimiento es iterativo: primero se invierte la dispersión, luego se calcula $Y$, luego se estima la atenuación, y se repite hasta convergencia (ver Sec. 6.4.3 para la inversión acoplada).
 
 *Fuente: Foti Ch. 5, Sec. 5.3, pp. 261–265*
 
 ---
 
-### 5.4 Estimación multicanal multimodal del número de onda complejo
+### 5.4 Estimación multicanal multimodal del [[Wave Number|número de onda]] complejo
 
-La [[Mode Superposition|superposición modal]] produce oscilaciones en la amplitud vs offset que contaminan la estimación de $\alpha_R$. Misbah y Strobbia (2014) propusieron un método basado en la extensión del algoritmo **[[MUSIC Algorithm|MUSIC]]** (*Multiple Signal Classification*, Schmidt 1986) al caso del número de onda complejo, capaz de:
+La [[Mode Superposition|superposición modal]] produce oscilaciones en la amplitud vs offset que contaminan la estimación de $\alpha_R$. Misbah y Strobbia (2014) propusieron un método basado en la extensión del algoritmo **[[MUSIC Algorithm|MUSIC]]** (*Multiple Signal Classification*, Schmidt 1986) al caso del [[Wave Number|número de onda]] complejo, capaz de:
 
 - Separar las contribuciones de amplitud de múltiples modos.
 - Estimar las curvas de atenuación modales (no solo la aparente).
@@ -351,11 +351,11 @@ El método del **ancho de banda a mitad de potencia** (Badsar et al. 2010) extra
 
 El concepto se basa en la analogía con el análisis de resonancia de estructuras (Clough y Penzien 1993): para un sistema con amortiguamiento, el ancho del pico de respuesta en frecuencia medido a la amplitud $1/\sqrt{2}$ del máximo (criterio de "media potencia") está relacionado con la razón de amortiguamiento. En un espectro f-k, el pico de energía de un modo de propagación tiene un ancho que depende tanto de la resolución espectral del array (efecto de ventana) como del amortiguamiento intrínseco del suelo.
 
-El mismo concepto se aplica al espectro frecuencia–número de onda: la anchura del pico espectral a la amplitud $1/\sqrt{2}$ del máximo en la dirección del número de onda, para una frecuencia fija, se relaciona con el coeficiente de atenuación espacial $\alpha_R(\omega)$ (Badsar et al. 2010).
+El mismo concepto se aplica al espectro frecuencia–[[Wave Number|número de onda]]: la anchura del pico espectral a la amplitud $1/\sqrt{2}$ del máximo en la dirección del [[Wave Number|número de onda]], para una frecuencia fija, se relaciona con el coeficiente de atenuación espacial $\alpha_R(\omega)$ (Badsar et al. 2010).
 
 ##### El problema del ventaneo espacial
 
-El principal obstáculo del método es el efecto del **muestreo espacial finito**: la limitación de la ventana espacial (apertura finita del array) produce un ensanchamiento artificial del pico espectral en el dominio del número de onda — exactamente el *spectral leakage* discutido en la Sec. 3.3.5. Este ensanchamiento artificial **sobreestima** el amortiguamiento: el ancho observado del pico es mayor que el atribuible únicamente a la atenuación intrínseca.
+El principal obstáculo del método es el efecto del **muestreo espacial finito**: la limitación de la ventana espacial (apertura finita del array) produce un ensanchamiento artificial del pico espectral en el dominio del [[Wave Number|número de onda]] — exactamente el *spectral leakage* discutido en la Sec. 3.3.5. Este ensanchamiento artificial **sobreestima** el amortiguamiento: el ancho observado del pico es mayor que el atribuible únicamente a la atenuación intrínseca.
 
 Badsar et al. (2010) resolvieron este problema evaluando la **atenuación artificial** introducida por el ventaneo espacial mediante el estudio de la función de respuesta del array (función de ventana espacial). La atenuación espacial verdadera se obtiene substrayendo la contribución artificial de la estimada:
 
@@ -385,14 +385,14 @@ Es una medida de la energía total contenida en el registro a cada offset $x$. E
 
 ##### Procedimiento
 
-1. Se [[Inversión|invierte]] la curva de dispersión (Sec. 4.6) para obtener un modelo elástico inicial $V_s(z)$ y se estima el perfil de [[Poisson Ratio|razón de Poisson]] $\nu(z)$ de forma independiente (por ejemplo, de $V_P$).
+1. Se [[Inversión|invierte]] la [[Dispersion Curve|curva de dispersión]] (Sec. 4.6) para obtener un modelo elástico inicial $V_s(z)$ y se estima el perfil de [[Poisson Ratio|razón de Poisson]] $\nu(z)$ de forma independiente (por ejemplo, de $V_P$).
 2. Se calcula el modelo directo viscoelástico: se ajusta iterativamente el perfil de razón de amortiguamiento $D_s(z)$ hasta que el decaimiento espacial simulado de la intensidad de Arias coincide con el observado experimentalmente.
 
 ##### Limitación fundamental
 
 La principal exigencia del método es que requiere un **modelo elástico preciso en términos de velocidades de onda S y P y del [[Poisson Ratio|coeficiente de Poisson]]**. Estos perfiles deben evaluarse de forma independiente y con alta exactitud antes de aplicar el método. Cualquier error en el modelo elástico se propagará directamente al perfil de amortiguamiento estimado.
 
-Esta dependencia fuerte del modelo elástico hace que el método sea más adecuado como complemento de una inversión conjunta que como procedimiento independiente.
+Esta dependencia fuerte del modelo elástico hace que el método sea más adecuado como complemento de una [[Joint Inversion|inversión conjunta]] que como procedimiento independiente.
 
 *(Fuente: Foti Ch. 5, Sec. 5.5.2, p. 270)*
 
@@ -400,7 +400,7 @@ Esta dependencia fuerte del modelo elástico hace que el método sea más adecua
 
 ### 5.6 Incertidumbre en la medición de atenuación
 
-La incertidumbre en los coeficientes de atenuación es mayor que en la velocidad de fase porque:
+La incertidumbre en los coeficientes de atenuación es mayor que en la [[Phase Velocity|velocidad de fase]] porque:
 
 1. **Scattering por heterogeneidades** (cracks, cavidades, discontinuidades topográficas) produce reflexión y difracción que reduce la amplitud aparente → sobreestimación de la atenuación intrínseca.
 2. **Variaciones de acoplamiento y calibración** entre receptores → perturbaciones de amplitud no atribuibles al suelo.
@@ -425,9 +425,9 @@ El análisis de dispersión produce la curva de [[Phase Velocity|velocidad de fa
 | [[SPAC Method|SPAC]] / ESAC | Activa o pasiva | Array 2D o lineal | No | Por ensemble |
 | [[ReMi Method|ReMi]] | Pasiva | Array lineal | No | Requiere isotropía |
 
-La curva de dispersión experimental es **siempre aparente**: refleja la influencia ponderada de varios modos. La distinción entre modos se vuelve crítica en el proceso de [[Inversión|inversión]] (ver Capítulo 6).
+La [[Dispersion Curve|curva de dispersión]] experimental es **siempre aparente**: refleja la influencia ponderada de varios modos. La distinción entre modos se vuelve crítica en el proceso de [[Inversión|inversión]] (ver Capítulo 6).
 
-El análisis de atenuación añade la curva $\alpha_R(f)$, que junto con la curva de dispersión constituye el conjunto de datos para la [[Inversión|inversión]] acoplada (Sec. 6.4.3) que entrega perfiles de $V_s(z)$ y $D_s(z)$.
+El análisis de atenuación añade la curva $\alpha_R(f)$, que junto con la [[Dispersion Curve|curva de dispersión]] constituye el conjunto de datos para la [[Inversión|inversión]] acoplada (Sec. 6.4.3) que entrega perfiles de $V_s(z)$ y $D_s(z)$.
 
 ---
 

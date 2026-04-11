@@ -393,9 +393,9 @@ Las configuraciones de adquisición [[MASW Method|MASW]] y las de [[Seismic Refr
 - **Profundidad al lecho rocoso** (bedrock): puede usarse como cota fija en el modelo de inversión.
 - **Posición del nivel freático**: afecta la [[Phase Velocity|velocidad de Vp]] y la razón de Poisson, que es muy diferente en suelos saturados y secos. Aunque la [[Dispersion Curve|curva de dispersión]] de Rayleigh no es muy sensible a Vp, si la posición del nivel freático no se conoce y se asume incorrectamente, los resultados de la inversión pueden estar sesgados.
 
-> **Figura 6.14** (p. 322): Inversión de datos de ondas superficiales con restricciones de la refracción P. (a) Curvas de dispersión teórica y experimental. (b) Perfiles Vs de ondas superficiales (SWM) y Vp de refracción, mostrando coherencia entre ambos métodos.
+> **Figura 6.14** (p. 322): Inversión de datos de ondas superficiales con restricciones de la refracción P. (a) [[Dispersion Curve|Curvas de dispersión]] teórica y experimental. (b) Perfiles Vs de ondas superficiales (SWM) y Vp de refracción, mostrando coherencia entre ambos métodos.
 
-#### Inversión conjunta de datos geofísicos
+#### [[Joint Inversion|Inversión conjunta]] de datos geofísicos
 
 Los métodos de sondeo eléctrico vertical (VES) y de ondas superficiales comparten estructuras de modelización muy similares (modelo 1D en capas), lo que permite una **[[Joint Inversion|inversión conjunta]]** que determina simultáneamente la resistividad eléctrica, Vs y los espesores de capa. La [[Joint Inversion|inversión conjunta]] produce un problema mejor condicionado que las dos inversiones independientes: con nl capas, la [[Joint Inversion|inversión conjunta]] determina 3nl incógnitas (Vs, resistividad, espesor), mientras que cada inversión individual determina solo 2nl – 1. La solución del problema conjunto es matemáticamente más bien-condicionado.
 
@@ -433,7 +433,7 @@ Esta aproximación es adecuada si la no linealidad no es severa en torno a la so
 
 ### 6.5.2 Incertidumbre en las mediciones de ondas superficiales
 
-#### Curva de dispersión experimental ([[SASW Method|SASW]] — dos estaciones)
+#### [[Dispersion Curve|Curva de dispersión]] experimental ([[SASW Method|SASW]] — dos estaciones)
 
 En el método de dos estaciones, la [[Phase Velocity|velocidad de fase]] se estima como:
 $$V_R(\omega) = \frac{\omega(x_2 - x_1)}{\arg[S_{12}(\omega)]} \qquad (6.52)$$
@@ -442,13 +442,13 @@ donde $S_{12}(\omega)$ es el **[[Cross-Power Spectrum|espectro de potencia cruza
 
 #### Métodos multicanal ([[MASW Method|MASW]])
 
-Con arrays de múltiples receptores, la [[Dispersion Curve|curva de dispersión]] se obtiene como una regresión lineal de las fases de desplazamiento sobre las posiciones de los receptores. La incertidumbre de $V_R(\omega)$ se obtiene de la covarianza de la estimación del número de onda $k_R(\omega)$ (Ec. 6.47 con G dada por Ec. 6.57), que depende del número de receptores y sus separaciones.
+Con arrays de múltiples receptores, la [[Dispersion Curve|curva de dispersión]] se obtiene como una regresión lineal de las fases de desplazamiento sobre las posiciones de los receptores. La incertidumbre de $V_R(\omega)$ se obtiene de la covarianza de la estimación del [[Wavenumber|número de onda]] $k_R(\omega)$ (Ec. 6.47 con G dada por Ec. 6.57), que depende del número de receptores y sus separaciones.
 
 Para métodos basados en transformadas (f-k, τ-p), la propagación de incertidumbre es más difícil de calcular analíticamente, siendo preferible estimarla directamente a partir de la variabilidad estadística de los datos medidos mediante repeticiones del ensayo.
 
 #### Curva de atenuación y medición conjunta
 
-La incertidumbre de la curva de atenuación $\alpha_R(\omega)$ se propaga desde la varianza de las amplitudes del espectro de desplazamiento usando FOSM. En la medición conjunta de dispersión y atenuación mediante la función de transferencia $H(r,\omega)$, la varianza del número de onda complejo $k_R^*(\omega)$ encapsula simultáneamente la incertidumbre de $V_R$ y de $\alpha_R$ (Ec. 6.70–6.72).
+La incertidumbre de la curva de atenuación $\alpha_R(\omega)$ se propaga desde la varianza de las amplitudes del espectro de desplazamiento usando FOSM. En la medición conjunta de dispersión y atenuación mediante la función de transferencia $H(r,\omega)$, la varianza del [[Wavenumber|número de onda]] complejo $k_R^*(\omega)$ encapsula simultáneamente la incertidumbre de $V_R$ y de $\alpha_R$ (Ec. 6.70–6.72).
 
 > **Implicación práctica para geófonos y [[MASW Method|MASW]]:** la incertidumbre de la [[Dispersion Curve|curva de dispersión]] disminuye al aumentar el número de receptores, la longitud del array y la coherencia de las señales. Posicionamiento incorrecto de los receptores, acoplamiento deficiente con el suelo y ruido ambiental no coherente son las principales fuentes de incertidumbre experimental. Estudios experimentales (O'Neill 2003) muestran que coeficientes de variación de 5–10% para las velocidades de fase de Rayleigh son típicos incluso en presencia de ruido significativo.
 
@@ -469,7 +469,7 @@ Para la **inversión de la curva de atenuación** (lineal), la propagación de l
 
 > **Figura 6.17** (p. 341): Perfil de Vs con barras de error (desviación estándar) obtenido con el algoritmo de Occam aplicado a datos reales en Italia. Coeficientes de variación de 0.2–4%.
 
-> **Figura 6.18** (p. 341): Curva de dispersión experimental con barras de error, y curva teórica final del algoritmo de Occam (iteración 9). La región de baja frecuencia (<11 Hz) tiene mayor incertidumbre (hasta 14%) que la región de alta frecuencia.
+> **Figura 6.18** (p. 341): [[Dispersion Curve|Curva de dispersión]] experimental con barras de error, y curva teórica final del algoritmo de Occam (iteración 9). La región de baja frecuencia (<11 Hz) tiene mayor incertidumbre (hasta 14%) que la región de alta frecuencia.
 
 **Conclusión del capítulo sobre incertidumbre:** los métodos [[SASW Method|SASW]] y [[MASW Method|MASW]] son técnicas robustas con coeficientes de variación del orden del 5–10% incluso con ruido ambiental significativo, lo que los hace aplicables en entornos urbanos. La incertidumbre aumenta con la profundidad, lo que refleja la disminución de la resolución intrínseca del método.
 

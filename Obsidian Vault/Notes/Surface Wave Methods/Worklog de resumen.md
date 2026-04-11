@@ -18,7 +18,18 @@
 - Página final aproximada: 20
 - Pendiente Chapter 1: ninguno — capítulo en estado comparable al resto del vault
 
-## Conceptos creados o actualizados en la última iteración (iteración 81 — 2026-04-11)
+## Conceptos creados o actualizados en la última iteración (iteración 82 — 2026-04-11)
+- **Fase 8b (enriquecimiento wikilinks Capítulos 1, 2, 3, 4y5 + correcciones caps 6-8)**:
+  - **Chapter 1.md**: +Dispersion Curve(33), +MASW(6), +SASW(5), +Phase Velocity(11), +Rayleigh Waves(4), +Non-uniqueness(3), +Forward Problem(7), +Wavenumber(2) → 186 links (2.61/100w)
+  - **Chapter 2.md**: +Dispersion Curve(6), +Phase Velocity(18), +Wavenumber(11) → 260 links (3.30/100w)
+  - **Chapter 3.md**: +Dispersion Curve(7), +Phase Velocity(8), +SASW(1), +Wavenumber(20→1 res) → 128 links (1.62/100w)
+  - **Chapter 4 y 5.md**: +MASW(1), +Dispersion Curve(14), +Phase Velocity(20), +Group Velocity(5), +SASW(2), +Wavenumber(12), +Joint Inversion(1) → 126 links (2.69/100w)
+  - **Chapters 6, 7, 8**: correcciones finales (capitalized variants, Joint Inversion en headings Ch8)
+  - **Total vault**: 1,027 wikilinks across 7 chapters, todos LIMPIOS (0 términos principales sin linkear)
+- Papers nuevos integrados: ninguno (foco en wikilinks)
+- Commits: `[INVESTIGADOR] enrich: wikilinks caps 1-2-3-4y5 + correcciones caps 6-8 (iteración 82)`
+
+## Conceptos creados o actualizados en iteraciones anteriores (iteración 81 — 2026-04-11)
 - **Fase 8 (enriquecimiento de wikilinks en Capítulos 6, 7, 8)**: enriquecimiento sistemático de wikilinks en los capítulos de resumen
   - **Chapter 6.md**: +SASW(4), +Joint Inversion(6), +Viscoelasticity(1), +curva de dispersión(17), +MASW(7), +Phase Velocity(5), +Non-uniqueness(4), +Forward Problem(13) → 60 links verificados
   - **Chapter 7.md**: +SASW(4), +HVSR(varios), +Seismic Interferometry(5), +ReMi(3), +Beamforming(2), +curva de dispersión(29), +MASW(1), +Phase Velocity(3), +Non-uniqueness(3), +Ground Roll(2), +Vs30(4) → 47 links verificados
