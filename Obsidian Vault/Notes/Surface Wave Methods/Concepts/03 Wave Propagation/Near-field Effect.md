@@ -6,44 +6,80 @@ type: concept
 
 # Near-field Effect
 
-## Definición
+> [!CONCEPT] Definición
+> El **near-field effect** es la distorsión de la [[Phase Velocity]] aparente de las [[Rayleigh Waves]] que ocurre en la zona cercana a la fuente, donde las [[Body Waves]] ([[P-waves]], [[S-Waves]]) tienen amplitud comparable a las ondas superficiales. Solo a distancias suficientemente grandes (*far-field*) las [[Rayleigh Waves]] dominan y la velocidad aparente converge a la verdadera velocidad de Rayleigh del modo fundamental.
+>
+> — Foti et al., *Surface Wave Methods*, §2.4.2, pp. 83–86; §3.4.1.6, pp. 160–162.
 
-Las [[Rayleigh Waves]] solo pueden tratarse como **ondas planas** a distancias suficientemente grandes de la fuente, denominadas **campo lejano** (*far-field*). La zona más cercana a la fuente, donde esta aproximación no es válida, se denomina **campo cercano** (*near-field*).
+---
 
-## Intuición física
+## 1. Intuición física
 
-Una fuente puntual en superficie genera simultáneamente ondas de cuerpo ([[P-waves]], [[S-Waves]]) y ondas superficiales. En el campo cercano, la amplitud de las ondas de cuerpo es comparable o mayor que la de las ondas superficiales. A medida que aumenta la distancia:
-- Las ondas de cuerpo decaen como $r^{-2}$ (en superficie).
-- Las [[Rayleigh Waves]] decaen como $r^{-0.5}$.
+Una fuente puntual en superficie genera simultáneamente [[Body Waves]] y ondas superficiales. La diferencia clave está en cómo decae la amplitud con la distancia $r$:
 
-Por eso, más allá de cierta distancia, el campo queda dominado por las ondas superficiales y la aproximación de onda plana es válida.
+| Tipo de onda | Decaimiento en superficie |
+|---|---|
+| [[Body Waves]] ([[P-waves]], [[S-Waves]]) | $\propto r^{-2}$ (rápido) |
+| [[Rayleigh Waves]] | $\propto r^{-0.5}$ (lento) |
 
-## Consecuencia para la medición
+En el campo cercano, las [[Body Waves]] son comparables o dominantes → la velocidad aparente medida **no corresponde** a $c_R$ del modo fundamental. A distancias mayores, el campo queda dominado por [[Rayleigh Waves]] y la aproximación de onda plana es válida.
 
-Dentro del campo cercano, la velocidad de fase aparente medida **no corresponde a la velocidad de Rayleigh** del modo fundamental. La velocidad aparente puede estar sesgada hacia arriba o abajo según la frecuencia y la estratigrafía.
+Este fenómeno fue estudiado originalmente en el contexto del [[Lamb's Problem]]: la solución exacta incluye ondas de cuerpo y superficiales; el campo lejano retiene solo las superficiales.
 
-## Criterio cuantitativo
+---
 
-El umbral entre campo cercano y campo lejano depende de la longitud de onda de Rayleigh $\lambda_R$:
+## 2. Criterio cuantitativo
+
+El umbral entre campo cercano y campo lejano depende de la [[Wavelength|longitud de onda de Rayleigh]] $\lambda_R$:
 
 | Condición del sitio | Offset mínimo recomendado |
 |---|---|
 | Medio normalmente dispersivo | $r \gtrsim \lambda_R / 2$ (Stokoe et al. 1994) |
 | Medio inversamente dispersivo | $r \gtrsim \lambda_R$ a $2\lambda_R$ |
 
-Dado que $\lambda_R$ depende de la frecuencia (y la velocidad del subsuelo, que es desconocida), el criterio es frecuencia-dependiente: para frecuencias bajas (longitudes de onda largas), el campo cercano se extiende más lejos.
+Como $\lambda_R$ depende de la frecuencia y de $V_S$ (desconocida a priori), el criterio es **frecuencia-dependiente**: para frecuencias bajas (longitudes de onda largas), el campo cercano se extiende más lejos — imponiendo offsets de fuente mayores que reducen el SNR.
 
-## Implicaciones para el diseño experimental
+---
 
-- El primer geófono debe ubicarse al menos a $\lambda_R/2$ de la fuente, idealmente a $\lambda_R$.
-- Para frecuencias bajas esto impone offsets de fuente largos, que a su vez reducen el SNR.
-- Algunas técnicas de procesamiento permiten identificar y enmudecer (*mute*) los receptores afectados por campo cercano a cada frecuencia (ver Sec. 4.4 de Foti).
+## 3. Consecuencia para la medición
 
-## Relación con el problema de Lamb
+Dentro del campo cercano, la velocidad de fase aparente puede estar sesgada hacia arriba o abajo según la frecuencia y la estratigrafía. Esto contamina la curva de dispersión experimental y puede inducir errores sistemáticos en la inversión del perfil Vs(z).
 
-El campo cercano / lejano fue estudiado en el contexto del [[Lamb's Problem]]. La solución exacta incluye tanto ondas superficiales como ondas de cuerpo; la aproximación de campo lejano retiene solo las ondas superficiales.
+> [!EXAMPLE] Evidencia empírica: Yoon & Rix (2009) — cuantificación del near-field en MASW activo
+> **Paper 024 (Yoon & Rix 2009)** cuantifica mediante modelado numérico y datos de campo el sesgo introducido por el near-field en MASW. Sus resultados muestran que el error en la curva de dispersión puede superar el 10–15% en frecuencias bajas cuando el offset fuente-receptor es insuficiente.
+>
+> El criterio operacional derivado: excluir del análisis los receptores para los cuales $r < \lambda_R/2$ a cada frecuencia. Esto puede implementarse como un *mute* frecuencia-dependiente en el dominio f-k.
+>
+> — Fuente: Research Database, entrada 024 (core). Ver también Paper 026 (Park, Miller & Miura 2002) para parámetros óptimos de adquisición.
 
-## Fuentes
+---
 
-- PDF: Sebastiano Foti Chapter 2, Sec. 2.4.2, p. 83–86
-- PDF: Sebastiano Foti Chapter 3, Sec. 3.4.1.6, p. 160–162
+## 4. Implicaciones para el diseño experimental
+
+- El **primer geófono** debe ubicarse al menos a $\lambda_R/2$ de la fuente, idealmente a $\lambda_R$.
+- Para frecuencias bajas esto impone offsets largos, que a su vez reducen el SNR → tradeoff fundamental del diseño MASW.
+- Algunas técnicas de procesamiento permiten identificar y enmudecer (*mute*) los receptores afectados por campo cercano a cada frecuencia (Foti §4.4).
+- En arreglos pasivos ([[ReMi Method]], [[SPAC Method]]), el near-field es menos crítico porque no hay fuente controlada.
+
+---
+
+## 5. Relaciones con otros conceptos
+
+- [[Rayleigh Waves]] — ondas cuya velocidad se distorsiona en el near-field
+- [[Body Waves]] — origen de la interferencia en campo cercano
+- [[Lamb's Problem]] — solución teórica exacta que incluye near-field
+- [[Phase Velocity]] — observable contaminado en campo cercano
+- [[Wavelength]] — $\lambda_R$ define la escala del near-field
+- [[MASW Method]] — método más afectado por near-field activo
+- [[Near-field Effect]] ↔ [[Geometric Dispersion]] — ambos afectan la curva de dispersión experimental
+
+---
+
+## 6. Fuentes
+
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.4.2, pp. 83–86 |
+| Foti et al. (2018), *Surface Wave Methods* | §3.4.1.6, pp. 160–162 |
+| Yoon & Rix (2009), *J. Geotech. Geoenviron. Eng.* | Paper 024 — near-field en MASW activo |
+| Park, Miller & Miura (2002) | Paper 026 — parámetros óptimos de adquisición |

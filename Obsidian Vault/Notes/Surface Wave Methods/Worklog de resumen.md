@@ -91,6 +91,20 @@
 
 ## Historial de iteraciones
 
+### 2026-04-11 — iteración 42 de loop (INVESTIGADOR — callouts en Linear Waves, Wave Superposition, Near-field Effect, 1D Wave Equation)
+- **Estado:** VÁLIDA.
+- **Diagnóstico previo:** 38 conceptos en carpetas 00–04 carecen de `[!CONCEPT]` callout. Prioridad: 0-wikilink + más críticos para tesis.
+- **Acción realizada:**
+  - `00 Foundations/Linear Waves.md` — añadido `[!CONCEPT]` + wikilinks: [[Hyperbolic Partial Differential Equations]], [[Wave Superposition]], [[1D Wave Equation]], [[Fourier Integral]], [[Dispersion Relation]], [[Surface Wave Modes]], [[Phase Velocity]], [[Rayleigh Waves]], [[Love Waves]]. Sección de relaciones agregada.
+  - `02 Wave Mathematics/Wave Superposition.md` — añadido `[!CONCEPT]` + tabla de componentes en geófonos + wikilinks: [[d'Alembert Solution]], [[1D Wave Equation]], [[Fourier Integral]], [[Rayleigh Waves]], [[Love Waves]], [[Body Waves]], [[Near-field Effect]], [[Surface Wave Modes]], [[MASW Method]].
+  - `03 Wave Propagation/Near-field Effect.md` — añadido `[!CONCEPT]` + `[!EXAMPLE]` con Paper 024 (Yoon & Rix 2009, cuantificación sesgo >10–15% a bajas f) + tabla de decaimiento + referencias Paper 026.
+  - `02 Wave Mathematics/1D Wave Equation.md` — añadido `[!CONCEPT]` + tabla clasificación PDE + wikilinks: [[d'Alembert Solution]], [[Wave Superposition]], [[Linear Waves]], [[Hyperbolic Partial Differential Equations]], [[Phase Velocity]], [[Group Velocity]], [[Dispersion Relation]], [[Geometric Dispersion]], [[Rayleigh Waves]].
+- **Conceptos modificados:** 4
+- **Papers vinculados:** 024 (Yoon & Rix 2009), 026 (Park & Miura 2002)
+- **Pendiente:** 34 conceptos sin callout en carpetas 00–04 restantes.
+- **Commit:** rama `investigador-loop`
+- **Fecha y hora:** 2026-04-11 01:45 UTC
+
 ### 2026-04-11 — iteración 41 de loop (INVESTIGADOR — 4 stubs vacíos desarrollados)
 - **Estado:** VÁLIDA.
 - **Acción realizada:** Desarrollados los 4 únicos stubs vacíos (0 líneas) restantes en Concepts/:

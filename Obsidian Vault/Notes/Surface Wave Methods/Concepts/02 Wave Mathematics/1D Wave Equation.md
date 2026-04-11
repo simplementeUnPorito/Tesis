@@ -1,65 +1,87 @@
 # 1D Wave Equation
 
-## 1. Concepto
-
-La **ecuación de onda unidimensional** es el modelo clásico más simple de propagación ondulatoria lineal.
-
-Describe cómo una perturbación evoluciona en una sola dimensión espacial cuando se propaga con velocidad constante.
-
----
-
-## 2. Fundamento físico
-
-Este modelo representa el caso paradigmático de las **ondas hiperbólicas lineales**.
-
-Su solución muestra que la perturbación puede propagarse sin distorsión, siempre que el medio sea ideal y la velocidad de propagación sea constante para todas las frecuencias.
+> [!CONCEPT] Definición
+> La **ecuación de onda unidimensional** es el modelo más simple de propagación ondulatoria [[Linear Waves|lineal]]. Describe cómo una perturbación evoluciona en una dimensión espacial propagándose con velocidad constante $c_0$. Es el caso paradigmático de las [[Hyperbolic Partial Differential Equations]] y el punto de partida conceptual para entender ondas sísmicas antes de pasar a la complejidad de [[Rayleigh Waves]] y [[Love Waves]] en medios estratificados.
+>
+> — Foti et al., *Surface Wave Methods for Near-Surface Site Characterization*, CRC Press (2018), §2.1.1, pp. 38–39.
 
 ---
 
-## 3. Formulación matemática
-
-La ecuación es:
+## 1. Formulación matemática
 
 $$
-\frac{\partial^2 \phi}{\partial x^2}
-=
-\frac{1}{c_0^2}
-\frac{\partial^2 \phi}{\partial t^2}
+\frac{\partial^2 \phi}{\partial x^2} = \frac{1}{c_0^2}\frac{\partial^2 \phi}{\partial t^2}
 $$
 
 donde:
-
-- $\phi(x,t)$ es la perturbación
-- $x$ es la coordenada espacial
-- $t$ es el tiempo
-- $c_0$ es la velocidad de propagación
-
-Su solución general está dada por la [[d’Alembert Solution]].
+- $\phi(x,t)$ — campo de la onda (desplazamiento, presión, etc.)
+- $x$ — coordenada espacial
+- $t$ — tiempo
+- $c_0$ — [[Phase Velocity]] de propagación (constante — no dispersiva)
 
 ---
 
-## 4. Aplicación a geófonos
+## 2. Solución general
 
-Aunque los registros sísmicos reales no son estrictamente unidimensionales, esta ecuación sirve como punto de partida conceptual para entender:
+La solución general es la [[d'Alembert Solution]]:
 
-- propagación sin dispersión
-- velocidad constante
-- relación entre forma de onda y medio
-- diferencia entre ondas hiperbólicas y dispersivas
+$$
+\phi(x,t) = f(x - c_0 t) + g(x + c_0 t)
+$$
 
----
+Esta es una [[Wave Superposition]] de dos ondas viajeras:
+- $f(x - c_0 t)$ → se propaga hacia $+x$ con velocidad $c_0$
+- $g(x + c_0 t)$ → se propaga hacia $-x$ con velocidad $c_0$
 
-## 5. Implicaciones para el diseño experimental
-
-- Es un modelo base útil para interpretar fenómenos simples.
-- No representa toda la complejidad de ondas superficiales en medios estratificados.
-- Sirve como referencia para entender qué cambia cuando aparece dispersión.
-- Es valiosa para construir intuición física antes de pasar a Rayleigh y Love waves.
+La forma de la onda se conserva perfectamente — no hay dispersión.
 
 ---
 
-## 6. Fuente
+## 3. Clasificación y propiedades
 
-- PDF: Sebastiano Foti Chapter 2
-- capítulo o sección: 2.1.1 Two categories of wave motion
-- página: 38–39
+La 1D Wave Equation es una [[Hyperbolic Partial Differential Equations|PDE hiperbólica]] con discriminante $\Delta = B^2 - 4AC > 0$:
+
+| Propiedad | Valor |
+|-----------|-------|
+| Tipo PDE | Hiperbólica |
+| Dispersiva | No — $c_p = c_0$ independiente de frecuencia |
+| Lineal | Sí — aplica [[Wave Superposition]] |
+| [[Dispersion Relation]] | $\omega = c_0 k$ (lineal) |
+| [[Phase Velocity]] = [[Group Velocity]] | Sí — $c_p = c_g = c_0$ |
+
+---
+
+## 4. Relevancia para ondas sísmicas
+
+En un medio elástico homogéneo, la ecuación de Navier se desacopla en versiones vectoriales de esta ecuación para [[P-waves]] y [[S-Waves]]:
+
+$$
+V_P = \sqrt{\frac{\lambda + 2\mu}{\rho}}, \quad V_S = \sqrt{\frac{\mu}{\rho}}
+$$
+
+Ambas se propagan sin dispersión en medios homogéneos. La dispersión aparece cuando el medio es [[Layered Media]] — esto es la [[Geometric Dispersion]] que explotan los métodos de ondas superficiales.
+
+La 1D Wave Equation sirve como **referencia**: cuando un registro de geófonos muestra dispersión, es porque el subsuelo real se aleja del ideal homogéneo que esta ecuación describe.
+
+---
+
+## 5. Relaciones con otros conceptos
+
+- [[d'Alembert Solution]] — solución general de esta ecuación
+- [[Wave Superposition]] — propiedad fundamental de la solución
+- [[Linear Waves]] — la ecuación es lineal → aplica superposición
+- [[Hyperbolic Partial Differential Equations]] — clase a la que pertenece
+- [[Phase Velocity]] — $c_0$, constante en este modelo
+- [[Group Velocity]] — igual a [[Phase Velocity]] (no hay dispersión)
+- [[Dispersion Relation]] — $\omega = c_0 k$, lineal → no dispersiva
+- [[Geometric Dispersion]] — lo que aparece cuando el medio deja de ser homogéneo
+- [[Rayleigh Waves]] — caso mucho más complejo que esta ecuación
+
+---
+
+## 6. Fuentes
+
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.1, pp. 38–39 |
+| Achenbach, J.D. (1984), *Wave Propagation in Elastic Solids* | Cap. 1 |
