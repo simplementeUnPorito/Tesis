@@ -555,3 +555,58 @@
   - Chapter 8 marcado como COMPLETADO (primera fase) — pp. 393–440.
   - **Primera fase completada: capítulos 2–8 todos completados.**
 - **Próximo paso:** Iniciar segunda fase comenzando desde Chapter 2.
+
+---
+
+## Fase 4: Enriquecimiento de Concepts/ con callouts [!CONCEPT] + [!EXAMPLE] (iteraciones 42–58)
+
+### Objetivo de la fase
+Añadir `[!CONCEPT]` (definición técnica con wikilinks) y `[!EXAMPLE]` (evidencia empírica vinculada a la research database) a todos los archivos en `Concepts/`. Meta: 65/65 archivos con ≥2 callouts.
+
+### Rama: `investigador-loop`
+
+### Iteraciones 42–45 (pre-contexto actual)
+- Procesados: Love Waves, Body Waves, Surface Waves, Lamb's Problem, Surface Wave Modes, SH-wave, S-Waves, Mode Conversion, Stress Tensor, Strain Tensor, Scholte Waves, Angular Frequency, Wavenumber, SV-wave, P-waves, Skin Depth, Fourier Integral, Wavelength, Wave Dispersion, Poisson Ratio, Elastic Wave Potentials, Mode Superposition, Rayleigh Eigenproblem, P-guided Waves, Hyperbolic Waves, d'Alembert Solution (Unicode apostrophe — escrito con Python3), Layered Media, MASW Method, SASW Method, Shear Damping Ratio
+
+### 2026-04-11 — iteración 53 (commit 7b147dd)
+- Métodos Sísmicos No Invasivos: [!CONCEPT] (MASW/SASW/ReMi/SPAC wikilinks) + [!EXAMPLE] Papers 006+007 (InterPACIFIC — 30 equipos, 15-20% variabilidad VS30)
+- Métodos Sísmicos Invasivos: [!CONCEPT] (±5-10% precisión VS, puntual 1D) + [!EXAMPLE] Paper 009 (MASW <1/10 costo borehole, error <15%)
+- Vs30: [!CONCEPT] (fórmula media armónica, EC8 A-E) + [!EXAMPLE] Foti §7.4 (La Salle 480-505 m/s — robusto ante no-unicidad)
+- Procesamiento de Señales: [!CONCEPT] (f-k, tau-p, SASW, selección modal) + [!EXAMPLE] Paper 001 (f-k multicanal estándar MASW — 24 geófonos Kansas)
+
+### 2026-04-11 — iteración 54 (commit aa2ad61)
+- Inversión: REESCRITURA COMPLETA — frontmatter, H1, [!CONCEPT] (problema directo/inverso, ill-posedness, LSM vs GSM, sensibilidad) + [!EXAMPLE] Paper 002 (sensibilidad VS dominante 80-95%, algoritmo LSM, error <15% Kansas)
+- Non-uniqueness: [!CONCEPT] (ill-posed, 3 causas físicas, 4 estrategias mitigación) + [!EXAMPLE] Paper 034 (Maraschini 2010 — determinant misfit elimina no-unicidad modal)
+- Ground Roll: [!CONCEPT] (reciclaje de datos sísmicos de reflexión) + [!EXAMPLE] Paper 001 (80%+ energía = ground-roll en sismograma MASW)
+- Viscoelastic Media: REESCRITURA COMPLETA — frontmatter, H1, [!CONCEPT] (módulos complejos, principio de correspondencia, número de onda complejo, Ds) + [!EXAMPLE] Lai & Rix 1998 (inversión simultánea VS+DS, validado en Pisa con RCT)
+
+### 2026-04-11 — iteración 55 (commit 5be9548)
+- Monte Carlo Methods: [!CONCEPT] (búsqueda global, test de Fisher, ensemble de soluciones) + [!EXAMPLE] Foti §7.2.4 (La Salle: 10⁵ modelos, ~500 aceptables, VS30 480-505 m/s)
+- Tikhonov Regularization: REESCRITURA COMPLETA — frontmatter, H1, [!CONCEPT] (penalización orden 0/1/2, factores de filtro SVD, Occam) + [!EXAMPLE] Foti §6.4.2.3 (orden 1 estándar para MASW)
+- HVSR: [!CONCEPT] (elipticidad Rayleigh, f0=VS/4H, inversión conjunta) + [!EXAMPLE] Papers 006+007 (InterPACIFIC — f0 HVSR concuerda con borehole en Mirandola)
+- SPAC Method: [!CONCEPT] (autocorrelación J0(k0r), ESAC para arrays arbitrarios) + [!EXAMPLE] Papers 006+007 (InterPACIFIC — SPAC consistente con MASW en bajas frecuencias)
+
+### 2026-04-11 — iteración 56 (commit 03cb23f)
+- ReMi Method: [!CONCEPT] (borde mínimo de velocidad, hipótesis isotropía, velocidad aparente) + [!EXAMPLE] Papers 006+007 (InterPACIFIC — sobreestimación sistemática en Grenoble con campo no isotrópico)
+- Seismic Interferometry: [!CONCEPT] (función de Green, puntos estacionarios, número de onda verdadero vs ReMi) + [!EXAMPLE] Shapiro & Campillo 2004 (tomografía Rayleigh por cross-correlación de ruido)
+- MOPA: [!CONCEPT] (ajuste lineal fase-offset, test chi-cuadrado, detección campo cercano/variaciones) + [!EXAMPLE] Foti §4.4 (MOPA como referencia de incertidumbre en curva de dispersión)
+- Adquisición de Datos: REESCRITURA COMPLETA — frontmatter, H1, [!CONCEPT] (3 componentes: fuente/array/registro, tabla parámetros diseño) + [!EXAMPLE] Paper 001 (diseño arreglo Kansas: 24 geófonos, Δx=1.5m, Ls=10m)
+
+### 2026-04-11 — iteración 57 (commit f2ec3e7)
+- Material Dispersion: REESCRITURA COMPLETA — frontmatter, H1, [!CONCEPT] (dispersión intrínseca vs geométrica, orden en DS, saturación, Biot) + [!EXAMPLE] Foti §7.3 (Pisa: DS de 2do orden en cR, 1ro en αR)
+- Vertically Inhomogeneous Media: [!CONCEPT] (EDOs con coeficientes variables, 2 estrategias numéricas) + [!EXAMPLE] Foti §7.2.5 (La Salle: capas vs continuo — misma VS30, diferencia en capa vegetal superficial)
+
+### 2026-04-11 — iteración 58 (commit 76d7eb7) — HITO MÁXIMO
+- Linear Waves: [!EXAMPLE] Paper 001 (reproducibilidad de espectrogramas f-k valida propagación lineal)
+- 1D Wave Equation: [!EXAMPLE] Paper 002 (medio homogéneo como baseline no-dispersivo; dispersión = desviación de ese baseline)
+- Hyperbolic PDEs: [!EXAMPLE] Paper 002 (sistema de Navier hiperbólico → velocidad finita → matriz de transferencia → inversión)
+- Wave Superposition: [!EXAMPLE] Paper 014 (Xu 2006 — superposición modal produce 50% error VS en capas profundas)
+- Surface Water Waves: [!EXAMPLE] Foti §2.1.2 Fig. 2.1 (analogía pedagógica explícita en el libro)
+- Water Waves: [!EXAMPLE] Foti §2.1.2 (mecanismo físico idéntico al de Rayleigh — V_S(z) análogo a h en batimetría)
+
+**HITO: 65/65 archivos Concepts/ con ≥2 callouts [!CONCEPT]+[!EXAMPLE]. Fase 4 COMPLETA.**
+
+## Próximos pasos
+- Explorar archivos de resumen de capítulos (Chapter 1-8.md) para identificar secciones sin cubrir
+- Potenciales conceptos nuevos a crear: Near-field Effect (si no existe), Attenuation, Geometric Dispersion, Group Velocity
+- Continuar loop hasta 2026-04-13 08:00 AM
