@@ -19,6 +19,10 @@ El objetivo del capítulo no es una revisión exhaustiva sino dar perspectiva so
 
 ## 8.1 [[Love Waves|ondas Love]]
 
+> Fuente: Foti et al. (2014), Sección 8.1, pp. 393–410.
+
+Las [[Love Waves|ondas Love]] ofrecen complementariedad única respecto a las [[Rayleigh Waves|ondas de Rayleigh]] en la caracterización del subsuelo: sondean el mismo parámetro $V_S$ con diferente profundidad de sensibilidad modal, propagan en la componente horizontal transversal (SH) — no contaminada por componentes P — y presentan curvas de dispersión modales más regulares sin puntos de osculación. Su [[Joint Inversion|inversión conjunta]] con [[Rayleigh Waves|Rayleigh]] reduce significativamente la [[Non-uniqueness|no-unicidad]] del problema inverso. La principal dificultad práctica es la necesidad de fuentes horizontales y receptores orientados perpendicularmente a la línea de adquisición, lo que aumenta la complejidad logística respecto a los ensayos estándar de [[Rayleigh Waves|Rayleigh]].
+
 ### 8.1.1 Naturaleza de las [[Love Waves|ondas Love]]
 
 Las [[Love Waves|ondas Love]] consisten en movimiento de corte puramente horizontal (SH), perpendicular a la dirección de propagación y paralelo a la superficie libre. A diferencia de las [[Rayleigh Waves|ondas de Rayleigh]], **no pueden existir en un semiespacio homogéneo**: requieren al menos una capa de baja velocidad sobre un semiespacio más rígido para que la energía quede atrapada por reflexión total interna en la interfaz.

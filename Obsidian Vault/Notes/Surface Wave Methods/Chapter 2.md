@@ -132,6 +132,10 @@ Este resultado constituye la base teórica de muchos procedimientos utilizados e
 
 ## 2.1 Basic notions of wave propagation
 
+> Fuente: Foti et al. (2014), Sección 2.1, pp. 35–65.
+
+Esta sección establece el vocabulario y las herramientas matemáticas comunes a toda la propagación de ondas en medios continuos: tipos de ondas, parámetros cinemáticos (frecuencia, [[Wavenumber|número de onda]], [[Phase Velocity|velocidad de fase]], [[Group Velocity|velocidad de grupo]]), y la descripción del movimiento de partícula ([[Body Waves|ondas de cuerpo]] P y S, polarización). Estos conceptos son el vocabulario técnico que atraviesa todos los capítulos del libro.
+
 ### 2.1.1 Two Categories of Wave Motion
 
 Una [[Wave]] puede definirse como cualquier perturbación reconocible que se transfiere de una parte de un medio a otra con una velocidad de propagación identificable. Durante su propagación la perturbación puede:
@@ -792,6 +796,10 @@ Por eso, estos parámetros serán esenciales en las secciones posteriores sobre:
 
 ## 2.2 Rayleigh Waves in Homogeneous Elastic Half-Spaces
 
+> Fuente: Foti et al. (2014), Sección 2.2, pp. 65–80.
+
+El caso del **[[Elastic Half Space|semiespacio elástico homogéneo]]** es el punto de partida canónico para entender las [[Rayleigh Waves|ondas de Rayleigh]]: es el único caso exactamente tratable de forma analítica y proporciona las relaciones fundamentales entre [[Phase Velocity|velocidad de fase]] $V_R$, [[Shear Modulus|módulo de corte]] $G$ y [[Poisson Ratio|razón de Poisson]] $\nu$. Su solución es **no dispersiva** ($V_R = \text{const}$), lo que sirve de referencia para apreciar cuánto modifica la heterogeneidad vertical la respuesta dispersiva del medio estratificado.
+
 ### 2.2.1 Overview
 
 Los continuos elásticos **homogéneos, isotrópicos y no acotados** solo permiten la propagación de [[Body Waves|ondas de cuerpo]]:
@@ -1133,6 +1141,10 @@ Esta dependencia frecuencial multimodal es la base de la [[Geometric Dispersion]
 
 ## 2.4 Surface Waves in Vertically Inhomogeneous Media
 
+> Fuente: Foti et al. (2014), Sección 2.4, pp. 80–96.
+
+La heterogeneidad vertical del subsuelo transforma las [[Surface Waves|ondas superficiales]] en ondas **dispersivas**: su [[Phase Velocity|velocidad de fase]] deja de ser constante y pasa a depender de la frecuencia. Esta [[Geometric Dispersion|dispersión geométrica]] — que en el semiespacio homogéneo está ausente — es el fenómeno físico central que hace posible la caracterización del subsuelo. La sección desarrolla el marco matemático que describe este fenómeno: el **problema de autovalores diferencial** para [[Rayleigh Waves|ondas de Rayleigh]] y [[Love Waves|Love]] en [[Layered Media|medios estratificados]], cuya solución proporciona los modos de propagación $c_n(\omega)$ y las funciones de eigendesplazamiento que controlan la [[Sensitivity Kernel|sensibilidad]] del dato al perfil de $V_S$.
+
 ### 2.4.1 Problema de autovalores asociado a ondas superficiales libres (Foti Ecs. 2.65–2.74)
 
 Cuando $\lambda = \lambda(x_2)$, $\mu = \mu(x_2)$, $\rho = \rho(x_2)$, las ecuaciones de Navier se generalizan (Foti Ec. 2.56). La búsqueda de soluciones del tipo ondas superficiales conduce a dos **[[Eigenvalue Problem|problemas de autovalores diferenciales]]** con operador $d/dx_2$.
@@ -1284,6 +1296,10 @@ donde $(V_R)_j$, $(U_R)_j$ y $(I_R)_j$ son la [[Phase Velocity|velocidad de fase
 ---
 
 ## 2.5 Surface Waves in Vertically Inhomogeneous, Inelastic Continua
+
+> Fuente: Foti et al. (2014), Sección 2.5, pp. 96–117.
+
+La extensión del marco elástico al caso **[[Viscoelastic Media|viscoelástico]]** permite modelar la disipación de energía intrínseca de los geomateriales reales. La consecuencia observable en la propagación de ondas superficiales es doble: (1) la [[Phase Velocity|velocidad de fase]] se vuelve compleja — la parte real gobierna la propagación y la parte imaginaria el decaimiento espacial de amplitud — y (2) la [[Dispersion Curve|curva de dispersión]] presenta una ligera dependencia adicional de la frecuencia debida a la [[Attenuation|atenuación]] (dispersión por relajación). El producto de esta sección — el operador del [[Forward Problem|problema directo]] para medios viscoelásticos — es la base teórica del análisis de atenuación desarrollado en el Capítulo 5.
 
 ### 2.5.1 Motivación y marco constitutivo
 
