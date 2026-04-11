@@ -1,13 +1,13 @@
 ---
 name: Love Waves
-description: Ondas superficiales SH que requieren estratificación para existir; dispersivas; su inversión conjunta con Rayleigh reduce la no-unicidad del perfil VS
+description: Ondas superficiales SH que requieren estratificación para existir; dispersivas; su [[Joint Inversion|inversión conjunta]] con Rayleigh reduce la [[Non-uniqueness|no-unicidad]] del perfil VS
 type: reference
 ---
 
 # Ondas de Love (Love Waves)
 
 > [!CONCEPT] Definición
-> Las **ondas de Love** son ondas superficiales polarizadas horizontalmente (SH) que **requieren estratificación**: no pueden existir en un [[Elastic Half Space|semiespacio homogéneo]]. Se propagan cuando una capa superficial con menor velocidad de corte $V_{S1}$ suprayace un semiespacio más rígido ($V_{S2} > V_{S1}$), atrapando la energía SH por reflexión total interna. Sus [[Dispersion Curve|curvas de dispersión]] dependen únicamente de $V_S$ y densidades — no de $V_P$ — lo que las hace complementarias a las [[Rayleigh Waves]] en inversión conjunta.
+> Las **ondas de Love** son ondas superficiales polarizadas horizontalmente (SH) que **requieren estratificación**: no pueden existir en un [[Elastic Half Space|semiespacio homogéneo]]. Se propagan cuando una capa superficial con menor velocidad de corte $V_{S1}$ suprayace un semiespacio más rígido ($V_{S2} > V_{S1}$), atrapando la energía SH por reflexión total interna. Sus [[Dispersion Curve|curvas de dispersión]] dependen únicamente de $V_S$ y densidades — no de $V_P$ — lo que las hace complementarias a las [[Rayleigh Waves]] en [[Joint Inversion|inversión conjunta]].
 >
 > — Foti et al. (2018), §2.3, pp. 63–70; Cap. 8, §8.1.
 
@@ -28,7 +28,7 @@ $$V_{S1} < c_L < V_{S2}$$
 
 Cuando se cumple esta condición, las ondas SH quedan atrapadas por reflexión total interna en la interfaz $z = H$. **No existen en un semiespacio homogéneo** — esta es la diferencia fundamental con las [[Rayleigh Waves]], que sí existen sin estratificación.
 
-## 3. Relación de dispersión
+## 3. [[Dispersion Relation|relación de dispersión]]
 
 La condición de esfuerzo nulo en $z = 0$ y la continuidad de desplazamiento y esfuerzo en $z = H$ conducen a:
 
@@ -42,7 +42,7 @@ y $\mu_1$, $\mu_2$ son los módulos de corte de la capa y del semiespacio. Esta 
 
 ## 4. Modos de propagación
 
-La relación de dispersión admite múltiples soluciones (ver [[Surface Wave Modes]]):
+La [[Dispersion Relation|relación de dispersión]] admite múltiples soluciones (ver [[Surface Wave Modes]]):
 
 - **Modo fundamental (modo 0):** existe para todas las frecuencias; a bajas frecuencias $c_L \to V_{S2}$; a altas frecuencias $c_L \to V_{S1}$
 - **Modos superiores (modos 1, 2, ...):** cada uno tiene una frecuencia de corte mínima $f_c$ por debajo de la cual no se propaga
@@ -72,14 +72,14 @@ $$f_{res} \approx \frac{V_{S,\text{top}}}{4H}$$
 
 Aunque el espectro de una sola traza sea angosto, el análisis multicanal (f-k) permite recuperar la [[Dispersion Curve|curva de dispersión]] en un rango amplio de frecuencias.
 
-## 7. Ventaja en inversión conjunta Love + Rayleigh
+## 7. Ventaja en [[Joint Inversion|inversión conjunta]] Love + Rayleigh
 
-La inversión conjunta Love + Rayleigh (asumiendo isotropía) proporciona mayor constraño del perfil $V_S(z)$ que cualquiera de las dos por separado. Las curvas de Love pueden confirmar la identificación modal cuando las curvas de Rayleigh son ambiguas. Las Love son insensibles a $V_P$ — lo que elimina una fuente de error sistemático en sitios con capas saturadas donde $V_P$ es controlada por el agua poral.
+La [[Joint Inversion|inversión conjunta]] Love + Rayleigh (asumiendo isotropía) proporciona mayor constraño del perfil $V_S(z)$ que cualquiera de las dos por separado. Las curvas de Love pueden confirmar la identificación modal cuando las curvas de Rayleigh son ambiguas. Las Love son insensibles a $V_P$ — lo que elimina una fuente de error sistemático en sitios con capas saturadas donde $V_P$ es controlada por el agua poral.
 
-> [!EXAMPLE] Evidencia empírica: Dal Moro & Ferigo (2011) — inversión conjunta Love + Rayleigh
+> [!EXAMPLE] Evidencia empírica: Dal Moro & Ferigo (2011) — [[Joint Inversion|inversión conjunta]] Love + Rayleigh
 > **Paper 045 (Dal Moro & Ferigo 2011)** aplica inversión simultánea de [[Dispersion Curve|curvas de dispersión]] de Love y Rayleigh en un sitio con fuerte contraste de velocidad. Los resultados muestran que:
 > - Las curvas de Love están libres de los puntos de osculación modal que afectan las curvas de Rayleigh en el mismo sitio
-> - La inversión conjunta reduce significativamente la no-unicidad del perfil $V_S(z)$ respecto a la inversión individual de cada tipo de onda
+> - La [[Joint Inversion|inversión conjunta]] reduce significativamente la [[Non-uniqueness|no-unicidad]] del perfil $V_S(z)$ respecto a la inversión individual de cada tipo de onda
 > - El modo fundamental de Love es identificable a frecuencias donde el modo fundamental de Rayleigh resulta ambiguo por interferencia modal
 >
 > Este resultado valida el uso de fuentes horizontales y receptores SH como complemento a las mediciones estándar de Rayleigh en sitios problemáticos.
@@ -104,4 +104,4 @@ La inversión conjunta Love + Rayleigh (asumiendo isotropía) proporciona mayor 
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | §2.3, pp. 63–70 |
 | Foti et al. (2018), Cap. 8 | §8.1 — adquisición, resonancias, ejemplo Terceira Island |
-| Dal Moro & Ferigo (2011) | Paper 045 — inversión conjunta Love + Rayleigh |
+| Dal Moro & Ferigo (2011) | Paper 045 — [[Joint Inversion|inversión conjunta]] Love + Rayleigh |

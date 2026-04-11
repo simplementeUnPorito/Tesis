@@ -1,7 +1,7 @@
 # MOPA (Multi-Offset Phase Analysis)
 
 > [!CONCEPT] Definición
-> El **MOPA** (*Multi-Offset Phase Analysis*) es la extensión multicanal del [[SASW Method|método SASW]]: usa el array completo de receptores en una sola adquisición para estimar la [[Dispersion Curve|curva de dispersión]] mediante ajuste de mínimos cuadrados a la relación lineal entre fase y posición de receptor $\varphi_i(\omega) = -k(\omega)x_i + \varphi_0(\omega)$. El número de onda $k(\omega)$ y su incertidumbre $\sigma_k$ se obtienen directamente del ajuste — sin necesidad de repetir disparos. Un **test $\chi^2$ de linealidad** permite detectar objetivamente: (1) receptores en campo cercano (desviación de la tendencia lineal), (2) variaciones laterales de impedancia (cambio de pendiente), y (3) contaminación por modos superiores. MOPA asume modo único de propagación; en sitios con modos múltiples significativos, el [[MASW Method|análisis f-k]] proporciona mejor resolución modal.
+> El **MOPA** (*Multi-Offset Phase Analysis*) es la extensión multicanal del [[SASW Method|método SASW]]: usa el array completo de receptores en una sola adquisición para estimar la [[Dispersion Curve|curva de dispersión]] mediante ajuste de mínimos cuadrados a la relación lineal entre fase y posición de receptor $\varphi_i(\omega) = -k(\omega)x_i + \varphi_0(\omega)$. El [[Wavenumber|número de onda]] $k(\omega)$ y su incertidumbre $\sigma_k$ se obtienen directamente del ajuste — sin necesidad de repetir disparos. Un **test $\chi^2$ de linealidad** permite detectar objetivamente: (1) receptores en campo cercano (desviación de la tendencia lineal), (2) variaciones laterales de impedancia (cambio de pendiente), y (3) contaminación por modos superiores. MOPA asume modo único de propagación; en sitios con modos múltiples significativos, el [[MASW Method|análisis f-k]] proporciona mejor resolución modal.
 >
 > — Foti et al. (2018), Cap. 4.4, pp. 220–230.
 
@@ -13,7 +13,7 @@ Bajo la hipótesis de **un único modo de propagación** y **campo lejano**, la 
 
 $$\varphi_i(\omega) = -k(\omega) \cdot x_i + \varphi_0(\omega)$$
 
-donde $k(\omega)$ es el número de onda de la onda superficial y $\varphi_0(\omega)$ es la fase en el origen (incluye la fase de la fuente).
+donde $k(\omega)$ es el [[Wavenumber|número de onda]] de la onda superficial y $\varphi_0(\omega)$ es la fase en el origen (incluye la fase de la fuente).
 
 ## Formulación matricial
 
@@ -26,7 +26,7 @@ donde:
 - $\mathbf{M} = [k(\omega),\ \varphi_0(\omega)]^T$ contiene las incógnitas,
 - $\mathbf{G}$ es la matriz de diseño que contiene las posiciones $x_i$ y unos.
 
-La solución por **mínimos cuadrados ponderados** (ponderada por las incertidumbres de fase) entrega el número de onda estimado $\hat{k}(\omega)$ y su desviación estándar $\sigma_k$. La [[Phase Velocity|velocidad de fase]] y su incertidumbre son:
+La solución por **mínimos cuadrados ponderados** (ponderada por las incertidumbres de fase) entrega el [[Wavenumber|número de onda]] estimado $\hat{k}(\omega)$ y su desviación estándar $\sigma_k$. La [[Phase Velocity|velocidad de fase]] y su incertidumbre son:
 
 $$V(\omega) = \frac{2\pi f}{k}, \qquad \sigma_V = \frac{2\pi f}{k^2}\,\sigma_k$$
 
@@ -56,7 +56,7 @@ Una contribución central de MOPA es ofrecer un **criterio estadístico objetivo
 Cuando las fases observadas presentan una **no-linealidad sistemática** a lo largo del array, las causas pueden ser:
 
 1. **Receptores en campo cercano**: los receptores más próximos a la fuente reciben ondas con curvatura significativa del frente; la hipótesis de onda plana no se cumple. La solución es excluir los receptores afectados del ajuste.
-2. **Variaciones laterales de impedancia**: una discontinuidad lateral cambia el número de onda a lo largo del perfil. El método de Vignoli y Cassiani (2009) segmenta adaptativamente el array en zonas donde la hipótesis de propagación lateralmente homogénea se verifica, generando una sección 2D pseudo-lateral de velocidades.
+2. **Variaciones laterales de impedancia**: una discontinuidad lateral cambia el [[Wavenumber|número de onda]] a lo largo del perfil. El método de Vignoli y Cassiani (2009) segmenta adaptativamente el array en zonas donde la hipótesis de propagación lateralmente homogénea se verifica, generando una sección 2D pseudo-lateral de velocidades.
 
 Esta capacidad de detectar heterogeneidades laterales hace de MOPA una herramienta complementaria al análisis f-k del método [[MASW Method|MASW]], que asume implícitamente modelo 1D.
 

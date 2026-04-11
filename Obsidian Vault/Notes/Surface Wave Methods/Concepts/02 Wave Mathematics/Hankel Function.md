@@ -11,7 +11,7 @@ type: reference
 > $$H_n^{(1)}(z) = J_n(z) + i Y_n(z), \qquad H_n^{(2)}(z) = J_n(z) - i Y_n(z)$$
 > La función $H_0^{(2)}(k_R r)$ de orden cero y segunda clase aparece en la solución del [[Lamb's Problem|problema de Lamb]] para el campo de Rayleigh en campo lejano (Foti Ec. 2.75):
 > $$u_2^R(r, 0, \omega) \approx A(\omega) \cdot H_0^{(2)}(k_R r)$$
-> donde $r = \sqrt{x_1^2 + x_3^2}$ es la distancia horizontal a la fuente y $k_R = \omega/V_R$ es el número de onda de Rayleigh. Para $|k_R r| \gg 1$ (campo lejano, condición esencial en [[MASW Method|MASW]]), la expansión asintótica simplifica:
+> donde $r = \sqrt{x_1^2 + x_3^2}$ es la distancia horizontal a la fuente y $k_R = \omega/V_R$ es el [[Wavenumber|número de onda]] de Rayleigh. Para $|k_R r| \gg 1$ (campo lejano, condición esencial en [[MASW Method|MASW]]), la expansión asintótica simplifica:
 > $$H_0^{(2)}(k_R r) \approx \sqrt{\frac{2}{\pi k_R r}} \, e^{-i(k_R r - \pi/4)}$$
 > Lo que muestra que la amplitud decae como $r^{-1/2}$ (**decaimiento geométrico cilíndrico**) y la fase avanza como $e^{-ik_R r}$ — frentes de onda circulares centrados en la fuente. Este comportamiento justifica la corrección de amplitud $\sqrt{r}$ aplicada en la normalización de señales [[MASW Method|MASW]] antes del análisis en el dominio $f$-$k$.
 >

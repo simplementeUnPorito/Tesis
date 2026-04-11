@@ -1,13 +1,13 @@
 ---
 name: Angular Frequency
-description: ω = 2πf; frecuencia de oscilación en radianes por segundo; aparece en la relación de dispersión ω(k) que codifica la física de propagación en medios dispersivos
+description: ω = 2πf; frecuencia de oscilación en radianes por segundo; aparece en la [[Dispersion Relation|relación de dispersión]] ω(k) que codifica la física de propagación en medios dispersivos
 type: reference
 ---
 
 # Frecuencia Angular (Angular Frequency)
 
 > [!CONCEPT] Definición
-> La **frecuencia angular** $\omega = 2\pi f$ es la forma natural de expresar la frecuencia en el formalismo matemático de ondas. Aparece directamente en la representación de ondas armónicas ($e^{i(kx-\omega t)}$) y en la [[Dispersion Relation|relación de dispersión]] $\omega(k)$ — la función central que codifica la física de propagación en el medio. En [[MASW Method|MASW]], $\omega$ vincula el dominio temporal del sismograma con el dominio espacial mediante la [[Phase Velocity|velocidad de fase]] $c_p = \omega/k$, y la [[Group Velocity|velocidad de grupo]] $c_g = d\omega/dk$ controla el *moveout* temporal del ground-roll.
+> La **frecuencia angular** $\omega = 2\pi f$ es la forma natural de expresar la frecuencia en el formalismo matemático de ondas. Aparece directamente en la representación de ondas armónicas ($e^{i(kx-\omega t)}$) y en la [[Dispersion Relation|relación de dispersión]] $\omega(k)$ — la función central que codifica la física de propagación en el medio. En [[MASW Method|MASW]], $\omega$ vincula el dominio temporal del sismograma con el dominio espacial mediante la [[Phase Velocity|velocidad de fase]] $c_p = \omega/k$, y la [[Group Velocity|velocidad de grupo]] $c_g = d\omega/dk$ controla el *moveout* temporal del [[Ground Roll|ground-roll]].
 >
 > — Foti et al. (2018), §2.1.1, pp. 39–41.
 
@@ -34,18 +34,18 @@ $$c_p = \frac{\omega}{k}$$
 
 Esta ecuación es la definición operativa de [[Phase Velocity|velocidad de fase]]: la rapidez a la que una cresta de fase (frente de onda de igual $\omega t - kx$) se propaga en el espacio.
 
-## La relación de dispersión ω(k)
+## La [[Dispersion Relation|relación de dispersión]] ω(k)
 
 La **[[Dispersion Relation|relación de dispersión]]** $\omega(k)$ es la función que determina el comportamiento ondulatorio del medio. Se obtiene sustituyendo la onda armónica en la ecuación de onda del medio:
 
 - **Medio no dispersivo** (velocidad constante $c$): $\omega = ck$ — relación lineal, $c_p = c_g = c$ constantes.
 - **Medio dispersivo** (velocidad dependiente de $k$ o $\omega$): $\omega(k)$ es no lineal. La [[Phase Velocity|velocidad de fase]] $c_p = \omega/k$ y la [[Group Velocity|velocidad de grupo]] $c_g = d\omega/dk$ difieren.
 
-Para [[Rayleigh Waves]] en un [[Layered Media|medio estratificado]], la relación de dispersión se obtiene del sistema de ecuaciones de frontera (método de la matriz de transferencia de Thomson-Haskell) y es implícita: no tiene forma analítica cerrada en general, pero puede evaluarse numéricamente para cada par $(\omega, k)$.
+Para [[Rayleigh Waves]] en un [[Layered Media|medio estratificado]], la [[Dispersion Relation|relación de dispersión]] se obtiene del sistema de ecuaciones de frontera (método de la matriz de transferencia de Thomson-Haskell) y es implícita: no tiene forma analítica cerrada en general, pero puede evaluarse numéricamente para cada par $(\omega, k)$.
 
-## Relación de dispersión y análisis f-k
+## [[Dispersion Relation|relación de dispersión]] y análisis f-k
 
-En [[MASW Method|MASW]], el análisis f-k (transformada de Fourier 2D del sismograma) transforma el registro $u(x, t)$ al dominio $(\omega, k)$. La amplitud en cada punto $({\omega, k})$ del espectrograma f-k es proporcional a la energía de la onda con esa frecuencia y número de onda. Los modos de Rayleigh aparecen como **crestas** en el espectro f-k, cuya pendiente $\omega/k$ da la [[Phase Velocity|velocidad de fase]]:
+En [[MASW Method|MASW]], el análisis f-k (transformada de Fourier 2D del sismograma) transforma el registro $u(x, t)$ al dominio $(\omega, k)$. La amplitud en cada punto $({\omega, k})$ del espectrograma f-k es proporcional a la energía de la onda con esa frecuencia y [[Wavenumber|número de onda]]. Los modos de Rayleigh aparecen como **crestas** en el espectro f-k, cuya pendiente $\omega/k$ da la [[Phase Velocity|velocidad de fase]]:
 
 $$c_p(f) = \frac{\omega}{k}\bigg|_{\text{cresta}} = \frac{2\pi f}{k_{\text{cresta}}}$$
 
@@ -81,5 +81,5 @@ Algunos autores (incluyendo Foti et al.) alternan entre $f$ y $\omega$ según el
 | Fuente | Sección / Página |
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | §2.1.1, pp. 39–41 — representación de ondas armónicas |
-| Foti et al. (2018), *Surface Wave Methods* | §2.1.2, pp. 41–43 — relación de dispersión y velocidades de fase/grupo |
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.2, pp. 41–43 — [[Dispersion Relation|relación de dispersión]] y velocidades de fase/grupo |
 | Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — análisis f-k en dominio ω-k |

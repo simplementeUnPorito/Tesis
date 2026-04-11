@@ -7,7 +7,7 @@ type: reference
 # Beamforming — Formación de Haz
 
 > [!CONCEPT] Definición
-> El **beamforming** (o *formación de haz*) es una técnica de procesamiento de array que estima la **[[Phase Velocity|velocidad de fase]] y dirección de propagación** de ondas sísmicas combinando linealmente las señales de múltiples receptores con pesos $w_j$ y retardos $\tau_j$: $B(\omega, k) = |\sum_j w_j U(x_j, \omega) e^{ik x_j}|^2$. Es la generalización del análisis f-k ([[2D Fourier Transform|2D FFT]]) que permite aplicar ventanas espaciales (tapering) para reducir los lóbulos laterales del espectrograma. En su forma más simple (pesos iguales $w_j = 1/N$), el beamformer es idéntico al análisis f-k estándar de [[MASW Method|MASW]]. Con pesos Hamming o Hann (*spatial tapering*), mejora la separación de modos a costa de reducir la resolución pico. Para arrays **2D** (no lineales), el beamformer estima el vector número de onda $\mathbf{k}$ completo, permitiendo separar contribuciones de diferentes direcciones de propagación — clave en [[Seismic Interferometry|interferometría pasiva]] y en [[SPAC Method|SPAC]] con geometrías arbitrarias.
+> El **beamforming** (o *formación de haz*) es una técnica de procesamiento de array que estima la **[[Phase Velocity|velocidad de fase]] y dirección de propagación** de ondas sísmicas combinando linealmente las señales de múltiples receptores con pesos $w_j$ y retardos $\tau_j$: $B(\omega, k) = |\sum_j w_j U(x_j, \omega) e^{ik x_j}|^2$. Es la generalización del análisis f-k ([[2D Fourier Transform|2D FFT]]) que permite aplicar ventanas espaciales (tapering) para reducir los lóbulos laterales del espectrograma. En su forma más simple (pesos iguales $w_j = 1/N$), el beamformer es idéntico al análisis f-k estándar de [[MASW Method|MASW]]. Con pesos Hamming o Hann (*spatial tapering*), mejora la separación de modos a costa de reducir la resolución pico. Para arrays **2D** (no lineales), el beamformer estima el vector [[Wavenumber|número de onda]] $\mathbf{k}$ completo, permitiendo separar contribuciones de diferentes direcciones de propagación — clave en [[Seismic Interferometry|interferometría pasiva]] y en [[SPAC Method|SPAC]] con geometrías arbitrarias.
 >
 > — Foti et al. (2018), Cap. 4, §4.2, pp. 195–215; Lacoss et al. (1969).
 
@@ -15,7 +15,7 @@ type: reference
 
 ### Beamformer convencional (Delay-and-Sum)
 
-Para un array lineal con $N$ receptores en posiciones $x_j$, la respuesta del beamformer para una onda de número de onda $k$ y frecuencia $\omega$ es:
+Para un array lineal con $N$ receptores en posiciones $x_j$, la respuesta del beamformer para una onda de [[Wavenumber|número de onda]] $k$ y frecuencia $\omega$ es:
 
 $$B(\omega, k) = \left|\sum_{j=1}^{N} w_j\, U(x_j, \omega)\, e^{i k x_j}\right|^2$$
 
@@ -25,7 +25,7 @@ Con $w_j = 1/N$ (pesos uniformes): $B(\omega, k) = |U(\omega, k)|^2/N^2$ — el 
 
 ### Función de respuesta del array (Array Response Function, ARF)
 
-Para una señal de número de onda verdadero $k_0$, el beamformer produce un pico a $k_0$ con ancho:
+Para una señal de [[Wavenumber|número de onda]] verdadero $k_0$, el beamformer produce un pico a $k_0$ con ancho:
 
 $$\Delta k \approx \frac{2\pi}{D} \quad \text{(ventana uniforme)}, \quad \Delta k \approx \frac{4\pi}{D} \quad \text{(ventana Hann)}$$
 
@@ -41,7 +41,7 @@ donde $\mathbf{C}(\omega)$ es la matriz de covarianza espectral cruzada entre re
 
 ## Aplicación en arrays 2D (métodos pasivos)
 
-Para arrays 2D (triángulo, espiral, aleatorio), el beamformer estima el vector 2D de número de onda $(k_x, k_y)$:
+Para arrays 2D (triángulo, espiral, aleatorio), el beamformer estima el vector 2D de [[Wavenumber|número de onda]] $(k_x, k_y)$:
 
 $$B(\omega, k_x, k_y) = \left|\sum_j w_j\, U(\mathbf{x}_j, \omega)\, e^{i(k_x x_j + k_y y_j)}\right|^2$$
 

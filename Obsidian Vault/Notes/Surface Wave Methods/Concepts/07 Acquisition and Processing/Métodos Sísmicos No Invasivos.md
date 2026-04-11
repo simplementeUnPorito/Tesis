@@ -26,7 +26,7 @@ Mide los **tiempos de llegada de primeras ondas** (ondas P refractadas críticam
 
 Detecta reflexiones de interfaces y construye secciones sísmicas de alta resolución. Requiere procesamiento complejo (NMO, deconvolución, migración). Aplicada a exploración de profundidades medias a grandes.
 
-- **Limitación en geotecnia superficial**: Las reflexiones de los primeros metros son difíciles de separar de la onda directa y el ground-roll.
+- **Limitación en geotecnia superficial**: Las reflexiones de los primeros metros son difíciles de separar de la onda directa y el [[Ground Roll|ground-roll]].
 
 ### 3. Métodos de Ondas Superficiales
 
@@ -65,7 +65,7 @@ Los métodos de ondas superficiales tienen ventajas específicas sobre los otros
 | Resolución vertical | Alta (~0.5 m) | Moderada (gradiente suave) |
 | Profundidad | Alta (>100 m) | Moderada (~30–80 m típico) |
 | Inversiones de velocidad | Detecta directamente | Detecta con inversión multimodal |
-| No-unicidad | No aplica | Alta (requiere parámetros a priori) |
+| [[Non-uniqueness|no-unicidad]] | No aplica | Alta (requiere parámetros a priori) |
 | Validación necesaria | Referencia de oro | Recomendable vs. invasivo |
 
 > [!EXAMPLE] Evidencia empírica: InterPACIFIC (Garofalo et al. 2016) — comparativa masiva de métodos no invasivos

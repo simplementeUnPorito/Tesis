@@ -25,7 +25,7 @@ Con espaciado $\Delta x$, las ondas con $k > k_{Nyquist} = \pi/\Delta x$ (equiva
 
 $$k_{alias} = |k_{real} - n \cdot 2\pi/\Delta x|, \quad k_{alias} \leq \pi/\Delta x$$
 
-**Consecuencia en [[MASW Method|MASW]]**: si el suelo superficial tiene $V_S = 100$ m/s y $f = 30$ Hz → $\lambda = 3.3$ m. Si $\Delta x = 3$ m > $\lambda_{min}/2 = 1.65$ m → aliasing espacial → esa longitud de onda aparece en el espectrograma con un número de onda aliaseado → [[Phase Velocity|velocidad de fase]] aparente incorrecta.
+**Consecuencia en [[MASW Method|MASW]]**: si el suelo superficial tiene $V_S = 100$ m/s y $f = 30$ Hz → $\lambda = 3.3$ m. Si $\Delta x = 3$ m > $\lambda_{min}/2 = 1.65$ m → aliasing espacial → esa longitud de onda aparece en el espectrograma con un [[Wavenumber|número de onda]] aliaseado → [[Phase Velocity|velocidad de fase]] aparente incorrecta.
 
 ## Detección del aliasing espacial en el espectrograma f-k
 

@@ -185,8 +185,8 @@ dependen directamente de las constantes elásticas del material.
 - [[Layered Media]]
 - [[Hyperbolic Partial Differential Equations]]
 
-> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — elasticidad lineal como base del problema directo [[MASW Method|MASW]]
-> **Paper 002 (Xia, Miller & Park 1999)** implementa el problema directo de propagación de Rayleigh Waves sobre la base de las ecuaciones de Navier en cada capa elástica lineal isotrópica. El Jacobiano analítico $\partial V_R / \partial V_S$ (núcleo del algoritmo de inversión) se deriva directamente de la teoría de elasticidad lineal, lo que hace posible la inversión en < 10 iteraciones con convergencia garantizada. La validez de la aproximación elástica lineal queda confirmada por el acuerdo con borehole en múltiples sitios.
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — elasticidad lineal como base del [[Forward Problem|problema directo]] [[MASW Method|MASW]]
+> **Paper 002 (Xia, Miller & Park 1999)** implementa el [[Forward Problem|problema directo]] de propagación de Rayleigh Waves sobre la base de las ecuaciones de Navier en cada capa elástica lineal isotrópica. El Jacobiano analítico $\partial V_R / \partial V_S$ (núcleo del algoritmo de inversión) se deriva directamente de la teoría de elasticidad lineal, lo que hace posible la inversión en < 10 iteraciones con convergencia garantizada. La validez de la aproximación elástica lineal queda confirmada por el acuerdo con borehole en múltiples sitios.
 >
 > — Research Database, entrada 002 (core).
 

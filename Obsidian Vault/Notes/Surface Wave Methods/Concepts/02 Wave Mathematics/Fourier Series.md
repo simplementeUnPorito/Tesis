@@ -31,7 +31,7 @@ $$s(t) * h(t) \xrightarrow{\mathcal{F}} S(f) \cdot H(f)$$
 
 Este es el **[[Convolution Theorem|teorema de convolución]]** — esencial para modelar la respuesta de sensores, ventanas temporales y filtros en [[MASW Method|MASW]].
 
-> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — análisis espectral de ondas Rayleigh en [[MASW Method|MASW]]
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — análisis espectral de [[Rayleigh Waves|ondas Rayleigh]] en [[MASW Method|MASW]]
 > Foti et al. (2018, §3.3.1, Fig. 3.6) presentan el análisis espectral de una señal de onda Rayleigh registrada a 30 m de la fuente en el sitio La Salle. El espectro de amplitud $|S(f)|$ muestra energía concentrada entre 4 y 40 Hz, con un pico dominante a 12 Hz correspondiente al modo fundamental de Rayleigh. La fase espectral $\angle S(f)$ crece linealmente con la frecuencia — pendiente $-2\pi r/V_R(f)$ — verificando la propagación dispersiva. La DFT implementada mediante FFT convierte los 2000 puntos temporales (2 s a 1000 Hz) en 1000 componentes espectrales de resolución $\Delta f = 0.5$ Hz. La comparación de fases entre receptores a distintas distancias permite extraer la [[Dispersion Curve|curva de dispersión]] $V_R(f)$ — el dato primario de [[MASW Method|MASW]] (véase §3.4.1).
 >
 > — Foti et al. (2018), §3.3.1, pp. 124–128, Figs. 3.6–3.7.

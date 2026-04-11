@@ -1,6 +1,6 @@
 ---
 name: Ill-Posed Problem
-description: Problema matemático que no satisface los criterios de Hadamard — la inversión de la [[Dispersion Curve|curva de dispersión]] es ill-posed por no-unicidad y falta de estabilidad, requiriendo regularización
+description: Problema matemático que no satisface los criterios de Hadamard — la inversión de la [[Dispersion Curve|curva de dispersión]] es ill-posed por [[Non-uniqueness|no-unicidad]] y falta de estabilidad, requiriendo regularización
 type: reference
 ---
 
@@ -37,7 +37,7 @@ $$\Phi(\mathbf{m}) = \|\mathbf{d} - F(\mathbf{m})\|^2 + \lambda \|\mathbf{Rm}\|^
 El término $\lambda \|\mathbf{Rm}\|^2$ (regularización) actúa como información a priori que selecciona el modelo más suave (más simple) con buen ajuste a los datos — transformando el problema ill-posed en uno well-posed.
 
 > [!EXAMPLE] Evidencia empírica: Tarantola (2005) — ill-posedness en inversión geofísica
-> Tarantola (2005, §1.2) formaliza la noción de ill-posedness en el contexto de la inversión geofísica, distinguiendo entre los problemas de datos insuficientes (información faltante → no-unicidad) y datos ruidosos (información imprecisa → inestabilidad). Para la inversión de [[Dispersion Curve|curvas de dispersión]], Foti et al. (2018, §6.4) cuantifican la ill-posedness: en el sitio La Salle con 30 puntos de dispersión, el espacio de modelos aceptables (misfit < umbral estadístico) comprende ~500 de 100,000 modelos evaluados por Monte Carlo — todos con el mismo misfit estadísticamente, pero con $V_{S,30}$ variando 480–505 m/s. Esta variabilidad cuantifica el grado de ill-posedness residual del problema, que no puede reducirse sin información adicional (pozos, refracción, HVSR).
+> Tarantola (2005, §1.2) formaliza la noción de ill-posedness en el contexto de la inversión geofísica, distinguiendo entre los problemas de datos insuficientes (información faltante → [[Non-uniqueness|no-unicidad]]) y datos ruidosos (información imprecisa → inestabilidad). Para la inversión de [[Dispersion Curve|curvas de dispersión]], Foti et al. (2018, §6.4) cuantifican la ill-posedness: en el sitio La Salle con 30 puntos de dispersión, el espacio de modelos aceptables (misfit < umbral estadístico) comprende ~500 de 100,000 modelos evaluados por Monte Carlo — todos con el mismo misfit estadísticamente, pero con $V_{S,30}$ variando 480–505 m/s. Esta variabilidad cuantifica el grado de ill-posedness residual del problema, que no puede reducirse sin información adicional (pozos, refracción, HVSR).
 >
 > — Tarantola (2005), §1.2; Foti et al. (2018), §6.4, pp. 285–295.
 

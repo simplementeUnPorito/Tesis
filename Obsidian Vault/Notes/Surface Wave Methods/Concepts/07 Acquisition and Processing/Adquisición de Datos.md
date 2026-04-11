@@ -61,7 +61,7 @@ Los receptores demasiado cercanos a la fuente reciben ondas con **frentes curvos
 
 ### Aliasing espacial
 
-Un espaciado excesivamente grande $\Delta x$ produce aliasing espacial (ambigüedad en el número de onda): las ondas de longitud $\lambda < 2\Delta x$ se presentan en el espectro f-k con velocidad aparente incorrecta. La condición anti-aliasing es $\Delta x \leq \lambda_{min}/2$.
+Un espaciado excesivamente grande $\Delta x$ produce aliasing espacial (ambigüedad en el [[Wavenumber|número de onda]]): las ondas de longitud $\lambda < 2\Delta x$ se presentan en el espectro f-k con velocidad aparente incorrecta. La condición anti-aliasing es $\Delta x \leq \lambda_{min}/2$.
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) — diseño del arreglo de adquisición [[MASW Method|MASW]] en Kansas
 > **Paper 001 (Park, Miller & Xia 1999)** establece los criterios de diseño del arreglo [[MASW Method|MASW]] en el estudio de campo en Kansas: 24 geófonos verticales (14 Hz de frecuencia natural), espaciado $\Delta x = 1.5$ m, apertura total $D = 34.5$ m, offset de fuente $L_s = 10$ m. El sledgehammer (10 lb sobre placa metálica) produce energía predominante en 5–50 Hz. Las reglas de diseño demostraron que: (1) el offset de fuente $L_s = 10$ m ≈ $\lambda_{max}/2$ es suficiente para excluir efectos de campo cercano en el rango de profundidades de interés (<20 m); (2) el espaciado de 1.5 m previene aliasing espacial hasta ~50 Hz; (3) 24 canales proporcionan resolución modal suficiente para separar el modo fundamental de los superiores entre 5–30 Hz.

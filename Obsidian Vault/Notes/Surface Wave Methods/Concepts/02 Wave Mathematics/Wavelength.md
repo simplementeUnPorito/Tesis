@@ -23,7 +23,7 @@ La longitud de onda se relaciona con el [[Wavenumber|número de onda]] $k$ y la 
 
 $$k = \frac{2\pi}{\lambda}, \qquad \lambda = \frac{c}{f} = \frac{2\pi c}{\omega}$$
 
-donde $\omega = 2\pi f$ es la [[Angular Frequency|frecuencia angular]]. Estas tres representaciones (longitud de onda, número de onda, frecuencia) son equivalentes cuando se conoce la [[Phase Velocity|velocidad de fase]].
+donde $\omega = 2\pi f$ es la [[Angular Frequency|frecuencia angular]]. Estas tres representaciones (longitud de onda, [[Wavenumber|número de onda]], frecuencia) son equivalentes cuando se conoce la [[Phase Velocity|velocidad de fase]].
 
 Para ondas de Rayleigh en un semiespacio homogéneo, $c_R \approx 0.92 V_S$ (casi constante), por lo que:
 
@@ -71,7 +71,7 @@ El teorema de muestreo espacial impone que para medir una onda de longitud de on
 
 $$\lambda > 2\Delta x \quad \Rightarrow \quad k < \frac{\pi}{\Delta x}$$
 
-Si esta condición no se cumple, las ondas de longitud de onda $\lambda < 2\Delta x$ son aliased: su número de onda aparece reflejado en el espectro f-k a un valor erróneo. En la práctica, esto significa que el espaciado $\Delta x$ debe ser menor que la mitad de la longitud de onda más corta de interés.
+Si esta condición no se cumple, las ondas de longitud de onda $\lambda < 2\Delta x$ son aliased: su [[Wavenumber|número de onda]] aparece reflejado en el espectro f-k a un valor erróneo. En la práctica, esto significa que el espaciado $\Delta x$ debe ser menor que la mitad de la longitud de onda más corta de interés.
 
 ## Valores típicos en caracterización geotécnica
 
@@ -90,6 +90,6 @@ Si esta condición no se cumple, las ondas de longitud de onda $\lambda < 2\Delt
 
 | Fuente | Sección / Página |
 |--------|-----------------|
-| Foti et al. (2018), *Surface Wave Methods* | §2.1.1, pp. 39–41 — longitud de onda y número de onda |
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.1, pp. 39–41 — longitud de onda y [[Wavenumber|número de onda]] |
 | Foti et al. (2018), *Surface Wave Methods* | §3.4, pp. 163–180 — criterios de diseño del arreglo |
 | Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 — rango de λ y profundidad de investigación |

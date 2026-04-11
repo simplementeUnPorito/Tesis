@@ -33,7 +33,7 @@ Interpretación de la curva H/V observada (Foti p. 438):
 
 1. **Pico claro y no de origen industrial**: indica un gran contraste de impedancia en el subsuelo; la frecuencia del pico es cercana a f₀. El **valor absoluto del pico no** está relacionado con el factor de amplificación del sitio.
 2. **Curva plana** (valores H/V entre 0.5 y 2): el perfil de velocidades local probablemente no tiene contrastes de impedancia significativos.
-3. **Ambigüedad**: múltiples perfiles de velocidad pueden producir la misma curva H/V; la no-unicidad requiere información a priori adicional o inversión conjunta.
+3. **Ambigüedad**: múltiples perfiles de velocidad pueden producir la misma curva H/V; la [[Non-uniqueness|no-unicidad]] requiere información a priori adicional o [[Joint Inversion|inversión conjunta]].
 
 El **valor del pico** H/V no puede usarse directamente como amplificación sísmica del sitio, aunque ha sido empleado empíricamente con limitaciones reconocidas.
 
@@ -48,7 +48,7 @@ El **valor del pico** H/V no puede usarse directamente como amplificación sísm
 
 La curva H/V puede invertirse formalmente para estimar los parámetros del subsuelo, de forma análoga a la inversión de la [[Dispersion Relation|curva de dispersión]] (Fäh et al. 2001). Las curvas se corrigen por la contaminación de ondas SH y Love antes de invertir. Arai y Tokimatsu (2000) mostraron que los modos superiores de [[Rayleigh Waves|Rayleigh]] y [[Love Waves|Love]] mejoran la reproducción de las curvas observadas.
 
-La **inversión conjunta de [[Dispersion Curve|curvas de dispersión]] + H/V** es más robusta que cada inversión individual porque los dos datos tienen diferente sensibilidad a los parámetros del modelo (Parolai et al. 2005). La [[Dispersion Curve|curva de dispersión]] es más sensible a la distribución vertical de Vs; la curva H/V es más sensible al contraste de impedancia en la interfaz. La combinación mejora el condicionamiento del problema inverso.
+La **[[Joint Inversion|inversión conjunta]] de [[Dispersion Curve|curvas de dispersión]] + H/V** es más robusta que cada inversión individual porque los dos datos tienen diferente sensibilidad a los parámetros del modelo (Parolai et al. 2005). La [[Dispersion Curve|curva de dispersión]] es más sensible a la distribución vertical de Vs; la curva H/V es más sensible al contraste de impedancia en la interfaz. La combinación mejora el condicionamiento del problema inverso.
 
 ## Limitaciones
 
@@ -68,7 +68,7 @@ La **inversión conjunta de [[Dispersion Curve|curvas de dispersión]] + H/V** e
 > — Research Database, entrada 049 (core); Bonnefoy-Claudet et al. (2009), *Geophys. J. Int.* 176(3):925–937.
 
 > [!EXAMPLE] Evidencia empírica: Garofalo et al. (2016) — HVSR como dato complementario en InterPACIFIC
-> **Papers 006+007 (Garofalo et al. 2016a/b)** incluyen mediciones HVSR en los 3 sitios del estudio InterPACIFIC como dato complementario a los métodos de ondas superficiales ([[MASW Method|MASW]], ReMi, SPAC). Los resultados muestran que el pico H/V coincide con la frecuencia fundamental inferida de los perfiles $V_S(z)$ del borehole en los sitios donde el contraste de impedancia es alto (Mirandola: $f_0 \approx 0.5$ Hz, sedimentos blandos sobre roca a >150 m). La concordancia confirma el uso de HVSR para verificar independientemente la frecuencia de resonancia del sitio. Sin embargo, la inversión conjunta HVSR + [[Dispersion Curve|curva de dispersión]] muestra mejora en el condicionamiento del problema inverso en los sitios con alta no-unicidad, consistente con el resultado de Parolai et al. (2005).
+> **Papers 006+007 (Garofalo et al. 2016a/b)** incluyen mediciones HVSR en los 3 sitios del estudio InterPACIFIC como dato complementario a los métodos de ondas superficiales ([[MASW Method|MASW]], ReMi, SPAC). Los resultados muestran que el pico H/V coincide con la frecuencia fundamental inferida de los perfiles $V_S(z)$ del borehole en los sitios donde el contraste de impedancia es alto (Mirandola: $f_0 \approx 0.5$ Hz, sedimentos blandos sobre roca a >150 m). La concordancia confirma el uso de HVSR para verificar independientemente la frecuencia de resonancia del sitio. Sin embargo, la [[Joint Inversion|inversión conjunta]] HVSR + [[Dispersion Curve|curva de dispersión]] muestra mejora en el condicionamiento del problema inverso en los sitios con alta [[Non-uniqueness|no-unicidad]], consistente con el resultado de Parolai et al. (2005).
 >
 > — Research Database, entradas 006, 007 (core); Garofalo et al. (2016a/b), *Near Surface Geophysics*.
 
@@ -76,7 +76,7 @@ La **inversión conjunta de [[Dispersion Curve|curvas de dispersión]] + H/V** e
 
 | Fuente | Sección / Página |
 |--------|-----------------|
-| Foti et al. (2018), *Surface Wave Methods* | Cap. 8.5.2–8.5.4, pp. 430–440 — HVSR e inversión conjunta |
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 8.5.2–8.5.4, pp. 430–440 — HVSR e [[Joint Inversion|inversión conjunta]] |
 | Nakamura (1989), *QR of RTRI* | Propuesta original HVSR como función de transferencia |
 | Lermo & Chávez-García (1993), *BSSA* 83(5):1574–1594 | Paper 018 — validación HVSR con terremotos; 1103 citas |
 | SESAME Project (2004) | Guías para implementación del método H/V |

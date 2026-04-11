@@ -1,13 +1,13 @@
 ---
 name: 2D Fourier Transform
-description: Transformada de Fourier bidimensional aplicada al sismograma u(x,t) — base del análisis f-k en [[MASW Method|MASW]]; convierte datos tiempo-espacio en espacio frecuencia-número de onda
+description: Transformada de Fourier bidimensional aplicada al sismograma u(x,t) — base del análisis f-k en [[MASW Method|MASW]]; convierte datos tiempo-espacio en espacio frecuencia-[[Wavenumber|número de onda]]
 type: reference
 ---
 
 # 2D Fourier Transform — Transformada de Fourier 2D
 
 > [!CONCEPT] Definición
-> La **transformada de Fourier 2D** descompone el sismograma $u(x, t)$ (registros de $N$ geófonos) en sus componentes sinusoidales en el dominio de la frecuencia $f$ y el número de onda $k$. Es la base del **análisis f-k** del [[MASW Method|MASW]]: $U(\omega, k) = \sum_{j,n} u(x_j, t_n)\, e^{-i(\omega t_n - k x_j)}$. En el espectrograma $|U(\omega, k)|$, cada modo de propagación aparece como una **cresta** cuya posición $(f, k_{\text{cresta}})$ da directamente la [[Phase Velocity|velocidad de fase]] $c_R(f) = 2\pi f / k_{\text{cresta}}$. La resolución en frecuencia es $\Delta f = 1/T$ (controlada por la duración del registro $T$) y la resolución en número de onda es $\Delta k = 2\pi/D$ (controlada por la apertura total del arreglo $D = N\Delta x$). La separación de modos en el espectrograma depende de $\Delta k$: arreglos más largos resuelven mejor los modos superiores.
+> La **transformada de Fourier 2D** descompone el sismograma $u(x, t)$ (registros de $N$ geófonos) en sus componentes sinusoidales en el dominio de la frecuencia $f$ y el [[Wavenumber|número de onda]] $k$. Es la base del **análisis f-k** del [[MASW Method|MASW]]: $U(\omega, k) = \sum_{j,n} u(x_j, t_n)\, e^{-i(\omega t_n - k x_j)}$. En el espectrograma $|U(\omega, k)|$, cada modo de propagación aparece como una **cresta** cuya posición $(f, k_{\text{cresta}})$ da directamente la [[Phase Velocity|velocidad de fase]] $c_R(f) = 2\pi f / k_{\text{cresta}}$. La resolución en frecuencia es $\Delta f = 1/T$ (controlada por la duración del registro $T$) y la resolución en [[Wavenumber|número de onda]] es $\Delta k = 2\pi/D$ (controlada por la apertura total del arreglo $D = N\Delta x$). La separación de modos en el espectrograma depende de $\Delta k$: arreglos más largos resuelven mejor los modos superiores.
 >
 > — Foti et al. (2018), Cap. 4, §4.2, pp. 195–215; Park et al. (1999).
 
@@ -51,7 +51,7 @@ El espectrograma $|U(\omega, k)|$ se analiza para identificar las crestas que co
 | **Phase-shift** (Park 1998) | Suma de fases $\sum u_{norm} \cdot e^{i\omega x/c_T}$ | Alta resolución con pocos geófonos; estándar de MASWaves/SurfSeis |
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) — 2D FFT como estándar para extracción de la [[Dispersion Curve|curva de dispersión]] [[MASW Method|MASW]]
-> **Paper 001 (Park, Miller & Xia 1999)** introduce el análisis f-k mediante 2D FFT como el método de referencia para [[MASW Method|MASW]], reemplazando el método de espectro cruzado de dos receptores del [[SASW Method|SASW]]. Con 24 geófonos a espaciado 1.5 m (apertura $D = 34.5$ m), el espectrograma f-k muestra una cresta del modo fundamental de Rayleigh estrecha y bien definida entre 5–30 Hz. La resolución en número de onda $\Delta k = 2\pi/34.5 \approx 0.18$ rad/m permite separar visualmente el modo fundamental de los superiores en todo el rango de frecuencias útil. El trabajo establece que la 2D FFT sobre el sismograma completo es más robusta y reproducible que el análisis por pares de receptores del [[SASW Method|SASW]], porque promedia la información de todos los geófonos simultáneamente, reduciendo el efecto del ruido incoherente.
+> **Paper 001 (Park, Miller & Xia 1999)** introduce el análisis f-k mediante 2D FFT como el método de referencia para [[MASW Method|MASW]], reemplazando el método de espectro cruzado de dos receptores del [[SASW Method|SASW]]. Con 24 geófonos a espaciado 1.5 m (apertura $D = 34.5$ m), el espectrograma f-k muestra una cresta del modo fundamental de Rayleigh estrecha y bien definida entre 5–30 Hz. La resolución en [[Wavenumber|número de onda]] $\Delta k = 2\pi/34.5 \approx 0.18$ rad/m permite separar visualmente el modo fundamental de los superiores en todo el rango de frecuencias útil. El trabajo establece que la 2D FFT sobre el sismograma completo es más robusta y reproducible que el análisis por pares de receptores del [[SASW Method|SASW]], porque promedia la información de todos los geófonos simultáneamente, reduciendo el efecto del ruido incoherente.
 >
 > — Research Database, entrada 001 (core); Park, Miller & Xia (1999), *Geophysics* 64(3).
 

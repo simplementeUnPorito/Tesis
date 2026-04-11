@@ -21,7 +21,7 @@ En el panel $(\tau, p)$, los distintos modos de Rayleigh aparecen como crestas a
 
 ### Supresión de ondas de cuerpo
 
-Las ondas P y S directas tienen moveout lineal en $x$-$t$ (onda plana) pero a velocidades mucho mayores que las ondas Rayleigh ($V_P \gg V_R$). En el dominio $\tau$-$p$, aparecen a slowness muy pequeña ($p \ll 1/V_R$), fácilmente filtrable. Las ondas de cuerpo refractadas tienen moveout hiperbólico — no se mapean como puntos en $\tau$-$p$ lineal, pero sí en $\tau$-$p$ parabólico.
+Las ondas P y S directas tienen moveout lineal en $x$-$t$ (onda plana) pero a velocidades mucho mayores que las [[Rayleigh Waves|ondas Rayleigh]] ($V_P \gg V_R$). En el dominio $\tau$-$p$, aparecen a slowness muy pequeña ($p \ll 1/V_R$), fácilmente filtrable. Las ondas de cuerpo refractadas tienen moveout hiperbólico — no se mapean como puntos en $\tau$-$p$ lineal, pero sí en $\tau$-$p$ parabólico.
 
 ### Relación con la transformada f-k
 

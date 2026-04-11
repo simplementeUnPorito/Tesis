@@ -73,7 +73,7 @@ La explotación sistemática de la dispersión geométrica para caracterización
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) y Xia et al. (1999) — validación [[MASW Method|MASW]] en Kansas
 > **Paper 001 (Park, Miller & Xia 1999)** y **Paper 002 (Xia, Miller & Park 1999)** constituyen la demostración canónica de que la dispersión geométrica puede extraerse de manera robusta con arreglos multicanal.
 >
-> - Park et al. (1999) muestran que la transformada f-k del sismograma de ground-roll produce imágenes de dispersión donde cada máximo espectral corresponde a un modo de [[Rayleigh Waves]] con su c_R(ω) característico — evidencia directa del fenómeno geométrico.
+> - Park et al. (1999) muestran que la transformada f-k del sismograma de [[Ground Roll|ground-roll]] produce imágenes de dispersión donde cada máximo espectral corresponde a un modo de [[Rayleigh Waves]] con su c_R(ω) característico — evidencia directa del fenómeno geométrico.
 > - Xia et al. (1999) invierten esas curvas mediante linealización iterativa (Jacobiano ∂V_R/∂Vs por capa) y recuperan perfiles Vs(z) validados contra borehole en sitios de Kansas. El acuerdo es muy bueno, confirmando que la dispersión observada refleja fielmente la estratificación real.
 > - La validación adicional de Xia et al. (2002) (**Paper 009**) con 14 sitios independientes extiende esta evidencia a condiciones variadas.
 >

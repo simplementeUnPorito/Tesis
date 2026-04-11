@@ -20,7 +20,7 @@ El procesamiento determina:
 - La **resolución en velocidad**: capacidad de separar modos próximos en velocidad.
 - La **incertidumbre** de cada punto de la curva: propagada a la inversión.
 
-## Análisis frecuencia–número de onda (f-k)
+## Análisis frecuencia–[[Wavenumber|número de onda]] (f-k)
 
 El método estándar en [[MASW Method|MASW]] aplica la **transformada de Fourier 2D** al sismograma (array $u(x_j, t_n)$):
 

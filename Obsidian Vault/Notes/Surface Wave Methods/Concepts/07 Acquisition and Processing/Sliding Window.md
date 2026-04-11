@@ -45,7 +45,7 @@ Una discontinuidad lateral abrupta (por ejemplo, un relleno sobre roca o una fal
 >
 > — Research Database, entrada 030 (core); Miller et al. (1999), *The Leading Edge* 18(12):1402–1407.
 
-> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — [[MASW Method|MASW]] rolling y ground-roll en la sección 2D de VS
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — [[MASW Method|MASW]] rolling y [[Ground Roll|ground-roll]] en la sección 2D de VS
 > Foti et al. (2018, §7.5, Figs. 7.33–7.36) presentan el análisis de [[Ground Roll|ground-roll]] de datos de reflexión sísmica en el sitio La Salle mediante ventana deslizante: el sismograma de reflexión (kilométrico) se divide en ventanas de $\sim$50 m de longitud con incrementos de 5 m. Para cada ventana se extrae una [[Dispersion Curve|curva de dispersión]] y se invierte con inversión lateralmente restringida. La sección pseudo-2D de $V_S$ resultante (Fig. 7.35) muestra variaciones laterales suaves entre 200–400 m/s en los primeros 30 m, con mayor detalle en las heterogeneidades laterales respecto a una sección de inversión 1D sin restricciones. La superposición con la sección de reflexión (Fig. 7.36) confirma que las variaciones de $V_S$ correlacionan con las unidades estratigráficas visibles en los reflectores.
 >
 > — Foti et al. (2018), §7.5, pp. 384–392, Figs. 7.33–7.36.

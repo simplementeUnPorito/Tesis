@@ -1,7 +1,7 @@
 # Interferometría Sísmica Pasiva (Seismic Interferometry)
 
 > [!CONCEPT] Definición
-> La **interferometría sísmica** recupera la **función de Green** entre dos receptores — equivalente a la respuesta de impulso que se observaría si uno de los receptores fuera una fuente virtual — mediante la **cross-correlación** de sus registros de ruido ambiental. La base teórica (Weaver & Lobkis 2001; Wapenaar 2004; Snieder 2004) establece que en un campo difuso isótropo, la cross-correlación entre señales en $R_1$ y $R_2$ converge a la función de Green $G(R_1, R_2)$. El resultado puede procesarse exactamente como datos activos con el receptor fuente virtual en $R_1$. Su principal ventaja sobre el [[ReMi Method|método ReMi]] es que al sumar contribuciones de fuentes en posiciones opuestas se cancelan las velocidades aparentes — el espectro f-k del interferograma presenta máximos en el **número de onda verdadero**, no en el aparente. Además, el *correlogram gather* permite validar la hipótesis de campo difuso: fuentes localizadas producen eventos no lineales detectables.
+> La **interferometría sísmica** recupera la **función de Green** entre dos receptores — equivalente a la respuesta de impulso que se observaría si uno de los receptores fuera una fuente virtual — mediante la **cross-correlación** de sus registros de ruido ambiental. La base teórica (Weaver & Lobkis 2001; Wapenaar 2004; Snieder 2004) establece que en un campo difuso isótropo, la cross-correlación entre señales en $R_1$ y $R_2$ converge a la función de Green $G(R_1, R_2)$. El resultado puede procesarse exactamente como datos activos con el receptor fuente virtual en $R_1$. Su principal ventaja sobre el [[ReMi Method|método ReMi]] es que al sumar contribuciones de fuentes en posiciones opuestas se cancelan las velocidades aparentes — el espectro f-k del interferograma presenta máximos en el **[[Wavenumber|número de onda]] verdadero**, no en el aparente. Además, el *correlogram gather* permite validar la hipótesis de campo difuso: fuentes localizadas producen eventos no lineales detectables.
 >
 > — Foti et al. (2018), Cap. 8.4, pp. 427–430; Wapenaar et al. (2010); Shapiro & Campillo (2004).
 
@@ -29,8 +29,8 @@ En arrays lineales, el interferograma permite usar un receptor de referencia com
 
 El método [[ReMi Method|ReMi]] (*Refraction Microtremor*) procesa directamente los registros de ruido en el dominio f-k, asumiendo que el mínimo de la curva de slowness corresponde a la dispersión real. La interferometría sísmica ofrece ventajas prácticas respecto a ReMi:
 
-- En un campo de ondas **no isotrópico**, ReMi puede llevar a velocidades **sobreestimadas** porque el análisis utiliza la velocidad aparente. El interferograma, al cancelar las contribuciones de direcciones opuestas, extrae el número de onda verdadero (Fig. 8.31, p. 429).
-- El espectro f-k del interferograma muestra los máximos **exactamente sobre el número de onda teórico verdadero** (Fig. 8.30, p. 429), mientras que el espectro ReMi del mismo dataset sintético muestra los máximos sobre el número de onda aparente.
+- En un campo de ondas **no isotrópico**, ReMi puede llevar a velocidades **sobreestimadas** porque el análisis utiliza la velocidad aparente. El interferograma, al cancelar las contribuciones de direcciones opuestas, extrae el [[Wavenumber|número de onda]] verdadero (Fig. 8.31, p. 429).
+- El espectro f-k del interferograma muestra los máximos **exactamente sobre el [[Wavenumber|número de onda]] teórico verdadero** (Fig. 8.30, p. 429), mientras que el espectro ReMi del mismo dataset sintético muestra los máximos sobre el [[Wavenumber|número de onda]] aparente.
 - La hipótesis de campo difuso isotrópico puede **validarse con el interferograma**: si existe una fuente dominante a distancia limitada, el interferograma muestra eventos no lineales que advierten sobre la invalidez de los resultados (Fig. 8.32, p. 430). ReMi no ofrece este diagnóstico directo.
 
 ## Hipótesis fundamentales

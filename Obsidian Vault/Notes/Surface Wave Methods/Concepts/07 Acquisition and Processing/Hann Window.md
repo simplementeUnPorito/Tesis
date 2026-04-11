@@ -32,7 +32,7 @@ En el dominio espacial (a lo largo del arreglo de $N$ geófonos), la ventana de 
 
 $$g_w(x_j) = g(x_j) \cdot w(j)$$
 
-El efecto en el espectrograma f-k es análogo al temporal: reduce los **grating lobes** (lóbulos de rejilla) que aparecen periódicamente en el espectro de número de onda $k$ a intervalos de $2\pi/\Delta x$. Esto mejora la claridad de la cresta modal en el espectrograma.
+El efecto en el espectrograma f-k es análogo al temporal: reduce los **grating lobes** (lóbulos de rejilla) que aparecen periódicamente en el espectro de [[Wavenumber|número de onda]] $k$ a intervalos de $2\pi/\Delta x$. Esto mejora la claridad de la cresta modal en el espectrograma.
 
 ## Comparación con otras ventanas en contexto sísmico
 

@@ -39,10 +39,10 @@ La solución de d'Alembert aplica estrictamente a:
 - Medios **no dispersivos** ($c_p = c_0$ = constante)
 - Propagación **1D** (una dimensión espacial)
 
-En medios estratificados ([[Layered Media]]), la relación de dispersión $\omega(k)$ es no lineal y la solución de d'Alembert no aplica: diferentes frecuencias viajan a velocidades distintas y el paquete se deforma (ver [[Wave Dispersion]] y [[Fourier Integral]]). Las [[Rayleigh Waves]] son el ejemplo paradigmático.
+En medios estratificados ([[Layered Media]]), la [[Dispersion Relation|relación de dispersión]] $\omega(k)$ es no lineal y la solución de d'Alembert no aplica: diferentes frecuencias viajan a velocidades distintas y el paquete se deforma (ver [[Wave Dispersion]] y [[Fourier Integral]]). Las [[Rayleigh Waves]] son el ejemplo paradigmático.
 
 > [!EXAMPLE] Evidencia empírica: contraste entre solución de d'Alembert y propagación dispersiva en sismogramas [[MASW Method|MASW]]
-> **Paper 001 (Park, Miller & Xia 1999)** ilustra visualmente la diferencia entre propagación hiperbólica (solución de d'Alembert) y propagación dispersiva en sismogramas de campo. Las primeras llegadas P llegan en un frente plano a velocidad constante — comportamiento de d'Alembert. El ground-roll de Rayleigh, en contraste, muestra un gradiente temporal característico (frecuencias altas llegan antes que las bajas), evidenciando la dispersión geométrica. Esta diferencia visual en el sismograma es la base del análisis f-k que extrae la [[Dispersion Curve|curva de dispersión]] del campo sísmico.
+> **Paper 001 (Park, Miller & Xia 1999)** ilustra visualmente la diferencia entre propagación hiperbólica (solución de d'Alembert) y propagación dispersiva en sismogramas de campo. Las primeras llegadas P llegan en un frente plano a velocidad constante — comportamiento de d'Alembert. El [[Ground Roll|ground-roll]] de Rayleigh, en contraste, muestra un gradiente temporal característico (frecuencias altas llegan antes que las bajas), evidenciando la dispersión geométrica. Esta diferencia visual en el sismograma es la base del análisis f-k que extrae la [[Dispersion Curve|curva de dispersión]] del campo sísmico.
 >
 > — Research Database, entrada 001 (core).
 

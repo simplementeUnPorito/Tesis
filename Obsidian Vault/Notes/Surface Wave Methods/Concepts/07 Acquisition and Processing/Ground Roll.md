@@ -22,7 +22,7 @@ Desde la perspectiva de reflexión, el ground-roll **contamina** las reflexiones
 - **Alta amplitud:** las fuentes de reflexión (explosivos, vibroseis) son muy potentes → SNR alto del ground-roll incluso a grandes distancias de la fuente.
 - **Baja velocidad:** llega antes que las reflexiones en offsets cortos; en offsets largos se separa bien de las reflexiones.
 - **Baja frecuencia dominante:** típicamente 5–30 Hz, con penetración de decenas a cientos de metros.
-- **Coherencia espacial:** se propaga con número de onda bien definido en función de la frecuencia → apto para análisis f-k.
+- **Coherencia espacial:** se propaga con [[Wavenumber|número de onda]] bien definido en función de la frecuencia → apto para análisis f-k.
 - **Alta dispersión:** en suelos blandos superficiales, la [[Dispersion Curve|curva de dispersión]] es fuertemente dispersiva y bien definida.
 
 ## Prácticas de supresión y sus efectos sobre las ondas superficiales

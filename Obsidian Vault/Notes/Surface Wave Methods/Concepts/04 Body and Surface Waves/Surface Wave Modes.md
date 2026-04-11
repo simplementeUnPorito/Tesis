@@ -7,7 +7,7 @@ type: reference
 # Modos de Ondas Superficiales (Surface Wave Modes)
 
 > [!CONCEPT] Definición
-> En medios [[Layered Media|estratificados]], las [[Rayleigh Waves]] y [[Love Waves]] no se propagan como una única onda sino como un conjunto discreto de **modos de propagación**. Cada modo tiene su propia relación de dispersión $c_n(f)$, frecuencia de corte $f_c^n$ (excepto el modo fundamental) y patrón de desplazamiento en profundidad (eigenfunción). En el registro experimental, los métodos f-k ([[MASW Method|MASW]], [[SASW Method|SASW]]) miden una **[[Phase Velocity|velocidad de fase]] aparente** que resulta de la superposición de todos los modos activos — lo que obliga a identificar a qué modo pertenece cada rama antes de invertir.
+> En medios [[Layered Media|estratificados]], las [[Rayleigh Waves]] y [[Love Waves]] no se propagan como una única onda sino como un conjunto discreto de **modos de propagación**. Cada modo tiene su propia [[Dispersion Relation|relación de dispersión]] $c_n(f)$, frecuencia de corte $f_c^n$ (excepto el modo fundamental) y patrón de desplazamiento en profundidad (eigenfunción). En el registro experimental, los métodos f-k ([[MASW Method|MASW]], [[SASW Method|SASW]]) miden una **[[Phase Velocity|velocidad de fase]] aparente** que resulta de la superposición de todos los modos activos — lo que obliga a identificar a qué modo pertenece cada rama antes de invertir.
 >
 > — Foti et al. (2018), §2.4, pp. 64–95.
 
@@ -21,7 +21,7 @@ La analogía con una guía de ondas acústica es útil: así como una guía rect
 
 Para un modelo de [[Layered Media|capas]] con $N$ capas, a una frecuencia dada $\omega$, la [[Dispersion Relation|ecuación secular]] $\Phi[k, \omega; \mathbf{m}] = 0$ tiene múltiples raíces reales $k_1(\omega) < k_2(\omega) < \cdots < k_M(\omega)$ con $M$ finito. Cada raíz corresponde a un **modo de propagación**:
 
-| Modo | Índice | Número de onda | Velocidad de fase | Penetración |
+| Modo | Índice | [[Wavenumber|número de onda]] | Velocidad de fase | Penetración |
 |---|---|---|---|---|
 | Fundamental | $n=0$ (o $n=1$) | mayor $k$ | menor $c_R$ | menor profundidad |
 | Primer superior | $n=1$ | segundo mayor $k$ | segunda menor $c_R$ | mayor profundidad |
@@ -65,7 +65,7 @@ donde $\psi$ es la fase del campo total. En medios normalmente dispersivos, la c
 
 2. **Estrategia de offset**: la excitación relativa de modos depende de la distancia fuente-receptor. El modo fundamental domina a distancias intermedias; los modos superiores son más visibles a distancias largas (mayor separación de curvas modales en el espacio $k$).
 
-3. **Longitud de arreglo**: debe ser suficiente para resolver las diferencias en número de onda entre modos a las frecuencias de interés.
+3. **Longitud de arreglo**: debe ser suficiente para resolver las diferencias en [[Wavenumber|número de onda]] entre modos a las frecuencias de interés.
 
 4. **Estrategias de inversión**:
    - **Inversión multimodal** (Xia et al. 2003): se incluyen curvas del modo fundamental y modos superiores en la función de desajuste simultáneamente; mejora resolución en profundidad y detección de inversiones de velocidad. Implementado en MASWaves, Geopsy, SurfSeis. 448 citas (Paper 025).

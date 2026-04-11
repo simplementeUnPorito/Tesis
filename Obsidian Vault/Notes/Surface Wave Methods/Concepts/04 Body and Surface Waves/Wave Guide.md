@@ -13,7 +13,7 @@ type: reference
 >
 > — Foti et al. (2018), §2.3.2, pp. 85–92; Ewing et al. (1957), *Elastic Waves in Layered Media*.
 
-## Mecanismo físico en ondas Love
+## Mecanismo físico en [[Love Waves|ondas Love]]
 
 Para una capa de espesor $H$ con $V_{S1} < V_{S2}$:
 
@@ -43,7 +43,7 @@ $$f > f_{c,n} = \frac{(2n-1)V_{S1}}{4H} \left(1 - \frac{V_{S1}^2}{V_{S2}^2}\righ
 A frecuencias muy altas ($\lambda \ll H$), todos los modos convergen a $c_L \to V_{S1}$ — las ondas muestrean solo la capa superficial. A $c_L \to V_{S2}$, el modo abandona la guía (ángulo de incidencia → $\theta_c$).
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — Love waves como guía en sitio Hveragerdi (Islandia)
-> Foti et al. (2018, §2.3.2) ilustran el mecanismo de guía de ondas con la dispersión de Love waves en el sitio geotérmico Hveragerdi (Islandia). El perfil de $V_S$ muestra $V_{S1} \approx 280$ m/s en los primeros 15 m y $V_{S2} \approx 900$ m/s en el sustrato — contraste de ~3.2x que crea una guía de ondas muy eficiente. La [[Dispersion Curve|curva de dispersión]] observada va de $c_L = 290$ m/s a 30 Hz hasta $c_L = 850$ m/s a 3 Hz, con modos superiores bien separados en frecuencia. La velocidad de grupo de cada modo exhibe un mínimo (punto de Airy) donde la energía se concentra — producible como señal impulsiva intensa en el sismograma. La presencia simultánea de modos propios de Love (guía de ondas SH) y de modos de Rayleigh permite la inversión conjunta para mejor determinación de $V_P$ y $\nu$ (véase [[Joint Inversion]]).
+> Foti et al. (2018, §2.3.2) ilustran el mecanismo de guía de ondas con la dispersión de Love waves en el sitio geotérmico Hveragerdi (Islandia). El perfil de $V_S$ muestra $V_{S1} \approx 280$ m/s en los primeros 15 m y $V_{S2} \approx 900$ m/s en el sustrato — contraste de ~3.2x que crea una guía de ondas muy eficiente. La [[Dispersion Curve|curva de dispersión]] observada va de $c_L = 290$ m/s a 30 Hz hasta $c_L = 850$ m/s a 3 Hz, con modos superiores bien separados en frecuencia. La velocidad de grupo de cada modo exhibe un mínimo (punto de Airy) donde la energía se concentra — producible como señal impulsiva intensa en el sismograma. La presencia simultánea de modos propios de Love (guía de ondas SH) y de modos de Rayleigh permite la [[Joint Inversion|inversión conjunta]] para mejor determinación de $V_P$ y $\nu$ (véase [[Joint Inversion]]).
 >
 > — Foti et al. (2018), §2.3.2, pp. 85–92, Figs. 2.26–2.28.
 

@@ -59,7 +59,7 @@ Para una fuente puntual en la superficie (ver [[Lamb's Problem]]):
 - Las ondas de cuerpo decaen como $1/r$ (frente esférico: energía ∝ $r^2$).
 - Las ondas superficiales decaen como $1/\sqrt{r}$ (frente cilíndrico: energía ∝ $r$).
 
-A distancias mayores que unas pocas longitudes de onda, las ondas superficiales dominan el registro. Esta propiedad es la que hace práctico el método [[MASW Method|MASW]]: el ground-roll de ondas Rayleigh es la señal predominante en los sismogramas superficiales.
+A distancias mayores que unas pocas longitudes de onda, las ondas superficiales dominan el registro. Esta propiedad es la que hace práctico el método [[MASW Method|MASW]]: el [[Ground Roll|ground-roll]] de [[Rayleigh Waves|ondas Rayleigh]] es la señal predominante en los sismogramas superficiales.
 
 ## Instrumentación: qué miden los geófonos
 
@@ -68,10 +68,10 @@ Los geófonos estándar (verticales) miden la **velocidad de partícula** del su
 - Ondas P (componente vertical al llegar en incidencia oblicua).
 - Ruido sísmico ambiental de origen diverso.
 
-Los geófonos horizontales son necesarios para registrar ondas Love (movimiento transversal horizontal) y la componente horizontal de Rayleigh.
+Los geófonos horizontales son necesarios para registrar [[Love Waves|ondas Love]] (movimiento transversal horizontal) y la componente horizontal de Rayleigh.
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) — dominancia de Rayleigh en registros [[MASW Method|MASW]]
-> **Paper 001 (Park, Miller & Xia 1999)** documenta que en registros sísmicos superficiales con fuente activa (martillo), el **ground-roll** de [[Rayleigh Waves]] domina el sismograma a distancias > 5–10 m de la fuente, concentrando > 67% de la energía sísmica total. Esta propiedad — consecuencia directa del decaimiento diferencial $r^{-0.5}$ vs $r^{-2}$ — es la que hace práctico el [[MASW Method]]: la señal útil (Rayleigh) domina sobre el ruido (body waves) sin necesidad de filtrado agresivo.
+> **Paper 001 (Park, Miller & Xia 1999)** documenta que en registros sísmicos superficiales con fuente activa (martillo), el **[[Ground Roll|ground-roll]]** de [[Rayleigh Waves]] domina el sismograma a distancias > 5–10 m de la fuente, concentrando > 67% de la energía sísmica total. Esta propiedad — consecuencia directa del decaimiento diferencial $r^{-0.5}$ vs $r^{-2}$ — es la que hace práctico el [[MASW Method]]: la señal útil (Rayleigh) domina sobre el ruido (body waves) sin necesidad de filtrado agresivo.
 >
 > — Research Database, entrada 001 (core).
 

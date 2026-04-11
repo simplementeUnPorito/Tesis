@@ -74,7 +74,7 @@ $$u_y^{(j)}(z) = A_j e^{i k_{z,j} z} + B_j e^{-i k_{z,j} z}, \quad k_{z,j} = \sq
 Las amplitudes $A_j, B_j$ se conectan entre capas mediante una matriz de transferencia $2\times 2$ (vs. $4\times 4$ para el caso P–SV del método de [[Layered Media|Thomson-Haskell]]). Esto hace que el cálculo de [[Dispersion Curve|curvas de dispersión]] de Love sea computacionalmente más eficiente.
 
 > [!EXAMPLE] Evidencia empírica: Dal Moro & Ferigo (2011) — ventaja del desacoplamiento SH en inversión Love
-> **Paper 045 (Dal Moro & Ferigo 2011)** aprovecha el desacoplamiento de las ondas SH para construir [[Dispersion Curve|curvas de dispersión]] de Love independientes de $V_P$. En el sitio con fuerte contraste de velocidad estudiado, las curvas de Love (basadas en SH) son más regulares y libres de osculaciones que las curvas de Rayleigh (P–SV acoplado). La inversión conjunta Love + Rayleigh, utilizando geófonos horizontales para SH, produce un perfil $V_S(z)$ con menor no-unicidad que la inversión solo de Rayleigh — validando el beneficio del desacoplamiento SH como ventaja analítica.
+> **Paper 045 (Dal Moro & Ferigo 2011)** aprovecha el desacoplamiento de las ondas SH para construir [[Dispersion Curve|curvas de dispersión]] de Love independientes de $V_P$. En el sitio con fuerte contraste de velocidad estudiado, las curvas de Love (basadas en SH) son más regulares y libres de osculaciones que las curvas de Rayleigh (P–SV acoplado). La [[Joint Inversion|inversión conjunta]] Love + Rayleigh, utilizando geófonos horizontales para SH, produce un perfil $V_S(z)$ con menor [[Non-uniqueness|no-unicidad]] que la inversión solo de Rayleigh — validando el beneficio del desacoplamiento SH como ventaja analítica.
 >
 > — Research Database, entrada 045 (core).
 
@@ -83,5 +83,5 @@ Las amplitudes $A_j, B_j$ se conectan entre capas mediante una matriz de transfe
 | Fuente | Sección / Página |
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | §2.1.3, pp. 43–50 — polarización y separación P/SV/SH |
-| Foti et al. (2018), *Surface Wave Methods* | §2.3, pp. 60–64 — reflexión total SH y relación de dispersión de Love |
+| Foti et al. (2018), *Surface Wave Methods* | §2.3, pp. 60–64 — reflexión total SH y [[Dispersion Relation|relación de dispersión]] de Love |
 | Dal Moro & Ferigo (2011) | Paper 045 — ventaja del desacoplamiento SH en inversión Love |

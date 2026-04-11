@@ -25,7 +25,7 @@ donde $U(x_j, f) = \text{FFT}[u(x_j, \cdot)]$. El máximo de $|S(f, p)|$ para ca
 
 | Aspecto | $\tau$-$p$ (slant-stack) | f-k (2D FFT) |
 |---|---|---|
-| Variable de salida | Intercepción $\tau$, slowness $p$ | Frecuencia $f$, número de onda $k$ |
+| Variable de salida | Intercepción $\tau$, slowness $p$ | Frecuencia $f$, [[Wavenumber|número de onda]] $k$ |
 | Resolución en velocidad | $\Delta c \propto c^2/(D \cdot f)$ — varía con $c$ | $\Delta c = c^2 \Delta k / (2\pi f)$ — uniforme en $k$ |
 | Presencia de aliasing | Posible si muestreo $\Delta x$ inadecuado | Igual |
 | Implementación | DFT espacial por frecuencia | DFT 2D completa |

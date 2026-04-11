@@ -29,7 +29,7 @@ $$c_p = \frac{\omega}{k}$$
 
 donde:
 - $\omega = 2\pi f$ — frecuencia angular [rad/s]
-- $k$ — número de onda [rad/m]
+- $k$ — [[Wavenumber|número de onda]] [rad/m]
 - $c_p$ — velocidad de fase [m/s]
 
 En medios dispersivos, $\omega$ y $k$ están relacionados por la [[Dispersion Relation|relación de dispersión]] $\omega = \omega(k)$, de modo que:
@@ -46,7 +46,7 @@ $$c_p = \frac{2\pi f \cdot \Delta x}{\Delta\phi(f)}$$
 
 donde $\Delta\phi(f)$ es la diferencia de fase entre los espectros de Fourier de los dos registros. En la práctica con múltiples receptores:
 
-- **Análisis f-k**: $c_p = \omega/k$ donde $k$ es el número de onda del pico del espectro f-k.
+- **Análisis f-k**: $c_p = \omega/k$ donde $k$ es el [[Wavenumber|número de onda]] del pico del espectro f-k.
 - **Análisis τ-p (slant-stack)**: la velocidad de fase se visualiza directamente en el dominio velocidad–frecuencia.
 - **[[SASW Method|SASW]]**: estimación punto a punto de $\Delta\phi(f)$ para cada par de receptores.
 

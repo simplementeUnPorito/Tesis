@@ -19,7 +19,7 @@ La ventana temporal y espacial combina sus efectos en el panel 2D:
 
 $$S_{ventaneado}(f, k) = S(f, k) * W_t(f) * W_x(k)$$
 
-donde $W_t(f)$ es la transformada de la ventana temporal y $W_x(k)$ la de la ventana espacial. Los lóbulos laterales de $W_x(k)$ limitan la capacidad de **resolver modos cercanos** en número de onda: dos modos con diferencia $\Delta k$ son distinguibles solo si $\Delta k > 2\pi/D$ (resolución de Rayleigh), donde $D$ es la apertura del arreglo.
+donde $W_t(f)$ es la transformada de la ventana temporal y $W_x(k)$ la de la ventana espacial. Los lóbulos laterales de $W_x(k)$ limitan la capacidad de **resolver modos cercanos** en [[Wavenumber|número de onda]]: dos modos con diferencia $\Delta k$ son distinguibles solo si $\Delta k > 2\pi/D$ (resolución de Rayleigh), donde $D$ es la apertura del arreglo.
 
 ## Ventanas de análisis estándar
 

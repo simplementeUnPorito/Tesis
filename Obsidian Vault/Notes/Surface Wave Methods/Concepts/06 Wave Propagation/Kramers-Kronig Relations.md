@@ -28,7 +28,7 @@ $$V_S(\omega) = V_{S,ref} \left[1 + \frac{D_s}{\pi} \ln\!\left(\frac{\omega}{\om
 
 ### Corrección en la inversión de [[MASW Method|MASW]]
 
-Para $D_s$ típicos de suelos (1–10%), la dispersión de material introduce una variación de $c_R$ de ~0.5–2% por década de frecuencia — generalmente un efecto de segundo orden comparado con la dispersión geométrica (~50–200% de variación en $c_R$ en el rango 5–50 Hz). No obstante, en la inversión conjunta de $V_S$ y $D_s$ (inversión de la curva de atenuación de Rayleigh), las KK deben satisfacerse para garantizar la consistencia física del modelo viscoelástico.
+Para $D_s$ típicos de suelos (1–10%), la dispersión de material introduce una variación de $c_R$ de ~0.5–2% por década de frecuencia — generalmente un efecto de segundo orden comparado con la dispersión geométrica (~50–200% de variación en $c_R$ en el rango 5–50 Hz). No obstante, en la [[Joint Inversion|inversión conjunta]] de $V_S$ y $D_s$ (inversión de la curva de atenuación de Rayleigh), las KK deben satisfacerse para garantizar la consistencia física del modelo viscoelástico.
 
 ## Modelos de atenuación que satisfacen las KK
 

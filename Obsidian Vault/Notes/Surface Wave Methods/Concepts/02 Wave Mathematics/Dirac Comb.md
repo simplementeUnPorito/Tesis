@@ -24,7 +24,7 @@ type: reference
 El muestreo espacial de un arreglo de $N$ geófonos a separación $\Delta x$ se modela con el Dirac comb espacial:
 $$\mathrm{III}_{\Delta x}(x) = \sum_{n=0}^{N-1} \delta(x - n\Delta x)$$
 
-Genera el espectro en número de onda con réplicas a múltiplos de $k_s = 2\pi/\Delta x$. El aliasing espacial ocurre cuando $k > k_s/2 = \pi/\Delta x$, equivalente a la condición $\Delta x < \lambda_{\min}/2$ — criterio de Nyquist espacial para [[MASW Method|MASW]] (ver sección 3.3.3 de Foti).
+Genera el espectro en [[Wavenumber|número de onda]] con réplicas a múltiplos de $k_s = 2\pi/\Delta x$. El aliasing espacial ocurre cuando $k > k_s/2 = \pi/\Delta x$, equivalente a la condición $\Delta x < \lambda_{\min}/2$ — criterio de Nyquist espacial para [[MASW Method|MASW]] (ver sección 3.3.3 de Foti).
 
 ## Filtros antialiasing
 

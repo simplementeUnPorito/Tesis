@@ -7,7 +7,7 @@ type: reference
 # Nyquist Theorem — Teorema de Nyquist
 
 > [!CONCEPT] Definición
-> El **teorema de Nyquist** (o teorema de Nyquist-Shannon) establece que para reconstruir perfectamente una señal de banda limitada $x(t)$ con frecuencia máxima $f_{max}$ a partir de sus muestras discretas, la **frecuencia de muestreo** $f_s$ debe satisfacer $f_s \geq 2 f_{max}$. La frecuencia límite $f_{Nyquist} = f_s/2$ es la frecuencia máxima representable sin aliasing. En [[MASW Method|MASW]], el teorema aplica en dos dimensiones: (1) **temporal** — la frecuencia de muestreo $f_s$ (tipicamente 1000–4000 Hz) limita la frecuencia máxima de la señal sísmica; (2) **espacial** — el espaciado entre geófonos $\Delta x$ actúa como "muestreo espacial" y el número de onda máximo $k_{Nyquist} = \pi/\Delta x$ limita la longitud de onda mínima detectable. El aliasing espacial ocurre cuando $\lambda < 2\Delta x$, produciendo velocidades de fase aparentes erróneas en el espectrograma f-k.
+> El **teorema de Nyquist** (o teorema de Nyquist-Shannon) establece que para reconstruir perfectamente una señal de banda limitada $x(t)$ con frecuencia máxima $f_{max}$ a partir de sus muestras discretas, la **frecuencia de muestreo** $f_s$ debe satisfacer $f_s \geq 2 f_{max}$. La frecuencia límite $f_{Nyquist} = f_s/2$ es la frecuencia máxima representable sin aliasing. En [[MASW Method|MASW]], el teorema aplica en dos dimensiones: (1) **temporal** — la frecuencia de muestreo $f_s$ (tipicamente 1000–4000 Hz) limita la frecuencia máxima de la señal sísmica; (2) **espacial** — el espaciado entre geófonos $\Delta x$ actúa como "muestreo espacial" y el [[Wavenumber|número de onda]] máximo $k_{Nyquist} = \pi/\Delta x$ limita la longitud de onda mínima detectable. El aliasing espacial ocurre cuando $\lambda < 2\Delta x$, produciendo velocidades de fase aparentes erróneas en el espectrograma f-k.
 >
 > — Foti et al. (2018), Cap. 3, §3.1; Cap. 4, §4.2; Shannon (1949).
 
@@ -21,7 +21,7 @@ Para [[MASW Method|MASW]] con fuentes activas (sledgehammer, rango 5–100 Hz), 
 
 ## Aliasing espacial
 
-Con espaciado entre geófonos $\Delta x$, el número de onda máximo representable es:
+Con espaciado entre geófonos $\Delta x$, el [[Wavenumber|número de onda]] máximo representable es:
 
 $$k_{Nyquist} = \frac{\pi}{\Delta x}$$
 

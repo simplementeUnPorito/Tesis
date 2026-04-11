@@ -39,7 +39,7 @@ La covarianza $\mathbf{C}_d$ se estima a partir de:
 | Costo computacional | Bajo (una inversión) | Alto (miles de inversiones) |
 | Asume linealidad | Sí | No |
 | Intervalo de confianza | Gaussiano (aproximado) | Exacto (distribución empírica) |
-| Captura no-unicidad | No | Sí |
+| Captura [[Non-uniqueness|no-unicidad]] | No | Sí |
 | Validez | Cerca del mínimo, errores pequeños | Siempre |
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — FOSM para bandas de incertidumbre del perfil VS

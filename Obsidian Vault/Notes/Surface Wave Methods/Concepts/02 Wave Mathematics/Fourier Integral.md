@@ -22,8 +22,8 @@ La solución general para la propagación de ondas en un medio dispersivo se esc
 $$\phi(x, t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} A(k)\, e^{i[kx - \omega(k)\,t]}\, dk$$
 
 donde:
-- $A(k)$ — espectro de amplitud complejo en el dominio del número de onda.
-- $\omega(k)$ — [[Dispersion Relation|relación de dispersión]]: la función que codifica cómo depende la frecuencia del número de onda en el medio.
+- $A(k)$ — espectro de amplitud complejo en el dominio del [[Wavenumber|número de onda]].
+- $\omega(k)$ — [[Dispersion Relation|relación de dispersión]]: la función que codifica cómo depende la frecuencia del [[Wavenumber|número de onda]] en el medio.
 - $e^{i(kx - \omega t)}$ — onda plana monocromática con [[Phase Velocity|velocidad de fase]] $c_p = \omega/k$.
 
 Esta representación es la **transformada de Fourier inversa** del espectro $A(k)$, y el espectro se recupera con la **transformada directa**:
@@ -38,11 +38,11 @@ $$A(k) = \int_{-\infty}^{\infty} \phi(x, 0)\, e^{-ikx}\, dx$$
 
 ### Método de la fase estacionaria
 
-Para un paquete que ha viajado una distancia $x$ grande, la integral está dominada por el número de onda $k^*$ donde la fase es estacionaria:
+Para un paquete que ha viajado una distancia $x$ grande, la integral está dominada por el [[Wavenumber|número de onda]] $k^*$ donde la fase es estacionaria:
 
 $$\frac{d}{dk}\left[kx - \omega(k)\,t\right] = 0 \quad \Rightarrow \quad x = \frac{d\omega}{dk}\bigg|_{k^*} \cdot t = c_g(k^*)\, t$$
 
-Esto muestra que la energía asociada al número de onda $k^*$ llega al punto $x$ en el tiempo $t = x/c_g(k^*)$: la **velocidad de grupo** es la velocidad de transporte de energía. Esta es la conexión fundamental entre la representación de Fourier y la [[Group Velocity|velocidad de grupo]].
+Esto muestra que la energía asociada al [[Wavenumber|número de onda]] $k^*$ llega al punto $x$ en el tiempo $t = x/c_g(k^*)$: la **velocidad de grupo** es la velocidad de transporte de energía. Esta es la conexión fundamental entre la representación de Fourier y la [[Group Velocity|velocidad de grupo]].
 
 ## Transformada de Fourier discreta y 2D en [[MASW Method|MASW]]
 

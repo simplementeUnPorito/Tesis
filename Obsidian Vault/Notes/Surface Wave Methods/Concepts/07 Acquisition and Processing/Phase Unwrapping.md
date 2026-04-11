@@ -7,7 +7,7 @@ type: reference
 # Phase Unwrapping — Desenrollamiento de Fase
 
 > [!CONCEPT] Definición
-> El **phase unwrapping** (o desenrollamiento de fase) es el proceso de corregir los saltos de $\pm2\pi$ en la fase del [[Cross-Power Spectrum|espectro cruzado]] $\phi_{12}(f) = \angle[G_{12}(f)]$ para obtener una función de fase continua. El problema surge porque la DFT produce fases en el intervalo $(-\pi, \pi]$: cuando la fase acumulada real supera $\pi$ (para grandes separaciones $\Delta x$ o bajas frecuencias), se produce un salto artificial de $2\pi$ en el espectro (el *phase wrapping*). Si no se corrige, la [[Phase Velocity|velocidad de fase]] calculada $c_R(f) = 2\pi f \Delta x / \phi_{12}(f)$ contendrá errores sistemáticos. Es la **limitación principal del [[SASW Method|método SASW]]** con dos receptores: en la práctica, se recomienda elegir separaciones $\Delta x$ tales que $\phi_{12}(f) < \pi$ para todo $f$ útil (condición de campo cercano), pero esto entra en conflicto con la necesidad de separaciones grandes para medir bajas frecuencias. El análisis multicanal ([[MASW Method|MASW]], f-k) evita este problema porque identifica el número de onda directamente como máximo espectral sin unwrapping.
+> El **phase unwrapping** (o desenrollamiento de fase) es el proceso de corregir los saltos de $\pm2\pi$ en la fase del [[Cross-Power Spectrum|espectro cruzado]] $\phi_{12}(f) = \angle[G_{12}(f)]$ para obtener una función de fase continua. El problema surge porque la DFT produce fases en el intervalo $(-\pi, \pi]$: cuando la fase acumulada real supera $\pi$ (para grandes separaciones $\Delta x$ o bajas frecuencias), se produce un salto artificial de $2\pi$ en el espectro (el *phase wrapping*). Si no se corrige, la [[Phase Velocity|velocidad de fase]] calculada $c_R(f) = 2\pi f \Delta x / \phi_{12}(f)$ contendrá errores sistemáticos. Es la **limitación principal del [[SASW Method|método SASW]]** con dos receptores: en la práctica, se recomienda elegir separaciones $\Delta x$ tales que $\phi_{12}(f) < \pi$ para todo $f$ útil (condición de campo cercano), pero esto entra en conflicto con la necesidad de separaciones grandes para medir bajas frecuencias. El análisis multicanal ([[MASW Method|MASW]], f-k) evita este problema porque identifica el [[Wavenumber|número de onda]] directamente como máximo espectral sin unwrapping.
 >
 > — Foti et al. (2018), Cap. 4, §4.2; Nazarian & Stokoe (1984), Paper 003.
 
@@ -34,7 +34,7 @@ El algoritmo es frágil en presencia de ruido: si la SNR es baja ($\gamma^2 < 0.
 
 En el análisis f-k del [[MASW Method|MASW]], la [[Phase Velocity|velocidad de fase]] se identifica como la posición del **máximo espectral** en el espectrograma $|U(\omega, k)|$. Este procedimiento no requiere unwrapping porque:
 - El espectrograma siempre tiene máximos no-negativos (no ambigüedad de signo)
-- La resolución $\Delta k$ permite identificar el número de onda verdadero directamente
+- La resolución $\Delta k$ permite identificar el [[Wavenumber|número de onda]] verdadero directamente
 - Múltiples receptores promedian los efectos del ruido, reduciendo falsas detecciones
 
 Esta ventaja del análisis f-k sobre el espectro cruzado [[SASW Method|SASW]] fue uno de los argumentos principales de Park et al. (1999) para proponer el [[MASW Method|MASW]] como sucesor del [[SASW Method|SASW]].

@@ -68,4 +68,4 @@ Para sitios con capas rígidas superficiales o **inversiones de velocidad** (cap
 | Foti et al. (2018), *Surface Wave Methods* | Cap. 6, §6.4.2.3, pp. 298–301; §6.4.3.4, pp. 312–320 |
 | Tikhonov & Arsenin (1977), *Solutions of Ill-Posed Problems* | Formulación matemática original |
 | Constable et al. (1987) | Algoritmo de Occam — modelo más suave compatible con datos |
-| Lai (2005) | Aplicación de Occam a inversión conjunta VS + DS |
+| Lai (2005) | Aplicación de Occam a [[Joint Inversion|inversión conjunta]] VS + DS |

@@ -31,7 +31,7 @@ donde el **kernel de sensibilidad** es:
 
 $$K_{V_S}(z) = \frac{2}{I_2} \rho(z) V_S(z) \left[(\partial_z U_r)^2 + k^2 U_z^2 - k^2 U_z \partial_z U_r\right]_{z}$$
 
-con $I_2 = \int_0^\infty \rho(z)(U_r^2 + U_z^2) dz$ el factor de normalización energética, $U_r$ y $U_z$ las autofunciones de desplazamiento horizontal y vertical, y $k = \omega/c_R$ el número de onda.
+con $I_2 = \int_0^\infty \rho(z)(U_r^2 + U_z^2) dz$ el factor de normalización energética, $U_r$ y $U_z$ las autofunciones de desplazamiento horizontal y vertical, y $k = \omega/c_R$ el [[Wavenumber|número de onda]].
 
 ## Importancia en la inversión de [[MASW Method|MASW]]
 
@@ -40,7 +40,7 @@ Los principios variacionales permiten:
 2. **Interpretación física de la sensibilidad**: el kernel $K_{V_S}(z)$ muestra qué profundidades contribuyen más a la velocidad de Rayleigh a cada frecuencia (pico a z ≈ λ/3)
 3. **Fórmulas aproximadas**: expresiones simplificadas para el límite de largo período ($c_R \approx 0.92 V_S$ en semiespacio homogéneo) que son útiles para estimaciones rápidas
 
-> [!EXAMPLE] Evidencia empírica: Aki & Richards (2002) — principio variacional para sensibilidad de ondas Love y Rayleigh
+> [!EXAMPLE] Evidencia empírica: Aki & Richards (2002) — principio variacional para sensibilidad de [[Love Waves|ondas Love]] y Rayleigh
 > Aki & Richards (2002, §7.3) derivan el kernel de sensibilidad de las ondas de Love y Rayleigh para un modelo de Tierra con capas usando el principio variacional de Rayleigh-Ritz. El resultado es que $\partial c_R/\partial V_S(z)$ tiene un pico a la profundidad $z \approx \lambda/3$ para el modo fundamental de Rayleigh (donde $\lambda = c_R/f$ es la longitud de onda), decayendo exponencialmente a mayor profundidad. Esta relación — conocida como la **regla del tercio de longitud de onda** — establece que la frecuencia $f$ del modo fundamental de Rayleigh "siente" principalmente el $V_S$ a la profundidad $z \approx c_R(f)/(3f)$. Es la base teórica del método [[MASW Method|MASW]]: para investigar hasta la profundidad $H$, se necesitan frecuencias $f \leq c_{R,min}/(3H)$ donde $c_{R,min}$ es la velocidad mínima en el perfil.
 >
 > — Aki & Richards (2002), §7.3, pp. 249–270; Foti et al. (2018), §5.2, pp. 215–225.

@@ -54,7 +54,7 @@ Los valores singulares pequeños (responsables de la inestabilidad) son amortigu
 | Capas con interfaces | Tikhonov L1 u Occam |
 | Discontinuidades abruptas | [[Total Variation Regularization|Variación Total]] |
 | Incertidumbre alta | [[Monte Carlo Methods]] + cualquier regularización |
-| Inversión conjunta | [[Cross-Gradient Function]] como regularización estructural |
+| [[Joint Inversion|inversión conjunta]] | [[Cross-Gradient Function]] como regularización estructural |
 
 > [!EXAMPLE] Evidencia empírica (Foti et al. 2018, Xia et al. 1999)
 > - **Xia et al. (1999, GRL)**: inversión [[MASW Method|MASW]] de 19 capas en Lawrence, Kansas — con regularización Tikhonov L1 y λ seleccionado por factor de ruido, el perfil Vs convergió en 3–5 iteraciones con error < 15% respecto a downhole. Sin regularización, la solución divergía tras la primera iteración (κ > 10⁴).

@@ -27,7 +27,7 @@ Para una onda de Rayleigh en un [[Elastic Half Space]] homogéneo, el decaimient
 
 $$u_2(z) \approx A_0\,e^{-\beta z}$$
 
-donde $\beta$ es proporcional al número de onda $k = 2\pi/\lambda$. Esto conduce a:
+donde $\beta$ es proporcional al [[Wavenumber|número de onda]] $k = 2\pi/\lambda$. Esto conduce a:
 
 $$\delta \approx \frac{1}{k} = \frac{\lambda}{2\pi}$$
 

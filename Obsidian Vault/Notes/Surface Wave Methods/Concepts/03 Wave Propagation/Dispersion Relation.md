@@ -1,6 +1,6 @@
 ---
 name: Dispersion Relation
-description: ω(k); función que relaciona frecuencia angular con número de onda; codifica la física del medio; implícita y no analítica para Rayleigh en medios estratificados; obtenida de la condición de solución no trivial del sistema de transferencia matricial
+description: ω(k); función que relaciona frecuencia angular con [[Wavenumber|número de onda]]; codifica la física del medio; implícita y no analítica para Rayleigh en medios estratificados; obtenida de la condición de solución no trivial del sistema de transferencia matricial
 type: reference
 ---
 

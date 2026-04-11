@@ -47,7 +47,7 @@ En realidad, los suelos disipan energía incluso a $\gamma < 10^{-5}$ (histéres
 
 $$G^* = G(1 + 2i D_S)$$
 
-donde $D_S$ es el [[Shear Damping Ratio|material damping ratio]] de corte ($D_S \approx 0.01$–$0.05$ en suelos). El módulo complejo $G^*$ genera un número de onda complejo $k^* = \omega/V_S + i\alpha_S$, donde $\alpha_S$ es el [[Attenuation Coefficient|coeficiente de atenuación]] (ver [[Correspondence Principle]]).
+donde $D_S$ es el [[Shear Damping Ratio|material damping ratio]] de corte ($D_S \approx 0.01$–$0.05$ en suelos). El módulo complejo $G^*$ genera un [[Wavenumber|número de onda]] complejo $k^* = \omega/V_S + i\alpha_S$, donde $\alpha_S$ es el [[Attenuation Coefficient|coeficiente de atenuación]] (ver [[Correspondence Principle]]).
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — Gmax en el sitio La Salle
 > Foti et al. (2018, §7.2.1) presentan el perfil $G_{\max}(z) = \rho(z) \cdot V_S(z)^2$ derivado de la inversión [[MASW Method|MASW]] del sitio La Salle, Francia. Con $V_S$ entre 200 y 450 m/s y densidades típicas de suelos blandos ($\rho \approx 1800$–2000 kg/m³), se obtiene $G_{\max}$ entre ~70 MPa (0–5 m) y ~400 MPa (15–25 m). El perfil es consistente con ensayos de laboratorio de [[Resonant Column Test]] (diferencias < 15%) confirmando que el campo sísmico refleja el estado de muy pequeña deformación del suelo en condiciones in situ. La concordancia valida el uso de $G = \rho V_S^2$ directamente en diseño geotécnico sin necesidad de factores de corrección por tamaño de muestra o confinamiento de laboratorio.

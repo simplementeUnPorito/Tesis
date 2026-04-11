@@ -1,7 +1,7 @@
 # No-unicidad (Non-uniqueness)
 
 > [!CONCEPT] Definición
-> La **no-unicidad** del problema inverso de ondas superficiales es la propiedad por la cual **múltiples perfiles de $V_S(z)$ producen [[Dispersion Curve|curvas de dispersión]] prácticamente idénticas**. No es una limitación del algoritmo de inversión sino una propiedad intrínseca del operador físico. El problema es *ill-posed* (Hadamard 1923): viola las condiciones de unicidad y estabilidad. Causas: resolución finita en profundidad, equivalencia espesor–velocidad entre capas, e insensibilidad de $c_R$ a $V_P$. Se mitiga con (1) **información a priori** (boreholes, nivel freático, geología), (2) [[Tikhonov Regularization|regularización]], (3) [[Monte Carlo Methods|búsqueda global]] para cuantificar el ensemble de soluciones equivalentes, y (4) **inversión conjunta** con otros datos ([[HVSR]], refracción). La no-unicidad raramente impide la clasificación de sitio porque el parámetro de ingeniería $V_{S,30}$ es robusto: varía solo ~5% dentro del conjunto de soluciones equivalentes.
+> La **no-unicidad** del problema inverso de ondas superficiales es la propiedad por la cual **múltiples perfiles de $V_S(z)$ producen [[Dispersion Curve|curvas de dispersión]] prácticamente idénticas**. No es una limitación del algoritmo de inversión sino una propiedad intrínseca del operador físico. El problema es *ill-posed* (Hadamard 1923): viola las condiciones de unicidad y estabilidad. Causas: resolución finita en profundidad, equivalencia espesor–velocidad entre capas, e insensibilidad de $c_R$ a $V_P$. Se mitiga con (1) **información a priori** (boreholes, nivel freático, geología), (2) [[Tikhonov Regularization|regularización]], (3) [[Monte Carlo Methods|búsqueda global]] para cuantificar el ensemble de soluciones equivalentes, y (4) **[[Joint Inversion|inversión conjunta]]** con otros datos ([[HVSR]], refracción). La no-unicidad raramente impide la clasificación de sitio porque el parámetro de ingeniería $V_{S,30}$ es robusto: varía solo ~5% dentro del conjunto de soluciones equivalentes.
 >
 > — Foti et al. (2018), Cap. 6.1.2, pp. 277–280; Cap. 6.4, pp. 305–310.
 
@@ -46,7 +46,7 @@ Los métodos de [[Tikhonov Regularization|regularización de Tikhonov]] transfor
 ### Búsqueda global
 Los [[Monte Carlo Methods|métodos de búsqueda global]] (Monte Carlo, algoritmos genéticos, simulated annealing) exploran el espacio completo de soluciones y permiten identificar y cuantificar la multiplicicidad de soluciones compatibles con los datos, en lugar de converger a un solo mínimo local.
 
-### Inversión conjunta
+### [[Joint Inversion|inversión conjunta]]
 Combinar la [[Dispersion Curve|curva de dispersión]] con otros datos (refracción de ondas P, H/V, resistividad eléctrica) reduce la no-unicidad porque distintos datasets tienen diferente sensibilidad a los parámetros del modelo (ver [[HVSR|HVSR]], Cap. 8.3 de Foti).
 
 ## Implicación para la práctica

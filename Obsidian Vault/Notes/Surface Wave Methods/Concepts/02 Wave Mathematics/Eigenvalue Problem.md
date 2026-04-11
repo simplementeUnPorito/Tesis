@@ -27,7 +27,7 @@ Este es un problema de Sturm-Liouville cuya solución no trivial existe solo par
 
 ## Formulación para ondas P-SV (Rayleigh)
 
-Para ondas Rayleigh, la ecuación de movimiento genera un sistema de dos ODEs acopladas para las amplitudes de desplazamiento vertical $W$ y horizontal $V$ (Foti Ec. 2.56):
+Para [[Rayleigh Waves|ondas Rayleigh]], la ecuación de movimiento genera un sistema de dos ODEs acopladas para las amplitudes de desplazamiento vertical $W$ y horizontal $V$ (Foti Ec. 2.56):
 
 $$\frac{d}{dx_2}\begin{bmatrix} \sigma_{22} \\ \tau_{12} \end{bmatrix} = \mathbf{A}(x_2, k, \omega) \begin{bmatrix} W \\ V \\ \sigma_{22} \\ \tau_{12} \end{bmatrix}$$
 

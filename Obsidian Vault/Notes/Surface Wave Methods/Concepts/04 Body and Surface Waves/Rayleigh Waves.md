@@ -74,7 +74,7 @@ Cuando hay [[Surface Wave Modes|modos superiores]] activos, la [[Phase Velocity|
 ---
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) y Xia et al. (2002) — [[MASW Method|MASW]] en Kansas
-> **Paper 001 (Park, Miller & Xia 1999)** demuestra que las Rayleigh Waves dominan los sismogramas superficiales con fuente activa y que la transformada f-k extrae directamente su [[Dispersion Curve|curva de dispersión]] $c_R(f)$. Los registros en múltiples sitios de Kansas muestran que el ground-roll de Rayleigh es la señal predominante a distancias > 5 m.
+> **Paper 001 (Park, Miller & Xia 1999)** demuestra que las Rayleigh Waves dominan los sismogramas superficiales con fuente activa y que la transformada f-k extrae directamente su [[Dispersion Curve|curva de dispersión]] $c_R(f)$. Los registros en múltiples sitios de Kansas muestran que el [[Ground Roll|ground-roll]] de Rayleigh es la señal predominante a distancias > 5 m.
 >
 > **Paper 009 (Xia et al. 2002)** valida los perfiles $V_S(z)$ obtenidos invirtiendo $c_R(f)$ contra 14 ensayos de borehole independientes. El error RMS promedio entre $V_S$ [[MASW Method|MASW]] y borehole es < 15%, confirmando que la [[Dispersion Curve|curva de dispersión]] de Rayleigh es una medida robusta y representativa del subsuelo real.
 >

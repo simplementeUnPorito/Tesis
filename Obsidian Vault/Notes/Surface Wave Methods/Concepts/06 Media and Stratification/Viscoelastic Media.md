@@ -33,9 +33,9 @@ donde $D_s \ll 1$ (amortiguamiento débil típico en suelos: $D_s \sim 1$–$10\
 
 Todas las soluciones del problema elástico son válidas en el viscoelástico con la sustitución $\lambda, \mu \to \tilde{\lambda}(\omega), \tilde{\mu}(\omega)$. Esto permite extender directamente la ecuación secular de Rayleigh y el método de Thomson-Haskell a medios disipativos.
 
-### Número de onda complejo y atenuación
+### [[Wavenumber|número de onda]] complejo y atenuación
 
-En un medio disipativo el número de onda es complejo:
+En un medio disipativo el [[Wavenumber|número de onda]] es complejo:
 
 $$\tilde{k} = k_R + i\,k_I$$
 

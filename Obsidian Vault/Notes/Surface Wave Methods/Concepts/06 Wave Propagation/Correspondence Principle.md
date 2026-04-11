@@ -27,9 +27,9 @@ La velocidad de onda de corte compleja:
 
 $$\hat{V}_S(\omega) = \sqrt{\frac{\hat{G}(\omega)}{\rho}} = V_S\sqrt{1 + 2iD_s} \approx V_S(1 + iD_s)$$
 
-### Número de onda complejo
+### [[Wavenumber|número de onda]] complejo
 
-El número de onda de Rayleigh complejo:
+El [[Wavenumber|número de onda]] de Rayleigh complejo:
 
 $$\hat{k}_R(\omega) = \frac{\omega}{\hat{c}_R(\omega)} = k_R(\omega) - i\alpha_R(\omega)$$
 

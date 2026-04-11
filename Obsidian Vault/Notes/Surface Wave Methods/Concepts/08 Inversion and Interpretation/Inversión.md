@@ -11,9 +11,9 @@ type: reference
 >
 > — Foti et al. (2018), Cap. 6, pp. 277–340; Xia et al. (1999), Paper 002.
 
-## Problema directo e inverso
+## [[Forward Problem|problema directo]] e inverso
 
-- **Problema directo**: dado un perfil del subsuelo $\mathbf{m}$, calcular la [[Dispersion Curve|curva de dispersión]] teórica $c_R(f, \mathbf{m})$. Se resuelve con el método de la [[Rayleigh Eigenproblem|matriz de transferencia de Thomson-Haskell]]: propaga condiciones de frontera a través de capas planas horizontales. Determinístico y eficiente.
+- **[[Forward Problem|problema directo]]**: dado un perfil del subsuelo $\mathbf{m}$, calcular la [[Dispersion Curve|curva de dispersión]] teórica $c_R(f, \mathbf{m})$. Se resuelve con el método de la [[Rayleigh Eigenproblem|matriz de transferencia de Thomson-Haskell]]: propaga condiciones de frontera a través de capas planas horizontales. Determinístico y eficiente.
 
 - **Problema inverso**: dado $c_R^{\text{obs}}(f)$, encontrar $\mathbf{m}$ tal que $c_R(f, \mathbf{m}) \approx c_R^{\text{obs}}(f)$. No tiene solución analítica cerrada — se resuelve iterativamente.
 
@@ -45,8 +45,8 @@ Exploran el espacio completo de parámetros sin depender del modelo inicial.
 - **[[Monte Carlo Methods|Monte Carlo]]**: genera aleatoriamente modelos en el espacio de parámetros y evalúa $E(\mathbf{m})$ para cada uno. Permite mapear el conjunto completo de soluciones equivalentes.
 - **Algoritmos genéticos**: evolución iterativa de una población de modelos; operadores de cruce y mutación.
 - **Simulated annealing**: acepta soluciones peores con probabilidad decreciente — escapa de mínimos locales.
-- **Ventaja**: robusto ante no-unicidad; caracteriza el ensemble de soluciones.
-- **Limitación**: costo computacional alto (10³–10⁶ evaluaciones del problema directo).
+- **Ventaja**: robusto ante [[Non-uniqueness|no-unicidad]]; caracteriza el ensemble de soluciones.
+- **Limitación**: costo computacional alto (10³–10⁶ evaluaciones del [[Forward Problem|problema directo]]).
 
 ## Ill-posedness y regularización
 

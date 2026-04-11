@@ -89,7 +89,7 @@ El semiespacio elástico es una idealización: ningún suelo real es perfectamen
 - Los **métodos de inversión empírica** usan la relación $V_S \approx V_R/0.92$ como primera estimación antes de una inversión formal (véase [[Inversión]]).
 
 > [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — uso de la ecuación secular en inversión [[MASW Method|MASW]]
-> **Paper 002 (Xia, Miller & Park 1999)** usa la ecuación secular del semiespacio generalizada al caso estratificado (Thomson-Haskell) como núcleo del problema directo de inversión. La relación $V_S \approx V_R/0.919$ sirve como estimación inicial del modelo antes de la inversión iterativa — primera aproximación derivada directamente del semiespacio homogéneo.
+> **Paper 002 (Xia, Miller & Park 1999)** usa la ecuación secular del semiespacio generalizada al caso estratificado (Thomson-Haskell) como núcleo del [[Forward Problem|problema directo]] de inversión. La relación $V_S \approx V_R/0.919$ sirve como estimación inicial del modelo antes de la inversión iterativa — primera aproximación derivada directamente del semiespacio homogéneo.
 >
 > Los sitios de validación en Kansas confirman que la ecuación secular del semiespacio estratificado predice $c_R(f)$ con precisión suficiente para recuperar $V_S(z)$ con error < 15% respecto a borehole.
 >

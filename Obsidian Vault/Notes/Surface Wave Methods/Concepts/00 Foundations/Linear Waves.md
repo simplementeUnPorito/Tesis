@@ -38,7 +38,7 @@ En geofísica near-surface, la teoría usada para interpretar registros de geóf
 
 - Análisis espectral vía [[Fourier Integral]]
 - Separación de [[Surface Wave Modes]]
-- Formulación del problema directo e inverso de [[Rayleigh Waves]] y [[Love Waves]]
+- Formulación del [[Forward Problem|problema directo]] e inverso de [[Rayleigh Waves]] y [[Love Waves]]
 - Descripción de la señal como [[Wave Superposition]] de contribuciones de distintas ondas
 
 ---

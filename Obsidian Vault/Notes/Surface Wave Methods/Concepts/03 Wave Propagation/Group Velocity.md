@@ -7,7 +7,7 @@ type: reference
 # Velocidad de Grupo (Group Velocity)
 
 > [!CONCEPT] Definición
-> La **velocidad de grupo** $c_g = d\omega/dk$ es la velocidad de propagación de la envolvente de un paquete de ondas — es decir, la velocidad de transporte de energía. En medios [[Wave Dispersion|dispersivos]], $c_g \neq c_p$ ([[Phase Velocity]]): el paquete se deforma al propagarse porque sus componentes frecuenciales viajan a velocidades distintas. En sismología global la velocidad de grupo es directamente observable; en [[MASW Method|MASW]] near-surface, $c_p$ es el observable primario aunque $c_g$ controla el *moveout* temporal del ground-roll.
+> La **velocidad de grupo** $c_g = d\omega/dk$ es la velocidad de propagación de la envolvente de un paquete de ondas — es decir, la velocidad de transporte de energía. En medios [[Wave Dispersion|dispersivos]], $c_g \neq c_p$ ([[Phase Velocity]]): el paquete se deforma al propagarse porque sus componentes frecuenciales viajan a velocidades distintas. En sismología global la velocidad de grupo es directamente observable; en [[MASW Method|MASW]] near-surface, $c_p$ es el observable primario aunque $c_g$ controla el *moveout* temporal del [[Ground Roll|ground-roll]].
 >
 > — Foti et al. (2018), §2.1.2, pp. 41–43; §4.1, pp. 206–208.
 
@@ -31,7 +31,7 @@ La segunda forma muestra que $c_g < c_p$ cuando la [[Phase Velocity|velocidad de
 
 ## Derivación para superposición de dos ondas
 
-Para dos ondas de igual amplitud con frecuencias y números de onda cercanos:
+Para dos ondas de igual amplitud con frecuencias y [[Wavenumber|número de onda]] cercanos:
 
 $$\phi(x,t) = A\sin(k_1 x - \omega_1 t) + A\sin(k_2 x - \omega_2 t)$$
 
@@ -59,7 +59,7 @@ En un medio normalmente dispersivo (velocidad crece con profundidad), la curva $
 | Métodos [[MASW Method|MASW]]/[[SASW Method|SASW]] (near-surface) | $c_p$ es el observable primario; $c_g$ es de importancia secundaria en inversión |
 | Análisis de registros dispersivos | $c_g$ controla la llegada temporal de las componentes de energía |
 
-En métodos [[MASW Method|MASW]] estándar, el análisis f-k extrae $c_p$. La velocidad de grupo aparece implícitamente en el *moveout* temporal del tren de ondas visible en el sismograma: en un medio dispersivo, las componentes de baja frecuencia (longitud de onda larga, mayor profundidad de penetración) llegan antes que las de alta frecuencia. Esta "dispersión temporal" del ground-roll es la firma visual de la heterogeneidad del subsuelo.
+En métodos [[MASW Method|MASW]] estándar, el análisis f-k extrae $c_p$. La velocidad de grupo aparece implícitamente en el *moveout* temporal del tren de ondas visible en el sismograma: en un medio dispersivo, las componentes de baja frecuencia (longitud de onda larga, mayor profundidad de penetración) llegan antes que las de alta frecuencia. Esta "dispersión temporal" del [[Ground Roll|ground-roll]] es la firma visual de la heterogeneidad del subsuelo.
 
 ## Implicaciones para el diseño experimental
 

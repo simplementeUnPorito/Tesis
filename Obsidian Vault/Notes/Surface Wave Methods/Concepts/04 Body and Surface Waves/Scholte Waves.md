@@ -72,7 +72,7 @@ En el mismo sistema agua-sedimento coexisten dos tipos de ondas aprovechables:
 | Visibilidad en registros | Tren de baja velocidad, a veces débil | Dominante, llega primero |
 | Separación en registro | Requiere filtro pasa-bajo | Directamente visible |
 
-La **inversión conjunta** de ondas de Scholte (Vs) y P-guiadas (Vp) permite estimar ambos perfiles con espesores compartidos, aprovechando la complementariedad de la información.
+La **[[Joint Inversion|inversión conjunta]]** de ondas de Scholte (Vs) y P-guiadas (Vp) permite estimar ambos perfiles con espesores compartidos, aprovechando la complementariedad de la información.
 
 ## Flujo de trabajo en contexto marino
 
@@ -81,7 +81,7 @@ La **inversión conjunta** de ondas de Scholte (Vs) y P-guiadas (Vp) permite est
 3. Aplicar filtro pasa-bajo si las ondas de Scholte son débiles frente a las P-guiadas.
 4. Extraer la [[Dispersion Curve|curva de dispersión]] de Scholte (análisis f-k o τ-p).
 5. Invertir incluyendo la capa de agua (velocidad y espesor) como parámetros del modelo.
-6. Si se dispone de datos de P-guiadas: inversión conjunta Scholte + P-guiadas.
+6. Si se dispone de datos de P-guiadas: [[Joint Inversion|inversión conjunta]] Scholte + P-guiadas.
 
 ## Aplicación en la orilla (*shoreline*)
 
@@ -89,7 +89,7 @@ Un arreglo híbrido con geófonos en tierra e hidrófonos en el fondo permite re
 - **Ondas de Rayleigh** en la parte terrestre.
 - **Ondas de Scholte** en la parte submarina.
 
-La inversión conjunta de ambos conjuntos de datos permite una **caracterización continua** a lo largo de la línea costera, sin discontinuidad en la transición tierra-mar.
+La [[Joint Inversion|inversión conjunta]] de ambos conjuntos de datos permite una **caracterización continua** a lo largo de la línea costera, sin discontinuidad en la transición tierra-mar.
 
 ## Relaciones
 

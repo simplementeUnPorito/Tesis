@@ -1,23 +1,23 @@
 # SPAC / ESAC (Spatial Autocorrelation)
 
 > [!CONCEPT] Definición
-> El **SPAC** (*Spatial Autocorrelation*, Aki 1957) es un método pasivo para extraer la [[Dispersion Curve|curva de dispersión]] de [[Rayleigh Waves|ondas de Rayleigh]] desde ruido sísmico ambiental (*microtremores*), sin fuente controlada. Se basa en la relación $\rho(r, \omega) = J_0(k_0 r)$: la **función de autocorrelación espacial normalizada** entre dos receptores separados por $r$ es igual a la función de Bessel de orden cero $J_0$ evaluada en $k_0 r$, donde $k_0 = \omega/c_R$ es el número de onda del modo dominante. Ajustando $J_0(k_0 r)$ a los coeficientes experimentales medidos entre pares de receptores se obtiene $k_0(f)$ y, por tanto, $c_R(f)$. La variante **ESAC** (Ohori et al. 2002) generaliza el método a arrays de geometría arbitraria (no solo circular), permitiendo usarlo con arrays lineales de [[MASW Method|MASW]] en modo pasivo.
+> El **SPAC** (*Spatial Autocorrelation*, Aki 1957) es un método pasivo para extraer la [[Dispersion Curve|curva de dispersión]] de [[Rayleigh Waves|ondas de Rayleigh]] desde ruido sísmico ambiental (*microtremores*), sin fuente controlada. Se basa en la relación $\rho(r, \omega) = J_0(k_0 r)$: la **función de autocorrelación espacial normalizada** entre dos receptores separados por $r$ es igual a la función de Bessel de orden cero $J_0$ evaluada en $k_0 r$, donde $k_0 = \omega/c_R$ es el [[Wavenumber|número de onda]] del modo dominante. Ajustando $J_0(k_0 r)$ a los coeficientes experimentales medidos entre pares de receptores se obtiene $k_0(f)$ y, por tanto, $c_R(f)$. La variante **ESAC** (Ohori et al. 2002) generaliza el método a arrays de geometría arbitraria (no solo circular), permitiendo usarlo con arrays lineales de [[MASW Method|MASW]] en modo pasivo.
 >
 > — Aki (1957, 1965); Ohori et al. (2002); Foti et al. (2018), Cap. 4.5, pp. 231–235.
 
 ## Principio
 
-El método **SPAC** (*Spatial Autocorrelation*) fue desarrollado por Aki (1957, 1965) para extraer la [[Dispersion Relation|curva de dispersión]] de [[Rayleigh Waves|ondas de Rayleigh]] a partir de registros de microtremores (ruido sísmico ambiental). Se basa en la relación entre la **función de autocorrelación espacial** del campo de ondas y el número de onda dominante.
+El método **SPAC** (*Spatial Autocorrelation*) fue desarrollado por Aki (1957, 1965) para extraer la [[Dispersion Relation|curva de dispersión]] de [[Rayleigh Waves|ondas de Rayleigh]] a partir de registros de microtremores (ruido sísmico ambiental). Se basa en la relación entre la **función de autocorrelación espacial** del campo de ondas y el [[Wavenumber|número de onda]] dominante.
 
 La autocorrelación espacial se define como (Foti Ec. 4.28):
 
 $$R(\chi) = E\!\left[s(\mathbf{x},t)\,s(\mathbf{x}+\chi,t)\right] = \frac{1}{2\pi}\int_{-\infty}^{\infty} S(\mathbf{k})\,e^{-i\mathbf{k}\cdot\chi}\,d\mathbf{k}$$
 
-donde $\chi$ es el lag espacial y $E[\cdot]$ es el valor esperado. Esta expresión es la transformada inversa de Fourier del espectro de número de onda: la autocorrelación espacial codifica el contenido espectral del campo.
+donde $\chi$ es el lag espacial y $E[\cdot]$ es el valor esperado. Esta expresión es la transformada inversa de Fourier del espectro de [[Wavenumber|número de onda]]: la autocorrelación espacial codifica el contenido espectral del campo.
 
 ## Caso 1: fuente única (ondas unidireccionales)
 
-Para una onda plana con número de onda $k_0$ y dirección conocida, la autocorrelación normalizada es (Foti Ec. 4.33):
+Para una onda plana con [[Wavenumber|número de onda]] $k_0$ y dirección conocida, la autocorrelación normalizada es (Foti Ec. 4.33):
 
 $$\rho(\chi) = \cos(k_0 \cdot \chi)$$
 

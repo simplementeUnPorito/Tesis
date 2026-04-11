@@ -52,7 +52,7 @@ Esta variación de velocidad con la frecuencia — la **[[Dispersion Curve|curva
 
 ## Partición de energía y dominio en registros sísmicos
 
-La solución del [[Lamb's Problem|Problema de Lamb]] (1904) muestra que para una fuente puntual vertical en la superficie de un semiespacio, las ondas de Rayleigh reciben ~67% de la energía total, mientras que las ondas de cuerpo solo reciben ~33% (repartido entre P y S). Combinado con el menor decaimiento geométrico ($1/\sqrt{r}$ vs $1/r$), esto explica por qué el **ground-roll** (tren de ondas superficiales) domina el sismograma en métodos sísmicos superficiales.
+La solución del [[Lamb's Problem|Problema de Lamb]] (1904) muestra que para una fuente puntual vertical en la superficie de un semiespacio, las ondas de Rayleigh reciben ~67% de la energía total, mientras que las ondas de cuerpo solo reciben ~33% (repartido entre P y S). Combinado con el menor decaimiento geométrico ($1/\sqrt{r}$ vs $1/r$), esto explica por qué el **[[Ground Roll|ground-roll]]** (tren de ondas superficiales) domina el sismograma en métodos sísmicos superficiales.
 
 ## Múltiples modos de propagación
 

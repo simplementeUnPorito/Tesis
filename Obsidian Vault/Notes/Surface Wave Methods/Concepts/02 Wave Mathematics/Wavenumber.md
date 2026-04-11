@@ -1,6 +1,6 @@
 ---
 name: Wavenumber
-description: k = 2π/λ; número de onda espacial en rad/m; análogo espacial de la frecuencia angular; aparece en la relación de dispersión y en el análisis f-k como eje horizontal
+description: k = 2π/λ; número de onda espacial en rad/m; análogo espacial de la frecuencia angular; aparece en la [[Dispersion Relation|relación de dispersión]] y en el análisis f-k como eje horizontal
 type: reference
 ---
 

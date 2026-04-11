@@ -23,14 +23,14 @@ $$\phi(x,t) = f(x - c_0 t) + g(x + c_0 t)$$
 
 donde $f$ y $g$ son funciones arbitrarias que representan ondas viajando en sentidos opuestos a velocidad constante $c_0$, sin deformación.
 
-La relación de dispersión es lineal: $\omega = c_0 k$ — lo que implica $c_p = c_g = c_0$. Esta es la caracterización matemática de la no-dispersividad.
+La [[Dispersion Relation|relación de dispersión]] es lineal: $\omega = c_0 k$ — lo que implica $c_p = c_g = c_0$. Esta es la caracterización matemática de la no-dispersividad.
 
 ## Contexto en geofísica
 
 Las [[P-waves]] y [[S-Waves]] en medios elásticos homogéneos son aproximadamente hiperbólicas: viajan a velocidades constantes $V_P$ y $V_S$ independientemente de la frecuencia. En contraste, las [[Rayleigh Waves]] en [[Layered Media|medios estratificados]] son dispersivas: la relación $\omega(k)$ es no lineal (ver [[Wave Dispersion]] y [[Geometric Dispersion]]).
 
-> [!EXAMPLE] Evidencia empírica: separación en tiempo entre ondas de cuerpo y ground-roll en sismogramas [[MASW Method|MASW]]
-> **Paper 001 (Park, Miller & Xia 1999)** muestra sismogramas de Kansas donde las primeras llegadas P (ondas hiperbólicas, llegan primero) están claramente separadas del ground-roll de Rayleigh (onda dispersiva, llega después). Esta separación temporal valida que las ondas P se comportan como hiperbólicas (velocidad constante $V_P$), mientras que el ground-roll exhibe la dispersión característica de medios estratificados. La diferencia de comportamiento entre ondas hiperbólicas (no dispersivas) y ondas de Rayleigh (dispersivas) es el fundamento conceptual del análisis f-k que extrae la [[Dispersion Curve|curva de dispersión]] del ground-roll.
+> [!EXAMPLE] Evidencia empírica: separación en tiempo entre ondas de cuerpo y [[Ground Roll|ground-roll]] en sismogramas [[MASW Method|MASW]]
+> **Paper 001 (Park, Miller & Xia 1999)** muestra sismogramas de Kansas donde las primeras llegadas P (ondas hiperbólicas, llegan primero) están claramente separadas del [[Ground Roll|ground-roll]] de Rayleigh (onda dispersiva, llega después). Esta separación temporal valida que las ondas P se comportan como hiperbólicas (velocidad constante $V_P$), mientras que el [[Ground Roll|ground-roll]] exhibe la dispersión característica de medios estratificados. La diferencia de comportamiento entre ondas hiperbólicas (no dispersivas) y ondas de Rayleigh (dispersivas) es el fundamento conceptual del análisis f-k que extrae la [[Dispersion Curve|curva de dispersión]] del [[Ground Roll|ground-roll]].
 >
 > — Research Database, entrada 001 (core).
 

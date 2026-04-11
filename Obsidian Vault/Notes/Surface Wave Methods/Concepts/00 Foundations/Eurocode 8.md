@@ -50,7 +50,7 @@ donde ag es la aceleración de diseño en roca, η es el factor de amortiguamien
 
 > [!EXAMPLE] Evidencia empírica (Foti et al. 2018, Comina et al. 2002)
 > - **Seismic Microzonation, Memphis, TN** (Foti et al. 2018, §7.5): 45 ensayos [[MASW Method|MASW]] cubrieron la ciudad; VS,30 varió entre 160 y 490 m/s. La mayoría de sitios cayó en clase C–D (EC8), con clase E en zonas de llanura aluvial. El costo fue ~×15 inferior al de métodos invasivos para la misma cobertura espacial.
-> - **Comina et al. (2002)** — Dique del Po (Italia): inversión conjunta [[MASW Method|MASW]]+ERT produjo perfiles VS(z) coherentes con ensayos CPT. VS,30 = 195–230 m/s → clase C/D en EC8. La clasificación afectó la aceleración de diseño horizontal en +25% respecto al bedrock.
+> - **Comina et al. (2002)** — Dique del Po (Italia): [[Joint Inversion|inversión conjunta]] [[MASW Method|MASW]]+ERT produjo perfiles VS(z) coherentes con ensayos CPT. VS,30 = 195–230 m/s → clase C/D en EC8. La clasificación afectó la aceleración de diseño horizontal en +25% respecto al bedrock.
 > - **Andrus & Stokoe (2000)** — Base de datos de 26 sitios licuados en terremotos (Loma Prieta, Northridge, Kobe): todos los sitios con VS,30 < 180 m/s (clase D/E en EC8) mostraron evidencia de licuefacción cuando la sacudida superó el umbral CRR. VS,30 emerge como indicador de vulnerabilidad sísmica a nivel de sitio.
 
 ## Referencias

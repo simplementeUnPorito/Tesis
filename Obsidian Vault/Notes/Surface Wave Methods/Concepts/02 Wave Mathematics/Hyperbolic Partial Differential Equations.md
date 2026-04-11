@@ -75,7 +75,7 @@ Véase: [[Hyperbolic Waves]], [[Geometric Dispersion]], [[Material Dispersion]].
 
 ---
 
-> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — sistema hiperbólico de Navier como base del problema directo [[MASW Method|MASW]]
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — sistema hiperbólico de Navier como base del [[Forward Problem|problema directo]] [[MASW Method|MASW]]
 > **Paper 002 (Xia et al. 1999)** parte del sistema de Hyperbolic PDEs de Navier para derivar la ecuación secular de Rayleigh en medios estratificados. El carácter hiperbólico garantiza que las perturbaciones se propagan a velocidad finita ($V_P$, $V_S$) y que la solución en cada capa admite la forma $e^{i(kx-\omega t)}$ con dependencia exponencial en profundidad — habilitando el método de la matriz de transferencia. Sin la estructura hiperbólica del sistema de Navier, no existiría el concepto de [[Phase Velocity|velocidad de fase]] bien definida ni la [[Dispersion Curve|curva de dispersión]] que [[MASW Method|MASW]] extrae. El paper demuestra que el análisis de sensibilidad de la [[Dispersion Curve|curva de dispersión]] respecto a $V_S$, $V_P$ y $\rho$ es directo gracias a la linealidad del sistema hiperbólico en cada capa — permitiendo linearizar el problema inverso.
 >
 > — Research Database, entrada 002 (core); Xia et al. (1999), *Geophysics* 64(3).

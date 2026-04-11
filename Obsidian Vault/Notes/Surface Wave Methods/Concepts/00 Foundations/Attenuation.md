@@ -23,7 +23,7 @@ Separar ambas contribuciones es imprescindible si el objetivo es caracterizar el
 
 ## Atenuación material
 
-En [[Viscoelastic Media]], el número de onda se vuelve complejo:
+En [[Viscoelastic Media]], el [[Wavenumber|número de onda]] se vuelve complejo:
 
 $$\tilde{k} = k_R - i\,\alpha$$
 

@@ -51,7 +51,7 @@ Un único instrumento con fuente y dos receptores se suspende en un **pozo lleno
 | Representatividad espacial | Puntual (1D) | Volumétrica (promedio lateral) |
 | Profundidad accesible | Alta (>100 m con perforación) | Limitada por $\lambda_{\max}$ |
 | Costo relativo | Alto | Bajo |
-| Inversión de velocidades | Detecta directamente | Difícil (no-unicidad) |
+| Inversión de velocidades | Detecta directamente | Difícil ([[Non-uniqueness|no-unicidad]]) |
 
 ## Rol en el contexto de ondas superficiales
 

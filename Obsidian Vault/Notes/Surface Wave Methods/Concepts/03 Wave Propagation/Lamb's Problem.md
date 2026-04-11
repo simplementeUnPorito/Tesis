@@ -42,7 +42,7 @@ El resultado de Lamb no es uniforme en distancia: distingue dos regímenes.
 
 ### Campo lejano ( \gg \lambda_R$)
 
-A grandes distancias, la solución puede aproximarse por expansión asintótica. Las ondas de Rayleigh, P y S están bien separadas en tiempo (el sismograma muestra primeras llegadas P, luego S, luego ground-roll de Rayleigh). El campo está en **campo lejano** (far-field): la curvatura del frente de onda es despreciable y las ondas se pueden tratar como planas.
+A grandes distancias, la solución puede aproximarse por expansión asintótica. Las ondas de Rayleigh, P y S están bien separadas en tiempo (el sismograma muestra primeras llegadas P, luego S, luego [[Ground Roll|ground-roll]] de Rayleigh). El campo está en **campo lejano** (far-field): la curvatura del frente de onda es despreciable y las ondas se pueden tratar como planas.
 
 ### Campo cercano ( \lesssim \lambda_R/2$)
 
@@ -78,7 +78,7 @@ La solución original de Lamb (1904) para fuente vertical impulsiva ha sido exte
 - **Medio estratificado**: la solución exacta no existe analíticamente; se calcula numéricamente mediante el [[Layered Media|método de la matriz de transferencia]].
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) — validación del criterio de campo lejano en [[MASW Method|MASW]]
-> **Paper 001 (Park, Miller & Xia 1999)** utiliza el criterio de campo lejano del Problema de Lamb como justificación para excluir los geófonos más cercanos a la fuente en los registros [[MASW Method|MASW]]. Los sismogramas de Kansas muestran que a distancias $\geq 5$–$10$ m de la fuente el ground-roll de Rayleigh domina claramente sobre las llegadas de ondas de cuerpo, en acuerdo con la predicción de Lamb. El análisis f-k resultante produce [[Dispersion Curve|curvas de dispersión]] sin contaminación de campo cercano para frecuencias entre 5 y 30 Hz.
+> **Paper 001 (Park, Miller & Xia 1999)** utiliza el criterio de campo lejano del Problema de Lamb como justificación para excluir los geófonos más cercanos a la fuente en los registros [[MASW Method|MASW]]. Los sismogramas de Kansas muestran que a distancias $\geq 5$–$10$ m de la fuente el [[Ground Roll|ground-roll]] de Rayleigh domina claramente sobre las llegadas de ondas de cuerpo, en acuerdo con la predicción de Lamb. El análisis f-k resultante produce [[Dispersion Curve|curvas de dispersión]] sin contaminación de campo cercano para frecuencias entre 5 y 30 Hz.
 >
 > — Research Database, entrada 001 (core).
 

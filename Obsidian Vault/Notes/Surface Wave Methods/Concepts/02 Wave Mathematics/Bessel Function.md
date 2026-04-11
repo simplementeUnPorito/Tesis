@@ -11,9 +11,9 @@ type: reference
 > $$z^2 \frac{d^2 y}{dz^2} + z \frac{dy}{dz} + (z^2 - n^2) y = 0$$
 > La función de primer tipo $J_n(z)$ es regular en $z = 0$ y describe oscilaciones amortiguadas para $z \gg 1$:
 > $$J_n(z) \approx \sqrt{\frac{2}{\pi z}} \cos\!\left(z - \frac{n\pi}{2} - \frac{\pi}{4}\right) \qquad (z \gg 1)$$
-> La función $J_0(z)$ (orden cero) es especialmente importante en el método [[SPAC Method|SPAC]]: para un campo de ondas Rayleigh **isotrópico** (fuentes distribuidas uniformemente en azimut), la **correlación cruzada normalizada** entre dos receptores a distancia $r$ es:
+> La función $J_0(z)$ (orden cero) es especialmente importante en el método [[SPAC Method|SPAC]]: para un campo de [[Rayleigh Waves|ondas Rayleigh]] **isotrópico** (fuentes distribuidas uniformemente en azimut), la **correlación cruzada normalizada** entre dos receptores a distancia $r$ es:
 > $$\rho(f, r) = \frac{\Re\{C_{12}(f)\}}{\sqrt{C_{11}(f) C_{22}(f)}} = J_0\!\left(\frac{2\pi f \, r}{V_R(f)}\right) = J_0(k r)$$
-> donde $k = 2\pi f / V_R(f)$ es el número de onda de Rayleigh. Esta relación — conocida como la **fórmula de Aki (1957)** — convierte la inversión SPAC en un ajuste de $J_0$ a los datos de coherencia espacial. La función de Bessel también es la parte real de la [[Hankel Function|función de Hankel]]: $J_n(z) = \Re\{H_n^{(1)}(z)\} = \Re\{H_n^{(2)}(z)\}$.
+> donde $k = 2\pi f / V_R(f)$ es el [[Wavenumber|número de onda]] de Rayleigh. Esta relación — conocida como la **fórmula de Aki (1957)** — convierte la inversión SPAC en un ajuste de $J_0$ a los datos de coherencia espacial. La función de Bessel también es la parte real de la [[Hankel Function|función de Hankel]]: $J_n(z) = \Re\{H_n^{(1)}(z)\} = \Re\{H_n^{(2)}(z)\}$.
 >
 > — Aki (1957), *Bull. Earthquake Res. Inst.* 35, 415–456; Foti et al. (2018), §4.5.2, pp. 215–220; Watson (1944), *Treatise on Bessel Functions*.
 
