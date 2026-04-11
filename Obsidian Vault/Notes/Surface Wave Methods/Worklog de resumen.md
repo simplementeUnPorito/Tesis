@@ -685,3 +685,14 @@ Añadir `[!CONCEPT]` (definición técnica con wikilinks) y `[!EXAMPLE]` (eviden
 
 **Estado: 105 archivos en Concepts/. Fase 5 prácticamente completa — solo quedan d'Alembert (unicode), Lamb's Problem (unicode), y entradas de 1x de baja prioridad.**
 - Continuar loop hasta 2026-04-13 08:00 AM
+
+### 2026-04-11 — iteración 73 (commit e06ca73) — 5 nuevos conceptos (reanudación de sesión)
+- `Concepts/01/Shear Modulus.md` — G=ρVS², Gmax a γ<10⁻⁵, independencia de saturación (Biot), G*=G(1+2iDS) (1x en Chapter 1)
+- `Concepts/00/Soil Liquefaction.md` — pérdida de resistencia bajo carga sísmica, VS1 normalizado, CRR vs VS1 (Andrus & Stokoe 2000, 867 citas) (1x en Chapter 1)
+- `Concepts/04/Wave Guide.md` — atrapamiento ondas SH en capa VS1<VS2, reflexión total interna, ecuación dispersión Love, frecuencias de corte (1x en Chapter 2)
+- `Concepts/02/Eigenvalue Problem.md` — autovalores c=ω/k en medio continuo estratificado, Sturm-Liouville para SH, sistema P-SV, relación con kernels Fréchet/Jacobiano (1x en Chapter 2)
+- `Concepts/02/Hankel Function.md` — H₀⁽²⁾(kR·r), campo lejano Lamb's Problem, decaimiento r⁻¹/², desfase π/4, condición campo lejano r>>λ/2π, J₀ en SPAC (1x en Chapter 2)
+
+**Estado: 112 archivos en Concepts/. Wikilinks rotos en capítulos reducidos a: imágenes PNG (ignorar), Lamb's Problem (unicode), d'Alembert (unicode).**
+- Próximo paso: revisar Chapter 3 y Chapter 4 para cualquier wikilink pendiente de los 40 nuevos conceptos de Fase 5
+- Continuar loop hasta 2026-04-13 08:00 AM
