@@ -1,6 +1,6 @@
 ---
 name: Wavelength
-description: λ = c/f; período espacial de una onda; controla la profundidad de investigación en MASW (~λ/2) y la resolución vertical (~λ/2 mínimo resoluble)
+description: λ = c/f; período espacial de una onda; controla la profundidad de investigación en [[MASW Method|MASW]] (~λ/2) y la resolución vertical (~λ/2 mínimo resoluble)
 type: reference
 ---
 
@@ -23,7 +23,7 @@ La longitud de onda se relaciona con el [[Wavenumber|número de onda]] $k$ y la 
 
 $$k = \frac{2\pi}{\lambda}, \qquad \lambda = \frac{c}{f} = \frac{2\pi c}{\omega}$$
 
-donde $\omega = 2\pi f$ es la [[Angular Frequency|frecuencia angular]]. Estas tres representaciones (longitud de onda, número de onda, frecuencia) son equivalentes cuando se conoce la velocidad de fase.
+donde $\omega = 2\pi f$ es la [[Angular Frequency|frecuencia angular]]. Estas tres representaciones (longitud de onda, número de onda, frecuencia) son equivalentes cuando se conoce la [[Phase Velocity|velocidad de fase]].
 
 Para ondas de Rayleigh en un semiespacio homogéneo, $c_R \approx 0.92 V_S$ (casi constante), por lo que:
 
@@ -33,13 +33,13 @@ La longitud de onda crece con la velocidad del material y decrece con la frecuen
 
 ## Longitud de onda y profundidad de investigación
 
-El resultado más importante para MASW es la relación entre $\lambda_R$ y la profundidad efectiva de investigación. Las eigenfunciones de Rayleigh muestran que la amplitud de desplazamiento decae exponencialmente con la profundidad, con la mayor parte de la energía de deformación (~95%) concentrada dentro de $z \lesssim \lambda_R$ (ver [[Skin Depth]]).
+El resultado más importante para [[MASW Method|MASW]] es la relación entre $\lambda_R$ y la profundidad efectiva de investigación. Las eigenfunciones de Rayleigh muestran que la amplitud de desplazamiento decae exponencialmente con la profundidad, con la mayor parte de la energía de deformación (~95%) concentrada dentro de $z \lesssim \lambda_R$ (ver [[Skin Depth]]).
 
 La regla práctica ampliamente utilizada es:
 
 $$z_{\max} \approx \frac{\lambda_{\max}}{2} \quad \text{a} \quad \lambda_{\max}$$
 
-donde $\lambda_{\max} = V_{R,\min}/f_{\min}$ es la longitud de onda más larga del experimento. La versión conservadora ($\lambda/2$) reconoce que la sensibilidad de la curva de dispersión a $V_S$ a profundidad $z$ cae rápidamente para $z > \lambda/2$.
+donde $\lambda_{\max} = V_{R,\min}/f_{\min}$ es la longitud de onda más larga del experimento. La versión conservadora ($\lambda/2$) reconoce que la sensibilidad de la [[Dispersion Curve|curva de dispersión]] a $V_S$ a profundidad $z$ cae rápidamente para $z > \lambda/2$.
 
 **Ejemplo**: con $f_{\min} = 5$ Hz y $V_R \approx 200$ m/s:
 $$\lambda_{\max} = 200/5 = 40 \text{ m} \Rightarrow z_{\max} \approx 20\text{–}40 \text{ m}$$
@@ -52,7 +52,7 @@ $$\Delta z_{\min} \approx \frac{\lambda_{\min}}{2} = \frac{V_{R,\max}}{2\,f_{\ma
 
 donde $\lambda_{\min} = V_{R,\max}/f_{\max}$ es la longitud de onda más corta. Capas más delgadas que $\lambda_{\min}/2$ no pueden resolverse individualmente — su efecto aparece como un gradiente suave en el perfil invertido.
 
-## Rango de longitudes de onda en MASW
+## Rango de longitudes de onda en [[MASW Method|MASW]]
 
 El rango de $\lambda_R$ accesible está determinado por el diseño del arreglo:
 
@@ -81,8 +81,8 @@ Si esta condición no se cumple, las ondas de longitud de onda $\lambda < 2\Delt
 | 20 m | 150–300 m/s | ~7–15 Hz | ~20–40 m | ~40 m |
 | 50 m | 200–500 m/s | ~4–10 Hz | ~50–100 m | ~100 m |
 
-> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — rango de longitudes de onda y profundidad de investigación MASW
-> **Paper 002 (Xia, Miller & Park 1999)** reporta curvas de dispersión en el rango de 5–30 Hz para sitios en Kansas con $V_S \approx 150$–$400$ m/s. Las longitudes de onda accesibles van de $\lambda_{min} \approx 5$ m a $\lambda_{max} \approx 40$ m, lo que corresponde a una profundidad de investigación de ~20–40 m — confirmando la regla $z_{max} \approx \lambda_{max}/2$. La resolución vertical en el perfil invertido es del orden de $\lambda_{min}/2 \approx 2.5$ m para las capas superficiales, en acuerdo con las diferencias reportadas entre el perfil MASW y el borehole.
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — rango de longitudes de onda y profundidad de investigación [[MASW Method|MASW]]
+> **Paper 002 (Xia, Miller & Park 1999)** reporta [[Dispersion Curve|curvas de dispersión]] en el rango de 5–30 Hz para sitios en Kansas con $V_S \approx 150$–$400$ m/s. Las longitudes de onda accesibles van de $\lambda_{min} \approx 5$ m a $\lambda_{max} \approx 40$ m, lo que corresponde a una profundidad de investigación de ~20–40 m — confirmando la regla $z_{max} \approx \lambda_{max}/2$. La resolución vertical en el perfil invertido es del orden de $\lambda_{min}/2 \approx 2.5$ m para las capas superficiales, en acuerdo con las diferencias reportadas entre el perfil [[MASW Method|MASW]] y el borehole.
 >
 > — Research Database, entrada 002 (core).
 

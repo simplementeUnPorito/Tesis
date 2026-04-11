@@ -1,6 +1,6 @@
 ---
 name: Thomson-Haskell Matrix
-description: Método de matriz de transferencia para calcular la curva de dispersión de Rayleigh en medios estratificados — propaga condiciones de borde entre capas multiplicando matrices 4x4
+description: Método de matriz de transferencia para calcular la [[Dispersion Curve|curva de dispersión]] de Rayleigh en medios estratificados — propaga condiciones de borde entre capas multiplicando matrices 4x4
 type: reference
 ---
 
@@ -33,7 +33,7 @@ Aplicando condición de superficie libre (esfuerzos = 0 en la superficie) y deca
 
 $$\mathbf{M}(c_R, f) \cdot \mathbf{a} = \mathbf{0} \quad \Leftrightarrow \quad \det[\mathbf{M}] = 0$$
 
-Las raíces $c_R(f)$ de esta ecuación implícita son la **curva de dispersión** de cada modo.
+Las raíces $c_R(f)$ de esta ecuación implícita son la **[[Dispersion Curve|curva de dispersión]]** de cada modo.
 
 ## Ventajas e inconvenientes
 
@@ -44,14 +44,14 @@ Las raíces $c_R(f)$ de esta ecuación implícita son la **curva de dispersión*
 | Coste computacional | $O(N)$ multiplicaciones de matrices $4\times4$ | Similar |
 | Inversión | No directa | Permite inversión directa del Jacobiano |
 
-Para aplicaciones MASW estándar, las inestabilidades numéricas aparecen cuando $\omega h / V_S \gg 1$ (capas gruesas a alta frecuencia). Se evitan usando la **formulación de la matriz de rigidez** (Kausel & Roësset 1981) o el método de propagador de Dunkin (1965).
+Para aplicaciones [[MASW Method|MASW]] estándar, las inestabilidades numéricas aparecen cuando $\omega h / V_S \gg 1$ (capas gruesas a alta frecuencia). Se evitan usando la **formulación de la matriz de rigidez** (Kausel & Roësset 1981) o el método de propagador de Dunkin (1965).
 
 ## Extensión a medios viscoelásticos
 
-Por el **principio de correspondencia elástico-viscoelástico** ([[Viscoelastic Media]]), todas las constantes de Lamé se reemplazan por módulos complejos $\tilde{\mu}(\omega) = \mu(1+2iD_s)$. La matriz de Thomson-Haskell pasa a ser compleja → las raíces de $\det[\mathbf{M}] = 0$ son complejas → se obtiene simultáneamente la velocidad de fase real $c_R$ y el coeficiente de atenuación $\alpha_R$, base de la estimación de [[Shear Damping Ratio|$D_s$]].
+Por el **principio de correspondencia elástico-viscoelástico** ([[Viscoelastic Media]]), todas las constantes de Lamé se reemplazan por módulos complejos $\tilde{\mu}(\omega) = \mu(1+2iD_s)$. La matriz de Thomson-Haskell pasa a ser compleja → las raíces de $\det[\mathbf{M}] = 0$ son complejas → se obtiene simultáneamente la [[Phase Velocity|velocidad de fase]] real $c_R$ y el coeficiente de atenuación $\alpha_R$, base de la estimación de [[Shear Damping Ratio|$D_s$]].
 
-> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — Thomson-Haskell como motor del problema directo en inversión MASW
-> **Paper 002 (Xia et al. 1999)** implementa el método de Thomson-Haskell como el motor del **problema directo** en su algoritmo de inversión MASW por mínimos cuadrados. Para cada modelo candidato $\{V_{S,i}, V_{P,i}, \rho_i, h_i\}$, se calcula la curva de dispersión teórica resolviendo $\det[\mathbf{M}(c_R, f)] = 0$ numéricamente (bisección en $c_R$ para cada $f$). El Jacobiano $\partial c_R / \partial V_{S,i}$ se calcula por diferencias finitas. El algoritmo ejecuta ~10 iteraciones con ~100 evaluaciones del problema directo por iteración → ~1000 evaluaciones del método de Thomson-Haskell por inversión completa. La eficiencia del método es la que hace posible la inversión iterativa en tiempo razonable.
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — Thomson-Haskell como motor del problema directo en inversión [[MASW Method|MASW]]
+> **Paper 002 (Xia et al. 1999)** implementa el método de Thomson-Haskell como el motor del **problema directo** en su algoritmo de inversión [[MASW Method|MASW]] por mínimos cuadrados. Para cada modelo candidato $\{V_{S,i}, V_{P,i}, \rho_i, h_i\}$, se calcula la [[Dispersion Curve|curva de dispersión]] teórica resolviendo $\det[\mathbf{M}(c_R, f)] = 0$ numéricamente (bisección en $c_R$ para cada $f$). El Jacobiano $\partial c_R / \partial V_{S,i}$ se calcula por diferencias finitas. El algoritmo ejecuta ~10 iteraciones con ~100 evaluaciones del problema directo por iteración → ~1000 evaluaciones del método de Thomson-Haskell por inversión completa. La eficiencia del método es la que hace posible la inversión iterativa en tiempo razonable.
 >
 > — Research Database, entrada 002 (core); Xia et al. (1999), *Geophysics* 64(3); Thomson (1950); Haskell (1953).
 
@@ -63,4 +63,4 @@ Por el **principio de correspondencia elástico-viscoelástico** ([[Viscoelastic
 | Thomson (1950), *J. Appl. Phys.* 21 | Formulación original de la matriz de transferencia |
 | Haskell (1953), *Bull. Seism. Soc. Am.* 43 | Extensión a ondas de Love y Rayleigh |
 | Kausel & Roësset (1981) | Formulación de matriz de rigidez (numéricamente estable) |
-| Xia et al. (1999), *Geophysics* 64(3) | Paper 002 — Thomson-Haskell en inversión MASW |
+| Xia et al. (1999), *Geophysics* 64(3) | Paper 002 — Thomson-Haskell en inversión [[MASW Method|MASW]] |

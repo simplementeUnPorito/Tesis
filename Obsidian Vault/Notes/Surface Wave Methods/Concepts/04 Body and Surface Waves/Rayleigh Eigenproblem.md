@@ -1,6 +1,6 @@
 ---
 name: Rayleigh Eigenproblem
-description: Formulación matemática de la propagación de ondas de Rayleigh en medios estratificados como problema de valores propios; su solución produce la curva de dispersión teórica usada en la inversión
+description: Formulación matemática de la propagación de ondas de Rayleigh en medios estratificados como problema de valores propios; su solución produce la [[Dispersion Curve|curva de dispersión]] teórica usada en la inversión
 type: reference
 ---
 
@@ -28,7 +28,7 @@ Esto define las velocidades de fase de los [[Surface Wave Modes|modos]] $c_n(\om
 | Eigenfunciones horizontales | $r_1^{(n)}(z)$ | Desplazamiento horizontal vs. profundidad |
 | Kernels de sensibilidad | $\partial c_n/\partial V_S(z)$ | Derivadas parciales para inversión |
 
-Los kernels de sensibilidad son las derivadas de la velocidad de fase respecto a los parámetros del modelo — son el Jacobiano del problema inverso y determinan qué profundidades puede resolver cada frecuencia.
+Los kernels de sensibilidad son las derivadas de la [[Phase Velocity|velocidad de fase]] respecto a los parámetros del modelo — son el Jacobiano del problema inverso y determinan qué profundidades puede resolver cada frecuencia.
 
 ## Extensión a medios disipativos
 
@@ -36,14 +36,14 @@ En [[Viscoelastic Media|medios viscoelásticos]], los módulos elásticos se ree
 
 $$\tilde{\mu}(\omega) = \mu_R(\omega)(1 + 2iD_S)$$
 
-La velocidad de fase y el número de onda se vuelven complejos. Para amortiguamiento débil ($D \ll 1$):
-- La velocidad de fase cambia en orden $D^2$ (segundo orden)
+La [[Phase Velocity|velocidad de fase]] y el número de onda se vuelven complejos. Para amortiguamiento débil ($D \ll 1$):
+- La [[Phase Velocity|velocidad de fase]] cambia en orden $D^2$ (segundo orden)
 - La atenuación espacial $\alpha_R$ es proporcional a $D$ (primer orden)
 
 Esto permite estimar el perfil de amortiguamiento $D_S(z)$ a partir de la curva de atenuación $\alpha_R(f)$ medida experimentalmente.
 
 > [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — Rayleigh Eigenproblem como núcleo del forward modeling
-> **Paper 002 (Xia, Miller & Park 1999)** implementa el Rayleigh Eigenproblem mediante la formulación de Thomson-Haskell como núcleo del problema directo de MASW. El Jacobiano analítico $\partial c_R/\partial V_S$ — derivado de las eigenfunciones de Rayleigh — permite la inversión iterativa convergente en menos de 10 iteraciones para todos los sitios de Kansas ensayados. La estructura de eigenvalores del problema garantiza que la curva de dispersión es una función suave de $V_S(z)$, lo que estabiliza la inversión y facilita la convergencia.
+> **Paper 002 (Xia, Miller & Park 1999)** implementa el Rayleigh Eigenproblem mediante la formulación de Thomson-Haskell como núcleo del problema directo de [[MASW Method|MASW]]. El Jacobiano analítico $\partial c_R/\partial V_S$ — derivado de las eigenfunciones de Rayleigh — permite la inversión iterativa convergente en menos de 10 iteraciones para todos los sitios de Kansas ensayados. La estructura de eigenvalores del problema garantiza que la [[Dispersion Curve|curva de dispersión]] es una función suave de $V_S(z)$, lo que estabiliza la inversión y facilita la convergencia.
 >
 > — Research Database, entrada 002 (core).
 
@@ -52,7 +52,7 @@ Esto permite estimar el perfil de amortiguamiento $D_S(z)$ a partir de la curva 
 - [[Elastic Wave Potentials]] — formulación de potenciales que conduce al sistema matricial
 - [[Layered Media]] — el medio donde se formula el eigenproblem estratificado
 - [[Surface Wave Modes]] — los eigenvalores del problema son los modos de propagación
-- [[Dispersion Relation]] — la curva de dispersión emerge de las raíces del determinante
+- [[Dispersion Relation]] — la [[Dispersion Curve|curva de dispersión]] emerge de las raíces del determinante
 - [[Rayleigh Waves]] — las ondas cuyo eigenproblem se formula
 - [[Attenuation]] — extensión a medios disipativos con módulos complejos
 
@@ -61,4 +61,4 @@ Esto permite estimar el perfil de amortiguamiento $D_S(z)$ a partir de la curva 
 | Fuente | Sección / Página |
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | §2.4–2.5, pp. 64–110 — eigenproblem y eigenfunciones |
-| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 — implementación Thomson-Haskell en MASW |
+| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 — implementación Thomson-Haskell en [[MASW Method|MASW]] |

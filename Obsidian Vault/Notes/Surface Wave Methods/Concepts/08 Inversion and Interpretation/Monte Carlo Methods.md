@@ -1,13 +1,13 @@
 # Métodos de Monte Carlo (Monte Carlo Methods)
 
 > [!CONCEPT] Definición
-> Los **métodos de Monte Carlo** son estrategias de **búsqueda global** para la [[Inversión|inversión]] de ondas superficiales: generan una gran población de modelos $\mathbf{m}$ ([[Layered Media|perfiles de capas]] con $V_S$, $V_P$, $\rho$, $h$), evalúan el desajuste $E(\mathbf{m})$ de cada uno respecto a la curva de dispersión experimental, y seleccionan como *soluciones aceptables* aquellos con $E(\mathbf{m}) \leq E_{thr}$ según un test de Fisher al nivel de confianza elegido. A diferencia de los métodos locales (gradiente, Levenberg-Marquardt), no requieren modelo inicial ni jacobiano — exploran el espacio completo de parámetros. Su principal valor es **cuantificar la [[Non-uniqueness|no-unicidad]]**: en lugar de un único perfil, producen un *ensemble* de perfiles equivalentes cuya dispersión caracteriza la incertidumbre del resultado. El costo computacional es alto (10³–10⁶ evaluaciones del problema directo por corrida).
+> Los **métodos de Monte Carlo** son estrategias de **búsqueda global** para la [[Inversión|inversión]] de ondas superficiales: generan una gran población de modelos $\mathbf{m}$ ([[Layered Media|perfiles de capas]] con $V_S$, $V_P$, $\rho$, $h$), evalúan el desajuste $E(\mathbf{m})$ de cada uno respecto a la [[Dispersion Curve|curva de dispersión]] experimental, y seleccionan como *soluciones aceptables* aquellos con $E(\mathbf{m}) \leq E_{thr}$ según un test de Fisher al nivel de confianza elegido. A diferencia de los métodos locales (gradiente, Levenberg-Marquardt), no requieren modelo inicial ni jacobiano — exploran el espacio completo de parámetros. Su principal valor es **cuantificar la [[Non-uniqueness|no-unicidad]]**: en lugar de un único perfil, producen un *ensemble* de perfiles equivalentes cuya dispersión caracteriza la incertidumbre del resultado. El costo computacional es alto (10³–10⁶ evaluaciones del problema directo por corrida).
 >
 > — Foti et al. (2018), Cap. 6.1.3, p. 280; Cap. 6.4.3, p. 308; Cap. 7.2.4, pp. 371–374.
 
 ## Principio
 
-Los **métodos de Monte Carlo** son estrategias de búsqueda global que exploran el espacio de parámetros del modelo mediante **muestreo aleatorio**. En el contexto de la inversión de ondas superficiales, generan una gran población de modelos (perfiles de Vs) y evalúan el desajuste (*misfit*) de cada uno respecto a la curva de dispersión experimental. La distribución de misfit sobre la población permite:
+Los **métodos de Monte Carlo** son estrategias de búsqueda global que exploran el espacio de parámetros del modelo mediante **muestreo aleatorio**. En el contexto de la inversión de ondas superficiales, generan una gran población de modelos (perfiles de Vs) y evalúan el desajuste (*misfit*) de cada uno respecto a la [[Dispersion Curve|curva de dispersión]] experimental. La distribución de misfit sobre la población permite:
 
 1. Identificar el mejor modelo (mínimo global del misfit).
 2. Cuantificar la [[Non-uniqueness|no-unicidad]]: identificar todos los modelos cuyo misfit es estadísticamente compatible con la incertidumbre experimental.
@@ -15,7 +15,7 @@ Los **métodos de Monte Carlo** son estrategias de búsqueda global que exploran
 
 ## Formulación
 
-El desajuste (*misfit*) entre la curva de dispersión teórica $\mathbf{d}^{cal}(\mathbf{m})$ y la experimental $\mathbf{d}^{obs}$ se define como (Foti Ec. 6.34):
+El desajuste (*misfit*) entre la [[Dispersion Curve|curva de dispersión]] teórica $\mathbf{d}^{cal}(\mathbf{m})$ y la experimental $\mathbf{d}^{obs}$ se define como (Foti Ec. 6.34):
 
 $$E(\mathbf{m}) = \frac{1}{N} \sum_{i=1}^{N} \left(\frac{d_i^{cal}(\mathbf{m}) - d_i^{obs}}{\sigma_i}\right)^2$$
 
@@ -26,7 +26,7 @@ donde $\sigma_i$ es la incertidumbre del dato $i$-ésimo. Un modelo se considera
 El algoritmo de Monte Carlo global de **Socco y Boiero (2008)** genera $10^5$ modelos de perfil Vs y aplica las propiedades de escala de las curvas modales para guiar el muestreo de manera eficiente:
 
 1. Generar una población de modelos aleatorios dentro de los rangos físicamente plausibles.
-2. Calcular la curva de dispersión teórica de cada modelo (problema directo).
+2. Calcular la [[Dispersion Curve|curva de dispersión]] teórica de cada modelo (problema directo).
 3. Evaluar el misfit $E(\mathbf{m})$ para cada modelo.
 4. Seleccionar los modelos aceptables con el test de Fisher.
 5. Visualizar la distribución de perfiles aceptables (en escala de grises por misfit, más oscuro = menor misfit).
@@ -83,5 +83,5 @@ Todos comparten el objetivo de explorar el espacio de parámetros globalmente y 
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | Cap. 6.1.3 (local vs global), Cap. 6.4.3, Cap. 7.2.4, pp. 280–374 |
 | Socco & Boiero (2008), *Near Surface Geophys* | Algoritmo de Monte Carlo global con propiedades de escala |
-| Olafsdottir, Erlingsson & Bessason (2020), *Geosciences* 10(8):322 | Paper 013 — MASWaves: herramienta open-source MATLAB para inversión Monte Carlo MASW; CC BY 4.0 |
+| Olafsdottir, Erlingsson & Bessason (2020), *Geosciences* 10(8):322 | Paper 013 — MASWaves: herramienta open-source MATLAB para inversión Monte Carlo [[MASW Method|MASW]]; CC BY 4.0 |
 | Bergamo et al. (2011), *SDEE* 31(3):530–534 | Paper 037 — Monte Carlo multimodal sin asignación previa; sitios con basamento superficial |

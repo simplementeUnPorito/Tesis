@@ -55,15 +55,15 @@ Las [[Love Waves]] son, en esencia, la superposición constructiva de ondas SH q
 
 $$\tan\left(k\sqrt{(V_{S2}/V_{S1})^2 - 1}\,k h\right) = \frac{\mu_2 \sqrt{1 - (V_{S1}/V_{S2})^2 c^{-2}}}{\mu_1 \sqrt{(c/V_{S1})^{-2} - 1}}$$
 
-donde $c$ es la velocidad de fase de Love. Esta ecuación tiene múltiples soluciones para cada frecuencia: son los [[Surface Wave Modes|modos de Love]].
+donde $c$ es la [[Phase Velocity|velocidad de fase]] de Love. Esta ecuación tiene múltiples soluciones para cada frecuencia: son los [[Surface Wave Modes|modos de Love]].
 
 ## Excitación en campo
 
 Las ondas SH se excitan con fuentes de tipo horizontal (golpe lateral, vibrador horizontal). Las fuentes verticales estándar (martillo, peso) generan principalmente ondas P y SV, con mínima energía SH. Esto tiene implicaciones para la adquisición:
 
 - **Adquisición de Love waves**: requiere fuentes y geófonos horizontales orientados perpendicularmente a la línea del arreglo.
-- **Geófonos verticales** (los más comunes en MASW) no registran SH: son insensibles al movimiento horizontal transversal.
-- **Ventaja de Love vs. Rayleigh**: al no involucrar ondas P, la inversión de Love es más limpia y su curva de dispersión solo depende del perfil $V_S$ y las densidades — no requiere $V_P$ como parámetro a priori.
+- **Geófonos verticales** (los más comunes en [[MASW Method|MASW]]) no registran SH: son insensibles al movimiento horizontal transversal.
+- **Ventaja de Love vs. Rayleigh**: al no involucrar ondas P, la inversión de Love es más limpia y su [[Dispersion Curve|curva de dispersión]] solo depende del perfil $V_S$ y las densidades — no requiere $V_P$ como parámetro a priori.
 
 ## SH en medios estratificados: método de la matriz de transferencia
 
@@ -71,10 +71,10 @@ El análisis de propagación SH en medios estratificados es más simple que el P
 
 $$u_y^{(j)}(z) = A_j e^{i k_{z,j} z} + B_j e^{-i k_{z,j} z}, \quad k_{z,j} = \sqrt{(\omega/V_{Sj})^2 - k^2}$$
 
-Las amplitudes $A_j, B_j$ se conectan entre capas mediante una matriz de transferencia $2\times 2$ (vs. $4\times 4$ para el caso P–SV del método de [[Layered Media|Thomson-Haskell]]). Esto hace que el cálculo de curvas de dispersión de Love sea computacionalmente más eficiente.
+Las amplitudes $A_j, B_j$ se conectan entre capas mediante una matriz de transferencia $2\times 2$ (vs. $4\times 4$ para el caso P–SV del método de [[Layered Media|Thomson-Haskell]]). Esto hace que el cálculo de [[Dispersion Curve|curvas de dispersión]] de Love sea computacionalmente más eficiente.
 
 > [!EXAMPLE] Evidencia empírica: Dal Moro & Ferigo (2011) — ventaja del desacoplamiento SH en inversión Love
-> **Paper 045 (Dal Moro & Ferigo 2011)** aprovecha el desacoplamiento de las ondas SH para construir curvas de dispersión de Love independientes de $V_P$. En el sitio con fuerte contraste de velocidad estudiado, las curvas de Love (basadas en SH) son más regulares y libres de osculaciones que las curvas de Rayleigh (P–SV acoplado). La inversión conjunta Love + Rayleigh, utilizando geófonos horizontales para SH, produce un perfil $V_S(z)$ con menor no-unicidad que la inversión solo de Rayleigh — validando el beneficio del desacoplamiento SH como ventaja analítica.
+> **Paper 045 (Dal Moro & Ferigo 2011)** aprovecha el desacoplamiento de las ondas SH para construir [[Dispersion Curve|curvas de dispersión]] de Love independientes de $V_P$. En el sitio con fuerte contraste de velocidad estudiado, las curvas de Love (basadas en SH) son más regulares y libres de osculaciones que las curvas de Rayleigh (P–SV acoplado). La inversión conjunta Love + Rayleigh, utilizando geófonos horizontales para SH, produce un perfil $V_S(z)$ con menor no-unicidad que la inversión solo de Rayleigh — validando el beneficio del desacoplamiento SH como ventaja analítica.
 >
 > — Research Database, entrada 045 (core).
 

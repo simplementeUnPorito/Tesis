@@ -17,7 +17,7 @@ type: reference
 
 $$\mathcal{F}\{\delta(t)\} = 1, \qquad \mathcal{F}\{\delta(t - t_0)\} = e^{-i\omega t_0}$$
 
-Esta propiedad implica que una fuente impulsiva ideal emite energía con amplitud **uniforme en todas las frecuencias** y con **fase lineal** proporcional al retardo $t_0$. En MASW, el pico de energía de la fuente martillo se aproxima como una delta desplazada: $s(t) \approx A_0 \, \delta(t - t_s)$.
+Esta propiedad implica que una fuente impulsiva ideal emite energía con amplitud **uniforme en todas las frecuencias** y con **fase lineal** proporcional al retardo $t_0$. En [[MASW Method|MASW]], el pico de energía de la fuente martillo se aproxima como una delta desplazada: $s(t) \approx A_0 \, \delta(t - t_s)$.
 
 ## Relación con el kernel de la convolución
 
@@ -30,8 +30,8 @@ donde $G(t, r)$ es la función de Green del medio — respuesta al impulso unita
 
 El **tren de deltas** $\text{III}(t) = \sum_{n=-\infty}^{\infty} \delta(t - n\Delta t)$ modela el muestreo a frecuencia $F_s = 1/\Delta t$. Su transformada de Fourier también es un tren de deltas: $\mathcal{F}\{\text{III}(t)\} = \Delta t \cdot \text{III}(f \cdot \Delta t)$, lo que genera la periodicidad del espectro discreto responsable del [[Spectral Leakage|aliasing]] cuando $f_{\max} > F_s/2$ (ver [[Dirac Comb]]).
 
-> [!EXAMPLE] Evidencia empírica: Park et al. (1998) — respuesta impulsiva en adquisición MASW
-> Park et al. (1998, *SEG Technical Program Expanded Abstracts*) analizan la respuesta espectral de diferentes fuentes en ensayos MASW: martillo de 4.5 kg (≈0.5 ms de contacto), vibrador controlado (barrido 1–100 Hz) y carga explosiva. El espectro de amplitud del martillo muestra energía casi plana de 1 a 80 Hz — aproximando la delta de Dirac ideal en el rango sísmico superficial. La correspondencia entre el espectro de la fuente y el espectro de la función de Green (curva de dispersión de Rayleigh) permite extraer $V_R(f)$ directamente de la razón espectral entre receptores, sin necesidad de deconvolución explícita. Foti et al. (2018, §3.4.1) adoptan este modelo convolucional como base del análisis espectral en MASW.
+> [!EXAMPLE] Evidencia empírica: Park et al. (1998) — respuesta impulsiva en adquisición [[MASW Method|MASW]]
+> Park et al. (1998, *SEG Technical Program Expanded Abstracts*) analizan la respuesta espectral de diferentes fuentes en ensayos [[MASW Method|MASW]]: martillo de 4.5 kg (≈0.5 ms de contacto), vibrador controlado (barrido 1–100 Hz) y carga explosiva. El espectro de amplitud del martillo muestra energía casi plana de 1 a 80 Hz — aproximando la delta de Dirac ideal en el rango sísmico superficial. La correspondencia entre el espectro de la fuente y el espectro de la función de Green ([[Dispersion Curve|curva de dispersión]] de Rayleigh) permite extraer $V_R(f)$ directamente de la razón espectral entre receptores, sin necesidad de deconvolución explícita. Foti et al. (2018, §3.4.1) adoptan este modelo convolucional como base del análisis espectral en [[MASW Method|MASW]].
 >
 > — Foti et al. (2018), §3.3.1, §3.4.1; Park et al. (1998), *SEG Expanded Abstracts*.
 

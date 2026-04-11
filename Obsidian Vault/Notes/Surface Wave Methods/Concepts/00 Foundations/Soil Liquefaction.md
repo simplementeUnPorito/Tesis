@@ -1,6 +1,6 @@
 ---
 name: Soil Liquefaction
-description: Fenómeno de pérdida de resistencia del suelo saturado ante carga sísmica cíclica — evaluado mediante VS1 normalizado usando el método de Andrus & Stokoe (2000) basado en medidas MASW
+description: Fenómeno de pérdida de resistencia del suelo saturado ante carga sísmica cíclica — evaluado mediante VS1 normalizado usando el método de Andrus & Stokoe (2000) basado en medidas [[MASW Method|MASW]]
 type: reference
 ---
 
@@ -35,7 +35,7 @@ La base de datos de Andrus & Stokoe (2000) incluye 26 terremotos con arenas fina
 
 ### Ventajas del método $V_S$ sobre SPT/CPT
 
-| Aspecto | SPT/CPT | $V_S$ (MASW) |
+| Aspecto | SPT/CPT | $V_S$ ([[MASW Method|MASW]]) |
 |---------|---------|-------------|
 | Aplicabilidad en gravas | Limitada (daño a herramienta) | Alta |
 | Perturbación del suelo | Alta | Nula |
@@ -57,6 +57,6 @@ El parámetro $V_{S,30}$ (velocidad media en los primeros 30 m) de la normativa 
 | Fuente | Sección / Página |
 |--------|-----------------|
 | Andrus & Stokoe (2000), *JGGE* 126(11) | Curvas CRR vs VS1 — base de datos 26 terremotos |
-| Foti et al. (2018), *Surface Wave Methods* | §1.2.2 — aplicaciones MASW en riesgo sísmico |
+| Foti et al. (2018), *Surface Wave Methods* | §1.2.2 — aplicaciones [[MASW Method|MASW]] en riesgo sísmico |
 | Seed & Idriss (1971), *JSMFE* | Procedimiento simplificado de evaluación de licuefacción |
 | NEHRP (2020), *FEMA P-2082* | Clasificación VS30 y amplificación sísmica |

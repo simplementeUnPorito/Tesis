@@ -7,7 +7,7 @@
 
 ## Principio
 
-**MOPA** (*Multi-Offset Phase Analysis*) es la extensión multicanal del método [[SASW Method|SASW]]. Mientras SASW usa solo dos receptores y requiere múltiples adquisiciones, MOPA emplea todo el array lineal en una sola adquisición para estimar la [[Dispersion Relation|curva de dispersión]].
+**MOPA** (*Multi-Offset Phase Analysis*) es la extensión multicanal del método [[SASW Method|SASW]]. Mientras [[SASW Method|SASW]] usa solo dos receptores y requiere múltiples adquisiciones, MOPA emplea todo el array lineal en una sola adquisición para estimar la [[Dispersion Relation|curva de dispersión]].
 
 Bajo la hipótesis de **un único modo de propagación** y **campo lejano**, la fase del espectro en el receptor $i$ ubicado a posición $x_i$ es una función lineal de la posición:
 
@@ -26,7 +26,7 @@ donde:
 - $\mathbf{M} = [k(\omega),\ \varphi_0(\omega)]^T$ contiene las incógnitas,
 - $\mathbf{G}$ es la matriz de diseño que contiene las posiciones $x_i$ y unos.
 
-La solución por **mínimos cuadrados ponderados** (ponderada por las incertidumbres de fase) entrega el número de onda estimado $\hat{k}(\omega)$ y su desviación estándar $\sigma_k$. La velocidad de fase y su incertidumbre son:
+La solución por **mínimos cuadrados ponderados** (ponderada por las incertidumbres de fase) entrega el número de onda estimado $\hat{k}(\omega)$ y su desviación estándar $\sigma_k$. La [[Phase Velocity|velocidad de fase]] y su incertidumbre son:
 
 $$V(\omega) = \frac{2\pi f}{k}, \qquad \sigma_V = \frac{2\pi f}{k^2}\,\sigma_k$$
 
@@ -40,9 +40,9 @@ Una contribución central de MOPA es ofrecer un **criterio estadístico objetivo
 - Identificar los receptores afectados por **efectos de campo cercano** (los receptores más cercanos a la fuente exhiben desviaciones de la tendencia lineal de fase).
 - Detectar **variaciones laterales**: un cambio de pendiente en la distribución fase-offset a lo largo de la posición del array indica la presencia de una discontinuidad lateral.
 
-## Ventajas respecto a SASW
+## Ventajas respecto a [[SASW Method|SASW]]
 
-| Aspecto | SASW | MOPA |
+| Aspecto | [[SASW Method|SASW]] | MOPA |
 |---|---|---|
 | Número de receptores | 2 | Array completo (N receptores) |
 | Adquisiciones necesarias | Múltiples (distintos espaciados) | Una sola |
@@ -62,18 +62,18 @@ Esta capacidad de detectar heterogeneidades laterales hace de MOPA una herramien
 
 ## Relación con otros métodos
 
-- MOPA asume **modo único**: no puede resolver la contribución de modos superiores. Si la imagen f-k muestra múltiples ramas modales bien separadas, MASW proporciona mejor resolución modal.
-- La estimación directa de $\sigma_V$ convierte a MOPA en el **método de referencia** para la cuantificación de incertidumbre en la curva de dispersión (Foti p. 227): otros métodos estiman la incertidumbre de forma empírica o por repetición de shots.
+- MOPA asume **modo único**: no puede resolver la contribución de modos superiores. Si la imagen f-k muestra múltiples ramas modales bien separadas, [[MASW Method|MASW]] proporciona mejor resolución modal.
+- La estimación directa de $\sigma_V$ convierte a MOPA en el **método de referencia** para la cuantificación de incertidumbre en la [[Dispersion Curve|curva de dispersión]] (Foti p. 227): otros métodos estiman la incertidumbre de forma empírica o por repetición de shots.
 - En el contexto de la caracterización del sitio, MOPA se aplica típicamente sobre los mismos datos del [[MASW Method|MASW]] como análisis complementario o alternativo.
 
 ## Limitaciones
 
 - La hipótesis de modo único puede no cumplirse en sitios con perfil de velocidad complejo (alta impedancia superficial, inversión de velocidad) donde varios modos tienen energía comparable.
-- No proporciona imagen del campo de onda en el dominio $f$-$k$: la visualización de la curva de dispersión depende de la calidad del ajuste lineal por frecuencia, no de un espectro 2D.
+- No proporciona imagen del campo de onda en el dominio $f$-$k$: la visualización de la [[Dispersion Curve|curva de dispersión]] depende de la calidad del ajuste lineal por frecuencia, no de un espectro 2D.
 - Sensible a ruido coherente (reflexiones, refracciones) que contamine la fase de la onda superficial directa.
 
-> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — MOPA como referencia de incertidumbre en curva de dispersión
-> Foti et al. (2018, §4.4) aplican MOPA a datos de campo MASW y demuestran que la incertidumbre estimada directamente por el ajuste de mínimos cuadrados ($\sigma_V$ como función de $f$) es coherente con la variabilidad empírica observada entre disparos repetidos. En el ejemplo del sitio de referencia, el test $\chi^2$ identifica automáticamente las frecuencias donde los receptores del extremo cercano (campo cercano a la fuente) producen desviaciones sistemáticas de la tendencia lineal de fase — eliminando la necesidad de determinar el offset mínimo de fuente por reglas empíricas. La incertidumbre MOPA propagada a través de la inversión produce bandas de confianza en $V_S(z)$ equivalentes a las obtenidas por Monte Carlo con un costo computacional mínimo. MOPA se recomienda como análisis complementario al espectrograma f-k para cuantificar la incertidumbre de la curva de dispersión.
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — MOPA como referencia de incertidumbre en [[Dispersion Curve|curva de dispersión]]
+> Foti et al. (2018, §4.4) aplican MOPA a datos de campo [[MASW Method|MASW]] y demuestran que la incertidumbre estimada directamente por el ajuste de mínimos cuadrados ($\sigma_V$ como función de $f$) es coherente con la variabilidad empírica observada entre disparos repetidos. En el ejemplo del sitio de referencia, el test $\chi^2$ identifica automáticamente las frecuencias donde los receptores del extremo cercano (campo cercano a la fuente) producen desviaciones sistemáticas de la tendencia lineal de fase — eliminando la necesidad de determinar el offset mínimo de fuente por reglas empíricas. La incertidumbre MOPA propagada a través de la inversión produce bandas de confianza en $V_S(z)$ equivalentes a las obtenidas por Monte Carlo con un costo computacional mínimo. MOPA se recomienda como análisis complementario al espectrograma f-k para cuantificar la incertidumbre de la [[Dispersion Curve|curva de dispersión]].
 >
 > — Foti et al. (2018), §4.4, pp. 220–230.
 

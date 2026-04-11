@@ -79,8 +79,8 @@ La 1D Wave Equation sirve como **referencia**: cuando un registro de geófonos m
 
 ---
 
-> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — la 1D Wave Equation como baseline para la dispersión MASW
-> **Paper 002 (Xia et al. 1999)** formula el problema directo del [[MASW Method|MASW]] como la extensión de la propagación en medios homogéneos (gobernada por la 1D Wave Equation) al caso estratificado. El análisis de sensibilidad demuestra que en un medio perfectamente homogéneo ($V_S$ constante con la profundidad), la curva de dispersión de Rayleigh sería una línea horizontal ($c_R \approx 0.92\,V_S$ independiente de $f$) — exactamente el caso no-dispersivo descrito por la 1D Wave Equation. La dispersión observada en campo (curva $c_R(f)$ creciente con $\lambda$) es evidencia directa de estratificación real y se cuantifica respecto a este baseline homogéneo. La 1D Wave Equation es así el punto de referencia conceptual que hace posible la inversión: la desviación de la no-dispersividad contiene la información del perfil $V_S(z)$.
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — la 1D Wave Equation como baseline para la dispersión [[MASW Method|MASW]]
+> **Paper 002 (Xia et al. 1999)** formula el problema directo del [[MASW Method|MASW]] como la extensión de la propagación en medios homogéneos (gobernada por la 1D Wave Equation) al caso estratificado. El análisis de sensibilidad demuestra que en un medio perfectamente homogéneo ($V_S$ constante con la profundidad), la [[Dispersion Curve|curva de dispersión]] de Rayleigh sería una línea horizontal ($c_R \approx 0.92\,V_S$ independiente de $f$) — exactamente el caso no-dispersivo descrito por la 1D Wave Equation. La dispersión observada en campo (curva $c_R(f)$ creciente con $\lambda$) es evidencia directa de estratificación real y se cuantifica respecto a este baseline homogéneo. La 1D Wave Equation es así el punto de referencia conceptual que hace posible la inversión: la desviación de la no-dispersividad contiene la información del perfil $V_S(z)$.
 >
 > — Research Database, entrada 002 (core); Xia et al. (1999), *Geophysics* 64(3).
 

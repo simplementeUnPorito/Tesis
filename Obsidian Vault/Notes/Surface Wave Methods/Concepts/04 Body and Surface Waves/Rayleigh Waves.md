@@ -61,22 +61,22 @@ Toda dispersión observable en campo es evidencia directa de heterogeneidad vert
 
 Los desplazamientos decaen exponencialmente con la profundidad — la energía queda confinada cerca de la superficie ([[Skin Depth]] $\approx 0.94\lambda_R$). Esta propiedad establece la **regla de investigación**: la profundidad máxima explorada es $\approx \lambda_R/2$ a $\lambda_R$.
 
-Decaimiento geométrico en superficie: $A_R \propto r^{-0.5}$ (frente cilíndrico), vs. $r^{-2}$ para [[Body Waves]]. A distancias > 1–2$\lambda_R$, el campo sísmico queda **dominado por Rayleigh Waves** — fundamento de todos los métodos MASW.
+Decaimiento geométrico en superficie: $A_R \propto r^{-0.5}$ (frente cilíndrico), vs. $r^{-2}$ para [[Body Waves]]. A distancias > 1–2$\lambda_R$, el campo sísmico queda **dominado por Rayleigh Waves** — fundamento de todos los métodos [[MASW Method|MASW]].
 
 ---
 
 ## 5. Dispersión en medios estratificados
 
-En [[Layered Media]], la [[Phase Velocity]] de Rayleigh varía con la frecuencia ([[Geometric Dispersion]]): ondas de alta frecuencia (corta $\lambda$) muestrean capas superficiales; ondas de baja frecuencia (larga $\lambda$) promedian el perfil hasta mayor profundidad. Esta dependencia $c_R(f)$ — la **curva de dispersión** — es el dato observable que se invierte para obtener Vs(z).
+En [[Layered Media]], la [[Phase Velocity]] de Rayleigh varía con la frecuencia ([[Geometric Dispersion]]): ondas de alta frecuencia (corta $\lambda$) muestrean capas superficiales; ondas de baja frecuencia (larga $\lambda$) promedian el perfil hasta mayor profundidad. Esta dependencia $c_R(f)$ — la **[[Dispersion Curve|curva de dispersión]]** — es el dato observable que se invierte para obtener Vs(z).
 
-Cuando hay [[Surface Wave Modes|modos superiores]] activos, la velocidad de fase aparente es una superposición modal y puede diferir del modo fundamental (ver [[Wave Superposition]]).
+Cuando hay [[Surface Wave Modes|modos superiores]] activos, la [[Phase Velocity|velocidad de fase]] aparente es una superposición modal y puede diferir del modo fundamental (ver [[Wave Superposition]]).
 
 ---
 
-> [!EXAMPLE] Evidencia empírica: Park et al. (1999) y Xia et al. (2002) — MASW en Kansas
-> **Paper 001 (Park, Miller & Xia 1999)** demuestra que las Rayleigh Waves dominan los sismogramas superficiales con fuente activa y que la transformada f-k extrae directamente su curva de dispersión $c_R(f)$. Los registros en múltiples sitios de Kansas muestran que el ground-roll de Rayleigh es la señal predominante a distancias > 5 m.
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) y Xia et al. (2002) — [[MASW Method|MASW]] en Kansas
+> **Paper 001 (Park, Miller & Xia 1999)** demuestra que las Rayleigh Waves dominan los sismogramas superficiales con fuente activa y que la transformada f-k extrae directamente su [[Dispersion Curve|curva de dispersión]] $c_R(f)$. Los registros en múltiples sitios de Kansas muestran que el ground-roll de Rayleigh es la señal predominante a distancias > 5 m.
 >
-> **Paper 009 (Xia et al. 2002)** valida los perfiles $V_S(z)$ obtenidos invirtiendo $c_R(f)$ contra 14 ensayos de borehole independientes. El error RMS promedio entre $V_S$ MASW y borehole es < 15%, confirmando que la curva de dispersión de Rayleigh es una medida robusta y representativa del subsuelo real.
+> **Paper 009 (Xia et al. 2002)** valida los perfiles $V_S(z)$ obtenidos invirtiendo $c_R(f)$ contra 14 ensayos de borehole independientes. El error RMS promedio entre $V_S$ [[MASW Method|MASW]] y borehole es < 15%, confirmando que la [[Dispersion Curve|curva de dispersión]] de Rayleigh es una medida robusta y representativa del subsuelo real.
 >
 > — Research Database, entradas 001, 009 (core).
 

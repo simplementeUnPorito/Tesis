@@ -77,8 +77,8 @@ En la interfaz entre dos medios elásticos (a profundidad $z = h$), las condicio
 
 Estas cuatro condiciones (para el caso P–SV) son las que se imponen en el método de la matriz de transferencia de [[Layered Media|Thomson-Haskell]] para calcular la [[Dispersion Curve|curva de dispersión]] de medios estratificados.
 
-> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — tensor de esfuerzos como núcleo del problema directo MASW
-> **Paper 002 (Xia, Miller & Park 1999)** implementa el problema directo de MASW sobre las ecuaciones de Navier derivadas del tensor de esfuerzos en cada capa elástica. El Jacobiano analítico $\partial c_R / \partial V_S$ — que permite la convergencia del algoritmo de inversión en < 10 iteraciones — se deriva directamente de la condición de esfuerzo libre en superficie ($\boldsymbol{\sigma} = 0$ en $z=0$) aplicada en el contexto de la ecuación secular de Rayleigh. La validación en múltiples sitios de Kansas confirma que el tensor de esfuerzos lineal isótropo es una aproximación suficientemente precisa para los suelos reales ensayados.
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — tensor de esfuerzos como núcleo del problema directo [[MASW Method|MASW]]
+> **Paper 002 (Xia, Miller & Park 1999)** implementa el problema directo de [[MASW Method|MASW]] sobre las ecuaciones de Navier derivadas del tensor de esfuerzos en cada capa elástica. El Jacobiano analítico $\partial c_R / \partial V_S$ — que permite la convergencia del algoritmo de inversión en < 10 iteraciones — se deriva directamente de la condición de esfuerzo libre en superficie ($\boldsymbol{\sigma} = 0$ en $z=0$) aplicada en el contexto de la ecuación secular de Rayleigh. La validación en múltiples sitios de Kansas confirma que el tensor de esfuerzos lineal isótropo es una aproximación suficientemente precisa para los suelos reales ensayados.
 >
 > — Research Database, entrada 002 (core).
 
@@ -88,4 +88,4 @@ Estas cuatro condiciones (para el caso P–SV) son las que se imponen en el mét
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | §2.1.1, pp. 36–39 — tensor de Cauchy y ecuación de movimiento |
 | Foti et al. (2018), *Surface Wave Methods* | §2.1.3, pp. 43–46 — condición de esfuerzo libre y Navier |
-| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 — tensor de esfuerzos en problema directo MASW |
+| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 — tensor de esfuerzos en problema directo [[MASW Method|MASW]] |

@@ -1,6 +1,6 @@
 ---
 name: Jacobian Matrix
-description: Matriz de derivadas parciales de la curva de dispersión respecto a los parámetros del modelo — base del problema linealizado de inversión MASW; columnas = kernels de sensibilidad por capa
+description: Matriz de derivadas parciales de la [[Dispersion Curve|curva de dispersión]] respecto a los parámetros del modelo — base del problema linealizado de inversión [[MASW Method|MASW]]; columnas = kernels de sensibilidad por capa
 type: reference
 ---
 
@@ -33,14 +33,14 @@ $$J_{ij} \approx \frac{c_R(f_i; \mathbf{m} + \epsilon_j \hat{e}_j) - c_R(f_i; \m
 
 donde $\hat{e}_j$ es el vector unitario en la dirección del parámetro $j$ y $\epsilon_j$ = 0.01–0.05 (perturbación del 1–5%). Menos preciso que el método analítico pero más fácil de implementar.
 
-## Propiedades del Jacobiano en MASW
+## Propiedades del Jacobiano en [[MASW Method|MASW]]
 
 - **Número de condición elevado**: $\text{cond}(\mathbf{J}^T\mathbf{J})$ puede ser $10^6$–$10^{10}$ → sistema mal condicionado → requiere [[Tikhonov Regularization|regularización]]
 - **Dominancia de $V_S$**: las columnas del Jacobiano para $V_S$ son 10–50× mayores que para $V_P$ y $\rho$ → el problema es casi independiente de $V_P$ y $\rho$ → estos parámetros pueden fijarse a priori
 - **Decaimiento con profundidad**: la sensibilidad disminuye con la profundidad → las capas profundas están menos determinadas → la incertidumbre crece con $z$
 
-> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — Jacobiano en inversión MASW con sensibilidad dominante de VS
-> **Paper 002 (Xia, Miller & Park 1999)** presenta el análisis completo del Jacobiano para la inversión de curvas de dispersión MASW en el sitio de Kansas. Los autores calculan $\partial c_R/\partial V_{S,j}$, $\partial c_R/\partial V_{P,j}$, y $\partial c_R/\partial \rho_j$ para cada capa del modelo. El resultado cuantitativo: la norma de las columnas del Jacobiano para $V_S$ es 80–95% de la norma total del Jacobiano aumentado — confirmando que $c_R$ es casi exclusivamente una función de $V_S(z)$. La matriz $\mathbf{J}^T\mathbf{J}$ tiene número de condición ~$10^7$ antes de regularizar; con [[Tikhonov Regularization|regularización]] ($\lambda$ = 0.1), el número de condición baja a ~$10^3$ y el sistema linealizado es estable. Este análisis del Jacobiano fue la justificación cuantitativa para usar MASW (con inversión de $V_S$ solamente) en lugar de inversión conjunta $V_S$/$V_P$/$\rho$.
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — Jacobiano en inversión [[MASW Method|MASW]] con sensibilidad dominante de VS
+> **Paper 002 (Xia, Miller & Park 1999)** presenta el análisis completo del Jacobiano para la inversión de [[Dispersion Curve|curvas de dispersión]] [[MASW Method|MASW]] en el sitio de Kansas. Los autores calculan $\partial c_R/\partial V_{S,j}$, $\partial c_R/\partial V_{P,j}$, y $\partial c_R/\partial \rho_j$ para cada capa del modelo. El resultado cuantitativo: la norma de las columnas del Jacobiano para $V_S$ es 80–95% de la norma total del Jacobiano aumentado — confirmando que $c_R$ es casi exclusivamente una función de $V_S(z)$. La matriz $\mathbf{J}^T\mathbf{J}$ tiene número de condición ~$10^7$ antes de regularizar; con [[Tikhonov Regularization|regularización]] ($\lambda$ = 0.1), el número de condición baja a ~$10^3$ y el sistema linealizado es estable. Este análisis del Jacobiano fue la justificación cuantitativa para usar [[MASW Method|MASW]] (con inversión de $V_S$ solamente) en lugar de inversión conjunta $V_S$/$V_P$/$\rho$.
 >
 > — Research Database, entrada 002 (core); Xia, Miller & Park (1999), *Geophysics* 64(3):691–700.
 
@@ -48,6 +48,6 @@ donde $\hat{e}_j$ es el vector unitario en la dirección del parámetro $j$ y $\
 
 | Fuente | Sección / Página |
 |--------|-----------------|
-| Foti et al. (2018), *Surface Wave Methods* | §6.4.2 — Jacobiano en inversión MASW |
+| Foti et al. (2018), *Surface Wave Methods* | §6.4.2 — Jacobiano en inversión [[MASW Method|MASW]] |
 | Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 — análisis de sensibilidad y Jacobiano |
 | Tarantola (2005), *Inverse Problem Theory* | §2.3 — formulación del Jacobiano en problemas inversos |

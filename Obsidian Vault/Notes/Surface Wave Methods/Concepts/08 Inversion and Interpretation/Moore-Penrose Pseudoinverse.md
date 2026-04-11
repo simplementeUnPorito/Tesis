@@ -41,6 +41,6 @@ Los factores $f_i = \sigma_i^2/(\sigma_i^2 + \lambda^2)$ son los **filtros de re
 
 | Fuente | Sección / Página |
 |--------|-----------------|
-| Foti et al. (2018), *Surface Wave Methods* | §6.2.2 — TSVD en inversión MASW |
+| Foti et al. (2018), *Surface Wave Methods* | §6.2.2 — TSVD en inversión [[MASW Method|MASW]] |
 | Penrose, R. (1955), *Proc. Cambridge Phil. Soc.* 51 | Definición original de la pseudo-inversa |
 | Menke, W. (2012), *Geophysical Data Analysis* | §3 — SVD, TSVD y regularización |

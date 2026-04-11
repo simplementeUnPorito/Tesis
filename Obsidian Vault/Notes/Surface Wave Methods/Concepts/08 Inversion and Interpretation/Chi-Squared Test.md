@@ -1,6 +1,6 @@
 ---
 name: Chi-Squared Test
-description: Test estadístico para evaluar el ajuste de la curva de dispersión calculada vs observada — criterio de aceptación/rechazo de modelos VS en inversión MASW
+description: Test estadístico para evaluar el ajuste de la [[Dispersion Curve|curva de dispersión]] calculada vs observada — criterio de aceptación/rechazo de modelos VS en inversión [[MASW Method|MASW]]
 type: reference
 ---
 
@@ -9,7 +9,7 @@ type: reference
 > [!CONCEPT] Definición
 > El **Test Chi-Cuadrado ($\chi^2$)** es la prueba estadística que evalúa si el ajuste entre los datos observados y los datos calculados por un modelo es consistente con la incertidumbre experimental — es decir, si el modelo es estadísticamente aceptable. En la [[Inversión|inversión]] de [[Dispersion Curve|curvas de dispersión]] de [[MASW Method|MASW]], el estadístico chi-cuadrado se define como:
 > $$\chi^2 = \sum_{i=1}^{N} \left(\frac{c_R^{obs}(f_i) - c_R^{calc}(\mathbf{m}, f_i)}{\sigma_{c_R}(f_i)}\right)^2$$
-> donde $N$ es el número de puntos de la curva de dispersión, $\sigma_{c_R}(f_i)$ es la incertidumbre (desviación estándar) del picking a la frecuencia $f_i$, y $\mathbf{m}$ es el modelo $V_S(z)$ candidato. Bajo la hipótesis de que el modelo es correcto y los errores son gaussianos independientes, $\chi^2$ sigue una distribución chi-cuadrado con $N$ grados de libertad, con valor esperado $E[\chi^2] = N$. El **chi-cuadrado reducido** $\tilde{\chi}^2 = \chi^2/N \approx 1$ para un ajuste óptimo. El test $\chi^2$ es el criterio de aceptación en los métodos de búsqueda global ([[Monte Carlo Methods]], [[Neighbourhood Algorithm]]): un modelo es **aceptable** si $\chi^2 \leq \chi^2_{crit}$ donde $\chi^2_{crit}$ se fija con el [[First-Order Second-Moment Method|nivel de confianza]] deseado (p.ej., $\chi^2_{crit} = \chi^2_{N, 0.05}$ para 95% de confianza).
+> donde $N$ es el número de puntos de la [[Dispersion Curve|curva de dispersión]], $\sigma_{c_R}(f_i)$ es la incertidumbre (desviación estándar) del picking a la frecuencia $f_i$, y $\mathbf{m}$ es el modelo $V_S(z)$ candidato. Bajo la hipótesis de que el modelo es correcto y los errores son gaussianos independientes, $\chi^2$ sigue una distribución chi-cuadrado con $N$ grados de libertad, con valor esperado $E[\chi^2] = N$. El **chi-cuadrado reducido** $\tilde{\chi}^2 = \chi^2/N \approx 1$ para un ajuste óptimo. El test $\chi^2$ es el criterio de aceptación en los métodos de búsqueda global ([[Monte Carlo Methods]], [[Neighbourhood Algorithm]]): un modelo es **aceptable** si $\chi^2 \leq \chi^2_{crit}$ donde $\chi^2_{crit}$ se fija con el [[First-Order Second-Moment Method|nivel de confianza]] deseado (p.ej., $\chi^2_{crit} = \chi^2_{N, 0.05}$ para 95% de confianza).
 >
 > — Foti et al. (2018), §6.5; Tarantola (2005), §3.5; Park et al. (1999).
 
@@ -44,6 +44,6 @@ El número de modelos $\mathbf{m}$ que satisfacen $\chi^2 \leq \chi^2_{crit}$ de
 
 | Fuente | Sección / Página |
 |--------|-----------------|
-| Foti et al. (2018), *Surface Wave Methods* | §6.5, §7.2.4 — chi-cuadrado en inversión MASW |
+| Foti et al. (2018), *Surface Wave Methods* | §6.5, §7.2.4 — chi-cuadrado en inversión [[MASW Method|MASW]] |
 | Tarantola (2005), *Inverse Problem Theory* | §3.5 — test estadístico en inversión |
-| Park, Miller & Xia (1999), *Geophysics* | Paper 001 — ajuste de curva de dispersión MASW |
+| Park, Miller & Xia (1999), *Geophysics* | Paper 001 — ajuste de [[Dispersion Curve|curva de dispersión]] [[MASW Method|MASW]] |

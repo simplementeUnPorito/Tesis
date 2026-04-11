@@ -1,6 +1,6 @@
 ---
 name: Geophone
-description: Sensor sísmico electromagnético de velocidad — transductor estándar en MASW; convierte movimiento del suelo en señal eléctrica proporcional a la velocidad de partícula
+description: Sensor sísmico electromagnético de velocidad — transductor estándar en [[MASW Method|MASW]]; convierte movimiento del suelo en señal eléctrica proporcional a la velocidad de partícula
 type: reference
 ---
 
@@ -33,10 +33,10 @@ Para $\omega \gg \omega_n$: $H \approx 1$ → respuesta plana → el geófono mi
 |---|---|---|---|
 | 4.5 Hz | Exploración profunda, pasiva | 3–200 Hz | Pasivo (microtremores, bajas frecuencias) |
 | 10 Hz | Multiusos | 8–200 Hz | Activo + pasivo |
-| 14 Hz | MASW estándar | 12–200 Hz | Activo (sledgehammer) |
+| 14 Hz | [[MASW Method|MASW]] estándar | 12–200 Hz | Activo (sledgehammer) |
 | 28 Hz | Alta resolución superficial | 22–200 Hz | Activo, capas muy superficiales |
 
-Para MASW estándar con sledgehammer (fuente activa, 5–80 Hz), los geófonos de 14 Hz son los más comunes. Para pasivo (ReMi, SPAC), se recomiendan ≤4.5 Hz para capturar el rango de 1–5 Hz necesario para profundidades >30 m.
+Para [[MASW Method|MASW]] estándar con sledgehammer (fuente activa, 5–80 Hz), los geófonos de 14 Hz son los más comunes. Para pasivo (ReMi, SPAC), se recomiendan ≤4.5 Hz para capturar el rango de 1–5 Hz necesario para profundidades >30 m.
 
 ## Acoplamiento suelo-geófono
 
@@ -44,10 +44,10 @@ El geófono debe estar mecánicamente acoplado al suelo para que $\dot{u}_{suelo
 
 ## MEMS Accelerometer como alternativa
 
-Los **acelerómetros MEMS** ([[MEMS Accelerometer]]) son sensores de estado sólido que miden aceleración (no velocidad) y tienen respuesta plana desde DC hasta frecuencias altas. Son digitales, robustos y de bajo costo. Limitación: mayor ruido de piso en bajas frecuencias comparado con geófonos de alta calidad. Para MASW activo (5–100 Hz) son equivalentes en la práctica.
+Los **acelerómetros MEMS** ([[MEMS Accelerometer]]) son sensores de estado sólido que miden aceleración (no velocidad) y tienen respuesta plana desde DC hasta frecuencias altas. Son digitales, robustos y de bajo costo. Limitación: mayor ruido de piso en bajas frecuencias comparado con geófonos de alta calidad. Para [[MASW Method|MASW]] activo (5–100 Hz) son equivalentes en la práctica.
 
-> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — geófonos de 14 Hz como estándar MASW
-> **Paper 001 (Park, Miller & Xia 1999)** utiliza 24 geófonos verticales de **14 Hz** de frecuencia natural en el estudio de Kansas — lo que se convirtió en la configuración estándar de facto para MASW. En el rango de trabajo (5–50 Hz, dominado por el sledgehammer), la respuesta de los geófonos de 14 Hz es plana con variaciones <1% en amplitud y <2° en fase — sin necesidad de corrección instrumental. Los autores señalan que la elección de geófonos verticales (no horizontales) es específica para ondas de Rayleigh, cuya componente de movimiento dominante es vertical. Para ondas de Love, se requerirían geófonos horizontales transversales, lo que haría el ensayo más complejo.
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — geófonos de 14 Hz como estándar [[MASW Method|MASW]]
+> **Paper 001 (Park, Miller & Xia 1999)** utiliza 24 geófonos verticales de **14 Hz** de frecuencia natural en el estudio de Kansas — lo que se convirtió en la configuración estándar de facto para [[MASW Method|MASW]]. En el rango de trabajo (5–50 Hz, dominado por el sledgehammer), la respuesta de los geófonos de 14 Hz es plana con variaciones <1% en amplitud y <2° en fase — sin necesidad de corrección instrumental. Los autores señalan que la elección de geófonos verticales (no horizontales) es específica para ondas de Rayleigh, cuya componente de movimiento dominante es vertical. Para ondas de Love, se requerirían geófonos horizontales transversales, lo que haría el ensayo más complejo.
 >
 > — Research Database, entrada 001 (core); Park, Miller & Xia (1999), *Geophysics* 64(3).
 
@@ -57,4 +57,4 @@ Los **acelerómetros MEMS** ([[MEMS Accelerometer]]) son sensores de estado sól
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | Cap. 3, §3.2 — sensores y sistema de adquisición |
 | Sheriff & Geldart (1995), *Exploration Seismology*, 2nd ed. | Cap. 7 — geófonos y respuesta instrumental |
-| Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — geófonos 14 Hz en MASW estándar |
+| Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — geófonos 14 Hz en [[MASW Method|MASW]] estándar |

@@ -1,6 +1,6 @@
 ---
 name: Microtremor
-description: Vibración sísmica ambiental de baja amplitud usada como fuente pasiva en MASW, SPAC, ReMi y HVSR — generada por actividad humana, oceánica y atmosférica
+description: Vibración sísmica ambiental de baja amplitud usada como fuente pasiva en [[MASW Method|MASW]], SPAC, ReMi y HVSR — generada por actividad humana, oceánica y atmosférica
 type: reference
 ---
 
@@ -21,7 +21,7 @@ Los microtremores tienen tres rangos de origen distintos:
 | 1–10 s | *Período primario oceánico* | Ondas oceánicas directas → energía sísmica |
 | 5–20 s | *Período secundario oceánico* | Interacción de ondas oceánicas opuestas |
 
-Para ingeniería geotécnica (MASW pasivo, VS30), el rango relevante es 1–20 Hz (profundidades 10–100 m), dominado por tráfico y actividad industrial en zonas urbanas.
+Para ingeniería geotécnica ([[MASW Method|MASW]] pasivo, VS30), el rango relevante es 1–20 Hz (profundidades 10–100 m), dominado por tráfico y actividad industrial en zonas urbanas.
 
 ## Composición del campo de ondas
 
@@ -49,7 +49,7 @@ Si el campo de microtremores tiene una dirección preferencial (fuente dominante
 - **Selección de ventanas**: descartar transitorios (pasos de camión, impactos) que violan la estacionariedad
 
 > [!EXAMPLE] Evidencia empírica: Garofalo et al. (2016) — microtremores como fuente pasiva en InterPACIFIC
-> **Papers 006+007 (Garofalo et al. 2016a/b)** usan registros de microtremores de 30–60 minutos en los 3 sitios InterPACIFIC para extraer curvas de dispersión mediante [[SPAC Method|SPAC]], [[ReMi Method|ReMi]] e [[Seismic Interferometry|interferometría]]. Los microtremores en los sitios europeos (Grenoble, Mirandola, Cadarache) tienen características diferentes: en Grenoble (zona montañosa) el campo es fuertemente anisotrópico (fuentes oceánicas y de tráfico en dirección N-S), mientras en Mirandola (llanura Padana) el campo es más isotrópico. Esta diferencia explica el mejor desempeño de los métodos pasivos en Mirandola vs Grenoble. El estudio demuestra que la caracterización del campo de microtremores (mediante beamforming 2D) es un paso previo esencial antes de elegir el método de extracción de la curva de dispersión.
+> **Papers 006+007 (Garofalo et al. 2016a/b)** usan registros de microtremores de 30–60 minutos en los 3 sitios InterPACIFIC para extraer [[Dispersion Curve|curvas de dispersión]] mediante [[SPAC Method|SPAC]], [[ReMi Method|ReMi]] e [[Seismic Interferometry|interferometría]]. Los microtremores en los sitios europeos (Grenoble, Mirandola, Cadarache) tienen características diferentes: en Grenoble (zona montañosa) el campo es fuertemente anisotrópico (fuentes oceánicas y de tráfico en dirección N-S), mientras en Mirandola (llanura Padana) el campo es más isotrópico. Esta diferencia explica el mejor desempeño de los métodos pasivos en Mirandola vs Grenoble. El estudio demuestra que la caracterización del campo de microtremores (mediante beamforming 2D) es un paso previo esencial antes de elegir el método de extracción de la [[Dispersion Curve|curva de dispersión]].
 >
 > — Research Database, entradas 006, 007 (core); Garofalo et al. (2016a/b).
 

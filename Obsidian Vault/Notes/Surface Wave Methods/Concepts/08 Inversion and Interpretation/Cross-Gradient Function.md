@@ -28,13 +28,13 @@ Este enfoque es más flexible que las relaciones petrofísicas (que atan valores
 
 | Combinación de datos | Modelos | Acoplamiento esperado |
 |---------------------|---------|----------------------|
-| MASW + ERT (eléctrica) | $V_S$ + $\rho_{elec}$ | Capas litológicas simultáneas |
-| MASW + GPR | $V_S$ + $\epsilon$ (permitividad) | Tabla de agua, interfaces sedimentarias |
-| MASW + P-refracción | $V_S$ + $V_P$ | Estratificación y saturación |
-| MASW + gravimetría | $V_S$ + $\rho_{masa}$ | Contraste litológico denso |
+| [[MASW Method|MASW]] + ERT (eléctrica) | $V_S$ + $\rho_{elec}$ | Capas litológicas simultáneas |
+| [[MASW Method|MASW]] + GPR | $V_S$ + $\epsilon$ (permitividad) | Tabla de agua, interfaces sedimentarias |
+| [[MASW Method|MASW]] + P-refracción | $V_S$ + $V_P$ | Estratificación y saturación |
+| [[MASW Method|MASW]] + gravimetría | $V_S$ + $\rho_{masa}$ | Contraste litológico denso |
 
-> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — inversión conjunta MASW+ERT con cross-gradients
-> Foti et al. (2018, §8.6.2, Figs. 8.43–8.46) presentan la inversión conjunta de datos MASW y ERT (Tomografía de Resistividad Eléctrica) para el sitio de una dique fluvial en el río Po, Italia, usando el método de cross-gradients (Gallardo & Meju 2003). La inversión independiente produce un perfil $V_S$ con 3 capas bien definidas pero una ERT con 5 unidades irregulares — inconsistencia que dificulta la interpretación geológica. Con el acoplamiento de cross-gradients ($w_{cg} = 0.5$), el perfil $V_S$ y la distribución de resistividad convergen a 3 unidades co-localizadas: (1) relleno antrópico superficial (0–2 m: $V_S$ = 180 m/s, alta resistividad), (2) arena aluvial saturada (2–8 m: $V_S$ = 250 m/s, baja resistividad), (3) grava consolidada (>8 m: $V_S$ = 450 m/s, resistividad media). La consistencia estructural mejora la interpretación geológica sin forzar relaciones petrofísicas.
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — inversión conjunta [[MASW Method|MASW]]+ERT con cross-gradients
+> Foti et al. (2018, §8.6.2, Figs. 8.43–8.46) presentan la inversión conjunta de datos [[MASW Method|MASW]] y ERT (Tomografía de Resistividad Eléctrica) para el sitio de una dique fluvial en el río Po, Italia, usando el método de cross-gradients (Gallardo & Meju 2003). La inversión independiente produce un perfil $V_S$ con 3 capas bien definidas pero una ERT con 5 unidades irregulares — inconsistencia que dificulta la interpretación geológica. Con el acoplamiento de cross-gradients ($w_{cg} = 0.5$), el perfil $V_S$ y la distribución de resistividad convergen a 3 unidades co-localizadas: (1) relleno antrópico superficial (0–2 m: $V_S$ = 180 m/s, alta resistividad), (2) arena aluvial saturada (2–8 m: $V_S$ = 250 m/s, baja resistividad), (3) grava consolidada (>8 m: $V_S$ = 450 m/s, resistividad media). La consistencia estructural mejora la interpretación geológica sin forzar relaciones petrofísicas.
 >
 > — Foti et al. (2018), §8.6.2, pp. 450–458; Gallardo & Meju (2003), *GRL* 30(14), 1658.
 

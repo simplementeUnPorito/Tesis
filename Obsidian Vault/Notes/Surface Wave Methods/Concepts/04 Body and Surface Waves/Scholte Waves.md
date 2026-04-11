@@ -38,7 +38,7 @@ En sedimentos saturados, la **velocidad de onda P está dominada por la compresi
 
 ## Efecto de la capa de agua sobre la dispersión
 
-Incluso una **capa de agua muy delgada** (0.5–3 m) modifica la curva de dispersión de Scholte con respecto a la de Rayleigh (sin agua). Este efecto es no trivial:
+Incluso una **capa de agua muy delgada** (0.5–3 m) modifica la [[Dispersion Curve|curva de dispersión]] de Scholte con respecto a la de Rayleigh (sin agua). Este efecto es no trivial:
 
 - Para Hw = 0.5 m ya existe una diferencia apreciable.
 - Para Hw = 3 m la diferencia puede alcanzar **hasta ~18%** en el rango de 10–20 Hz.
@@ -79,7 +79,7 @@ La **inversión conjunta** de ondas de Scholte (Vs) y P-guiadas (Vp) permite est
 1. Adquirir registros de fondo marino (hidrófonos o OBS).
 2. Identificar el tren de ondas de Scholte (baja velocidad) separado del frente de ondas P-guiadas (alta velocidad).
 3. Aplicar filtro pasa-bajo si las ondas de Scholte son débiles frente a las P-guiadas.
-4. Extraer la curva de dispersión de Scholte (análisis f-k o τ-p).
+4. Extraer la [[Dispersion Curve|curva de dispersión]] de Scholte (análisis f-k o τ-p).
 5. Invertir incluyendo la capa de agua (velocidad y espesor) como parámetros del modelo.
 6. Si se dispone de datos de P-guiadas: inversión conjunta Scholte + P-guiadas.
 
@@ -94,11 +94,11 @@ La inversión conjunta de ambos conjuntos de datos permite una **caracterizació
 ## Relaciones
 
 - [[Rayleigh Waves]] — análogo terrestre; Scholte = Rayleigh en interfaz sólido-líquido
-- [[Dispersion Curve]] — curva de dispersión de Scholte afectada por la capa de agua
+- [[Dispersion Curve]] — [[Dispersion Curve|curva de dispersión]] de Scholte afectada por la capa de agua
 - [[Phase Velocity]] — velocidad siempre menor que la de Rayleigh para el mismo sólido
 
-> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — efecto de la capa de agua en la curva de dispersión de Scholte
-> Foti et al. (2018, §8.2) documentan cuantitativamente que **incluso una capa de agua de 0.5 m ya modifica la curva de dispersión de Scholte** respecto a la de Rayleigh sin agua. Para una capa de 3 m de agua, la diferencia en velocidad de fase puede alcanzar **~18% en el rango 10–20 Hz**. Esto demuestra que analizar datos de Scholte con un modelo de Rayleigh (ignorando la capa de agua) produce una subestimación sistemática de $V_S$, y que es imprescindible incluir el espesor y la velocidad del agua como parámetros del modelo de inversión — incluso en aguas muy someras.
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — efecto de la capa de agua en la [[Dispersion Curve|curva de dispersión]] de Scholte
+> Foti et al. (2018, §8.2) documentan cuantitativamente que **incluso una capa de agua de 0.5 m ya modifica la [[Dispersion Curve|curva de dispersión]] de Scholte** respecto a la de Rayleigh sin agua. Para una capa de 3 m de agua, la diferencia en [[Phase Velocity|velocidad de fase]] puede alcanzar **~18% en el rango 10–20 Hz**. Esto demuestra que analizar datos de Scholte con un modelo de Rayleigh (ignorando la capa de agua) produce una subestimación sistemática de $V_S$, y que es imprescindible incluir el espesor y la velocidad del agua como parámetros del modelo de inversión — incluso en aguas muy someras.
 >
 > — Foti et al. (2018), Cap. 8, §8.2, Figs. 8.10b y 8.12, pp. 406–407.
 

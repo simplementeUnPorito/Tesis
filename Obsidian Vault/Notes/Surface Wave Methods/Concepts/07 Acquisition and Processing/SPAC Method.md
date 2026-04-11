@@ -62,12 +62,12 @@ La selección entre Ec. 4.33 (unidireccional) y Ec. 4.40 (isótropa) depende del
 
 ## Limitaciones
 
-- **No separa modos**: SPAC/ESAC entrega una velocidad de fase **aparente** (influencia ponderada de todos los modos propagantes). No es posible resolver contribuciones modales individuales.
+- **No separa modos**: SPAC/ESAC entrega una [[Phase Velocity|velocidad de fase]] **aparente** (influencia ponderada de todos los modos propagantes). No es posible resolver contribuciones modales individuales.
 - **Campo cercano**: puede sesgar el coeficiente de autocorrelación del receptor de referencia en datos activos con fuente cercana.
 - **Hipótesis de isotropía**: para datos pasivos, la isotropía debe verificarse (por ejemplo, mediante la simetría del espectro f-k). Si existe una dirección preferencial de ruido, los resultados pueden ser erróneos — véase [[Seismic Interferometry]] para una estrategia que permite validar esta hipótesis.
 
 > [!EXAMPLE] Evidencia empírica: Garofalo et al. (2016) — SPAC en InterPACIFIC como método pasivo de referencia
-> **Papers 006+007 (Garofalo et al. 2016a/b)** incluyen el método SPAC/ESAC entre los métodos evaluados en el estudio InterPACIFIC. Los resultados muestran que SPAC con arrays circulares en los sitios de referencia produce curvas de dispersión consistentes con MASW activo en el rango de bajas frecuencias (1–5 Hz), donde el MASW activo pierde resolución por limitaciones de la fuente. La principal diferencia es que SPAC no separa modos y puede presentar sesgos cuando hay contribuciones significativas de modos superiores. La variabilidad entre operadores usando SPAC es comparable a la de MASW (~15–20% en $V_{S,30}$), confirmando que el protocolo de procesamiento e inversión domina la incertidumbre más que el método en sí.
+> **Papers 006+007 (Garofalo et al. 2016a/b)** incluyen el método SPAC/ESAC entre los métodos evaluados en el estudio InterPACIFIC. Los resultados muestran que SPAC con arrays circulares en los sitios de referencia produce [[Dispersion Curve|curvas de dispersión]] consistentes con [[MASW Method|MASW]] activo en el rango de bajas frecuencias (1–5 Hz), donde el [[MASW Method|MASW]] activo pierde resolución por limitaciones de la fuente. La principal diferencia es que SPAC no separa modos y puede presentar sesgos cuando hay contribuciones significativas de modos superiores. La variabilidad entre operadores usando SPAC es comparable a la de [[MASW Method|MASW]] (~15–20% en $V_{S,30}$), confirmando que el protocolo de procesamiento e inversión domina la incertidumbre más que el método en sí.
 >
 > — Research Database, entradas 006, 007 (core); Garofalo et al. (2016a/b), *Near Surface Geophysics*.
 

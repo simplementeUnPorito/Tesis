@@ -21,7 +21,7 @@ En sismología global, la componente de onda superficial de la función de Green
 
 ## Aplicación en ondas superficiales
 
-Las señales extraídas pueden procesarse exactamente como datos activos virtuales. La aplicación principal es la **recuperación de la velocidad de fase de ondas superficiales** a partir de ruido ambiental (Shapiro y Campillo 2004). La mayoría de los estudios actuales usa arrays 2D dispersos para obtener una **distribución tomográfica** de las velocidades de ondas superficiales.
+Las señales extraídas pueden procesarse exactamente como datos activos virtuales. La aplicación principal es la **recuperación de la [[Phase Velocity|velocidad de fase]] de ondas superficiales** a partir de ruido ambiental (Shapiro y Campillo 2004). La mayoría de los estudios actuales usa arrays 2D dispersos para obtener una **distribución tomográfica** de las velocidades de ondas superficiales.
 
 En arrays lineales, el interferograma permite usar un receptor de referencia como fuente virtual, generando un shot gather que se procesa con análisis [[MASW Method|f-k]] estándar.
 
@@ -41,7 +41,7 @@ El método [[ReMi Method|ReMi]] (*Refraction Microtremor*) procesa directamente 
 
 ## Relación con SPAC/ESAC
 
-La interferometría sísmica y la [[Dispersion Relation|autocorrelación espacial]] (SPAC/ESAC, Aki 1957) comparten la misma base física: ambas explotan la coherencia espacial del campo de ruido para estimar la velocidad de fase. La interferometría trabaja en el dominio temporal (función de Green) mientras que SPAC/ESAC trabaja en el dominio frecuencial (coherencia espacial). En la práctica, el método ESAC puede verse como una implementación en frecuencia del mismo principio interferométrico.
+La interferometría sísmica y la [[Dispersion Relation|autocorrelación espacial]] (SPAC/ESAC, Aki 1957) comparten la misma base física: ambas explotan la coherencia espacial del campo de ruido para estimar la [[Phase Velocity|velocidad de fase]]. La interferometría trabaja en el dominio temporal (función de Green) mientras que SPAC/ESAC trabaja en el dominio frecuencial (coherencia espacial). En la práctica, el método ESAC puede verse como una implementación en frecuencia del mismo principio interferométrico.
 
 ## Limitaciones
 
@@ -51,7 +51,7 @@ La interferometría sísmica y la [[Dispersion Relation|autocorrelación espacia
 - Los modos superiores de ondas superficiales son más difíciles de aislar que con métodos activos.
 
 > [!EXAMPLE] Evidencia empírica: Shapiro & Campillo (2004) — tomografía de ondas de Rayleigh por interferometría de ruido ambiental
-> Shapiro & Campillo (2004) demuestran que la cross-correlación de registros de ruido sísmico ambiental entre pares de estaciones de la red USArray produce la componente de onda de Rayleigh de la función de Green con suficiente coherencia para medir velocidades de fase en el rango 5–150 s. Las curvas de dispersión extraídas coinciden con las obtenidas por análisis de terremotos convencionales. El trabajo establece que el **ruido ambiental** (dominado por interacciones océano-atmósfera en ese rango de períodos) actúa como campo difuso suficientemente isótropo para que la hipótesis de la interferometría sea válida globalmente. En el rango de frecuencias de ingeniería (1–100 Hz), el mismo principio se aplica con ruido de tráfico y actividad urbana, aunque la isotropía es menor y requiere más cuidado en la selección de ventanas.
+> Shapiro & Campillo (2004) demuestran que la cross-correlación de registros de ruido sísmico ambiental entre pares de estaciones de la red USArray produce la componente de onda de Rayleigh de la función de Green con suficiente coherencia para medir velocidades de fase en el rango 5–150 s. Las [[Dispersion Curve|curvas de dispersión]] extraídas coinciden con las obtenidas por análisis de terremotos convencionales. El trabajo establece que el **ruido ambiental** (dominado por interacciones océano-atmósfera en ese rango de períodos) actúa como campo difuso suficientemente isótropo para que la hipótesis de la interferometría sea válida globalmente. En el rango de frecuencias de ingeniería (1–100 Hz), el mismo principio se aplica con ruido de tráfico y actividad urbana, aunque la isotropía es menor y requiere más cuidado en la selección de ventanas.
 >
 > — Shapiro & Campillo (2004), *GRL* 31, L07614; Foti et al. (2018), Cap. 8.4, pp. 427–430.
 

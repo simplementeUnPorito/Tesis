@@ -1,6 +1,6 @@
 ---
 name: Tau-P Transform
-description: Transformada slant-stack que convierte registros tiempo-espacio a intercepción temporal-slowness; alternativa al análisis f-k para extracción de la curva de dispersión en MASW
+description: Transformada slant-stack que convierte registros tiempo-espacio a intercepción temporal-slowness; alternativa al análisis f-k para extracción de la [[Dispersion Curve|curva de dispersión]] en [[MASW Method|MASW]]
 type: reference
 ---
 
@@ -33,14 +33,14 @@ donde $U(x_j, f) = \text{FFT}[u(x_j, \cdot)]$. El máximo de $|S(f, p)|$ para ca
 
 La diferencia práctica principal: la resolución en slowness es **no uniforme en velocidad** — la $\tau$-$p$ resuelve mejor velocidades bajas (slowness alta) que altas. El f-k tiene resolución uniforme en $k$, lo que favorece altas velocidades.
 
-## Aplicaciones en MASW
+## Aplicaciones en [[MASW Method|MASW]]
 
-- **Método ReMi**: la $\tau$-$p$ es la base del [[ReMi Method|método ReMi]] — el borde inferior de velocidad en el panel $\tau$-$p$ corresponde a la curva de dispersión del modo fundamental.
+- **Método ReMi**: la $\tau$-$p$ es la base del [[ReMi Method|método ReMi]] — el borde inferior de velocidad en el panel $\tau$-$p$ corresponde a la [[Dispersion Curve|curva de dispersión]] del modo fundamental.
 - **Separación de ondas directas y refractadas**: en el panel $\tau$-$p$, las ondas P (alta velocidad → baja slowness) y las ondas de Rayleigh (baja velocidad → alta slowness) ocupan regiones distintas → filtrado de uno u otro tipo es posible.
 - **Combinación activo-pasivo**: al apilar en $\tau$-$p$ datos de diferente duración y tipo de fuente, se combina información de diferentes rangos de frecuencia.
 
-> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — equivalencia tau-p y f-k en procesamiento MASW
-> **Paper 001 (Park, Miller & Xia 1999)** utiliza el análisis f-k como método principal pero discute su equivalencia con el análisis $\tau$-$p$. Ambas transformadas aplicadas al mismo dataset de Kansas producen curvas de dispersión del modo fundamental de Rayleigh idénticas dentro de la incertidumbre de la resolución espectral. La diferencia práctica observada: el f-k muestra la energía total en el espacio $(f, c)$ con igual resolución en todas las velocidades, mientras que la $\tau$-$p$ concentra mejor la energía de las ondas de baja velocidad (ondas de Rayleigh superficiales) pero tiene menor resolución para las ondas rápidas (ondas de cuerpo). Para el [[MASW Method|MASW]] estándar donde el interés está en el modo fundamental de Rayleigh (baja velocidad), ambos métodos son igualmente válidos.
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — equivalencia tau-p y f-k en procesamiento [[MASW Method|MASW]]
+> **Paper 001 (Park, Miller & Xia 1999)** utiliza el análisis f-k como método principal pero discute su equivalencia con el análisis $\tau$-$p$. Ambas transformadas aplicadas al mismo dataset de Kansas producen [[Dispersion Curve|curvas de dispersión]] del modo fundamental de Rayleigh idénticas dentro de la incertidumbre de la resolución espectral. La diferencia práctica observada: el f-k muestra la energía total en el espacio $(f, c)$ con igual resolución en todas las velocidades, mientras que la $\tau$-$p$ concentra mejor la energía de las ondas de baja velocidad (ondas de Rayleigh superficiales) pero tiene menor resolución para las ondas rápidas (ondas de cuerpo). Para el [[MASW Method|MASW]] estándar donde el interés está en el modo fundamental de Rayleigh (baja velocidad), ambos métodos son igualmente válidos.
 >
 > — Research Database, entrada 001 (core); Park, Miller & Xia (1999), *Geophysics* 64(3); McMechan & Yedlin (1981), *Bull. Seism. Soc. Am.*
 
@@ -48,6 +48,6 @@ La diferencia práctica principal: la resolución en slowness es **no uniforme e
 
 | Fuente | Sección / Página |
 |--------|-----------------|
-| Foti et al. (2018), *Surface Wave Methods* | Cap. 4, §4.3, pp. 216–220 — tau-p en MASW |
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 4, §4.3, pp. 216–220 — tau-p en [[MASW Method|MASW]] |
 | McMechan & Yedlin (1981), *Bull. Seism. Soc. Am.* | Introducción de la transformada tau-p para ondas superficiales |
-| Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — f-k vs tau-p en MASW |
+| Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — f-k vs tau-p en [[MASW Method|MASW]] |

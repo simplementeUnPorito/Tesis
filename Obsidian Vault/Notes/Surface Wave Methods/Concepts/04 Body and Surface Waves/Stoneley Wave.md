@@ -7,7 +7,7 @@ type: reference
 # Stoneley Wave — Onda de Stoneley
 
 > [!CONCEPT] Definición
-> Las **ondas de Stoneley** son ondas interfaciales que se propagan a lo largo de la frontera entre **dos semiespacios elásticos sólidos** (o sólido-fluido), con amplitud que decae exponencialmente en ambos medios desde la interfaz. Son la generalización de las [[Rayleigh Waves|ondas de Rayleigh]] para una interfaz enterrada (no superficie libre). La velocidad de fase $c_{St}$ es menor que las velocidades de onda de corte de ambos medios:
+> Las **ondas de Stoneley** son ondas interfaciales que se propagan a lo largo de la frontera entre **dos semiespacios elásticos sólidos** (o sólido-fluido), con amplitud que decae exponencialmente en ambos medios desde la interfaz. Son la generalización de las [[Rayleigh Waves|ondas de Rayleigh]] para una interfaz enterrada (no superficie libre). La [[Phase Velocity|velocidad de fase]] $c_{St}$ es menor que las velocidades de onda de corte de ambos medios:
 > $$c_{St} < \min(V_{S1}, V_{S2})$$
 > En el caso de una interfaz **sólido-fluido** (como el fondo marino), las ondas de Stoneley se denominan también [[Scholte Waves|ondas de Scholte]]. En el contexto de **perfilaje de pozos** (*borehole logging*), las ondas de Stoneley son la respuesta interfacial del fluido de perforación (agua) contra la formación rocosa: se propagan a lo largo del pozo con velocidad $c_{St} \approx V_{fluid} \cdot (1 + V_{fluid}/V_S)^{-1/2}$, siendo sensibles a la permeabilidad y al módulo de corte del suelo adyacente. Las ondas de Stoneley no se usan directamente en [[MASW Method|MASW]] convencional, pero son relevantes en el análisis de datos de sondeos sísmicos verticales (VSP) y en la caracterización multi-método de sitios complejos.
 >

@@ -13,7 +13,7 @@ type: reference
 >
 > donde λ es el parámetro de regularización y **L** codifica el tipo de suavidad impuesta.
 
-## Tipos principales de regularización en MASW/SWM
+## Tipos principales de regularización en [[MASW Method|MASW]]/SWM
 
 ### 1. Tikhonov (orden 0 y 1)
 Ver [[Tikhonov Regularization]]. La forma más extendida en inversión 1D:
@@ -57,12 +57,12 @@ Los valores singulares pequeños (responsables de la inestabilidad) son amortigu
 | Inversión conjunta | [[Cross-Gradient Function]] como regularización estructural |
 
 > [!EXAMPLE] Evidencia empírica (Foti et al. 2018, Xia et al. 1999)
-> - **Xia et al. (1999, GRL)**: inversión MASW de 19 capas en Lawrence, Kansas — con regularización Tikhonov L1 y λ seleccionado por factor de ruido, el perfil Vs convergió en 3–5 iteraciones con error < 15% respecto a downhole. Sin regularización, la solución divergía tras la primera iteración (κ > 10⁴).
+> - **Xia et al. (1999, GRL)**: inversión [[MASW Method|MASW]] de 19 capas en Lawrence, Kansas — con regularización Tikhonov L1 y λ seleccionado por factor de ruido, el perfil Vs convergió en 3–5 iteraciones con error < 15% respecto a downhole. Sin regularización, la solución divergía tras la primera iteración (κ > 10⁴).
 > - **Foti et al. (2018, §6.4)**: en el sitio La Salle (suelo blando), la TV regularization identificó una interfaz arena/arcilla a 4.2 m que el suavizado Tikhonov difuminaba a una zona de transición de 2 m.
 > - **Maraschini & Foti (2010)**: en inversión por determinante Haskell-Thomson con búsqueda global (Monte Carlo), la regularización implícita del espacio de modelos inicial es suficiente — no requiere penalización explícita si el espacio de búsqueda está bien acotado.
 
 > [!EXAMPLE] Evidencia empírica: Cox & Teague (2016) — Layering Ratios para parametrización sin a priori
-> **Paper 051 (Cox & Teague 2016, GJI 207(1):422–438, 115 citas)** aborda el problema de cómo definir el número de capas y sus espesores en la inversión de ondas superficiales cuando no se dispone de información a priori (borehole, geología detallada). Los autores proponen los **"layering ratios"** (LRs): relaciones sistemáticas entre los espesores de capas sucesivas ($h_{i+1}/h_i = $ constante) que guían la parametrización del modelo de forma reproducible y sin subjetividad del analista. Validado con datos sintéticos y reales (MASW/SASW), los LRs reducen la dependencia de la solución respecto a decisiones de parametrización ad hoc. La técnica conecta directamente con la [[Non-uniqueness|no-unicidad]]: al fijar sistemáticamente la estructura del modelo, la familia de soluciones aceptables refleja verdaderamente la ambigüedad de los datos y no artefactos de parametrización. Es especialmente útil para estudios de "análisis ciego" donde el operador no tiene acceso a datos de referencia.
+> **Paper 051 (Cox & Teague 2016, GJI 207(1):422–438, 115 citas)** aborda el problema de cómo definir el número de capas y sus espesores en la inversión de ondas superficiales cuando no se dispone de información a priori (borehole, geología detallada). Los autores proponen los **"layering ratios"** (LRs): relaciones sistemáticas entre los espesores de capas sucesivas ($h_{i+1}/h_i = $ constante) que guían la parametrización del modelo de forma reproducible y sin subjetividad del analista. Validado con datos sintéticos y reales ([[MASW Method|MASW]]/[[SASW Method|SASW]]), los LRs reducen la dependencia de la solución respecto a decisiones de parametrización ad hoc. La técnica conecta directamente con la [[Non-uniqueness|no-unicidad]]: al fijar sistemáticamente la estructura del modelo, la familia de soluciones aceptables refleja verdaderamente la ambigüedad de los datos y no artefactos de parametrización. Es especialmente útil para estudios de "análisis ciego" donde el operador no tiene acceso a datos de referencia.
 >
 > — Research Database, entrada 051 (core); Cox & Teague (2016), *Geophys. J. Int.* 207(1):422–438.
 
@@ -71,7 +71,7 @@ Los valores singulares pequeños (responsables de la inestabilidad) son amortigu
 | Autor | Año | Contribución |
 |-------|-----|--------------|
 | Tikhonov & Arsenin | 1977 | Formulación clásica de regularización por norma |
-| Xia, Miller & Park | 1999 | Aplicación a inversión MASW con Tikhonov L1 |
+| Xia, Miller & Park | 1999 | Aplicación a inversión [[MASW Method|MASW]] con Tikhonov L1 |
 | Constable et al. | 1987 | Occam: suavizado mínimo en inversión 1D |
 | Rudin et al. | 1992 | Variación Total (TV) en procesamiento de imagen/señal |
 | Foti et al. | 2018 | §6.3–6.5: comparación de esquemas de regularización en SWM |

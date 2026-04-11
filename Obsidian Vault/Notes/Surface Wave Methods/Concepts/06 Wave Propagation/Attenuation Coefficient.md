@@ -11,7 +11,7 @@ type: reference
 > $$A(x) = A_0 \cdot e^{-\alpha x}$$
 > donde $A_0$ es la amplitud en $x = 0$ y $\alpha$ tiene unidades de Np/m (Neper por metro) o dB/m. Para ondas de Rayleigh en un semi-espacio viscoelástico estratificado, el coeficiente de atenuación $\alpha_R(\omega)$ se obtiene de la parte imaginaria del número de onda de Rayleigh complejo $\hat{k}_R = k_R - i\alpha_R$ — que es la solución de la ecuación secular compleja mediante el [[Correspondence Principle|Principio de Correspondencia]]. La relación entre $\alpha_R$ y el [[Shear Damping Ratio|coeficiente de amortiguamiento]] $D_s$ (promediado sobre el perfil de profundidad por los [[Sensitivity Kernel|kernels de sensibilidad]]) es:
 > $$\alpha_R(\omega) \approx \frac{\omega \, D_s^{eff}(\omega)}{c_R(\omega)}$$
-> donde $D_s^{eff}$ es el amortiguamiento efectivo de Rayleigh. La curva experimental $\alpha_R^{obs}(f)$ — obtenida del **decaimiento de la amplitud con la distancia** en el sismograma MASW (tras la corrección por [[Geometric Spreading|dispersión geométrica]] $A \propto 1/\sqrt{r}$) — es la **curva de atenuación de Rayleigh**, que se invierte para obtener el perfil $D_s(z)$.
+> donde $D_s^{eff}$ es el amortiguamiento efectivo de Rayleigh. La curva experimental $\alpha_R^{obs}(f)$ — obtenida del **decaimiento de la amplitud con la distancia** en el sismograma [[MASW Method|MASW]] (tras la corrección por [[Geometric Spreading|dispersión geométrica]] $A \propto 1/\sqrt{r}$) — es la **curva de atenuación de Rayleigh**, que se invierte para obtener el perfil $D_s(z)$.
 >
 > — Foti et al. (2018), §2.2, §7.3; Aki & Richards (2002), §5.5; Lai & Rix (1998).
 
@@ -23,7 +23,7 @@ $$\alpha = \frac{\omega}{2Qc} = \frac{\omega D_s}{c}, \quad Q = \frac{1}{2D_s}$$
 
 Para ondas de corte en suelos: $Q_S$ = 5–100 (suelos blandos: $Q_S$ = 5–20, $D_s$ = 2.5–10%; rocas: $Q_S$ = 50–200, $D_s$ = 0.25–1%).
 
-## Estimación experimental en MASW
+## Estimación experimental en [[MASW Method|MASW]]
 
 ### Paso 1: Extracción de la curva de amplitud
 
@@ -54,7 +54,7 @@ La pendiente da $\alpha_R(f)$ directamente.
 3. **Función de fuente**: $H_{src}(f)$ modifica la amplitud inicial → necesita ser eliminada (promedio espacial, o geófonos en campo lejano)
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — curva de atenuación de Rayleigh en el sitio de Pisa
-> Foti et al. (2018, §7.3) presentan la estimación experimental del coeficiente de atenuación $\alpha_R(f)$ en el sitio de Pisa (Torre di Pisa) a partir de datos MASW multicanal. Tras la corrección por dispersión geométrica ($\sqrt{x}$), el ajuste exponencial de la amplitud espectral en el rango 5–30 Hz produce la curva $\alpha_R(f)$ con valores de 0.005–0.05 Np/m — equivalente a $D_s^{eff}$ = 2–6% (suelo arcilloso de alta plasticidad). La inversión de $\alpha_R(f)$ por el [[Correspondence Principle|Principio de Correspondencia]] produce el perfil $D_s(z)$ que concuerda con los ensayos de [[Resonant Column Test|columna resonante]] en muestras del mismo sitio dentro de ±1–1.5% en valor absoluto. Los autores identifican que la fuente principal de incertidumbre en $\alpha_R^{obs}$ es la variabilidad entre disparos (±15–20%), que se reduce promediando múltiples fuentes.
+> Foti et al. (2018, §7.3) presentan la estimación experimental del coeficiente de atenuación $\alpha_R(f)$ en el sitio de Pisa (Torre di Pisa) a partir de datos [[MASW Method|MASW]] multicanal. Tras la corrección por dispersión geométrica ($\sqrt{x}$), el ajuste exponencial de la amplitud espectral en el rango 5–30 Hz produce la curva $\alpha_R(f)$ con valores de 0.005–0.05 Np/m — equivalente a $D_s^{eff}$ = 2–6% (suelo arcilloso de alta plasticidad). La inversión de $\alpha_R(f)$ por el [[Correspondence Principle|Principio de Correspondencia]] produce el perfil $D_s(z)$ que concuerda con los ensayos de [[Resonant Column Test|columna resonante]] en muestras del mismo sitio dentro de ±1–1.5% en valor absoluto. Los autores identifican que la fuente principal de incertidumbre en $\alpha_R^{obs}$ es la variabilidad entre disparos (±15–20%), que se reduce promediando múltiples fuentes.
 >
 > — Foti et al. (2018), §7.3, pp. 375–380, Figs. 7.25–7.29.
 

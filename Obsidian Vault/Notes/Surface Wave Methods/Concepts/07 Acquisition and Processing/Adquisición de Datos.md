@@ -1,13 +1,13 @@
 ---
 name: Adquisición de Datos
-description: Primer paso del flujo MASW — generación y registro de ondas sísmicas en campo; parámetros de diseño del arreglo, fuentes activas/pasivas y desafíos operativos
+description: Primer paso del flujo [[MASW Method|MASW]] — generación y registro de ondas sísmicas en campo; parámetros de diseño del arreglo, fuentes activas/pasivas y desafíos operativos
 type: reference
 ---
 
 # Adquisición de Datos Sísmicos
 
 > [!CONCEPT] Definición
-> La **adquisición de datos** es el primer paso crítico del flujo de trabajo de los métodos de ondas superficiales: consiste en generar ondas sísmicas y registrar su propagación en tiempo y espacio, produciendo los **sismogramas multicanal** $u(x_j, t_n)$ que alimentan el [[Procesamiento de Señales|procesamiento]] y la [[Inversión|inversión]]. El sistema se compone de tres elementos: (1) **fuente** (activa o pasiva) que determina el contenido en frecuencias y la profundidad de investigación, (2) **arreglo de receptores** cuya geometría determina la resolución modal y el rango de longitudes de onda accesible, y (3) **sistema de registro** (sismógrafo multicanal) que digitaliza las señales. Los parámetros de diseño — espaciado $\Delta x$, apertura total $D$, offset de fuente $L_s$, duración del registro $T$ — controlan la calidad de la curva de dispersión extraída y, por tanto, la resolución del perfil $V_S(z)$ final.
+> La **adquisición de datos** es el primer paso crítico del flujo de trabajo de los métodos de ondas superficiales: consiste en generar ondas sísmicas y registrar su propagación en tiempo y espacio, produciendo los **sismogramas multicanal** $u(x_j, t_n)$ que alimentan el [[Procesamiento de Señales|procesamiento]] y la [[Inversión|inversión]]. El sistema se compone de tres elementos: (1) **fuente** (activa o pasiva) que determina el contenido en frecuencias y la profundidad de investigación, (2) **arreglo de receptores** cuya geometría determina la resolución modal y el rango de longitudes de onda accesible, y (3) **sistema de registro** (sismógrafo multicanal) que digitaliza las señales. Los parámetros de diseño — espaciado $\Delta x$, apertura total $D$, offset de fuente $L_s$, duración del registro $T$ — controlan la calidad de la [[Dispersion Curve|curva de dispersión]] extraída y, por tanto, la resolución del perfil $V_S(z)$ final.
 >
 > — Foti et al. (2018), Cap. 3, pp. 77–192.
 
@@ -28,11 +28,11 @@ Las **fuentes activas** permiten controlar la forma de onda, la posición y el t
 
 ### 2. Receptores y arreglos
 
-Los receptores estándar en MASW son **geófonos verticales** (14 Hz, 28 Hz o 4.5 Hz) que miden la componente vertical del movimiento → sensibles a [[Rayleigh Waves|ondas de Rayleigh]]. Para medir [[Love Waves|ondas de Love]] se requieren geófonos horizontales transversales.
+Los receptores estándar en [[MASW Method|MASW]] son **geófonos verticales** (14 Hz, 28 Hz o 4.5 Hz) que miden la componente vertical del movimiento → sensibles a [[Rayleigh Waves|ondas de Rayleigh]]. Para medir [[Love Waves|ondas de Love]] se requieren geófonos horizontales transversales.
 
-**Geometría del arreglo** (MASW activo):
+**Geometría del arreglo** ([[MASW Method|MASW]] activo):
 
-| Parámetro | Símbolo | Efecto sobre la curva de dispersión |
+| Parámetro | Símbolo | Efecto sobre la [[Dispersion Curve|curva de dispersión]] |
 |---|---|---|
 | Espaciado entre geófonos | $\Delta x$ | Longitud de onda mínima: $\lambda_{min} \approx 2\Delta x$ |
 | Apertura total | $D = N\Delta x$ | Longitud de onda máxima: $\lambda_{max} \approx D$ |
@@ -63,8 +63,8 @@ Los receptores demasiado cercanos a la fuente reciben ondas con **frentes curvos
 
 Un espaciado excesivamente grande $\Delta x$ produce aliasing espacial (ambigüedad en el número de onda): las ondas de longitud $\lambda < 2\Delta x$ se presentan en el espectro f-k con velocidad aparente incorrecta. La condición anti-aliasing es $\Delta x \leq \lambda_{min}/2$.
 
-> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — diseño del arreglo de adquisición MASW en Kansas
-> **Paper 001 (Park, Miller & Xia 1999)** establece los criterios de diseño del arreglo MASW en el estudio de campo en Kansas: 24 geófonos verticales (14 Hz de frecuencia natural), espaciado $\Delta x = 1.5$ m, apertura total $D = 34.5$ m, offset de fuente $L_s = 10$ m. El sledgehammer (10 lb sobre placa metálica) produce energía predominante en 5–50 Hz. Las reglas de diseño demostraron que: (1) el offset de fuente $L_s = 10$ m ≈ $\lambda_{max}/2$ es suficiente para excluir efectos de campo cercano en el rango de profundidades de interés (<20 m); (2) el espaciado de 1.5 m previene aliasing espacial hasta ~50 Hz; (3) 24 canales proporcionan resolución modal suficiente para separar el modo fundamental de los superiores entre 5–30 Hz.
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — diseño del arreglo de adquisición [[MASW Method|MASW]] en Kansas
+> **Paper 001 (Park, Miller & Xia 1999)** establece los criterios de diseño del arreglo [[MASW Method|MASW]] en el estudio de campo en Kansas: 24 geófonos verticales (14 Hz de frecuencia natural), espaciado $\Delta x = 1.5$ m, apertura total $D = 34.5$ m, offset de fuente $L_s = 10$ m. El sledgehammer (10 lb sobre placa metálica) produce energía predominante en 5–50 Hz. Las reglas de diseño demostraron que: (1) el offset de fuente $L_s = 10$ m ≈ $\lambda_{max}/2$ es suficiente para excluir efectos de campo cercano en el rango de profundidades de interés (<20 m); (2) el espaciado de 1.5 m previene aliasing espacial hasta ~50 Hz; (3) 24 canales proporcionan resolución modal suficiente para separar el modo fundamental de los superiores entre 5–30 Hz.
 >
 > — Research Database, entrada 001 (core); Park, Miller & Xia (1999), *Geophysics* 64(3).
 
@@ -73,4 +73,4 @@ Un espaciado excesivamente grande $\Delta x$ produce aliasing espacial (ambigüe
 | Fuente | Sección / Página |
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | Cap. 3, pp. 77–192 — adquisición completa |
-| Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — diseño del arreglo MASW |
+| Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — diseño del arreglo [[MASW Method|MASW]] |

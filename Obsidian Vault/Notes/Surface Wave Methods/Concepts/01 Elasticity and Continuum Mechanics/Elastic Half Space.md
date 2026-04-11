@@ -78,17 +78,17 @@ Para una fuente puntual vertical en la superficie libre, la amplitud de las onda
 
 $$A_R \propto \frac{1}{\sqrt{r}}$$
 
-mientras que las ondas de cuerpo en la misma superficie decaen como $1/r^2$. Esto implica que a distancias mayores de una o dos longitudes de onda, el campo de ondas queda dominado por las ondas de Rayleigh. Es la base experimental de los métodos MASW y SASW.
+mientras que las ondas de cuerpo en la misma superficie decaen como $1/r^2$. Esto implica que a distancias mayores de una o dos longitudes de onda, el campo de ondas queda dominado por las ondas de Rayleigh. Es la base experimental de los métodos [[MASW Method|MASW]] y [[SASW Method|SASW]].
 
 ## Relación con medios reales
 
 El semiespacio elástico es una idealización: ningún suelo real es perfectamente homogéneo. En la práctica:
 
-- El semiespacio homogéneo sirve como **referencia teórica** para derivar límites asintóticos de la curva de dispersión.
-- La diferencia entre la curva de dispersión experimental y la velocidad constante del semiespacio equivalente **cuantifica la heterogeneidad** del perfil.
+- El semiespacio homogéneo sirve como **referencia teórica** para derivar límites asintóticos de la [[Dispersion Curve|curva de dispersión]].
+- La diferencia entre la [[Dispersion Curve|curva de dispersión]] experimental y la velocidad constante del semiespacio equivalente **cuantifica la heterogeneidad** del perfil.
 - Los **métodos de inversión empírica** usan la relación $V_S \approx V_R/0.92$ como primera estimación antes de una inversión formal (véase [[Inversión]]).
 
-> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — uso de la ecuación secular en inversión MASW
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — uso de la ecuación secular en inversión [[MASW Method|MASW]]
 > **Paper 002 (Xia, Miller & Park 1999)** usa la ecuación secular del semiespacio generalizada al caso estratificado (Thomson-Haskell) como núcleo del problema directo de inversión. La relación $V_S \approx V_R/0.919$ sirve como estimación inicial del modelo antes de la inversión iterativa — primera aproximación derivada directamente del semiespacio homogéneo.
 >
 > Los sitios de validación en Kansas confirman que la ecuación secular del semiespacio estratificado predice $c_R(f)$ con precisión suficiente para recuperar $V_S(z)$ con error < 15% respecto a borehole.

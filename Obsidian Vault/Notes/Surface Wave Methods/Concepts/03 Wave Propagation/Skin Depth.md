@@ -15,7 +15,7 @@ type: reference
 
 Las [[Rayleigh Waves]] están confinadas cerca de la superficie libre: la mayor parte de su energía de deformación se concentra en una capa de espesor comparable a la longitud de onda. A mayor profundidad, las partículas apenas se desplazan. Este confinamiento superficial es precisamente lo que define a las ondas superficiales como categoría: ondas cuya amplitud decae exponencialmente al alejarse de la interfaz.
 
-La consecuencia práctica es que la profundidad que una onda de Rayleigh puede "sentir" está determinada por su longitud de onda: ondas largas (baja frecuencia) penetran más profundo que ondas cortas (alta frecuencia). Esta propiedad es el fundamento de la **estrategia de barrido en frecuencia** usada en MASW para explorar perfiles de $V_S$ con distintas profundidades.
+La consecuencia práctica es que la profundidad que una onda de Rayleigh puede "sentir" está determinada por su longitud de onda: ondas largas (baja frecuencia) penetran más profundo que ondas cortas (alta frecuencia). Esta propiedad es el fundamento de la **estrategia de barrido en frecuencia** usada en [[MASW Method|MASW]] para explorar perfiles de $V_S$ con distintas profundidades.
 
 ## Definición
 
@@ -43,7 +43,7 @@ En la práctica de los métodos de ondas superficiales, se usa la regla empíric
 
 $$z_{\max} \approx \frac{\lambda_{\max}}{2} \quad \text{a} \quad \lambda_{\max}$$
 
-donde $\lambda_{\max} = V_{R,\min}/f_{\min}$ es la longitud de onda máxima del experimento. Esta regla es una aproximación conservadora del skin depth, y reconoce que la **sensibilidad de la curva de dispersión** a $V_S$ a una profundidad dada es mayor que cero pero decrece rápidamente más allá de $\lambda/2$.
+donde $\lambda_{\max} = V_{R,\min}/f_{\min}$ es la longitud de onda máxima del experimento. Esta regla es una aproximación conservadora del skin depth, y reconoce que la **sensibilidad de la [[Dispersion Curve|curva de dispersión]]** a $V_S$ a una profundidad dada es mayor que cero pero decrece rápidamente más allá de $\lambda/2$.
 
 Por ejemplo, si la frecuencia mínima accesible es $f_{\min} = 5\,\text{Hz}$ y la velocidad de Rayleigh mínima es $V_R = 200\,\text{m/s}$:
 
@@ -65,7 +65,7 @@ El skin depth determina directamente los requerimientos de diseño del arreglo d
 La regla $z_{\max} \approx \lambda/2$ es válida para el modo fundamental en un medio normalmente dispersivo. En medios con inversiones de velocidad (capas blandas intercaladas), la profundidad efectiva puede ser mayor porque los modos superiores penetran más. La sensibilidad real a cada profundidad se cuantifica mediante las **derivadas parciales** $\partial V_R/\partial V_S(z)$ (kernels de sensibilidad), que pueden calcularse numéricamente para cualquier modelo.
 
 > [!EXAMPLE] Evidencia empírica: Socco & Strobbia (2004) — validación de la regla del skin depth en diseño de arreglos
-> **Paper 008 (Socco & Strobbia 2004)** analiza sistemáticamente la relación entre longitud de onda máxima, longitud del arreglo y profundidad de investigación efectiva en múltiples sitios. El análisis de kernels de sensibilidad ($\partial c_R/\partial V_S$ vs $z$) demuestra que la sensibilidad de la curva de dispersión de modo fundamental a $V_S$ se concentra entre $\lambda/3$ y $\lambda/2$ de profundidad, validando la regla $z_{max} \approx \lambda_{max}/2$ como un estimador conservador apropiado. En sitios con inversiones de velocidad, la regla puede subestimar la profundidad de investigación real porque los modos superiores contribuyen a frecuencias donde el fundamental perdería sensibilidad.
+> **Paper 008 (Socco & Strobbia 2004)** analiza sistemáticamente la relación entre longitud de onda máxima, longitud del arreglo y profundidad de investigación efectiva en múltiples sitios. El análisis de kernels de sensibilidad ($\partial c_R/\partial V_S$ vs $z$) demuestra que la sensibilidad de la [[Dispersion Curve|curva de dispersión]] de modo fundamental a $V_S$ se concentra entre $\lambda/3$ y $\lambda/2$ de profundidad, validando la regla $z_{max} \approx \lambda_{max}/2$ como un estimador conservador apropiado. En sitios con inversiones de velocidad, la regla puede subestimar la profundidad de investigación real porque los modos superiores contribuyen a frecuencias donde el fundamental perdería sensibilidad.
 >
 > — Research Database, entrada 008 (core).
 

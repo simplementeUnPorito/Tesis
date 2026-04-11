@@ -11,17 +11,17 @@ type: reference
 >
 > $$\Phi = \alpha_1\|\mathbf{J}_1\mathbf{m} - \mathbf{d}_1\|^2 + \alpha_2\|\mathbf{J}_2\mathbf{m} - \mathbf{d}_2\|^2 + \lambda^2\|\mathbf{L}\mathbf{m}\|^2$$
 >
-> Los pesos αᵢ equilibran la contribución de cada dataset según su incertidumbre. El objetivo es que cada método compense las debilidades del otro: MASW resuelve bien Vs pero no distingue saturación de fluidos; ERT detecta contraste de resistividad pero no diferencia rigidez. Combinados, reducen drásticamente la [[Non-uniqueness|no-unicidad]].
+> Los pesos αᵢ equilibran la contribución de cada dataset según su incertidumbre. El objetivo es que cada método compense las debilidades del otro: [[MASW Method|MASW]] resuelve bien Vs pero no distingue saturación de fluidos; ERT detecta contraste de resistividad pero no diferencia rigidez. Combinados, reducen drásticamente la [[Non-uniqueness|no-unicidad]].
 
 ## Combinaciones más comunes en SWM
 
 | Combinación | Vínculo | Complementariedad |
 |-------------|---------|-------------------|
-| MASW + ERT | [[Cross-Gradient Function]] o petrofísico ([[Archie's Law]]) | ERT → φ → VP (vía [[Wyllie Equation]]); MASW → VS, Gmax |
-| MASW + HVSR | Elipticidad de Rayleigh | HVSR constrain f₀ = VS/4H → profundidad bedrock |
-| MASW + refracción | VP y VS independientes | VP → saturación; VS → rigidez; Poisson ratio → estado tensional |
+| [[MASW Method|MASW]] + ERT | [[Cross-Gradient Function]] o petrofísico ([[Archie's Law]]) | ERT → φ → VP (vía [[Wyllie Equation]]); [[MASW Method|MASW]] → VS, Gmax |
+| [[MASW Method|MASW]] + HVSR | Elipticidad de Rayleigh | HVSR constrain f₀ = VS/4H → profundidad bedrock |
+| [[MASW Method|MASW]] + refracción | VP y VS independientes | VP → saturación; VS → rigidez; Poisson ratio → estado tensional |
 | Activo + Pasivo | Mismo modelo 1D | Activo → altas frecuencias (z < 10 m); Pasivo → bajas frecuencias (z > 20 m) |
-| MASW + Love | Modos Love y Rayleigh | Love → VS puro (no contamina VP); Rayleigh → VS y VP acoplados |
+| [[MASW Method|MASW]] + Love | Modos Love y Rayleigh | Love → VS puro (no contamina VP); Rayleigh → VS y VP acoplados |
 
 ## Tipos de vínculo entre métodos
 
@@ -53,10 +53,10 @@ Los datasets simplemente comparten el mismo espacio de modelos sin imposición e
 | Bayesiana | Función de verosimilitud combinada, MCMC | Bodin et al. 2012 |
 
 > [!EXAMPLE] Evidencia empírica (Foti et al. 2018, Parolai et al. 2005, Comina et al. 2002)
-> - **Comina et al. (2002)** — Sitio Po river dike (dique del río Po, Italia): inversión conjunta MASW + ERT con cross-gradient constraint. La ERT detectó una anomalía de alta resistividad (arena gruesa) a 3–5 m que la MASW sola no resolvía. La inversión conjunta mejoró la correlación con perfiles de control (CPT) de r² = 0.71 → 0.89 en VS.
-> - **Parolai et al. (2005)** — Joint inversion de curvas de dispersión pasiva + razón H/V con algoritmo genético en 6 sitios de Colonia (Alemania). La no-unicidad en VS se redujo en ~40% comparado con inversión sola de dispersión. 239 citas confirman adopción amplia de este esquema.
-> - **Arai & Tokimatsu (2005)** — Combinación de array pasivo + H/V: inversión conjunta exploró correctamente la profundidad a bedrock (VS > 800 m/s) a 60 m, donde la MASW activa (12 geófonos, 4 m separación) sólo alcanzaba 30 m.
-> - **Foti et al. (2018, §8.3)** — Ensayo en Torre de Pisa: MASW + crosshole en inversión conjunta. Los perfiles VS de ambos métodos concordaron dentro del ±8% hasta 30 m, validando la consistencia del esquema.
+> - **Comina et al. (2002)** — Sitio Po river dike (dique del río Po, Italia): inversión conjunta [[MASW Method|MASW]] + ERT con cross-gradient constraint. La ERT detectó una anomalía de alta resistividad (arena gruesa) a 3–5 m que la [[MASW Method|MASW]] sola no resolvía. La inversión conjunta mejoró la correlación con perfiles de control (CPT) de r² = 0.71 → 0.89 en VS.
+> - **Parolai et al. (2005)** — Joint inversion de [[Dispersion Curve|curvas de dispersión]] pasiva + razón H/V con algoritmo genético en 6 sitios de Colonia (Alemania). La no-unicidad en VS se redujo en ~40% comparado con inversión sola de dispersión. 239 citas confirman adopción amplia de este esquema.
+> - **Arai & Tokimatsu (2005)** — Combinación de array pasivo + H/V: inversión conjunta exploró correctamente la profundidad a bedrock (VS > 800 m/s) a 60 m, donde la [[MASW Method|MASW]] activa (12 geófonos, 4 m separación) sólo alcanzaba 30 m.
+> - **Foti et al. (2018, §8.3)** — Ensayo en Torre de Pisa: [[MASW Method|MASW]] + crosshole en inversión conjunta. Los perfiles VS de ambos métodos concordaron dentro del ±8% hasta 30 m, validando la consistencia del esquema.
 
 ## Referencias
 
@@ -66,5 +66,5 @@ Los datasets simplemente comparten el mismo espacio de modelos sin imposición e
 | Gallardo & Meju | 2004 | Implementación de cross-gradient en inversión 2D conjunta |
 | Parolai et al. | 2005 | Joint inversion dispersión + H/V con algoritmo genético (239 citas) |
 | Arai & Tokimatsu | 2005 | Joint inversion microtremor + H/V en perfiles VS urbanos |
-| Comina et al. | 2002 | MASW+ERT dique del Po con cross-gradient |
+| Comina et al. | 2002 | [[MASW Method|MASW]]+ERT dique del Po con cross-gradient |
 | Foti et al. | 2018 | §8.3, §8.4: ejemplos de joint inversion en site characterization |

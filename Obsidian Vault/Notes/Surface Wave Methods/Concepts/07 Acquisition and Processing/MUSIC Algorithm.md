@@ -1,6 +1,6 @@
 ---
 name: MUSIC Algorithm
-description: MUltiple SIgnal Classification — algoritmo de subespacio de alta resolución que descompone la matriz espectral en subespacios de señal y ruido para estimar la curva de dispersión con resolución super-Rayleigh — alternativa al análisis f-k convencional en MASW con arreglos cortos
+description: MUltiple SIgnal Classification — algoritmo de subespacio de alta resolución que descompone la matriz espectral en subespacios de señal y ruido para estimar la [[Dispersion Curve|curva de dispersión]] con resolución super-Rayleigh — alternativa al análisis f-k convencional en [[MASW Method|MASW]] con arreglos cortos
 type: reference
 ---
 
@@ -37,8 +37,8 @@ La elección de $K$ (número de señales) es crítica. Criterios estándar:
 
 Una elección incorrecta de $K$ produce picos espúreos (sobreestimación) o pérdida de modos (subestimación).
 
-> [!EXAMPLE] Evidencia empírica: Zywicki & Rix (2005) — MUSIC para separación multimodal en MASW
-> Zywicki & Rix (2005, *JGGE* 131(11), 1303–1314) aplican el algoritmo MUSIC para extraer curvas de dispersión multimodal de datos MASW con un arreglo de solo 12 geófonos a $\Delta x = 1.5$ m (apertura $D = 16.5$ m, resolución $f$-$k$ convencional $\Delta V = V^2/fD \approx 15$ m/s a 20 Hz para $V = 100$ m/s). El pseudoespectro MUSIC resuelve el modo fundamental ($V_R = 95$ m/s a 20 Hz) y el primer modo superior ($V_R = 115$ m/s a 20 Hz) — separación de solo 20 m/s — mientras que el panel $f$-$k$ convencional los fusiona en un único pico de amplitud máxima. La inversión conjunta de ambos modos (MUSIC) reduce la incertidumbre en el perfil $V_S$ profundo en 35% respecto a la inversión del modo fundamental solo.
+> [!EXAMPLE] Evidencia empírica: Zywicki & Rix (2005) — MUSIC para separación multimodal en [[MASW Method|MASW]]
+> Zywicki & Rix (2005, *JGGE* 131(11), 1303–1314) aplican el algoritmo MUSIC para extraer [[Dispersion Curve|curvas de dispersión]] multimodal de datos [[MASW Method|MASW]] con un arreglo de solo 12 geófonos a $\Delta x = 1.5$ m (apertura $D = 16.5$ m, resolución $f$-$k$ convencional $\Delta V = V^2/fD \approx 15$ m/s a 20 Hz para $V = 100$ m/s). El pseudoespectro MUSIC resuelve el modo fundamental ($V_R = 95$ m/s a 20 Hz) y el primer modo superior ($V_R = 115$ m/s a 20 Hz) — separación de solo 20 m/s — mientras que el panel $f$-$k$ convencional los fusiona en un único pico de amplitud máxima. La inversión conjunta de ambos modos (MUSIC) reduce la incertidumbre en el perfil $V_S$ profundo en 35% respecto a la inversión del modo fundamental solo.
 >
 > — Zywicki & Rix (2005), *JGGE* 131(11), 1303–1314; Foti et al. (2018), §4.3.4.
 
@@ -46,6 +46,6 @@ Una elección incorrecta de $K$ produce picos espúreos (sobreestimación) o pé
 
 | Fuente | Sección / Página |
 |--------|-----------------|
-| Foti et al. (2018), *Surface Wave Methods* | §4.3.4 — métodos de alta resolución en MASW |
+| Foti et al. (2018), *Surface Wave Methods* | §4.3.4 — métodos de alta resolución en [[MASW Method|MASW]] |
 | Schmidt, R.O. (1986), *IEEE Trans. Antennas Propag.* 34(3) | Algoritmo MUSIC original |
-| Zywicki & Rix (2005), *JGGE* 131(11), 1303–1314 | Aplicación MUSIC en MASW multimodal |
+| Zywicki & Rix (2005), *JGGE* 131(11), 1303–1314 | Aplicación MUSIC en [[MASW Method|MASW]] multimodal |

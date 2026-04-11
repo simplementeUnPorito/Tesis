@@ -1,6 +1,6 @@
 ---
 name: Spectral Leakage
-description: Distorsión espectral causada por el truncamiento de señales no periódicas en la DFT — genera lóbulos laterales que contaminan el espectro f-k de MASW y pueden enmascarar modos de Rayleigh de baja amplitud
+description: Distorsión espectral causada por el truncamiento de señales no periódicas en la DFT — genera lóbulos laterales que contaminan el espectro f-k de [[MASW Method|MASW]] y pueden enmascarar modos de Rayleigh de baja amplitud
 type: reference
 ---
 
@@ -13,7 +13,7 @@ type: reference
 >
 > — Foti et al. (2018), §3.3.5, pp. 135–138; Harris (1978), *Proc. IEEE* 66(1), 51–83.
 
-## Efecto en el dominio f-k de MASW
+## Efecto en el dominio f-k de [[MASW Method|MASW]]
 
 La ventana temporal y espacial combina sus efectos en el panel 2D:
 
@@ -31,7 +31,7 @@ donde $W_t(f)$ es la transformada de la ventana temporal y $W_x(k)$ la de la ven
 | Blackman | $6/T$ | -58 dB | ×3 |
 | Tukey (α=0.5) | $\approx 3/T$ | ~-25 dB | ×1.5 |
 
-La [[Hann Window|ventana de Hann]] (coseno elevado) es el estándar en procesamiento sísmico MASW: buen balance entre supresión de lóbulos (-31.5 dB) y resolución (pérdida ×2). La ventana [[Hamming Window|Hamming]] ofrece mayor supresión (-42.5 dB) al costo de lóbulos más amplios.
+La [[Hann Window|ventana de Hann]] (coseno elevado) es el estándar en procesamiento sísmico [[MASW Method|MASW]]: buen balance entre supresión de lóbulos (-31.5 dB) y resolución (pérdida ×2). La ventana [[Hamming Window|Hamming]] ofrece mayor supresión (-42.5 dB) al costo de lóbulos más amplios.
 
 ## Extensión al dominio espacial
 
@@ -46,6 +46,6 @@ El mismo fenómeno ocurre en el dominio espacial: el arreglo finito de $N$ geóf
 
 | Fuente | Sección / Página |
 |--------|-----------------|
-| Foti et al. (2018), *Surface Wave Methods* | §3.3.5 — ventaneo y spectral leakage en MASW |
+| Foti et al. (2018), *Surface Wave Methods* | §3.3.5 — ventaneo y spectral leakage en [[MASW Method|MASW]] |
 | Harris, F.J. (1978), *Proc. IEEE* 66(1), 51–83 | Análisis comparativo de ventanas de análisis |
 | Proakis & Manolakis (2006), *Digital Signal Processing* | §8 — DFT, FFT y efectos de ventaneo |

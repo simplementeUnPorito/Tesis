@@ -7,7 +7,7 @@ type: reference
 # Superposición de Modos (Mode Superposition)
 
 > [!CONCEPT] Definición
-> La **superposición de modos** describe el hecho de que el campo sísmico registrado en un arreglo de geófonos es, en general, la suma de múltiples modos de propagación de [[Rayleigh Waves]] y/o [[Love Waves]]. El campo total es $u(x,t) = \sum_n A_n\,e^{i(k_n x - \omega t)}$, donde cada $n$ corresponde a un modo con su propio número de onda $k_n$ y eigenfunción. Si el procesamiento asume modo fundamental pero hay contribuciones significativas de modos superiores (ver [[Surface Wave Modes]]), la curva de dispersión aparente será una mezcla y el perfil $V_S$ invertido será erróneo.
+> La **superposición de modos** describe el hecho de que el campo sísmico registrado en un arreglo de geófonos es, en general, la suma de múltiples modos de propagación de [[Rayleigh Waves]] y/o [[Love Waves]]. El campo total es $u(x,t) = \sum_n A_n\,e^{i(k_n x - \omega t)}$, donde cada $n$ corresponde a un modo con su propio número de onda $k_n$ y eigenfunción. Si el procesamiento asume modo fundamental pero hay contribuciones significativas de modos superiores (ver [[Surface Wave Modes]]), la [[Dispersion Curve|curva de dispersión]] aparente será una mezcla y el perfil $V_S$ invertido será erróneo.
 >
 > — Foti et al. (2018), §2.4, pp. 64–95.
 
@@ -15,7 +15,7 @@ type: reference
 
 En medios [[Layered Media|estratificados]], la [[Dispersion Relation|relación de dispersión]] del [[Rayleigh Eigenproblem]] admite múltiples soluciones para una misma frecuencia — cada una es un modo de propagación con:
 - Su propio número de onda $k_n(\omega)$
-- Su propia velocidad de fase $c_n = \omega/k_n$
+- Su propia [[Phase Velocity|velocidad de fase]] $c_n = \omega/k_n$
 - Su propio patrón de desplazamiento con la profundidad (eigenfunción)
 
 El modo fundamental ($n=0$) existe para todas las frecuencias; los modos superiores tienen frecuencias de corte mínimas.
@@ -26,7 +26,7 @@ El campo de desplazamiento total en superficie:
 
 $$u(x,t) = \sum_{n=0}^{N} A_n(x)\,e^{i(k_n x - \omega t)}$$
 
-donde el índice $n$ identifica el modo. La velocidad de fase **aparente** medida por el análisis f-k estándar es una media ponderada por las amplitudes:
+donde el índice $n$ identifica el modo. La [[Phase Velocity|velocidad de fase]] **aparente** medida por el análisis f-k estándar es una media ponderada por las amplitudes:
 
 $$c_{app}(\omega) = \frac{\omega}{\partial\psi/\partial x}\bigg|_{\text{campo total}}$$
 
@@ -50,9 +50,9 @@ que no coincide con ningún $c_n$ individual si hay mezcla modal.
 - **Diversidad de offset**: diferentes distancias excitan modos con diferentes amplitudes relativas
 
 > [!EXAMPLE] Evidencia empírica: Tokimatsu et al. (1992) + Xu et al. (2006)
-> **Paper 031 (Tokimatsu, Tamura & Kojima 1992, ASCE JGGE, 352 citas)** — análisis teórico pionero: en perfiles con inversión de velocidad (capa blanda bajo capa rígida), los modos superiores de Rayleigh dominan la curva de dispersión aparente a bajas frecuencias, causando subestimación sistemática de Vs en profundidad si se invierte solo el modo fundamental. Propone la simulación multimodal para interpretación correcta. Fundamento directo de la inversión multimodal (Xia et al. 2003, Paper 025).
+> **Paper 031 (Tokimatsu, Tamura & Kojima 1992, ASCE JGGE, 352 citas)** — análisis teórico pionero: en perfiles con inversión de velocidad (capa blanda bajo capa rígida), los modos superiores de Rayleigh dominan la [[Dispersion Curve|curva de dispersión]] aparente a bajas frecuencias, causando subestimación sistemática de Vs en profundidad si se invierte solo el modo fundamental. Propone la simulación multimodal para interpretación correcta. Fundamento directo de la inversión multimodal (Xia et al. 2003, Paper 025).
 >
-> **Paper 014 (Xu et al. 2006)** documenta errores sistemáticos de hasta **50%** en el perfil $V_S$ cuando se invierte la curva de dispersión asumiendo modo fundamental en presencia de una capa blanda intercalada (inversión de velocidad). En estos sitios, los modos superiores dominan el espectro f-k a frecuencias intermedias, pero la curva aparente parece continua — sin indicación visual de la confusión modal. El trabajo establece criterios para identificar cuándo la hipótesis de modo fundamental es insegura, y recomienda la inversión multimodal o el determinant misfit como alternativas robustas.
+> **Paper 014 (Xu et al. 2006)** documenta errores sistemáticos de hasta **50%** en el perfil $V_S$ cuando se invierte la [[Dispersion Curve|curva de dispersión]] asumiendo modo fundamental en presencia de una capa blanda intercalada (inversión de velocidad). En estos sitios, los modos superiores dominan el espectro f-k a frecuencias intermedias, pero la curva aparente parece continua — sin indicación visual de la confusión modal. El trabajo establece criterios para identificar cuándo la hipótesis de modo fundamental es insegura, y recomienda la inversión multimodal o el determinant misfit como alternativas robustas.
 >
 > — Research Database, entradas 031 y 014 (core).
 
@@ -60,13 +60,13 @@ que no coincide con ningún $c_n$ individual si hay mezcla modal.
 
 - [[Surface Wave Modes]] — definición formal de cada modo
 - [[Rayleigh Eigenproblem]] — formulación matemática del problema de valores propios modal
-- [[Phase Velocity]] — cada modo tiene su propia curva de dispersión
+- [[Phase Velocity]] — cada modo tiene su propia [[Dispersion Curve|curva de dispersión]]
 - [[Layered Media]] — la estratificación es la causa de la existencia de múltiples modos
 - [[MASW Method]] — el procesamiento f-k estándar puede verse afectado por superposición modal
 - [[Love Waves]] — también exhiben superposición modal, aunque sin osculaciones
 
 > [!EXAMPLE] Evidencia empírica: Eikmeier (2018) — comparación activo/pasivo + Rayleigh/Love + modos en IAG-USP
-> **Paper 032 (Eikmeier 2018, Dissertação de Mestrado IAG-USP, DOI: 10.11606/d.14.2018.tde-09042018-164758)** realiza una comparación sistemática de fuentes activas y pasivas, ondas Rayleigh y Love, y modos fundamental vs superior en el campus USP Butantã (São Paulo, Brasil). Con geófonos 4.5 Hz verticales (lineal) y 10 Hz triaxiales (2D), el estudio documenta que: (1) el compactador de suelo produce mejores espectros que el martillo (más energía, mayor banda); (2) la inversión conjunta modo fundamental + 1er modo superior da mejores perfiles que el modo fundamental solo; (3) el Passive Roadside MASW con tráfico vehicular ayuda a identificar modos superiores en los datos activos, pero no mejora directamente el perfil Vs. Todos los resultados convergen y se validan contra SPT del sitio. El estudio es la referencia de comparación más completa en contexto sudamericano: mismo hardware que la tesis + análisis multimodal + Love waves.
+> **Paper 032 (Eikmeier 2018, Dissertação de Mestrado IAG-USP, DOI: 10.11606/d.14.2018.tde-09042018-164758)** realiza una comparación sistemática de fuentes activas y pasivas, ondas Rayleigh y Love, y modos fundamental vs superior en el campus USP Butantã (São Paulo, Brasil). Con geófonos 4.5 Hz verticales (lineal) y 10 Hz triaxiales (2D), el estudio documenta que: (1) el compactador de suelo produce mejores espectros que el martillo (más energía, mayor banda); (2) la inversión conjunta modo fundamental + 1er modo superior da mejores perfiles que el modo fundamental solo; (3) el Passive Roadside [[MASW Method|MASW]] con tráfico vehicular ayuda a identificar modos superiores en los datos activos, pero no mejora directamente el perfil Vs. Todos los resultados convergen y se validan contra SPT del sitio. El estudio es la referencia de comparación más completa en contexto sudamericano: mismo hardware que la tesis + análisis multimodal + Love waves.
 >
 > — Research Database, entrada 032 (core); Eikmeier (2018), IAG-USP.
 

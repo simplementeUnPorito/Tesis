@@ -43,10 +43,10 @@ Como $\lambda_R$ depende de la frecuencia y de $V_S$ (desconocida a priori), el 
 
 ## 3. Consecuencia para la medición
 
-Dentro del campo cercano, la velocidad de fase aparente puede estar sesgada hacia arriba o abajo según la frecuencia y la estratigrafía. Esto contamina la curva de dispersión experimental y puede inducir errores sistemáticos en la inversión del perfil Vs(z).
+Dentro del campo cercano, la [[Phase Velocity|velocidad de fase]] aparente puede estar sesgada hacia arriba o abajo según la frecuencia y la estratigrafía. Esto contamina la [[Dispersion Curve|curva de dispersión]] experimental y puede inducir errores sistemáticos en la inversión del perfil Vs(z).
 
-> [!EXAMPLE] Evidencia empírica: Yoon & Rix (2009) — cuantificación del near-field en MASW activo
-> **Paper 024 (Yoon & Rix 2009)** cuantifica mediante modelado numérico y datos de campo el sesgo introducido por el near-field en MASW. Sus resultados muestran que el error en la curva de dispersión puede superar el 10–15% en frecuencias bajas cuando el offset fuente-receptor es insuficiente.
+> [!EXAMPLE] Evidencia empírica: Yoon & Rix (2009) — cuantificación del near-field en [[MASW Method|MASW]] activo
+> **Paper 024 (Yoon & Rix 2009)** cuantifica mediante modelado numérico y datos de campo el sesgo introducido por el near-field en [[MASW Method|MASW]]. Sus resultados muestran que el error en la [[Dispersion Curve|curva de dispersión]] puede superar el 10–15% en frecuencias bajas cuando el offset fuente-receptor es insuficiente.
 >
 > El criterio operacional derivado: excluir del análisis los receptores para los cuales $r < \lambda_R/2$ a cada frecuencia. Esto puede implementarse como un *mute* frecuencia-dependiente en el dominio f-k.
 >
@@ -57,7 +57,7 @@ Dentro del campo cercano, la velocidad de fase aparente puede estar sesgada haci
 ## 4. Implicaciones para el diseño experimental
 
 - El **primer geófono** debe ubicarse al menos a $\lambda_R/2$ de la fuente, idealmente a $\lambda_R$.
-- Para frecuencias bajas esto impone offsets largos, que a su vez reducen el SNR → tradeoff fundamental del diseño MASW.
+- Para frecuencias bajas esto impone offsets largos, que a su vez reducen el SNR → tradeoff fundamental del diseño [[MASW Method|MASW]].
 - Algunas técnicas de procesamiento permiten identificar y enmudecer (*mute*) los receptores afectados por campo cercano a cada frecuencia (Foti §4.4).
 - En arreglos pasivos ([[ReMi Method]], [[SPAC Method]]), el near-field es menos crítico porque no hay fuente controlada.
 
@@ -71,7 +71,7 @@ Dentro del campo cercano, la velocidad de fase aparente puede estar sesgada haci
 - [[Phase Velocity]] — observable contaminado en campo cercano
 - [[Wavelength]] — $\lambda_R$ define la escala del near-field
 - [[MASW Method]] — método más afectado por near-field activo
-- [[Near-field Effect]] ↔ [[Geometric Dispersion]] — ambos afectan la curva de dispersión experimental
+- [[Near-field Effect]] ↔ [[Geometric Dispersion]] — ambos afectan la [[Dispersion Curve|curva de dispersión]] experimental
 
 ---
 
@@ -81,5 +81,5 @@ Dentro del campo cercano, la velocidad de fase aparente puede estar sesgada haci
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | §2.4.2, pp. 83–86 |
 | Foti et al. (2018), *Surface Wave Methods* | §3.4.1.6, pp. 160–162 |
-| Yoon & Rix (2009), *J. Geotech. Geoenviron. Eng.* | Paper 024 — near-field en MASW activo |
+| Yoon & Rix (2009), *J. Geotech. Geoenviron. Eng.* | Paper 024 — near-field en [[MASW Method|MASW]] activo |
 | Park, Miller & Miura (2002) | Paper 026 — parámetros óptimos de adquisición |

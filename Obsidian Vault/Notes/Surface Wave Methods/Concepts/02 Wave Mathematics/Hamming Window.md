@@ -1,6 +1,6 @@
 ---
 name: Hamming Window
-description: Ventana de análisis espectral con coeficientes (0.54, 0.46) que reduce los lóbulos laterales a -42.5 dB con pérdida ×2 de resolución frecuencial — variante de la ventana de Hann usada en análisis f-k de MASW
+description: Ventana de análisis espectral con coeficientes (0.54, 0.46) que reduce los lóbulos laterales a -42.5 dB con pérdida ×2 de resolución frecuencial — variante de la ventana de Hann usada en análisis f-k de [[MASW Method|MASW]]
 type: reference
 ---
 
@@ -26,8 +26,8 @@ type: reference
 
 La ventana de Hamming es preferida cuando el primer lóbulo lateral es el problema (modos de Rayleigh con $\Delta k$ pequeño); la de Hann es mejor cuando se necesita que todos los lóbulos sean bajos (señal con amplitudes muy diferentes entre componentes lejanas).
 
-> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — ventaneo en análisis f-k multichannel MASW
-> Park et al. (1999, *Geophysics* 64(3)) aplican la ventana de Hamming en el dominio temporal a cada traza del arreglo multicanal antes de la transformada $f$-$k$ en su algoritmo MASW original. La elección de Hamming sobre Hann se justifica porque los datos de campo muestran un primer modo superior muy próximo en velocidad de fase al modo fundamental (diferencia $\Delta V_R < 20\%$ en el rango 15–25 Hz) — condición donde el primer lóbulo lateral de Hann (-31.5 dB) podría confundir los modos. Con Hamming (-42.5 dB del primer lóbulo), la separación entre modos en el panel $f$-$k$ mejora lo suficiente para identificar el modo fundamental sin ambigüedad. Esta elección se volvió estándar en la implementación original del software SurfSeis (Park & Miller 1998).
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — ventaneo en análisis f-k multichannel [[MASW Method|MASW]]
+> Park et al. (1999, *Geophysics* 64(3)) aplican la ventana de Hamming en el dominio temporal a cada traza del arreglo multicanal antes de la transformada $f$-$k$ en su algoritmo [[MASW Method|MASW]] original. La elección de Hamming sobre Hann se justifica porque los datos de campo muestran un primer modo superior muy próximo en [[Phase Velocity|velocidad de fase]] al modo fundamental (diferencia $\Delta V_R < 20\%$ en el rango 15–25 Hz) — condición donde el primer lóbulo lateral de Hann (-31.5 dB) podría confundir los modos. Con Hamming (-42.5 dB del primer lóbulo), la separación entre modos en el panel $f$-$k$ mejora lo suficiente para identificar el modo fundamental sin ambigüedad. Esta elección se volvió estándar en la implementación original del software SurfSeis (Park & Miller 1998).
 >
 > — Park et al. (1999), *Geophysics* 64(3), 800–808; Harris (1978), *Proc. IEEE* 66(1), 51–83.
 
@@ -36,5 +36,5 @@ La ventana de Hamming es preferida cuando el primer lóbulo lateral es el proble
 | Fuente | Sección / Página |
 |--------|-----------------|
 | Harris, F.J. (1978), *Proc. IEEE* 66(1), 51–83 | Definición y comparación de ventanas de análisis |
-| Park et al. (1999), *Geophysics* 64(3), 800–808 | Uso en el algoritmo MASW original |
-| Foti et al. (2018), *Surface Wave Methods* | §3.3.5 — ventaneo en procesamiento MASW |
+| Park et al. (1999), *Geophysics* 64(3), 800–808 | Uso en el algoritmo [[MASW Method|MASW]] original |
+| Foti et al. (2018), *Surface Wave Methods* | §3.3.5 — ventaneo en procesamiento [[MASW Method|MASW]] |

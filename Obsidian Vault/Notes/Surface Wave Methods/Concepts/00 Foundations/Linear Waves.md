@@ -47,7 +47,7 @@ En geofísica near-surface, la teoría usada para interpretar registros de geóf
 
 - La linealidad es una **hipótesis de trabajo**, no una verdad universal.
 - Si la fuente induce deformaciones grandes (explosivos, vibrador cercano), la aproximación lineal puede degradarse.
-- La mayor parte de la instrumentación y procesamiento estándar (MASW, SASW, SPAC) asume régimen lineal.
+- La mayor parte de la instrumentación y procesamiento estándar ([[MASW Method|MASW]], [[SASW Method|SASW]], SPAC) asume régimen lineal.
 - Conviene mantener fuentes y acoplamientos dentro de un rango reproducible y estable.
 
 ---
@@ -64,7 +64,7 @@ En geofísica near-surface, la teoría usada para interpretar registros de geóf
 ---
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) — propagación lineal validada por reproducibilidad entre disparos
-> **Paper 001 (Park, Miller & Xia 1999)** valida implícitamente la hipótesis de propagación lineal mediante la reproducibilidad de los espectrogramas f-k entre disparos sucesivos con el mismo arreglo. Si la propagación fuera no lineal, el espectrograma de cada disparo sería diferente (la respuesta dependería de la amplitud de la fuente). En el estudio de Kansas, espectrogramas de 5 disparos sucesivos con sledgehammer muestran posiciones de crestas f-k idénticas dentro de la incertidumbre de resolución del espectrograma. Esta reproducibilidad confirma que en el rango de deformaciones inducidas por un sledgehammer (~$10^{-6}$), el subsuelo responde linealmente y la hipótesis de [[Linear Waves|propagación lineal]] es válida — justificando el uso del análisis espectral y la separación modal del MASW.
+> **Paper 001 (Park, Miller & Xia 1999)** valida implícitamente la hipótesis de propagación lineal mediante la reproducibilidad de los espectrogramas f-k entre disparos sucesivos con el mismo arreglo. Si la propagación fuera no lineal, el espectrograma de cada disparo sería diferente (la respuesta dependería de la amplitud de la fuente). En el estudio de Kansas, espectrogramas de 5 disparos sucesivos con sledgehammer muestran posiciones de crestas f-k idénticas dentro de la incertidumbre de resolución del espectrograma. Esta reproducibilidad confirma que en el rango de deformaciones inducidas por un sledgehammer (~$10^{-6}$), el subsuelo responde linealmente y la hipótesis de [[Linear Waves|propagación lineal]] es válida — justificando el uso del análisis espectral y la separación modal del [[MASW Method|MASW]].
 >
 > — Research Database, entrada 001 (core); Park, Miller & Xia (1999), *Geophysics* 64(3).
 

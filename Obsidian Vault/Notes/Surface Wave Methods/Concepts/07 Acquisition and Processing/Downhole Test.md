@@ -1,6 +1,6 @@
 ---
 name: Downhole Test
-description: Ensayo sísmico invasivo con fuente en superficie y receptores en un pozo — mide VS y VP directamente a cada profundidad; referencia complementaria al MASW
+description: Ensayo sísmico invasivo con fuente en superficie y receptores en un pozo — mide VS y VP directamente a cada profundidad; referencia complementaria al [[MASW Method|MASW]]
 type: reference
 ---
 
@@ -47,17 +47,17 @@ donde $r(z_i) = \sqrt{x^2 + z_i^2}$ (corrección de la geometría inclinada).
 | Costo | Medio | Alto | Bajo |
 | Invasividad | Alta (1 pozo) | Muy alta (≥2 pozos) | Ninguna |
 
-## Rol en la validación de MASW
+## Rol en la validación de [[MASW Method|MASW]]
 
-El DHT es la referencia de campo más usada para validar perfiles $V_S(z)$ de MASW en proyectos de ingeniería geotécnica, porque:
+El DHT es la referencia de campo más usada para validar perfiles $V_S(z)$ de [[MASW Method|MASW]] en proyectos de ingeniería geotécnica, porque:
 1. Requiere solo un pozo (costo manejable en proyectos reales)
 2. Produce $V_S(z)$ directo sin necesidad de inversión
 3. El pozo puede ser compartido con otros ensayos geotécnicos (SPT, muestreo)
 
-El acuerdo entre MASW y DHT suele ser dentro de ±15% en profundidades inferiores a 30 m (Foti et al. 2018, §7.4).
+El acuerdo entre [[MASW Method|MASW]] y DHT suele ser dentro de ±15% en profundidades inferiores a 30 m (Foti et al. 2018, §7.4).
 
-> [!EXAMPLE] Evidencia empírica: Xia et al. (2002) — DHT como validación de MASW con modos superiores
-> **Paper 009 (Xia, Miller, Park & Tian 2002)** utiliza el Downhole Test como referencia para validar el perfil $V_S(z)$ obtenido por MASW incluyendo modos superiores de ondas de Rayleigh. En el sitio de Kansas (perfil de 20 m de profundidad), el DHT muestra un perfil $V_S$ con variación 150–400 m/s en capas de ~2–3 m de espesor. La inversión MASW con modo fundamental reproduce el perfil DHT con error < 15% excepto en las capas intermedias donde el picking del modo superior mejora el acuerdo al ~8%. El paper establece que el costo del MASW (adquisición + procesamiento + inversión) es inferior a 1/10 del costo del DHT en el mismo sitio, con error comparable — justificando el MASW como alternativa no-invasiva de alta calidad.
+> [!EXAMPLE] Evidencia empírica: Xia et al. (2002) — DHT como validación de [[MASW Method|MASW]] con modos superiores
+> **Paper 009 (Xia, Miller, Park & Tian 2002)** utiliza el Downhole Test como referencia para validar el perfil $V_S(z)$ obtenido por [[MASW Method|MASW]] incluyendo modos superiores de ondas de Rayleigh. En el sitio de Kansas (perfil de 20 m de profundidad), el DHT muestra un perfil $V_S$ con variación 150–400 m/s en capas de ~2–3 m de espesor. La inversión [[MASW Method|MASW]] con modo fundamental reproduce el perfil DHT con error < 15% excepto en las capas intermedias donde el picking del modo superior mejora el acuerdo al ~8%. El paper establece que el costo del [[MASW Method|MASW]] (adquisición + procesamiento + inversión) es inferior a 1/10 del costo del DHT en el mismo sitio, con error comparable — justificando el [[MASW Method|MASW]] como alternativa no-invasiva de alta calidad.
 >
 > — Research Database, entrada 009 (core); Xia, Miller, Park & Tian (2002), *Geophysics* 67(5):1274–1282.
 
@@ -65,7 +65,7 @@ El acuerdo entre MASW y DHT suele ser dentro de ±15% en profundidades inferiore
 
 | Fuente | Sección / Página |
 |--------|-----------------|
-| Foti et al. (2018), *Surface Wave Methods* | §1.1; §7.4 — validación MASW vs ensayos invasivos |
-| Xia et al. (2002), *Geophysics* 67(5) | Paper 009 — DHT como referencia para MASW con modos superiores |
+| Foti et al. (2018), *Surface Wave Methods* | §1.1; §7.4 — validación [[MASW Method|MASW]] vs ensayos invasivos |
+| Xia et al. (2002), *Geophysics* 67(5) | Paper 009 — DHT como referencia para [[MASW Method|MASW]] con modos superiores |
 | ASTM D7400 | Norma estándar para Downhole Seismic Testing |
 | Robertson & Cabal (2015), *CPT Guide* | SCPTU — variante de DHT con ensayo de penetración |

@@ -51,17 +51,17 @@ donde $t_0$ es el tiempo de disparo y $t_S$ el tiempo de llegada de la onda S a 
 | Sensibilidad a inversiones de velocidad | Directa | Moderada |
 | Representatividad lateral | Puntual | Promedio lateral |
 
-## Rol en la validación de MASW
+## Rol en la validación de [[MASW Method|MASW]]
 
-El CHT es la referencia preferida para calibrar y validar perfiles $V_S(z)$ de MASW porque:
+El CHT es la referencia preferida para calibrar y validar perfiles $V_S(z)$ de [[MASW Method|MASW]] porque:
 1. No requiere suposiciones de modelo (directamente medido)
 2. Tiene resolución vertical superior
 3. Mide in situ con el estado de esfuerzos real del suelo
 
-El protocolo estándar de validación: realizar CHT y MASW en el mismo sitio → comparar perfiles $V_S(z)$ → diferencias < 15% se consideran aceptables para MASW (Foti et al. 2018).
+El protocolo estándar de validación: realizar CHT y [[MASW Method|MASW]] en el mismo sitio → comparar perfiles $V_S(z)$ → diferencias < 15% se consideran aceptables para [[MASW Method|MASW]] (Foti et al. 2018).
 
 > [!EXAMPLE] Evidencia empírica: Garofalo et al. (2016) — CHT como referencia en InterPACIFIC
-> **Papers 006+007 (Garofalo et al. 2016a/b)** usan el Cross-Hole Test como una de las referencias de laboratorio e in situ en los tres sitios del estudio InterPACIFIC (Grenoble, Cadarache y Mirandola). En Mirandola (sitio de alta variabilidad estratigráfica), el perfil $V_S(z)$ del CHT muestra variaciones rápidas de velocidad (120 → 400 m/s en los primeros 20 m) que coinciden con los depósitos aluviales post-seísmo del 2012. Las 30 estimaciones de $V_S(z)$ obtenidas por los equipos participantes con MASW y arrays pasivos reproducen la estructura general del CHT dentro de ±15%, aunque las capas de alta variabilidad (3–8 m de profundidad) muestran dispersión de hasta ±25% entre equipos. El $V_{S,30}$ del CHT (198 m/s) es reproducido por MASW dentro de ±10% en la mayoría de los equipos. Los autores concluyen que la variabilidad entre operadores MASW domina sobre el error intrínseco del método — el CHT sirve como anclaje cuantitativo de la verdad de campo.
+> **Papers 006+007 (Garofalo et al. 2016a/b)** usan el Cross-Hole Test como una de las referencias de laboratorio e in situ en los tres sitios del estudio InterPACIFIC (Grenoble, Cadarache y Mirandola). En Mirandola (sitio de alta variabilidad estratigráfica), el perfil $V_S(z)$ del CHT muestra variaciones rápidas de velocidad (120 → 400 m/s en los primeros 20 m) que coinciden con los depósitos aluviales post-seísmo del 2012. Las 30 estimaciones de $V_S(z)$ obtenidas por los equipos participantes con [[MASW Method|MASW]] y arrays pasivos reproducen la estructura general del CHT dentro de ±15%, aunque las capas de alta variabilidad (3–8 m de profundidad) muestran dispersión de hasta ±25% entre equipos. El $V_{S,30}$ del CHT (198 m/s) es reproducido por [[MASW Method|MASW]] dentro de ±10% en la mayoría de los equipos. Los autores concluyen que la variabilidad entre operadores [[MASW Method|MASW]] domina sobre el error intrínseco del método — el CHT sirve como anclaje cuantitativo de la verdad de campo.
 >
 > — Research Database, entradas 006, 007 (core); Garofalo et al. (2016a), *Near Surface Geophysics*; Garofalo et al. (2016b), *Near Surface Geophysics*.
 

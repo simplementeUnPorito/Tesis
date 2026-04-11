@@ -38,7 +38,7 @@ $$G(\mathbf{x}_1, \mathbf{x}_2, t) + G(\mathbf{x}_1, \mathbf{x}_2, -t) \propto C
 donde $C$ es la [[Cross-Correlation|correlación cruzada]] entre los campos registrados en $\mathbf{x}_1$ y $\mathbf{x}_2$. Esta relación permite medir la dispersión de ondas Rayleigh sin fuente activa — base del [[ReMi Method|método ReMi]] y el [[SPAC Method|método SPAC]].
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — función de Green por correlación de ruido en el sitio La Salle
-> Foti et al. (2018, §8.4.2, pp. 430–436) demuestran la extracción de la función de Green por correlación de ruido ambiental en el sitio La Salle usando 6 sensores en configuración circular con radio 10–50 m. La correlación cruzada entre pares de receptores acumula durante 30 minutos de registro pasivo. La función de Green emergente muestra un frente de onda Rayleigh con tiempo de llegada $t = r/V_R(f)$ consistente con $V_R$ entre 160 y 320 m/s (4–20 Hz). La curva de dispersión extraída de la función de Green coincide con la obtenida por [[MASW Method|MASW]] activo dentro del 5% en el rango 6–18 Hz — validando la equivalencia de ambos métodos para sitios con campo difuso isotrópico.
+> Foti et al. (2018, §8.4.2, pp. 430–436) demuestran la extracción de la función de Green por correlación de ruido ambiental en el sitio La Salle usando 6 sensores en configuración circular con radio 10–50 m. La correlación cruzada entre pares de receptores acumula durante 30 minutos de registro pasivo. La función de Green emergente muestra un frente de onda Rayleigh con tiempo de llegada $t = r/V_R(f)$ consistente con $V_R$ entre 160 y 320 m/s (4–20 Hz). La [[Dispersion Curve|curva de dispersión]] extraída de la función de Green coincide con la obtenida por [[MASW Method|MASW]] activo dentro del 5% en el rango 6–18 Hz — validando la equivalencia de ambos métodos para sitios con campo difuso isotrópico.
 >
 > — Foti et al. (2018), §8.4.2, pp. 430–436; Wapenaar (2004), *Phys. Rev. Lett.* 93(25).
 
@@ -46,7 +46,7 @@ donde $C$ es la [[Cross-Correlation|correlación cruzada]] entre los campos regi
 
 | Fuente | Sección / Página |
 |--------|-----------------|
-| Foti et al. (2018), *Surface Wave Methods* | §2.4.3, §8.4 — función de Green en MASW e interferometría |
+| Foti et al. (2018), *Surface Wave Methods* | §2.4.3, §8.4 — función de Green en [[MASW Method|MASW]] e interferometría |
 | Aki & Richards (2002), *Quantitative Seismology* | §4 — función de Green en elastodinámica |
 | Lamb, H. (1904), *Phil. Trans. R. Soc. A* 203 | Función de Green original para semiespacio |
 | Wapenaar, K. (2004), *Phys. Rev. Lett.* 93(25) | Extracción de G por correlación de ruido |

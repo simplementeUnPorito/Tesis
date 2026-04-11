@@ -20,7 +20,7 @@ type: reference
 
 ### Función de transferencia
 
-El sistema de medición MASW puede modelarse como un sistema lineal:
+El sistema de medición [[MASW Method|MASW]] puede modelarse como un sistema lineal:
 $$u_{obs}(t) = s(t) * G(t, r) * i(t) + n(t)$$
 
 donde $s(t)$ es la fuente, $G(t,r)$ es la función de Green del medio a distancia $r$, e $i(t)$ es la respuesta del geófono. En el dominio de la frecuencia:
@@ -32,10 +32,10 @@ La deconvolución fuente-receptor divide por $S(\omega)$ — razón por la que l
 
 $$R_{12}(\tau) = \int u_1(t) \, u_2(t + \tau) \, dt = u_1(-\tau) * u_2(\tau)$$
 
-En frecuencia: $\hat{R}_{12}(\omega) = U_1^*(\omega) \cdot U_2(\omega)$ — extrae la diferencia de fase entre receptores, que es la base de la estimación de $V_R(\omega)$ en MASW (véase [[Cross-Correlation]]).
+En frecuencia: $\hat{R}_{12}(\omega) = U_1^*(\omega) \cdot U_2(\omega)$ — extrae la diferencia de fase entre receptores, que es la base de la estimación de $V_R(\omega)$ en [[MASW Method|MASW]] (véase [[Cross-Correlation]]).
 
-> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — filtrado f-k por multiplicación espectral en MASW
-> Park et al. (1999, *Geophysics* 64(3)) aplican el teorema de convolución en su algoritmo MASW para extraer la curva de dispersión: transforman la sección de sismogramas al dominio $f$-$k$ (DFT 2D, esencialmente una convolución doble), identifican el modo dominante como el lóbulo de máxima amplitud, y reconstruyen la curva de dispersión extrayendo el pico de amplitud a cada frecuencia. El filtrado de modos superiores se realiza directamente en el dominio $f$-$k$ (multiplicación por una máscara espectral = convolución en el dominio espacio-tiempo) — ilustrando el uso directo del teorema de convolución para separación modal. El procesamiento completo de 24 trazas a 256 puntos tarda < 0.1 s con FFT — ventaja computacional directa del teorema.
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — filtrado f-k por multiplicación espectral en [[MASW Method|MASW]]
+> Park et al. (1999, *Geophysics* 64(3)) aplican el teorema de convolución en su algoritmo [[MASW Method|MASW]] para extraer la [[Dispersion Curve|curva de dispersión]]: transforman la sección de sismogramas al dominio $f$-$k$ (DFT 2D, esencialmente una convolución doble), identifican el modo dominante como el lóbulo de máxima amplitud, y reconstruyen la [[Dispersion Curve|curva de dispersión]] extrayendo el pico de amplitud a cada frecuencia. El filtrado de modos superiores se realiza directamente en el dominio $f$-$k$ (multiplicación por una máscara espectral = convolución en el dominio espacio-tiempo) — ilustrando el uso directo del teorema de convolución para separación modal. El procesamiento completo de 24 trazas a 256 puntos tarda < 0.1 s con FFT — ventaja computacional directa del teorema.
 >
 > — Research Database (Park et al. 1999); Foti et al. (2018), §3.3.1, pp. 124–128.
 
@@ -45,4 +45,4 @@ En frecuencia: $\hat{R}_{12}(\omega) = U_1^*(\omega) \cdot U_2(\omega)$ — extr
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | §3.3.1 — análisis espectral y modelo convolucional |
 | Bracewell, R.N. (2000), *The Fourier Transform* | §3 — teorema de convolución y sus aplicaciones |
-| Park et al. (1999), *Geophysics* 64(3) | Algoritmo MASW con transformada f-k |
+| Park et al. (1999), *Geophysics* 64(3) | Algoritmo [[MASW Method|MASW]] con transformada f-k |

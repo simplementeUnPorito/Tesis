@@ -49,8 +49,8 @@ que tiene exactamente una raíz real física en $0 < c_R < V_S$.
 
 Este formalismo es el punto de partida del **problema directo** de ondas superficiales. Toda la teoría de inversión de ondas de Rayleigh descansa en la solución del sistema de potenciales con condiciones de frontera en cada interfaz del modelo de capas (método de [[Layered Media|Thomson-Haskell]]).
 
-> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — potenciales como núcleo del problema directo MASW
-> **Paper 002 (Xia, Miller & Park 1999)** implementa el formalismo de potenciales de Helmholtz como núcleo del problema directo de MASW. La ecuación secular generalizada al caso estratificado (derivada iterando las condiciones de frontera con el método de la matriz de transferencia) se evalúa numéricamente para calcular $c_R(\omega)$ dado un perfil $V_S(z)$. El Jacobiano $\partial c_R/\partial V_S$ — calculado analíticamente sobre la base de los potenciales — permite la inversión iterativa convergente en < 10 iteraciones. La validación contra borehole en Kansas confirma que el formalismo de potenciales es suficientemente preciso para caracterización geotécnica real.
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — potenciales como núcleo del problema directo [[MASW Method|MASW]]
+> **Paper 002 (Xia, Miller & Park 1999)** implementa el formalismo de potenciales de Helmholtz como núcleo del problema directo de [[MASW Method|MASW]]. La ecuación secular generalizada al caso estratificado (derivada iterando las condiciones de frontera con el método de la matriz de transferencia) se evalúa numéricamente para calcular $c_R(\omega)$ dado un perfil $V_S(z)$. El Jacobiano $\partial c_R/\partial V_S$ — calculado analíticamente sobre la base de los potenciales — permite la inversión iterativa convergente en < 10 iteraciones. La validación contra borehole en Kansas confirma que el formalismo de potenciales es suficientemente preciso para caracterización geotécnica real.
 >
 > — Research Database, entrada 002 (core).
 
@@ -68,4 +68,4 @@ Este formalismo es el punto de partida del **problema directo** de ondas superfi
 | Fuente | Sección / Página |
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | §2.2, pp. 50–62 — descomposición de Helmholtz y ecuación secular |
-| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 — implementación en forward modeling MASW |
+| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 — implementación en forward modeling [[MASW Method|MASW]] |

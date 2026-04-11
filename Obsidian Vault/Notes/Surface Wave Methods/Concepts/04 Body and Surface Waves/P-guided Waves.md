@@ -1,19 +1,19 @@
 ---
 name: P-guided Waves
-description: Modos fugantes (leaky modes) de alta velocidad de fase en el sistema agua-sedimentos; sensibles a VP del subfondo; complementarios a ondas de Scholte en caracterización marina
+description: Modos fugantes (leaky modes) de alta [[Phase Velocity|velocidad de fase]] en el sistema agua-sedimentos; sensibles a VP del subfondo; complementarios a ondas de Scholte en caracterización marina
 type: reference
 ---
 
 # Ondas Guiadas de Tipo P (P-guided Waves)
 
 > [!CONCEPT] Definición
-> Las **ondas guiadas de tipo P** son **modos fugantes** (*leaky modes*) de la ecuación de dispersión del sistema agua-sedimentos: raíces complejas cuya velocidad de fase supera $V_{P,\text{agua}} \approx 1500$ m/s. Físicamente son ondas P multi-reflejadas en la capa de agua, con energía parcialmente atrapada y parcialmente radiada al subsuelo. Son sensibles a $V_P$ del subfondo — complementarias a las [[Scholte Waves|ondas de Scholte]] (sensibles a $V_S$) — y en la inversión conjunta permiten caracterizar completamente el subsuelo marino.
+> Las **ondas guiadas de tipo P** son **modos fugantes** (*leaky modes*) de la ecuación de dispersión del sistema agua-sedimentos: raíces complejas cuya [[Phase Velocity|velocidad de fase]] supera $V_{P,\text{agua}} \approx 1500$ m/s. Físicamente son ondas P multi-reflejadas en la capa de agua, con energía parcialmente atrapada y parcialmente radiada al subsuelo. Son sensibles a $V_P$ del subfondo — complementarias a las [[Scholte Waves|ondas de Scholte]] (sensibles a $V_S$) — y en la inversión conjunta permiten caracterizar completamente el subsuelo marino.
 >
 > — Foti et al. (2018), Cap. 8, §§8.2.2–8.2.3, pp. 403–412.
 
 ## Definición
 
-Las **ondas guiadas de tipo P** (*P-guided waves*) son modos de propagación que existen en el sistema agua-sedimentos. Corresponden a los **modos fugantes** (*leaky modes*) de la ecuación de dispersión: raíces complejas cuya parte real de la velocidad de fase supera la velocidad compresional del agua (~1500 m/s). Físicamente son **ondas P multireflejadas** en la capa de agua (entre la superficie libre del agua y el fondo marino), con energía parcialmente atrapada y parcialmente radiada hacia el subsuelo.
+Las **ondas guiadas de tipo P** (*P-guided waves*) son modos de propagación que existen en el sistema agua-sedimentos. Corresponden a los **modos fugantes** (*leaky modes*) de la ecuación de dispersión: raíces complejas cuya parte real de la [[Phase Velocity|velocidad de fase]] supera la velocidad compresional del agua (~1500 m/s). Físicamente son **ondas P multireflejadas** en la capa de agua (entre la superficie libre del agua y el fondo marino), con energía parcialmente atrapada y parcialmente radiada hacia el subsuelo.
 
 En oceanografía acústica se denominan ondas ULF (*ultra-low frequency*), típicamente en el rango 1–100 Hz en plataformas continentales. En aguas muy someras (ensayos near-shore), el rango se desplaza hacia valores más altos.
 

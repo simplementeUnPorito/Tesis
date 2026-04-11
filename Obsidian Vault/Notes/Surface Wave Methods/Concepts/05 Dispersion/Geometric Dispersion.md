@@ -26,7 +26,7 @@ Este comportamiento contrasta con la [[Material Dispersion]], donde la dependenc
 
 ## 2. Formulación matemática
 
-En el semiespacio homogéneo clásico, la velocidad de fase de Rayleigh es constante (≈ 0.919 Vs para ν = 0.25). La dispersión geométrica emerge cuando se resuelve el problema de valores propios del [[Rayleigh Eigenproblem]] para un medio estratificado:
+En el semiespacio homogéneo clásico, la [[Phase Velocity|velocidad de fase]] de Rayleigh es constante (≈ 0.919 Vs para ν = 0.25). La dispersión geométrica emerge cuando se resuelve el problema de valores propios del [[Rayleigh Eigenproblem]] para un medio estratificado:
 
 $$
 c_R = \frac{\omega}{k}
@@ -38,10 +38,10 @@ $$
 c_R = c_R(\omega)
 $$
 
-Esta relación funcional es la **curva de dispersión** — la firma observacional de la estratificación. Su forma depende directamente del perfil de [[Phase Velocity|velocidad de corte]] Vs(z).
+Esta relación funcional es la **[[Dispersion Curve|curva de dispersión]]** — la firma observacional de la estratificación. Su forma depende directamente del perfil de [[Phase Velocity|velocidad de corte]] Vs(z).
 
 > [!NOTE] Conexión con el problema inverso
-> La curva de dispersión experimental es el dato de entrada del **problema inverso** de ondas superficiales (Cap. 6–7 Foti). Recuperar Vs(z) a partir de c_R(ω) es un problema no lineal mal condicionado sujeto a [[Non-uniqueness]].
+> La [[Dispersion Curve|curva de dispersión]] experimental es el dato de entrada del **problema inverso** de ondas superficiales (Cap. 6–7 Foti). Recuperar Vs(z) a partir de c_R(ω) es un problema no lineal mal condicionado sujeto a [[Non-uniqueness]].
 
 ---
 
@@ -64,13 +64,13 @@ La explotación sistemática de la dispersión geométrica para caracterización
 
 - El **contenido frecuencial de la fuente** controla la profundidad investigada: fuentes impulsivas ligeras generan frecuencias altas (resolución superficial); masas de impacto más pesadas o vibradores aportan frecuencias bajas (mayor profundidad).
 - La **longitud del arreglo** y la separación entre geófonos condicionan el rango útil de longitudes de onda: separación mínima → λ mínima → profundidad mínima; longitud total → λ máxima → profundidad máxima.
-- Si el subsuelo es casi homogéneo, la dispersión observable será débil — la curva de dispersión será casi plana.
+- Si el subsuelo es casi homogéneo, la dispersión observable será débil — la [[Dispersion Curve|curva de dispersión]] será casi plana.
 - Si hay fuerte estratificación (e.g., suelo blando sobre roca), la dispersión será marcada y la curva tendrá alta pendiente a baja frecuencia.
 - El [[Near-field Effect]] puede contaminar la curva a bajas frecuencias cuando el offset fuente-receptor es insuficiente.
 
 ---
 
-> [!EXAMPLE] Evidencia empírica: Park et al. (1999) y Xia et al. (1999) — validación MASW en Kansas
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) y Xia et al. (1999) — validación [[MASW Method|MASW]] en Kansas
 > **Paper 001 (Park, Miller & Xia 1999)** y **Paper 002 (Xia, Miller & Park 1999)** constituyen la demostración canónica de que la dispersión geométrica puede extraerse de manera robusta con arreglos multicanal.
 >
 > - Park et al. (1999) muestran que la transformada f-k del sismograma de ground-roll produce imágenes de dispersión donde cada máximo espectral corresponde a un modo de [[Rayleigh Waves]] con su c_R(ω) característico — evidencia directa del fenómeno geométrico.

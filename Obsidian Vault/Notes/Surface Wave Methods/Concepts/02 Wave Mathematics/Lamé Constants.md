@@ -27,7 +27,7 @@ $$V_P = \sqrt{\frac{\lambda + 2\mu}{\rho}}, \qquad V_S = \sqrt{\frac{\mu}{\rho}}
 
 | Constante | Símbolo | Significado físico | Relación geotécnica |
 |---|---|---|---|
-| Módulo de corte | $\mu$ | Rigidez al corte — resistencia a deformación de corte | $\mu = \rho V_S^2$; parámetro primario de MASW |
+| Módulo de corte | $\mu$ | Rigidez al corte — resistencia a deformación de corte | $\mu = \rho V_S^2$; parámetro primario de [[MASW Method|MASW]] |
 | Primer parámetro de Lamé | $\lambda$ | Contribución de la dilatación a los esfuerzos normales | $\lambda = \rho(V_P^2 - 2V_S^2)$; controla compresibilidad |
 | [[Poisson Ratio|Coeficiente de Poisson]] | $\nu = \lambda/[2(\lambda+\mu)]$ | Relación deformación lateral/axial | $\nu \to 0.5$ en suelos saturados ($\lambda \to \infty$) |
 
@@ -39,7 +39,7 @@ En suelos no saturados ($V_P \approx 300$–$1500$ m/s):
 En suelos saturados ($V_P \approx 1500$ m/s):
 - $\nu \to 0.5$ → $\lambda \gg \mu$ → $V_P^2 \approx \lambda/\rho$
 
-La insensibilidad de la curva de dispersión de Rayleigh a $V_P$ ([[Sensitivity Kernel]]) se explica porque $\mu$ (no $\lambda$) domina la rigidez al corte que controla $c_R$ — $\lambda$ solo entra en la condición de incompresibilidad y su efecto es de segundo orden.
+La insensibilidad de la [[Dispersion Curve|curva de dispersión]] de Rayleigh a $V_P$ ([[Sensitivity Kernel]]) se explica porque $\mu$ (no $\lambda$) domina la rigidez al corte que controla $c_R$ — $\lambda$ solo entra en la condición de incompresibilidad y su efecto es de segundo orden.
 
 ## En medios viscoelásticos
 
@@ -49,8 +49,8 @@ $$\tilde{\mu}(\omega) = \mu(1 + 2iD_s), \qquad \tilde{\lambda}(\omega) = \lambda
 
 donde $D_s$ es el [[Shear Damping Ratio|amortiguamiento al corte]] y $D_p$ el amortiguamiento compresional (generalmente $D_p \approx D_s/2$ en geomateriales).
 
-> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — μ como parámetro primario en inversión MASW
-> **Paper 002 (Xia et al. 1999)** demuestra mediante kernels de sensibilidad que la velocidad de fase de Rayleigh $c_R(f)$ depende principalmente del módulo de corte $\mu = \rho V_S^2$ (sensibilidad 80–95%) y muy poco de $\lambda$ (a través de $V_P$, <10%) y $\rho$ (<2%). Esto justifica que la inversión MASW tenga como objetivo único $V_S(z)$ — equivalente a invertir $\mu(z)/\rho(z)$ — mientras $\lambda$ (equivalente a fijar $V_P$ o el [[Poisson Ratio|coeficiente de Poisson]]) se asume conocido a priori desde datos de refracción sísmica o tablas de litología. El resultado confirma que las constantes de Lamé tienen roles muy distintos en la propagación de ondas superficiales: $\mu$ controla la respuesta cinemática (velocidad de Rayleigh), mientras $\lambda$ tiene efecto secundario.
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — μ como parámetro primario en inversión [[MASW Method|MASW]]
+> **Paper 002 (Xia et al. 1999)** demuestra mediante kernels de sensibilidad que la [[Phase Velocity|velocidad de fase]] de Rayleigh $c_R(f)$ depende principalmente del módulo de corte $\mu = \rho V_S^2$ (sensibilidad 80–95%) y muy poco de $\lambda$ (a través de $V_P$, <10%) y $\rho$ (<2%). Esto justifica que la inversión [[MASW Method|MASW]] tenga como objetivo único $V_S(z)$ — equivalente a invertir $\mu(z)/\rho(z)$ — mientras $\lambda$ (equivalente a fijar $V_P$ o el [[Poisson Ratio|coeficiente de Poisson]]) se asume conocido a priori desde datos de refracción sísmica o tablas de litología. El resultado confirma que las constantes de Lamé tienen roles muy distintos en la propagación de ondas superficiales: $\mu$ controla la respuesta cinemática (velocidad de Rayleigh), mientras $\lambda$ tiene efecto secundario.
 >
 > — Research Database, entrada 002 (core); Xia et al. (1999), *Geophysics* 64(3).
 

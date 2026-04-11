@@ -1,13 +1,13 @@
 ---
 name: Métodos Sísmicos No Invasivos
-description: Técnicas de medición de VS realizadas íntegramente desde la superficie sin perforaciones; incluyen refracción, reflexión y métodos de ondas superficiales (MASW, SASW, ReMi, SPAC)
+description: Técnicas de medición de VS realizadas íntegramente desde la superficie sin perforaciones; incluyen refracción, reflexión y métodos de ondas superficiales ([[MASW Method|MASW]], [[SASW Method|SASW]], ReMi, SPAC)
 type: reference
 ---
 
 # Métodos Sísmicos No Invasivos
 
 > [!CONCEPT] Definición
-> Los **métodos sísmicos no invasivos** caracterizan el subsuelo midiendo ondas sísmicas desde la superficie del terreno, sin necesidad de perforaciones ni penetración. Son más económicos y representan volúmenes de suelo mucho mayores que los [[Métodos Sísmicos Invasivos|métodos invasivos]]. Los **métodos de ondas superficiales** ([[MASW Method|MASW]], [[SASW Method|SASW]], [[ReMi Method|ReMi]], [[SPAC Method|SPAC]]) son un subconjunto de los no invasivos que explota la [[Wave Dispersion|dispersión]] de las [[Rayleigh Waves|ondas de Rayleigh]] y [[Love Waves|Love]] para inferir el perfil $V_S(z)$ mediante [[Inversión|inversión]] de la curva de dispersión $c_R(f)$.
+> Los **métodos sísmicos no invasivos** caracterizan el subsuelo midiendo ondas sísmicas desde la superficie del terreno, sin necesidad de perforaciones ni penetración. Son más económicos y representan volúmenes de suelo mucho mayores que los [[Métodos Sísmicos Invasivos|métodos invasivos]]. Los **métodos de ondas superficiales** ([[MASW Method|MASW]], [[SASW Method|SASW]], [[ReMi Method|ReMi]], [[SPAC Method|SPAC]]) son un subconjunto de los no invasivos que explota la [[Wave Dispersion|dispersión]] de las [[Rayleigh Waves|ondas de Rayleigh]] y [[Love Waves|Love]] para inferir el perfil $V_S(z)$ mediante [[Inversión|inversión]] de la [[Dispersion Curve|curva de dispersión]] $c_R(f)$.
 >
 > — Foti et al. (2018), §1.1, pp. 1–10; Caps. 3–5.
 
@@ -34,9 +34,9 @@ Explotan la **dispersión** de las [[Surface Waves|ondas superficiales]] para in
 
 | Método | Fuente | Geometría | Observable |
 |---|---|---|---|
-| [[MASW Method|MASW]] | Activa (martillo/vibrador) | Línea de geófonos | Espectro f-k → curva de dispersión |
+| [[MASW Method|MASW]] | Activa (martillo/vibrador) | Línea de geófonos | Espectro f-k → [[Dispersion Curve|curva de dispersión]] |
 | [[SASW Method|SASW]] | Activa | 2 receptores, offset variable | Función de transferencia → fase |
-| [[ReMi Method|ReMi]] | Pasiva (ruido ambiente) | Línea de geófonos | p-f slantstack → curva de dispersión |
+| [[ReMi Method|ReMi]] | Pasiva (ruido ambiente) | Línea de geófonos | p-f slantstack → [[Dispersion Curve|curva de dispersión]] |
 | [[SPAC Method|SPAC]] | Pasiva (ruido ambiente) | Arreglo 2D (triángulo, anillo) | Autocorrelación espacial → $J_0$ |
 | [[Seismic Interferometry|Interferometría]] | Pasiva | Cualquier arreglo | Cross-correlación → función de Green |
 
@@ -50,7 +50,7 @@ Los métodos de ondas superficiales tienen ventajas específicas sobre los otros
 
 1. **No requieren inversión de velocidad**: La refracción sísmica falla en perfiles donde $V_S$ decrece con la profundidad (condición común en depósitos con materiales blandos intercalados). Los métodos de ondas superficiales pueden detectar inversiones, aunque su inversión se complica (ver [[Non-uniqueness]]).
 
-2. **Miden directamente $V_S$**: La curva de dispersión de Rayleigh es sensible principalmente a $V_S$ (con sensibilidad menor a $V_P$ y $\rho$), y el producto de la inversión es directamente el perfil $V_S(z)$.
+2. **Miden directamente $V_S$**: La [[Dispersion Curve|curva de dispersión]] de Rayleigh es sensible principalmente a $V_S$ (con sensibilidad menor a $V_P$ y $\rho$), y el producto de la inversión es directamente el perfil $V_S(z)$.
 
 3. **Representatividad espacial**: Un arreglo de geófonos de longitud $L$ promedia las propiedades del suelo lateralmente. Esto es una ventaja para heterogeneidades horizontales pero una limitación si el suelo varía significativamente a lo largo del arreglo.
 
@@ -69,7 +69,7 @@ Los métodos de ondas superficiales tienen ventajas específicas sobre los otros
 | Validación necesaria | Referencia de oro | Recomendable vs. invasivo |
 
 > [!EXAMPLE] Evidencia empírica: InterPACIFIC (Garofalo et al. 2016) — comparativa masiva de métodos no invasivos
-> **Papers 006+007 (Garofalo et al. 2016a/b)** presentan el estudio InterPACIFIC: 30 equipos internacionales aplican métodos sísmicos no invasivos (MASW, ReMi, SPAC, HVSR) en 3 sitios de referencia con datos de borehole disponibles. Los resultados muestran que: (1) los métodos de ondas superficiales reproducen el perfil $V_S(z)$ del borehole con acuerdo razonable en todos los sitios; (2) la variabilidad entre operadores es significativa (~15–20% en $V_{S,30}$) y está dominada por decisiones de procesamiento e inversión, no por el método en sí; (3) la concordancia mejora cuando se usan protocolos estandarizados y parámetros a priori compartidos.
+> **Papers 006+007 (Garofalo et al. 2016a/b)** presentan el estudio InterPACIFIC: 30 equipos internacionales aplican métodos sísmicos no invasivos ([[MASW Method|MASW]], ReMi, SPAC, HVSR) en 3 sitios de referencia con datos de borehole disponibles. Los resultados muestran que: (1) los métodos de ondas superficiales reproducen el perfil $V_S(z)$ del borehole con acuerdo razonable en todos los sitios; (2) la variabilidad entre operadores es significativa (~15–20% en $V_{S,30}$) y está dominada por decisiones de procesamiento e inversión, no por el método en sí; (3) la concordancia mejora cuando se usan protocolos estandarizados y parámetros a priori compartidos.
 >
 > — Research Database, entradas 006, 007 (core).
 

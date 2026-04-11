@@ -1,6 +1,6 @@
 ---
 name: Aliasing
-description: Distorsión de la señal por muestreo insuficiente — en MASW ocurre tanto en el dominio temporal (frecuencias altas) como en el dominio espacial (longitudes de onda cortas)
+description: Distorsión de la señal por muestreo insuficiente — en [[MASW Method|MASW]] ocurre tanto en el dominio temporal (frecuencias altas) como en el dominio espacial (longitudes de onda cortas)
 type: reference
 ---
 
@@ -17,7 +17,7 @@ Si $f_s < 2f_{max}$, las componentes $f > f_{Nyquist}$ se pliegan:
 
 $$f_{alias} = |f_{real} - n \cdot f_s|, \quad \text{con } f_{alias} \leq f_s/2$$
 
-**Consecuencia en MASW**: si el sledgehammer genera energía hasta 100 Hz y $f_s = 500$ Hz, $f_{Nyquist} = 250$ Hz → sin aliasing. Con $f_s = 100$ Hz, $f_{Nyquist} = 50$ Hz → las frecuencias 50–100 Hz se aliasen entre 0–50 Hz → la curva de dispersión a altas frecuencias se contamina.
+**Consecuencia en [[MASW Method|MASW]]**: si el sledgehammer genera energía hasta 100 Hz y $f_s = 500$ Hz, $f_{Nyquist} = 250$ Hz → sin aliasing. Con $f_s = 100$ Hz, $f_{Nyquist} = 50$ Hz → las frecuencias 50–100 Hz se aliasen entre 0–50 Hz → la [[Dispersion Curve|curva de dispersión]] a altas frecuencias se contamina.
 
 ## Aliasing espacial
 
@@ -25,7 +25,7 @@ Con espaciado $\Delta x$, las ondas con $k > k_{Nyquist} = \pi/\Delta x$ (equiva
 
 $$k_{alias} = |k_{real} - n \cdot 2\pi/\Delta x|, \quad k_{alias} \leq \pi/\Delta x$$
 
-**Consecuencia en MASW**: si el suelo superficial tiene $V_S = 100$ m/s y $f = 30$ Hz → $\lambda = 3.3$ m. Si $\Delta x = 3$ m > $\lambda_{min}/2 = 1.65$ m → aliasing espacial → esa longitud de onda aparece en el espectrograma con un número de onda aliaseado → velocidad de fase aparente incorrecta.
+**Consecuencia en [[MASW Method|MASW]]**: si el suelo superficial tiene $V_S = 100$ m/s y $f = 30$ Hz → $\lambda = 3.3$ m. Si $\Delta x = 3$ m > $\lambda_{min}/2 = 1.65$ m → aliasing espacial → esa longitud de onda aparece en el espectrograma con un número de onda aliaseado → [[Phase Velocity|velocidad de fase]] aparente incorrecta.
 
 ## Detección del aliasing espacial en el espectrograma f-k
 
@@ -33,8 +33,8 @@ En el espectrograma f-k, el aliasing espacial produce crestas "fantasma" que son
 
 **Regla de diseño**: verificar en el espectrograma que todas las crestas del modo fundamental de Rayleigh están bien por debajo de $k_{Nyquist}$ en todo el rango de frecuencias útil.
 
-> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — diseño sin aliasing en MASW Kansas
-> **Paper 001 (Park, Miller & Xia 1999)** diseña el arreglo con $\Delta x = 1.5$ m para el sitio de Kansas con $V_S$ superficial ~100–200 m/s (capa de suelo no consolidado). Esto da $\lambda_{min} = 2\Delta x = 3$ m → $f_{Nyquist,espacial} \approx 100/3 \approx 33$ Hz para la capa más blanda. El espectrograma f-k del paper muestra las crestas modales por debajo de $k_{Nyquist}$ en todo el rango 5–50 Hz, sin crestas aliaseadas visibles. Los autores establecen que elegir $\Delta x \leq V_{S,min}/(2f_{max})$ donde $V_{S,min}$ es la velocidad mínima esperada en el sitio es la condición anti-aliasing espacial para MASW — regla que se convirtió en el estándar de diseño de campo.
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — diseño sin aliasing en [[MASW Method|MASW]] Kansas
+> **Paper 001 (Park, Miller & Xia 1999)** diseña el arreglo con $\Delta x = 1.5$ m para el sitio de Kansas con $V_S$ superficial ~100–200 m/s (capa de suelo no consolidado). Esto da $\lambda_{min} = 2\Delta x = 3$ m → $f_{Nyquist,espacial} \approx 100/3 \approx 33$ Hz para la capa más blanda. El espectrograma f-k del paper muestra las crestas modales por debajo de $k_{Nyquist}$ en todo el rango 5–50 Hz, sin crestas aliaseadas visibles. Los autores establecen que elegir $\Delta x \leq V_{S,min}/(2f_{max})$ donde $V_{S,min}$ es la velocidad mínima esperada en el sitio es la condición anti-aliasing espacial para [[MASW Method|MASW]] — regla que se convirtió en el estándar de diseño de campo.
 >
 > — Research Database, entrada 001 (core); Park, Miller & Xia (1999), *Geophysics* 64(3).
 
@@ -42,5 +42,5 @@ En el espectrograma f-k, el aliasing espacial produce crestas "fantasma" que son
 
 | Fuente | Sección / Página |
 |--------|-----------------|
-| Foti et al. (2018), *Surface Wave Methods* | Cap. 3, §3.1; Cap. 4, §4.2 — aliasing en MASW |
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 3, §3.1; Cap. 4, §4.2 — aliasing en [[MASW Method|MASW]] |
 | Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — diseño anti-aliasing |

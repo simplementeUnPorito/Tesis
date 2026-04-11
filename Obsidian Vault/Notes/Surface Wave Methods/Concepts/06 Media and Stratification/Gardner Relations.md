@@ -1,6 +1,6 @@
 ---
 name: Gardner Relations
-description: Relación empírica ρ=0.31·VP^0.25 entre densidad bulk y velocidad VP — usada para estimar densidad a partir de perfiles sísmicos en inversión conjunta y en la conversión de perfiles MASW a módulo de corte G=ρVS²
+description: Relación empírica ρ=0.31·VP^0.25 entre densidad bulk y velocidad VP — usada para estimar densidad a partir de perfiles sísmicos en inversión conjunta y en la conversión de perfiles [[MASW Method|MASW]] a módulo de corte G=ρVS²
 type: reference
 ---
 
@@ -36,7 +36,7 @@ La secuencia completa para obtener $G_{\max}$ sin densímetro:
 3. Gardner: $\rho(z) = 0.31 \cdot V_P(z)^{0.25}$
 4. $G_{\max}(z) = \rho(z) \cdot V_S(z)^2$
 
-La incertidumbre en $G_{\max}$ combinando errores de MASW (~5%) y Gardner (~10%) es ~11% — aceptable para diseño geotécnico preliminar.
+La incertidumbre en $G_{\max}$ combinando errores de [[MASW Method|MASW]] (~5%) y Gardner (~10%) es ~11% — aceptable para diseño geotécnico preliminar.
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — Gardner para estimación de densidad en inversión multi-parámetro
 > Foti et al. (2018, §8.6.1) aplican las relaciones de Gardner para estimar $\rho(z)$ en el sitio La Salle usando el perfil $V_P$ de refracción (1.5–1.7 km/s). La densidad estimada es $\rho = 0.31 \times (1600)^{0.25} = 1.95$ g/cm³ (zona saturada) — diferencia de +3% respecto a la densidad promedio de laboratorio ($1.89 \pm 0.05$ g/cm³). Con esta densidad, $G_{\max}(4\text{ m}) = 1.95 \times (200)^2 = 78$ MPa — consistente con ensayos de columna resonante que dan 75 ± 8 MPa. Foti concluye que Gardner es adecuado cuando no hay datos de densidad directos, pero debe verificarse contra al menos una medición en sitios con litologías atípicas.

@@ -66,12 +66,12 @@ Para extraer $\alpha_R(\omega)$, se grafica $\ln[A(r,\omega)\sqrt{r}]$ vs. $r$: 
 
 ## Implicaciones para la tesis
 
-Si el objetivo es solo el perfil $V_S$, la atenuación es de segundo orden en la velocidad de fase (efecto $\propto D^2$) y puede ignorarse. Si el objetivo incluye el perfil $D_S$, los requisitos instrumentales son significativamente más exigentes: calibración de amplitud, fuente calibrada (para función de transferencia), y corrección cuidadosa de la geometría.
+Si el objetivo es solo el perfil $V_S$, la atenuación es de segundo orden en la [[Phase Velocity|velocidad de fase]] (efecto $\propto D^2$) y puede ignorarse. Si el objetivo incluye el perfil $D_S$, los requisitos instrumentales son significativamente más exigentes: calibración de amplitud, fuente calibrada (para función de transferencia), y corrección cuidadosa de la geometría.
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) InterPACIFIC — variabilidad en curvas de atenuación
 > **Paper 006 (Foti et al. 2018)** y **Paper 007 (Garofalo et al. 2016)** del ejercicio InterPACIFIC muestran que la dispersión inter-laboratorio en curvas de **atenuación** $\alpha_R(f)$ es significativamente mayor que en curvas de velocidad $c_p(f)$. Mientras el coeficiente de variación de $c_p$ es típicamente < 5%, el de $\alpha_R$ puede superar el 50% entre operadores distintos.
 >
-> Esto confirma que la medición de atenuación requiere calibración de amplitud de los receptores, corrección cuidadosa de la atenuación geométrica y supresión del [[Near-field Effect|efecto de campo cercano]] — condiciones que la mayoría de ensayos MASW de rutina no cumplen.
+> Esto confirma que la medición de atenuación requiere calibración de amplitud de los receptores, corrección cuidadosa de la atenuación geométrica y supresión del [[Near-field Effect|efecto de campo cercano]] — condiciones que la mayoría de ensayos [[MASW Method|MASW]] de rutina no cumplen.
 >
 > — Research Database, entradas 006, 007 (core).
 

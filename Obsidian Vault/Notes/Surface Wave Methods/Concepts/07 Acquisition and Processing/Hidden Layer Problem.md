@@ -1,6 +1,6 @@
 ---
 name: Hidden Layer Problem
-description: Limitación de la sísmica de refracción por la que una capa de menor velocidad que la superior queda invisble en los tiempos de llegada — produce perfiles VS subestimados si se confía solo en refracción — MASW no tiene este problema
+description: Limitación de la sísmica de refracción por la que una capa de menor velocidad que la superior queda invisble en los tiempos de llegada — produce perfiles VS subestimados si se confía solo en refracción — [[MASW Method|MASW]] no tiene este problema
 type: reference
 ---
 
@@ -25,15 +25,15 @@ type: reference
 
 El escenario más común en geotecnia superficial donde la capa oculta importa:
 - **Suelo blando sobre roca**: $V_S$ del suelo < $V_S$ de la roca → refracción funciona normalmente (velocidad creciente)
-- **Capa de arena suelta bajo arcilla densa**: $V_S(arena) < V_S(arcilla)$ → **capa oculta** en refracción → MASW o CPT necesarios
+- **Capa de arena suelta bajo arcilla densa**: $V_S(arena) < V_S(arcilla)$ → **capa oculta** en refracción → [[MASW Method|MASW]] o CPT necesarios
 - **Zona no saturada sobre saturada (tabla de agua)**: $V_P$ salta, $V_S$ no → capa visible en refracción de P, invisible en refracción de S
 
-La combinación MASW + refracción P es la estrategia estándar porque:
+La combinación [[MASW Method|MASW]] + refracción P es la estrategia estándar porque:
 - Refracción P: detecta posición de la tabla de agua (salto en $V_P$)
-- MASW: detecta $V_S$ de todas las capas, incluyendo inversiones de velocidad
+- [[MASW Method|MASW]]: detecta $V_S$ de todas las capas, incluyendo inversiones de velocidad
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — capa oculta en sitio La Salle
-> Foti et al. (2018, §8.3.1, pp. 415–420) analizan el sitio La Salle con refracción sísmica P y MASW simultáneamente. El perfil de refracción muestra solo dos capas: suelo no saturado ($V_P \approx 500$ m/s, 0–4 m) y suelo saturado ($V_P \approx 1500$ m/s, >4 m) — resuelve bien la tabla de agua pero no detecta la variación de $V_S$ dentro de cada zona. El perfil MASW revela que el suelo saturado (4–25 m) contiene en realidad tres unidades con $V_S$ de 150, 210 y 280 m/s — una de las cuales (la capa de 150 m/s a 8–12 m, arena suelta limo-arenosa) es invisible en refracción porque su $V_P \approx 1500$ m/s (dominado por la saturación) es igual al de las unidades adyacentes. Sin MASW, esta capa potencialmente licuable habría pasado inadvertida en la caracterización del sitio.
+> Foti et al. (2018, §8.3.1, pp. 415–420) analizan el sitio La Salle con refracción sísmica P y [[MASW Method|MASW]] simultáneamente. El perfil de refracción muestra solo dos capas: suelo no saturado ($V_P \approx 500$ m/s, 0–4 m) y suelo saturado ($V_P \approx 1500$ m/s, >4 m) — resuelve bien la tabla de agua pero no detecta la variación de $V_S$ dentro de cada zona. El perfil [[MASW Method|MASW]] revela que el suelo saturado (4–25 m) contiene en realidad tres unidades con $V_S$ de 150, 210 y 280 m/s — una de las cuales (la capa de 150 m/s a 8–12 m, arena suelta limo-arenosa) es invisible en refracción porque su $V_P \approx 1500$ m/s (dominado por la saturación) es igual al de las unidades adyacentes. Sin [[MASW Method|MASW]], esta capa potencialmente licuable habría pasado inadvertida en la caracterización del sitio.
 >
 > — Foti et al. (2018), §8.3.1, pp. 415–420; Sheriff & Geldart (1995), *Exploration Seismology*, §4.3.
 

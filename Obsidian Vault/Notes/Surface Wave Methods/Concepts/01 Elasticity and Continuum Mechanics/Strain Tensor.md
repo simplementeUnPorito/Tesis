@@ -74,8 +74,8 @@ La descomposición de Helmholtz $\mathbf{u} = \nabla\phi + \nabla \times \boldsy
 
 El tensor de deformación es, por tanto, el eslabón que conecta el campo de desplazamientos observable con las propiedades elásticas del medio y las ecuaciones de onda.
 
-> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — deformación lineal como hipótesis válida en MASW
-> **Paper 002 (Xia, Miller & Park 1999)** implementa el problema directo de MASW bajo la hipótesis de deformaciones pequeñas (tensor de deformación linealizado). Esta hipótesis es válida para las amplitudes de movimiento generadas por fuentes sísmicas activas estándar (maza de 10 kg, vehículo), que producen deformaciones del orden de $10^{-6}$–$10^{-7}$ — muy por debajo del umbral no-lineal del suelo ($\sim 10^{-4}$). La validación contra borehole con error < 15% confirma que la linearización del tensor de deformación es una aproximación adecuada para la gama de frecuencias e intensidades de MASW.
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — deformación lineal como hipótesis válida en [[MASW Method|MASW]]
+> **Paper 002 (Xia, Miller & Park 1999)** implementa el problema directo de [[MASW Method|MASW]] bajo la hipótesis de deformaciones pequeñas (tensor de deformación linealizado). Esta hipótesis es válida para las amplitudes de movimiento generadas por fuentes sísmicas activas estándar (maza de 10 kg, vehículo), que producen deformaciones del orden de $10^{-6}$–$10^{-7}$ — muy por debajo del umbral no-lineal del suelo ($\sim 10^{-4}$). La validación contra borehole con error < 15% confirma que la linearización del tensor de deformación es una aproximación adecuada para la gama de frecuencias e intensidades de [[MASW Method|MASW]].
 >
 > — Research Database, entrada 002 (core).
 
@@ -85,4 +85,4 @@ El tensor de deformación es, por tanto, el eslabón que conecta el campo de des
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | §2.1.1, pp. 36–39 — tensor de deformación linealizado y ley de Hooke |
 | Foti et al. (2018), *Surface Wave Methods* | §2.1.3, pp. 43–46 — ecuaciones de Navier y descomposición P/S |
-| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 — hipótesis de deformación lineal en MASW |
+| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 — hipótesis de deformación lineal en [[MASW Method|MASW]] |

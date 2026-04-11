@@ -1,6 +1,6 @@
 ---
 name: Condition Number
-description: Razón κ = σmax/σmin entre el mayor y menor valor singular de la matriz Jacobiana — mide el mal condicionamiento del sistema inverso y la amplificación de errores en la inversión de curvas de dispersión MASW
+description: Razón κ = σmax/σmin entre el mayor y menor valor singular de la matriz Jacobiana — mide el mal condicionamiento del sistema inverso y la amplificación de errores en la inversión de [[Dispersion Curve|curvas de dispersión]] [[MASW Method|MASW]]
 type: reference
 ---
 
@@ -15,7 +15,7 @@ type: reference
 
 ## Interpretación geofísica
 
-Para la [[Jacobian Matrix|Jacobiana]] de MASW con $N$ puntos de dispersión y $M$ parámetros $V_S$:
+Para la [[Jacobian Matrix|Jacobiana]] de [[MASW Method|MASW]] con $N$ puntos de dispersión y $M$ parámetros $V_S$:
 
 $$\kappa(\mathbf{J}) = \frac{\sigma_1}{\sigma_M} \qquad \text{donde } \sigma_1 \geq \sigma_2 \geq \ldots \geq \sigma_M$$
 
@@ -48,6 +48,6 @@ donde $\lambda_L^2$ son los valores propios del operador de suavizado. El parám
 
 | Fuente | Sección / Página |
 |--------|-----------------|
-| Foti et al. (2018), *Surface Wave Methods* | §6.2.2 — número de condición en inversión MASW |
+| Foti et al. (2018), *Surface Wave Methods* | §6.2.2 — número de condición en inversión [[MASW Method|MASW]] |
 | Menke, W. (2012), *Geophysical Data Analysis* | §5 — SVD y número de condición en geofísica |
 | Golub & Van Loan (2013), *Matrix Computations* | §2.7 — definición y propiedades del número de condición |

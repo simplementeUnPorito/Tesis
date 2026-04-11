@@ -9,19 +9,19 @@ type: reference
 > [!CONCEPT] Definición
 > La **correlación cruzada** (*cross-correlation*) es una operación matemática que mide la **similitud** entre dos señales $u_1(t)$ y $u_2(t)$ en función del **desfase temporal** $\tau$:
 > $$R_{12}(\tau) = \int_{-\infty}^{\infty} u_1(t) \cdot u_2(t + \tau) \, dt = (u_1 \star u_2)(\tau)$$
-> En el dominio de la frecuencia, es el producto de la Transformada de Fourier de una señal por el conjugado complejo de la otra: $\hat{R}_{12}(\omega) = \hat{U}_1^*(\omega) \cdot \hat{U}_2(\omega)$ — que es el espectro de potencia cruzado ([[Cross-Power Spectrum]]). El pico de $R_{12}(\tau)$ ocurre al desfase $\tau^*$ que maximiza la similitud — en señales sísmicas, $\tau^*$ es el **tiempo de viaje** de la onda de una estación a la otra. La correlación cruzada es la base de dos aplicaciones fundamentales en métodos de ondas superficiales: (1) la estimación de velocidad de fase en [[SASW Method|SASW]] (a través del [[Cross-Power Spectrum|espectro de potencia cruzado]]); y (2) la recuperación de la función de Green del medio en [[Seismic Interferometry|interferometría sísmica]] — la correlación cruzada de registros de ruido ambiental entre dos receptores converge a la función de Green entre ellos con suficiente promediado temporal.
+> En el dominio de la frecuencia, es el producto de la Transformada de Fourier de una señal por el conjugado complejo de la otra: $\hat{R}_{12}(\omega) = \hat{U}_1^*(\omega) \cdot \hat{U}_2(\omega)$ — que es el espectro de potencia cruzado ([[Cross-Power Spectrum]]). El pico de $R_{12}(\tau)$ ocurre al desfase $\tau^*$ que maximiza la similitud — en señales sísmicas, $\tau^*$ es el **tiempo de viaje** de la onda de una estación a la otra. La correlación cruzada es la base de dos aplicaciones fundamentales en métodos de ondas superficiales: (1) la estimación de [[Phase Velocity|velocidad de fase]] en [[SASW Method|SASW]] (a través del [[Cross-Power Spectrum|espectro de potencia cruzado]]); y (2) la recuperación de la función de Green del medio en [[Seismic Interferometry|interferometría sísmica]] — la correlación cruzada de registros de ruido ambiental entre dos receptores converge a la función de Green entre ellos con suficiente promediado temporal.
 >
 > — Foti et al. (2018), §4.5; Snieder (2004); Shapiro & Campillo (2004).
 
-## Estimación de velocidad de fase en SASW
+## Estimación de [[Phase Velocity|velocidad de fase]] en [[SASW Method|SASW]]
 
-En [[SASW Method|SASW]], se coloca la fuente en superficie y se usan dos receptores a distancias $x_1$ y $x_2$. La velocidad de fase de Rayleigh a la frecuencia $f$ se estima del desfase de la correlación cruzada:
+En [[SASW Method|SASW]], se coloca la fuente en superficie y se usan dos receptores a distancias $x_1$ y $x_2$. La [[Phase Velocity|velocidad de fase]] de Rayleigh a la frecuencia $f$ se estima del desfase de la correlación cruzada:
 
 $$\phi_{12}(f) = \arg\left[\hat{U}_1^*(f) \cdot \hat{U}_2(f)\right] = \frac{2\pi f (x_2 - x_1)}{c_R(f)}$$
 
 → $c_R(f) = \frac{2\pi f (x_2 - x_1)}{\phi_{12}(f)}$
 
-Este es el principio del [[Cross-Power Spectrum|espectro de potencia cruzado]] en SASW. La ambigüedad de $\pm 2\pi$ en $\phi_{12}$ requiere [[Phase Unwrapping|phase unwrapping]].
+Este es el principio del [[Cross-Power Spectrum|espectro de potencia cruzado]] en [[SASW Method|SASW]]. La ambigüedad de $\pm 2\pi$ en $\phi_{12}$ requiere [[Phase Unwrapping|phase unwrapping]].
 
 ## Interferometría sísmica: función de Green por correlación cruzada
 
@@ -41,7 +41,7 @@ donde $G_{AB}(t)$ es la función de Green entre A y B (la señal que se observar
 | Convolución vs correlación | $\hat{R}_{12} = \hat{U}_1^* \hat{U}_2 \neq \hat{U}_1 \hat{U}_2$ | No conmutar los operandos |
 
 > [!EXAMPLE] Evidencia empírica: Shapiro & Campillo (2004) — correlación cruzada de ruido ambiental para la función de Green
-> **Shapiro & Campillo (2004)** demuestran que la correlación cruzada de registros de ruido sísmico ambiental entre estaciones sísmicas separadas hasta ~1000 km reproduce la **función de Green de ondas superficiales** entre las estaciones. Para períodos de 5–150 s, las ondas de Rayleigh y Love emergen de la correlación cruzada con coherencia suficiente para medir la velocidad de grupo entre pares de estaciones. Este es el fundamento de la [[Seismic Interferometry|interferometría sísmica]] pasiva — aplicada en [[MASW Method|MASW]] pasivo y [[SPAC Method|SPAC]] para estimar la curva de dispersión sin fuente activa. En el contexto de [[ReMi Method|ReMi]], la correlación cruzada entre geófonos en arreglos urbanos produce la función de Green de ondas de Rayleigh del subsuelo local.
+> **Shapiro & Campillo (2004)** demuestran que la correlación cruzada de registros de ruido sísmico ambiental entre estaciones sísmicas separadas hasta ~1000 km reproduce la **función de Green de ondas superficiales** entre las estaciones. Para períodos de 5–150 s, las ondas de Rayleigh y Love emergen de la correlación cruzada con coherencia suficiente para medir la velocidad de grupo entre pares de estaciones. Este es el fundamento de la [[Seismic Interferometry|interferometría sísmica]] pasiva — aplicada en [[MASW Method|MASW]] pasivo y [[SPAC Method|SPAC]] para estimar la [[Dispersion Curve|curva de dispersión]] sin fuente activa. En el contexto de [[ReMi Method|ReMi]], la correlación cruzada entre geófonos en arreglos urbanos produce la función de Green de ondas de Rayleigh del subsuelo local.
 >
 > — Shapiro & Campillo (2004), *Science* 307; Foti et al. (2018), §4.5.
 

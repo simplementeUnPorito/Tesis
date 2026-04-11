@@ -18,7 +18,7 @@ type: reference
 
 ## Ventanas estándar
 
-| Ventana | $w(t)$ en $[0, T]$ | Ancho ML | Lóbulos lat. | Uso en MASW |
+| Ventana | $w(t)$ en $[0, T]$ | Ancho ML | Lóbulos lat. | Uso en [[MASW Method|MASW]] |
 |---------|-------------------|----------|--------------|-------------|
 | Rectangular | $1$ | $2/T$ | -13 dB | Referencia; alias si señal no periódica |
 | Hann (Hanning) | $\frac{1}{2}(1 - \cos(2\pi t/T))$ | $4/T$ | -31.5 dB | Estándar en sísmica superficial |
@@ -27,11 +27,11 @@ type: reference
 | Tukey ($\alpha=0.5$) | Coseno en los extremos; 1 en el centro | $\approx 3/T$ | -25 dB | Compromiso Hann-rectangular |
 | Kaiser ($\beta=8$) | Función de Bessel modificada $I_0$ | Variable | Variable | Diseño paramétrico óptimo |
 
-La **ventana de Hann** (coseno elevado con ceros en los extremos) es la más usada en MASW por su balance apropiado: reduce los lóbulos laterales de -13 dB (rectangular) a -31.5 dB con solo 2× pérdida de resolución.
+La **ventana de Hann** (coseno elevado con ceros en los extremos) es la más usada en [[MASW Method|MASW]] por su balance apropiado: reduce los lóbulos laterales de -13 dB (rectangular) a -31.5 dB con solo 2× pérdida de resolución.
 
 ## Ventaneo 2D en el análisis f-k
 
-En MASW, la sección de sismogramas $u(x, t)$ se ventanea en ambas dimensiones:
+En [[MASW Method|MASW]], la sección de sismogramas $u(x, t)$ se ventanea en ambas dimensiones:
 $$u_w(x, t) = u(x, t) \cdot w_x(x) \cdot w_t(t)$$
 
 El panel $f$-$k$ resultante: $U_w(f, k) = U(f,k) * W_x(k) * W_t(f)$ — la resolución en $k$ está controlada por $w_x$ (apertura del arreglo) y en $f$ por $w_t$ (longitud del registro).
@@ -44,8 +44,8 @@ La diferencia entre Hann y Hamming es el coeficiente de offset:
 
 En sísmica de ondas superficiales se prefiere Hann porque la continuidad en los extremos evita discontinuidades artificiales que se propagarían al panel $f$-$k$.
 
-> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — comparación ventanas en MASW sitio Pisa
-> Foti et al. (2018, §3.3.5) presentan la comparación del panel $f$-$k$ del sitio Pisa con ventanas rectangular, Hann y Tukey ($\alpha = 0.5$). Con ventana rectangular: modo fundamental dominante a 10 Hz con lóbulos laterales a -13 dB que contaminan la región del primer modo superior (12 Hz). Con ventana Hann: lóbulos laterales a -31.5 dB — el primer modo superior emerge como cresta separada en $k$, identificable para inversión multimodal. Con ventana Tukey: resultado intermedio (-25 dB de lóbulos), con mejor resolución que Hann al precio de mayor contaminación. Foti concluye que la ventana Hann es la opción por defecto para análisis MASW estándar; Tukey es preferida cuando se requiere mayor resolución para separar modos próximos en frecuencia.
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — comparación ventanas en [[MASW Method|MASW]] sitio Pisa
+> Foti et al. (2018, §3.3.5) presentan la comparación del panel $f$-$k$ del sitio Pisa con ventanas rectangular, Hann y Tukey ($\alpha = 0.5$). Con ventana rectangular: modo fundamental dominante a 10 Hz con lóbulos laterales a -13 dB que contaminan la región del primer modo superior (12 Hz). Con ventana Hann: lóbulos laterales a -31.5 dB — el primer modo superior emerge como cresta separada en $k$, identificable para inversión multimodal. Con ventana Tukey: resultado intermedio (-25 dB de lóbulos), con mejor resolución que Hann al precio de mayor contaminación. Foti concluye que la ventana Hann es la opción por defecto para análisis [[MASW Method|MASW]] estándar; Tukey es preferida cuando se requiere mayor resolución para separar modos próximos en frecuencia.
 >
 > — Foti et al. (2018), §3.3.5, pp. 135–138; Harris (1978), *Proc. IEEE* 66(1), 51–83.
 
@@ -53,6 +53,6 @@ En sísmica de ondas superficiales se prefiere Hann porque la continuidad en los
 
 | Fuente | Sección / Página |
 |--------|-----------------|
-| Foti et al. (2018), *Surface Wave Methods* | §3.3.5 — ventaneo en análisis MASW |
+| Foti et al. (2018), *Surface Wave Methods* | §3.3.5 — ventaneo en análisis [[MASW Method|MASW]] |
 | Harris, F.J. (1978), *Proc. IEEE* 66(1), 51–83 | Referencia fundamental de ventanas de análisis |
 | Nuttall, A.H. (1981), *Proc. IEEE* 69(4) | Ventanas de mínimos cuadrados óptimas |

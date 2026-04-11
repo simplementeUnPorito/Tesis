@@ -39,7 +39,7 @@ donde $\xi = \log \|\mathbf{r}(\lambda)\|$, $\eta = \log \|\mathbf{L}\mathbf{m}(
 | Discrepancy principle | Sí (nivel de ruido) | Baja | Alta |
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — curva-L en inversión del sitio Pisa
-> Foti et al. (2018, §6.2.3, Fig. 6.12) aplican el criterio de la curva-L a la inversión regularizada de la curva de dispersión del sitio de Torre de Pisa. El barrido de $\lambda$ de $10^{-3}$ a $10^3$ genera la curva-L en el espacio log-log con esquina bien definida en $\lambda^* \approx 0.1$. El modelo correspondiente reproduce los datos con misfit $\phi \approx 1.8 \phi_{\min}$ — dentro del rango aceptable del [[Fisher Test|test F de Fisher]]. Para $\lambda < 0.01$, el modelo muestra oscilaciones paramétricas artificiales (underfitting regularización); para $\lambda > 10$, el perfil $V_S$ es casi uniforme (overdamping). El $\lambda^*$ seleccionado por la curva-L es consistente con el valor obtenido por el criterio chi-cuadrado cuando se usan $\sigma_i$ estimadas de la variabilidad de la curva de dispersión entre shots — confirmando la validez del criterio de la curva-L cuando los errores no son conocidos a priori.
+> Foti et al. (2018, §6.2.3, Fig. 6.12) aplican el criterio de la curva-L a la inversión regularizada de la [[Dispersion Curve|curva de dispersión]] del sitio de Torre de Pisa. El barrido de $\lambda$ de $10^{-3}$ a $10^3$ genera la curva-L en el espacio log-log con esquina bien definida en $\lambda^* \approx 0.1$. El modelo correspondiente reproduce los datos con misfit $\phi \approx 1.8 \phi_{\min}$ — dentro del rango aceptable del [[Fisher Test|test F de Fisher]]. Para $\lambda < 0.01$, el modelo muestra oscilaciones paramétricas artificiales (underfitting regularización); para $\lambda > 10$, el perfil $V_S$ es casi uniforme (overdamping). El $\lambda^*$ seleccionado por la curva-L es consistente con el valor obtenido por el criterio chi-cuadrado cuando se usan $\sigma_i$ estimadas de la variabilidad de la [[Dispersion Curve|curva de dispersión]] entre shots — confirmando la validez del criterio de la curva-L cuando los errores no son conocidos a priori.
 >
 > — Foti et al. (2018), §6.2.3, pp. 283–287, Fig. 6.12; Hansen (1992), *SIAM Review* 34(4), 561–580.
 
@@ -47,6 +47,6 @@ donde $\xi = \log \|\mathbf{r}(\lambda)\|$, $\eta = \log \|\mathbf{L}\mathbf{m}(
 
 | Fuente | Sección / Página |
 |--------|-----------------|
-| Foti et al. (2018), *Surface Wave Methods* | §6.2.3 — criterio L-Curve en inversión MASW |
+| Foti et al. (2018), *Surface Wave Methods* | §6.2.3 — criterio L-Curve en inversión [[MASW Method|MASW]] |
 | Hansen, P.C. (1992), *SIAM Review* 34(4), 561–580 | Definición formal del criterio de la curva-L |
 | Aster, Borchers & Thurber (2013), *Parameter Estimation and Inverse Problems* | §4 — criterios de selección de λ |

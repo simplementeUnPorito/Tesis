@@ -7,7 +7,7 @@ type: reference
 # MASW Method (Multichannel Analysis of Surface Waves)
 
 > [!CONCEPT] Definición
-> El **método MASW** (*Multichannel Analysis of Surface Waves*, Park et al. 1999) estima el perfil de velocidad de onda de corte $V_S(z)$ del subsuelo analizando la [[Wave Dispersion|dispersión]] de las [[Rayleigh Waves|ondas de Rayleigh]] generadas por una fuente activa controlada. El flujo de trabajo es: (1) adquisición con arreglo lineal de geófonos verticales, (2) extracción de la curva de dispersión $c_R(f)$ por análisis f-k, (3) inversión para obtener $V_S(z)$. Es el estándar de facto en caracterización geotécnica no invasiva para obtención del parámetro $V_{S,30}$.
+> El **método MASW** (*Multichannel Analysis of Surface Waves*, Park et al. 1999) estima el perfil de velocidad de onda de corte $V_S(z)$ del subsuelo analizando la [[Wave Dispersion|dispersión]] de las [[Rayleigh Waves|ondas de Rayleigh]] generadas por una fuente activa controlada. El flujo de trabajo es: (1) adquisición con arreglo lineal de geófonos verticales, (2) extracción de la [[Dispersion Curve|curva de dispersión]] $c_R(f)$ por análisis f-k, (3) inversión para obtener $V_S(z)$. Es el estándar de facto en caracterización geotécnica no invasiva para obtención del parámetro $V_{S,30}$.
 >
 > — Park, Miller & Xia (1999), *Geophysics* 64(3); Foti et al. (2018), Caps. 3–7.
 
@@ -19,7 +19,7 @@ El flujo de trabajo tiene tres etapas:
 
 1. **Adquisición**: registrar un sismograma multicanal con fuente activa (sledgehammer) y un arreglo lineal de geófonos verticales.
 2. **Procesamiento**: extraer la [[Dispersion Relation|curva de dispersión]] experimental $c(f)$ a partir del sismograma mediante transformada f-k, beamforming u otras técnicas.
-3. **Inversión**: estimar el perfil $V_S(z)$ que mejor reproduce la curva de dispersión observada.
+3. **Inversión**: estimar el perfil $V_S(z)$ que mejor reproduce la [[Dispersion Curve|curva de dispersión]] observada.
 
 ## Geometría de adquisición
 
@@ -41,7 +41,7 @@ La geometría básica es un **arreglo lineal de receptores uniformemente espacia
 | 10 | 30 | 10 | 100 | 1 |
 | 40 | 15 | 10 | 100 | 1 |
 
-El **MASW es el método sísmico más tolerante a variaciones de parámetros** — un offset mínimo de 10 m es suficiente para la mayoría de suelos (más tolerante que el criterio $\lambda/2$ del SASW). La fuente recomendada es un sledgehammer ≥ 10 lb con buena acoplamiento al suelo.
+El **MASW es el método sísmico más tolerante a variaciones de parámetros** — un offset mínimo de 10 m es suficiente para la mayoría de suelos (más tolerante que el criterio $\lambda/2$ del [[SASW Method|SASW]]). La fuente recomendada es un sledgehammer ≥ 10 lb con buena acoplamiento al suelo.
 
 ## Relación frecuencia–profundidad
 
@@ -60,7 +60,7 @@ La profundidad máxima de investigación es aproximadamente $\lambda_{max}/2$ a 
 | Estima $V_S$ directamente | [[Non-uniqueness|No-unicidad]] de la inversión |
 | Compatible con refracción (mismo dataset) | Requiere diseño cuidadoso del arreglo |
 
-## Diferencia con SASW
+## Diferencia con [[SASW Method|SASW]]
 
 El método [[SASW Method|SASW]] (*Spectral Analysis of Surface Waves*) usa solo **dos receptores** y requiere múltiples adquisiciones con diferentes espaciados para cubrir el rango de frecuencias. MASW usa un arreglo multicanal en una sola adquisición, lo que mejora la resolución modal y reduce la ambigüedad en la identificación de modos.
 
@@ -71,7 +71,7 @@ El método [[SASW Method|SASW]] (*Spectral Analysis of Surface Waves*) usa solo 
 - **2D MASW**: ensayos con arreglo deslizante (*rolling array*) para generar secciones pseudo-2D de $V_S$.
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) + Xia et al. (2002) — validación del método MASW
-> **Paper 001 (Park, Miller & Xia 1999)** introduce el método MASW moderno con análisis f-k multicanal. Registros de campo en Kansas con 24 geófonos a 1.5 m de espaciado producen espectrogramas f-k donde el modo fundamental de Rayleigh es claramente identificable entre 5 y 30 Hz. La curva de dispersión extraída muestra reproducibilidad entre ensayos y coherencia con el perfil geológico conocido.
+> **Paper 001 (Park, Miller & Xia 1999)** introduce el método MASW moderno con análisis f-k multicanal. Registros de campo en Kansas con 24 geófonos a 1.5 m de espaciado producen espectrogramas f-k donde el modo fundamental de Rayleigh es claramente identificable entre 5 y 30 Hz. La [[Dispersion Curve|curva de dispersión]] extraída muestra reproducibilidad entre ensayos y coherencia con el perfil geológico conocido.
 >
 > **Paper 009 (Xia et al. 2002)** valida los perfiles $V_S(z)$ obtenidos por MASW contra 14 ensayos de borehole independientes en Kansas: error RMS promedio < 15%, con errores individuales < 5% en sitios homogéneos. Este resultado establece el MASW como herramienta de caracterización geotécnica con precisión comparable a métodos invasivos.
 >

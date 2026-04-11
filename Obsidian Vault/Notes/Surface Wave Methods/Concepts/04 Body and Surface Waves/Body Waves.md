@@ -50,9 +50,9 @@ Para $\nu = 0.25$ (material Poisson estándar): $V_P/V_S = \sqrt{3} \approx 1.73
 | Onda de cuerpo (volumen 3D) | $\propto 1/r$ | Frente esférico: área $\propto r^2$ |
 | Onda superficial (superficie 2D) | $\propto 1/\sqrt{r}$ | Frente cilíndrico: perímetro $\propto r$ |
 
-La solución del **[[Lamb's Problem|Problema de Lamb]]** (Lamb, 1904) cuantificó esta partición: en la superficie de un semiespacio, el ~67% de la energía de una fuente puntual vertical queda en las ondas Rayleigh, y el resto en ondas de cuerpo P y S. Esto valida el uso de ondas superficiales como el observable dominante en MASW.
+La solución del **[[Lamb's Problem|Problema de Lamb]]** (Lamb, 1904) cuantificó esta partición: en la superficie de un semiespacio, el ~67% de la energía de una fuente puntual vertical queda en las ondas Rayleigh, y el resto en ondas de cuerpo P y S. Esto valida el uso de ondas superficiales como el observable dominante en [[MASW Method|MASW]].
 
-## Ondas de cuerpo en MASW
+## Ondas de cuerpo en [[MASW Method|MASW]]
 
 Las ondas de cuerpo son **ruido** en los métodos de ondas superficiales. Aparecen como:
 
@@ -60,14 +60,14 @@ Las ondas de cuerpo son **ruido** en los métodos de ondas superficiales. Aparec
 2. **Ondas P refractadas**: en arreglos cortos, llegadas refractadas pueden solaparse con el inicio del ground-roll y contaminar las frecuencias altas.
 3. **Reflexiones y conversiones**: en medios heterogéneos, las interfaces generan ondas convertidas P↔SV (ver [[Mode Conversion]]) que aparecen en el espectro f-k a velocidades más altas que las superficiales.
 
-En el análisis f-k, las ondas de cuerpo tienen velocidades de fase mucho mayores que las ondas de Rayleigh y se separan fácilmente; sin embargo, si el arreglo es demasiado corto o el near-field no está excluido, pueden contaminar la curva de dispersión a frecuencias altas.
+En el análisis f-k, las ondas de cuerpo tienen velocidades de fase mucho mayores que las ondas de Rayleigh y se separan fácilmente; sin embargo, si el arreglo es demasiado corto o el near-field no está excluido, pueden contaminar la [[Dispersion Curve|curva de dispersión]] a frecuencias altas.
 
 ## Uso en métodos complementarios
 
-En **refracción sísmica**, las primeras llegadas de ondas P son el observable primario: se mapea la distribución de $V_P$ con la profundidad, incluyendo la detección de la tabla de agua (donde $V_P$ salta a ~1500 m/s). Esto proporciona el parámetro $V_P$ (o el [[Poisson Ratio|coeficiente de Poisson]]) necesario como información a priori en la inversión de la curva de dispersión de Rayleigh.
+En **refracción sísmica**, las primeras llegadas de ondas P son el observable primario: se mapea la distribución de $V_P$ con la profundidad, incluyendo la detección de la tabla de agua (donde $V_P$ salta a ~1500 m/s). Esto proporciona el parámetro $V_P$ (o el [[Poisson Ratio|coeficiente de Poisson]]) necesario como información a priori en la inversión de la [[Dispersion Curve|curva de dispersión]] de Rayleigh.
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) — dominancia del ground-roll en registros de campo
-> **Paper 001 (Park, Miller & Xia 1999)** muestra sismogramas de múltiples sitios de Kansas donde las ondas de cuerpo (primeras llegadas P) son claramente separables del ground-roll de Rayleigh en tiempo. La transformada f-k extrae la curva de dispersión de Rayleigh directamente, sin interferencia de ondas de cuerpo, confirman que a distancias $> 5$ m las ondas de cuerpo ya son ruido de fondo respecto al ground-roll dominante. Esta separación temporal y de velocidad entre ondas de cuerpo y superficiales valida el resultado del [[Lamb's Problem|Problema de Lamb]] en condiciones de campo reales.
+> **Paper 001 (Park, Miller & Xia 1999)** muestra sismogramas de múltiples sitios de Kansas donde las ondas de cuerpo (primeras llegadas P) son claramente separables del ground-roll de Rayleigh en tiempo. La transformada f-k extrae la [[Dispersion Curve|curva de dispersión]] de Rayleigh directamente, sin interferencia de ondas de cuerpo, confirman que a distancias $> 5$ m las ondas de cuerpo ya son ruido de fondo respecto al ground-roll dominante. Esta separación temporal y de velocidad entre ondas de cuerpo y superficiales valida el resultado del [[Lamb's Problem|Problema de Lamb]] en condiciones de campo reales.
 >
 > — Research Database, entrada 001 (core).
 

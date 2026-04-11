@@ -1,13 +1,13 @@
 ---
 name: Dispersion Curve
-description: Curva de dispersión experimental — velocidad de fase de Rayleigh como función de frecuencia, c_R(f); producto del procesamiento MASW y entrada a la inversión
+description: Curva de dispersión experimental — [[Phase Velocity|velocidad de fase]] de Rayleigh como función de frecuencia, c_R(f); producto del procesamiento [[MASW Method|MASW]] y entrada a la inversión
 type: reference
 ---
 
 # Dispersion Curve — Curva de Dispersión Experimental
 
 > [!CONCEPT] Definición
-> La **curva de dispersión experimental** es el conjunto de pares $\{(f_i, c_R(f_i))\}$ que describe la velocidad de fase de las [[Rayleigh Waves|ondas de Rayleigh]] como función de la frecuencia, medida a partir del sismograma multicanal. Es el **producto central del [[Procesamiento de Señales|procesamiento]]** y la **entrada de la [[Inversión|inversión]]**: cada frecuencia $f_i$ corresponde a una longitud de onda $\lambda_i = c_R/f_i$ que aporta información sobre el perfil $V_S(z)$ a profundidades $z \approx \lambda_i/3$–$\lambda_i/2$ ([[Skin Depth]]). Se distingue de la [[Dispersion Relation|relación de dispersión]] teórica $\omega(k)$: la curva experimental contiene incertidumbre de medición, posibles contaminaciones de modos superiores y es discreta en frecuencia; la relación teórica es la función continua $c_R^{\text{teórica}}(\mathbf{m}, f)$ calculada para un modelo del subsuelo $\mathbf{m}$. La inversión ajusta la curva teórica a la experimental.
+> La **curva de dispersión experimental** es el conjunto de pares $\{(f_i, c_R(f_i))\}$ que describe la [[Phase Velocity|velocidad de fase]] de las [[Rayleigh Waves|ondas de Rayleigh]] como función de la frecuencia, medida a partir del sismograma multicanal. Es el **producto central del [[Procesamiento de Señales|procesamiento]]** y la **entrada de la [[Inversión|inversión]]**: cada frecuencia $f_i$ corresponde a una longitud de onda $\lambda_i = c_R/f_i$ que aporta información sobre el perfil $V_S(z)$ a profundidades $z \approx \lambda_i/3$–$\lambda_i/2$ ([[Skin Depth]]). Se distingue de la [[Dispersion Relation|relación de dispersión]] teórica $\omega(k)$: la curva experimental contiene incertidumbre de medición, posibles contaminaciones de modos superiores y es discreta en frecuencia; la relación teórica es la función continua $c_R^{\text{teórica}}(\mathbf{m}, f)$ calculada para un modelo del subsuelo $\mathbf{m}$. La inversión ajusta la curva teórica a la experimental.
 >
 > — Foti et al. (2018), Cap. 4 (extracción), Cap. 6 (inversión), Cap. 7 (aplicaciones).
 
@@ -39,9 +39,9 @@ La incertidumbre $\sigma_{c_R}(f)$ proviene de:
 
 ## Modo fundamental vs. curva de velocidad aparente
 
-Cuando hay superposición de modos ([[Mode Superposition]]), la cresta del espectrograma no corresponde a ningún modo individual sino a la **velocidad de fase aparente** — superposición ponderada por energía. Esto puede sesgarse respecto al modo fundamental real, produciendo errores en la inversión (hasta 50% en $V_S$ de capas profundas, Xu et al. 2006).
+Cuando hay superposición de modos ([[Mode Superposition]]), la cresta del espectrograma no corresponde a ningún modo individual sino a la **[[Phase Velocity|velocidad de fase]] aparente** — superposición ponderada por energía. Esto puede sesgarse respecto al modo fundamental real, produciendo errores en la inversión (hasta 50% en $V_S$ de capas profundas, Xu et al. 2006).
 
-> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — curva de dispersión como entrada de la inversión MASW
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — curva de dispersión como entrada de la inversión [[MASW Method|MASW]]
 > **Paper 002 (Xia et al. 1999)** es el estudio canónico que establece el flujo procesamiento → curva de dispersión → inversión. La curva de dispersión experimental se extrae del espectrograma f-k de registros de 24 geófonos en Kansas (rango 5–50 Hz). El análisis de sensibilidad demuestra que cada punto $(f_i, c_R(f_i))$ de la curva contiene información principalmente de $V_S$ a profundidad $\approx \lambda_i/3$–$\lambda_i/2$. La inversión por mínimos cuadrados ajusta la curva teórica a la experimental minimizando el RMS: con modelo inicial de 3 capas, la curva teórica converge en <10 iteraciones y el perfil $V_S(z)$ resultante concuerda con borehole en error RMS < 15%.
 >
 > — Research Database, entrada 002 (core); Xia et al. (1999), *Geophysics* 64(3).

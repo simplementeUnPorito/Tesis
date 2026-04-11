@@ -7,7 +7,7 @@ type: reference
 # Ondas P (P-waves / Compressional Waves)
 
 > [!CONCEPT] Definición
-> Las **ondas P** (Primary / Pressure / Compressional) son ondas de cuerpo donde el movimiento de la partícula es **paralelo** a la dirección de propagación — deformación volumétrica alternante sin corte puro. Son las ondas más rápidas en sólidos y viajan también en fluidos ($\mu = 0$). En el contexto de [[MASW Method|MASW]], $V_P$ es un **parámetro a priori** de baja sensibilidad en la inversión de la curva de dispersión de [[Rayleigh Waves]], pero crítico en suelos saturados donde $V_P \approx 1500$ m/s (dominado por el agua poral) y puede afectar el perfil $V_S$ si se ignora.
+> Las **ondas P** (Primary / Pressure / Compressional) son ondas de cuerpo donde el movimiento de la partícula es **paralelo** a la dirección de propagación — deformación volumétrica alternante sin corte puro. Son las ondas más rápidas en sólidos y viajan también en fluidos ($\mu = 0$). En el contexto de [[MASW Method|MASW]], $V_P$ es un **parámetro a priori** de baja sensibilidad en la inversión de la [[Dispersion Curve|curva de dispersión]] de [[Rayleigh Waves]], pero crítico en suelos saturados donde $V_P \approx 1500$ m/s (dominado por el agua poral) y puede afectar el perfil $V_S$ si se ignora.
 >
 > — Foti et al. (2018), §2.1.3, pp. 43–50.
 
@@ -58,11 +58,11 @@ En suelos saturados bajo carga no drenada, la compresibilidad del material está
 
 ## Relevancia en métodos de ondas superficiales
 
-En la inversión de la curva de dispersión de [[Rayleigh Waves]], $V_P$ (o equivalentemente $\nu$) es un **parámetro a priori** — se fija basándose en información independiente (refracción P, nivel freático, ensayos SPT) y no se invierte directamente. La sensibilidad de la curva de dispersión a $V_P$ es baja comparada con $V_S$, pero no despreciable: un $V_P$ incorrecto (especialmente ignorar el nivel freático) puede introducir errores sistemáticos en el perfil $V_S$ invertido.
+En la inversión de la [[Dispersion Curve|curva de dispersión]] de [[Rayleigh Waves]], $V_P$ (o equivalentemente $\nu$) es un **parámetro a priori** — se fija basándose en información independiente (refracción P, nivel freático, ensayos SPT) y no se invierte directamente. La sensibilidad de la [[Dispersion Curve|curva de dispersión]] a $V_P$ es baja comparada con $V_S$, pero no despreciable: un $V_P$ incorrecto (especialmente ignorar el nivel freático) puede introducir errores sistemáticos en el perfil $V_S$ invertido.
 
 En el método de **refracción sísmica**, las ondas P son el observable primario: los tiempos de llegada de los primeros arrivals se usan para inferir el contraste de $V_P$ entre capas, incluyendo la detección de la tabla de agua.
 
-> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — impacto de VP y nivel freático en la inversión MASW
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — impacto de VP y nivel freático en la inversión [[MASW Method|MASW]]
 > Foti et al. (2018, §7.1.3) documentan que ignorar la posición del nivel freático (que produce un salto de $V_P$ de ~300 m/s a ~1500 m/s) puede introducir errores sistemáticos en el perfil $V_S$ invertido, especialmente en el rango de frecuencias bajas donde la onda de Rayleigh penetra hasta la zona saturada. En los casos estudiados (sitios de Bélgica e Italia), el error en $V_S$ por $V_P$ incorrecto fue de 5–10% — significativo pero menor que el error por $V_S$ incorrecto. Este resultado justifica la recomendación de medir $V_P$ por refracción P como dato a priori de la inversión de ondas superficiales.
 >
 > — Foti et al. (2018), §7.1.3, pp. 361–363.

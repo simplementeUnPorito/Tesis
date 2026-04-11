@@ -1,6 +1,6 @@
 ---
 name: Genetic Algorithm
-description: Algoritmo de búsqueda global inspirado en la selección natural — método de inversión estocástica para la curva de dispersión que explora el espacio de modelos VS(z)
+description: Algoritmo de búsqueda global inspirado en la selección natural — método de inversión estocástica para la [[Dispersion Curve|curva de dispersión]] que explora el espacio de modelos VS(z)
 type: reference
 ---
 
@@ -49,14 +49,14 @@ Los modelos con mayor $f_{fitness}$ (menor misfit) tienen mayor probabilidad de 
 
 ## Parámetros críticos de configuración
 
-Para inversión de curvas de dispersión MASW:
+Para inversión de [[Dispersion Curve|curvas de dispersión]] [[MASW Method|MASW]]:
 - **Tamaño de población**: 50–200 individuos
 - **Número de generaciones**: 100–500
 - **Tasa de mutación**: $p_m$ = 0.01–0.05
 - **Tasa de cruce**: $p_c$ = 0.6–0.9
 - **Espacio de búsqueda**: $V_{S,min}$–$V_{S,max}$ por capa (definido a priori)
 
-> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — GA en inversión de MASW con modos superiores
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — GA en inversión de [[MASW Method|MASW]] con modos superiores
 > Foti et al. (2018, §6.4.3) discuten la aplicación del Algoritmo Genético a la inversión simultánea de múltiples modos de ondas de Rayleigh. En un sitio sintético con perfil de velocidad invertida (capa blanda a 10–15 m entre capas más rígidas), el GA encuentra correctamente el mínimo global del misfit identificando el perfil con capa blanda, mientras que la inversión por gradiente converge al mínimo local del modelo monotónico creciente. Los autores cuantifican la ventaja: el GA encuentra el modelo correcto en el 87% de los 50 experimentos con datos ruidosos ($\sigma$ = 5% en $c_R$), vs solo el 23% para la inversión por gradiente con modelo inicial aleatorio. El costo computacional es ~50× mayor para el GA, pero la robustez justifica el uso en sitios con posibles inversiones de velocidad o geometrías complejas.
 >
 > — Foti et al. (2018), §6.4.3, pp. 315–322.
@@ -65,6 +65,6 @@ Para inversión de curvas de dispersión MASW:
 
 | Fuente | Sección / Página |
 |--------|-----------------|
-| Foti et al. (2018), *Surface Wave Methods* | §6.4.3, pp. 315–322 — GA en inversión MASW |
+| Foti et al. (2018), *Surface Wave Methods* | §6.4.3, pp. 315–322 — GA en inversión [[MASW Method|MASW]] |
 | Michalewicz (1994), *Genetic Algorithms + Data Structures* | Formulación y operadores del GA |
 | Sen & Stoffa (2013), *Global Optimization Methods* | Comparación GA con otros métodos globales |

@@ -1,6 +1,6 @@
 ---
 name: Levenberg-Marquardt
-description: Algoritmo de optimización no-lineal que combina el método de Gauss-Newton con el gradiente descendente — estándar para la inversión local de curvas de dispersión MASW
+description: Algoritmo de optimización no-lineal que combina el método de Gauss-Newton con el gradiente descendente — estándar para la inversión local de [[Dispersion Curve|curvas de dispersión]] [[MASW Method|MASW]]
 type: reference
 ---
 
@@ -15,7 +15,7 @@ type: reference
 
 ## Formulación para inversión de dispersión
 
-### Jacobiano de la curva de dispersión
+### Jacobiano de la [[Dispersion Curve|curva de dispersión]]
 
 El Jacobiano es la matriz de derivadas parciales:
 
@@ -46,8 +46,8 @@ donde $\mu$ controla la regularización y $\mathbf{W}$ pondera los datos por su 
 | **Levenberg-Marquardt** | Aproximado + amortiguado | Cuadrática-lineal | Media | Medio |
 | Newton completo | Exacto | Cuadrática | Media | Alto |
 
-> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — LM como motor de inversión MASW estándar
-> **Paper 002 (Xia, Miller & Park 1999)** implementa el Algoritmo de Levenberg-Marquardt como el motor de inversión del método MASW. En el sitio de Kansas (perfil VS de 150–400 m/s en 20 m), el LM converge en 5–10 iteraciones partiendo de un modelo inicial de velocidad constante. El paper reporta que: (1) la velocidad de onda S ($V_S$) domina la [[Sensitivity Kernel|sensibilidad]] de la velocidad de Rayleigh (80–95% vs VP y densidad combinados), lo que hace al problema bien condicionado para el LM; (2) el error entre el perfil VS invertido y el de referencia (sondeo sísmico) es < 15% en todo el perfil; (3) el parámetro de amortiguamiento LM $\lambda_0 = 0.1$ proporciona convergencia estable sin divergencia. Este paper estableció el LM como el estándar de facto para inversión local de MASW.
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — LM como motor de inversión [[MASW Method|MASW]] estándar
+> **Paper 002 (Xia, Miller & Park 1999)** implementa el Algoritmo de Levenberg-Marquardt como el motor de inversión del método [[MASW Method|MASW]]. En el sitio de Kansas (perfil VS de 150–400 m/s en 20 m), el LM converge en 5–10 iteraciones partiendo de un modelo inicial de velocidad constante. El paper reporta que: (1) la velocidad de onda S ($V_S$) domina la [[Sensitivity Kernel|sensibilidad]] de la velocidad de Rayleigh (80–95% vs VP y densidad combinados), lo que hace al problema bien condicionado para el LM; (2) el error entre el perfil VS invertido y el de referencia (sondeo sísmico) es < 15% en todo el perfil; (3) el parámetro de amortiguamiento LM $\lambda_0 = 0.1$ proporciona convergencia estable sin divergencia. Este paper estableció el LM como el estándar de facto para inversión local de [[MASW Method|MASW]].
 >
 > — Research Database, entrada 002 (core); Xia, Miller & Park (1999), *Geophysics* 64(3):691–700.
 
@@ -55,7 +55,7 @@ donde $\mu$ controla la regularización y $\mathbf{W}$ pondera los datos por su 
 
 | Fuente | Sección / Página |
 |--------|-----------------|
-| Foti et al. (2018), *Surface Wave Methods* | §6.4.2, pp. 298–308 — inversión por gradiente MASW |
-| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 — implementación LM en inversión MASW |
+| Foti et al. (2018), *Surface Wave Methods* | §6.4.2, pp. 298–308 — inversión por gradiente [[MASW Method|MASW]] |
+| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 — implementación LM en inversión [[MASW Method|MASW]] |
 | Levenberg (1944), *Quart. Appl. Math.* | Formulación original del método |
 | Marquardt (1963), *SIAM J. Appl. Math.* | Algoritmo moderno de Levenberg-Marquardt |

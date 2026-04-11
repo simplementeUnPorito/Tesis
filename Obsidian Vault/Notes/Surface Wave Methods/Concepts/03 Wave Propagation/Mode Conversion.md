@@ -54,7 +54,7 @@ La conversión de modos tiene consecuencias prácticas en el diseño del arreglo
 3. **Fuentes horizontales y Love**: las fuentes horizontales generan principalmente ondas SH, minimizando la conversión a P y SV. Esto es ventajoso para la adquisición de [[Love Waves]] con menor contaminación de componentes P–SV.
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) — acoplamiento P–SV como origen del ground-roll de Rayleigh
-> **Paper 001 (Park, Miller & Xia 1999)** muestra sismogramas de campo donde el ground-roll de Rayleigh es claramente la componente dominante del campo sísmico a distancias $> 5$ m de la fuente. El ground-roll surge directamente del acoplamiento P–SV en la superficie libre: la fuente vertical genera ondas P y SV, que se convierten mutuamente en la superficie y producen el modo de Rayleigh. La transformada f-k extracta este modo con alta relación señal/ruido, confirmando que la conversión de modos P–SV es el mecanismo generador de la señal útil en MASW.
+> **Paper 001 (Park, Miller & Xia 1999)** muestra sismogramas de campo donde el ground-roll de Rayleigh es claramente la componente dominante del campo sísmico a distancias $> 5$ m de la fuente. El ground-roll surge directamente del acoplamiento P–SV en la superficie libre: la fuente vertical genera ondas P y SV, que se convierten mutuamente en la superficie y producen el modo de Rayleigh. La transformada f-k extracta este modo con alta relación señal/ruido, confirmando que la conversión de modos P–SV es el mecanismo generador de la señal útil en [[MASW Method|MASW]].
 >
 > — Research Database, entrada 001 (core).
 

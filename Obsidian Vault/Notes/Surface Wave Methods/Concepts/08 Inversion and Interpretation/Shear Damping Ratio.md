@@ -32,7 +32,7 @@ El vínculo con el [[Attenuation|coeficiente de atenuación]] de la [[Rayleigh W
 
 $$D_s \approx \frac{\alpha_R \cdot V_R}{2\pi f}$$
 
-donde $\alpha_R$ es el coeficiente de atenuación espacial (1/m) y $V_R$ la velocidad de fase. Esta relación surge de la propagación en un semiespacio viscoelástico (Ecuación del libro, cap. 2 y 5).
+donde $\alpha_R$ es el coeficiente de atenuación espacial (1/m) y $V_R$ la [[Phase Velocity|velocidad de fase]]. Esta relación surge de la propagación en un semiespacio viscoelástico (Ecuación del libro, cap. 2 y 5).
 
 También se expresa como $D_s = 1/(2Q)$, donde $Q$ es el factor de calidad del material.
 
@@ -44,7 +44,7 @@ El procedimiento experimental para determinar el perfil Ds(z) desde mediciones d
    - Regresión de la función de transferencia compleja (Capítulo 5, Sección 5.3)
    - Regresión amplitud–offset (Capítulo 5, Sección 5.2)
 
-2. **Inversión de la curva de atenuación:** se ajusta el coeficiente de atenuación teórico de Rayleigh (calculado para un modelo de capas viscoelástico) a la curva experimental mediante mínimos cuadrados. Esta inversión puede realizarse **simultáneamente** con la inversión de la curva de dispersión para obtener Vs(z) y Ds(z) en el mismo proceso.
+2. **Inversión de la curva de atenuación:** se ajusta el coeficiente de atenuación teórico de Rayleigh (calculado para un modelo de capas viscoelástico) a la curva experimental mediante mínimos cuadrados. Esta inversión puede realizarse **simultáneamente** con la inversión de la [[Dispersion Curve|curva de dispersión]] para obtener Vs(z) y Ds(z) en el mismo proceso.
 
 3. **Validación:** se comparan los perfiles Ds(z) con datos independientes: ensayo de columna resonante (RCT) en laboratorio o perfiles disponibles de literatura.
 
@@ -56,7 +56,7 @@ El procedimiento experimental para determinar el perfil Ds(z) desde mediciones d
   - Disipación por fricción de contacto entre partículas, no modelada en el medio viscoelástico
   - Alta frecuencia → mayor dependencia con la rugosidad del medio
 - El Ds obtenido desde ondas superficiales representa el **amortiguamiento dinámico a pequeña deformación** (small-strain), coherente con las condiciones de propagación de ondas sísmicas.
-- La hipótesis del **modo fundamental** de Rayleigh puede no ser satisfecha si hay modos superiores presentes, lo que afecta tanto la curva de dispersión como la de atenuación.
+- La hipótesis del **modo fundamental** de Rayleigh puede no ser satisfecha si hay modos superiores presentes, lo que afecta tanto la [[Dispersion Curve|curva de dispersión]] como la de atenuación.
 
 ## Relevancia en ingeniería sísmica
 
@@ -73,7 +73,7 @@ El perfil Ds(z) entra directamente en los cálculos de **respuesta sísmica loca
 | Consistencia con datos sísmicos | Posible | Directa |
 
 > [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — validación Ds en sitios Pisa y Memphis
-> Foti et al. (2018, §7.3) presentan la inversión simultánea de la curva de dispersión (para $V_S$) y la curva de atenuación (para $D_s$) en dos sitios de referencia: la Torre de Pisa y el sitio de Memphis. Los perfiles $D_s(z)$ obtenidos por ondas superficiales (MASW activo + pasivo) muestran acuerdo razonable con ensayos de columna resonante (RCT) independientes, con diferencias típicas de 0.5–1.5% en $D_s$ absoluto. El estudio confirma que la inversión de la curva de atenuación de Rayleigh es una estimación in situ válida del amortiguamiento dinámico a pequeña deformación, aunque con mayor incertidumbre que la estimación de $V_S$.
+> Foti et al. (2018, §7.3) presentan la inversión simultánea de la [[Dispersion Curve|curva de dispersión]] (para $V_S$) y la curva de atenuación (para $D_s$) en dos sitios de referencia: la Torre de Pisa y el sitio de Memphis. Los perfiles $D_s(z)$ obtenidos por ondas superficiales ([[MASW Method|MASW]] activo + pasivo) muestran acuerdo razonable con ensayos de columna resonante (RCT) independientes, con diferencias típicas de 0.5–1.5% en $D_s$ absoluto. El estudio confirma que la inversión de la curva de atenuación de Rayleigh es una estimación in situ válida del amortiguamiento dinámico a pequeña deformación, aunque con mayor incertidumbre que la estimación de $V_S$.
 >
 > — Foti et al. (2018), §7.3, pp. 375–380, Figs. 7.25–7.29.
 

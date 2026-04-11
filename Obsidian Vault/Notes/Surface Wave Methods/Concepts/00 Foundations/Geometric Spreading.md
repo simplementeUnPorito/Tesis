@@ -1,6 +1,6 @@
 ---
 name: Geometric Spreading
-description: Decaimiento de amplitud de ondas sísmicas con la distancia por expansión geométrica del frente de onda — distinto de la atenuación material; crítico para estimar el coeficiente de amortiguamiento DS en MASW
+description: Decaimiento de amplitud de ondas sísmicas con la distancia por expansión geométrica del frente de onda — distinto de la atenuación material; crítico para estimar el coeficiente de amortiguamiento DS en [[MASW Method|MASW]]
 type: reference
 ---
 
@@ -19,7 +19,7 @@ Para una fuente puntual en superficie y receptor a distancia $r$ en la direcció
 
 $$A(r) \propto \frac{1}{\sqrt{r}}$$
 
-Este es el comportamiento de **ondas de superficie en campo lejano** ([[Rayleigh Waves]], [[Love Waves]]) — la base de la corrección en MASW para estimar $D_s$.
+Este es el comportamiento de **ondas de superficie en campo lejano** ([[Rayleigh Waves]], [[Love Waves]]) — la base de la corrección en [[MASW Method|MASW]] para estimar $D_s$.
 
 ### 3D: ondas de cuerpo (P y S)
 
@@ -31,7 +31,7 @@ El decaimiento más rápido con la distancia hace que las ondas de cuerpo (P, S)
 
 ## Implicación para la estimación de DS
 
-En un sismograma MASW, la amplitud observada en el receptor $j$ a distancia $r_j$ de la fuente combina:
+En un sismograma [[MASW Method|MASW]], la amplitud observada en el receptor $j$ a distancia $r_j$ de la fuente combina:
 
 $$A(r_j, f) = \frac{S(f)}{\sqrt{r_j}} \cdot e^{-\alpha_R(f) r_j} \cdot G(r_j, f)$$
 

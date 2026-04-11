@@ -32,7 +32,7 @@ La relación entre $\omega$, $k$, y la [[Phase Velocity|velocidad de fase]] $c_p
 
 $$c_p = \frac{\omega}{k}$$
 
-Esta ecuación es la definición operativa de velocidad de fase: la rapidez a la que una cresta de fase (frente de onda de igual $\omega t - kx$) se propaga en el espacio.
+Esta ecuación es la definición operativa de [[Phase Velocity|velocidad de fase]]: la rapidez a la que una cresta de fase (frente de onda de igual $\omega t - kx$) se propaga en el espacio.
 
 ## La relación de dispersión ω(k)
 
@@ -45,7 +45,7 @@ Para [[Rayleigh Waves]] en un [[Layered Media|medio estratificado]], la relació
 
 ## Relación de dispersión y análisis f-k
 
-En MASW, el análisis f-k (transformada de Fourier 2D del sismograma) transforma el registro $u(x, t)$ al dominio $(\omega, k)$. La amplitud en cada punto $({\omega, k})$ del espectrograma f-k es proporcional a la energía de la onda con esa frecuencia y número de onda. Los modos de Rayleigh aparecen como **crestas** en el espectro f-k, cuya pendiente $\omega/k$ da la velocidad de fase:
+En [[MASW Method|MASW]], el análisis f-k (transformada de Fourier 2D del sismograma) transforma el registro $u(x, t)$ al dominio $(\omega, k)$. La amplitud en cada punto $({\omega, k})$ del espectrograma f-k es proporcional a la energía de la onda con esa frecuencia y número de onda. Los modos de Rayleigh aparecen como **crestas** en el espectro f-k, cuya pendiente $\omega/k$ da la [[Phase Velocity|velocidad de fase]]:
 
 $$c_p(f) = \frac{\omega}{k}\bigg|_{\text{cresta}} = \frac{2\pi f}{k_{\text{cresta}}}$$
 
@@ -72,7 +72,7 @@ $$\omega = 2\pi f, \quad T = \frac{1}{f} = \frac{2\pi}{\omega}$$
 Algunos autores (incluyendo Foti et al.) alternan entre $f$ y $\omega$ según el contexto; es esencial verificar cuál se usa en cada ecuación para evitar errores de un factor $2\pi$.
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) — análisis f-k como operación en el dominio ω-k
-> **Paper 001 (Park, Miller & Xia 1999)** implementa el análisis f-k como una transformada 2D que opera en el dominio $(\omega, k)$. La conversión de frecuencia angular a velocidad de fase $c_p = \omega/k$ es directa en el espectrograma: cada cresta del espectro f-k a un par $(\omega_i, k_i)$ corresponde a la velocidad de fase $c_p(f_i) = \omega_i/k_i$. El proceso no requiere conocer $\omega$ en radianes explícitamente porque los instrumentos reportan $f$ en Hz, pero la matemática subyacente usa $\omega$ para mantener la consistencia con la teoría de ondas elásticas.
+> **Paper 001 (Park, Miller & Xia 1999)** implementa el análisis f-k como una transformada 2D que opera en el dominio $(\omega, k)$. La conversión de frecuencia angular a [[Phase Velocity|velocidad de fase]] $c_p = \omega/k$ es directa en el espectrograma: cada cresta del espectro f-k a un par $(\omega_i, k_i)$ corresponde a la [[Phase Velocity|velocidad de fase]] $c_p(f_i) = \omega_i/k_i$. El proceso no requiere conocer $\omega$ en radianes explícitamente porque los instrumentos reportan $f$ en Hz, pero la matemática subyacente usa $\omega$ para mantener la consistencia con la teoría de ondas elásticas.
 >
 > — Research Database, entrada 001 (core).
 

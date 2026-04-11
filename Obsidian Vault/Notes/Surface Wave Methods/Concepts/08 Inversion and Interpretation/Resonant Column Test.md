@@ -27,7 +27,7 @@ El amortiguamiento $D_s$ se mide de dos formas:
 
 ## Comparación con estimación in situ por ondas superficiales
 
-| Aspecto | Resonant Column Test | Ondas superficiales (MASW) |
+| Aspecto | Resonant Column Test | Ondas superficiales ([[MASW Method|MASW]]) |
 |---|---|---|
 | Volumen representativo | Pequeño (muestra) | Grande (columna de suelo natural) |
 | Perturbación de la muestra | Inevitable | No invasivo |
@@ -36,17 +36,17 @@ El amortiguamiento $D_s$ se mide de dos formas:
 | Estimación de DS | Alta precisión (±0.5–1%) | Moderada (±1–2%) |
 | Consistencia con ensayo sísmico | Posible | Directa |
 
-## Rol en la validación del MASW-DS
+## Rol en la validación del [[MASW Method|MASW]]-DS
 
 El RCT proporciona la referencia de laboratorio para los perfiles $D_s(z)$ obtenidos por [[Shear Damping Ratio|inversión de la curva de atenuación]] de ondas de Rayleigh. En la práctica:
 1. Se extrae muestras a diferentes profundidades del sitio investigado
 2. Se realizan RCT en laboratorio a la presión de confinamiento in situ
-3. Se comparan los perfiles $D_s^{RCT}(z)$ con los $D_s^{MASW}(z)$
+3. Se comparan los perfiles $D_s^{RCT}(z)$ con los $D_s^{[[MASW Method|MASW]]}(z)$
 
-Acuerdo típico: diferencias de 0.5–1.5% en $D_s$ absoluto — considerado razonable dado que el RCT mide una muestra y el MASW mide el comportamiento promedio del suelo in situ.
+Acuerdo típico: diferencias de 0.5–1.5% en $D_s$ absoluto — considerado razonable dado que el RCT mide una muestra y el [[MASW Method|MASW]] mide el comportamiento promedio del suelo in situ.
 
-> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — validación DS MASW vs RCT en Pisa y Memphis
-> Foti et al. (2018, §7.3) comparan el perfil $D_s(z)$ obtenido por inversión de la curva de atenuación de ondas de Rayleigh con ensayos RCT en dos sitios de referencia: la Torre de Pisa (arcilla de alta plasticidad) y el sitio de Memphis (depósitos aluviales). En Pisa, los valores de $D_s$ MASW oscilan entre 2–6% en los primeros 30 m, con diferencias respecto al RCT de ±1–1.5% en valor absoluto. En Memphis, el acuerdo es similar (±0.5–1%) excepto en la capa más superficial donde el MASW sobreestima el $D_s$ por efectos de scattering superficial. El estudio confirma que la inversión de la curva de atenuación de Rayleigh es un estimador válido de $D_s$ in situ, aunque con mayor incertidumbre que el RCT.
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — validación DS [[MASW Method|MASW]] vs RCT en Pisa y Memphis
+> Foti et al. (2018, §7.3) comparan el perfil $D_s(z)$ obtenido por inversión de la curva de atenuación de ondas de Rayleigh con ensayos RCT en dos sitios de referencia: la Torre de Pisa (arcilla de alta plasticidad) y el sitio de Memphis (depósitos aluviales). En Pisa, los valores de $D_s$ [[MASW Method|MASW]] oscilan entre 2–6% en los primeros 30 m, con diferencias respecto al RCT de ±1–1.5% en valor absoluto. En Memphis, el acuerdo es similar (±0.5–1%) excepto en la capa más superficial donde el [[MASW Method|MASW]] sobreestima el $D_s$ por efectos de scattering superficial. El estudio confirma que la inversión de la curva de atenuación de Rayleigh es un estimador válido de $D_s$ in situ, aunque con mayor incertidumbre que el RCT.
 >
 > — Foti et al. (2018), §7.3, pp. 375–380, Figs. 7.25–7.29.
 
@@ -54,6 +54,6 @@ Acuerdo típico: diferencias de 0.5–1.5% en $D_s$ absoluto — considerado raz
 
 | Fuente | Sección / Página |
 |--------|-----------------|
-| Foti et al. (2018), *Surface Wave Methods* | §7.3, pp. 375–380 — validación DS MASW vs RCT |
+| Foti et al. (2018), *Surface Wave Methods* | §7.3, pp. 375–380 — validación DS [[MASW Method|MASW]] vs RCT |
 | ASTM D4015 | Norma estándar para Resonant Column Test |
 | Hardin & Drnevich (1972), *J. Soil Mech.* | Formulación del RCT para suelos |

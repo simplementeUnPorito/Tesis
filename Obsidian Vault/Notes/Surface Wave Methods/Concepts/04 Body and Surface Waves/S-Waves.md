@@ -54,7 +54,7 @@ $G_{\max}$ es la propiedad mecánica del suelo para deformaciones de corte en el
 
 ## Por qué VS y no VP
 
-En suelos saturados bajo carga no drenada, $V_P$ salta a ~1500 m/s (velocidad del sonido en agua), independientemente de la rigidez del esqueleto. Esto hace que $V_P$ no sea representativo de las propiedades mecánicas del suelo. $V_S$, en cambio, es insensible a la presencia del agua poral y refleja fielmente la rigidez del esqueleto. Por esta razón, todos los métodos de ondas superficiales (MASW, SASW, ReMi, SPAC) apuntan a medir el **perfil de $V_S$ con la profundidad**.
+En suelos saturados bajo carga no drenada, $V_P$ salta a ~1500 m/s (velocidad del sonido en agua), independientemente de la rigidez del esqueleto. Esto hace que $V_P$ no sea representativo de las propiedades mecánicas del suelo. $V_S$, en cambio, es insensible a la presencia del agua poral y refleja fielmente la rigidez del esqueleto. Por esta razón, todos los métodos de ondas superficiales ([[MASW Method|MASW]], [[SASW Method|SASW]], ReMi, SPAC) apuntan a medir el **perfil de $V_S$ con la profundidad**.
 
 ## Valores típicos en suelos
 
@@ -69,7 +69,7 @@ En suelos saturados bajo carga no drenada, $V_P$ salta a ~1500 m/s (velocidad de
 | Roca dura | 1200–3500 |
 
 > [!EXAMPLE] Evidencia empírica: Xia et al. (2002) — validación de VS contra ensayos de borehole
-> **Paper 009 (Xia et al. 2002)** valida perfiles $V_S(z)$ obtenidos por MASW contra 14 ensayos de downhole y crosshole independientes en Kansas. El error RMS promedio entre $V_S$ MASW y borehole es < 15% en todos los sitios, con errores individuales que pueden ser < 5% en sitios homogéneos. Este resultado confirma que la relación $V_S \approx V_R / 0.919$ (para $\nu = 0.25$) es una aproximación robusta para convertir la velocidad de Rayleigh medida en campo en el perfil de ondas de corte requerido por los códigos geotécnicos.
+> **Paper 009 (Xia et al. 2002)** valida perfiles $V_S(z)$ obtenidos por [[MASW Method|MASW]] contra 14 ensayos de downhole y crosshole independientes en Kansas. El error RMS promedio entre $V_S$ [[MASW Method|MASW]] y borehole es < 15% en todos los sitios, con errores individuales que pueden ser < 5% en sitios homogéneos. Este resultado confirma que la relación $V_S \approx V_R / 0.919$ (para $\nu = 0.25$) es una aproximación robusta para convertir la velocidad de Rayleigh medida en campo en el perfil de ondas de corte requerido por los códigos geotécnicos.
 >
 > — Research Database, entrada 009 (core).
 
@@ -79,4 +79,4 @@ En suelos saturados bajo carga no drenada, $V_P$ salta a ~1500 m/s (velocidad de
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | §2.1.3, pp. 43–50 — derivación de $V_S$ desde ecuaciones de Navier |
 | Foti et al. (2018), *Surface Wave Methods* | §1.1, pp. 1–10 — importancia de $V_S$ en geotecnia |
-| Xia et al. (2002), *J. Environ. Eng. Geophys.* | Paper 009 — validación $V_S$ MASW vs borehole |
+| Xia et al. (2002), *J. Environ. Eng. Geophys.* | Paper 009 — validación $V_S$ [[MASW Method|MASW]] vs borehole |

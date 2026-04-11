@@ -1,6 +1,6 @@
 ---
 name: Fisher Test
-description: Test estadístico F para determinar si el desajuste de un modelo es estadísticamente aceptable — usado en inversión de Monte Carlo MASW para seleccionar el ensemble de modelos equivalentes
+description: Test estadístico F para determinar si el desajuste de un modelo es estadísticamente aceptable — usado en inversión de Monte Carlo [[MASW Method|MASW]] para seleccionar el ensemble de modelos equivalentes
 type: reference
 ---
 
@@ -20,7 +20,7 @@ $$\phi = \chi^2 = \sum_{i=1}^N \frac{(c_R^{obs}(f_i) - c_R^{calc}(f_i))^2}{\sigm
 
 El test F compara si $\phi/\phi_{min}$ excede el umbral crítico de la distribución F — equivalente a comparar $\chi^2$ del modelo con $\chi^2_{crit}$.
 
-## Aplicación práctica en Monte Carlo MASW
+## Aplicación práctica en Monte Carlo [[MASW Method|MASW]]
 
 Para la inversión de Monte Carlo del sitio La Salle (Foti et al. 2018):
 - $N = 30$ puntos de dispersión

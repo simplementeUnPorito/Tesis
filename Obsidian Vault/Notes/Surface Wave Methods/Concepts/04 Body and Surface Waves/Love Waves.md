@@ -7,7 +7,7 @@ type: reference
 # Ondas de Love (Love Waves)
 
 > [!CONCEPT] Definición
-> Las **ondas de Love** son ondas superficiales polarizadas horizontalmente (SH) que **requieren estratificación**: no pueden existir en un [[Elastic Half Space|semiespacio homogéneo]]. Se propagan cuando una capa superficial con menor velocidad de corte $V_{S1}$ suprayace un semiespacio más rígido ($V_{S2} > V_{S1}$), atrapando la energía SH por reflexión total interna. Sus curvas de dispersión dependen únicamente de $V_S$ y densidades — no de $V_P$ — lo que las hace complementarias a las [[Rayleigh Waves]] en inversión conjunta.
+> Las **ondas de Love** son ondas superficiales polarizadas horizontalmente (SH) que **requieren estratificación**: no pueden existir en un [[Elastic Half Space|semiespacio homogéneo]]. Se propagan cuando una capa superficial con menor velocidad de corte $V_{S1}$ suprayace un semiespacio más rígido ($V_{S2} > V_{S1}$), atrapando la energía SH por reflexión total interna. Sus [[Dispersion Curve|curvas de dispersión]] dependen únicamente de $V_S$ y densidades — no de $V_P$ — lo que las hace complementarias a las [[Rayleigh Waves]] en inversión conjunta.
 >
 > — Foti et al. (2018), §2.3, pp. 63–70; Cap. 8, §8.1.
 
@@ -22,7 +22,7 @@ A diferencia de las [[Rayleigh Waves]], las Love no presentan movimiento elípti
 
 ## 2. Condición de existencia
 
-Para que existan ondas de Love, la velocidad de fase $c_L$ debe satisfacer:
+Para que existan ondas de Love, la [[Phase Velocity|velocidad de fase]] $c_L$ debe satisfacer:
 
 $$V_{S1} < c_L < V_{S2}$$
 
@@ -47,7 +47,7 @@ La relación de dispersión admite múltiples soluciones (ver [[Surface Wave Mod
 - **Modo fundamental (modo 0):** existe para todas las frecuencias; a bajas frecuencias $c_L \to V_{S2}$; a altas frecuencias $c_L \to V_{S1}$
 - **Modos superiores (modos 1, 2, ...):** cada uno tiene una frecuencia de corte mínima $f_c$ por debajo de la cual no se propaga
 
-A diferencia de las [[Rayleigh Waves]], las curvas de dispersión de Love **no presentan puntos de osculación** entre modos — son más regulares y fáciles de identificar modalmente.
+A diferencia de las [[Rayleigh Waves]], las [[Dispersion Curve|curvas de dispersión]] de Love **no presentan puntos de osculación** entre modos — son más regulares y fáciles de identificar modalmente.
 
 ## 5. Comparativa con ondas de Rayleigh
 
@@ -70,14 +70,14 @@ Resonancias SH en capas superficiales con alto contraste de velocidad:
 
 $$f_{res} \approx \frac{V_{S,\text{top}}}{4H}$$
 
-Aunque el espectro de una sola traza sea angosto, el análisis multicanal (f-k) permite recuperar la curva de dispersión en un rango amplio de frecuencias.
+Aunque el espectro de una sola traza sea angosto, el análisis multicanal (f-k) permite recuperar la [[Dispersion Curve|curva de dispersión]] en un rango amplio de frecuencias.
 
 ## 7. Ventaja en inversión conjunta Love + Rayleigh
 
 La inversión conjunta Love + Rayleigh (asumiendo isotropía) proporciona mayor constraño del perfil $V_S(z)$ que cualquiera de las dos por separado. Las curvas de Love pueden confirmar la identificación modal cuando las curvas de Rayleigh son ambiguas. Las Love son insensibles a $V_P$ — lo que elimina una fuente de error sistemático en sitios con capas saturadas donde $V_P$ es controlada por el agua poral.
 
 > [!EXAMPLE] Evidencia empírica: Dal Moro & Ferigo (2011) — inversión conjunta Love + Rayleigh
-> **Paper 045 (Dal Moro & Ferigo 2011)** aplica inversión simultánea de curvas de dispersión de Love y Rayleigh en un sitio con fuerte contraste de velocidad. Los resultados muestran que:
+> **Paper 045 (Dal Moro & Ferigo 2011)** aplica inversión simultánea de [[Dispersion Curve|curvas de dispersión]] de Love y Rayleigh en un sitio con fuerte contraste de velocidad. Los resultados muestran que:
 > - Las curvas de Love están libres de los puntos de osculación modal que afectan las curvas de Rayleigh en el mismo sitio
 > - La inversión conjunta reduce significativamente la no-unicidad del perfil $V_S(z)$ respecto a la inversión individual de cada tipo de onda
 > - El modo fundamental de Love es identificable a frecuencias donde el modo fundamental de Rayleigh resulta ambiguo por interferencia modal

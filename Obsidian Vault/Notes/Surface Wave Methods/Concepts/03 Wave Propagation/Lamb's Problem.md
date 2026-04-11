@@ -34,7 +34,7 @@ La solución muestra que a distancias $ **grandes respecto a la longitud de onda
 | Ondas S (de cuerpo) | ~26% | $\propto 1/r$ |
 | Ondas P (de cuerpo) | ~7% | $\propto 1/r$ |
 
-Las ondas de Rayleigh decaen más lentamente porque su energía se propaga en 2D (frente cilíndrico, perímetro $\propto r$), mientras que las ondas de cuerpo decaen en 3D (frente esférico, área $\propto r^2$). A distancias moderadas (unos pocos metros a decenas de metros en MASW), las ondas de Rayleigh son el componente señal; las ondas de cuerpo son ruido que decae más rápido.
+Las ondas de Rayleigh decaen más lentamente porque su energía se propaga en 2D (frente cilíndrico, perímetro $\propto r$), mientras que las ondas de cuerpo decaen en 3D (frente esférico, área $\propto r^2$). A distancias moderadas (unos pocos metros a decenas de metros en [[MASW Method|MASW]]), las ondas de Rayleigh son el componente señal; las ondas de cuerpo son ruido que decae más rápido.
 
 ## Campo cercano y campo lejano
 
@@ -47,23 +47,23 @@ A grandes distancias, la solución puede aproximarse por expansión asintótica.
 ### Campo cercano ( \lesssim \lambda_R/2$)
 
 Cerca de la fuente, las contribuciones de ondas P, S y Rayleigh no están separadas; sus frentes de onda se superponen y el campo es complejo. En esta zona:
-- La velocidad de fase **aparente** medida por un arreglo de geófonos difiere de la velocidad de fase real de Rayleigh.
-- La superposición de ondas de cuerpo introduce un sesgo sistemático en la curva de dispersión.
+- La [[Phase Velocity|velocidad de fase]] **aparente** medida por un arreglo de geófonos difiere de la [[Phase Velocity|velocidad de fase]] real de Rayleigh.
+- La superposición de ondas de cuerpo introduce un sesgo sistemático en la [[Dispersion Curve|curva de dispersión]].
 - La hipótesis de onda plana del análisis f-k estándar no es válida.
 
 La transición entre ambos regímenes ocurre aproximadamente a:
 
 274271x_{\min} pprox rac{\lambda_{R,\max}}{2}274271
 
-donde $\lambda_{R,\max} = V_{R,\min}/f_{\min}$ es la longitud de onda más larga del experimento. Esta es la **regla del offset mínimo** para el diseño de arreglos MASW.
+donde $\lambda_{R,\max} = V_{R,\min}/f_{\min}$ es la longitud de onda más larga del experimento. Esta es la **regla del offset mínimo** para el diseño de arreglos [[MASW Method|MASW]].
 
-## Implicaciones para el diseño del arreglo MASW
+## Implicaciones para el diseño del arreglo [[MASW Method|MASW]]
 
 La condición de campo lejano implica que el primer geófono del arreglo debe estar al menos a {\min}$ de la fuente:
 
 274271x_{\min} pprox rac{\lambda_{R,\max}}{2} = rac{V_{R,\min}}{2\,f_{\min}}274271
 
-Si este offset mínimo no se respeta, las frecuencias bajas (correspondientes a $\lambda$ largas) están en campo cercano y la curva de dispersión a esas frecuencias estará sesgada hacia velocidades artificialmente altas (por contaminación de ondas de cuerpo más rápidas).
+Si este offset mínimo no se respeta, las frecuencias bajas (correspondientes a $\lambda$ largas) están en campo cercano y la [[Dispersion Curve|curva de dispersión]] a esas frecuencias estará sesgada hacia velocidades artificialmente altas (por contaminación de ondas de cuerpo más rápidas).
 
 **Ejemplo**: con  pprox 200$ m/s y {\min} = 5$ Hz:
 274271x_{\min} pprox rac{200}{2 	imes 5} = 20 	ext{ m}274271
@@ -77,8 +77,8 @@ La solución original de Lamb (1904) para fuente vertical impulsiva ha sido exte
 - **Fuente en el interior del semiespacio** (solución de Stokes): genera ondas de cuerpo directas y ondas de Rayleigh por conversión en la superficie.
 - **Medio estratificado**: la solución exacta no existe analíticamente; se calcula numéricamente mediante el [[Layered Media|método de la matriz de transferencia]].
 
-> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — validación del criterio de campo lejano en MASW
-> **Paper 001 (Park, Miller & Xia 1999)** utiliza el criterio de campo lejano del Problema de Lamb como justificación para excluir los geófonos más cercanos a la fuente en los registros MASW. Los sismogramas de Kansas muestran que a distancias $\geq 5$–$10$ m de la fuente el ground-roll de Rayleigh domina claramente sobre las llegadas de ondas de cuerpo, en acuerdo con la predicción de Lamb. El análisis f-k resultante produce curvas de dispersión sin contaminación de campo cercano para frecuencias entre 5 y 30 Hz.
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — validación del criterio de campo lejano en [[MASW Method|MASW]]
+> **Paper 001 (Park, Miller & Xia 1999)** utiliza el criterio de campo lejano del Problema de Lamb como justificación para excluir los geófonos más cercanos a la fuente en los registros [[MASW Method|MASW]]. Los sismogramas de Kansas muestran que a distancias $\geq 5$–$10$ m de la fuente el ground-roll de Rayleigh domina claramente sobre las llegadas de ondas de cuerpo, en acuerdo con la predicción de Lamb. El análisis f-k resultante produce [[Dispersion Curve|curvas de dispersión]] sin contaminación de campo cercano para frecuencias entre 5 y 30 Hz.
 >
 > — Research Database, entrada 001 (core).
 

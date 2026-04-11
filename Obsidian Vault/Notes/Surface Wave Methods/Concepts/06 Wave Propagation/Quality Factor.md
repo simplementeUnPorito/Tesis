@@ -32,8 +32,8 @@ type: reference
 3. **Modelo de Maxwell estándar**: $Q(\omega) = Q_0(\omega\tau)/(1+(\omega\tau)^2)$ → pico de absorción a $\omega_0 = 1/\tau$
 4. **Modelo de Kelvin-Voigt**: $Q(\omega) = 1/(\eta\omega/G)$ → $Q$ decreciente con $f$ → no realista a alta $f$
 
-> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — Q de Rayleigh en inversión DS de MASW
-> Foti et al. (2018, §2.2 y §7.3) utilizan el factor de calidad $Q_R$ de la onda de Rayleigh para relacionar el coeficiente de atenuación experimental $\alpha_R^{obs}(f)$ con el perfil de amortiguamiento $D_s(z)$ del suelo. En el sitio de Pisa (arcilla de alta plasticidad), los valores estimados son $Q_R$ = 8–25 en el rango 5–30 Hz (equivalente a $D_s^{eff}$ = 2–6%). La comparación con los ensayos de [[Resonant Column Test|columna resonante]] muestra que $Q_S^{RCT}$ ≈ $Q_R^{MASW}$ dentro de ±15%, confirmando que el factor de calidad de Rayleigh es dominado por $Q_S$ (el factor de calidad de la onda S) — como predice la teoría de sensibilidad ($w_S \approx 0.9$ en el rango de frecuencias estudiado).
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — Q de Rayleigh en inversión DS de [[MASW Method|MASW]]
+> Foti et al. (2018, §2.2 y §7.3) utilizan el factor de calidad $Q_R$ de la onda de Rayleigh para relacionar el coeficiente de atenuación experimental $\alpha_R^{obs}(f)$ con el perfil de amortiguamiento $D_s(z)$ del suelo. En el sitio de Pisa (arcilla de alta plasticidad), los valores estimados son $Q_R$ = 8–25 en el rango 5–30 Hz (equivalente a $D_s^{eff}$ = 2–6%). La comparación con los ensayos de [[Resonant Column Test|columna resonante]] muestra que $Q_S^{RCT}$ ≈ $Q_R^{[[MASW Method|MASW]]}$ dentro de ±15%, confirmando que el factor de calidad de Rayleigh es dominado por $Q_S$ (el factor de calidad de la onda S) — como predice la teoría de sensibilidad ($w_S \approx 0.9$ en el rango de frecuencias estudiado).
 >
 > — Foti et al. (2018), §2.2, pp. 45–55; §7.3, pp. 375–380.
 

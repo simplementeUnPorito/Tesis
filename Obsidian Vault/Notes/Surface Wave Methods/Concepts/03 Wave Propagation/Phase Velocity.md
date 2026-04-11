@@ -1,13 +1,13 @@
 ---
 name: Phase Velocity
-description: Velocidad a la que se propaga una frente de fase constante de una onda; magnitud fundamental de las curvas de dispersión experimentales en métodos MASW y SASW
+description: Velocidad a la que se propaga una frente de fase constante de una onda; magnitud fundamental de las [[Dispersion Curve|curvas de dispersión]] experimentales en métodos [[MASW Method|MASW]] y [[SASW Method|SASW]]
 type: reference
 ---
 
 # Velocidad de Fase (Phase Velocity)
 
 > [!CONCEPT] Definición
-> La **velocidad de fase** $c_p = \omega/k$ es la velocidad a la que se propaga un frente de fase constante (por ejemplo un máximo) de una onda armónica. En métodos de ondas superficiales es la **observable central**: los métodos [[MASW Method|MASW]], [[SASW Method|SASW]] y pasivos ([[SPAC Method|SPAC]], [[ReMi Method|ReMi]]) estiman $c_p$ de las [[Rayleigh Waves]] en función de la frecuencia, construyendo la curva de dispersión experimental que alimenta la [[Inversión|inversión]].
+> La **velocidad de fase** $c_p = \omega/k$ es la velocidad a la que se propaga un frente de fase constante (por ejemplo un máximo) de una onda armónica. En métodos de ondas superficiales es la **observable central**: los métodos [[MASW Method|MASW]], [[SASW Method|SASW]] y pasivos ([[SPAC Method|SPAC]], [[ReMi Method|ReMi]]) estiman $c_p$ de las [[Rayleigh Waves]] en función de la frecuencia, construyendo la [[Dispersion Curve|curva de dispersión]] experimental que alimenta la [[Inversión|inversión]].
 >
 > — Foti et al. (2018), §2.1.1, pp. 39–40; §4.1, pp. 206–207.
 
@@ -36,7 +36,7 @@ En medios dispersivos, $\omega$ y $k$ están relacionados por la [[Dispersion Re
 
 $$c_p(k) = \frac{\omega(k)}{k} = \frac{\omega}{k} \neq \text{const}$$
 
-La **curva de dispersión experimental** es la representación de $c_p(f)$ — velocidad de fase de Rayleigh como función de la frecuencia — obtenida a partir de los registros de geófonos.
+La **[[Dispersion Curve|curva de dispersión]] experimental** es la representación de $c_p(f)$ — velocidad de fase de Rayleigh como función de la frecuencia — obtenida a partir de los registros de geófonos.
 
 ## Medición experimental
 
@@ -48,7 +48,7 @@ donde $\Delta\phi(f)$ es la diferencia de fase entre los espectros de Fourier de
 
 - **Análisis f-k**: $c_p = \omega/k$ donde $k$ es el número de onda del pico del espectro f-k.
 - **Análisis τ-p (slant-stack)**: la velocidad de fase se visualiza directamente en el dominio velocidad–frecuencia.
-- **SASW**: estimación punto a punto de $\Delta\phi(f)$ para cada par de receptores.
+- **[[SASW Method|SASW]]**: estimación punto a punto de $\Delta\phi(f)$ para cada par de receptores.
 
 ## Velocidad de fase de Rayleigh
 
@@ -68,7 +68,7 @@ La velocidad aparente coincide con la del modo fundamental en medios normalmente
 
 ## Relación con la inversión
 
-La curva de dispersión experimental $c_p^{exp}(f)$ es la entrada principal de la inversión. El algoritmo de inversión busca el modelo de capas $\mathbf{m} = [V_{S,n}, h_n]$ cuya curva de dispersión teórica $c_p^{teor}(f; \mathbf{m})$ minimiza el desajuste con $c_p^{exp}$:
+La [[Dispersion Curve|curva de dispersión]] experimental $c_p^{exp}(f)$ es la entrada principal de la inversión. El algoritmo de inversión busca el modelo de capas $\mathbf{m} = [V_{S,n}, h_n]$ cuya [[Dispersion Curve|curva de dispersión]] teórica $c_p^{teor}(f; \mathbf{m})$ minimiza el desajuste con $c_p^{exp}$:
 
 $$\text{misfit} = \sum_i \left[\frac{c_p^{exp}(f_i) - c_p^{teor}(f_i; \mathbf{m})}{\sigma_i}\right]^2$$
 
@@ -81,11 +81,11 @@ La sensibilidad de $c_p$ a $V_S$ es máxima en las capas cuya profundidad centra
 - **Error de fase**: el ruido en los registros introduce incertidumbre en $\Delta\phi(f)$, lo que se propaga a incertidumbre en $c_p$. La coherencia entre receptores es un indicador de la confiabilidad de la estimación.
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) y Xia et al. (1999) — medición e inversión de c_R(f)
-> **Paper 001 (Park, Miller & Xia 1999)** demuestra que la transformada f-k de registros MASW produce imágenes espectrales donde los máximos de energía trazan directamente la curva $c_p(f)$ de las [[Rayleigh Waves]]. La extracción de la fase velocity experimental es robusta incluso en presencia de ruido ambiental moderado.
+> **Paper 001 (Park, Miller & Xia 1999)** demuestra que la transformada f-k de registros [[MASW Method|MASW]] produce imágenes espectrales donde los máximos de energía trazan directamente la curva $c_p(f)$ de las [[Rayleigh Waves]]. La extracción de la fase velocity experimental es robusta incluso en presencia de ruido ambiental moderado.
 >
 > **Paper 002 (Xia, Miller & Park 1999)** utiliza la curva $c_p(f)$ así obtenida como entrada del algoritmo de inversión iterativa (Jacobiano ∂V_R/∂Vs), recuperando Vs(z) con error < 15% respecto a borehole en sitios de Kansas.
 >
-> **Paper 015 (Moffat, Correia & Pastén 2016)** valida $c_p(f)$ obtenida por MASW contra ensayos downhole en Chile, confirmando que la curva experimental es representativa del perfil real cuando el offset y la frecuencia están correctamente seleccionados.
+> **Paper 015 (Moffat, Correia & Pastén 2016)** valida $c_p(f)$ obtenida por [[MASW Method|MASW]] contra ensayos downhole en Chile, confirmando que la curva experimental es representativa del perfil real cuando el offset y la frecuencia están correctamente seleccionados.
 >
 > — Research Database, entradas 001, 002, 015 (core).
 

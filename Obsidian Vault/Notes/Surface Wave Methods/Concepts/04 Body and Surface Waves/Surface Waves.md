@@ -1,6 +1,6 @@
 ---
 name: Surface Waves
-description: Ondas elásticas confinadas cerca de una interfaz; decaimiento exponencial con profundidad; dispersión en medios estratificados; base de MASW para perfiles VS
+description: Ondas elásticas confinadas cerca de una interfaz; decaimiento exponencial con profundidad; dispersión en medios estratificados; base de [[MASW Method|MASW]] para perfiles VS
 type: reference
 ---
 
@@ -28,7 +28,7 @@ Las [[Rayleigh Waves]] surgen del acoplamiento entre ondas P y SV (ver [[Mode Co
 
 ### Ondas de Love
 
-Las [[Love Waves]] son ondas [[SH-wave|SH]] guiadas en una capa superficial más blanda que el semiespacio subyacente. Requieren estratificación: no existen en un semiespacio homogéneo. Las partículas se mueven horizontalmente en la dirección transversal a la propagación. Sus curvas de dispersión dependen únicamente de $V_S$ y las densidades — no de $V_P$.
+Las [[Love Waves]] son ondas [[SH-wave|SH]] guiadas en una capa superficial más blanda que el semiespacio subyacente. Requieren estratificación: no existen en un semiespacio homogéneo. Las partículas se mueven horizontalmente en la dirección transversal a la propagación. Sus [[Dispersion Curve|curvas de dispersión]] dependen únicamente de $V_S$ y las densidades — no de $V_P$.
 
 ### Ondas de Scholte
 
@@ -40,15 +40,15 @@ La amplitud de las ondas superficiales decrece exponencialmente con la profundid
 
 $$u_z(z) \propto e^{-\beta z}, \quad \beta \propto k = \frac{2\pi}{\lambda}$$
 
-La mayor parte de la energía de deformación (~95%) está concentrada dentro de $z \lesssim \lambda_R$ (ver [[Skin Depth]]). La regla práctica para la **profundidad de investigación** en MASW es:
+La mayor parte de la energía de deformación (~95%) está concentrada dentro de $z \lesssim \lambda_R$ (ver [[Skin Depth]]). La regla práctica para la **profundidad de investigación** en [[MASW Method|MASW]] es:
 
 $$z_{\max} \approx \frac{\lambda_{\max}}{2} \quad \text{a} \quad \lambda_{\max}$$
 
 ## Dispersión en medios estratificados
 
-En un semiespacio homogéneo, la velocidad de fase de Rayleigh es $c_R \approx 0.92\,V_S$ — constante, no dependiente de la frecuencia ([[Elastic Half Space|no dispersiva]]). En un medio estratificado ([[Layered Media]]), la velocidad de fase depende de la frecuencia: ondas de baja frecuencia (longitud de onda larga) penetran más profundo y son sensibles a las capas más rígidas en profundidad; ondas de alta frecuencia son sensibles solo a la capa superficial.
+En un semiespacio homogéneo, la [[Phase Velocity|velocidad de fase]] de Rayleigh es $c_R \approx 0.92\,V_S$ — constante, no dependiente de la frecuencia ([[Elastic Half Space|no dispersiva]]). En un medio estratificado ([[Layered Media]]), la [[Phase Velocity|velocidad de fase]] depende de la frecuencia: ondas de baja frecuencia (longitud de onda larga) penetran más profundo y son sensibles a las capas más rígidas en profundidad; ondas de alta frecuencia son sensibles solo a la capa superficial.
 
-Esta variación de velocidad con la frecuencia — la **[[Dispersion Curve|curva de dispersión]]** $c(f)$ — es el observable que se invierte en MASW para obtener el perfil $V_S(z)$.
+Esta variación de velocidad con la frecuencia — la **[[Dispersion Curve|curva de dispersión]]** $c(f)$ — es el observable que se invierte en [[MASW Method|MASW]] para obtener el perfil $V_S(z)$.
 
 ## Partición de energía y dominio en registros sísmicos
 
@@ -56,10 +56,10 @@ La solución del [[Lamb's Problem|Problema de Lamb]] (1904) muestra que para una
 
 ## Múltiples modos de propagación
 
-En medios estratificados, las ondas superficiales se propagan en **múltiples modos** (ver [[Surface Wave Modes]]): modo fundamental y modos superiores. Cada modo tiene su propia curva de dispersión. En la mayoría de los registros MASW el modo fundamental es dominante, pero en presencia de inversiones de velocidad los modos superiores pueden ser energéticamente comparables o incluso dominantes.
+En medios estratificados, las ondas superficiales se propagan en **múltiples modos** (ver [[Surface Wave Modes]]): modo fundamental y modos superiores. Cada modo tiene su propia [[Dispersion Curve|curva de dispersión]]. En la mayoría de los registros [[MASW Method|MASW]] el modo fundamental es dominante, pero en presencia de inversiones de velocidad los modos superiores pueden ser energéticamente comparables o incluso dominantes.
 
 > [!EXAMPLE] Evidencia empírica: Socco & Strobbia (2004) — tutorial de métodos de ondas superficiales
-> **Paper 008 (Socco & Strobbia 2004)** sistematiza los principios físicos de las ondas superficiales en el contexto de la caracterización de sitio. El trabajo demuestra que la dispersión geométrica es la propiedad fundamental que permite inferir $V_S(z)$ a partir de la curva $c_R(f)$: profundidades entre $\lambda/3$ y $\lambda/2$ son las mejor resueltas por la curva de dispersión, y la penetración máxima es $\approx \lambda_{max}$. El artículo establece las bases del análisis multicanal y es la referencia canónica para el concepto de profundidad de investigación en MASW y SASW.
+> **Paper 008 (Socco & Strobbia 2004)** sistematiza los principios físicos de las ondas superficiales en el contexto de la caracterización de sitio. El trabajo demuestra que la dispersión geométrica es la propiedad fundamental que permite inferir $V_S(z)$ a partir de la curva $c_R(f)$: profundidades entre $\lambda/3$ y $\lambda/2$ son las mejor resueltas por la [[Dispersion Curve|curva de dispersión]], y la penetración máxima es $\approx \lambda_{max}$. El artículo establece las bases del análisis multicanal y es la referencia canónica para el concepto de profundidad de investigación en [[MASW Method|MASW]] y [[SASW Method|SASW]].
 >
 > — Research Database, entrada 008 (core).
 

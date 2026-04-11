@@ -47,11 +47,11 @@ Cuando una onda SV incide en una interfaz entre dos medios con propiedades elás
 |---|---|---|
 | SV | SV + P | SV + P |
 
-Las amplitudes relativas de cada onda generada se calculan con las **ecuaciones de Zoeppritz** (versión P–SV). Este fenómeno es fuente de contaminación en registros MASW: las ondas SV convertidas de P pueden llegar al arreglo con moveouts distintos e interferir con el ground-roll en frecuencias específicas.
+Las amplitudes relativas de cada onda generada se calculan con las **ecuaciones de Zoeppritz** (versión P–SV). Este fenómeno es fuente de contaminación en registros [[MASW Method|MASW]]: las ondas SV convertidas de P pueden llegar al arreglo con moveouts distintos e interferir con el ground-roll en frecuencias específicas.
 
 ## SV en el registro sísmico de superficie
 
-Los geófonos verticales estándar registran la componente $z$ del movimiento. Las ondas SV incidentes desde el interior del suelo tienen componente vertical y son detectadas. Sin embargo, en el análisis f-k de MASW, las ondas SV directas (generadas por la fuente con mayor amplitud en dirección vertical) llegan antes que el ground-roll y se separan por su mayor velocidad de fase.
+Los geófonos verticales estándar registran la componente $z$ del movimiento. Las ondas SV incidentes desde el interior del suelo tienen componente vertical y son detectadas. Sin embargo, en el análisis f-k de [[MASW Method|MASW]], las ondas SV directas (generadas por la fuente con mayor amplitud en dirección vertical) llegan antes que el ground-roll y se separan por su mayor [[Phase Velocity|velocidad de fase]].
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) — acoplamiento P–SV como generador del ground-roll en sismogramas de campo
 > **Paper 001 (Park, Miller & Xia 1999)** documenta sismogramas de campo en Kansas donde el ground-roll de Rayleigh emerge claramente del acoplamiento P–SV en la superficie libre. El tren de ondas superficiales tiene amplitud mayor que las llegadas P y SV directas a distancias $> 5$ m, confirmando que la conversión de modos P↔SV en la superficie libre genera un modo de Rayleigh energéticamente dominante. La fuente vertical (maza) genera principalmente ondas P y SV, que se acoplan en la superficie libre y producen el ground-roll observable.
