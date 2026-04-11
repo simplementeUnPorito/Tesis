@@ -6,8 +6,10 @@ type: reference
 
 # Métodos Sísmicos Invasivos (Borehole Methods)
 
-> **Contexto:** Los métodos sísmicos invasivos miden $V_S$ directamente en el subsuelo mediante instrumentación introducida en perforaciones o sondas de penetración. Ofrecen la mayor precisión y resolución vertical de todos los métodos geofísicos de caracterización de sitio, pero su costo es elevado y la medición es puntual (1D). Se usan como referencia de validación para los [[Métodos Sísmicos No Invasivos|métodos no invasivos]] y para proporcionar los parámetros a priori en la inversión de ondas superficiales.
-> **Fuente:** Foti et al. (2014), Cap. 1.1, pp. 1–10; referencias a normativas ASTM D4428 y ASTM D7400.
+> [!CONCEPT] Definición
+> Los **métodos sísmicos invasivos** miden $V_S$ directamente en el subsuelo mediante instrumentación introducida en perforaciones o sondas de penetración. Ofrecen la mayor precisión y resolución vertical de todos los métodos geofísicos de caracterización de sitio ($\pm5$–$10\%$ en $V_S$), pero su costo es elevado y la medición es puntual (1D). Se usan como **referencia de validación** para los [[Métodos Sísmicos No Invasivos|métodos no invasivos]] (borehole vs. MASW) y para proporcionar los parámetros a priori ($V_P$, [[Poisson Ratio|$\nu$]]) en la inversión de ondas superficiales.
+>
+> — Foti et al. (2018), §1.1, pp. 1–10; ASTM D4428, D7400.
 
 ## Fundamento físico común
 
@@ -59,8 +61,16 @@ Los métodos invasivos cumplen dos roles fundamentales en la práctica de MASW:
 
 2. **Parámetros a priori**: El [[Non-uniqueness|problema de no-unicidad]] de la inversión requiere parámetros fijos. El perfil $V_P(z)$ (o el [[Poisson Ratio|coeficiente de Poisson]]) obtenido por refracción sísmica o down-hole se usa como entrada fija en la inversión de la curva de dispersión de [[Rayleigh Waves]].
 
+> [!EXAMPLE] Evidencia empírica: Xia et al. (2002) — MASW validado contra cross-hole y down-hole
+> **Paper 009 (Xia et al. 2002)** valida explícitamente los perfiles $V_S(z)$ de MASW contra 14 ensayos de borehole independientes (cross-hole y down-hole) en Kansas. El error RMS entre $V_S$ MASW y borehole es < 15% para todos los sitios, con errores individuales < 5% en sitios simples. El trabajo establece que el MASW es competitivo con los métodos invasivos para caracterización geotécnica estándar (VS,30), reduciendo el costo a menos de 1/10 del borehole equivalente.
+>
+> — Research Database, entrada 009 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 1.1, pp. 1–10 — contexto de los métodos invasivos vs. no invasivos en caracterización geotécnica.
-- ASTM D4428 — Cross-Hole Seismic Testing.
-- ASTM D7400 — Down-Hole Seismic Testing.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §1.1, pp. 1–10 — métodos invasivos vs. no invasivos |
+| Xia et al. (2002), *J. Environ. Eng. Geophys.* | Paper 009 — MASW vs. borehole |
+| ASTM D4428 | Cross-Hole Seismic Testing |
+| ASTM D7400 | Down-Hole Seismic Testing |

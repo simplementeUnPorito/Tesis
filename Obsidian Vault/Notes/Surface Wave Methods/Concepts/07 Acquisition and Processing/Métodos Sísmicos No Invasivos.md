@@ -6,8 +6,10 @@ type: reference
 
 # Métodos Sísmicos No Invasivos
 
-> **Contexto:** Los métodos sísmicos no invasivos caracterizan el subsuelo midiendo ondas sísmicas desde la superficie del terreno, sin necesidad de perforaciones ni penetración. Son más económicos y representan volúmenes de suelo mucho mayores que los [[Métodos Sísmicos Invasivos|métodos invasivos]]. Los **métodos de ondas superficiales** (MASW, SASW, ReMi, SPAC) son un subconjunto de los no invasivos que explota la naturaleza dispersiva de las [[Rayleigh Waves|ondas de Rayleigh]] y [[Love Waves|Love]] para inferir el perfil $V_S(z)$ mediante [[Inversión|inversión]] de la curva de dispersión.
-> **Fuente:** Foti et al. (2014), Cap. 1.1, pp. 1–10; Cap. 3–5 (metodologías específicas).
+> [!CONCEPT] Definición
+> Los **métodos sísmicos no invasivos** caracterizan el subsuelo midiendo ondas sísmicas desde la superficie del terreno, sin necesidad de perforaciones ni penetración. Son más económicos y representan volúmenes de suelo mucho mayores que los [[Métodos Sísmicos Invasivos|métodos invasivos]]. Los **métodos de ondas superficiales** ([[MASW Method|MASW]], [[SASW Method|SASW]], [[ReMi Method|ReMi]], [[SPAC Method|SPAC]]) son un subconjunto de los no invasivos que explota la [[Wave Dispersion|dispersión]] de las [[Rayleigh Waves|ondas de Rayleigh]] y [[Love Waves|Love]] para inferir el perfil $V_S(z)$ mediante [[Inversión|inversión]] de la curva de dispersión $c_R(f)$.
+>
+> — Foti et al. (2018), §1.1, pp. 1–10; Caps. 3–5.
 
 ## Clasificación general
 
@@ -66,7 +68,15 @@ Los métodos de ondas superficiales tienen ventajas específicas sobre los otros
 | No-unicidad | No aplica | Alta (requiere parámetros a priori) |
 | Validación necesaria | Referencia de oro | Recomendable vs. invasivo |
 
+> [!EXAMPLE] Evidencia empírica: InterPACIFIC (Garofalo et al. 2016) — comparativa masiva de métodos no invasivos
+> **Papers 006+007 (Garofalo et al. 2016a/b)** presentan el estudio InterPACIFIC: 30 equipos internacionales aplican métodos sísmicos no invasivos (MASW, ReMi, SPAC, HVSR) en 3 sitios de referencia con datos de borehole disponibles. Los resultados muestran que: (1) los métodos de ondas superficiales reproducen el perfil $V_S(z)$ del borehole con acuerdo razonable en todos los sitios; (2) la variabilidad entre operadores es significativa (~15–20% en $V_{S,30}$) y está dominada por decisiones de procesamiento e inversión, no por el método en sí; (3) la concordancia mejora cuando se usan protocolos estandarizados y parámetros a priori compartidos.
+>
+> — Research Database, entradas 006, 007 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 1.1, pp. 1–10 — contexto y clasificación de los métodos de caracterización geotécnica.
-- Foti et al. (2014), Cap. 3–5 — metodologías MASW, SASW, pasivos.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §1.1, pp. 1–10 — clasificación de métodos |
+| Foti et al. (2018), *Surface Wave Methods* | Caps. 3–5 — metodologías específicas |
+| Garofalo et al. (2016a/b) | Papers 006, 007 — InterPACIFIC |
