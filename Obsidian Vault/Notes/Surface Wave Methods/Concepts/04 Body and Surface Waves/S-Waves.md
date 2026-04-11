@@ -6,8 +6,10 @@ type: reference
 
 # Ondas S (S-Waves / Shear Waves)
 
-> **Contexto:** Las ondas S (Secondary / Shear / Transversal) son ondas de cuerpo en las que el movimiento de la partícula es **perpendicular** a la dirección de propagación, produciendo deformación de corte puro sin cambio de volumen. Su velocidad $V_S = \sqrt{\mu/\rho}$ depende únicamente de la rigidez de corte $\mu$ del esqueleto sólido y de la densidad $\rho$ — haciéndola el **parámetro objetivo fundamental** de todos los métodos de caracterización geotécnica basados en ondas, incluyendo MASW.
-> **Fuente:** Foti et al. (2014), Cap. 2.1.3, pp. 43–50.
+> [!CONCEPT] Definición
+> Las **ondas S** (Secondary / Shear / Transversal) son ondas de cuerpo en las que el movimiento de la partícula es **perpendicular** a la dirección de propagación, produciendo deformación de corte puro sin cambio de volumen. Su velocidad $V_S = \sqrt{\mu/\rho}$ depende únicamente de la rigidez de corte $\mu$ del esqueleto sólido — haciéndola **insensible a la presencia del agua poral** y por tanto el **parámetro objetivo fundamental** de todos los métodos de ondas superficiales ([[MASW Method|MASW]], [[SASW Method|SASW]], [[ReMi Method|ReMi]], [[SPAC Method|SPAC]]).
+>
+> — Foti et al. (2018), §2.1.3, pp. 43–50.
 
 ## Intuición física
 
@@ -66,7 +68,15 @@ En suelos saturados bajo carga no drenada, $V_P$ salta a ~1500 m/s (velocidad de
 | Roca blanda (marga) | 600–1200 |
 | Roca dura | 1200–3500 |
 
+> [!EXAMPLE] Evidencia empírica: Xia et al. (2002) — validación de VS contra ensayos de borehole
+> **Paper 009 (Xia et al. 2002)** valida perfiles $V_S(z)$ obtenidos por MASW contra 14 ensayos de downhole y crosshole independientes en Kansas. El error RMS promedio entre $V_S$ MASW y borehole es < 15% en todos los sitios, con errores individuales que pueden ser < 5% en sitios homogéneos. Este resultado confirma que la relación $V_S \approx V_R / 0.919$ (para $\nu = 0.25$) es una aproximación robusta para convertir la velocidad de Rayleigh medida en campo en el perfil de ondas de corte requerido por los códigos geotécnicos.
+>
+> — Research Database, entrada 009 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.1.3, pp. 43–50 — derivación de VS desde ecuaciones de Navier; polarización SV/SH.
-- Foti et al. (2014), Cap. 1.1, pp. 1–10 — importancia de VS en caracterización geotécnica.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.3, pp. 43–50 — derivación de $V_S$ desde ecuaciones de Navier |
+| Foti et al. (2018), *Surface Wave Methods* | §1.1, pp. 1–10 — importancia de $V_S$ en geotecnia |
+| Xia et al. (2002), *J. Environ. Eng. Geophys.* | Paper 009 — validación $V_S$ MASW vs borehole |

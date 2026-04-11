@@ -6,8 +6,10 @@ type: reference
 
 # Modos de Ondas Superficiales (Surface Wave Modes)
 
-> **Contexto:** En medios [[Layered Media|estratificados]], las [[Rayleigh Waves]] y [[Love Waves]] no se propagan como una única onda sino como un conjunto discreto de modos. Cada modo tiene su propia relación de dispersión, velocidad de fase y patrón de penetración con la profundidad.
-> **Fuente:** Foti et al. (2014), Cap. 2.4, pp. 64–95.
+> [!CONCEPT] Definición
+> En medios [[Layered Media|estratificados]], las [[Rayleigh Waves]] y [[Love Waves]] no se propagan como una única onda sino como un conjunto discreto de **modos de propagación**. Cada modo tiene su propia relación de dispersión $c_n(f)$, frecuencia de corte $f_c^n$ (excepto el modo fundamental) y patrón de desplazamiento en profundidad (eigenfunción). En el registro experimental, los métodos f-k (MASW, SASW) miden una **velocidad de fase aparente** que resulta de la superposición de todos los modos activos — lo que obliga a identificar a qué modo pertenece cada rama antes de invertir.
+>
+> — Foti et al. (2018), §2.4, pp. 64–95.
 
 ## Intuición física
 
@@ -69,7 +71,14 @@ donde $\psi$ es la fase del campo total. En medios normalmente dispersivos, la c
    - Inversión multimodal: se incluyen varias curvas modales en la función de desajuste, lo que constraña mejor el perfil de $V_S$ a mayor profundidad.
    - *Determinant misfit* (Maraschini et al. 2010): evita asignar a priori puntos experimentales a modos específicos; evalúa la función secular directamente en los puntos experimentales.
 
+> [!EXAMPLE] Evidencia empírica: Maraschini & Foti (2010) — inversión multimodal sin identificación previa
+> **Paper 034 (Maraschini & Foti 2010)** introduce el *determinant misfit* como función de desajuste que evalúa el determinante de la matriz de Thomson-Haskell directamente en los puntos experimentales del espectro f-k, sin necesidad de asignar cada punto a un modo específico. Este enfoque elimina el problema de identificación de modos — el principal obstáculo en sitios con fuertes contrastes de velocidad donde las curvas modales se oscilan. La validación en el sitio La Salle (Italia) demuestra que el perfil $V_S(z)$ recuperado con esta función es más robusto que el obtenido forzando la inversión en modo fundamental cuando los modos superiores son activos.
+>
+> — Research Database, entrada 034 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.4, pp. 64–95, Figs. 2.21–2.22 — curvas modales y eigenfunciones.
-- Maraschini, M. et al. (2010), *Geophysics* — determinant misfit para inversión sin identificación de modos.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.4, pp. 64–95 — curvas modales y eigenfunciones |
+| Maraschini & Foti (2010), *Geophysics* | Paper 034 — determinant misfit multimodal |

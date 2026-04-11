@@ -6,8 +6,10 @@ type: reference
 
 # Conversión de Modos (Mode Conversion)
 
-> **Contexto:** Cuando una onda elástica (P o S) incide sobre una interfaz entre dos medios con propiedades elásticas diferentes, parte de su energía se refleja y parte se transmite — y en ambos casos pueden generarse ondas de tipo distinto al incidente. Este fenómeno es fundamental para entender la formación de [[Rayleigh Waves]] (acoplamiento P–SV) y la ausencia de [[Love Waves]] en semiespacios homogéneos.
-> **Fuente:** Foti et al. (2014), Cap. 2.1.3, pp. 46–50.
+> [!CONCEPT] Definición
+> La **conversión de modos** es el fenómeno por el que una onda elástica (P o SV) que incide sobre una interfaz entre dos medios genera ondas reflejadas y transmitidas de tipo diferente al incidente. En cualquier interfaz plana, las ondas P y SV están acopladas — una onda P incidente genera tanto P como SV en reflexión/transmisión. Las [[SH-wave|ondas SH]] son la excepción: sus condiciones de frontera están desacopladas y solo generan SH. Este acoplamiento P–SV es la base física de las [[Rayleigh Waves]] y explica la ausencia de [[Love Waves]] en semiespacios homogéneos.
+>
+> — Foti et al. (2018), §2.1.3, pp. 46–50.
 
 ## Intuición física
 
@@ -51,7 +53,15 @@ La conversión de modos tiene consecuencias prácticas en el diseño del arreglo
 
 3. **Fuentes horizontales y Love**: las fuentes horizontales generan principalmente ondas SH, minimizando la conversión a P y SV. Esto es ventajoso para la adquisición de [[Love Waves]] con menor contaminación de componentes P–SV.
 
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — acoplamiento P–SV como origen del ground-roll de Rayleigh
+> **Paper 001 (Park, Miller & Xia 1999)** muestra sismogramas de campo donde el ground-roll de Rayleigh es claramente la componente dominante del campo sísmico a distancias $> 5$ m de la fuente. El ground-roll surge directamente del acoplamiento P–SV en la superficie libre: la fuente vertical genera ondas P y SV, que se convierten mutuamente en la superficie y producen el modo de Rayleigh. La transformada f-k extracta este modo con alta relación señal/ruido, confirmando que la conversión de modos P–SV es el mecanismo generador de la señal útil en MASW.
+>
+> — Research Database, entrada 001 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.1.3, pp. 46–50 — condiciones de frontera y conversión P–SV–SH.
-- Foti et al. (2014), Cap. 2.2, pp. 50–62 — formación de ondas de Rayleigh por acoplamiento P–SV.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.3, pp. 46–50 — condiciones de frontera y conversión P–SV–SH |
+| Foti et al. (2018), *Surface Wave Methods* | §2.2, pp. 50–62 — formación de Rayleigh por acoplamiento P–SV |
+| Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — acoplamiento P–SV en sismogramas de campo |

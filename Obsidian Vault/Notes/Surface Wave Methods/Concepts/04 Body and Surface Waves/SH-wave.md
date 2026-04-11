@@ -6,8 +6,10 @@ type: reference
 
 # Ondas SH (Shear Horizontal Waves)
 
-> **Contexto:** Las ondas SH son un tipo de [[S-Waves|onda de corte]] cuya polarización ocurre enteramente en el plano horizontal, perpendicular tanto a la dirección de propagación como al plano vertical. Su propiedad más importante es que **están matemáticamente desacopladas de las ondas P y SV**: en una interfaz, una onda SH solo genera ondas SH reflejadas y transmitidas. Este desacoplamiento es la base física de las [[Love Waves]], que son ondas SH guiadas en una capa superficial.
-> **Fuente:** Foti et al. (2014), Cap. 2.1.3, pp. 43–50; Cap. 2.3, pp. 60–64.
+> [!CONCEPT] Definición
+> Las **ondas SH** (Shear Horizontal) son ondas de corte cuya polarización ocurre enteramente en el plano horizontal, perpendicular tanto a la dirección de propagación como al plano vertical. Su propiedad definitoria: **están matemáticamente desacopladas de las ondas P y SV** — en cualquier interfaz plana, una onda SH incidente solo genera ondas SH reflejadas y transmitidas. Este desacoplamiento es la base física de las [[Love Waves]], que son ondas SH guiadas en una capa superficial más blanda que el semiespacio subyacente.
+>
+> — Foti et al. (2018), §2.1.3, pp. 43–50; §2.3, pp. 60–64.
 
 ## Intuición física
 
@@ -71,7 +73,15 @@ $$u_y^{(j)}(z) = A_j e^{i k_{z,j} z} + B_j e^{-i k_{z,j} z}, \quad k_{z,j} = \sq
 
 Las amplitudes $A_j, B_j$ se conectan entre capas mediante una matriz de transferencia $2\times 2$ (vs. $4\times 4$ para el caso P–SV del método de [[Layered Media|Thomson-Haskell]]). Esto hace que el cálculo de curvas de dispersión de Love sea computacionalmente más eficiente.
 
+> [!EXAMPLE] Evidencia empírica: Dal Moro & Ferigo (2011) — ventaja del desacoplamiento SH en inversión Love
+> **Paper 045 (Dal Moro & Ferigo 2011)** aprovecha el desacoplamiento de las ondas SH para construir curvas de dispersión de Love independientes de $V_P$. En el sitio con fuerte contraste de velocidad estudiado, las curvas de Love (basadas en SH) son más regulares y libres de osculaciones que las curvas de Rayleigh (P–SV acoplado). La inversión conjunta Love + Rayleigh, utilizando geófonos horizontales para SH, produce un perfil $V_S(z)$ con menor no-unicidad que la inversión solo de Rayleigh — validando el beneficio del desacoplamiento SH como ventaja analítica.
+>
+> — Research Database, entrada 045 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.1.3, pp. 43–50 — polarización y separación P/SV/SH.
-- Foti et al. (2014), Cap. 2.3, pp. 60–64 — derivación de la relación de dispersión de Love desde reflexión total SH.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.3, pp. 43–50 — polarización y separación P/SV/SH |
+| Foti et al. (2018), *Surface Wave Methods* | §2.3, pp. 60–64 — reflexión total SH y relación de dispersión de Love |
+| Dal Moro & Ferigo (2011) | Paper 045 — ventaja del desacoplamiento SH en inversión Love |
