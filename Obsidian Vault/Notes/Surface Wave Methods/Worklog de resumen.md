@@ -18,6 +18,27 @@
 - Página final aproximada: 20
 - Pendiente Chapter 1: ninguno — capítulo en estado comparable al resto del vault
 
+## Conceptos creados o actualizados en la última iteración (iteración 86 — 2026-04-11)
+- **Fase 10b — expansión de secciones thin (< 150 palabras) en Caps 1 y 6**:
+  - **Chapter 1.md §1.1.1**: intro 96w → 170w — añadida fuente Foti §1.1.2, explicación de $G_{\max}$, ventajas cualitativas de pruebas in situ; referencia a [[Forward Problem]]
+  - **Chapter 1.md §Comparativa**: añadido párrafo introductorio antes de la tabla (82w → 130w) — estrategia combinada invasivo+no invasivo, referencia a [[Non-uniqueness]]
+  - **Chapter 1.md §1.5 intro**: 65w → 220w — historia en 3 etapas (sismología global, exploración, ingeniería); links a [[MASW Method]], [[SASW Method]], [[SPAC Method]], [[ReMi Method]], [[Geometric Dispersion]], [[Surface Wave Modes]]
+  - **Chapter 1.md §1.6 intro**: 53w → 200w — naturaleza inversa indirecta explicada, 3 implicaciones (no-unicidad, inestabilidad, resolución en profundidad); links a [[Non-uniqueness]], [[Near-field Effect]], [[Mode Superposition]], [[Forward Problem]]
+  - **Chapter 6.md §6.2 intro**: 40w → 180w — formalización $\mathbf{d}_{calc}=\mathcal{F}(\mathbf{m})$, costo computacional (LS vs GS), [[Thomson-Haskell Matrix]], [[Levenberg-Marquardt]], [[Monte Carlo Methods]], [[Neighbourhood Algorithm]]
+  - **Chapter 6.md §6.2.1**: 91w → 240w — expandido modelo 1D vs 2D/3D con criterio 15-20% para [[Sliding Window]]; añadido [!EXAMPLE] Paper 003 (Xia et al. 1999) — pseudo-secciones $V_S$ Kansas
+  - **Chapter 6.md §6.3.2**: 92w → 200w — procedimiento trial-and-error detallado en 4 pasos, referencia a [[Sensitivity Kernel]], [[Jacobian Matrix]], [[Non-uniqueness]]
+- Papers integrados: 003 (Xia et al. 1999, Geophysics) en §6.2.1
+- Commits: `[INVESTIGADOR] expand: secciones thin caps 1 y 6 (iteración 86)`
+
+## Conceptos creados o actualizados en la última iteración (iteración 85 — 2026-04-11 ~20:00 UTC)
+- **Fase 10a — expansión de secciones thin (< 150 palabras) + correcciones**:
+  - **Chapter 1.md §1.7 intro**: 19w → 200w — versatilidad (no-invasivo, escalable, volumétrico), papers 016/020/012
+  - **Chapter 3.md §3.4.1.7**: 89w → 200w — variaciones laterales, 5 implicaciones de diseño, [[Sliding Window]]
+  - **Chapter 3.md §3.4.1.8**: 119w → 210w — física modos superiores, 3 consecuencias, [[Forward Problem]]; [!EXAMPLE] Paper 046 (Garofalo 2016 InterPACIFIC)
+  - **Chapter 6.md §6.5 intro**: 62w → 240w — 2 fuentes de incertidumbre, [[Non-uniqueness]], [[Sensitivity Kernel]], [[Picking]], [[Attenuation]]
+- Papers integrados: 046 (Garofalo 2016 Part II, Soil Dyn. EE) en §3.4.1.8
+- Commits: `[INVESTIGADOR] expand: secciones thin caps 1, 3, 6 + Paper 046 (iteración 85)`
+
 ## Conceptos creados o actualizados en la última iteración (iteración 84 — 2026-04-11)
 - **Fase 9 completa (enriquecimiento cross-links en toda la vault)**:
   - Ronda 6: Wavelength(82), Body Waves(51) — 50 archivos, 122 cambios

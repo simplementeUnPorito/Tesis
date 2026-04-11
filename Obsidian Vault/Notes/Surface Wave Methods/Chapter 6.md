@@ -86,17 +86,24 @@ En la práctica, la mayoría de las inversiones de ondas superficiales utilizan 
 
 ## 6.2 Modelización directa (Forward Modeling)
 
-La capacidad de resolver el problema inverso depende directamente de poder resolver eficientemente el **[[Forward Problem|problema directo]]**: dado un modelo del subsuelo, calcular las [[Dispersion Curve|curvas de dispersión]] y atenuación esperadas.
+La capacidad de resolver el problema inverso depende directamente de poder resolver eficientemente el **[[Forward Problem|problema directo]]**: dado un modelo del subsuelo $\mathbf{m}$, calcular las [[Dispersion Curve|curvas de dispersión]] $c(\omega)$ y atenuación $\alpha(\omega)$ esperadas. Este cálculo — formalizado como $\mathbf{d}_{calc} = \mathcal{F}(\mathbf{m})$ — debe ejecutarse en cada iteración del proceso de [[Inversión|inversión]] para comparar los datos sintéticos con los observados y actualizar el modelo.
+
+En métodos de búsqueda local (Gauss-Newton, [[Levenberg-Marquardt|Levenberg-Marquardt]]) el [[Forward Problem|problema directo]] se evalúa decenas de veces; en métodos de búsqueda global ([[Monte Carlo Methods|Monte Carlo]], [[Neighbourhood Algorithm|algoritmo de vecindad]]) puede evaluarse miles o millones de veces. La eficiencia del *forward solver* determina el costo computacional total de la inversión. El método estándar de la industria es la **[[Thomson-Haskell Matrix|matriz de Thomson-Haskell]]** — resolución del determinante de dispersión para hallar las [[Phase Velocity|velocidades de fase]] en que se anulan las condiciones de borde — complementada por el **eigenproblem de Rayleigh** para situaciones de alta velocidad con riesgo de desbordamiento numérico.
 
 El modelo matemático del subsuelo debe especificar tres aspectos:
 
 ### 6.2.1 Modelo geométrico
 
 Define cómo se idealiza la variabilidad espacial del subsuelo. Las opciones son:
-- **Modelo 1D (unidimensional):** las propiedades mecánicas solo varían con la profundidad (modelo lateralmente homogéneo). Es el estándar en la práctica habitual de ensayos de ondas superficiales.
-- **Modelos 2D/3D:** permiten variabilidad lateral. Son más realistas en sitios con complejidad geológica, pero mucho más costosos computacionalmente. Están disponibles en aplicaciones avanzadas.
 
-La elección incorrecta del modelo geométrico puede introducir errores sistemáticos graves. Si el sitio tiene variabilidad lateral significativa y se usa un modelo 1D, los resultados serán sesgados.
+- **Modelo 1D (unidimensional):** las propiedades mecánicas solo varían con la profundidad (modelo lateralmente homogéneo). Es el estándar en la práctica habitual de ensayos de ondas superficiales porque la teoría de [[Layered Media|medios estratificados]] horizontalmente es matemáticamente tratable y computacionalmente eficiente. El modelo 1D es adecuado cuando la estratificación lateral es suave en comparación con la longitud del arreglo.
+- **Modelos 2D/3D:** permiten variabilidad lateral. Son más realistas en sitios con complejidad geológica (cuencas sedimentarias, rellenos antrópicos, frentes de erosión), pero mucho más costosos computacionalmente porque requieren métodos de elementos finitos o diferencias finitas en lugar de la [[Thomson-Haskell Matrix|matriz de Thomson-Haskell]]. Están disponibles en aplicaciones avanzadas de tomografía de ondas superficiales.
+
+La elección incorrecta del modelo geométrico puede introducir errores sistemáticos graves. Si el sitio tiene variabilidad lateral significativa y se usa un modelo 1D, los resultados serán sesgados: el perfil invertido reflejará una promediación horizontal de las propiedades reales en lugar de la estructura local. Una verificación práctica es la técnica de **[[Sliding Window|ventana deslizante]]**: aplicar la inversión 1D en subventanas del arreglo para detectar si el perfil resultante varía con la posición. Una variación superior al 15–20% en $V_S$ entre ventanas adyacentes indica heterogeneidad lateral que invalida la hipótesis 1D (Foti et al. 2014, §6.2.1).
+
+> [!EXAMPLE] Evidencia empírica: Paper 003 (Xia et al. 1999) — modelo 1D en MASW
+> **Paper 003 (Xia, Miller & Park 1999, *Geophysics* 64(3):691–700)** — el trabajo fundacional del [[MASW Method|MASW]] activo — usa el modelo 1D de capas horizontales como marco de referencia universal para la inversión. El sitio de Kansas (substrato de caliza) presentaba variabilidad lateral detectada por el arreglo multicanal; sin embargo, la inversión 1D por [[Sliding Window|ventana deslizante]] (segmentos de 24 trazas) produjo pseudo-secciones de $V_S$ que revelaron la topografía de la roca basal con acuerdo del 85% respecto a los sondeos de refracción. Esto confirma que el modelo 1D con ventana deslizante es una aproximación válida para capturar variabilidad lateral suave, siempre que la longitud de cada ventana sea pequeña respecto a la escala de variación lateral.
+> — Research Database, entrada 003; Xia et al. (1999), *Geophysics* 64(3):691–700.
 
 ### 6.2.2 Modelo numérico (discretización)
 
@@ -161,7 +168,9 @@ El método solo funciona bien para **perfiles normalmente dispersivos** (velocid
 
 Los métodos empíricos también incluyen los procedimientos **trial-and-error** (ensayo y error), en los que el operador ajusta manualmente los parámetros del modelo hasta obtener una curva teórica que visualmente reproduzca la experimental.
 
-Requieren disponibilidad de un algoritmo de [[Forward Problem|problema directo]] (forward solver). Son subjetivos y operador-dependientes, pero tienen la ventaja de que un operador experimentado puede converger a una solución razonable incluso en casos donde los algoritmos automáticos fallan (por ejemplo, [[Dispersion Curve|curvas de dispersión]] "patológicas" donde el cálculo del Jacobiano es inestable).
+El procedimiento requiere: (1) definir un modelo inicial de capas $\mathbf{m}_0 = \{V_{Sj}, V_{Pj}, \rho_j, h_j\}$; (2) ejecutar el [[Forward Problem|problema directo]] para calcular la [[Dispersion Curve|curva de dispersión]] teórica $c_{calc}(\omega) = \mathcal{F}(\mathbf{m}_0)$; (3) comparar visualmente con la curva experimental $c_{obs}(\omega)$; y (4) modificar un parámetro a la vez — typically $V_S$ de la capa que más influye en la banda de frecuencia donde el ajuste es peor — y repetir hasta convergencia visual. La [[Sensitivity Kernel|sensibilidad]] de la [[Dispersion Curve|curva de dispersión]] a cada capa (kernels de Fréchet) guía al operador experto: las altas frecuencias están controladas por las capas superficiales, las bajas por las profundas.
+
+Son subjetivos y operador-dependientes, pero tienen la ventaja de que un operador experimentado puede converger a una solución razonable incluso en casos donde los algoritmos automáticos fallan: por ejemplo, [[Dispersion Curve|curvas de dispersión]] "patológicas" con discontinuidades o saltos modales donde el cálculo de la [[Jacobian Matrix|Jacobiana]] es inestable, o cuando la [[Non-uniqueness|no-unicidad]] del problema inverso hace que el algoritmo oscile entre múltiples mínimos. La inversión manual es también el método preferido para verificar la razonabilidad física del perfil obtenido automáticamente — un filtro de sanidad antes de reportar resultados.
 
 *Trazabilidad: Foti Cap. 6, §6.3, pp. 286–289*
 

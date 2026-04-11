@@ -33,14 +33,19 @@ donde $\rho$ es la densidad. Esta relación directa entre velocidad y módulo el
 ---
 
 ## 1.1.1 Pruebas Sísmicas para Caracterización de Sitio
-El vínculo entre la velocidad de propagación de ondas y las constantes elásticas del medio permite utilizar pruebas sísmicas para evaluar la variación de $V_s$ con la profundidad [1]. Entre sus ventajas *in situ* destacan la evaluación del geomaterial en su **estado no perturbado** y el **gran volumen de material** involucrado en la medición [1, 2].
 
-Las pruebas se agrupan en dos categorías [3]:
+> Fuente: Foti et al. (2014), Sección 1.1.2, pp. 3–5.
 
-1. **[[Métodos Sísmicos Invasivos]]**: requieren perforaciones (boreholes) o inserción de sondas.
-2. **[[Métodos Sísmicos No Invasivos]]**: realizados desde superficie; presentan mayor incertidumbre, pero son más rentables y exploran volúmenes más representativos [3].
+El vínculo entre la velocidad de propagación de ondas y las constantes elásticas del medio permite utilizar pruebas sísmicas para evaluar la variación de $V_S$ con la profundidad. La relación $V_S = \sqrt{G_{\max}/\rho}$ convierte cada medición de velocidad en una estimación directa del módulo de corte dinámico a pequeñas deformaciones $G_{\max}$, la propiedad de referencia para el análisis de respuesta sísmica (Kramer 1996). Entre las ventajas fundamentales de las pruebas sísmicas *in situ* destacan: (1) la evaluación del geomaterial en su **estado no perturbado** — preservando la estructura de poros, el estado de esfuerzos y la historia de carga que una muestra extraída nunca puede reproducir fielmente; y (2) el **gran volumen de material** involucrado en la medición, que integra la variabilidad natural del suelo y produce propiedades representativas del conjunto en lugar de valores puntuales.
+
+Las pruebas se agrupan en dos grandes categorías según si requieren acceso al subsuelo [Foti et al. 2014, §1.1.2]:
+
+1. **[[Métodos Sísmicos Invasivos]]**: requieren perforaciones (boreholes) o inserción de sondas. Ofrecen precisión puntual pero a costo elevado y con perturbación del suelo adyacente.
+2. **[[Métodos Sísmicos No Invasivos]]**: realizados enteramente desde la superficie; presentan mayor incertidumbre por la naturaleza indirecta del [[Forward Problem|problema directo]], pero son más rentables, más rápidos y exploran volúmenes lateralmente más representativos.
 
 ### Comparativa: Invasivos vs. No Invasivos
+
+La elección entre métodos invasivos y no invasivos depende del presupuesto disponible, la profundidad de investigación requerida y el nivel de incertidumbre aceptable. En la práctica geotécnica avanzada, la combinación de ambos (por ejemplo, [[Cross-Hole Test|cross-hole]] + [[MASW Method|MASW]]) es la estrategia óptima: el método invasivo calibra los resultados del no invasivo y reduce la [[Non-uniqueness|no-unicidad]] de la inversión al proporcionar información a priori sobre el perfil.
 
 | Característica    | Métodos Invasivos (Borehole)                     | Métodos No Invasivos                      |
 | :---------------- | :----------------------------------------------- | :---------------------------------------- |
@@ -214,7 +219,9 @@ El **juicio de ingeniería** juega un papel importante en todo el procedimiento:
 
 > Fuente: Foti et al. (2014), Sección 1.4, pp. 15–22.
 
-El desarrollo de los métodos de ondas superficiales está estrechamente ligado a los avances en electrónica y computación. La mayoría de las herramientas actuales — transformadas en dominios frecuencia–[[Wavenumber|número de onda]], inversión de Rayleigh — tienen su origen en la sismología global y la geofísica de exploración, y fueron sucesivamente adaptadas a la escala ingenieril.
+El desarrollo de los métodos de ondas superficiales está estrechamente ligado a los avances en electrónica, computación y señales. La mayoría de las herramientas actuales —transformadas en dominios frecuencia–[[Wavenumber|número de onda]], [[Inversión|inversión]] de [[Rayleigh Waves|Rayleigh]]— tienen su origen en la sismología global y la geofísica de exploración, y fueron sucesivamente adaptadas a la escala ingenieril. Esta transferencia tecnológica no fue lineal: los conceptos de [[Geometric Dispersion|dispersión geométrica]] y [[Surface Wave Modes|modos de propagación]] se conocían desde inicios del siglo XX, pero su aplicación práctica a la caracterización del subsuelo requirió el desarrollo de sensores de campo, registradores digitales y algoritmos de [[Inversión|inversión]] eficientes.
+
+La historia puede organizarse en tres etapas que se solapan temporalmente: (1) la era de la **sismología global** (1920s–1960s), en que los sismólogos desarrollaron las bases matemáticas de la dispersión modal; (2) la era de la **geofísica de exploración** (1960s–1990s), en que la industria del petróleo desarrolló herramientas de procesamiento f-k hoy centrales en [[MASW Method|MASW]]; y (3) la era de las **aplicaciones de ingeniería** (1980s–presente), caracterizada por los métodos [[SASW Method|SASW]] y [[MASW Method|MASW]], la proliferación de métodos pasivos ([[SPAC Method|SPAC]], [[ReMi Method|ReMi]]) y la estandarización normativa. Cada etapa aportó conceptos y herramientas que el siguiente estadio reutilizó en un contexto diferente.
 
 ### 1.5.1 Sismología Global
 
@@ -244,7 +251,9 @@ Los **estudios pasivos de microtremores** evitan la necesidad de fuentes activas
 
 > Fuente: Foti et al. (2014), Sección 1.5, pp. 21–29.
 
-Los métodos de ondas superficiales son métodos inversos indirectos: estiman propiedades del subsuelo a partir de observaciones en la superficie, asumiendo un modelo y ajustando parámetros. Esta cadena —adquisición → procesamiento → inversión— introduce desafíos que deben comprenderse para interpretar correctamente los resultados.
+Los métodos de ondas superficiales son métodos **inversos indirectos**: estiman propiedades del subsuelo a partir de observaciones en la superficie, asumiendo un modelo físico y ajustando sus parámetros. Esta naturaleza indirecta implica que la solución no es única en general ([[Non-uniqueness|no-unicidad]]), que pequeñas perturbaciones en los datos pueden traducirse en grandes cambios en el modelo invertido (inestabilidad), y que la resolución decrece sistemáticamente con la profundidad.
+
+La cadena metodológica —**[[Adquisición de Datos|adquisición]] → [[Procesamiento de Señales|procesamiento]] → [[Inversión|inversión]]**— introduce fuentes de error y sesgo en cada etapa: el diseño del arreglo puede contaminar la [[Dispersion Curve|curva de dispersión]] con efectos de [[Near-field Effect|campo cercano]]; el procesamiento puede extraer una [[Dispersion Curve|curva aparente]] que mezcla modos sin detectarlos; y la inversión puede quedar atrapada en un mínimo local o reportar un perfil $V_S$ que ajusta bien los datos pero no refleja la geología real. Estos desafíos no invalidan el método, pero imponen requisitos de diseño, criterio profesional e incorporación de información a priori (boreholes, geología local) para producir resultados confiables. Las secciones siguientes cuantifican los cuatro desafíos principales identificados por Foti et al. (2014): superposición modal, efectos de campo cercano, errores de modelo y limitaciones de resolución en profundidad.
 
 ### 1.6.1 Superposición Modal y Velocidad Aparente
 
