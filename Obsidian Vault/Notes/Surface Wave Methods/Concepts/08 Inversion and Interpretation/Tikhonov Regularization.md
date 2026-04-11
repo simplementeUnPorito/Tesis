@@ -1,92 +1,71 @@
-# Tikhonov Regularization
-
-La **regularización de Tikhonov** es la técnica matemática más sistemática y ampliamente usada para mitigar la **ill-posedness** de los problemas inversos en geofísica, incluyendo la inversión de curvas de dispersión de ondas superficiales.
-
 ---
+name: Tikhonov Regularization
+description: Técnica matemática para estabilizar la inversión ill-posed de curvas de dispersión añadiendo penalización por complejidad del modelo; base del algoritmo de Occam
+type: reference
+---
+
+# Tikhonov Regularization — Regularización de Tikhonov
+
+> [!CONCEPT] Definición
+> La **regularización de Tikhonov** convierte el problema [[Inversión|inverso]] *ill-posed* de la inversión de curvas de dispersión en una familia de problemas bien condicionados añadiendo un término de penalización a la función de error: $\min\{\|\mathbf{Gm} - \mathbf{d}\|^2 + \mu^2\|\mathbf{L}^n \mathbf{m}\|^2\}$. El parámetro $\mu$ controla el balance entre ajuste a los datos y simplicidad del modelo. La matriz $\mathbf{L}$ define qué se penaliza: orden 0 → amplitud de $\mathbf{m}$, orden 1 → gradiente (suavidad del perfil), orden 2 → curvatura. El **algoritmo de Occam** es la aplicación iterativa que ajusta $\mu$ automáticamente hasta que el residuo coincide con la incertidumbre de los datos. La regularización mitiga la [[Non-uniqueness|no-unicidad]] pero no la elimina: solo restringe el espacio de soluciones hacia las más simples que son compatibles con los datos.
+>
+> — Foti et al. (2018), Cap. 6, §6.4.2.3, pp. 298–301; §6.4.3.4, pp. 312–320; Tikhonov & Arsenin (1977).
 
 ## Intuición física
 
-El problema fundamental de la inversión es que el sistema de ecuaciones G·m = d puede estar mal condicionado: pequeñas variaciones en los datos producen grandes variaciones en la solución. Esto ocurre porque el operador G tiene valores singulares muy pequeños, que amplifican el ruido al invertir.
-
-La regularización de Tikhonov resuelve este problema añadiendo un término extra al problema de minimización que "penaliza" soluciones complicadas. En esencia, obliga al algoritmo a buscar no solo el mejor ajuste a los datos, sino también la solución más simple entre todas las que ajustan bien los datos. El parámetro μ controla qué tan importante es la simplicidad respecto al ajuste.
-
----
+El problema fundamental de la inversión es que el sistema $\mathbf{G}\mathbf{m} = \mathbf{d}$ está mal condicionado: pequeñas variaciones en los datos producen grandes variaciones en la solución porque el operador $\mathbf{G}$ tiene valores singulares muy pequeños que amplifican el ruido al invertir. La regularización añade un término extra que "penaliza" soluciones complicadas, obligando al algoritmo a buscar no solo el mejor ajuste a los datos sino también la **solución más simple** entre todas las que ajustan bien.
 
 ## Definición técnica
 
-El problema de minimización regularizado de **orden cero** es (Tikhonov y Arsenin, 1977):
+El problema de minimización regularizado de **orden cero** (Tikhonov & Arsenin 1977):
 
 $$\min \left\{ \|\mathbf{Gm} - \mathbf{d}\|_2^2 + \mu^2 \|\mathbf{m}\|_2^2 \right\}$$
 
-donde:
-- **Gm − d** es el error de predicción (diferencia entre datos teóricos y experimentales)
-- **m** es la norma de la solución (mide su "complejidad" o amplitud)
-- **μ** es el **parámetro de regularización** o multiplicador de Lagrange
+Con solución analítica (mínimos cuadrados amortiguados):
 
-El primer término busca el mejor ajuste; el segundo penaliza soluciones de gran norma. El parámetro μ controla el balance entre ambos objetivos.
-
----
-
-## Formulación matemática
-
-**Solución — mínimos cuadrados amortiguados (Ec. 6.16):**
 $$\mathbf{m} = (\mathbf{G}^T\mathbf{G} + \mu^2 \mathbf{I})^{-1} \mathbf{G}^T \mathbf{d}$$
 
-En términos de la descomposición SVD G = Q₁ΣQ₂ᵀ, la solución se puede escribir como:
-$$\mathbf{m} = \sum_{i=1}^{k} \frac{s_i^2}{s_i^2 + \mu^2} \cdot \frac{[(\mathbf{Q}_1^T)_i \cdot \mathbf{d}]}{s_i} \cdot [(\mathbf{Q}_2)_i] \qquad (6.17)$$
+En términos de la descomposición SVD $\mathbf{G} = \mathbf{Q}_1 \mathbf{\Sigma} \mathbf{Q}_2^T$, los **factores de filtro** $s_i^2/(s_i^2 + \mu^2)$ suprimen los componentes asociados a valores singulares pequeños (alta frecuencia espacial en el modelo), evitando la amplificación del ruido.
 
-Los factores $s_i^2/(s_i^2 + \mu^2)$ son los **factores de filtro**: para valores singulares grandes (sᵢ >> μ), el factor es ≈ 1 → esos componentes se preservan. Para valores singulares pequeños (sᵢ << μ), el factor → 0 → esos componentes se amortiguan (evitando la amplificación del ruido).
+## Regularización de orden superior
 
-**Regularización de orden superior (Ec. 6.20):**
 $$\min \left\{ \|\mathbf{Gm} - \mathbf{d}\|_2^2 + \mu^2 \|\mathbf{L}^n \mathbf{m}\|_2^2 \right\}$$
 
-donde **L** es la **matriz de rugosidad** (diferencias finitas centradas, Ec. 6.19):
+| Orden $n$ | $\|\mathbf{L}^n \mathbf{m}\|^2$ penaliza | Favorece |
+|-----------|-------------------------------------------|---------|
+| 0 | Amplitud de $\mathbf{m}$ | Perfiles de pequeña norma |
+| 1 | Gradiente de $\mathbf{m}$ | Perfiles suaves (sin saltos bruscos) |
+| 2 | Curvatura de $\mathbf{m}$ | Perfiles con variación casi lineal |
 
-$$\mathbf{L} = \begin{bmatrix} 0 & \cdots & & \\ -1 & 1 & 0 & \\ \cdots & -1 & 1 & \\ & 0 & -1 & 1 \end{bmatrix}$$
+Para la inversión MASW, el **orden 1** es el más apropiado para sitios con variación gradual de $V_S$ en profundidad.
 
-Los escalares de rugosidad son:
-- **R₁ = ||Lm||²** (primer orden): mide la irregularidad del gradiente del perfil
-- **R₂ = ||L(Lm)||²** (segundo orden): mide la curvatura del perfil
+## Elección del parámetro $\mu$
 
-Los órdenes disponibles son:
-| Orden (n) | Penaliza | Favorece |
-|-----------|---------|---------|
-| 0 | Amplitud de m | Soluciones de pequeña norma |
-| 1 | Gradiente de m | Perfiles suaves (sin saltos bruscos) |
-| 2 | Curvatura de m | Perfiles muy suaves, con variación casi lineal |
+- **Curva L**: grafica $\|\mathbf{Gm} - \mathbf{d}\|^2$ vs $\|\mathbf{L}^n\mathbf{m}\|^2$ para distintos $\mu$; el punto de mayor curvatura ("codo") es el compromiso óptimo.
+- **Principio de discrepancia**: elige $\mu$ tal que el error de ajuste sea consistente con la incertidumbre conocida de los datos.
+- **Algoritmo de Occam**: ajusta $\mu$ iterativamente hasta que el residual normalizado coincide con el valor objetivo.
 
----
+## Algoritmo de Occam
 
-## Elección del parámetro μ
+El **algoritmo de Occam** (Constable et al. 1987; Lai 2005) aplica regularización de Tikhonov de primer y segundo orden al problema no lineal de inversión de la curva de dispersión. En cada iteración, linealiza el problema en torno al modelo actual, resuelve el sistema regularizado, actualiza el modelo, y ajusta $\mu$ para que el error residual converja al objetivo $\tilde{E}_r$ determinado por la incertidumbre experimental. El resultado es el **modelo más suave** compatible con los datos — aplica el principio de parsimonia (navaja de Occam).
 
-La elección de μ es crítica y no trivial:
-- **μ = 0**: recupera el problema original sin regularización (inestable si hay valores singulares pequeños)
-- **μ demasiado pequeño**: ajuste bueno pero solución inestable (oscilaciones espurias en el perfil)
-- **μ demasiado grande**: solución muy suave y estable, pero con error de ajuste alto (exceso de suavizado)
+## Limitación ante inversiones de velocidad
 
-El valor óptimo de μ se busca con métodos como:
-- **Curva L (L-curve):** grafica ||Gm - d||² vs ||m||² para diferentes μ; el punto de mayor curvatura ("codo" de la L) es el compromiso óptimo.
-- **Principio de discrepancia:** elige μ tal que el error de ajuste sea consistente con la incertidumbre conocida de los datos.
-- **Validación cruzada generalizada (GCV)**.
+Para sitios con capas rígidas superficiales o **inversiones de velocidad** (capa blanda bajo capa dura), la regularización de suavidad dificulta la recuperación de discontinuidades bruscas. En esos casos son preferibles:
+- **Regularización de variación total** (norma $L_1$ en lugar de $L_2$) — permite saltos bruscos.
+- Información a priori explícita sobre la interfaz (número de capas, posición de la interfaz).
+- Métodos de búsqueda global ([[Monte Carlo Methods]]) que no imponen suavidad.
 
----
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — algoritmo de Occam en inversión multimodal
+> Foti et al. (2018, §6.4.2.3) aplican el algoritmo de Occam a la inversión de la curva de dispersión en sitios con diferentes niveles de contraste de impedancia. En el sitio La Salle (depósito moderadamente heterogéneo), la regularización de orden 1 con $\mu$ determinado por la curva L produce perfiles $V_S(z)$ con suavidad compatible con la resolución real del experimento, sin oscilaciones espurias. Comparado con la inversión sin regularización, el perfil regularizado presenta un error de ajuste marginalmente mayor (~2% en misfit RMS) pero es estable frente a perturbaciones en los datos. El ejemplo demuestra que la regularización de Tikhonov de orden 1 es la opción estándar para inversión MASW en sitios sin inversiones de velocidad severas.
+>
+> — Foti et al. (2018), §6.4.2.3, pp. 298–301; §6.4.3.4, pp. 312–320.
 
-## Conexión con el algoritmo de Occam
+## Referencias
 
-El **algoritmo de Occam** (Constable et al. 1987, Lai 2005) es la aplicación iterativa de la regularización de Tikhonov de primer y segundo orden al problema no lineal de inversión conjunta de las curvas de dispersión y atenuación de Rayleigh. En Occam, μ se ajusta automáticamente en cada iteración para que el error residual coincida con un valor objetivo $\tilde{Er}$ determinado por la incertidumbre de los datos.
-
----
-
-## Implicación práctica para MASW
-
-En la inversión MASW de curvas de dispersión:
-
-- La regularización de **orden 1** (suavizar el gradiente) es la más apropiada para sitios con variación gradual de las propiedades del suelo con la profundidad (perfiles normalmente dispersivos).
-- La regularización de **orden 2** produce perfiles aún más suaves, adecuados cuando se sabe a priori que el subsuelo es muy homogéneo.
-- La regularización de **orden 0** puede usarse cuando se necesita controlar la amplitud absoluta del perfil (por ejemplo, si hay restricciones de Vs de boreholes).
-- Para sitios con **capas rígidas superficiales o inversiones de velocidad**, la regularización de Tikhonov puede dificultar la recuperación de la discontinuidad. En esos casos, conviene usar **total variation regularization** (norma L₁ en lugar de L₂) o información a priori explícita sobre la interfaz.
-
----
-
-*Trazabilidad: Sebastiano Foti, Surface Wave Methods, Cap. 6, §6.4.2.3, pp. 298–301; §6.4.3.4, pp. 312–320.*
-*Referencias clave: Tikhonov y Arsenin (1977); Constable et al. (1987); Lai (2005).*
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 6, §6.4.2.3, pp. 298–301; §6.4.3.4, pp. 312–320 |
+| Tikhonov & Arsenin (1977), *Solutions of Ill-Posed Problems* | Formulación matemática original |
+| Constable et al. (1987) | Algoritmo de Occam — modelo más suave compatible con datos |
+| Lai (2005) | Aplicación de Occam a inversión conjunta VS + DS |

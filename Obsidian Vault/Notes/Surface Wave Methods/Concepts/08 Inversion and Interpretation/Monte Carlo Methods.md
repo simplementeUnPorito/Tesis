@@ -1,7 +1,9 @@
 # Métodos de Monte Carlo (Monte Carlo Methods)
 
-> **Contexto:** Familia de métodos de búsqueda global para la inversión de ondas superficiales que exploran estadísticamente el espacio de parámetros y cuantifican la no-unicidad.
-> **Fuente:** Foti et al. (2014), Cap. 6.1.3, p. 280; Cap. 6.4.3, p. 308; Cap. 7.2.4, pp. 371–374; Cap. 8.3.2.3, p. 423.
+> [!CONCEPT] Definición
+> Los **métodos de Monte Carlo** son estrategias de **búsqueda global** para la [[Inversión|inversión]] de ondas superficiales: generan una gran población de modelos $\mathbf{m}$ ([[Layered Media|perfiles de capas]] con $V_S$, $V_P$, $\rho$, $h$), evalúan el desajuste $E(\mathbf{m})$ de cada uno respecto a la curva de dispersión experimental, y seleccionan como *soluciones aceptables* aquellos con $E(\mathbf{m}) \leq E_{thr}$ según un test de Fisher al nivel de confianza elegido. A diferencia de los métodos locales (gradiente, Levenberg-Marquardt), no requieren modelo inicial ni jacobiano — exploran el espacio completo de parámetros. Su principal valor es **cuantificar la [[Non-uniqueness|no-unicidad]]**: en lugar de un único perfil, producen un *ensemble* de perfiles equivalentes cuya dispersión caracteriza la incertidumbre del resultado. El costo computacional es alto (10³–10⁶ evaluaciones del problema directo por corrida).
+>
+> — Foti et al. (2018), Cap. 6.1.3, p. 280; Cap. 6.4.3, p. 308; Cap. 7.2.4, pp. 371–374.
 
 ## Principio
 
@@ -65,7 +67,14 @@ Todos comparten el objetivo de explorar el espacio de parámetros globalmente y 
 - La cobertura del espacio de parámetros depende de la parametrización del modelo (número de capas, rangos de búsqueda): una parametrización inadecuada puede sesgar la distribución de soluciones.
 - El test estadístico de aceptación requiere conocer la incertidumbre de los datos $\sigma_i$; si ésta no está bien estimada, el número de modelos aceptables puede estar sesgado.
 
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — Monte Carlo en La Salle, VS30 robusto ante no-unicidad
+> Foti et al. (2018, §7.2.4) aplican el algoritmo de Monte Carlo global (Socco & Boiero 2008) al sitio La Salle con el dataset activo+pasivo (48 geófonos, espaciado 1.5 m, rango 5–55 Hz). Se generan **$10^5$ modelos** aleatorios; el test de Fisher al 95% selecciona ~500 modelos aceptables. Los perfiles seleccionados concuerdan en las capas superficiales (<15 m) — bien constrenidas por la alta frecuencia del dataset — pero divergen sustancialmente a mayor profundidad, demostrando la [[Non-uniqueness|no-unicidad]] real del problema. Sin embargo, los espectros de respuesta sísmica 1D calculados para cada perfil aceptable son **prácticamente indistinguibles** (Fig. 7.21), y los valores de $V_{S,30}$ caen en el rango estrecho de **480–505 m/s** (Fig. 7.22) — todos en la misma clase de sitio EC8. El resultado demuestra que la no-unicidad de la solución $V_S(z)$ raramente compromete las decisiones de ingeniería basadas en $V_{S,30}$.
+>
+> — Foti et al. (2018), §7.2.4, pp. 371–374, Figs. 7.19–7.22.
+
 ## Referencias
 
-- Socco, L.V., Boiero, D. (2008), *Near Surface Geophysics*.
-- Foti et al. (2014), Cap. 6.1.3 (estrategias local vs global), Cap. 6.4.3 (búsqueda global), Cap. 7.2.4 (ejemplo La Salle), pp. 280–310, 371–374.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 6.1.3 (local vs global), Cap. 6.4.3, Cap. 7.2.4, pp. 280–374 |
+| Socco & Boiero (2008), *Near Surface Geophys* | Algoritmo de Monte Carlo global con propiedades de escala |

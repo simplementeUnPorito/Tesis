@@ -1,7 +1,9 @@
 # HVSR (Horizontal-to-Vertical Spectral Ratio)
 
-> **Contexto:** Técnica pasiva monoestación para la caracterización de sitio sísmica basada en la polarización de las ondas superficiales.
-> **Fuente:** Foti et al. (2014), Cap. 8.5.2–8.5.4; Nakamura (1989); SESAME (2004).
+> [!CONCEPT] Definición
+> El **HVSR** (*Horizontal-to-Vertical Spectral Ratio*) es la razón entre la amplitud espectral de las componentes horizontales y la componente vertical del movimiento del terreno medida sobre microtremores (ruido sísmico ambiental). El pico del HVSR ocurre a la **frecuencia fundamental** del sitio $f_0 = V_S/(4H)$, controlada por la velocidad de corte $V_S$ del depósito y su espesor $H$. El origen físico del pico es la **singularidad de la elipticidad horizontal** de las [[Rayleigh Waves|ondas de Rayleigh]] — no una amplificación de ondas S como propuso Nakamura (1989). La técnica requiere solo un sensor triaxial y permite estimar $f_0$ de forma no invasiva, económica y rápida. La curva H/V puede invertirse conjuntamente con la curva de dispersión ([[MASW Method|MASW]], [[SPAC Method|SPAC]]) para reducir la [[Non-uniqueness|no-unicidad]] del problema inverso.
+>
+> — Foti et al. (2018), Cap. 8.5.2–8.5.4; Nakamura (1989); SESAME (2004).
 
 ## Principio
 
@@ -55,8 +57,16 @@ La **inversión conjunta de curvas de dispersión + H/V** es más robusta que ca
 - La hipótesis de campo difuso isótropo puede no cumplirse en entornos urbanos con fuentes de ruido direccionales.
 - La identificación del pico requiere criterios de calidad (SESAME 2004): al menos dos picos claros en la mitad del rango de frecuencias de interés.
 
+> [!EXAMPLE] Evidencia empírica: Garofalo et al. (2016) — HVSR como dato complementario en InterPACIFIC
+> **Papers 006+007 (Garofalo et al. 2016a/b)** incluyen mediciones HVSR en los 3 sitios del estudio InterPACIFIC como dato complementario a los métodos de ondas superficiales (MASW, ReMi, SPAC). Los resultados muestran que el pico H/V coincide con la frecuencia fundamental inferida de los perfiles $V_S(z)$ del borehole en los sitios donde el contraste de impedancia es alto (Mirandola: $f_0 \approx 0.5$ Hz, sedimentos blandos sobre roca a >150 m). La concordancia confirma el uso de HVSR para verificar independientemente la frecuencia de resonancia del sitio. Sin embargo, la inversión conjunta HVSR + curva de dispersión muestra mejora en el condicionamiento del problema inverso en los sitios con alta no-unicidad, consistente con el resultado de Parolai et al. (2005).
+>
+> — Research Database, entradas 006, 007 (core); Garofalo et al. (2016a/b), *Near Surface Geophysics*.
+
 ## Referencias
 
-- Nakamura, Y. (1989), *QR of RTRI*.
-- SESAME Project (2004), *Guidelines for the implementation of the H/V spectral ratio technique*.
-- Foti et al. (2014), Cap. 8.5.2–8.5.4, pp. 430–440.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 8.5.2–8.5.4, pp. 430–440 — HVSR e inversión conjunta |
+| Nakamura (1989), *QR of RTRI* | Propuesta original HVSR como función de transferencia |
+| SESAME Project (2004) | Guías para implementación del método H/V |
+| Garofalo et al. (2016a/b) | Papers 006, 007 — HVSR en InterPACIFIC |
