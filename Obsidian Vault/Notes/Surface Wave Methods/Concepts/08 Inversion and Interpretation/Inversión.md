@@ -1,69 +1,77 @@
-
-La **inversión** es el paso final del procesamiento y se formula como un problema de **identificación de parámetros** [3, 8, 22].
-
-El objetivo es encontrar las propiedades del medio —principalmente el perfil de velocidad de onda de corte \(V_s\)— que mejor expliquen los datos observados, representados por la **curva de dispersión experimental**.
-
+---
+name: Inversión
+description: Proceso de identificación de parámetros del subsuelo (perfil VS) a partir de la curva de dispersión experimental — problema inverso ill-posed con múltiples estrategias de regularización y búsqueda
+type: reference
 ---
 
-### Problema Directo e Inverso
+# Inversión de la Curva de Dispersión
 
-El proceso de inversión se basa en la comparación entre curvas teóricas y experimentales.
+> [!CONCEPT] Definición
+> La **inversión** es el paso final del flujo de trabajo de ondas superficiales: determina el perfil de velocidad de corte $V_S(z)$ que mejor explica la **curva de dispersión experimental** $c_R(f)$ medida en campo. Se formula como un problema de identificación de parámetros: dado el modelo $\mathbf{m} = \{V_{S,i}, V_{P,i}, \rho_i, h_i\}$ de capas planas, minimizar el desajuste $E(\mathbf{m}) = \|c_R^{\text{obs}}(f) - c_R^{\text{teórica}}(\mathbf{m}, f)\|$. El problema es **ill-posed** (Hadamard 1923): viola unicidad y estabilidad → requiere [[Non-uniqueness|información a priori]] y [[Tikhonov Regularization|regularización]]. Los enfoques van de métodos locales (gradiente, mínimos cuadrados) a globales ([[Monte Carlo Methods|Monte Carlo]], algoritmos genéticos). El producto es el perfil $V_S(z)$ para calcular $V_{S,30}$ y la clasificación sísmica del sitio.
+>
+> — Foti et al. (2018), Cap. 6, pp. 277–340; Xia et al. (1999), Paper 002.
 
-- **Problema Directo**:  
-  Consiste en calcular una **curva de dispersión teórica** a partir de un perfil de suelo asumido [23, 24].
+## Problema directo e inverso
 
-- **Problema Inverso**:  
-  Busca determinar los parámetros del modelo (por ejemplo, \(V_s\) de cada capa) que permiten que la curva teórica reproduzca la curva experimental.
+- **Problema directo**: dado un perfil del subsuelo $\mathbf{m}$, calcular la curva de dispersión teórica $c_R(f, \mathbf{m})$. Se resuelve con el método de la [[Rayleigh Eigenproblem|matriz de transferencia de Thomson-Haskell]]: propaga condiciones de frontera a través de capas planas horizontales. Determinístico y eficiente.
 
----
+- **Problema inverso**: dado $c_R^{\text{obs}}(f)$, encontrar $\mathbf{m}$ tal que $c_R(f, \mathbf{m}) \approx c_R^{\text{obs}}(f)$. No tiene solución analítica cerrada — se resuelve iterativamente.
 
-### El Proceso Matemático
+## El proceso matemático
 
-La inversión se realiza mediante un proceso iterativo de ajuste del modelo.
+La inversión minimiza la función de desajuste:
 
-1. **Modelo de Referencia**  
-   Se asume inicialmente un modelo del subsuelo, normalmente **un modelo 1D estratificado** compuesto por capas **elásticas lineales y homogéneas** [9].
+$$E(\mathbf{m}) = \sum_{i} \left[\frac{c_R^{\text{obs}}(f_i) - c_R^{\text{teórica}}(\mathbf{m}, f_i)}{\sigma_i}\right]^2$$
 
-2. **Minimización del Error**  
-   Los parámetros del modelo se ajustan hasta minimizar la diferencia entre la **curva de dispersión teórica** y la **experimental**, utilizando métricas como el **Root Mean Square (RMS)** [3, 24].
+donde $\sigma_i$ es la incertidumbre experimental en la frecuencia $f_i$.
 
----
+**Modelo inicial**: se parte de un perfil $\mathbf{m}_0$ basado en conocimiento geológico, datos de borehole o una estimación simple (e.g., velocidad de fase a cada frecuencia ÷ 1.1 como estimación de $V_S$ a profundidad $\lambda/3$).
 
-### Estrategias de Búsqueda
+## Estrategias de búsqueda
 
-Existen diferentes enfoques para explorar el espacio de soluciones posibles.
+### Métodos locales (Local Search Methods, LSM)
 
-- **Métodos de Búsqueda Local (LSM)**  
-  Parten de un perfil inicial tentativo y buscan soluciones en su vecindad.  
-  Son **rápidos**, pero pueden quedar atrapados en **mínimos locales** [4, 5].
+Parten de un modelo inicial y buscan el mínimo en su vecindad mediante el gradiente de la función de desajuste.
 
-- **Métodos de Búsqueda Global (GSM)**  
-  Exploran un rango más amplio del espacio de soluciones (por ejemplo, **algoritmos genéticos** o **Monte Carlo**).  
-  Son más **robustos**, aunque requieren mayor **esfuerzo computacional** [5, 10].
+- **Mínimos cuadrados linealizados** (e.g., SVD): linealiza $c_R(\mathbf{m})$ alrededor de $\mathbf{m}_0$ y resuelve el sistema linearizado.
+- **Levenberg-Marquardt**: combina descenso de gradiente y método de Gauss-Newton; robusto cerca del mínimo.
+- **Ventaja**: convergencia rápida si el modelo inicial es bueno.
+- **Limitación**: puede quedar atrapado en mínimos locales.
 
----
+### Métodos globales (Global Search Methods, GSM)
 
-### Problemas Críticos: Ill-posedness
+Exploran el espacio completo de parámetros sin depender del modelo inicial.
 
-La inversión de curvas de dispersión presenta dificultades inherentes conocidas como **ill-posedness** (mal condicionamiento).
+- **[[Monte Carlo Methods|Monte Carlo]]**: genera aleatoriamente modelos en el espacio de parámetros y evalúa $E(\mathbf{m})$ para cada uno. Permite mapear el conjunto completo de soluciones equivalentes.
+- **Algoritmos genéticos**: evolución iterativa de una población de modelos; operadores de cruce y mutación.
+- **Simulated annealing**: acepta soluciones peores con probabilidad decreciente — escapa de mínimos locales.
+- **Ventaja**: robusto ante no-unicidad; caracteriza el ensemble de soluciones.
+- **Limitación**: costo computacional alto (10³–10⁶ evaluaciones del problema directo).
 
-Según Hadamard (1923), un problema matemático está **bien puesto** (*well-posed*) si satisface tres condiciones:
-1. **Existencia:** para todos los datos admisibles, existe al menos una solución.
-2. **Unicidad:** para todos los datos admisibles, la solución es única.
-3. **Estabilidad:** la solución depende continuamente de los datos (pequeñas variaciones en los datos producen solo pequeñas variaciones en la solución).
+## Ill-posedness y regularización
 
-Si alguna de estas condiciones falla, el problema es **ill-posed**. Los problemas inversos violan habitualmente las condiciones de **unicidad** y **estabilidad**:
+El problema inverso viola las condiciones de Hadamard en unicidad y estabilidad. Las estrategias de mitigación son:
 
-- **No unicidad (equivalencia):**
-  Diferentes perfiles de suelo pueden producir **curvas de dispersión casi idénticas**. Una misma curva de dispersión experimental puede corresponder a más de un perfil de Vs. Esto no es un defecto del algoritmo: es una propiedad intrínseca del problema físico. Desde el punto de vista matemático, la información disponible (la curva de dispersión) no es suficiente para determinar unívocamente los parámetros del modelo.
+1. **Información a priori**: datos de borehole, SPT/CPT, posición del nivel freático → restringe el espacio de modelos admisibles.
+2. **[[Tikhonov Regularization|Regularización de Tikhonov]]**: añade término de penalización $\lambda \|\mathbf{L}\mathbf{m}\|^2$ a la función de error, donde $\mathbf{L}$ controla la suavidad del perfil (orden 0: amplitud, orden 1: gradiente, orden 2: curvatura). El **algoritmo de Occam** busca el modelo más suave compatible con los datos.
+3. **Parámetros fijos**: $V_P$ y $\rho$ suelen fijarse desde refracción sísmica o tablas de litología — reducen el espacio de parámetros libres.
 
-- **Inestabilidad:**
-  Pequeñas variaciones en los datos (causadas por ruido de medición) pueden generar grandes cambios en el modelo resultante. Para problemas lineales, esto se cuantifica mediante el **análisis de valores singulares** (SVD): el valor singular más pequeño controla la amplificación de los errores de perturbación. La tasa de decaimiento de los valores singulares mide el grado de inestabilidad del problema.
+## Sensibilidad diferencial
 
-**Estrategias de mitigación:**
+La [[Dispersion Curve|curva de dispersión]] de Rayleigh es:
+- **Muy sensible a $V_S$**: cambios de 10% en $V_S$ producen cambios de 5–8% en $c_R$ → inversión confiable de $V_S$.
+- **Poco sensible a $V_P$**: cambios de 50% en $V_P$ producen cambios <2% en $c_R$ → $V_P$ debe fijarse a priori.
+- **Muy poco sensible a $\rho$**: generalmente se toma de tablas → no se invierte.
 
-- **Información a priori:** incorporar datos externos como perfiles de pozo (boreholes), ensayos geotécnicos (SPT, CPT), mediciones de densidad o niveles freáticos, para restringir el espacio de soluciones admisibles.
-- **Restricciones de suavidad y acotamiento:** forzar que la solución satisfaga condiciones como suavidad del perfil o que los parámetros se mantengan dentro de rangos físicamente plausibles (por ejemplo, razón de amortiguamiento no negativa).
-- **Regularización de Tikhonov:** método matemático formal que convierte el problema ill-posed en una familia de problemas mejor condicionados, añadiendo un término de penalización que controla la complejidad de la solución. Los métodos de orden cero, primero y segundo controlan respectivamente la amplitud, la suavidad del primer gradiente o la curvatura del perfil. El **algoritmo de Occam** es un caso especial que busca el modelo más suave (mínima norma del gradiente) compatible con los datos.
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — sensibilidad de la curva de dispersión y algoritmo de inversión
+> **Paper 002 (Xia et al. 1999)** realiza el análisis de sensibilidad completo de la curva de dispersión de Rayleigh respecto a $V_S$, $V_P$ y $\rho$ para perfiles de suelo típicos. Los kernels de sensibilidad muestran que $V_S$ domina la respuesta en todo el rango de frecuencias (sensibilidad relativa 80–95%), mientras $V_P$ contribuye menos del 10% y $\rho$ es despreciable. El paper propone un algoritmo de inversión por mínimos cuadrados con estabilización SVD que converge en <10 iteraciones desde modelos iniciales razonables. Aplicado a datos de campo en Kansas, el perfil $V_S(z)$ resultante concuerda con datos de borehole con error RMS < 15% — estableciendo el benchmark de precisión del MASW.
+>
+> — Research Database, entrada 002 (core); Xia et al. (1999), *Geophysics* 64(3), pp. 691–700.
 
-*Trazabilidad: Foti Cap. 6, §6.1.2, pp. 277–280; §6.4.2, pp. 292 ss.*
+## Referencias
+
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 6, pp. 277–340 — inversión completa |
+| Xia et al. (1999), *Geophysics* 64(3) | Paper 002 — sensibilidad + algoritmo LSM |
+| Hadamard, J. (1923), *Lectures on Cauchy's Problem* | Criterios de bien-posedness |

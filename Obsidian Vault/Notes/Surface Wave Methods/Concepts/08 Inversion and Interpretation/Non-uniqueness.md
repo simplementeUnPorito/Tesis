@@ -1,7 +1,9 @@
 # No-unicidad (Non-uniqueness)
 
-> **Contexto:** Propiedad intrínseca del problema inverso de ondas superficiales: múltiples perfiles de Vs pueden producir la misma curva de dispersión experimental.
-> **Fuente:** Foti et al. (2014), Cap. 6.1.2, pp. 277–280; Cap. 6.4, pp. 305–310.
+> [!CONCEPT] Definición
+> La **no-unicidad** del problema inverso de ondas superficiales es la propiedad por la cual **múltiples perfiles de $V_S(z)$ producen curvas de dispersión prácticamente idénticas**. No es una limitación del algoritmo de inversión sino una propiedad intrínseca del operador físico. El problema es *ill-posed* (Hadamard 1923): viola las condiciones de unicidad y estabilidad. Causas: resolución finita en profundidad, equivalencia espesor–velocidad entre capas, e insensibilidad de $c_R$ a $V_P$. Se mitiga con (1) **información a priori** (boreholes, nivel freático, geología), (2) [[Tikhonov Regularization|regularización]], (3) [[Monte Carlo Methods|búsqueda global]] para cuantificar el ensemble de soluciones equivalentes, y (4) **inversión conjunta** con otros datos ([[HVSR]], refracción). La no-unicidad raramente impide la clasificación de sitio porque el parámetro de ingeniería $V_{S,30}$ es robusto: varía solo ~5% dentro del conjunto de soluciones equivalentes.
+>
+> — Foti et al. (2018), Cap. 6.1.2, pp. 277–280; Cap. 6.4, pp. 305–310.
 
 ## Definición
 
@@ -51,7 +53,15 @@ Combinar la curva de dispersión con otros datos (refracción de ondas P, H/V, r
 
 La no-unicidad no invalida el método: **el rango de variación de las propiedades de ingeniería** (como Vs,30) dentro del conjunto de soluciones equivalentes suele ser estrecho, aunque los perfiles individuales de Vs difieran. El ejemplo del Capítulo 7 (La Salle, Foti Fig. 7.22, p. 374) muestra que Vs,30 varía entre ~480 y 505 m/s para 10⁵ modelos igualmente aceptables — una incertidumbre prácticamente relevante pero gestionable.
 
+> [!EXAMPLE] Evidencia empírica: Maraschini & Foti (2010) — misfit de determinante elimina la no-unicidad modal
+> **Paper 034 (Maraschini & Foti 2010)** propone reemplazar la función de misfit estándar (diferencia entre curvas de dispersión modales calculadas y observadas) por el **misfit de determinante**: mínimo de $|\det[\mathbf{M}(c, f)]|$ donde $\mathbf{M}$ es la matriz de estratificación. El misfit de determinante es independiente de la identificación de modos porque incluye automáticamente todos los modos en la función objetivo. En los experimentos sintéticos del paper (modelos con inversión de velocidad severa), el misfit de determinante converge a perfiles $V_S$ correctos desde modelos iniciales muy distintos, mientras que el misfit modal estándar queda atrapado en mínimos locales asociados a confusión de modos. La no-unicidad residual se reduce sustancialmente al no tener que elegir qué modo comparar.
+>
+> — Research Database, entrada 034 (core); Maraschini & Foti (2010), *Geophysics* 75(3), pp. G1–G11.
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 6.1.2 (ill-posedness), Cap. 6.4.3 (búsqueda global), pp. 277–310.
-- Hadamard, J. (1923), *Lectures on Cauchy's Problem*.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 6.1.2 (ill-posedness), Cap. 6.4.3 (búsqueda global), pp. 277–310 |
+| Hadamard, J. (1923), *Lectures on Cauchy's Problem* | Condiciones de bien-posedness |
+| Maraschini & Foti (2010), *Geophysics* 75(3) | Paper 034 — misfit de determinante vs. misfit modal |

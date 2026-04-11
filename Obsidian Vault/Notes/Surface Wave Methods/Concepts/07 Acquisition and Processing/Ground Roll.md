@@ -6,7 +6,10 @@ type: reference
 
 # Ground Roll — Ondas Superficiales en Datos de Reflexión Sísmica
 
-> **Fuente:** Sebastiano Foti, Chapter 7, Sección 7.5 · pp. 384–392
+> [!CONCEPT] Definición
+> El **ground-roll** es el componente de ondas superficiales ([[Rayleigh Waves|ondas de Rayleigh]]) registrado en levantamientos sísmicos de reflexión. Desde la perspectiva de reflexión es *ruido coherente* que contamina las reflexiones de ondas P; desde la perspectiva de ondas superficiales es *señal útil* que contiene la curva de dispersión de Rayleigh y permite estimar $V_S(z)$ de forma no invasiva. Sus características son: alta amplitud (fuentes potentes), baja frecuencia (5–30 Hz), baja velocidad de fase (velocidad de Rayleigh del suelo superficial), y alta dispersión en suelos blandos. El análisis f-k del ground-roll de datos de reflexión existentes permite generar perfiles $V_S$ 2D o 3D sin coste adicional de adquisición — es una aplicación de **reciclaje de datos sísmicos**.
+>
+> — Foti et al. (2018), Cap. 7, §7.5, pp. 384–392.
 
 ## Intuición física
 
@@ -62,9 +65,16 @@ Estas prácticas, desde la perspectiva del análisis de ondas superficiales, **l
 - La necesidad de separar el ground-roll de reflexiones y refracciones requiere que los datos tengan suficiente separación en el espacio f-k.
 - La calibración del modelo de [[Attenuation|atenuación]] es difícil porque la fuente introduce distorsiones de amplitud.
 
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — ground-roll como fuente de ondas superficiales en MASW
+> **Paper 001 (Park, Miller & Xia 1999)** identifica explícitamente que en registros sísmicos con fuente activa (sledgehammer), el **ground-roll domina la energía total registrada**: en un sismograma típico de 24 geófonos en Kansas, el 80%+ de la energía visible corresponde a ondas de Rayleigh dispersivas (ground-roll), no a reflexiones ni refracciones. Esta observación es la base del MASW: en lugar de suprimir el ground-roll (como hace la reflexión sísmica), se extrae su curva de dispersión para caracterizar $V_S(z)$. El espectrograma f-k muestra que el modo fundamental de Rayleigh es la cresta más prominente entre 5–30 Hz. El trabajo demuestra que un arreglo de 24 geófonos con offset adecuado captura el ground-roll con SNR suficiente para inversión confiable.
+>
+> — Research Database, entrada 001 (core); Park, Miller & Xia (1999), *Geophysics* 64(3).
+
 ## Referencias
-- Socco, L.V. et al. (2008). Seismic characterization of an alpine valley. *Near Surf Geophys*, 6(8), 255–267.
-- Socco, L.V. et al. (2009). Laterally constrained inversion of ground roll from seismic reflection records. *Geophysics*, 74, G35–G45.
-- Strobbia, C. et al. (2010). Surface waves from continuous profiling. *First Break* 28, 85–91.
-- Strobbia, C. et al. (2011). Integrated near-surface model building from surface wave data. *Near Surf Geophys*, 9, 503–514.
-- Foti, S. et al. (2014). *Surface Wave Methods for Near-Surface Site Characterization*, CRC Press. Cap. 7, Sección 7.5.
+
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 7, §7.5, pp. 384–392 — análisis de ground-roll de reflexión |
+| Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — ground-roll dominante en sismograma MASW |
+| Socco et al. (2009), *Geophysics* 74 | Inversión lateralmente restringida de ground-roll de reflexión |
+| Strobbia et al. (2011), *Near Surf Geophys* 9 | Modelo 3D de VS superficial desde ground-roll |

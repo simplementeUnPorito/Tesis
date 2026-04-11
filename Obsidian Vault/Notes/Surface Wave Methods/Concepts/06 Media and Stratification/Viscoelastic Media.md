@@ -1,78 +1,80 @@
-# Viscoelastic Media
-
-## 1. Concepto
-
-Un **medio viscoelástico** es un material que combina comportamiento elástico (recuperable) y viscoso (disipativo). Bajo carga dinámica, parte de la energía mecánica se convierte en calor.
-
+---
+name: Viscoelastic Media
+description: Modelo constitutivo que combina comportamiento elástico y viscoso — base de la propagación de ondas con atenuación en suelos; módulos complejos y principio de correspondencia
+type: reference
 ---
 
-## 2. Fundamento físico
+# Viscoelastic Media — Medios Viscoelásticos
 
-En medios elásticos ideales no hay pérdida de energía durante la propagación. En medios reales (suelos, rocas), la disipación es inevitable. Los modelos viscoelásticos más utilizados en geofísica son:
+> [!CONCEPT] Definición
+> Un **medio viscoelástico** combina comportamiento elástico (recuperable) y viscoso (disipativo). En propagación de ondas sísmicas, los módulos de Lamé se reemplazan por **módulos complejos** dependientes de la frecuencia: $\tilde{\mu}(\omega) = \mu_R(\omega) + i\mu_I(\omega)$. Por el **principio de correspondencia elástico-viscoelástico**, todas las soluciones del problema elástico se extienden al caso disipativo con la sustitución $\lambda, \mu \to \tilde{\lambda}, \tilde{\mu}$. Esto permite extender directamente la [[Rayleigh Eigenproblem|ecuación secular de Rayleigh]] y el [[Layered Media|método de Thomson-Haskell]] a medios con atenuación. El [[Wavenumber|número de onda]] se vuelve complejo $\tilde{k} = k_R + ik_I$: $k_R$ controla la fase (velocidad de fase real) y $k_I$ controla la atenuación espacial, relacionada con el [[Shear Damping Ratio|razón de amortiguamiento]] $D_s = k_I/(2k_R) = 1/(2Q)$.
+>
+> — Foti et al. (2018), Cap. 2, §2.5; Lai & Rix (1998).
 
-- **Kelvin-Voigt:** esfuerzo proporcional a deformación más velocidad de deformación.
-- **Maxwell:** elemento elástico en serie con elemento viscoso.
-- **Sólido estándar lineal (SLS):** combinación que reproduce mejor el comportamiento de geomateriales en el rango de frecuencias sísmicas.
+## Fundamento físico
 
----
+En medios elásticos ideales no hay pérdida de energía durante la propagación. En medios reales (suelos, rocas), fricción interna entre partículas disipa energía como calor en cada ciclo de deformación. Los modelos viscoelásticos más usados en geofísica son:
 
-## 3. Formulación matemática
+- **Kelvin-Voigt**: esfuerzo = rigidez × deformación + viscosidad × velocidad de deformación. Adecuado para sólidos con recuperación completa.
+- **Maxwell**: elemento elástico en serie con elemento viscoso. Modela fluencia (*creep*) pero no captura bien el comportamiento sísmico.
+- **Sólido estándar lineal (SLS)**: combinación en paralelo que reproduce el comportamiento de geomateriales en el rango de frecuencias sísmicas — Q aproximadamente constante en décadas de frecuencia.
+
+## Formulación matemática
 
 ### Módulos complejos
 
-Las constantes de Lamé se reemplazan por módulos complejos dependientes de la frecuencia:
+Las constantes de Lamé se reemplazan por módulos complejos:
 
-$$
-\tilde{\mu}(\omega) = \mu_R(\omega) + i\,\mu_I(\omega)
-$$
+$$\tilde{\mu}(\omega) = \mu_R(\omega) + i\,\mu_I(\omega) = \mu_R(1 + 2iD_s)$$
+
+donde $D_s \ll 1$ (amortiguamiento débil típico en suelos: $D_s \sim 1$–$10\%$).
 
 ### Principio de correspondencia elástico-viscoelástico
 
-Todas las soluciones del problema elástico son válidas en el problema viscoelástico con la sustitución $\lambda, \mu \to \tilde{\lambda}(\omega), \tilde{\mu}(\omega)$.
+Todas las soluciones del problema elástico son válidas en el viscoelástico con la sustitución $\lambda, \mu \to \tilde{\lambda}(\omega), \tilde{\mu}(\omega)$. Esto permite extender directamente la ecuación secular de Rayleigh y el método de Thomson-Haskell a medios disipativos.
 
-Esto permite extender directamente la [[Rayleigh Waves|ecuación secular de Rayleigh]] y el [[Rayleigh Eigenproblem]] a medios disipativos.
+### Número de onda complejo y atenuación
 
-### Número de onda complejo
+En un medio disipativo el número de onda es complejo:
 
-En un medio disipativo el número de onda se vuelve complejo:
+$$\tilde{k} = k_R + i\,k_I$$
 
-$$
-\tilde{k} = k_R + i\,k_I
-$$
+La solución armónica es:
 
-La solución armónica toma la forma:
+$$u \propto e^{-k_I x}\, e^{i(k_R x - \omega t)}$$
 
-$$
-u \propto e^{-k_I x} \, e^{i(k_R x - \omega t)}
-$$
+La amplitud decae exponencialmente con la distancia $x$ a una tasa $k_I$ — la **atenuación espacial**.
 
-donde $k_R$ controla la fase y $k_I$ controla la atenuación espacial.
+### Factor de calidad y damping ratio
 
-### Factor de calidad y material damping ratio
+$$D_s = \frac{k_I}{2k_R} = \frac{1}{2Q}$$
 
-$$
-D = \frac{k_I}{2k_R} = \frac{1}{2Q}
-$$
+Para suelos típicos: $D_s \sim 1$–$10\%$; $Q \sim 5$–$50$.
 
-Para suelos típicos: $D \sim 1\text{–}10\%$ (amortiguamiento débil).
+## Efectos de la disipación sobre la velocidad de fase
 
----
+En condiciones de amortiguamiento débil ($D_s \ll 1$), la velocidad de fase es:
 
-## 4. Aplicación a geófonos
+$$V_R(\omega) \approx V_R^{(\text{elástico})}(\omega)\left[1 + O(D_s^2)\right]$$
 
-En condiciones de amortiguamiento débil ($D \ll 1$), la velocidad de fase se ve afectada en orden $D^2$ — efecto pequeño. La atenuación espacial es proporcional a $D$ — efecto de primer orden y directamente medible.
+La corrección por disipación es de **segundo orden en $D_s$** — despreciable para estimar $V_S$. La atenuación espacial $k_I$ es de **primer orden en $D_s$** — directamente medible. Esto justifica la práctica estándar: primero invertir la curva de dispersión para $V_S$, luego invertir la curva de atenuación para $D_s$ ([[Shear Damping Ratio]]).
 
-Esto justifica el enfoque estándar: caracterizar primero el perfil de $V_S$ desde la curva de dispersión, y luego el perfil de $D$ desde la curva de atenuación.
+## Implicaciones experimentales
 
----
+Medir amplitudes con precisión para extraer el perfil de $D_s$ es más exigente instrumentalmente que medir velocidades de fase. Requiere:
+- Control del acoplamiento suelo–geófono (afecta la amplitud registrada)
+- Corrección de **atenuación geométrica** ($\propto 1/\sqrt{r}$ para ondas de superficie en 2D)
+- Estimación o eliminación del **factor de fuente** (variaciones de acoplamiento fuente–suelo entre disparos)
 
-## 5. Implicaciones para el diseño experimental
+> [!EXAMPLE] Evidencia empírica: Lai & Rix (1998) — inversión simultánea VS y DS desde curvas de dispersión y atenuación
+> Lai & Rix (1998) desarrollan el marco teórico completo para la inversión simultánea de la curva de dispersión $c_R(f)$ y la curva de atenuación $\alpha_R(f)$ en medios viscoelásticos estratificados. Demuestran que la extensión del método de [[Layered Media|Thomson-Haskell]] a módulos complejos produce una ecuación secular compleja cuyas partes real e imaginaria están acopladas, de modo que la inversión simultánea es más consistente que la inversión secuencial. La relación $D_s \approx \alpha_R V_R / (2\pi f)$ es exacta al primer orden en $D_s$ y proporciona la conversión directa entre la curva de atenuación medida y el perfil $D_s(z)$. El método fue validado en el sitio de Pisa con resultados consistentes con ensayos de columna resonante (RCT).
+>
+> — Lai & Rix (1998), *Georgia Tech Research Report*; Foti et al. (2018), Cap. 2, §2.5; Cap. 5, §5.3.
 
-Medir amplitudes con precisión suficiente para extraer el perfil de $D$ es significativamente más exigente instrumentalmente que medir velocidades de fase. Requiere control del acoplamiento suelo-geófono, corrección de atenuación geométrica y estimación del factor de fuente. Si el objetivo de la tesis es solo el perfil $V_S$, ignorar la disipación introduce errores de segundo orden en la velocidad de fase.
+## Referencias
 
----
-
-## 6. Fuente
-
-- PDF: Sebastiano Foti Chapter 2
-- Sección: 2.5 Wave propagation in dissipative media
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 2, §2.5 — propagación en medios disipativos |
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 5, §5.3 — estimación de la curva de atenuación |
+| Lai & Rix (1998), *Georgia Tech Research Report* | Marco teórico para inversión simultánea VS + DS |
