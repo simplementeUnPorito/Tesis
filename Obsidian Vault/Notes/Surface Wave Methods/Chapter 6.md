@@ -330,9 +330,9 @@ Esta es la base del método de **[[Gauss-Newton Method|Gauss-Newton]]** y sus va
 
 **Métodos de búsqueda global (GS):** diseñados para evitar los mínimos locales explorando el espacio completo de soluciones. Incluyen:
 - **Estrategia multistart:** lanzar múltiples búsquedas LS desde modelos iniciales aleatorios y quedarse con la mejor solución.
-- **Algoritmos genéticos:** mimetizan procesos evolutivos (selección, cruzamiento, mutación) para explorar simultáneamente el espacio de soluciones.
-- **Simulated annealing:** permite aceptar soluciones peores temporalmente (con cierta probabilidad) para escapar de mínimos locales.
-- **Monte Carlo:** exploración estadística exhaustiva del espacio de parámetros.
+- **[[Genetic Algorithm|Algoritmos genéticos]]:** mimetizan procesos evolutivos (selección, cruzamiento, mutación) para explorar simultáneamente el espacio de soluciones.
+- **[[Simulated Annealing|Simulated annealing]]:** permite aceptar soluciones peores temporalmente (con cierta probabilidad) para escapar de mínimos locales.
+- **[[Monte Carlo Methods|Monte Carlo]]:** exploración estadística exhaustiva del espacio de parámetros.
 
 Los métodos GS son más robustos que los LS pero computacionalmente mucho más costosos. Son especialmente importantes para perfiles inversamente dispersivos.
 
