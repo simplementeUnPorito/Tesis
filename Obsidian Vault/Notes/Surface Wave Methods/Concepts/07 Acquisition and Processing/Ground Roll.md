@@ -57,7 +57,7 @@ Estas prácticas, desde la perspectiva del análisis de [[Surface Waves|ondas su
 ## Aplicaciones en 2D y 3D
 
 - **2D:** generación de pseudosecciones de Vs a lo largo de líneas sísmicas (Socco et al. 2008, 2009). Resolución lateral = longitud de la ventana deslizante.
-- **3D:** con configuraciones point-receiver, el ground-roll está no-aliaseado y densamente muestreado. Se construyen **volúmenes de dispersión** ([[Phase Velocity|velocidad de fase]] como función de posición geográfica y longitud de onda). Cortes a λ constante producen mapas 2D de velocidad que revelan estructuras geológicas superficiales (Strobbia et al. 2011).
+- **3D:** con configuraciones point-receiver, el ground-roll está no-aliaseado y densamente muestreado. Se construyen **volúmenes de dispersión** ([[Phase Velocity|velocidad de fase]] como función de posición geográfica y [[Wavelength|longitud de onda]]). Cortes a λ constante producen mapas 2D de velocidad que revelan estructuras geológicas superficiales (Strobbia et al. 2011).
 
 ## Limitaciones
 

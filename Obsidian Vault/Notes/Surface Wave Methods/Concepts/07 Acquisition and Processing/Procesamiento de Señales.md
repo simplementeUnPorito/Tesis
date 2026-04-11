@@ -30,7 +30,7 @@ El espectrograma f-k $|U(\omega, k)|$ presenta **crestas** donde la energía se 
 
 $$c_p(f) = \frac{2\pi f}{k_{\text{cresta}}(f)}$$
 
-La ventaja del análisis f-k es que separa modos en función de sus velocidades: diferentes modos de Rayleigh aparecen como crestas a diferentes $k$ para la misma $f$. Los modos de mayor orden y las ondas de cuerpo (de mayor velocidad, menor $k$) se distinguen visualmente en el espectrograma.
+La ventaja del análisis f-k es que separa modos en función de sus velocidades: diferentes modos de Rayleigh aparecen como crestas a diferentes $k$ para la misma $f$. Los modos de mayor orden y las [[Body Waves|ondas de cuerpo]] (de mayor velocidad, menor $k$) se distinguen visualmente en el espectrograma.
 
 ## Análisis tau-p (intercept time–slowness)
 

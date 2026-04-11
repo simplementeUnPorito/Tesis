@@ -28,7 +28,7 @@ Para ingeniería geotécnica ([[MASW Method|MASW]] pasivo, VS30), el rango relev
 En el rango de frecuencias de ingeniería (1–100 Hz):
 - ~70% de la energía corresponde a [[Rayleigh Waves|ondas de Rayleigh]] (modo fundamental)
 - ~20% a [[Love Waves|ondas de Love]] (modo fundamental)
-- ~10% a ondas de cuerpo (P, S) directas y refractadas
+- ~10% a [[Body Waves|ondas de cuerpo]] (P, S) directas y refractadas
 
 Esta dominancia de [[Surface Waves|ondas superficiales]] es lo que hace posible los métodos de [[Surface Waves|ondas superficiales]] pasivos.
 

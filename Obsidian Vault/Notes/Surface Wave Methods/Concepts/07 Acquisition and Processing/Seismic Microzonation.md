@@ -25,7 +25,7 @@ type: reference
 
 ## VS,30 y amplificación sísmica
 
-La amplificación de las ondas sísmicas en suelos blandos respecto a la roca de referencia depende de la impedancia $Z = \rho V_S$. El factor de amplificación estático de cuarto de longitud de onda:
+La amplificación de las ondas sísmicas en suelos blandos respecto a la roca de referencia depende de la impedancia $Z = \rho V_S$. El factor de amplificación estático de cuarto de [[Wavelength|longitud de onda]]:
 $$F_a \approx \sqrt{\frac{Z_{roca}}{Z_{suelo}}} = \sqrt{\frac{\rho_{roca} V_{S,roca}}{\rho_{suelo} V_{S,suelo}}}$$
 
 Para un suelo clase D ($[[Vs30|Vs,30]] = 250$ m/s, $\rho = 1800$ kg/m³) sobre roca clase B ($[[Vs30|Vs,30]] = 800$ m/s, $\rho = 2500$ kg/m³), el factor de amplificación aproximado es:

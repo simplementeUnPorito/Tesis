@@ -9,7 +9,7 @@
 
 ## 1. Fundamento físico
 
-Las [[Surface Waves|ondas superficiales]] concentran la mayor parte de su energía en una zona superficial cuya profundidad efectiva de penetración es proporcional a la longitud de onda ([[Skin Depth]]).
+Las [[Surface Waves|ondas superficiales]] concentran la mayor parte de su energía en una zona superficial cuya profundidad efectiva de penetración es proporcional a la [[Wavelength|longitud de onda]] ([[Skin Depth]]).
 
 - **Longitudes de onda cortas (alta frecuencia)** → la energía queda confinada en las capas más someras → la velocidad refleja las propiedades superficiales.
 - **Longitudes de onda largas (baja frecuencia)** → la energía penetra más profundo → la velocidad integra propiedades de mayor profundidad.
@@ -95,7 +95,7 @@ La explotación sistemática de la dispersión geométrica para caracterización
 - [[Dispersion Relation]] — formalización matemática de c(ω)
 - [[Phase Velocity]] — observable primario medido en campo
 - [[Group Velocity]] — velocidad de paquete de ondas; difiere de c_R en medios dispersivos
-- [[Skin Depth]] — profundidad efectiva de penetración por longitud de onda
+- [[Skin Depth]] — profundidad efectiva de penetración por [[Wavelength|longitud de onda]]
 - [[Layered Media]] — condición necesaria para que emerja la dispersión geométrica
 - [[Rayleigh Eigenproblem]] — formulación matemática del sistema estratificado
 - [[Near-field Effect]] — artefacto que puede distorsionar c_R(ω) a bajas frecuencias

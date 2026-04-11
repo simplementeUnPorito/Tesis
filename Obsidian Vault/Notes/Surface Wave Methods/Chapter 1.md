@@ -62,7 +62,7 @@ Las pruebas se agrupan en dos categorías [3]:
 
 > Fuente: Foti et al. (2014), Sección 1.1, pp. 2–3.
 
-En un sólido elástico, lineal, homogéneo e infinito se propagan dos tipos de ondas de cuerpo (véase [[Body Waves]]):
+En un sólido elástico, lineal, homogéneo e infinito se propagan dos tipos de [[Body Waves|ondas de cuerpo]] (véase [[Body Waves]]):
 
 - **[[P-waves|Ondas P]]** (primarias o de compresión): el movimiento de partículas es paralelo a la dirección de propagación; producen compresión y dilatación alternante del volumen. Se propagan en sólidos y fluidos. Velocidad: $V_P = \sqrt{(\lambda + 2G)/\rho}$.
 
@@ -83,13 +83,13 @@ Las ondas superficiales se originan a partir de la condición de **esfuerzo nulo
 [INSERTE LA FIGURA 1.1 de la página 5]
 *(Patrón de radiación 2D de [[Rayleigh Waves|ondas Rayleigh]] generadas por una fuente puntual vertical. Se aprecia la zona de [[Near-field Effect|campo cercano]] y la órbita de partícula elíptica característica de las ondas de Rayleigh.)*
 
-Esta geometría bidimensional confiere a las ondas superficiales propiedades de propagación cualitativamente distintas a las de las ondas de cuerpo:
+Esta geometría bidimensional confiere a las ondas superficiales propiedades de propagación cualitativamente distintas a las de las [[Body Waves|ondas de cuerpo]]:
 
-- **[[Geometric Spreading|Atenuación geométrica reducida]]**: las ondas de cuerpo se expanden en tres dimensiones y su amplitud decae $\propto 1/r^2$. Las ondas de Rayleigh se expanden solo en dos dimensiones: desde una **fuente puntual**, la amplitud decae $\propto 1/\sqrt{r}$; desde una **fuente lineal** en un semiespacio homogéneo, no presentan ninguna atenuación geométrica (Ewing et al. 1957). La comparación resulta decisiva a campo lejano.
+- **[[Geometric Spreading|Atenuación geométrica reducida]]**: las [[Body Waves|ondas de cuerpo]] se expanden en tres dimensiones y su amplitud decae $\propto 1/r^2$. Las ondas de Rayleigh se expanden solo en dos dimensiones: desde una **fuente puntual**, la amplitud decae $\propto 1/\sqrt{r}$; desde una **fuente lineal** en un semiespacio homogéneo, no presentan ninguna atenuación geométrica (Ewing et al. 1957). La comparación resulta decisiva a campo lejano.
 
 - **Dominancia energética en campo lejano**: a distancias del orden de 1 a 2 [[Wavelength|longitudes de onda]] desde la fuente, las [[Body Waves|ondas de cuerpo]] han decaído suficientemente y el campo de ondas queda dominado por las [[Surface Waves|ondas superficiales]]. Lamb (1904) fue uno de los primeros en reconocer esta propiedad y sus implicaciones para la transmisión de energía sísmica a grandes distancias.
 
-- **Confinamiento en profundidad**: en la dirección perpendicular a la propagación (hacia el interior del semiespacio), el desplazamiento de partícula decae exponencialmente porque no se transporta energía hacia el interior. La mayor parte de la energía de deformación queda confinada dentro de ~1 longitud de onda $\lambda$ desde la superficie libre (Achenbach 1984). Esta propiedad establece la **relación frecuencia–profundidad** que hace posible la caracterización del subsuelo:
+- **Confinamiento en profundidad**: en la dirección perpendicular a la propagación (hacia el interior del semiespacio), el desplazamiento de partícula decae exponencialmente porque no se transporta energía hacia el interior. La mayor parte de la energía de deformación queda confinada dentro de ~1 [[Wavelength|longitud de onda]] $\lambda$ desde la superficie libre (Achenbach 1984). Esta propiedad establece la **relación frecuencia–profundidad** que hace posible la caracterización del subsuelo:
   - altas frecuencias → $\lambda$ corta → movimiento confinado a capas superficiales
   - bajas frecuencias → $\lambda$ larga → movimiento extendiéndose a mayor profundidad
 
@@ -122,7 +122,7 @@ La Figura 1.2 (p. 7) ilustra el mecanismo en un medio de tres capas:
 Al medir la [[Phase Velocity|velocidad de fase]] a diferentes frecuencias en el campo se obtiene la **[[Dispersion Curve|curva de dispersión]] experimental** $V_R(f)$. Un gráfico de velocidad vs. [[Wavelength|longitud de onda]] muestra una tendencia creciente para un perfil normalmente dispersivo (Figura 1.3d, p. 8); representado en función de la frecuencia constituye la **[[Dispersion Curve|curva de dispersión]]** en su forma convencional (Figura 1.3e, p. 8).
 
 [INSERTE LA FIGURA 1.3 de la página 8]
-*(Identificación de parámetros a partir de dispersión geométrica: (a) perfil de velocidad en capas, (b–c) movimiento de partícula a alta y baja frecuencia, (d) [[Dispersion Curve|curva de dispersión]] en dominio longitud de onda–velocidad, (e) [[Dispersion Curve|curva de dispersión]] en dominio frecuencia–velocidad. El problema inverso conecta (e) con (a).)*
+*(Identificación de parámetros a partir de dispersión geométrica: (a) perfil de velocidad en capas, (b–c) movimiento de partícula a alta y baja frecuencia, (d) [[Dispersion Curve|curva de dispersión]] en dominio [[Wavelength|longitud de onda]]–velocidad, (e) [[Dispersion Curve|curva de dispersión]] en dominio frecuencia–velocidad. El problema inverso conecta (e) con (a).)*
 
 **[[Forward Problem|Problema directo]] y problema inverso**: el vínculo entre el perfil $V_S(z)$ y la [[Dispersion Relation|curva de dispersión]] define dos problemas complementarios:
 
@@ -196,7 +196,7 @@ La inversión es el paso final de la interpretación de los ensayos de ondas sup
 **Mecánica del proceso**: la solución del **[[Forward Problem|problema directo]]** (Capítulo 2) — calcular la [[Dispersion Curve|curva de dispersión]] teórica para un modelo dado — forma la base de cualquier estrategia de inversión. La inversión minimiza una **función objetivo** que mide la distancia entre la curva experimental y la teórica, expresada habitualmente como la raíz del error cuadrático medio (RMS) de las diferencias entre los puntos de datos. El conjunto de parámetros del modelo que minimiza esta función es la solución del problema inverso (Figura 1.7, p. 14).
 
 [INSERTE LA FIGURA 1.7 de la página 14]
-*(Ejemplo de proceso de inversión: (a) perfil $V_S(z)$ resultante con capas de 200 a 1200 m/s; (b) comparación de [[Dispersion Curve|curvas de dispersión]] teórica y experimental en dominio longitud de onda–velocidad; (c) misma comparación en dominio frecuencia–velocidad. El ajuste entre curva teórica (línea continua) y datos experimentales (puntos) es bueno en todo el rango.)*
+*(Ejemplo de proceso de inversión: (a) perfil $V_S(z)$ resultante con capas de 200 a 1200 m/s; (b) comparación de [[Dispersion Curve|curvas de dispersión]] teórica y experimental en dominio [[Wavelength|longitud de onda]]–velocidad; (c) misma comparación en dominio frecuencia–velocidad. El ajuste entre curva teórica (línea continua) y datos experimentales (puntos) es bueno en todo el rango.)*
 
 **Estrategias de búsqueda** (Foti et al. 2014, pp. 14–15):
 - **Métodos de búsqueda local (LSM)**: parten de un perfil tentativo y exploran su vecindad mediante gradiente o métodos análogos. Son rápidos porque requieren pocas evaluaciones del [[Forward Problem|problema directo]]. Su limitación es el riesgo de convergencia a **mínimos locales** de la función objetivo, que pueden ser muy diferentes del mínimo global.
@@ -230,7 +230,7 @@ La toma de conciencia de que el [[Ground Roll|ground-roll]] contiene informació
 
 ### 1.5.3 Aplicaciones de Ingeniería: de [[SASW Method|SASW]] a [[MASW Method|MASW]]
 
-Las primeras aplicaciones ingenieriles de ondas superficiales se propusieron en los años 1950 con el método de estado estacionario de Rayleigh (Jones 1958, 1962; Ballard 1964), en el que un vibrador monocromático y un receptor se usaban para medir la longitud de onda de la onda de Rayleigh a cada frecuencia.
+Las primeras aplicaciones ingenieriles de ondas superficiales se propusieron en los años 1950 con el método de estado estacionario de Rayleigh (Jones 1958, 1962; Ballard 1964), en el que un vibrador monocromático y un receptor se usaban para medir la [[Wavelength|longitud de onda]] de la onda de Rayleigh a cada frecuencia.
 
 El salto cualitativo llegó con el **[[SASW Method|método SASW]]** (Spectral Analysis of Surface Waves), introducido en la Universidad de Texas en Austin a finales de los 1970s (Nazarian y Stokoe 1984; Stokoe et al. 1994). El [[SASW Method|SASW]] usa dos receptores y estima el [[Phase Velocity|desfase espectral]] entre ellos para obtener la [[Phase Velocity|velocidad de fase]] de Rayleigh. Aunque representó un avance teórico significativo, sus limitaciones prácticas — aliasing espacial, sensibilidad a modos superiores, baja tasa de producción en campo — abrieron el camino a los métodos multireceptor.
 
@@ -277,7 +277,7 @@ La resolución de los métodos de ondas superficiales **decrece con la profundid
 
 La **profundidad máxima investigable** se estima a partir de la [[Wavelength|longitud de onda]] máxima del experimento: $z_{\max} \approx \lambda_{\max}/2$. Esto depende directamente de la frecuencia mínima accesible, que está controlada por la longitud del arreglo y la calidad de la fuente. Los métodos pasivos de microtremores extienden la investigación en profundidad al proporcionar energía a frecuencias muy bajas.
 
-La Figura 1.12 (p. 28) ilustra otro problema: si la [[Dispersion Curve|curva de dispersión]] experimental está igualmente espaciada en frecuencia, la representación en el dominio longitud de onda–velocidad muestra una concentración de puntos a longitudes de onda cortas y muy pocos puntos a longitudes de onda largas. Esto hace que la inversión esté sobre-condicionada por la parte superficial del perfil. Estrategias de remuestreo con distribución exponencial de frecuencias, o el ajuste de la curva en el dominio de longitud de onda, permiten mejorar la distribución de la información y la calidad del perfil invertido a profundidad.
+La Figura 1.12 (p. 28) ilustra otro problema: si la [[Dispersion Curve|curva de dispersión]] experimental está igualmente espaciada en frecuencia, la representación en el dominio [[Wavelength|longitud de onda]]–velocidad muestra una concentración de puntos a longitudes de onda cortas y muy pocos puntos a longitudes de onda largas. Esto hace que la inversión esté sobre-condicionada por la parte superficial del perfil. Estrategias de remuestreo con distribución exponencial de frecuencias, o el ajuste de la curva en el dominio de [[Wavelength|longitud de onda]], permiten mejorar la distribución de la información y la calidad del perfil invertido a profundidad.
 
 ---
 
@@ -333,7 +333,7 @@ La dispersión de las ondas de Scholte converge hacia la dispersión de Rayleigh
 
 En la sísmica de reflexión para exploración de hidrocarburos, las **perturbaciones del near-surface** son fuentes de distorsión de los datos. Las ondas P deben viajar dos veces a través de la capa superficial (al bajar y al subir), y su heterogeneidad introduce retardos de tiempo que distorsionan las imágenes sísmicas — estos se corrigen con las llamadas *static corrections*. Tradicionalmente estas correcciones se calculan con sísmica de refracción, pero los métodos de ondas superficiales ofrecen una alternativa: invertir el [[Ground Roll|ground-roll]] para obtener un modelo $V_S$ del near-surface que luego se usa para estimar o refinar las correcciones estáticas.
 
-El [[Ground Roll|ground-roll]] — el mismo fenómeno que los sismólogos de exploración trataban como ruido coherente a eliminar — contiene la información de dispersión para esta inversión. Las mismas herramientas desarrolladas para suprimir el ground-roll ([[2D Fourier Transform|análisis f-k]], filtros [[Tau-P Transform|tau-p]]) se usan hoy para extraer la [[Dispersion Curve|curva de dispersión]] y obtener modelos de velocidad 2D y 3D del near-surface. La Figura 1.14 (p. 34) muestra un "volumen de dispersión 3D": un mapa de [[Phase Velocity|velocidad de fase]] a longitud de onda constante sobre un área de ~22×22 km, mostrando variaciones laterales de rigidez superficial a escala regional.
+El [[Ground Roll|ground-roll]] — el mismo fenómeno que los sismólogos de exploración trataban como ruido coherente a eliminar — contiene la información de dispersión para esta inversión. Las mismas herramientas desarrolladas para suprimir el ground-roll ([[2D Fourier Transform|análisis f-k]], filtros [[Tau-P Transform|tau-p]]) se usan hoy para extraer la [[Dispersion Curve|curva de dispersión]] y obtener modelos de velocidad 2D y 3D del near-surface. La Figura 1.14 (p. 34) muestra un "volumen de dispersión 3D": un mapa de [[Phase Velocity|velocidad de fase]] a [[Wavelength|longitud de onda]] constante sobre un área de ~22×22 km, mostrando variaciones laterales de rigidez superficial a escala regional.
 
 ### 1.7.6 Detección de Anomalías
 

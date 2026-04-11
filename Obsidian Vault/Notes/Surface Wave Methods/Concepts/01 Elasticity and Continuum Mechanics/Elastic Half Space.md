@@ -15,11 +15,11 @@ type: reference
 
 El semiespacio elástico representa el caso más simple posible: un material perfectamente homogéneo que se extiende infinitamente en profundidad y en horizontal, con una superficie libre plana horizontal en la parte superior. En este medio:
 
-- Existen dos tipos de ondas de cuerpo: [[P-waves]] y [[S-Waves]], que se propagan en todas las direcciones.
+- Existen dos tipos de [[Body Waves|ondas de cuerpo]]: [[P-waves]] y [[S-Waves]], que se propagan en todas las direcciones.
 - En la interfaz superficie libre–semiespacio, la condición de esfuerzo nulo obliga a que exista también una onda que viaja *a lo largo de la superficie*: las [[Rayleigh Waves]].
 - Las ondas de Rayleigh en este medio son **no dispersivas**: viajan siempre a la misma velocidad $V_R \approx 0.92 V_S$, independientemente de la frecuencia.
 
-La no-dispersividad es una consecuencia directa de la homogeneidad: no existe ninguna longitud de escala intrínseca en el medio que pueda hacer que ondas de diferente longitud de onda se propaguen a diferente velocidad. Esto contrasta con el caso de [[Layered Media]], donde la estratificación introduce longitudes de escala (espesores de capa) que producen dispersión.
+La no-dispersividad es una consecuencia directa de la homogeneidad: no existe ninguna longitud de escala intrínseca en el medio que pueda hacer que ondas de diferente [[Wavelength|longitud de onda]] se propaguen a diferente velocidad. Esto contrasta con el caso de [[Layered Media]], donde la estratificación introduce longitudes de escala (espesores de capa) que producen dispersión.
 
 ## Parámetros del modelo
 
@@ -70,7 +70,7 @@ Esta polarización elíptica con dominancia vertical es la razón por la que los
 
 ## Decaimiento con profundidad
 
-Los desplazamientos decaen exponencialmente con la profundidad. La mayor parte de la energía está confinada dentro de una profundidad $\approx \lambda_R$ (longitud de onda de Rayleigh). El **[[Skin Depth]]** (profundidad donde la amplitud cae a $1/e$ del valor superficial) es $\approx 0.94\lambda_R$. Esta propiedad establece la **regla de investigación**: la profundidad máxima explorada es aproximadamente $\lambda_R/2$ a $\lambda_R$.
+Los desplazamientos decaen exponencialmente con la profundidad. La mayor parte de la energía está confinada dentro de una profundidad $\approx \lambda_R$ ([[Wavelength|longitud de onda]] de Rayleigh). El **[[Skin Depth]]** (profundidad donde la amplitud cae a $1/e$ del valor superficial) es $\approx 0.94\lambda_R$. Esta propiedad establece la **regla de investigación**: la profundidad máxima explorada es aproximadamente $\lambda_R/2$ a $\lambda_R$.
 
 ## Decaimiento geométrico
 
@@ -78,7 +78,7 @@ Para una fuente puntual vertical en la superficie libre, la amplitud de las onda
 
 $$A_R \propto \frac{1}{\sqrt{r}}$$
 
-mientras que las ondas de cuerpo en la misma superficie decaen como $1/r^2$. Esto implica que a distancias mayores de una o dos longitudes de onda, el campo de ondas queda dominado por las ondas de Rayleigh. Es la base experimental de los métodos [[MASW Method|MASW]] y [[SASW Method|SASW]].
+mientras que las [[Body Waves|ondas de cuerpo]] en la misma superficie decaen como $1/r^2$. Esto implica que a distancias mayores de una o dos longitudes de onda, el campo de ondas queda dominado por las ondas de Rayleigh. Es la base experimental de los métodos [[MASW Method|MASW]] y [[SASW Method|SASW]].
 
 ## Relación con medios reales
 

@@ -39,15 +39,15 @@ El campo de ondas medido en un registro típico contiene múltiples tipos de ond
 
 #### El dominio de la frecuencia como eje central
 
-A diferencia de la sísmica de refracción (que trabaja en tiempo–offset con primeras llegadas) o de la reflexión (que trabaja con reflexiones en tiempo), la adquisición de ondas superficiales opera fundamentalmente en el **dominio de la frecuencia**. La caracterización del subsuelo se realiza resolviendo un problema inverso (ver Capítulo 6) en el que las **propiedades de ondas de diferentes [[Wavelength|longitudes de onda]]** se asignan a parámetros del subsuelo a diferentes profundidades. Por eso, registrar y generar un rango amplio de longitudes de onda es crítico: cada longitud de onda "muestrea" una profundidad diferente.
+A diferencia de la sísmica de refracción (que trabaja en tiempo–offset con primeras llegadas) o de la reflexión (que trabaja con reflexiones en tiempo), la adquisición de ondas superficiales opera fundamentalmente en el **dominio de la frecuencia**. La caracterización del subsuelo se realiza resolviendo un problema inverso (ver Capítulo 6) en el que las **propiedades de ondas de diferentes [[Wavelength|longitudes de onda]]** se asignan a parámetros del subsuelo a diferentes profundidades. Por eso, registrar y generar un rango amplio de longitudes de onda es crítico: cada [[Wavelength|longitud de onda]] "muestrea" una profundidad diferente.
 
-#### El vínculo entre frecuencia, longitud de onda y profundidad
+#### El vínculo entre frecuencia, [[Wavelength|longitud de onda]] y profundidad
 
 La [[Wavelength|longitud de onda]] depende de dos factores:
 
 $$\lambda = \frac{V}{f}$$
 
-donde $V$ es la [[Phase Velocity|velocidad de fase]] de la onda superficial y $f$ la frecuencia. La velocidad $V$ es función de las propiedades mecánicas del subsuelo — que son precisamente el objetivo del experimento y no pueden controlarse a priori. Por eso, el parámetro controlable es la **frecuencia**: **a menor frecuencia, mayor longitud de onda, mayor profundidad de investigación**.
+donde $V$ es la [[Phase Velocity|velocidad de fase]] de la onda superficial y $f$ la frecuencia. La velocidad $V$ es función de las propiedades mecánicas del subsuelo — que son precisamente el objetivo del experimento y no pueden controlarse a priori. Por eso, el parámetro controlable es la **frecuencia**: **a menor frecuencia, mayor [[Wavelength|longitud de onda]], mayor profundidad de investigación**.
 
 Esta relación tiene una consecuencia práctica directa: para explorar hasta 30 m de profundidad (objetivo típico en [[Vs30|$V_{S,30}$]]) se necesitan [[Rayleigh Waves|ondas de Rayleigh]] con longitudes de onda del orden de 30–60 m, lo que corresponde a frecuencias de 2–10 Hz para velocidades de corte típicas de suelos (~100–300 m/s). Estas frecuencias bajas exigen fuentes energéticas y geófonos de baja frecuencia natural.
 
@@ -249,7 +249,7 @@ $$k_{Nyq} = \frac{1}{2\Delta X}$$
 
 Las ondas con $k > k_{Nyq}$ (velocidades de fase muy bajas) aparecen como componentes ficticias de [[Wave Number|número de onda]] negativo. En arreglos *end-off*, esta información aliasada puede recuperarse extendiendo el análisis al cuadrante negativo del dominio f-k, aumentando el [[Wave Number|número de onda]] máximo efectivo a $2k_{Nyq}$.
 
-> **Regla práctica para [[MASW Method|MASW]]**: el espaciado entre geófonos debe ser menor que la mitad de la longitud de onda mínima de interés: $\Delta X < \lambda_{min}/2$. Para frecuencias altas (alta resolución superficial) se requieren espaciados más pequeños; para profundidades mayores se pueden usar espaciados más grandes.
+> **Regla práctica para [[MASW Method|MASW]]**: el espaciado entre geófonos debe ser menor que la mitad de la [[Wavelength|longitud de onda]] mínima de interés: $\Delta X < \lambda_{min}/2$. Para frecuencias altas (alta resolución superficial) se requieren espaciados más pequeños; para profundidades mayores se pueden usar espaciados más grandes.
 
 *(Fuente: Foti Ch. 3, Sec. 3.3.3–3.3.4, p. 134–137, Ecs. 3.13–3.14, Figs. 3.8–3.11)*
 
@@ -443,7 +443,7 @@ Tipos de ruido coherente en adquisición de ondas superficiales:
 
 - **[[Body Waves|Ondas de cuerpo]]** (P y S): llegan antes o simultáneamente con las ondas superficiales. En aplicaciones de pequeña escala suelen tener menor amplitud. Pueden identificarse en tiempo-offset y eliminarse o ignorarse.
 - **[[Surface Wave Modes|Modos superiores]]** de propagación: en sitios inversamente dispersivos pueden dominar la respuesta. Si el modelo solo considera el modo fundamental, los modos superiores son ruido coherente. La solución correcta es incluirlos en el modelo (inversión multimodal).
-- **[[Near-field Effect|Efecto de campo cercano]]** (*near-field effect*): las [[Rayleigh Waves|Rayleigh waves]] solo se comportan como ondas planas más allá de cierta distancia de la fuente. Dentro de esa zona, el campo está dominado por contribuciones de ondas de cuerpo y la velocidad aparente no corresponde a la del modo fundamental.
+- **[[Near-field Effect|Efecto de campo cercano]]** (*near-field effect*): las [[Rayleigh Waves|Rayleigh waves]] solo se comportan como ondas planas más allá de cierta distancia de la fuente. Dentro de esa zona, el campo está dominado por contribuciones de [[Body Waves|ondas de cuerpo]] y la velocidad aparente no corresponde a la del modo fundamental.
 - **Air blast**: la onda de presión acústica en el aire (velocidad ~331–360 m/s) puede ser detectada por los geófonos. Aparece en el dominio f-k como un evento lineal de velocidad constante.
 - **Variaciones laterales**: heterogeneidades subsuperficiales hacen que las ondas superficiales no sigan el modelo de propagación plana 1D, generando difracción y distorsión de la velocidad aparente.
 
@@ -536,7 +536,7 @@ La geometría básica es un **arreglo lineal de receptores uniformemente espacia
 
 | Parámetro | Efecto principal |
 |---|---|
-| Espaciado $\Delta X$ | $k_{max}$ → profundidad mínima / longitud de onda mínima |
+| Espaciado $\Delta X$ | $k_{max}$ → profundidad mínima / [[Wavelength|longitud de onda]] mínima |
 | Apertura $D = N \cdot \Delta X$ | Resolución modal, profundidad máxima |
 | Offset fuente $L_s$ | Excluye zona de [[Near-field Effect|campo cercano]] |
 | Duración del registro $T$ | Resolución en frecuencia |
@@ -569,7 +569,7 @@ El ruido sísmico ambiental (*[[Microtremor|microtremors]]*) es un campo de onda
 - **Baja frecuencia (< 1 Hz)**: las fuentes son de origen natural, principalmente relacionadas con eventos geofísicos globales y, en particular, con las olas oceánicas que generan ondas sísmicas de largo período.
 - **Alta frecuencia (> 1 Hz)**: las fuentes son predominantemente de origen humano — tráfico vehicular, actividad industrial, maquinaria. Incluso en áreas remotas y silenciosas, los elementos atmosféricos pueden dominar el campo de fondo a estas frecuencias.
 
-Para aplicaciones superficiales, el componente de interés es el **microtremor de período corto** ($T < 1\,\text{s}$, $f > 1\,\text{Hz}$). El campo de microtremores está dominado por **componentes de ondas superficiales** ([[Rayleigh Waves|Rayleigh]] y [[Love Waves|Love]]), con contribuciones limitadas de ondas de cuerpo — esta característica es precisamente lo que hace que el ruido ambiental sea útil para sísmica de ondas superficiales.
+Para aplicaciones superficiales, el componente de interés es el **microtremor de período corto** ($T < 1\,\text{s}$, $f > 1\,\text{Hz}$). El campo de microtremores está dominado por **componentes de ondas superficiales** ([[Rayleigh Waves|Rayleigh]] y [[Love Waves|Love]]), con contribuciones limitadas de [[Body Waves|ondas de cuerpo]] — esta característica es precisamente lo que hace que el ruido ambiental sea útil para sísmica de ondas superficiales.
 
 ##### Por qué usar métodos pasivos
 
@@ -587,8 +587,8 @@ La posición de la fuente en métodos pasivos es **desconocida y variable durant
 
 Se prefieren arreglos bidimensionales que permitan estimar el vector $\mathbf{k}$ completo. Parámetros de diseño:
 
-- **Apertura total** (diámetro del array): controla la máxima longitud de onda detectada → máxima profundidad. Se recomienda una apertura de 1/3 a 1 vez la máxima longitud de onda de interés (Tokimatsu 1995; Asten y Henstridge 1984).
-- **Espaciado entre receptores**: debe ser menor que la mitad de la mínima longitud de onda (criterio antialiasing), igual que en datos activos.
+- **Apertura total** (diámetro del array): controla la máxima [[Wavelength|longitud de onda]] detectada → máxima profundidad. Se recomienda una apertura de 1/3 a 1 vez la máxima [[Wavelength|longitud de onda]] de interés (Tokimatsu 1995; Asten y Henstridge 1984).
+- **Espaciado entre receptores**: debe ser menor que la mitad de la mínima [[Wavelength|longitud de onda]] (criterio antialiasing), igual que en datos activos.
 
 Configuraciones de array típicas en la práctica (**Fig. 3.44**, p. 181): L, T, cruz, cuadrado, círculo, triángulo equilátero simple y anidado, cuadrícula hexagonal y rectangular. La elección depende del método de procesamiento:
 - Para métodos de [[SPAC Method|SPAC]]/ESAC: el **triángulo con triángulos equiláteros anidados** da buenos resultados con un número limitado de geófonos.

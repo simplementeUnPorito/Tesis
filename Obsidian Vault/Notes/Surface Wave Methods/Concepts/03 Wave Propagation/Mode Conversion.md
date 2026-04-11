@@ -49,7 +49,7 @@ La conversión de modos tiene consecuencias prácticas en el diseño del arreglo
 
 1. **Contaminación de registros**: si la fuente genera ondas P, en las interfaces del subsuelo se generan ondas SV convertidas que llegan a los [[Geophone|geófono]] con diferentes moveouts. En ciertos casos pueden interferir con el tren de [[Surface Waves|ondas superficiales]].
 
-2. **Separación en procesamiento**: el análisis f-k permite separar ondas con diferentes velocidades de fase (y por tanto diferentes pendientes en el sismograma). Las ondas de cuerpo convertidas tienen velocidades mayores que las [[Surface Waves|ondas superficiales]] y se distinguen en el espectro f-k.
+2. **Separación en procesamiento**: el análisis f-k permite separar ondas con diferentes velocidades de fase (y por tanto diferentes pendientes en el sismograma). Las [[Body Waves|ondas de cuerpo]] convertidas tienen velocidades mayores que las [[Surface Waves|ondas superficiales]] y se distinguen en el espectro f-k.
 
 3. **Fuentes horizontales y Love**: las fuentes horizontales generan principalmente ondas SH, minimizando la conversión a P y SV. Esto es ventajoso para la adquisición de [[Love Waves]] con menor contaminación de componentes P–SV.
 

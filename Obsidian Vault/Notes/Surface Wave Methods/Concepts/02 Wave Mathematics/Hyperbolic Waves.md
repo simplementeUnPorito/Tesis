@@ -29,7 +29,7 @@ La [[Dispersion Relation|relación de dispersión]] es lineal: $\omega = c_0 k$ 
 
 Las [[P-waves]] y [[S-Waves]] en medios elásticos homogéneos son aproximadamente hiperbólicas: viajan a velocidades constantes $V_P$ y $V_S$ independientemente de la frecuencia. En contraste, las [[Rayleigh Waves]] en [[Layered Media|medios estratificados]] son dispersivas: la relación $\omega(k)$ es no lineal (ver [[Wave Dispersion]] y [[Geometric Dispersion]]).
 
-> [!EXAMPLE] Evidencia empírica: separación en tiempo entre ondas de cuerpo y [[Ground Roll|ground-roll]] en sismogramas [[MASW Method|MASW]]
+> [!EXAMPLE] Evidencia empírica: separación en tiempo entre [[Body Waves|ondas de cuerpo]] y [[Ground Roll|ground-roll]] en sismogramas [[MASW Method|MASW]]
 > **Paper 001 (Park, Miller & Xia 1999)** muestra sismogramas de Kansas donde las primeras llegadas P (ondas hiperbólicas, llegan primero) están claramente separadas del [[Ground Roll|ground-roll]] de Rayleigh (onda dispersiva, llega después). Esta separación temporal valida que las ondas P se comportan como hiperbólicas (velocidad constante $V_P$), mientras que el [[Ground Roll|ground-roll]] exhibe la dispersión característica de medios estratificados. La diferencia de comportamiento entre ondas hiperbólicas (no dispersivas) y ondas de Rayleigh (dispersivas) es el fundamento conceptual del análisis f-k que extrae la [[Dispersion Curve|curva de dispersión]] del [[Ground Roll|ground-roll]].
 >
 > — Research Database, entrada 001 (core).

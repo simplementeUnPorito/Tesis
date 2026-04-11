@@ -141,11 +141,11 @@ En resumen, existen tres tipos de [[Forward Problem|problema directo]] en ondas 
 
 El método más antiguo y simple de inversión empírica es el **SSRM**, precursor de los modernos métodos espectrales ([[SASW Method|SASW]], [[MASW Method|MASW]]).
 
-**Fundamento físico:** en un [[Elastic Half Space|semiespacio elástico homogéneo]], la onda de Rayleigh tiene una [[Phase Velocity|velocidad de fase]] $V_R$ próxima a la velocidad de corte del medio: $V_R \approx 0.92 \cdot V_s$. Inversamente, $V_s \approx 1.1 \cdot V_R$. Además, el movimiento de onda superficial está confinado principalmente en la zona de la *skin depth* (~1 longitud de onda de profundidad), y la mayor parte de la energía se concentra dentro de los primeros $\lambda/3$ de profundidad.
+**Fundamento físico:** en un [[Elastic Half Space|semiespacio elástico homogéneo]], la onda de Rayleigh tiene una [[Phase Velocity|velocidad de fase]] $V_R$ próxima a la velocidad de corte del medio: $V_R \approx 0.92 \cdot V_s$. Inversamente, $V_s \approx 1.1 \cdot V_R$. Además, el movimiento de onda superficial está confinado principalmente en la zona de la *skin depth* (~1 [[Wavelength|longitud de onda]] de profundidad), y la mayor parte de la energía se concentra dentro de los primeros $\lambda/3$ de profundidad.
 
 **Procedimiento (Figura 6.5, p. 287):**
 Para cada frecuencia del ensayo:
-1. Medir la [[Phase Velocity|velocidad de fase]] $V_R^*$ y la longitud de onda $\lambda_R^*$.
+1. Medir la [[Phase Velocity|velocidad de fase]] $V_R^*$ y la [[Wavelength|longitud de onda]] $\lambda_R^*$.
 2. Estimar $V_s \approx 1.1 \cdot V_R^*$.
 3. Asignar ese valor de $V_s$ a la profundidad $z \approx \lambda_R^*/3$.
 4. Repetir para todas las frecuencias disponibles → construir el perfil $V_s(z)$.

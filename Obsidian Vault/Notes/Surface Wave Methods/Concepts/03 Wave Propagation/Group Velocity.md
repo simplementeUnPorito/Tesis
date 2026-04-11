@@ -27,7 +27,7 @@ En términos de la [[Phase Velocity|velocidad de fase]] $c_p = \omega/k$:
 
 $$c_g = c_p + k\frac{dc_p}{dk} = c_p - \lambda\frac{dc_p}{d\lambda}$$
 
-La segunda forma muestra que $c_g < c_p$ cuando la [[Phase Velocity|velocidad de fase]] crece con la longitud de onda (medio normalmente dispersivo). Para [[Rayleigh Waves]] en medios estratificados normalmente dispersivos, es habitual que $c_g < c_p$.
+La segunda forma muestra que $c_g < c_p$ cuando la [[Phase Velocity|velocidad de fase]] crece con la [[Wavelength|longitud de onda]] (medio normalmente dispersivo). Para [[Rayleigh Waves]] en medios estratificados normalmente dispersivos, es habitual que $c_g < c_p$.
 
 ## Derivación para superposición de dos ondas
 
@@ -59,7 +59,7 @@ En un medio normalmente dispersivo (velocidad crece con profundidad), la curva $
 | Métodos [[MASW Method|MASW]]/[[SASW Method|SASW]] (near-surface) | $c_p$ es el observable primario; $c_g$ es de importancia secundaria en inversión |
 | Análisis de registros dispersivos | $c_g$ controla la llegada temporal de las componentes de energía |
 
-En métodos [[MASW Method|MASW]] estándar, el análisis f-k extrae $c_p$. La velocidad de grupo aparece implícitamente en el *moveout* temporal del tren de ondas visible en el sismograma: en un medio dispersivo, las componentes de baja frecuencia (longitud de onda larga, mayor profundidad de penetración) llegan antes que las de alta frecuencia. Esta "dispersión temporal" del [[Ground Roll|ground-roll]] es la firma visual de la heterogeneidad del subsuelo.
+En métodos [[MASW Method|MASW]] estándar, el análisis f-k extrae $c_p$. La velocidad de grupo aparece implícitamente en el *moveout* temporal del tren de ondas visible en el sismograma: en un medio dispersivo, las componentes de baja frecuencia ([[Wavelength|longitud de onda]] larga, mayor profundidad de penetración) llegan antes que las de alta frecuencia. Esta "dispersión temporal" del [[Ground Roll|ground-roll]] es la firma visual de la heterogeneidad del subsuelo.
 
 ## Implicaciones para el diseño experimental
 

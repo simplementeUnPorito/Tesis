@@ -7,7 +7,7 @@ type: reference
 # Nyquist Theorem — Teorema de Nyquist
 
 > [!CONCEPT] Definición
-> El **teorema de Nyquist** (o teorema de Nyquist-Shannon) establece que para reconstruir perfectamente una señal de banda limitada $x(t)$ con frecuencia máxima $f_{max}$ a partir de sus muestras discretas, la **frecuencia de muestreo** $f_s$ debe satisfacer $f_s \geq 2 f_{max}$. La frecuencia límite $f_{Nyquist} = f_s/2$ es la frecuencia máxima representable sin [[Aliasing|aliasing]]. En [[MASW Method|MASW]], el teorema aplica en dos dimensiones: (1) **temporal** — la frecuencia de muestreo $f_s$ (tipicamente 1000–4000 Hz) limita la frecuencia máxima de la señal sísmica; (2) **espacial** — el espaciado entre [[Geophone|geófono]] $\Delta x$ actúa como "muestreo espacial" y el [[Wavenumber|número de onda]] máximo $k_{Nyquist} = \pi/\Delta x$ limita la longitud de onda mínima detectable. El [[Aliasing|aliasing]] espacial ocurre cuando $\lambda < 2\Delta x$, produciendo velocidades de fase aparentes erróneas en el espectrograma f-k.
+> El **teorema de Nyquist** (o teorema de Nyquist-Shannon) establece que para reconstruir perfectamente una señal de banda limitada $x(t)$ con frecuencia máxima $f_{max}$ a partir de sus muestras discretas, la **frecuencia de muestreo** $f_s$ debe satisfacer $f_s \geq 2 f_{max}$. La frecuencia límite $f_{Nyquist} = f_s/2$ es la frecuencia máxima representable sin [[Aliasing|aliasing]]. En [[MASW Method|MASW]], el teorema aplica en dos dimensiones: (1) **temporal** — la frecuencia de muestreo $f_s$ (tipicamente 1000–4000 Hz) limita la frecuencia máxima de la señal sísmica; (2) **espacial** — el espaciado entre [[Geophone|geófono]] $\Delta x$ actúa como "muestreo espacial" y el [[Wavenumber|número de onda]] máximo $k_{Nyquist} = \pi/\Delta x$ limita la [[Wavelength|longitud de onda]] mínima detectable. El [[Aliasing|aliasing]] espacial ocurre cuando $\lambda < 2\Delta x$, produciendo velocidades de fase aparentes erróneas en el espectrograma f-k.
 >
 > — Foti et al. (2018), Cap. 3, §3.1; Cap. 4, §4.2; Shannon (1949).
 
@@ -25,7 +25,7 @@ Con espaciado entre [[Geophone|geófono]] $\Delta x$, el [[Wavenumber|número de
 
 $$k_{Nyquist} = \frac{\pi}{\Delta x}$$
 
-La longitud de onda mínima libre de [[Aliasing|aliasing]] es $\lambda_{min} = 2\Delta x$. La condición anti-[[Aliasing|aliasing]] para la [[Phase Velocity|velocidad de fase]] es:
+La [[Wavelength|longitud de onda]] mínima libre de [[Aliasing|aliasing]] es $\lambda_{min} = 2\Delta x$. La condición anti-[[Aliasing|aliasing]] para la [[Phase Velocity|velocidad de fase]] es:
 
 $$c_R(f) \geq 2 f \Delta x \quad \Leftrightarrow \quad \lambda \geq 2\Delta x$$
 

@@ -23,7 +23,7 @@ $$-1 \leq \nu < 0.5$$
 
 En la práctica, casi todos los materiales naturales tienen $0 \leq \nu < 0.5$.
 
-## Relación con velocidades de ondas de cuerpo
+## Relación con velocidades de [[Body Waves|ondas de cuerpo]]
 
 Las velocidades de ondas P y S en un medio isótropo elástico son:
 

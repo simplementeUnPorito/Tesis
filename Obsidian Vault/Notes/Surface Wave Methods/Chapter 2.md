@@ -497,7 +497,7 @@ $$
 V_S < V_P
 $$
 
-Estas velocidades corresponden a la [[Phase Velocity]] de las ondas de cuerpo. En medios homogéneos, además:
+Estas velocidades corresponden a la [[Phase Velocity]] de las [[Body Waves|ondas de cuerpo]]. En medios homogéneos, además:
 
 [[Group Velocity]] = [[Phase Velocity]]
 
@@ -549,9 +549,9 @@ Soluciones más generales pueden construirse mediante:
 
 #### Importancia para métodos de ondas superficiales
 
-Aunque esta sección describe ondas de cuerpo, su análisis es esencial para comprender los métodos de caracterización basados en [[Surface Waves]].
+Aunque esta sección describe [[Body Waves|ondas de cuerpo]], su análisis es esencial para comprender los métodos de caracterización basados en [[Surface Waves]].
 
-Las ondas superficiales pueden interpretarse como combinaciones de ondas de cuerpo que satisfacen condiciones de frontera en la superficie libre.
+Las ondas superficiales pueden interpretarse como combinaciones de [[Body Waves|ondas de cuerpo]] que satisfacen condiciones de frontera en la superficie libre.
 
 En particular:
 
@@ -753,7 +753,7 @@ $$
 T = \frac{2\pi}{\omega}  
 $$
 
-#### Longitud de onda
+#### [[Wavelength|Longitud de onda]]
 
 La [[Wavelength|longitud de onda]] es la distancia entre dos puntos con la misma fase:
 
@@ -771,7 +771,7 @@ Esta relación conecta directamente:
 
 - velocidad de propagación
 - frecuencia
-- longitud de onda
+- [[Wavelength|longitud de onda]]
 
 ### Importancia para métodos de ondas superficiales
 
@@ -779,8 +779,8 @@ Estas relaciones son fundamentales porque permiten conectar el comportamiento de
 
 En particular:
 
-- la frecuencia controla la longitud de onda
-- la longitud de onda controla la profundidad efectiva de investigación
+- la frecuencia controla la [[Wavelength|longitud de onda]]
+- la [[Wavelength|longitud de onda]] controla la profundidad efectiva de investigación
 - la dependencia entre velocidad y frecuencia es la base de las [[Dispersion Relation|curvas de dispersión]]
 
 Por eso, estos parámetros serán esenciales en las secciones posteriores sobre:
@@ -816,7 +816,7 @@ Esto implica que la energía se propaga principalmente:
 - a lo largo de la superficie
 - con muy poca propagación hacia el interior del medio.
 
-Como consecuencia, las ondas superficiales presentan una **[[Attenuation|atenuación]] geométrica mucho menor** que las ondas de cuerpo.
+Como consecuencia, las ondas superficiales presentan una **[[Attenuation|atenuación]] geométrica mucho menor** que las [[Body Waves|ondas de cuerpo]].
 
 ---
 
@@ -846,7 +846,7 @@ $$
 \frac{1}{r^2}
 $$
 
-Esto implica que a distancias del orden de **una o dos longitudes de onda desde la fuente**, la contribución de las ondas de cuerpo se vuelve **despreciable** y el campo de ondas queda dominado por **[[Rayleigh Waves]]**.
+Esto implica que a distancias del orden de **una o dos longitudes de onda desde la fuente**, la contribución de las [[Body Waves|ondas de cuerpo]] se vuelve **despreciable** y el campo de ondas queda dominado por **[[Rayleigh Waves]]**.
 
 Este fenómeno fue reconocido tempranamente en el contexto de [[Lamb's Problem]], que estudia la generación de ondas por una carga aplicada en la superficie de un medio elástico.
 
@@ -895,7 +895,7 @@ Esto implica que:
 
 ### Implicación geofísica fundamental
 
-Esta relación entre **longitud de onda y profundidad de penetración** es la base física de los métodos de caracterización del subsuelo mediante [[Surface Waves]].
+Esta relación entre **[[Wavelength|longitud de onda]] y profundidad de penetración** es la base física de los métodos de caracterización del subsuelo mediante [[Surface Waves]].
 
 En particular:
 
@@ -956,7 +956,7 @@ $$
 \alpha = \sqrt{k^2 - \frac{\omega^2}{V_P^2}}, \qquad \beta = \sqrt{k^2 - \frac{\omega^2}{V_S^2}}
 $$
 
-La condición $\text{Re}(\alpha) > 0$ y $\text{Re}(\beta) > 0$ garantiza que las amplitudes **decaigan con la profundidad** — condición necesaria para que sean ondas superficiales y no ondas de cuerpo.
+La condición $\text{Re}(\alpha) > 0$ y $\text{Re}(\beta) > 0$ garantiza que las amplitudes **decaigan con la profundidad** — condición necesaria para que sean ondas superficiales y no [[Body Waves|ondas de cuerpo]].
 
 #### Condiciones de frontera en superficie libre
 
@@ -1058,7 +1058,7 @@ Un resultado central del capítulo es que en un [[Elastic Half Space]] homogéne
 - la ecuación secular de Rayleigh no contiene $\omega$ ni $k$ de forma independiente, sino únicamente a través del cociente $c_R = \omega/k$
 - por tanto, las [[Rayleigh Waves|ondas de Rayleigh]] en este medio son **no dispersivas**
 
-La razón física de esta no-dispersividad es que el medio es homogéneo: no existe longitud de escala característica que introduzca un efecto de tamaño relativo. La onda de Rayleigh de cualquier frecuencia "ve" exactamente el mismo medio independientemente de su longitud de onda. En contraste, en un medio estratificado sí existe una longitud de escala natural (el espesor de las capas), y las ondas de diferente longitud de onda penetran profundidades diferentes y por tanto sienten medios distintos — esto es exactamente la dispersión geométrica.
+La razón física de esta no-dispersividad es que el medio es homogéneo: no existe longitud de escala característica que introduzca un efecto de tamaño relativo. La onda de Rayleigh de cualquier frecuencia "ve" exactamente el mismo medio independientemente de su [[Wavelength|longitud de onda]]. En contraste, en un medio estratificado sí existe una longitud de escala natural (el espesor de las capas), y las ondas de diferente [[Wavelength|longitud de onda]] penetran profundidades diferentes y por tanto sienten medios distintos — esto es exactamente la dispersión geométrica.
 
 Esta referencia tiene consecuencias directas para la caracterización del subsuelo: **la dispersión que observamos experimentalmente es evidencia directa de la heterogeneidad vertical del subsuelo**. Si un sitio tiene propiedades uniformes con la profundidad, la [[Dispersion Curve|curva de dispersión]] es plana; si hay gradiente o capas con velocidades distintas, la curva tiene pendiente. Esto es lo que permite extraer información del perfil $V_S(z)$ a partir de la [[Dispersion Curve|curva de dispersión]] medida con geófonos: la variación de [[Phase Velocity|velocidad de fase]] con la frecuencia mapea la variación de rigidez con la profundidad.
 
@@ -1215,11 +1215,11 @@ $$
 
 donde $r = \sqrt{x_1^2 + x_3^2}$, $k_R = \omega/V_R$, y $H_0^{(2)}(\cdot)$ es la [[Hankel Function|función de Hankel]] de segundo tipo y orden cero. Para $|k_R r| \gg 1$, la expansión asintótica muestra que la amplitud decae como $r^{-0.5}$ (frentes de onda cilíndricos).
 
-Las ondas de cuerpo, en cambio, decaen como $r^{-2}$ en la superficie libre — mucho más rápido.
+Las [[Body Waves|ondas de cuerpo]], en cambio, decaen como $r^{-2}$ en la superficie libre — mucho más rápido.
 
 #### Umbral de campo cercano / campo lejano
 
-El campo total se descompone en $\mathbf{u} = \mathbf{u}_B + \mathbf{u}_S$. En el **campo lejano**, la contribución de ondas de cuerpo es despreciable.
+El campo total se descompone en $\mathbf{u} = \mathbf{u}_B + \mathbf{u}_S$. En el **campo lejano**, la contribución de [[Body Waves|ondas de cuerpo]] es despreciable.
 
 **Umbral cuantitativo** (Foti Sec. 2.4.2, p. 86): en medios *normalmente dispersivos*, los efectos de [[Near-field Effect|campo cercano]] son significativos hasta:
 
@@ -1351,7 +1351,7 @@ La analogía entre las ecuaciones de campo de la elasticidad y la viscoelasticid
 
 Esto hace que todas las fórmulas derivadas para medios elásticos (incluyendo la ecuación secular de Rayleigh) sean válidas en medios viscoelásticos, con $\lambda, \mu \in \mathbb{C}(\omega)$.
 
-#### Velocidades complejas de ondas de cuerpo (Foti Ec. 2.118)
+#### Velocidades complejas de [[Body Waves|ondas de cuerpo]] (Foti Ec. 2.118)
 
 $$
 V_P^*(\omega) = \sqrt{\frac{G_B^*(\omega) + \frac{4}{3}G_S^*(\omega)}{\rho}}, \qquad V_S^*(\omega) = \sqrt{\frac{G_S^*(\omega)}{\rho}}

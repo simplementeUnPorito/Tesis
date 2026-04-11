@@ -51,7 +51,7 @@ Las soluciones discretas del determinante para cada $\omega$ son los **modos de 
 
 ## Dispersión normal vs. inversa
 
-En un medio **normalmente dispersivo** (rigidez creciente con la profundidad), la [[Phase Velocity|velocidad de fase]] crece con la longitud de onda (y decrece con la frecuencia):
+En un medio **normalmente dispersivo** (rigidez creciente con la profundidad), la [[Phase Velocity|velocidad de fase]] crece con la [[Wavelength|longitud de onda]] (y decrece con la frecuencia):
 
 $$\frac{dc_p}{df} < 0$$
 

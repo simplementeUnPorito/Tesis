@@ -27,7 +27,7 @@ La geometría básica es un **arreglo lineal de receptores uniformemente espacia
 
 | Parámetro | Símbolo | Efecto principal |
 |---|---|---|
-| Espaciado entre [[Geophone|geófono]] | $\Delta X$ | Controla longitud de onda mínima (profundidad mínima) |
+| Espaciado entre [[Geophone|geófono]] | $\Delta X$ | Controla [[Wavelength|longitud de onda]] mínima (profundidad mínima) |
 | Apertura total | $D = N\cdot\Delta X$ | Resolución modal, profundidad máxima |
 | Offset de la fuente | $L_s$ | Excluye zona de [[Near-field Effect|campo cercano]] |
 | Número de canales | $N$ | Sobredeterminación del sistema |
@@ -45,7 +45,7 @@ El **MASW es el método sísmico más tolerante a variaciones de parámetros** �
 
 ## Relación frecuencia–profundidad
 
-La longitud de onda $\lambda = V_R / f$ determina la profundidad de investigación:
+La [[Wavelength|longitud de onda]] $\lambda = V_R / f$ determina la profundidad de investigación:
 - **Altas frecuencias** (λ corta) → información de capas superficiales
 - **Bajas frecuencias** (λ larga) → información de capas profundas
 

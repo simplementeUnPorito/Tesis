@@ -51,7 +51,7 @@ Como se indica al comienzo del capítulo (Foti p. 205): *"group velocities are r
 
 #### Contexto histórico
 
-El *Steady-State Rayleigh Method* (SSRM) es el **primer método de caracterización de sitio mediante ondas superficiales** desarrollado para aplicaciones de ingeniería. Fue propuesto por Jones (1958, 1962) y posteriormente adoptado en el *Waterways Experiment Station* de Estados Unidos por Ballard (1964). Aunque fue ampliamente reemplazado por métodos más eficientes, estableció los conceptos fundamentales del workflow: generación de ondas, medición de la longitud de onda, y estimación de la velocidad como función de la frecuencia.
+El *Steady-State Rayleigh Method* (SSRM) es el **primer método de caracterización de sitio mediante ondas superficiales** desarrollado para aplicaciones de ingeniería. Fue propuesto por Jones (1958, 1962) y posteriormente adoptado en el *Waterways Experiment Station* de Estados Unidos por Ballard (1964). Aunque fue ampliamente reemplazado por métodos más eficientes, estableció los conceptos fundamentales del workflow: generación de ondas, medición de la [[Wavelength|longitud de onda]], y estimación de la velocidad como función de la frecuencia.
 
 #### Principio físico y procedimiento
 
@@ -61,14 +61,14 @@ El procedimiento de medición es el siguiente (Fig. 4.5, p. 210):
 
 1. El vibrador opera a una frecuencia $f$ fija y constante.
 2. El receptor se desplaza lateralmente alejándose del vibrador hasta encontrar la posición donde las señales del vibrador y del receptor están **en fase**.
-3. Esa posición corresponde a un número entero de [[Wavelength|longitudes de onda]] de separación — la distancia entre dos posiciones sucesivas en fase es la longitud de onda $\lambda_R$ a esa frecuencia.
+3. Esa posición corresponde a un número entero de [[Wavelength|longitudes de onda]] de separación — la distancia entre dos posiciones sucesivas en fase es la [[Wavelength|longitud de onda]] $\lambda_R$ a esa frecuencia.
 4. La [[Phase Velocity|velocidad de fase]] se calcula directamente como:
 
 $$V_R = f \cdot \lambda_R$$
 
 5. El proceso se repite para diferentes frecuencias de operación del vibrador, reconstruyendo la **[[Dispersion Relation|curva de dispersión]] experimental** $V_R(f)$.
 
-#### Determinación robusta de la longitud de onda
+#### Determinación robusta de la [[Wavelength|longitud de onda]]
 
 Para evitar errores por posición única, se identifican **múltiples posiciones** donde la señal está en fase (separadas por múltiplos enteros de $\lambda_R$). En el plano offset–número de ciclos, estas posiciones se alinean en una recta; la pendiente inversa de esa recta da $\lambda_R$ (Fig. 4.6, p. 211). Este enfoque promedia el efecto del ruido y da una estimación más robusta.
 

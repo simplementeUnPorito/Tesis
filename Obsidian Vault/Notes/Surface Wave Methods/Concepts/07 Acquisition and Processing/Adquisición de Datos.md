@@ -34,8 +34,8 @@ Los receptores estándar en [[MASW Method|MASW]] son **[[Geophone|geófono]] ver
 
 | Parámetro | Símbolo | Efecto sobre la [[Dispersion Curve|curva de dispersión]] |
 |---|---|---|
-| Espaciado entre [[Geophone|geófono]] | $\Delta x$ | Longitud de onda mínima: $\lambda_{min} \approx 2\Delta x$ |
-| Apertura total | $D = N\Delta x$ | Longitud de onda máxima: $\lambda_{max} \approx D$ |
+| Espaciado entre [[Geophone|geófono]] | $\Delta x$ | [[Wavelength|Longitud de onda]] mínima: $\lambda_{min} \approx 2\Delta x$ |
+| Apertura total | $D = N\Delta x$ | [[Wavelength|Longitud de onda]] máxima: $\lambda_{max} \approx D$ |
 | Offset de fuente | $L_s$ | Exclusión de [[Near-field Effect|efectos de campo cercano]]: $L_s \geq \lambda_{max}/2$ |
 | Número de canales | $N$ | Resolución modal: mayor $N$ → mejor separación de modos |
 | Duración del registro | $T$ | Resolución en frecuencia: $\Delta f = 1/T$ |
@@ -57,7 +57,7 @@ Vibraciones aleatorias (tráfico, maquinaria, viento) degradan la señal. Se mit
 
 ### Efectos de campo cercano
 
-Los receptores demasiado cercanos a la fuente reciben ondas con **frentes curvos** (hipótesis de onda plana violada) y componentes de ondas de cuerpo significativas. El offset mínimo debe ser $L_s \geq \lambda_{max}/2$ (regla empírica de Park et al. 1999). El [[MOPA|test chi-cuadrado de MOPA]] permite detectar los receptores afectados de forma objetiva.
+Los receptores demasiado cercanos a la fuente reciben ondas con **frentes curvos** (hipótesis de onda plana violada) y componentes de [[Body Waves|ondas de cuerpo]] significativas. El offset mínimo debe ser $L_s \geq \lambda_{max}/2$ (regla empírica de Park et al. 1999). El [[MOPA|test chi-cuadrado de MOPA]] permite detectar los receptores afectados de forma objetiva.
 
 ### [[Aliasing|Aliasing]] espacial
 

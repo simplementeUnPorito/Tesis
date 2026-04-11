@@ -32,7 +32,7 @@ En sedimentos saturados, la **velocidad de onda P está dominada por la compresi
 ## Características físicas
 
 - **Movimiento de partícula:** elíptico retrógrado, análogo al de las ondas de Rayleigh. La energía se concentra en la interfaz sólido-líquido.
-- **Penetración:** ≈ una longitud de onda en el sólido, ≈ media longitud de onda en el líquido (para dos semiespacios en contacto).
+- **Penetración:** ≈ una [[Wavelength|longitud de onda]] en el sólido, ≈ media [[Wavelength|longitud de onda]] en el líquido (para dos semiespacios en contacto).
 - **Dispersión:** modales y dispersivas, como las Rayleigh. El **modo fundamental no tiene frecuencia de corte** (existe para cualquier frecuencia). Los modos superiores sí tienen frecuencia de corte.
 - **Velocidad:** siempre menor que la velocidad de Rayleigh del sólido equivalente (sin columna de agua). A frecuencia → 0, la velocidad de Scholte tiende a la velocidad de Rayleigh del semiespacio. A frecuencia → ∞, tiende a la velocidad de onda de Stoneley en la interfaz sólido-líquido.
 

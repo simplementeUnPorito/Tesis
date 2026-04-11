@@ -47,7 +47,7 @@ Los registros de [[Geophone|geófono]] contienen superposición de múltiples co
 | [[Surface Wave Modes|Modos superiores]] | Superposición modal — altera velocidad aparente |
 | [[Love Waves]] | Componente horizontal superpuesta |
 | [[Body Waves]] | [[P-waves]] y [[S-Waves]] directas y reflejadas |
-| [[Near-field Effect|Campo cercano]] | Interferencia ondas de cuerpo + superficiales |
+| [[Near-field Effect|Campo cercano]] | Interferencia [[Body Waves|ondas de cuerpo]] + superficiales |
 
 Entender la superposición es esencial para:
 - Interpretar interferencia constructiva/destructiva en el espectro f-k

@@ -13,7 +13,7 @@ type: reference
 
 ## Intuición física
 
-En un [[Elastic Half Space]] perfectamente homogéneo, las [[Rayleigh Waves]] no son dispersivas: cualquier frecuencia viaja a la misma velocidad (~0.92 Vs). Esto cambia radicalmente cuando el subsuelo está estratificado. Cada frecuencia tiene una longitud de onda diferente y, por tanto, *penetra una profundidad diferente*. Una onda de alta frecuencia (longitud de onda corta) "siente" solo las capas superficiales; una onda de baja frecuencia (longitud de onda larga) penetra profundamente y promedia las propiedades de muchas capas.
+En un [[Elastic Half Space]] perfectamente homogéneo, las [[Rayleigh Waves]] no son dispersivas: cualquier frecuencia viaja a la misma velocidad (~0.92 Vs). Esto cambia radicalmente cuando el subsuelo está estratificado. Cada frecuencia tiene una [[Wavelength|longitud de onda]] diferente y, por tanto, *penetra una profundidad diferente*. Una onda de alta frecuencia ([[Wavelength|longitud de onda]] corta) "siente" solo las capas superficiales; una onda de baja frecuencia ([[Wavelength|longitud de onda]] larga) penetra profundamente y promedia las propiedades de muchas capas.
 
 Si las capas tienen rigideces distintas, esas ondas de diferente frecuencia viajan a diferentes velocidades: esto es la [[Geometric Dispersion|dispersión geométrica]]. La forma de la [[Dispersion Curve|curva de dispersión]] experimental es, en esencia, una firma de cómo varía la rigidez del subsuelo con la profundidad. Este es el principio físico que hace posible la caracterización del subsuelo con métodos de [[Surface Waves|ondas superficiales]].
 

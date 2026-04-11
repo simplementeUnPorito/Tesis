@@ -13,7 +13,7 @@ type: reference
 
 ## Intuición física: confinamiento en la interfaz
 
-La superficie libre impone una condición de esfuerzo nulo ($\sigma_{zz} = \sigma_{xz} = 0$ en $z = 0$). Esta condición fuerza a que las ondas P y SV reflejadas en la superficie interfieran constructivamente para velocidades de fase específicas, generando un modo de propagación que se autopropaga a lo largo de la interfaz sin necesidad de reflexiones adicionales. La energía queda atrapada en una capa superficial de espesor comparable a la longitud de onda.
+La superficie libre impone una condición de esfuerzo nulo ($\sigma_{zz} = \sigma_{xz} = 0$ en $z = 0$). Esta condición fuerza a que las ondas P y SV reflejadas en la superficie interfieran constructivamente para velocidades de fase específicas, generando un modo de propagación que se autopropaga a lo largo de la interfaz sin necesidad de reflexiones adicionales. La energía queda atrapada en una capa superficial de espesor comparable a la [[Wavelength|longitud de onda]].
 
 Consecuencias observables:
 - A mayor profundidad, las partículas casi no se mueven.
@@ -46,13 +46,13 @@ $$z_{\max} \approx \frac{\lambda_{\max}}{2} \quad \text{a} \quad \lambda_{\max}$
 
 ## Dispersión en medios estratificados
 
-En un semiespacio homogéneo, la [[Phase Velocity|velocidad de fase]] de Rayleigh es $c_R \approx 0.92\,V_S$ — constante, no dependiente de la frecuencia ([[Elastic Half Space|no dispersiva]]). En un [[Layered Media|medio estratificado]] ([[Layered Media]]), la [[Phase Velocity|velocidad de fase]] depende de la frecuencia: ondas de baja frecuencia (longitud de onda larga) penetran más profundo y son sensibles a las capas más rígidas en profundidad; ondas de alta frecuencia son sensibles solo a la capa superficial.
+En un semiespacio homogéneo, la [[Phase Velocity|velocidad de fase]] de Rayleigh es $c_R \approx 0.92\,V_S$ — constante, no dependiente de la frecuencia ([[Elastic Half Space|no dispersiva]]). En un [[Layered Media|medio estratificado]] ([[Layered Media]]), la [[Phase Velocity|velocidad de fase]] depende de la frecuencia: ondas de baja frecuencia ([[Wavelength|longitud de onda]] larga) penetran más profundo y son sensibles a las capas más rígidas en profundidad; ondas de alta frecuencia son sensibles solo a la capa superficial.
 
 Esta variación de velocidad con la frecuencia — la **[[Dispersion Curve|curva de dispersión]]** $c(f)$ — es el observable que se invierte en [[MASW Method|MASW]] para obtener el perfil $V_S(z)$.
 
 ## Partición de energía y dominio en registros sísmicos
 
-La solución del [[Lamb's Problem|Problema de Lamb]] (1904) muestra que para una fuente puntual vertical en la superficie de un semiespacio, las ondas de Rayleigh reciben ~67% de la energía total, mientras que las ondas de cuerpo solo reciben ~33% (repartido entre P y S). Combinado con el menor decaimiento geométrico ($1/\sqrt{r}$ vs $1/r$), esto explica por qué el **[[Ground Roll|ground-roll]]** (tren de ondas superficiales) domina el sismograma en métodos sísmicos superficiales.
+La solución del [[Lamb's Problem|Problema de Lamb]] (1904) muestra que para una fuente puntual vertical en la superficie de un semiespacio, las ondas de Rayleigh reciben ~67% de la energía total, mientras que las [[Body Waves|ondas de cuerpo]] solo reciben ~33% (repartido entre P y S). Combinado con el menor decaimiento geométrico ($1/\sqrt{r}$ vs $1/r$), esto explica por qué el **[[Ground Roll|ground-roll]]** (tren de ondas superficiales) domina el sismograma en métodos sísmicos superficiales.
 
 ## Múltiples modos de propagación
 

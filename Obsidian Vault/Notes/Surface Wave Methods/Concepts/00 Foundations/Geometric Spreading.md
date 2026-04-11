@@ -7,7 +7,7 @@ type: reference
 # Geometric Spreading — Extensión Geométrica
 
 > [!CONCEPT] Definición
-> La **extensión geométrica** (o *geometric spreading*) es el decaimiento de amplitud de una onda sísmica con la distancia a la fuente causado por la **expansión del frente de onda** en el espacio, sin disipación de energía. Para ondas de superficie en 2D (propagación a lo largo de una línea de [[Geophone|geófono]]), la amplitud decae como $A(r) \propto 1/\sqrt{r}$ (cilíndrico 2D). Para ondas de cuerpo en 3D, decae como $A(r) \propto 1/r$ (esférico). En el análisis de amplitudes para estimar el [[Shear Damping Ratio|coeficiente de amortiguamiento]] $D_s$ desde la [[Dispersion Curve|curva de atenuación]] $\alpha_R(f)$, es **imprescindible separar** la extensión geométrica de la **[[Attenuation|atenuación]] material** $e^{-\alpha_R r}$: $A(r, f) \propto \frac{1}{\sqrt{r}} \cdot e^{-\alpha_R(f) r}$. Un error en la corrección de extensión geométrica produce un sesgo sistemático en la estimación de $D_s$.
+> La **extensión geométrica** (o *geometric spreading*) es el decaimiento de amplitud de una onda sísmica con la distancia a la fuente causado por la **expansión del frente de onda** en el espacio, sin disipación de energía. Para ondas de superficie en 2D (propagación a lo largo de una línea de [[Geophone|geófono]]), la amplitud decae como $A(r) \propto 1/\sqrt{r}$ (cilíndrico 2D). Para [[Body Waves|ondas de cuerpo]] en 3D, decae como $A(r) \propto 1/r$ (esférico). En el análisis de amplitudes para estimar el [[Shear Damping Ratio|coeficiente de amortiguamiento]] $D_s$ desde la [[Dispersion Curve|curva de atenuación]] $\alpha_R(f)$, es **imprescindible separar** la extensión geométrica de la **[[Attenuation|atenuación]] material** $e^{-\alpha_R r}$: $A(r, f) \propto \frac{1}{\sqrt{r}} \cdot e^{-\alpha_R(f) r}$. Un error en la corrección de extensión geométrica produce un sesgo sistemático en la estimación de $D_s$.
 >
 > — Foti et al. (2018), Cap. 5, §5.2, pp. 234–245; Cap. 2, §2.3.
 
@@ -21,13 +21,13 @@ $$A(r) \propto \frac{1}{\sqrt{r}}$$
 
 Este es el comportamiento de **ondas de superficie en campo lejano** ([[Rayleigh Waves]], [[Love Waves]]) — la base de la corrección en [[MASW Method|MASW]] para estimar $D_s$.
 
-### 3D: ondas de cuerpo (P y S)
+### 3D: [[Body Waves|ondas de cuerpo]] (P y S)
 
-Para ondas de cuerpo que se propagan esféricamente:
+Para [[Body Waves|ondas de cuerpo]] que se propagan esféricamente:
 
 $$A(r) \propto \frac{1}{r}$$
 
-El decaimiento más rápido con la distancia hace que las ondas de cuerpo (P, S) sean relativamente menos importantes en registros de campo lejano — confirmando que el [[Ground Roll|ground-roll]] (ondas de Rayleigh) domina a grandes offsets.
+El decaimiento más rápido con la distancia hace que las [[Body Waves|ondas de cuerpo]] (P, S) sean relativamente menos importantes en registros de campo lejano — confirmando que el [[Ground Roll|ground-roll]] (ondas de Rayleigh) domina a grandes offsets.
 
 ## Implicación para la estimación de DS
 

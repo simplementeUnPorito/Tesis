@@ -26,7 +26,7 @@ Si $\omega(k)$ es no lineal, el paquete se "estira" en el tiempo al propagarse: 
 | **[[Geometric Dispersion|Dispersión geométrica]]** | Estratificación del medio — diferentes $\lambda$ sondean distintas profundidades | [[Rayleigh Waves]] en suelo estratificado |
 | **Dispersión material** | Propiedades elásticas dependientes de $\omega$ — viscoelasticidad, [[Attenuation|atenuación]] | Suelos con rigidez dependiente de frecuencia |
 
-En la práctica de métodos de [[Surface Waves|ondas superficiales]] ([[MASW Method|MASW]], [[SASW Method|SASW]]), la dispersión dominante es **geométrica**: el medio es estratificado y las ondas de Rayleigh de diferente longitud de onda penetran a diferentes profundidades, "viendo" diferentes velocidades.
+En la práctica de métodos de [[Surface Waves|ondas superficiales]] ([[MASW Method|MASW]], [[SASW Method|SASW]]), la dispersión dominante es **geométrica**: el medio es estratificado y las ondas de Rayleigh de diferente [[Wavelength|longitud de onda]] penetran a diferentes profundidades, "viendo" diferentes velocidades.
 
 ## 3. Condición matemática de dispersividad
 
@@ -43,7 +43,7 @@ donde $c_p = \omega/k$ es la [[Phase Velocity|velocidad de fase]] y $c_g = d\ome
 - En métodos de [[Surface Waves|ondas superficiales]], la [[Dispersion Curve|curva de dispersión]] $c_p(f)$ es el dato primario de la inversión para obtener $V_S(z)$
 
 > [!EXAMPLE] Evidencia empírica: Nazarian & Stokoe (1984) — primera medición sistemática de la dispersión geométrica en [[SASW Method|SASW]]
-> **Paper 003 (Nazarian & Stokoe 1984)** introduce el método [[SASW Method|SASW]] precisamente sobre la base de la dispersión geométrica de las ondas de Rayleigh: las componentes de baja frecuencia (longitud de onda larga) penetran más profundo y viajan más rápido en sitios con velocidad creciente con la profundidad (normalmente dispersivos). Midiendo la fase relativa entre dos [[Geophone|geófono]] separados una distancia $d$, extraen $c_p(f)$ directamente — y demuestran que la [[Dispersion Curve|curva de dispersión]] así obtenida invierte de forma única para el perfil $V_S(z)$. Este trabajo fundacional validó la dispersión geométrica de Rayleigh como observable de caracterización de sitio.
+> **Paper 003 (Nazarian & Stokoe 1984)** introduce el método [[SASW Method|SASW]] precisamente sobre la base de la dispersión geométrica de las ondas de Rayleigh: las componentes de baja frecuencia ([[Wavelength|longitud de onda]] larga) penetran más profundo y viajan más rápido en sitios con velocidad creciente con la profundidad (normalmente dispersivos). Midiendo la fase relativa entre dos [[Geophone|geófono]] separados una distancia $d$, extraen $c_p(f)$ directamente — y demuestran que la [[Dispersion Curve|curva de dispersión]] así obtenida invierte de forma única para el perfil $V_S(z)$. Este trabajo fundacional validó la dispersión geométrica de Rayleigh como observable de caracterización de sitio.
 >
 > — Research Database, entrada 003 (core).
 

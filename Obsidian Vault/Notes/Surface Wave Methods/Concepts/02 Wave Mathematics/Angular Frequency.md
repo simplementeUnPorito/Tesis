@@ -61,7 +61,7 @@ La frecuencia angular (y su análogo $f$) está limitada en la práctica por:
 | $f_{\max}$ (espacial) | $f_{\max} = c_p/(2\Delta x)$ | Espaciado entre [[Geophone|geófono]] $\Delta x$ |
 | $f_{\min}$ | $f_{\min} \approx c_p/L$ | Longitud total del arreglo $L$ |
 
-Donde $\Delta x$ es el espaciado entre [[Geophone|geófono]] y $L$ es la apertura total. La frecuencia mínima determina la máxima longitud de onda accesible y, por tanto, la [[Skin Depth|profundidad de investigación]].
+Donde $\Delta x$ es el espaciado entre [[Geophone|geófono]] y $L$ es la apertura total. La frecuencia mínima determina la máxima [[Wavelength|longitud de onda]] accesible y, por tanto, la [[Skin Depth|profundidad de investigación]].
 
 ## Notación y conversión práctica
 

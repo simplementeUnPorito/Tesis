@@ -87,7 +87,7 @@ Cuando hay [[Surface Wave Modes|modos superiores]] activos, la [[Phase Velocity|
 - [[Elastic Half Space]] — medio más simple donde existen Rayleigh Waves (no dispersivas)
 - [[Layered Media]] — condición para [[Geometric Dispersion]] de Rayleigh
 - [[Phase Velocity]] — observable experimental: $c_R(f)$
-- [[Skin Depth]] — profundidad de investigación por longitud de onda
+- [[Skin Depth]] — profundidad de investigación por [[Wavelength|longitud de onda]]
 - [[Surface Wave Modes]] — modos fundamental y superiores de Rayleigh
 - [[Love Waves]] — otro tipo de onda superficial (SH guiada)
 - [[Rayleigh Eigenproblem]] — formulación matemática del problema de valores propios

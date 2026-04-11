@@ -1,13 +1,13 @@
 ---
 name: P-waves
-description: Ondas de cuerpo de compresión (longitudinales); las más rápidas en sólidos; su velocidad en suelos saturados es dominada por la compresibilidad del agua, limitando su utilidad geotécnica
+description: [[Body Waves|Ondas de cuerpo]] de compresión (longitudinales); las más rápidas en sólidos; su velocidad en suelos saturados es dominada por la compresibilidad del agua, limitando su utilidad geotécnica
 type: reference
 ---
 
 # Ondas P (P-waves / Compressional Waves)
 
 > [!CONCEPT] Definición
-> Las **ondas P** (Primary / Pressure / Compressional) son ondas de cuerpo donde el movimiento de la partícula es **paralelo** a la dirección de propagación — deformación volumétrica alternante sin corte puro. Son las ondas más rápidas en sólidos y viajan también en fluidos ($\mu = 0$). En el contexto de [[MASW Method|MASW]], $V_P$ es un **parámetro a priori** de baja sensibilidad en la inversión de la [[Dispersion Curve|curva de dispersión]] de [[Rayleigh Waves]], pero crítico en suelos saturados donde $V_P \approx 1500$ m/s (dominado por el agua poral) y puede afectar el perfil $V_S$ si se ignora.
+> Las **ondas P** (Primary / Pressure / Compressional) son [[Body Waves|ondas de cuerpo]] donde el movimiento de la partícula es **paralelo** a la dirección de propagación — deformación volumétrica alternante sin corte puro. Son las ondas más rápidas en sólidos y viajan también en fluidos ($\mu = 0$). En el contexto de [[MASW Method|MASW]], $V_P$ es un **parámetro a priori** de baja sensibilidad en la inversión de la [[Dispersion Curve|curva de dispersión]] de [[Rayleigh Waves]], pero crítico en suelos saturados donde $V_P \approx 1500$ m/s (dominado por el agua poral) y puede afectar el perfil $V_S$ si se ignora.
 >
 > — Foti et al. (2018), §2.1.3, pp. 43–50.
 

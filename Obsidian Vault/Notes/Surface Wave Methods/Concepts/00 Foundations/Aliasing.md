@@ -7,7 +7,7 @@ type: reference
 # Aliasing — Aliasing Temporal y Espacial
 
 > [!CONCEPT] Definición
-> El **aliasing** es la distorsión que ocurre cuando una señal se muestrea a una frecuencia insuficiente ([[Nyquist Theorem]]): las componentes de frecuencia que superan $f_{Nyquist} = f_s/2$ se "pliegan" y aparecen como frecuencias más bajas en el espectro, produciendo artefactos. En [[MASW Method|MASW]] hay dos tipos: (1) **aliasing temporal** — ocurre si la frecuencia de muestreo del sismógrafo $f_s$ es menor que $2f_{max}$ (poco común con equipos modernos de 2000+ Hz); (2) **aliasing espacial** — ocurre si el espaciado entre [[Geophone|geófono]] $\Delta x$ es mayor que $\lambda_{min}/2 = c_{R,min}/(2f_{max})$, produciendo crestas espectrales aparentes a velocidades erróneas en el espectrograma f-k. El aliasing espacial es el más crítico en diseño de campo: si se elige $\Delta x$ muy grande (para cubrir más terreno con menos [[Geophone|geófono]]), las ondas de Rayleigh de longitud de onda corta se aliasen y producen velocidades de fase aparentes mayores que las reales.
+> El **aliasing** es la distorsión que ocurre cuando una señal se muestrea a una frecuencia insuficiente ([[Nyquist Theorem]]): las componentes de frecuencia que superan $f_{Nyquist} = f_s/2$ se "pliegan" y aparecen como frecuencias más bajas en el espectro, produciendo artefactos. En [[MASW Method|MASW]] hay dos tipos: (1) **aliasing temporal** — ocurre si la frecuencia de muestreo del sismógrafo $f_s$ es menor que $2f_{max}$ (poco común con equipos modernos de 2000+ Hz); (2) **aliasing espacial** — ocurre si el espaciado entre [[Geophone|geófono]] $\Delta x$ es mayor que $\lambda_{min}/2 = c_{R,min}/(2f_{max})$, produciendo crestas espectrales aparentes a velocidades erróneas en el espectrograma f-k. El aliasing espacial es el más crítico en diseño de campo: si se elige $\Delta x$ muy grande (para cubrir más terreno con menos [[Geophone|geófono]]), las ondas de Rayleigh de [[Wavelength|longitud de onda]] corta se aliasen y producen velocidades de fase aparentes mayores que las reales.
 >
 > — Foti et al. (2018), Cap. 3, §3.1; Cap. 4, §4.2; [[Nyquist Theorem]].
 
@@ -25,7 +25,7 @@ Con espaciado $\Delta x$, las ondas con $k > k_{Nyquist} = \pi/\Delta x$ (equiva
 
 $$k_{alias} = |k_{real} - n \cdot 2\pi/\Delta x|, \quad k_{alias} \leq \pi/\Delta x$$
 
-**Consecuencia en [[MASW Method|MASW]]**: si el suelo superficial tiene $V_S = 100$ m/s y $f = 30$ Hz → $\lambda = 3.3$ m. Si $\Delta x = 3$ m > $\lambda_{min}/2 = 1.65$ m → aliasing espacial → esa longitud de onda aparece en el espectrograma con un [[Wavenumber|número de onda]] aliaseado → [[Phase Velocity|velocidad de fase]] aparente incorrecta.
+**Consecuencia en [[MASW Method|MASW]]**: si el suelo superficial tiene $V_S = 100$ m/s y $f = 30$ Hz → $\lambda = 3.3$ m. Si $\Delta x = 3$ m > $\lambda_{min}/2 = 1.65$ m → aliasing espacial → esa [[Wavelength|longitud de onda]] aparece en el espectrograma con un [[Wavenumber|número de onda]] aliaseado → [[Phase Velocity|velocidad de fase]] aparente incorrecta.
 
 ## Detección del aliasing espacial en el espectrograma f-k
 

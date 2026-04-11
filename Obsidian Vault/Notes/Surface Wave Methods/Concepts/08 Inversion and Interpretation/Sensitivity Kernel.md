@@ -31,7 +31,7 @@ donde $r_1, r_2$ son las eigenfunciones de desplazamiento horizontal y vertical,
 | $V_P$ | Positivo pero pequeño (<10% de $K_{V_S}$) en la zona saturada | Puede fijarse a priori |
 | $\rho$ | Muy pequeño (<2%) | Generalmente fijo en la inversión |
 
-El kernel $K_{V_S}$ tiene un máximo claro a $z \approx \lambda/3$–$\lambda/2$, lo que justifica la regla de profundidad práctica: la frecuencia $f$ con longitud de onda $\lambda = c_R/f$ "mide" principalmente la zona a profundidad $\lambda/3$–$\lambda/2$.
+El kernel $K_{V_S}$ tiene un máximo claro a $z \approx \lambda/3$–$\lambda/2$, lo que justifica la regla de profundidad práctica: la frecuencia $f$ con [[Wavelength|longitud de onda]] $\lambda = c_R/f$ "mide" principalmente la zona a profundidad $\lambda/3$–$\lambda/2$.
 
 ## Uso en la inversión
 

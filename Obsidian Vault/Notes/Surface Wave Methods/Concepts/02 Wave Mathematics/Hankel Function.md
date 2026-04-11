@@ -21,7 +21,7 @@ type: reference
 
 ### Decaimiento geométrico
 
-El factor $r^{-1/2}$ del campo lejano se denomina **decaimiento geométrico cilíndrico** o *geometrical spreading*. Contrasta con las ondas de cuerpo (P y S) que decaen como $r^{-1}$ (esféricas). Esta diferencia tiene implicaciones prácticas:
+El factor $r^{-1/2}$ del campo lejano se denomina **decaimiento geométrico cilíndrico** o *geometrical spreading*. Contrasta con las [[Body Waves|ondas de cuerpo]] (P y S) que decaen como $r^{-1}$ (esféricas). Esta diferencia tiene implicaciones prácticas:
 
 | Tipo de onda | Geometría | Decaimiento de amplitud |
 |-------------|-----------|------------------------|

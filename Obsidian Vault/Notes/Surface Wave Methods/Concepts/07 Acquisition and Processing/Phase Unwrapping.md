@@ -19,7 +19,7 @@ $$\phi_{12}^{real}(f) = -k(f) \cdot \Delta x = -\frac{2\pi f}{c_R(f)} \cdot \Del
 
 Cuando $|\phi_{12}^{real}| > \pi$ (es decir, cuando el retardo de fase supera medio ciclo), la DFT reporta $\phi_{12}(f) = \phi_{12}^{real}(f) \pm n \cdot 2\pi$ con $n$ entero — produciendo un salto en la curva de fase.
 
-La condición de no-wrapping: $\Delta x < c_R(f) / (2f)$ — equivale a que la separación entre receptores sea menor que la mitad de la longitud de onda.
+La condición de no-wrapping: $\Delta x < c_R(f) / (2f)$ — equivale a que la separación entre receptores sea menor que la mitad de la [[Wavelength|longitud de onda]].
 
 ## Algoritmo de unwrapping 1D
 

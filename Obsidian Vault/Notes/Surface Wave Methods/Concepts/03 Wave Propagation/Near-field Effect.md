@@ -1,6 +1,6 @@
 ---
 name: Near-field Effect
-description: Región cercana a la fuente donde las Rayleigh waves no se comportan como ondas planas y la velocidad aparente es distorsionada por contribuciones de ondas de cuerpo.
+description: Región cercana a la fuente donde las Rayleigh waves no se comportan como ondas planas y la velocidad aparente es distorsionada por contribuciones de [[Body Waves|ondas de cuerpo]].
 type: concept
 ---
 
@@ -24,7 +24,7 @@ Una fuente puntual en superficie genera simultáneamente [[Body Waves]] y [[Surf
 
 En el campo cercano, las [[Body Waves]] son comparables o dominantes → la velocidad aparente medida **no corresponde** a $c_R$ del modo fundamental. A distancias mayores, el campo queda dominado por [[Rayleigh Waves]] y la aproximación de onda plana es válida.
 
-Este fenómeno fue estudiado originalmente en el contexto del [[Lamb's Problem]]: la solución exacta incluye ondas de cuerpo y superficiales; el campo lejano retiene solo las superficiales.
+Este fenómeno fue estudiado originalmente en el contexto del [[Lamb's Problem]]: la solución exacta incluye [[Body Waves|ondas de cuerpo]] y superficiales; el campo lejano retiene solo las superficiales.
 
 ---
 

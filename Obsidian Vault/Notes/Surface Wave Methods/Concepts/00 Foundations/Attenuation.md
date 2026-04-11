@@ -49,7 +49,7 @@ $$A_R(r) \propto \frac{1}{\sqrt{r}}$$
 
 Esta ley $r^{-0.5}$ corresponde a la expansión cilíndrica del frente de onda. En medios [[Layered Media|estratificados]], la función de atenuación geométrica real $Y(r, \omega)$ puede desviarse de la ley $r^{-0.5}$ según la interferencia modal, especialmente a alta frecuencia.
 
-En contraste, las ondas de cuerpo en la misma superficie decaen como $r^{-2}$ — mucho más rápido. Por eso a distancias $r \gtrsim \lambda_R$ el campo queda dominado por [[Surface Waves|ondas superficiales]].
+En contraste, las [[Body Waves|ondas de cuerpo]] en la misma superficie decaen como $r^{-2}$ — mucho más rápido. Por eso a distancias $r \gtrsim \lambda_R$ el campo queda dominado por [[Surface Waves|ondas superficiales]].
 
 ## Distinción experimental
 

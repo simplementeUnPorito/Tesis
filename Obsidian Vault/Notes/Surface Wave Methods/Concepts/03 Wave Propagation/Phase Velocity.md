@@ -56,7 +56,7 @@ Para [[Rayleigh Waves]] en un [[Elastic Half Space|semiespacio elástico]] homog
 
 $$c_R \approx f(\nu) \cdot V_S \approx 0.92\,V_S \quad (\text{para } \nu = 0.25)$$
 
-En un medio [[Layered Media|estratificado]], $c_R$ varía con la frecuencia: ondas de alta frecuencia (corta longitud de onda) son sensibles a las capas superficiales y tienen velocidades que reflejan la rigidez local. Ondas de baja frecuencia (longitud de onda larga) promedian el perfil hasta mayor profundidad. Esta dependencia es la [[Geometric Dispersion|dispersión geométrica]].
+En un medio [[Layered Media|estratificado]], $c_R$ varía con la frecuencia: ondas de alta frecuencia (corta [[Wavelength|longitud de onda]]) son sensibles a las capas superficiales y tienen velocidades que reflejan la rigidez local. Ondas de baja frecuencia ([[Wavelength|longitud de onda]] larga) promedian el perfil hasta mayor profundidad. Esta dependencia es la [[Geometric Dispersion|dispersión geométrica]].
 
 ## Velocidad de fase aparente
 

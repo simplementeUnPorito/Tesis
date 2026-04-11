@@ -56,7 +56,7 @@ Una señal arbitraria puede representarse como superposición de ondas armónica
 ## Por qué las [[Surface Waves|ondas superficiales]] dominan los registros sísmicos
 
 Para una fuente puntual en la superficie (ver [[Lamb's Problem]]):
-- Las ondas de cuerpo decaen como $1/r$ (frente esférico: energía ∝ $r^2$).
+- Las [[Body Waves|ondas de cuerpo]] decaen como $1/r$ (frente esférico: energía ∝ $r^2$).
 - Las [[Surface Waves|ondas superficiales]] decaen como $1/\sqrt{r}$ (frente cilíndrico: energía ∝ $r$).
 
 A distancias mayores que unas pocas longitudes de onda, las [[Surface Waves|ondas superficiales]] dominan el registro. Esta propiedad es la que hace práctico el método [[MASW Method|MASW]]: el [[Ground Roll|ground-roll]] de [[Rayleigh Waves|ondas Rayleigh]] es la señal predominante en los sismogramas superficiales.

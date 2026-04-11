@@ -10,8 +10,8 @@
 ## 1. Características principales
 
 - Se propagan en la interfaz agua-aire (superficie libre).
-- Son **dispersivas**: su [[Phase Velocity]] depende de la longitud de onda y de la profundidad $h$.
-- En el límite de agua profunda ($kh \gg 1$): ondas de mayor longitud de onda se propagan más rápido → dispersión normal.
+- Son **dispersivas**: su [[Phase Velocity]] depende de la [[Wavelength|longitud de onda]] y de la profundidad $h$.
+- En el límite de agua profunda ($kh \gg 1$): ondas de mayor [[Wavelength|longitud de onda]] se propagan más rápido → dispersión normal.
 - Las partículas describen trayectorias elípticas que decaen exponencialmente con la profundidad — igual que el movimiento de partícula de las [[Rayleigh Waves]].
 
 ---

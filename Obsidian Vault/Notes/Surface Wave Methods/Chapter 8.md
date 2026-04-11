@@ -82,7 +82,7 @@ Una dificultad fundamental en el contexto marino es que la **velocidad de onda P
 Las [[Scholte Waves|ondas de Scholte]] se propagan en la interfaz sólido-líquido (fondo marino), de forma análoga a las [[Rayleigh Waves|ondas de Rayleigh]] en la interfaz sólido-aire. Fueron descritas por Scholte (1947) como los **modos normales reales** del sistema de capas para el caso *soft bottom*, en el que la velocidad de corte del sólido es menor que la velocidad compresional del agua (condición casi universalmente cumplida en sedimentos no consolidados, donde Vs < 200 m/s << Vp_agua ≈ 1500 m/s).
 
 **Características físicas:**
-- **Movimiento de partícula:** elíptico retrógrado, similar a Rayleigh. La energía se concentra en la interfaz. Para dos semiespacios en contacto, la penetración es ≈ una longitud de onda en el sólido y ≈ media longitud de onda en el líquido.
+- **Movimiento de partícula:** elíptico retrógrado, similar a Rayleigh. La energía se concentra en la interfaz. Para dos semiespacios en contacto, la penetración es ≈ una [[Wavelength|longitud de onda]] en el sólido y ≈ media [[Wavelength|longitud de onda]] en el líquido.
 - **Dispersión:** modales y dispersivas. El modo fundamental **no tiene frecuencia de corte** (existe para cualquier frecuencia), a diferencia de los modos superiores.
 - **Velocidad:** siempre menor que la velocidad de Rayleigh para el mismo sólido. A frecuencia → 0, la velocidad de Scholte tiende a la velocidad de Rayleigh del semiespacio sólido. A frecuencia → ∞, tiende a la velocidad de [[Stoneley Wave|onda de Stoneley]] en la interfaz sólido-líquido.
 
@@ -265,7 +265,7 @@ La mayoría de las aplicaciones usan la **elipticidad horizontal** (ratio H/V). 
 - **D — segunda singularidad f_V:** el movimiento es puramente vertical; H/V → 0.
 - **E — alta frecuencia:** polarización dominada por las propiedades de la capa superficial.
 
-La **frecuencia natural del sitio** es la frecuencia de resonancia fundamental de corte, f_0 = Vs/(4H) (cuarto de longitud de onda). El pico del ratio H/V (f_H) es muy cercano a esta frecuencia natural cuando la capa tiene baja velocidad homogénea. En casos con gradiente o estratificación dentro de la capa de baja velocidad, el cero de la componente vertical puede estar a una frecuencia ligeramente superior a la frecuencia natural. El ratio de Poisson y la densidad tienen efectos de segundo orden. La Figura 8.35 (p. 434) muestra, para un solo modelo, la función de transferencia sísmica y la elipticidad horizontal; el cross-plot para una muestra Monte Carlo de 2000 casos confirma que f_H ≈ f_0.
+La **frecuencia natural del sitio** es la frecuencia de resonancia fundamental de corte, f_0 = Vs/(4H) (cuarto de [[Wavelength|longitud de onda]]). El pico del ratio H/V (f_H) es muy cercano a esta frecuencia natural cuando la capa tiene baja velocidad homogénea. En casos con gradiente o estratificación dentro de la capa de baja velocidad, el cero de la componente vertical puede estar a una frecuencia ligeramente superior a la frecuencia natural. El ratio de Poisson y la densidad tienen efectos de segundo orden. La Figura 8.35 (p. 434) muestra, para un solo modelo, la función de transferencia sísmica y la elipticidad horizontal; el cross-plot para una muestra Monte Carlo de 2000 casos confirma que f_H ≈ f_0.
 
 ### 8.5.1 Identificación de modos con alto contraste de velocidad
 

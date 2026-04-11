@@ -25,7 +25,7 @@ Un mensaje clave del capítulo es que el análisis de ondas superficiales requie
 **Litología:** gravas y arenas gravosas con lentes de arena fina y limo arcilloso. Nivel freático entre 2 y 3 m de profundidad.
 **Instrumentación:** 24 geófonos verticales (4.5 Hz), dos configuraciones con separaciones receptor de 1 m y 3 m. Fuentes: maza de 6 kg (sledgehammer) y sistema de caída de peso de 130 kg desde 3 m de altura. El maza genera principalmente altas frecuencias (~50 Hz) y la caída de peso bajas frecuencias (~25 Hz). Véase Figura 7.1 (p. 352).
 
-El diseño de dos configuraciones tiene como propósito cubrir rangos de frecuencia complementarios: el arreglo corto (1 m) para altas frecuencias con mayor SNR; el largo (3 m) para bajas frecuencias y mayor penetración. Esto ilustra el **trade-off entre resolución superficial y profundidad de investigación**, ya que la longitud del arreglo determina la longitud de onda máxima accesible.
+El diseño de dos configuraciones tiene como propósito cubrir rangos de frecuencia complementarios: el arreglo corto (1 m) para altas frecuencias con mayor SNR; el largo (3 m) para bajas frecuencias y mayor penetración. Esto ilustra el **trade-off entre resolución superficial y profundidad de investigación**, ya que la longitud del arreglo determina la [[Wavelength|longitud de onda]] máxima accesible.
 
 ### 7.1.1 Análisis de dos estaciones ([[SASW Method|SASW]])
 
@@ -88,11 +88,11 @@ En este sitio, la fuente de microtremores (probablemente actividad de construcci
 
 **Estimación de profundidad de investigación y resolución:**
 
-La longitud de onda máxima disponible determina la profundidad máxima investigable (aproximadamente λ/2):
+La [[Wavelength|longitud de onda]] máxima disponible determina la profundidad máxima investigable (aproximadamente λ/2):
 
 $$\lambda_{\max} = \frac{V_R}{f} = \frac{780 \text{ m/s}}{5 \text{ Hz}} = 155 \text{ m} \quad \Rightarrow \quad z_{\max} \approx 80 \text{ m}$$
 
-La longitud de onda mínima determina la resolución en capas superficiales:
+La [[Wavelength|longitud de onda]] mínima determina la resolución en capas superficiales:
 
 $$\lambda_{\min} = \frac{250 \text{ m/s}}{41.5 \text{ Hz}} = 6 \text{ m} \quad \Rightarrow \quad \text{primera capa resoluble} \approx 3 \text{ m}$$
 
@@ -256,9 +256,9 @@ La limitación de profundidad es ~50 m, impuesta por el uso de geófonos de alta
 
 En la industria de exploración, el uso de receptores individuales de punto (en lugar de arreglos geofónicos combinados) produce datos con mejor muestreo espacial de las ondas superficiales: sin aliasing, con longitudes de onda cortas accesibles y con heterogeneidades superficiales bien resueltas. La alta cobertura (miles de disparos para una sola posición receptora) ofrece una redundancia estadística extrema.
 
-**Procesamiento:** a partir de 3D, se forman *supergathers* locales (trazas de todos los receptores dentro de una apertura definida alrededor de un punto). Para cada supergather se extrae la [[Dispersion Curve|curva de dispersión]] mediante transformadas aptas para arreglos irregulares y bidimensionales. Las [[Dispersion Curve|curvas de dispersión]] para todas las posiciones pueden organizarse en un **volumen de dispersión** (dispersion volume): [[Phase Velocity|velocidad de fase]] como función de las coordenadas geográficas (easting, northing) y longitud de onda. La Figura 7.37 (p. 390) muestra la pseudosección del modo fundamental para una línea receptora de 10 km.
+**Procesamiento:** a partir de 3D, se forman *supergathers* locales (trazas de todos los receptores dentro de una apertura definida alrededor de un punto). Para cada supergather se extrae la [[Dispersion Curve|curva de dispersión]] mediante transformadas aptas para arreglos irregulares y bidimensionales. Las [[Dispersion Curve|curvas de dispersión]] para todas las posiciones pueden organizarse en un **volumen de dispersión** (dispersion volume): [[Phase Velocity|velocidad de fase]] como función de las coordenadas geográficas (easting, northing) y [[Wavelength|longitud de onda]]. La Figura 7.37 (p. 390) muestra la pseudosección del modo fundamental para una línea receptora de 10 km.
 
-**Cartografía geológica:** el volumen de dispersión puede ser "cortado" a una longitud de onda fija, produciendo un mapa de velocidades de fase que refleja variaciones laterales del subsuelo. La Figura 7.38 (p. 391) muestra una rebanada a λ = 130 m para un área de ~300 km² en Egipto (estudio de exploración, Strobbia et al. 2011): se identifican zonas de alta velocidad (lechos de wadis) y zonas de baja velocidad (fallas paralelas al sistema principal del Golfo de Suez), demostrando el potencial para **mapeo de estructuras geológicas superficiales** en proyectos de exploración en frontera.
+**Cartografía geológica:** el volumen de dispersión puede ser "cortado" a una [[Wavelength|longitud de onda]] fija, produciendo un mapa de velocidades de fase que refleja variaciones laterales del subsuelo. La Figura 7.38 (p. 391) muestra una rebanada a λ = 130 m para un área de ~300 km² en Egipto (estudio de exploración, Strobbia et al. 2011): se identifican zonas de alta velocidad (lechos de wadis) y zonas de baja velocidad (fallas paralelas al sistema principal del Golfo de Suez), demostrando el potencial para **mapeo de estructuras geológicas superficiales** en proyectos de exploración en frontera.
 
 La inversión puede ejecutarse de forma local (1D por posición) o con esquemas 2D/3D que añaden regularización lateral. El modelo Vs resultante (Figura 7.39, p. 392) tiene aplicaciones directas en: correcciones de estáticas para el procesamiento de reflexión, conversión Vs→Vp para modelado de velocidades, y descripción de la geología superficial para interpretación integrada.
 
