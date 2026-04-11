@@ -609,4 +609,64 @@ Añadir `[!CONCEPT]` (definición técnica con wikilinks) y `[!EXAMPLE]` (eviden
 ## Próximos pasos
 - Explorar archivos de resumen de capítulos (Chapter 1-8.md) para identificar secciones sin cubrir
 - Potenciales conceptos nuevos a crear: Near-field Effect (si no existe), Attenuation, Geometric Dispersion, Group Velocity
+
+---
+
+## Fase 5 — Creación de conceptos atómicos para wikilinks rotos
+
+### 2026-04-11 — iteración 59 (commit 62ffc9d) — 4 nuevos conceptos
+- `Concepts/07/2D Fourier Transform.md` — DFT 2D, extracción espectral f-k, resolución temporal/espacial, condiciones anti-aliasing (11x referenciado)
+- `Concepts/07/Tau-P Transform.md` — slant-stack, equivalencia con f-k, aplicación en ReMi (5x)
+- `Concepts/00/Geometric Spreading.md` — ondas 2D A∝1/√r, crítico para estimación DS desde curva de atenuación (5x)
+- `Concepts/07/Beamforming.md` — delay-and-sum, MVDR, arrays 2D, validación isotropía (4x)
+
+### 2026-04-11 — iteración 60 (commit aa06e41) — 4 nuevos conceptos
+- `Concepts/04/Thomson-Haskell Matrix.md` — matrices de transferencia 4×4, ecuación secular, extensión viscoelástica (4x)
+- `Concepts/07/Microtremor.md` — ruido sísmico ambiental, composición espectral (70% Rayleigh), hipótesis difusa (3x)
+- `Concepts/08/Sensitivity Kernel.md` — ∂cR/∂VS dominante 80-95%, resolución profundidad VS λ/3-λ/2, base del Jacobiano (2x)
+- `Concepts/02/Lamé Constants.md` — λ y μ, relaciones VP/VS, extensión viscoelástica (2x)
+
+### 2026-04-11 — iteración 61 (commit e846639) — 4 nuevos conceptos
+- `Concepts/07/Cross-Power Spectrum.md` — G12=U1*·U2, extracción de fase, estimación velocidad, promediado multi-shot (3x)
+- `Concepts/07/Coherence Function.md` — γ²=|G12|²/(G11·G22), criterio calidad γ²>0.9 (3x)
+- `Concepts/07/Geophone.md` — sensor electromagnético de velocidad, tipos fn (4.5/10/14/28 Hz), acoplamiento (2x)
+- `Concepts/02/Nyquist Theorem.md` — temporal (fs≥2fmax) y espacial (Δx≤λmin/2), condiciones anti-aliasing (2x)
+
+### 2026-04-11 — iteración 62 (commit 1f5e063) — 3 nuevos conceptos
+- `Concepts/07/Phase Unwrapping.md` — envoltura ±π, algoritmo de desenrollado 1D, ventaja MASW sobre SASW (2x)
+- `Concepts/00/Aliasing.md` — temporal (falias=|f-n·fs|) y espacial (kalias=|k-n·2π/Δx|) (2x)
+- `Concepts/07/Seismic Refraction.md` — primeras llegadas, perfil VP, detección tabla de agua, limitación inversión de velocidad (2x)
+
+### 2026-04-11 — iteración 63 (commit 152b32a) — 2 nuevos conceptos
+- `Concepts/07/MEMS Accelerometer.md` — sensor estado sólido, respuesta plana desde DC, ruido mayor en bajas f (3x)
+- `Concepts/07/Sliding Window.md` — rolling array para secciones VS pseudo-2D, resolución lateral ≈ apertura D (2x)
+
+### 2026-04-11 — iteración 64 (commit 5b36965) — 1 nuevo concepto
+- `Concepts/08/Resonant Column Test.md` — ensayo laboratorio para VS y DS, half-power bandwidth, validación MASW-DS (2x)
+
+### 2026-04-11 — iteración 65 (commit cdad0ec) — 4 nuevos conceptos
+- `Concepts/07/Cross-Hole Test.md` — ensayo invasivo entre pozos, VS directo sin inversión, referencia InterPACIFIC (3x)
+- `Concepts/07/Hann Window.md` — apodización anti-leakage, −31.5 dB lóbulos laterales, estándar espectrograma f-k (2x)
+- `Concepts/08/Occam Algorithm.md` — modelo más simple con χ²=N_datos, búsqueda λ iterativa, comparación con Tikhonov (2x)
+- `Concepts/08/Genetic Algorithm.md` — búsqueda global por selección natural, 87% éxito en inversiones de velocidad (2x)
+
+### 2026-04-11 — iteración 66 (commit 7380996) — 3 nuevos conceptos
+- `Concepts/08/Neighbourhood Algorithm.md` — celdas Voronoi, muestreo adaptativo, NA-Bayes para incertidumbre, Geopsy/Dinver (2x)
+- `Concepts/08/Levenberg-Marquardt.md` — Gauss-Newton + gradiente descendente, λk amortiguamiento, estándar inversión local MASW (2x)
+- `Concepts/07/Downhole Test.md` — receptor en un pozo, VS de intervalo, comparación vs Cross-Hole y MASW (2x)
+
+### 2026-04-11 — iteración 67 (commit 2f7d308) — 2 nuevos conceptos
+- `Concepts/08/First-Order Second-Moment Method.md` — propagación de covarianza Cm≈(JᵀCd⁻¹J+λRᵀR)⁻¹, bandas ±1σ del perfil VS (2x)
+- `Concepts/06/Kramers-Kronig Relations.md` — parte real/imaginaria de funciones causales, dispersión de material, constante-Q (2x)
+
+### 2026-04-11 — iteración 68 (commit 68bd13a) — 2 nuevos conceptos
+- `Concepts/06/Variational Principles.md` — cociente de Rayleigh, derivada variacional, regla del tercio de longitud de onda (2x)
+- `Concepts/08/Chi-Squared Test.md` — χ²=Σ(ri/σi)², test F para ensemble aceptable, Monte Carlo La Salle (2x)
+
+### 2026-04-11 — iteración 69 (commit ea92186) — 3 nuevos conceptos
+- `Concepts/07/Refraction Seismics.md` — alias/redirect a Seismic Refraction para wikilinks en Chapter 8 (4x)
+- `Concepts/06/Correspondence Principle.md` — módulos complejos, Ĝ=G(1+2iDs), Lai & Rix 1998, base inversión VS+DS (2x)
+- `Concepts/07/Cross-Correlation.md` — R12(τ)=∫u1·u2(t+τ), función de Green por correlación, SASW y interferometría (2x)
+
+**Estado: 98 archivos en Concepts/. Wikilinks rotos reducidos de 108 a ~12 reales (d'Alembert y Lamb's Problem son unicode, resto son aliases o imágenes).**
 - Continuar loop hasta 2026-04-13 08:00 AM
