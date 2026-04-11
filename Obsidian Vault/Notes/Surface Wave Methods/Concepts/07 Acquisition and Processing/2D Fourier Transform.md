@@ -48,6 +48,7 @@ El espectrograma $|U(\omega, k)|$ se analiza para identificar las crestas que co
 | [[Procesamiento de Señales|Tau-P / slant-stack]] | Transformada de Radon | Equivalente en el límite de densidad infinita de $p$ |
 | [[SASW Method|Espectro cruzado]] | DFT 1D por par | Caso especial con $N_x = 2$ |
 | Beamforming | DFT espacial con pesos | Generalización con taper espacial |
+| **Phase-shift** (Park 1998) | Suma de fases $\sum u_{norm} \cdot e^{i\omega x/c_T}$ | Alta resolución con pocos geófonos; estándar de MASWaves/SurfSeis |
 
 > [!EXAMPLE] Evidencia empírica: Park et al. (1999) — 2D FFT como estándar para extracción de la curva de dispersión MASW
 > **Paper 001 (Park, Miller & Xia 1999)** introduce el análisis f-k mediante 2D FFT como el método de referencia para MASW, reemplazando el método de espectro cruzado de dos receptores del [[SASW Method|SASW]]. Con 24 geófonos a espaciado 1.5 m (apertura $D = 34.5$ m), el espectrograma f-k muestra una cresta del modo fundamental de Rayleigh estrecha y bien definida entre 5–30 Hz. La resolución en número de onda $\Delta k = 2\pi/34.5 \approx 0.18$ rad/m permite separar visualmente el modo fundamental de los superiores en todo el rango de frecuencias útil. El trabajo establece que la 2D FFT sobre el sismograma completo es más robusta y reproducible que el análisis por pares de receptores del SASW, porque promedia la información de todos los geófonos simultáneamente, reduciendo el efecto del ruido incoherente.
@@ -60,3 +61,4 @@ El espectrograma $|U(\omega, k)|$ se analiza para identificar las crestas que co
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | Cap. 4, §4.2, pp. 195–215 — análisis f-k completo |
 | Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — 2D FFT como estándar MASW |
+| Park, Miller & Xia (1998), SEG abstract | Paper 023 — algoritmo phase-shift, 761 citas; base de MASWaves y SurfSeis |

@@ -49,10 +49,12 @@ que no coincide con ningún $c_n$ individual si hay mezcla modal.
 - **Arreglos largos**: mejoran la resolución en $k$ para separar modos
 - **Diversidad de offset**: diferentes distancias excitan modos con diferentes amplitudes relativas
 
-> [!EXAMPLE] Evidencia empírica: Xu et al. (2006) — error sistemático por confusión de modos en sitios con inversión de velocidad
+> [!EXAMPLE] Evidencia empírica: Tokimatsu et al. (1992) + Xu et al. (2006)
+> **Paper 031 (Tokimatsu, Tamura & Kojima 1992, ASCE JGGE, 352 citas)** — análisis teórico pionero: en perfiles con inversión de velocidad (capa blanda bajo capa rígida), los modos superiores de Rayleigh dominan la curva de dispersión aparente a bajas frecuencias, causando subestimación sistemática de Vs en profundidad si se invierte solo el modo fundamental. Propone la simulación multimodal para interpretación correcta. Fundamento directo de la inversión multimodal (Xia et al. 2003, Paper 025).
+>
 > **Paper 014 (Xu et al. 2006)** documenta errores sistemáticos de hasta **50%** en el perfil $V_S$ cuando se invierte la curva de dispersión asumiendo modo fundamental en presencia de una capa blanda intercalada (inversión de velocidad). En estos sitios, los modos superiores dominan el espectro f-k a frecuencias intermedias, pero la curva aparente parece continua — sin indicación visual de la confusión modal. El trabajo establece criterios para identificar cuándo la hipótesis de modo fundamental es insegura, y recomienda la inversión multimodal o el determinant misfit como alternativas robustas.
 >
-> — Research Database, entrada 014 (core).
+> — Research Database, entradas 031 y 014 (core).
 
 ## Relaciones con otros conceptos
 
@@ -68,4 +70,5 @@ que no coincide con ningún $c_n$ individual si hay mezcla modal.
 | Fuente | Sección / Página |
 |--------|-----------------|
 | Foti et al. (2018), *Surface Wave Methods* | §2.4, pp. 64–95 — modos y superposición modal |
+| Tokimatsu et al. (1992), *ASCE JGGE* 118(10) | Paper 031 — modos superiores dominan curva aparente en perfiles con inversión Vs; 352 citas |
 | Xu et al. (2006) | Paper 014 — error por confusión de modos en inversión |
