@@ -2,9 +2,11 @@
 
 ## Introducción
 
-Este capítulo aborda la teoría y práctica de la **adquisición de datos de [[Surface Waves|ondas superficiales]]**. La medición es un proceso experimental en el que se generan ondas superficiales y se observan sus efectos en el medio. El objetivo final es estimar los **parámetros de propagación** —principalmente la [[Phase Velocity|velocidad de fase]] en función de la frecuencia— que luego se usan para caracterizar el subsuelo.
+> Fuente: Foti et al. (2014), Capítulo 3, pp. 119–200.
 
-El capítulo sigue la secuencia real del workflow: adquisición → procesamiento → [[Inversión|inversión]]. Entender las limitaciones de la adquisición es indispensable para diseñar correctamente el procesamiento posterior.
+Este capítulo aborda la teoría y práctica de la **adquisición de datos de [[Surface Waves|ondas superficiales]]**. La medición es un proceso experimental en el que se generan ondas superficiales — mediante fuentes activas (maza, Vibroseís) o fuentes pasivas (microtremores ambientales) — y se observan sus efectos en receptores distribuidos en la superficie. El objetivo final es estimar los **parámetros de propagación** —principalmente la [[Phase Velocity|velocidad de fase]] en función de la frecuencia— que luego constituyen el dato de entrada para el análisis de dispersión (Capítulo 4) y la [[Inversión|inversión]] (Capítulo 6).
+
+El diseño del experimento de adquisición es el paso que mayor influencia tiene sobre la calidad final del perfil $V_S(z)$: errores de diseño (offset insuficiente, longitud de arreglo inadecuada, [[Aliasing|aliasing]] espacial) no pueden corregirse en el procesamiento posterior. El capítulo sigue la secuencia del workflow real — adquisición → procesamiento → [[Inversión|inversión]] — y desarrolla los criterios cuantitativos de diseño que permiten anticipar y controlar las limitaciones de la medición: rango de frecuencias accesible, profundidad máxima investigable, resolución en capas superficiales, y efectos del [[Near-field Effect|campo cercano]].
 
 ---
 

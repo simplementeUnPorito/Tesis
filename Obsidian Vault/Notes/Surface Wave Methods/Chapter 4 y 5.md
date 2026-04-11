@@ -2,7 +2,11 @@
 
 ## Capítulo 4: Análisis de dispersión
 
-El objetivo central del análisis de dispersión es extraer la **[[Dispersion Relation|curva de dispersión]] experimental** a partir del campo de ondas registrado en superficie. Esta curva relaciona la [[Phase Velocity|velocidad de fase]] de las [[Rayleigh Waves|ondas de Rayleigh]] con la frecuencia y constituye el dato de entrada para la [[Inversión|inversión]] (Capítulo 6).
+> Fuente: Foti et al. (2014), Capítulo 4, pp. 203–251.
+
+El objetivo central del análisis de dispersión es extraer la **[[Dispersion Curve|curva de dispersión]] experimental** a partir del campo de ondas registrado en superficie. Esta curva relaciona la [[Phase Velocity|velocidad de fase]] de las [[Rayleigh Waves|ondas de Rayleigh]] con la frecuencia y constituye el dato de entrada para la [[Inversión|inversión]] (Capítulo 6). El análisis conecta el dominio de adquisición (sismogramas espacio-tiempo) con el dominio de la [[Forward Problem|modelización directa]] (curva de dispersión teórica), y la calidad de esta transformación determina directamente la fiabilidad de los perfiles $V_S(z)$ resultantes.
+
+El procesamiento puede realizarse en diferentes dominios de transformación — frecuencia-[[Wavenumber|número de onda]] (f-k), [[Tau-P Transform|tau-p]], frecuencia-velocidad (f-v) — cada uno con ventajas distintas en términos de resolución, robustez al [[Near-field Effect|campo cercano]] y capacidad de separar modos. El Capítulo 4 desarrolla el marco teórico de cada transformación y presenta criterios prácticos para la interpretación y el [[Picking|picking]] de la curva de dispersión experimental, incluyendo el tratamiento de la incertidumbre.
 
 ### 4.1 [[Phase Velocity|Velocidad de fase]] y [[Group Velocity|velocidad de grupo]]
 
@@ -267,9 +271,13 @@ El **coeficiente de variación** de la [[Phase Velocity|velocidad de fase]] tien
 
 ## Capítulo 5: Análisis de atenuación
 
-La [[Attenuation|atenuación]] de las ondas superficiales tiene dos componentes: (a) la **disipación geométrica** (spreading cilíndrico: amplitud ∝ r⁻⁰·⁵) y (b) la **absorción intrínseca** del material, asociada a la [[Viscoelastic Media|viscoelasticidad]] del suelo. El Capítulo 5 se enfoca en extraer la componente intrínseca para estimar el perfil de **[[Shear Damping Ratio|razón de amortiguamiento]] a pequeñas deformaciones** $D_s(z)$.
+> Fuente: Foti et al. (2014), Capítulo 5, pp. 253–270.
 
-La medición de atenuación es más difícil y sensible que la de dispersión, porque las amplitudes son perturbadas por variaciones de acoplamiento, calibración de sensores y [[Mode Superposition|superposición modal]].
+La [[Attenuation|atenuación]] de las ondas superficiales tiene dos componentes que deben separarse: (a) la **disipación geométrica** (spreading cilíndrico en campo lejano: amplitud ∝ $r^{-0.5}$), que depende del perfil de $V_S$ y de la [[Mode Superposition|superposición modal]]; y (b) la **absorción intrínseca** del material, asociada a la [[Viscoelastic Media|viscoelasticidad]] del suelo y cuantificada por la [[Shear Damping Ratio|razón de amortiguamiento]] $D_S$. El Capítulo 5 se enfoca en extraer la componente intrínseca para estimar el perfil de **$D_S(z)$** a pequeñas deformaciones.
+
+El [[Attenuation Coefficient|coeficiente de atenuación]] $\alpha(\omega)$ se extrae del decaimiento espacial de amplitud espectral entre receptores, una vez compensada la contribución geométrica. Esta compensación requiere conocer el perfil de $V_S(z)$ con suficiente precisión — típicamente estimado primero en el Capítulo 4 — lo que hace que el análisis de atenuación sea secuencialmente dependiente del análisis de dispersión.
+
+La medición de $\alpha(\omega)$ es inherentemente más difícil y ruidosa que la de la [[Dispersion Curve|curva de dispersión]], porque las amplitudes son perturbadas por variaciones de acoplamiento suelo-geófono, diferencias de calibración entre sensores, y la [[Mode Superposition|superposición modal]] que complica el cálculo del [[Geometric Spreading|spreading geométrico]] teórico. El Capítulo 5 discute tres enfoques metodológicos para superar estas limitaciones: regresión univariante (§5.2), regresión multivariante (§5.3) y análisis multicanal multimodal del número de onda complejo (§5.4).
 
 ### 5.1 Atenuación de ondas superficiales
 

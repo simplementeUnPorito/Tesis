@@ -73,8 +73,12 @@ La moraleja es clara: **toda la información geotécnica disponible (incluyendo 
 
 ## 7.2 Comparación de estrategias de inversión — dataset activo + pasivo
 
+> Fuente: Foti et al. (2014), Sección 7.2, pp. 363–380.
+
+Esta sección presenta el caso de historia del sitio **La Salle** (Alpes italianos, abanico aluvial de material heterogéneo "caótico") como plataforma para comparar cuatro estrategias de [[Inversión|inversión]] sobre el mismo dataset: inversión empírica (SSRM), inversión determinista (mínimos cuadrados con [[Tikhonov Regularization|regularización de Tikhonov]]), inversión estocástica ([[Monte Carlo Methods|Monte Carlo]] con bootstrap), e inversión con medio verticalmente heterogéneo continuo.
+
 **Sitio:** La Salle, Alpes italianos (abanico aluvial de material heterogéneo "caótico").
-**Motivación:** En abanicos aluviales la variación de rigidez con la profundidad es gradual; las fuentes activas pesadas (Vibroseís) no siempre están disponibles. La combinación de datos activos y pasivos permite extender el rango de frecuencias y alcanzar profundidades mayores sin equipamiento costoso.
+**Motivación:** En abanicos aluviales la variación de rigidez con la profundidad es gradual; las fuentes activas pesadas (Vibroseís) no siempre están disponibles. La combinación de datos activos y pasivos permite extender el rango de frecuencias y alcanzar profundidades mayores sin equipamiento costoso. La comparación de estrategias de [[Inversión|inversión]] en el mismo dataset experimental ofrece perspectiva directa sobre el efecto de las hipótesis de parametrización del modelo, la elección del algoritmo de búsqueda y la cuantificación de la [[Non-uniqueness|no-unicidad]], independientemente de las variaciones en la calidad de adquisición.
 
 ### 7.2.1 Dataset experimental
 

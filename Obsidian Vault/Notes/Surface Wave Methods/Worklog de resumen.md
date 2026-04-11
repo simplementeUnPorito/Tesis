@@ -18,6 +18,15 @@
 - Página final aproximada: 20
 - Pendiente Chapter 1: ninguno — capítulo en estado comparable al resto del vault
 
+## Conceptos creados o actualizados en la última iteración (iteración 87 — 2026-04-11)
+- **Fase 10c — expansión de secciones thin en Caps 3, 4y5, 7**:
+  - **Chapter 3.md §Introducción**: 93w → 210w — añadida fuente Foti Cap.3, flujo experimental activo/pasivo, impacto del diseño sobre calidad, criterios de diseño cuantitativos; links a [[Aliasing]], [[Near-field Effect]]
+  - **Chapter 4 y 5.md §Cap4 intro**: 52w → 180w — fuente Foti Cap.4, dominio de transformación (f-k, tau-p, f-v), picking e incertidumbre; links a [[Wavenumber]], [[Picking]], [[Near-field Effect]], [[Forward Problem]]
+  - **Chapter 4 y 5.md §Cap5 intro**: 85w → 210w — fuente Foti Cap.5, separación disipación geométrica vs. absorción intrínseca, dependencia secuencial de $V_S$, tres enfoques metodológicos; links a [[Attenuation Coefficient]], [[Geometric Spreading]], [[Shear Damping Ratio]]
+  - **Chapter 7.md §7.2 intro**: 53w → 190w — fuente Foti §7.2, propósito comparación de 4 estrategias de inversión en mismo dataset; links a [[Tikhonov Regularization]], [[Monte Carlo Methods]], [[Non-uniqueness]]
+- Papers integrados: ninguno (foco en expansión narrativa)
+- Commits: `[INVESTIGADOR] expand: secciones thin caps 3, 4y5, 7 (iteración 87)`
+
 ## Conceptos creados o actualizados en la última iteración (iteración 86 — 2026-04-11)
 - **Fase 10b — expansión de secciones thin (< 150 palabras) en Caps 1 y 6**:
   - **Chapter 1.md §1.1.1**: intro 96w → 170w — añadida fuente Foti §1.1.2, explicación de $G_{\max}$, ventajas cualitativas de pruebas in situ; referencia a [[Forward Problem]]
