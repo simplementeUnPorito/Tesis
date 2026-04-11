@@ -6,8 +6,10 @@ type: reference
 
 # Tensor de Deformación (Strain Tensor)
 
-> **Contexto:** El tensor de deformación $\boldsymbol{\varepsilon}$ describe cómo cambia la geometría local de un medio continuo bajo un campo de desplazamientos $\mathbf{u}(\mathbf{x},t)$. Es uno de los dos tensores fundamentales de la mecánica del continuo elástico (junto con el [[Stress Tensor|tensor de esfuerzos]]) y la entrada a la ley de Hooke que relaciona deformación con esfuerzo. Su divergencia, combinada con la ley de Hooke y la segunda ley de Newton, conduce a las ecuaciones de onda de Navier que gobiernan la propagación de [[Body Waves|ondas de cuerpo]].
-> **Fuente:** Foti et al. (2014), Cap. 2.1.1, pp. 36–41.
+> [!CONCEPT] Definición
+> El **tensor de deformación** $\boldsymbol{\varepsilon}$ describe cómo cambia la geometría local de un medio continuo bajo un campo de desplazamientos $\mathbf{u}(\mathbf{x},t)$. Es uno de los dos tensores fundamentales de la [[Elasticity|mecánica del continuo elástico]] (junto con el [[Stress Tensor|tensor de esfuerzos]]) y la entrada a la ley de Hooke que relaciona deformación con esfuerzo. Su traza $\nabla\cdot\mathbf{u}$ mide el cambio volumétrico (acoplado a [[P-waves|ondas P]]) y las componentes fuera de la diagonal miden la distorsión de corte (acoplada a [[S-Waves|ondas S]]). La ley de Hooke + la ecuación de movimiento producen las **ecuaciones de Navier** que gobiernan la propagación de [[Body Waves|ondas sísmicas]].
+>
+> — Foti et al. (2018), §2.1.1, pp. 36–41.
 
 ## Intuición física
 
@@ -72,7 +74,15 @@ La descomposición de Helmholtz $\mathbf{u} = \nabla\phi + \nabla \times \boldsy
 
 El tensor de deformación es, por tanto, el eslabón que conecta el campo de desplazamientos observable con las propiedades elásticas del medio y las ecuaciones de onda.
 
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — deformación lineal como hipótesis válida en MASW
+> **Paper 002 (Xia, Miller & Park 1999)** implementa el problema directo de MASW bajo la hipótesis de deformaciones pequeñas (tensor de deformación linealizado). Esta hipótesis es válida para las amplitudes de movimiento generadas por fuentes sísmicas activas estándar (maza de 10 kg, vehículo), que producen deformaciones del orden de $10^{-6}$–$10^{-7}$ — muy por debajo del umbral no-lineal del suelo ($\sim 10^{-4}$). La validación contra borehole con error < 15% confirma que la linearización del tensor de deformación es una aproximación adecuada para la gama de frecuencias e intensidades de MASW.
+>
+> — Research Database, entrada 002 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.1.1, pp. 36–39 — definición del tensor de deformación linealizado y ley de Hooke para medio isótropo.
-- Foti et al. (2014), Cap. 2.1.3, pp. 43–46 — ecuaciones de Navier y descomposición P/S.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.1, pp. 36–39 — tensor de deformación linealizado y ley de Hooke |
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.3, pp. 43–46 — ecuaciones de Navier y descomposición P/S |
+| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 — hipótesis de deformación lineal en MASW |

@@ -6,8 +6,10 @@ type: reference
 
 # Frecuencia Angular (Angular Frequency)
 
-> **Contexto:** La frecuencia angular $\omega = 2\pi f$ es la forma natural de expresar la frecuencia en el formalismo matemático de las ondas. Aparece directamente en la representación de ondas armónicas ($e^{i(kx-\omega t)}$) y en la [[Dispersion Relation|relación de dispersión]] $\omega(k)$, que es la función central que controla cómo viajan las ondas en un medio dado. En MASW, la frecuencia angular vincula el dominio temporal del sismograma con el dominio espacial mediante la velocidad de fase $c_p = \omega/k$.
-> **Fuente:** Foti et al. (2014), Cap. 2.1.1, pp. 39–41.
+> [!CONCEPT] Definición
+> La **frecuencia angular** $\omega = 2\pi f$ es la forma natural de expresar la frecuencia en el formalismo matemático de ondas. Aparece directamente en la representación de ondas armónicas ($e^{i(kx-\omega t)}$) y en la [[Dispersion Relation|relación de dispersión]] $\omega(k)$ — la función central que codifica la física de propagación en el medio. En [[MASW Method|MASW]], $\omega$ vincula el dominio temporal del sismograma con el dominio espacial mediante la [[Phase Velocity|velocidad de fase]] $c_p = \omega/k$, y la [[Group Velocity|velocidad de grupo]] $c_g = d\omega/dk$ controla el *moveout* temporal del ground-roll.
+>
+> — Foti et al. (2018), §2.1.1, pp. 39–41.
 
 ## Intuición física
 
@@ -69,7 +71,15 @@ $$\omega = 2\pi f, \quad T = \frac{1}{f} = \frac{2\pi}{\omega}$$
 
 Algunos autores (incluyendo Foti et al.) alternan entre $f$ y $\omega$ según el contexto; es esencial verificar cuál se usa en cada ecuación para evitar errores de un factor $2\pi$.
 
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — análisis f-k como operación en el dominio ω-k
+> **Paper 001 (Park, Miller & Xia 1999)** implementa el análisis f-k como una transformada 2D que opera en el dominio $(\omega, k)$. La conversión de frecuencia angular a velocidad de fase $c_p = \omega/k$ es directa en el espectrograma: cada cresta del espectro f-k a un par $(\omega_i, k_i)$ corresponde a la velocidad de fase $c_p(f_i) = \omega_i/k_i$. El proceso no requiere conocer $\omega$ en radianes explícitamente porque los instrumentos reportan $f$ en Hz, pero la matemática subyacente usa $\omega$ para mantener la consistencia con la teoría de ondas elásticas.
+>
+> — Research Database, entrada 001 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.1.1, pp. 39–41 — representación de ondas armónicas y frecuencia angular.
-- Foti et al. (2014), Cap. 2.1.2, pp. 41–43 — relación de dispersión y velocidades de fase y grupo.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.1, pp. 39–41 — representación de ondas armónicas |
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.2, pp. 41–43 — relación de dispersión y velocidades de fase/grupo |
+| Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — análisis f-k en dominio ω-k |

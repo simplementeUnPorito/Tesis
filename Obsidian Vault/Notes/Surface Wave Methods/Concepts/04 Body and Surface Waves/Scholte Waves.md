@@ -1,6 +1,15 @@
-# Ondas de Scholte
+---
+name: Scholte Waves
+description: Ondas superficiales en la interfaz sólido-líquido (fondo marino); análogo marino de las ondas de Rayleigh; sensibles a VS del subfondo; velocidad siempre menor que la de Rayleigh del sólido equivalente
+type: reference
+---
 
-> **Fuente principal:** Sebastiano Foti, Chapter 8, Sección 8.2 · pp. 403–412
+# Ondas de Scholte (Scholte Waves)
+
+> [!CONCEPT] Definición
+> Las **ondas de Scholte** son ondas superficiales que se propagan en la **interfaz sólido-líquido** (fondo marino), análogas a las [[Rayleigh Waves|ondas de Rayleigh]] en la interfaz sólido-aire. Existen cuando $V_{S,\text{sólido}} < V_{P,\text{agua}} \approx 1500$ m/s (condición *soft bottom*), que se cumple casi universalmente en sedimentos no consolidados. Su velocidad es siempre menor que la de Rayleigh del sólido equivalente y su inversión permite estimar el perfil $V_S$ del subfondo marino de forma no invasiva.
+>
+> — Foti et al. (2018), Cap. 8, §8.2, pp. 403–412; Scholte (1947).
 
 Son ondas superficiales que se propagan en la **interfaz sólido-líquido** (fondo marino), de forma análoga a las [[Rayleigh Waves|ondas de Rayleigh]] en la interfaz sólido-aire. Fueron descritas por Scholte (1947) como los **modos normales reales** del sistema de capas para el caso *soft bottom* [12, 13].
 
@@ -88,7 +97,14 @@ La inversión conjunta de ambos conjuntos de datos permite una **caracterizació
 - [[Dispersion Curve]] — curva de dispersión de Scholte afectada por la capa de agua
 - [[Phase Velocity]] — velocidad siempre menor que la de Rayleigh para el mismo sólido
 
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — efecto de la capa de agua en la curva de dispersión de Scholte
+> Foti et al. (2018, §8.2) documentan cuantitativamente que **incluso una capa de agua de 0.5 m ya modifica la curva de dispersión de Scholte** respecto a la de Rayleigh sin agua. Para una capa de 3 m de agua, la diferencia en velocidad de fase puede alcanzar **~18% en el rango 10–20 Hz**. Esto demuestra que analizar datos de Scholte con un modelo de Rayleigh (ignorando la capa de agua) produce una subestimación sistemática de $V_S$, y que es imprescindible incluir el espesor y la velocidad del agua como parámetros del modelo de inversión — incluso en aguas muy someras.
+>
+> — Foti et al. (2018), Cap. 8, §8.2, Figs. 8.10b y 8.12, pp. 406–407.
+
 ## Fuentes
 
-- Scholte, J.G.J. (1947). The range of existence of Rayleigh and Stoneley waves. *Geophys. J. Int.*, 5(s5), 120–126.
-- PDF: Sebastiano Foti Chapter 8 (sección 8.2 — Scholte waves, guided P-waves, marine example, pp. 403–412)
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 8, §8.2, pp. 403–412 |
+| Scholte, J.G.J. (1947), *Geophys. J. Int.* | 5(s5), 120–126 — descripción original |

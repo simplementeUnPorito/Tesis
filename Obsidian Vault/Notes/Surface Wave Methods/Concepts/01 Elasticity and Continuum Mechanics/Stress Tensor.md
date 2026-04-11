@@ -6,8 +6,10 @@ type: reference
 
 # Tensor de Esfuerzos (Stress Tensor)
 
-> **Contexto:** El tensor de esfuerzos $\boldsymbol{\sigma}$ (tensor de Cauchy) describe completamente el estado de carga interna en un punto de un medio continuo: cuánta fuerza actúa por unidad de área sobre cualquier plano imaginario a través de ese punto, en cualquier orientación. Su divergencia aparece en la **segunda ley de Newton** para medios continuos ($\nabla \cdot \boldsymbol{\sigma} = \rho\,\ddot{\mathbf{u}}$), que combinada con la ley de Hooke conduce a las ecuaciones de onda elástica. El tensor de esfuerzos en la superficie libre impone las condiciones de contorno que dan lugar a las [[Rayleigh Waves]] y [[Love Waves]].
-> **Fuente:** Foti et al. (2014), Cap. 2.1.1, pp. 36–41.
+> [!CONCEPT] Definición
+> El **tensor de esfuerzos** $\boldsymbol{\sigma}$ (tensor de Cauchy) describe completamente el estado de carga interna en un punto de un medio continuo: cuánta fuerza actúa por unidad de área sobre cualquier plano imaginario a través de ese punto, en cualquier orientación. Su divergencia aparece en la segunda ley de Newton para medios continuos ($\nabla \cdot \boldsymbol{\sigma} = \rho\,\ddot{\mathbf{u}}$), que combinada con la ley de Hooke conduce a las **ecuaciones de Navier** — la base de la propagación de [[Body Waves|ondas sísmicas]]. Las condiciones de esfuerzo nulo en la superficie libre ($\sigma_{zz} = \sigma_{xz} = 0$) son las que dan lugar a las [[Rayleigh Waves]] y [[Love Waves]].
+>
+> — Foti et al. (2018), §2.1.1, pp. 36–41.
 
 ## Intuición física
 
@@ -75,7 +77,15 @@ En la interfaz entre dos medios elásticos (a profundidad $z = h$), las condicio
 
 Estas cuatro condiciones (para el caso P–SV) son las que se imponen en el método de la matriz de transferencia de [[Layered Media|Thomson-Haskell]] para calcular la [[Dispersion Curve|curva de dispersión]] de medios estratificados.
 
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — tensor de esfuerzos como núcleo del problema directo MASW
+> **Paper 002 (Xia, Miller & Park 1999)** implementa el problema directo de MASW sobre las ecuaciones de Navier derivadas del tensor de esfuerzos en cada capa elástica. El Jacobiano analítico $\partial c_R / \partial V_S$ — que permite la convergencia del algoritmo de inversión en < 10 iteraciones — se deriva directamente de la condición de esfuerzo libre en superficie ($\boldsymbol{\sigma} = 0$ en $z=0$) aplicada en el contexto de la ecuación secular de Rayleigh. La validación en múltiples sitios de Kansas confirma que el tensor de esfuerzos lineal isótropo es una aproximación suficientemente precisa para los suelos reales ensayados.
+>
+> — Research Database, entrada 002 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.1.1, pp. 36–39 — tensor de esfuerzos de Cauchy, ecuación de movimiento del continuo.
-- Foti et al. (2014), Cap. 2.1.3, pp. 43–46 — condición de esfuerzo libre y derivación de ecuaciones de Navier.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.1, pp. 36–39 — tensor de Cauchy y ecuación de movimiento |
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.3, pp. 43–46 — condición de esfuerzo libre y Navier |
+| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 — tensor de esfuerzos en problema directo MASW |
