@@ -643,11 +643,11 @@ Esto no significa que el suelo sea infinitamente rígido, sino que la onda P que
 
 ### Implicación práctica para caracterización de suelos
 
-En suelos y depósitos saturados:
+En suelos y depósitos saturados, la práctica estándar de caracterización geotécnica se orienta hacia $V_S$ y no $V_P$ por las razones ya descritas:
 
-- $V_P$ no representa bien la rigidez del esqueleto del suelo
-- $V_S$ es mucho más útil para caracterización geotécnica
-- los métodos de ondas superficiales se centran principalmente en recuperar perfiles de $V_S$
+- $V_P$ no representa bien la rigidez del esqueleto del suelo en condiciones saturadas — está controlada por la compresibilidad del fluido intersticial (agua), no por la rigidez del esqueleto sólido. En suelos bajo el nivel freático, $V_P \approx 1450$–$1600$ m/s independientemente de la compacidad del suelo.
+- $V_S$ depende exclusivamente de la rigidez de corte del esqueleto sólido y es insensible al contenido de fluido. En suelos saturados y no saturados con la misma estructura de granos, los valores de $V_S$ son comparables; esto no ocurre con $V_P$.
+- Los métodos de [[Surface Waves|ondas superficiales]] — que son métodos de onda de corte — se centran principalmente en recuperar perfiles de $V_S(z)$. El [[Shear Modulus|módulo de corte dinámico]] $G_{\max} = \rho \cdot V_S^2$ es directamente aplicable al análisis de respuesta sísmica de sitio, clasificación de suelo normativa ([[Vs30|$V_{S,30}$]]) y predicción de asentamientos dinámicos.
 
 ### Valores típicos de velocidades en geomateriales
 
@@ -682,17 +682,19 @@ Esta expresión representa una onda armónica propagándose en direcciones opues
 ![[Pasted image 20260316140712.png]]
 ### Geometría de fase
 
-El vector [[Wavenumber|número de onda]] es normal a los planos de fase constante, definidos por:
+El vector [[Wavenumber|número de onda]] $\mathbf{k}$ es **normal a los planos de fase constante** (frentes de onda), definidos por:
 
 $$  
-k_\chi \cdot x = \text{constante}  
+\mathbf{k} \cdot \mathbf{x} = \text{constante}  
 $$
 
-La [[Phase Velocity|velocidad de fase]] de la onda monocromática es:
+Estos planos se propagan en la dirección de $\mathbf{k}$ con la [[Phase Velocity|velocidad de fase]]:
 
 $$  
-c = \frac{\omega}{|k|}  
+c = \frac{\omega}{|\mathbf{k}|}  
 $$
+
+La geometría de los frentes de onda determina si la propagación es plana (frentes paralelos, válida en campo lejano), cilíndrica (frentes circulares en 2D, relevante para [[Rayleigh Waves|ondas superficiales]] desde fuente puntual) o esférica (frentes esféricos en 3D, para [[Body Waves|ondas de cuerpo]]). En el análisis de [[MASW Method|MASW]], el procesamiento f-k asume frentes planos, lo que es válido en campo lejano ($r \gg \lambda$) pero introduce error en el [[Near-field Effect|campo cercano]].
 
 ### Polarización de ondas P y S
 
@@ -714,32 +716,35 @@ Esta distinción es fundamental porque:
 
 ### Conversión de modos en interfaces
 
-Cuando una onda incide sobre una interfaz entre medios elásticos:
+Cuando una onda incide sobre una interfaz entre medios elásticos con propiedades diferentes, se produce **conversión de modos**: parte de la energía se transmite en el mismo modo y parte se convierte al otro tipo de onda. Las reglas de conversión dependen de la polarización:
 
-- una onda P incidente genera ondas P y SV reflejadas y transmitidas
-- una onda SV incidente genera ondas P y SV reflejadas y transmitidas
-- una onda SH incidente genera únicamente ondas SH reflejadas y transmitidas
+- Una **onda P incidente** genera ondas P y SV reflejadas y transmitidas (el acoplamiento P–SV es obligatorio en interfaz plana con contraste impedimético).
+- Una **onda SV incidente** genera ondas P y SV reflejadas y transmitidas (mismo acoplamiento P–SV).
+- Una **onda SH incidente** genera únicamente ondas SH reflejadas y transmitidas — el movimiento puramente horizontal transversal no se acopla con los modos P ni SV.
     
 ![[Pasted image 20260316141217.png]]
-Este fenómeno de [[Mode Conversion]] es central para entender:
 
-- propagación en [[Layered Media]]
-- formación de [[Rayleigh Waves]]
-- existencia de [[Love Waves]]
+Este fenómeno de [[Mode Conversion|conversión de modos]] tiene consecuencias fundamentales para la geofísica de ondas superficiales:
+
+- En [[Layered Media|medios estratificados]], cada interfaz P–SV genera ondas reflejadas y transmitidas en ambos modos. La superposición de todas estas contribuciones es lo que da lugar a los modos de propagación de las [[Rayleigh Waves|ondas de Rayleigh]] (solución propia del problema de capas con condición de frontera libre en superficie).
+- El desacoplamiento de SH explica por qué las [[Love Waves|ondas de Love]] (modo SH guiado) tienen curvas de dispersión más simples y menos susceptibles a la [[Mode Superposition|superposición modal]] confusa: los modos Love no interaccionan con los modos P–SV.
+- La conversión de modos en la superficie libre es el mecanismo que produce la polarización elíptica característica de las [[Rayleigh Waves|ondas de Rayleigh]].
 
 ### Caso unidimensional
 
-Para propagación 1D, la solución armónica se simplifica a:
+Para propagación 1D a lo largo del eje $x$, la solución armónica se simplifica a una superposición de ondas progresiva (dirección $+x$) y regresiva (dirección $-x$):
 
 $$  
 u(x,t)=A_1 e^{i(\omega t-kx)} + A_2 e^{i(\omega t+kx)}  
 $$
 
-y el [[Wavenumber|número de onda]] queda definido por:
+donde el [[Wavenumber|número de onda]] escalar queda directamente relacionado con la [[Phase Velocity|velocidad de fase]] $V$:
 
 $$  
 k = \frac{\omega}{V}  
 $$
+
+Esta relación es la base de la extracción de la [[Dispersion Curve|curva de dispersión]] en el análisis de ondas superficiales: en el dominio f-k, la pendiente de la línea que une el origen con el máximo espectral es exactamente $V_{ph}(f) = f/k$, y el conjunto de estas pendientes para todas las frecuencias forma la [[Dispersion Curve|curva de dispersión]] experimental.
 
 ### Parámetros fundamentales de una onda armónica
 
