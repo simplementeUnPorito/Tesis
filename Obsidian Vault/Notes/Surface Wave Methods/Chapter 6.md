@@ -517,6 +517,10 @@ Esta relación se visualiza mediante la **curva de trade-off** (Figura 6.20): no
 
 *Trazabilidad: Foti Cap. 6, §6.5.4, pp. 344–347*
 
+> [!EXAMPLE] Evidencia empírica: Paper 042 (Wathelet, Jongmans & Ohrnberger 2004) — algoritmo de vecindad para inversión global y cuantificación de incertidumbre
+> **Paper 042 (Wathelet, Jongmans & Ohrnberger 2004, *Near Surface Geophysics* 2(4):211–221)** introduce el **[[Neighbourhood Algorithm|algoritmo de vecindad (NA)]]** como método de búsqueda global para la [[Inversión|inversión]] de curvas de dispersión, implementado en lo que hoy se conoce como Geopsy/Dinver. Aplicado a datos sintéticos y a un sitio real en Bruselas (Bélgica, ~115 m de arenas y arcillas sobre basamento Paleozoico), el NA explora el espacio completo de modelos $V_S(z)$ y devuelve: (1) el modelo de mejor ajuste (*misfit* mínimo); (2) la distribución posterior de todos los modelos aceptables, directamente comparable con la Figura 6.20 de trade-off resolución/varianza. La validación con pozo en Bruselas muestra que el intervalo de confianza del NA contiene el perfil de borehole, confirmando que el rango de soluciones es estadísticamente correcto. Los autores demuestran que datos activos y pasivos son **complementarios**: activos proveen alta resolución en las capas superficiales, pasivos aportan información más profunda — exactamente el esquema de adquisición multi-dataset del §6.4.4. Este trabajo es el fundamento algorítmico directo de la herramienta Dinver (Paper 014, Geopsy) y de la metodología de análisis de incertidumbre usada en Papers 013 y 022 (MASWaves).
+> — Research Database, entrada 042; Wathelet et al. (2004), *Near Surface Geophysics* 2:211–221. DOI: 10.3997/1873-0604.2004018.
+
 ---
 
 ## Estado de síntesis

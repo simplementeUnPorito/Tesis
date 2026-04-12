@@ -3,17 +3,26 @@
 ## Estado general
 - Chapter 1: **consolidado (quinta fase COMPLETA)** — 3×[!EXAMPLE] (026, 009, 003); wikilinks 3.30/100w; ninguna sección crítica thin
 - Chapter 2: **consolidado (quinta fase en progreso)** — 3×[!EXAMPLE] (002, 031, 008); wikilinks ~3.7/100w; 17 subsecciones thin expandidas en iters 91-94; ~57 secciones thin restantes
-- Chapter 3: **consolidado (quinta fase completa)** — 3×[!EXAMPLE] (001, 024, 046); wikilinks 2.55/100w; ninguna sección crítica pendiente
+- Chapter 3: **consolidado (sexta fase)** — **4×[!EXAMPLE]** (001, 024, 046, **023**); wikilinks 2.55/100w; ninguna sección crítica pendiente
 - Chapter 4 y 5: **consolidado (quinta fase completa)** — 3×[!EXAMPLE] (027, 023, 053); wikilinks 2.88/100w
-- Chapter 6: **consolidado (quinta fase completa)** — 3×[!EXAMPLE] (003, 037, 025); wikilinks 2.77/100w
-- Chapter 7: **consolidado (quinta fase completa)** — 3×[!EXAMPLE] (034, 046, 010); wikilinks 2.87/100w
-- Chapter 8: **consolidado (quinta fase completa)** — 3×[!EXAMPLE] (033, 038, 017); wikilinks 2.61/100w
+- Chapter 6: **consolidado (sexta fase)** — **4×[!EXAMPLE]** (003, 037, 025, **042**); wikilinks 2.77/100w
+- Chapter 7: **consolidado (sexta fase)** — **4×[!EXAMPLE]** (034, 046, 010, **009**); wikilinks 2.87/100w
+- Chapter 8: **consolidado (sexta fase)** — **4×[!EXAMPLE]** (033, 038, 017, **048**); wikilinks 2.61/100w
 
 ## Último punto procesado
-- Capítulo actual: Concepts/ — 4 notas atómicas nuevas creadas (iteración 100)
-- Fase actual: **quinta fase COMPLETA** para todos los capítulos; 20×[!EXAMPLE] total; 4 nuevos Concepts/ atómicos
-- Estado: todos los caps ≥3 [!EXAMPLE]; Ch2 thin sections mayormente completadas; Concepts/ ampliado
-- Pendiente: verificar notas Concepts/ adicionales que puedan faltar; posible profundización de notas cortas existentes
+- Capítulo actual: Ch3, Ch6, Ch7, Ch8 — 4to [!EXAMPLE] añadido a cada uno (iteración 102)
+- Fase actual: **sexta fase en progreso** — 4 capítulos con 4×[!EXAMPLE]; todos los wikilinks de caps 3-8 con Concepts/ existentes verificados; Concepts/ auditado
+- Estado: Ch3+Ch6+Ch7+Ch8 ahora con 4×[!EXAMPLE]; Ch1+Ch4y5 con 3×[!EXAMPLE]; Ch2 con 3×[!EXAMPLE]
+- Pendiente: añadir 4to [!EXAMPLE] a Ch1, Ch4y5, Ch2; posible profundización thin sections Ch3-Ch8
+
+## Conceptos creados o actualizados en la última iteración (iteración 102 — 2026-04-12)
+- **Fase 20 — 4to [!EXAMPLE] en Ch3, Ch6, Ch7, Ch8**:
+  - **Chapter 3.md §3.3.7**: [!EXAMPLE] Paper 023 (Park, Miller & Xia 1998) — método phase-shift: la transformada f-k en práctica MASW; ecuación A(ω,cT) = Σ u·exp(i·ω·x/cT); vínculo con tríada fundacional 001+002+023
+  - **Chapter 6.md §6.5.4**: [!EXAMPLE] Paper 042 (Wathelet, Jongmans & Ohrnberger 2004) — Neighbourhood Algorithm en Geopsy/Dinver; validación con borehole Bruselas; activo+pasivo complementarios
+  - **Chapter 7.md §7.1.3**: [!EXAMPLE] Paper 009 (Xia et al. 2002) — MASW vs borehole: error <15% hasta 30 m; resolución decrece con profundidad; efecto del nivel freático en precisión
+  - **Chapter 8.md §8.5.4**: [!EXAMPLE] Paper 048 (Park & Miller 2008) — MASW pasivo roadside: escaneo azimutal 0-180°; tráfico vehicular como fuente; equipamiento idéntico al MASW activo
+- **Auditoría de Concepts/**: verificados todos los wikilinks de Caps 3-8 — todos apuntan a archivos existentes; vault está completamente enlazado
+- Papers integrados: 023 (Ch3), 042 (Ch6), 009 (Ch7), 048 (Ch8)
 
 ## Conceptos creados o actualizados en la última iteración (iteración 100 — 2026-04-12)
 - **Fase 19 — Concepts/ notas atómicas faltantes**:

@@ -418,6 +418,12 @@ La conclusión es inequívoca (Foti p. 148): *"to accurately measure multiple su
 
 *(Fuente: Foti Ch. 3, Sec. 3.3.7, p. 141–148, Ecs. 3.17–3.29, Figs. 3.15–3.18)*
 
+> [!EXAMPLE] Evidencia empírica: Paper 023 (Park, Miller & Xia 1998) — método phase-shift: la transformada f-k en la práctica MASW
+> **Paper 023 (Park, Miller & Xia 1998, *SEG Technical Program Expanded Abstracts*, pp. 1377–1380, 761 citas)** introduce la transformación **phase-shift** que convierte el shot gather multicanal directamente en una imagen de alta resolución de la curva de dispersión. La ecuación central es:
+> $$A(\omega, c_T) = \sum_j \hat{u}(x_j, \omega) \cdot e^{i\omega x_j / c_T}$$
+> donde $\hat{u}(x_j, \omega)$ es la traza normalizada del $j$-ésimo [[Geophone|geófono]] y $c_T$ es una velocidad de prueba. Las crestas de $|A(\omega, c_T)|$ en el espacio $(f, c_T)$ identifican los [[Surface Wave Modes|modos de propagación]] — es decir, son la [[Dispersion Curve|curva de dispersión]] directamente observable. Esta operación es la aplicación práctica de la [[2D Fourier Transform|transformada f-k]]: suma coherente de trazas con corrección de fase equivale a filtrar en el plano f-k la energía que viaja a velocidad $c_T$. **Ventaja clave sobre el análisis f-k clásico**: opera con arreglos cortos (pocos receptores) y offsets cercanos, cumpliendo exactamente las condiciones de campo de la [[MASW Method|metodología MASW]]. Junto con Park et al. (1999, paper 001) y Xia et al. (1999, paper 002), forma la tríada fundacional sobre la que se construyeron Geopsy, SurfSeis y MASWaves.
+> — Research Database, entrada 023; Park, Miller & Xia (1998)
+
 ---
 
 ## 3.4 Acquisition of Surface Waves

@@ -67,6 +67,10 @@ La moraleja es clara: **toda la información geotécnica disponible (incluyendo 
 
 > Figuras clave: 7.1 (p. 352), 7.2 (p. 354), 7.3 (p. 355), 7.4 (p. 356), 7.5 (p. 357), 7.6 (p. 358), 7.7 (p. 359), 7.8 (p. 360), 7.9 (p. 362), 7.10 (p. 363).
 
+> [!EXAMPLE] Evidencia empírica: Paper 009 (Xia et al. 2002) — validación sistemática MASW vs. borehole en múltiples sitios: error <15% en profundidades operacionales
+> **Paper 009 (Xia, Miller, Park, Hunter, Harris & Ivanov 2002, *Soil Dyn. Earthq. Eng.* Vol.22(3):181–190, 223 citas)** lleva a cabo la primera validación sistemática del [[MASW Method|MASW]] comparando los perfiles $V_S(z)$ obtenidos por inversión de curvas de dispersión de [[Rayleigh Waves|Rayleigh]] contra mediciones directas de borehole (crosshole y downhole) en múltiples sitios de Kansas (USA) y Canadá. El protocolo de inversión usa el algoritmo de Xia et al. (1999, paper 002) con [[Jacobian Matrix|Jacobiano]] analítico sobre el [[Surface Wave Modes|modo fundamental]]. **Resultados cuantitativos clave**: el error relativo medio entre MASW y borehole es menor al 15% en la mayoría de las capas para profundidades hasta 30 m; el error crece con la profundidad — consecuencia directa de la disminución de la [[Sensitivity Kernel|sensibilidad]] del método en capas profundas. Las capas donde el [[MASW Method|MASW]] presenta mayor precisión son las superficiales (0–10 m), donde dominan las frecuencias altas con mejor SNR. Esto confirma que el efecto del nivel freático analizado en §7.1.3 — incorrección en los parámetros a priori de [[Poisson Ratio|Poisson]] — tiene impacto directo en el error de validación: los sitios cuya inversión consideró la tabla de agua mostraron sistemáticamente menores errores. El estudio valida la viabilidad del [[MASW Method|MASW]] como alternativa no invasiva al borehole en sitios sin perforación disponible.
+> — Research Database, entrada 009; Xia et al. (2002), *Soil Dyn. Earthq. Eng.* 22(3):181–190. DOI: 10.1016/S0267-7261(02)00008-8.
+
 ---
 
 ---
