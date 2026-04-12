@@ -10,9 +10,22 @@
 - Chapter 8: **consolidado (tercera fase completa)** — intro sección 8.3 añadida (~190 palabras); sección 8.3.2 intro expandida de ~80 a ~230 palabras
 
 ## Último punto procesado
-- Capítulo actual: TODOS — enriquecimiento masivo de wikilinks (iteración 92)
-- Fase actual: cuarta (densidad wikilinks ≥2.5/100w en todos los capítulos)
-- Pendiente: nuevas secciones thin si las hay; [!EXAMPLE] adicionales en Ch2 y Ch7
+- Capítulo actual: TODOS — [!EXAMPLE] sweep completo, todos los caps ≥2 [!EXAMPLE] (iteración 93)
+- Fase actual: cuarta completada (densidad ≥2.5/100w; todos los caps ≥2 [!EXAMPLE]; 13 total)
+- Pendiente: expansión subsecciones thin Ch2 (73 restantes); nuevos papers en §§ de mayor interés
+
+## Conceptos creados o actualizados en la última iteración (iteración 93 — 2026-04-12)
+- **Fase 12 — [!EXAMPLE] sweep + wikilinks masivos + expansión Ch2 matemática**:
+  - **Chapter 1.md §1.7.1**: [!EXAMPLE] Paper 009 (Xia 2002) — MASW vs borehole Kansas/Canadá: error <15%, sin perforación
+  - **Chapter 2.md §2.4.2**: [!EXAMPLE] Paper 031 (Tokimatsu 1992) — modos superiores dominan curva aparente en perfiles inv. velocidad
+  - **Chapter 2.md §§Marco físico/Campo desplaz/Tensor/Navier/Implicación/Rel.constitutiva/Polarización SV-SH/2.2.2**: 7 subsecciones thin expandidas 30-46w → 100-160w
+  - **Chapter 4 y 5.md §4.4**: [!EXAMPLE] Paper 027 (Strobbia & Foti 2006) — MOPA: incertidumbre estadística directa, detección campo cercano
+  - **Chapter 6.md §6.4.3.2**: [!EXAMPLE] Paper 037 (Bergamo 2011) — Monte Carlo multimodal, inversiones de velocidad, validado H/V
+  - **Chapter 7.md §7.3.2**: [!EXAMPLE] Paper 046 (Garofalo 2016) — InterPACIFIC MASW vs borehole: Vs30 comparable ±10-15%
+  - **Chapter 8.md §8.4**: [!EXAMPLE] Paper 038 (Shapiro & Campillo 2004) — ondas Rayleigh broadband desde correlaciones ruido ambiental
+- **Estado [!EXAMPLE] por capítulo**: Ch1(2), Ch2(2), Ch3(2), Ch4y5(2), Ch6(2), Ch7(2), Ch8(2) — TODOS ≥2 [!EXAMPLE]
+- **Densidad wikilinks**: Ch1(3.30), Ch2(3.71), Ch3(2.55), Ch4y5(2.88), Ch6(2.77), Ch7(2.87), Ch8(2.61) — TODOS ≥2.5/100w
+- Papers integrados: 009, 027, 031, 037, 038, 046
 
 ## Conceptos creados o actualizados en la última iteración (iteración 92 — 2026-04-12)
 - **Fase 11 — wikilink sweep masivo: [[Inversión]], [[Surface Wave Modes]], [[Rayleigh Waves]], [[Love Waves]], [[Geophone]], [[Seismic Cone Penetration Test]], [[Attenuation Coefficient]]**:

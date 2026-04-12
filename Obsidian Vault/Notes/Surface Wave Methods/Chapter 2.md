@@ -1215,6 +1215,10 @@ El campo de ondas registrado por un arreglo de geófonos es en general una **sup
 
 > **Implicación crítica para la tesis**: en medios inversamente dispersivos, los [[Surface Wave Modes|modos superiores]] contribuyen de manera importante incluso a frecuencias bajas. Invertir la [[Dispersion Curve|curva de dispersión]] aparente como si fuera del [[Surface Wave Modes|modo fundamental]] introduce errores sistemáticos en el perfil $V_S(z)$. Este es uno de los problemas más frecuentes en la práctica.
 
+> [!EXAMPLE] Evidencia empírica: Paper 031 (Tokimatsu et al. 1992) — [[Surface Wave Modes|modos superiores]] dominan la dispersión aparente en perfiles con inversión de velocidad
+> **Paper 031 (Tokimatsu, Tamura & Kojima 1992, *J. Geotech. Eng.* ASCE 118(10):1529–1543, 352 citas)** analiza teóricamente el efecto de los [[Surface Wave Modes|modos superiores]] de [[Rayleigh Waves|ondas de Rayleigh]] sobre la [[Dispersion Curve|curva de dispersión]] aparente medida en campo (contexto SASW). Usando cálculo multimodal por [[Thomson-Haskell Matrix|matriz de transferencia]] en perfiles sintéticos estratificados, el estudio demuestra que: (1) en perfiles con **inversión de velocidad** (capa rígida sobre capa blanda), los [[Surface Wave Modes|modos superiores]] pueden **dominar energéticamente** la curva aparente incluso a bajas frecuencias, desplazándola hasta 2× la velocidad del [[Surface Wave Modes|modo fundamental]]; (2) invertir la curva aparente asumiendo [[Surface Wave Modes|modo fundamental]] produce subestimaciones sistemáticas de $V_S$ en profundidad. Este resultado motiva directamente los métodos de [[Inversión|inversión]] multimodal (como los de Xia 2003, Paper 025) y las búsquedas globales estocásticas (Maraschini 2010, Paper 034) que no requieren asignación modal a priori.
+> — Research Database, entrada 031; Tokimatsu et al. (1992), *J. Geotech. Eng.* ASCE 118(10):1529–1543. DOI: 10.1061/(ASCE)0733-9410(1992)118:10(1529).
+
 ---
 
 ### 2.4.3 El problema de la fuente: Lamb's Problem

@@ -247,6 +247,10 @@ El interferograma también ayuda a validar la hipótesis básica de ruido isotr�
 
 > Figuras clave: 8.28 (p. 427), 8.29 (p. 428), 8.30 (p. 429), 8.31 (p. 429), 8.32 (p. 430).
 
+> [!EXAMPLE] Evidencia empírica: Paper 038 (Shapiro & Campillo 2004) — [[Seismic Interferometry|interferometría sísmica]]: [[Rayleigh Waves|ondas de Rayleigh]] broadband desde correlaciones de ruido ambiental
+> **Paper 038 (Shapiro & Campillo 2004, *Geophys. Res. Lett.* 31(7), L07614)** es el paper fundacional que demuestra que la [[Green Function|función de Green]] de onda superficial entre dos receptores emerge de la [[Cross-Correlation|correlación cruzada]] de días de ruido ambiental. Usando una red de sismómetros de banda ancha en EE.UU. (distancias 100–2000 km), los autores extrajeron [[Dispersion Curve|curvas de velocidad de grupo]] de [[Rayleigh Waves|ondas de Rayleigh]] en el rango 5–30 s de período, consistentes con resultados de tomografía balística independiente. El resultado establece el principio que subyace a todos los métodos pasivos de [[Seismic Interferometry|interferometría sísmica]] a escala local: si el campo de ruido es suficientemente difuso (fuentes distribuidas en todas las direcciones), la [[Cross-Correlation|correlación cruzada]] de señales en dos receptores converge a la función de Green entre ellos. A escala de ingeniería sísmica, este principio justifica los métodos [[ReMi Method|ReMi]], SPAC y beamforming pasivo que extraen curvas de dispersión desde registros de [[Microtremor|microtremores]] sin necesidad de fuente activa.
+> — Research Database, entrada 038; Shapiro & Campillo (2004), *Geophys. Res. Lett.* 31(7). DOI: 10.1029/2004GL019491.
+
 ---
 
 ## 8.5 Análisis multicomponente, polarización y relación espectral H/V

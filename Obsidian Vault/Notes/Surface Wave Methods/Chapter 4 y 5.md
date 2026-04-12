@@ -143,6 +143,10 @@ La no linealidad detectada en las fases puede deberse a:
 
 *Fuente: Foti Ch. 4, Sec. 4.4, pp. 220–230*
 
+> [!EXAMPLE] Evidencia empírica: Paper 027 (Strobbia & Foti 2006) — MOPA: incertidumbre estadística directa en curvas de dispersión
+> **Paper 027 (Strobbia & Foti 2006, *J. Appl. Geophys.* 59(4):300–313, 127 citas)** presenta el método [[MOPA|MOPA]] (Multi-Offset Phase Analysis) como alternativa estadísticamente rigurosa a los métodos de extracción de [[Dispersion Curve|curva de dispersión]] basados en transformadas (f-k, phase-shift). A diferencia de estos, MOPA entrega **estimaciones directas de incertidumbre** $\sigma_V(f)$ para cada punto de la curva, utilizando la propagación de errores de la regresión lineal ponderada sobre el array multi-offset. Una ventaja clave reportada es la detección automática de receptores en [[Near-field Effect|campo cercano]]: las fases de los receptores más cercanos a la fuente se desvían estadísticamente de la tendencia lineal, y el [[Chi-Squared Test|test chi-cuadrado]] de linealidad identifica y excluye estas observaciones antes de calcular el número de onda. En experimentos con datos de campo en Italia, las curvas MOPA muestran incertidumbre del orden de 5–10% de $V_R$ en la banda de buena relación señal/ruido, deteriorándose hacia los extremos de frecuencia del array donde la cobertura de offset es insuficiente.
+> — Research Database, entrada 027; Strobbia & Foti (2006), *J. Appl. Geophys.* 59(4):300–313. DOI: 10.1016/j.jappgeo.2005.10.009.
+
 ---
 
 ### 4.5 Autocorrelación espacial (SPAC / ESAC)

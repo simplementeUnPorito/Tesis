@@ -317,6 +317,10 @@ El uso primario de los métodos de ondas superficiales es la determinación del 
 ![[ch1 Comparison of V_s30 determined with invasive test and surface wave tests.png]]
 *(Ref: Figura 1.13, p. 30 — Comparación de $V_{S,30}$ obtenido con pruebas invasivas y de ondas superficiales en sitios de EE.UU. e Italia)*
 
+> [!EXAMPLE] Evidencia empírica: Paper 009 (Xia et al. 2002) — perfiles Vs MASW vs. borehole en Kansas y Canadá
+> **Paper 009 (Xia, Miller, Park, Hunter, Harris & Ivanov 2002, *Soil Dyn. Earthq. Eng.* 22(3):181–190, 223 citas)** presenta la primera validación sistemática multi-sitio de [[MASW Method|MASW]] comparando perfiles $V_S(z)$ contra mediciones de borehole (crosshole / downhole) en sitios de Kansas (EE.UU.) y Canadá. Los resultados cuantifican el acuerdo capa por capa: el error relativo típico es **< 15%** en capas superficiales e intermedia, y aumenta con la profundidad conforme disminuye la resolución del método. El mismo equipamiento estándar del paper fundacional (geófonos 4.5 Hz + sismógrafo 24 canales + martillo) produce resultados comparables a los métodos invasivos, sin requerir perforación previa. Esta validación justifica directamente el uso de [[MASW Method|MASW]] como método de caracterización confiable en contextos donde el borehole no es accesible — argumento central para aplicaciones en Paraguay y otros países con recursos limitados.
+> — Research Database, entrada 009; Xia et al. (2002), *Soil Dyn. Earthq. Eng.* 22(3):181–190. DOI: 10.1016/S0267-7261(02)00008-8.
+
 ### 1.7.2 Mejora de Suelos y Monitoreo
 
 > Fuente: Foti et al. (2014), Sección 1.6.2, p. 31.
