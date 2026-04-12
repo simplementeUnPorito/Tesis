@@ -410,7 +410,11 @@ La componente diagonal $\varepsilon_{ii}$ representa la deformación longitudina
 
 #### Tensor de esfuerzos
 
-Las fuerzas internas del medio se describen mediante el [[Stress Tensor]].
+Las fuerzas internas del medio se describen mediante el [[Stress Tensor|tensor de esfuerzos]] $\boldsymbol{\sigma}$, una matriz simétrica de 3×3 = 9 componentes (6 independientes por simetría). El componente $\sigma_{ij}$ representa la fuerza por unidad de área que actúa en la dirección $j$ sobre la cara cuya normal apunta en la dirección $i$.
+
+La **diagonal** ($\sigma_{11}, \sigma_{22}, \sigma_{33}$) contiene los esfuerzos normales (compresión/tracción perpendicular a la cara). Los elementos **fuera de la diagonal** ($\sigma_{12}, \sigma_{13}, \sigma_{23}$) son los esfuerzos cortantes (tangenciales). La traza del tensor, $\text{tr}(\boldsymbol{\sigma}) = \sigma_{11} + \sigma_{22} + \sigma_{33}$, es proporcional a la presión hidrostática. La simetría $\sigma_{ij} = \sigma_{ji}$ se desprende del balance de momentos angulares.
+
+*(Fuente: Foti Ch. 2, Sec. 2.1.2, p. 38–40)*
 
 #### Fuerzas internas y ecuación de movimiento
 
@@ -505,13 +509,16 @@ Esta distinción de polarización es fundamental para la clasificación de las [
 
 #### Conversión de modos
 
-Cuando una onda incide sobre una interfaz entre medios elásticos ocurre [[Mode Conversion]].
+Cuando una onda incide sobre una interfaz entre medios elásticos, la discontinuidad de propiedades genera **[[Mode Conversion|conversión de modos]]**: la onda incidente se descompone en ondas reflejadas y transmitidas que pertenecen a tipos de onda diferentes.
 
-- onda P incidente → ondas reflejadas y transmitidas P y SV
-- onda SV incidente → ondas reflejadas y transmitidas P y SV
-- onda SH incidente → solo ondas SH
+Las reglas de conversión dependen de la polarización:
+- **Onda P incidente** → ondas reflejadas y transmitidas P (compresión) y SV (cortante vertical), en la proporción determinada por los coeficientes de reflexión-transmisión de Zoeppritz.
+- **Onda SV incidente** → ondas reflejadas y transmitidas P y SV (acoplamiento P-SV siempre activo).
+- **Onda SH incidente** → **solo ondas SH**: las ondas de corte horizontal no se acoplan con P ni SV — esta desconexión es la base matemática de la existencia de las [[Love Waves|ondas Love]] como modos guiados puros.
 
-Este fenómeno es esencial para comprender la propagación en [[Layered Media]] y [[Vertically Inhomogeneous Media]].
+**Implicación para [[Surface Waves|ondas superficiales]]**: en [[Layered Media|medios estratificados]], la conversión de modos en cada interfaz genera la interferencia constructiva que forma las ondas de Rayleigh y Love como soluciones modales del sistema de capas. Cada modo resulta de una condición de resonancia específica que involucra múltiples reflexiones y conversiones entre interfaces. El análisis completo de estas conversiones mediante la [[Thomson-Haskell Matrix|matriz de Thomson-Haskell]] (§2.4.1.1) constituye el [[Forward Problem|problema directo]] para la [[Inversión|inversión]] de ondas superficiales.
+
+*(Fuente: Foti Ch. 2, Sec. 2.3, p. 57–59)*
 
 #### Ondas armónicas
 
@@ -1188,9 +1195,15 @@ Esta es la **ecuación secular** (o ecuación de dispersión general): altamente
 
 #### Algoritmos numéricos (Foti Sec. 2.4.1.1, p. 72–74)
 
-- **[[Thomson-Haskell Matrix|Thomson–Haskell]] (transfer matrix)**: construye $\Phi_{L/R}[\cdot]$ multiplicando matrices de capa; las raíces son los autovalores. Más común por su simplicidad, pero numéricamente inestable a alta frecuencia
-- **Matriz de rigidez dinámica (Kausel–Roesset 1981)**: reemplaza las matrices de transferencia por matrices de rigidez de capa; más estable
-- **Coeficientes de reflexión–transmisión (Kennett)**: algoritmo recursivo; modela explícitamente la interferencia constructiva entre modos
+Tres familias principales de algoritmos evalúan numéricamente $\Phi_{L/R}(k, \omega)$:
+
+- **[[Thomson-Haskell Matrix|Thomson–Haskell]] (transfer matrix)**: construye la función $\Phi_{L/R}[\cdot]$ multiplicando matrices de capa 4×4 (Rayleigh) o 2×2 (Love). Las raíces de $\Phi = 0$ son los autovalores. Es el algoritmo más común por su implementación directa, pero sufre **inestabilidad numérica a alta frecuencia/profundidad**: el producto de matrices exponenciales produce overflow o cancelación catastrófica de dígitos significativos. En la práctica se normaliza $\Phi$ o se usa en combinación con técnicas de *root-bracketing*.
+
+- **Matriz de rigidez dinámica (Kausel–Roesset 1981)**: reemplaza las matrices de transferencia por matrices de rigidez de capa ensambladas de forma similar a la mecánica estructural (método de elementos finitos). Es numéricamente más estable porque opera con matrices definidas positivas. Usada en la mayoría de códigos modernos (DISPACK, SurfSeis).
+
+- **Coeficientes de reflexión–transmisión (Kennett 1974)**: algoritmo recursivo que modela explícitamente la interferencia constructiva entre modos mediante coeficientes globales de reflexión y transmisión. El más estable numéricamente de los tres, pero más complejo de implementar. Permite tratar capas fluidas y sólidas en el mismo medio.
+
+*(Fuente: Foti Ch. 2, Sec. 2.4.1.1, p. 72–74)*
 
 #### Ejemplo numérico (Foti Tabla 2.4 y Figs. 2.20–2.22)
 
