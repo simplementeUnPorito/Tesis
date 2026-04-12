@@ -131,20 +131,18 @@ Esta sección establece el vocabulario y las herramientas matemáticas comunes a
 
 ### 2.1.1 Two Categories of Wave Motion
 
-Una [[Wave]] puede definirse como cualquier perturbación reconocible que se transfiere de una parte de un medio a otra con una velocidad de propagación identificable. Durante su propagación la perturbación puede:
+Una [[Wave|onda]] puede definirse como cualquier perturbación reconocible que se transfiere de una parte de un medio a otra con una velocidad de propagación identificable. Durante su propagación la perturbación puede deformarse, atenuarse o cambiar su velocidad, siempre que la señal siga siendo identificable.
 
-- deformarse
-- atenuarse
-- cambiar su velocidad
+Un criterio fundamental de clasificación distingue dos categorías basadas en la relación entre velocidad de propagación y frecuencia:
 
-mientras la señal siga siendo identificable.
+- **[[Hyperbolic Waves|Ondas hiperbólicas]]**: la velocidad de propagación es constante, independiente de la frecuencia. La forma del pulso se conserva durante la propagación. Ejemplo: ondas elásticas en un medio homogéneo.
+- **Ondas dispersivas** (con [[Wave Dispersion|dispersión]]): la velocidad de propagación depende de la frecuencia $V = V(\omega)$. Un pulso que contiene varias frecuencias se deforma al propagar porque cada componente viaja a diferente velocidad — el paquete se "dispersa" en el tiempo. Ejemplo: ondas de superficie en medios estratificados.
 
-Un criterio fundamental de clasificación distingue entre:
+Esta clasificación es relevante para los métodos de ondas superficiales porque:
+1. Las [[Body Waves|ondas de cuerpo]] en medios homogéneos son **hiperbólicas** (no dispersivas): la velocidad no depende de la frecuencia, y el perfil del subsuelo no puede inferirse de una única velocidad.
+2. Las [[Surface Waves|ondas superficiales]] en medios estratificados son **dispersivas**: la relación $V_{ph}(f)$ codifica el perfil de velocidades $V_S(z)$, que es el objetivo de la [[Inversión|inversión]]. Sin dispersión, no habría curva que invertir.
 
-- **[[Hyperbolic Waves]]**
-- **[[Wave Dispersion]]**
-
-Esta clasificación sigue siendo útil incluso al restringirse al caso de [[Linear Waves]].
+*(Fuente: Foti Ch. 2, Sec. 2.1.1, p. 37–38)*
 
 #### [[Hyperbolic Waves]]
 
@@ -700,21 +698,20 @@ La geometría de los frentes de onda determina si la propagación es plana (fren
 
 ### Polarización de ondas P y S
 
-La dirección del movimiento de partículas depende del tipo de onda:
+La **polarización** describe la dirección del movimiento de las partículas del medio respecto a la dirección de propagación de la onda:
 
-- en ondas P, la polarización es paralela a la dirección de propagación
-- en ondas S, la polarización es perpendicular a la dirección de propagación
+- **[[P-waves|Ondas P]]** (compresionales): la polarización es **paralela** a la dirección de propagación. Las partículas se mueven hacia adelante y atrás en la misma dirección que viaja la onda. Son las ondas más rápidas y se propagan en sólidos y fluidos.
+- **[[S-Waves|Ondas S]]** (de corte): la polarización es **perpendicular** a la dirección de propagación. Las partículas se mueven transversalmente. No se propagan en fluidos ($\mu = 0$).
 
-En una onda S, el movimiento puede descomponerse en dos componentes ortogonales.
-Cuando la propagación es vertical, aparecen dos polarizaciones importantes:
+Cuando la propagación es horizontal (eje $x$), las ondas S se descomponen en dos polarizaciones ortogonales que se propagan de forma independiente:
+- **[[SV-wave|SV]]** (vertical): el movimiento de partículas ocurre en el plano de propagación vertical (plano $xz$). Se acopla con las ondas P.
+- **[[SH-wave|SH]]** (horizontal): el movimiento de partículas es horizontal y transversal a la dirección de propagación (eje $y$). No se acopla con P ni SV.
 
-- [[SV-wave]]: polarización vertical
-- [[SH-wave]]: polarización horizontal
+**Esta distinción es fundamental para los métodos de ondas superficiales**:
+- Las [[Rayleigh Waves|ondas de Rayleigh]] involucran acoplamiento P-SV: las partículas describen elipses en el plano vertical ($xz$). Los [[Geophone|geófonos]] **verticales** las registran.
+- Las [[Love Waves|ondas de Love]] corresponden a modos SH guiados: las partículas se mueven horizontalmente. Requieren [[Geophone|geófonos]] **horizontales** transversales para registrarlas.
 
-Esta distinción es fundamental porque:
-
-- [[Rayleigh Waves]] involucran acoplamiento P-SV
-- [[Love Waves]] corresponden a ondas SH guiadas
+*(Fuente: Foti Ch. 2, Sec. 2.1.3, p. 40–42)*
 
 ### Conversión de modos en interfaces
 
@@ -956,7 +953,7 @@ $$
 
 #### Solución armónica en 2D
 
-Para el problema plano (propagación en $x$, profundidad $z$), se proponen soluciones de la forma:
+Para el problema plano (propagación en $x$, profundidad $z$), la descomposición de Helmholtz sugiere proponer soluciones de la forma — potencial escalar $\phi$ (onda P) y potencial vectorial $\psi$ (onda SV):
 
 $$
 \phi = A \, e^{-\alpha z} \, e^{i(kx - \omega t)}
@@ -966,13 +963,19 @@ $$
 \psi = B \, e^{-\beta z} \, e^{i(kx - \omega t)}
 $$
 
-donde:
+Los coeficientes $\alpha$ y $\beta$ controlan el decaimiento vertical de cada componente:
 
 $$
 \alpha = \sqrt{k^2 - \frac{\omega^2}{V_P^2}}, \qquad \beta = \sqrt{k^2 - \frac{\omega^2}{V_S^2}}
 $$
 
-La condición $\text{Re}(\alpha) > 0$ y $\text{Re}(\beta) > 0$ garantiza que las amplitudes **decaigan con la profundidad** — condición necesaria para que sean ondas superficiales y no [[Body Waves|ondas de cuerpo]].
+**Interpretación física de $\alpha$ y $\beta$**: si $k > \omega/V_\chi$ (número de onda de Rayleigh mayor que el de la onda de cuerpo), entonces $\alpha$ y $\beta$ son reales y positivos — las amplitudes decaen exponencialmente con la profundidad (**ondas evanescentes**). Esta es precisamente la condición de existencia de las [[Rayleigh Waves|ondas de Rayleigh]]: $V_R < V_S < V_P$ implica $k_R > k_S > k_P$, y ambos coeficientes son reales positivos.
+
+Si en cambio $k < \omega/V_\chi$, $\alpha$ o $\beta$ serían imaginarios — la solución sería una onda viajera (no evanescente) que llevaría energía hacia el interior del semispacio; esto corresponde a [[Body Waves|ondas de cuerpo]] irradiadas, no a ondas superficiales.
+
+La condición $\text{Re}(\alpha) > 0$ y $\text{Re}(\beta) > 0$ garantiza el **confinamiento de energía** cerca de la superficie — definición operativa de onda superficial.
+
+*(Fuente: Foti Ch. 2, Sec. 2.2.1, p. 43–47)*
 
 #### Condiciones de frontera en superficie libre
 
@@ -1263,6 +1266,12 @@ El campo de ondas registrado por un arreglo de geófonos es en general una **sup
 ---
 
 ### 2.4.3 El problema de la fuente: Lamb's Problem
+
+El **[[Lamb's Problem|Problema de Lamb]]** (Lamb 1904) describe la respuesta de un [[Elastic Half Space|semiespacio elástico homogéneo]] a una carga puntual vertical aplicada en su superficie libre. Es el problema de referencia para analizar la generación y propagación de [[Rayleigh Waves|ondas de Rayleigh]] desde una fuente superficial.
+
+Su solución analítica (inicialmente para el semispacio homogéneo) establece que la energía emitida por una fuente puntual en superficie se distribuye entre [[Body Waves|ondas de cuerpo]] (P y S) y [[Rayleigh Waves|ondas de Rayleigh]]. En campo lejano, las ondas de Rayleigh dominan energéticamente porque decaen como $r^{-0.5}$ (frente cilíndrico) mientras que las ondas de cuerpo decaen como $r^{-2}$ (frente esférico) — diferencia de una potencia de $r^{1.5}$. Para ensayos [[MASW Method|MASW]] activos a offsets de 10–100 m, esta diferencia de decaimiento garantiza que los registros sean dominados por ondas de Rayleigh.
+
+*(Fuente: Foti Ch. 2, Sec. 2.4.2, p. 78–84)*
 
 #### Solución en el campo lejano (Foti Ec. 2.75)
 
