@@ -246,12 +246,15 @@ Un ejemplo clásico de dispersión ocurre en [[Surface Water Waves]], donde la [
 
 #### Intersección entre ondas hiperbólicas y dispersivas
 
-Las categorías no son mutuamente excluyentes. Existen ondas que son soluciones de [[Hyperbolic Partial Differential Equations]] y, sin embargo, pueden presentar [[Wave Dispersion]] dependiendo del medio.
+Las categorías no son mutuamente excluyentes. Existen ondas que son soluciones de [[Hyperbolic Partial Differential Equations|ecuaciones hiperbólicas]] y, sin embargo, pueden presentar [[Wave Dispersion|dispersión]] dependiendo del medio de propagación.
 
-Ejemplos relevantes:
+En medios **homogéneos elásticos lineales**, las [[Body Waves|ondas de cuerpo]] son hiperbólicas y **no dispersivas**: la velocidad de fase no depende de la frecuencia. En cambio, en medios **heterogéneos** (estratificados), **porosos** o **disipativos**, las mismas ecuaciones producen dispersión:
 
-- [[Body Waves]] en medios elásticos homogéneos → no dispersivas
-- [[Body Waves]] en medios disipativos o porosos → dispersivas
+- [[Body Waves|Ondas de cuerpo]] en medios elásticos homogéneos → no dispersivas (velocidad constante)
+- [[Body Waves|Ondas de cuerpo]] en medios disipativos ([[Viscoelastic Media|viscoelásticos]]) → dispersivas por [[Material Dispersion|dispersión material]]
+- [[Surface Waves|Ondas superficiales]] en medios estratificados → dispersivas por [[Geometric Dispersion|dispersión geométrica]]
+
+La distinción es fundamental para los métodos de ondas superficiales: la [[Geometric Dispersion|dispersión geométrica]] es el fenómeno explotado para recuperar perfiles de velocidad del subsuelo, mientras que la [[Material Dispersion|dispersión material]] (Sec. 2.5) permite estimar el amortiguamiento intrínseco.
 
 #### Tipos de dispersión
 
@@ -1144,7 +1147,7 @@ La heterogeneidad vertical del subsuelo transforma las [[Surface Waves|ondas sup
 
 ### 2.4.1 Problema de autovalores asociado a ondas superficiales libres (Foti Ecs. 2.65–2.74)
 
-Cuando $\lambda = \lambda(x_2)$, $\mu = \mu(x_2)$, $\rho = \rho(x_2)$, las ecuaciones de Navier se generalizan (Foti Ec. 2.56). La búsqueda de soluciones del tipo ondas superficiales conduce a dos **[[Eigenvalue Problem|problemas de autovalores diferenciales]]** con operador $d/dx_2$.
+En un medio verticalmente inhomogéneo — donde $\lambda = \lambda(x_2)$, $\mu = \mu(x_2)$, $\rho = \rho(x_2)$ son funciones de la profundidad $x_2$ — las ecuaciones de Navier ya no admiten soluciones planas propagantes simples. La búsqueda de soluciones **modales** del tipo $e^{i(\omega t - kx_1)}$ con decaimiento en $x_2 \to \infty$ (condición de onda superficial) conduce a dos **[[Eigenvalue Problem|problemas de autovalores diferenciales]]** con operador $d/dx_2$ — uno para [[Love Waves|ondas de Love]] (modo SH) y otro para [[Rayleigh Waves|ondas de Rayleigh]] (modo P–SV). Para cada frecuencia $\omega$, los autovalores son los números de onda $k_j(\omega)$ que producen modos guiados con las condiciones de frontera correctas. Su existencia y multiplicidad determinan el espectro modal del medio estratificado.
 
 #### Sistemas de EDOs de primer orden
 
