@@ -10,9 +10,24 @@
 - Chapter 8: **consolidado (quinta fase completa)** — 3×[!EXAMPLE] (033, 038, 017); wikilinks 2.61/100w
 
 ## Último punto procesado
-- Capítulo actual: TODOS — 3×[!EXAMPLE] sweep completo, todos los caps ≥3 [!EXAMPLE] (iteración 94)
+- Capítulo actual: Ch2 — expansión thin sections masiva (iteración 95)
 - Fase actual: quinta en progreso (densidad ≥2.5/100w; todos los caps ≥3 [!EXAMPLE]; 19 total)
-- Pendiente: expansión subsecciones thin Ch2 (≥50 restantes); wikilink sweep adicional si densidad cae
+- Pendiente: thin sections Ch2 restantes (~40, mayoría ecuacionales/definitivas aceptables); §2.1.1, §2.4 intro, §Solución armónica en 2D
+
+## Conceptos creados o actualizados en la última iteración (iteración 95 — 2026-04-12)
+- **Fase 14 — expansión thin sections Ch2 matemática**:
+  - **§2.4.5 intro**: 43w → 220w (velocidad aparente vs modal, dependencia r/ω, inversamente dispersivo)
+  - **§Velocidades complejas**: 46w → 160w (principio correspondencia, k*=k-iα, Kramers-Kronig)
+  - **§Sistemas EDOs de primer orden**: 48w → 200w (vector estado Haskell Love 2x2/Rayleigh 4x4)
+  - **§Decaimiento con profundidad**: 58w → 170w (evanescentes, zmax≈λ/2, fundamento inversión)
+  - **§Valores típicos velocidades**: 64w → 180w (tabla VP/VS por material, saturación→VP, Poisson)
+  - **§Tipos de dispersión + Material/Geométrica**: 4w/14w/25w → 250w (mecanismos físicos distintos)
+  - **§2.1.3 Body Waves intro**: 62w → 200w (P/S+acoplamiento, formación modos Rayleigh/Love)
+  - **§Relación con Poisson**: 50w → 180w (sólido de Poisson, ν→0.5, inversión desacoplada)
+  - **§Implicaciones diseño experimental**: 57w → 200w (spacing vs aliasing, L vs resolución, Vph≠Vg)
+  - **§Ejemplo físico Water Waves**: 53w → 170w (tabla regímenes, analogía sísmica, Vph(f))
+- Secciones expandidas en iter 95: 10 secciones Ch2; total ~400 palabras añadidas
+- Papers integrados: ninguno nuevo (trabajo de expansión física/matemática)
 
 ## Conceptos creados o actualizados en la última iteración (iteración 94 — 2026-04-12)
 - **Fase 13 — 3rd [!EXAMPLE] sweep + expansión thin sections Ch2**:

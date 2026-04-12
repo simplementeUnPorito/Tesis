@@ -227,15 +227,19 @@ Esto representa una [[Wave Superposition]] de ondas monocromáticas, donde cada 
 
 #### Ejemplo físico: [[Water Waves]]
 
-Un ejemplo clásico de dispersión ocurre en [[Surface Water Waves]], donde la [[Dispersion Relation]] depende de la profundidad del agua.
+Un ejemplo clásico de [[Wave Dispersion|dispersión geométrica]] ocurre en [[Surface Water Waves|ondas superficiales de agua]], donde la [[Dispersion Relation|relación de dispersión]] depende de la profundidad $h$ del agua:
 
-| Régimen | Relación de dispersión |
-| --- | --- |
-| Agua profunda | $\omega=\sqrt{gk}$ |
-| Agua somera | $\omega=k\sqrt{gh}$ |
-| Profundidad intermedia | $\omega=\sqrt{gk\tanh(kh)}$ |
+| Régimen | Relación de dispersión | $V_{ph}$ | Comportamiento |
+| --- | --- | --- | --- |
+| Agua profunda ($kh \gg 1$) | $\omega=\sqrt{gk}$ | $\sqrt{g/k} \propto f^{-1}$ | Dispersivo: olas largas más rápidas |
+| Agua somera ($kh \ll 1$) | $\omega=k\sqrt{gh}$ | $\sqrt{gh}$ = cte | No dispersivo: todas las olas igual de rápidas |
+| Profundidad intermedia | $\omega=\sqrt{gk\tanh(kh)}$ | función de $k$ y $h$ | Transición suave |
 
 ![[Pasted image 20260311154523.png]]
+
+**Analogía con ondas superficiales sísmicas**: la dispersión geométrica en ondas sísmicas opera por el mismo mecanismo. La longitud de onda $\lambda$ controla la profundidad de penetración: ondas largas "ven" capas más profundas (velocidades más altas en perfiles normalmente crecientes) → se propagan más rápido → velocidad de fase mayor a frecuencias bajas. Ondas cortas quedan confinadas en capas superficiales → velocidad de fase menor a altas frecuencias. La curva $V_{ph}(f)$ es el equivalente sísmico de la tabla anterior.
+
+*(Fuente: Foti Ch. 2, Sec. 2.1.1, p. 37–40)*
 
 #### Intersección entre ondas hiperbólicas y dispersivas
 
@@ -366,10 +370,14 @@ Impacto práctico:
 
 #### Implicaciones para el diseño experimental
 
-- El espaciamiento entre geófonos debe permitir resolver el desplazamiento de la envolvente.
-- El largo total del arreglo debe ser suficiente para observar la dispersión del paquete.
-- El ancho de banda de adquisición condiciona qué tan bien puede estimarse $d\omega/dk$.
-- Confundir [[Phase Velocity]] con velocidad de transporte de energía lleva a interpretaciones físicas erróneas.
+La distinción entre [[Phase Velocity|velocidad de fase]] $V_{ph} = \omega/k$ y [[Group Velocity|velocidad de grupo]] $V_g = d\omega/dk$ tiene consecuencias directas para el diseño de arreglos de [[Geophone|geófonos]]:
+
+- **Espaciamiento entre geófonos**: debe ser suficientemente pequeño para evitar aliasing espacial ($\Delta x \leq \lambda_{min}/2$) y para resolver el desplazamiento de fase entre receptores consecutivos. Si $\Delta x$ es demasiado grande, el cálculo del gradiente de fase es ambiguo (fase envuelta).
+- **Longitud total del arreglo** $L = (N-1)\Delta x$: debe ser suficiente para (a) observar la dispersión del paquete de ondas y (b) separar la llegada de diferentes modos que viajan a diferentes velocidades de grupo. Arreglos cortos ($L \ll \lambda_{max}$) mezclan la respuesta de profundidades muy diferentes.
+- **Ancho de banda de adquisición**: la resolución en número de onda $\Delta k \sim 2\pi/L$ condiciona qué tan bien puede estimarse $d\omega/dk$. Para resolución en frecuencia, se requiere un tiempo de registro suficientemente largo.
+- **Confundir $V_{ph}$ con $V_g$**: lleva a errores de interpretación. La [[Phase Velocity|velocidad de fase]] es lo que se extrae del espectro f-k; la [[Group Velocity|velocidad de grupo]] describe cuándo llega la energía de cada frecuencia. En medios poco dispersivos, ambas son similares; en medios altamente dispersivos (e.g., arcillas blandas vs. roca), pueden diferir hasta un 20–30%.
+
+*(Fuente: Foti Ch. 2, Sec. 2.1.2, p. 44–47)*
 
 ### 2.1.3 Body Waves in Unbounded Homogeneous Elastic Media
 
