@@ -84,22 +84,19 @@ Una diferencia fundamental operativa es que las ondas de Love presentan **disper
 
 ### 2.4 Surface waves in vertically inhomogeneous media
 
-Esta sección extiende el análisis a medios donde las propiedades mecánicas varían con la profundidad.
+> Fuente: Foti et al. (2014), Sección 2.4, pp. 63–96.
 
-Se analizan:
+Esta sección es el núcleo de la teoría de ondas superficiales aplicada a la caracterización de sitio: extiende el análisis del semiespacio homogéneo (§2.2–§2.3) a medios **verticalmente inhomogéneos** o estratificados, donde las propiedades elásticas $V_P(z)$, $V_S(z)$, $\rho(z)$ son funciones de la profundidad.
 
-- propagación de [[Rayleigh Waves]]
-- propagación de [[Love Waves]]
-- [[Layered Media|medios estratificados]]
+La transición del caso homogéneo al estratificado es cualitativamente radical: en el semiespacio homogéneo, las [[Rayleigh Waves|ondas de Rayleigh]] son **no dispersivas** (velocidad de fase constante, un único modo). En presencia de estratificación, las ondas superficiales se vuelven **dispersivas** y multimodales: distintas frecuencias penetran a distintas profundidades y experimentan velocidades de corte diferentes, generando la [[Dispersion Curve|curva de dispersión]] $V_{ph}(f)$ que contiene la información sobre el perfil $V_S(z)$.
 
-Se introducen conceptos clave como:
+Se analizan en detalle:
 
-- [[Mode Superposition]]
-- [[Phase Velocity|velocidad de fase]] efectiva ([[Phase Velocity]])
+- El **[[Rayleigh Eigenproblem|problema de autovalores]]** para [[Rayleigh Waves|ondas de Rayleigh]] y [[Love Waves|ondas de Love]] en [[Layered Media|medios estratificados]] (§2.4.1)
+- La **solución de Lamb** para el campo generado por una fuente puntual: el [[Lamb's Problem]] (§2.4.2), que constituye el modelo matemático del ensayo [[MASW Method|MASW]]
+- La **velocidad de fase aparente** $V^{app}(r,\omega)$ — la cantidad que realmente miden los geófonos en campo (§2.4.5)
 
-También se revisita el [[Lamb's Problem]], que describe la generación de [[Surface Waves|ondas superficiales]] por una fuente puntual aplicada sobre la superficie libre del medio.
-
-Este problema corresponde a la resolución de un problema de contorno no homogéneo asociado a la generación de ondas.
+El resultado clave es que los algoritmos de [[Thomson-Haskell Matrix|Thomson-Haskell]] y [[Mode Superposition|superposición modal]] permiten calcular eficientemente la [[Dispersion Curve|curva de dispersión]] teórica para cualquier modelo de subsuelo — constituyendo el **[[Forward Problem|problema directo]]** de la [[Inversión|inversión]].
 
 ### 2.5 Wave propagation in dissipative media
 
@@ -618,27 +615,17 @@ $$
 
 ### Limitación en geomateriales saturados
 
-Aunque esta relación permite estimar $V_S$ a partir de $V_P$ y $\nu$, este procedimiento no debe utilizarse en geomateriales, especialmente en suelos saturados.
+Aunque la relación $V_P = V_S\sqrt{(1-\nu)/(0.5-\nu)}$ permite estimar $V_S$ a partir de $V_P$ y $\nu$ en rocas, este procedimiento **no debe utilizarse en geomateriales saturados**.
 
-Bajo condiciones no drenadas:
+La teoría de Biot (1956) describe la propagación de ondas en medios porosos bifásicos (esqueleto sólido + fluido intersticial). En condiciones no drenadas — frecuencias sísmicas convencionales, permeabilidad baja — el fluido no tiene tiempo de redistribuirse durante el paso de la onda P, de modo que la **compresibilidad del agua domina la respuesta volumétrica**, no la del esqueleto sólido.
 
-- la compresibilidad del agua domina la respuesta volumétrica
-- el coeficiente de Poisson se aproxima a $0.5$
-- la velocidad de onda P aumenta fuertemente
+Consecuencias bajo saturación completa:
 
-En ese límite:
+- el coeficiente de Poisson no drenado $\nu_u \to 0.5$, independientemente de la densidad relativa o la compacidad del suelo
+- la velocidad de onda P refleja la compresibilidad del agua ($K_w \approx 2.2$ GPa), no la del esqueleto: $V_P \approx 1450$–$1600$ m/s en suelos bajo el nivel freático sin importar si el suelo es suelto o denso
+- en el límite extremo, $V_P \to \infty$ formalmente — esto **no indica rigidez infinita** del suelo, sino que la onda P se convierte en una onda acústica en el fluido intersticial
 
-$$  
-\nu \to 0.5  
-$$
-
-lo que llevaría idealmente a:
-
-$$  
-V_P \to \infty  
-$$
-
-Esto no significa que el suelo sea infinitamente rígido, sino que la onda P queda controlada principalmente por la muy baja compresibilidad del agua.
+Por tanto, $V_P$ medida en suelos saturados **no es un indicador de la rigidez del esqueleto** y no puede usarse para estimar $V_S$ mediante la relación elástica estándar. En cambio, $V_S$ depende exclusivamente del [[Shear Modulus|módulo de corte]] del esqueleto sólido $G = \rho V_S^2$ y es **insensible al contenido de fluido** — razón fundamental por la que los métodos de [[Surface Waves|ondas superficiales]] se centran en recuperar perfiles $V_S(z)$.
 
 ### Implicación práctica para caracterización de suelos
 
@@ -889,30 +876,26 @@ Esto ocurre porque la energía de las ondas superficiales **no se propaga hacia 
 
 ### Profundidad efectiva de penetración
 
-La mayor parte de la energía de deformación asociada al movimiento de una [[Rayleigh Waves]] está confinada aproximadamente dentro de una profundidad del orden de:
+La mayor parte de la energía de deformación asociada al movimiento de una [[Rayleigh Waves|onda de Rayleigh]] está confinada aproximadamente dentro de una profundidad del orden de:
 
 $$
-\lambda
+z_{eff} \approx \lambda
 $$
 
-donde $\lambda$ es la **[[Wavelength]]** de la onda.
+donde $\lambda = V_{ph}/f$ es la **[[Wavelength|longitud de onda]]** de la onda superficial. Este resultado sigue directamente del decaimiento exponencial de las eigenfunciones de desplazamiento con la profundidad (§2.2.2): la amplitud decae como $e^{-\alpha z}$ con $\alpha \sim k = 2\pi/\lambda$.
 
-Una forma de describir esta propiedad es mediante el concepto de **[[Skin Depth]]**, definido como la profundidad a la cual la amplitud disminuye por un factor:
-
-$$
-\frac{1}{e}
-$$
-
-Para las [[Rayleigh Waves]] en un medio homogéneo:
+El concepto de **[[Skin Depth|skin depth]]** formaliza esta propiedad: es la profundidad $z_{SD}$ a la cual la amplitud se reduce a $1/e$ de su valor en superficie. Para [[Rayleigh Waves|ondas de Rayleigh]] en un semiespacio homogéneo:
 
 $$
-\text{Skin depth} \approx 0.94 \lambda
+z_{SD} \approx 0.94 \, \lambda
 $$
 
-Esto implica que:
+**Convención operacional en exploración**: en la práctica se emplea la regla más conservadora $z_{max} \approx \lambda_{max}/2$, que define la **profundidad máxima de investigación** del arreglo — la profundidad hasta la cual el perfil $V_S(z)$ puede recuperarse con sensibilidad suficiente. Esta regla de la "media longitud de onda" es el criterio estándar para dimensionar arreglos [[MASW Method|MASW]]: si se requiere caracterización hasta 30 m de profundidad, se necesitan longitudes de onda de al menos 60 m, lo que a $V_S = 200$ m/s implica frecuencias menores de ~3 Hz.
 
-- **longitudes de onda grandes → mayor profundidad de penetración**
-- **longitudes de onda pequeñas → menor profundidad de penetración**
+Consecuencias para el diseño experimental:
+- **longitudes de onda grandes** (bajas frecuencias) → mayor profundidad de penetración → requieren arreglos largos y fuentes energéticas (carro vibrador, martillo pesado)
+- **longitudes de onda pequeñas** (altas frecuencias) → caracterización de capas superficiales → requieren espaciamiento pequeño entre geófonos y buena relación señal-ruido en alta frecuencia
+
 ![[Pasted image 20260316144212.png]]
 ---
 
@@ -1035,7 +1018,11 @@ $$
 
 En general, $c_R$ varía entre $0.862\,V_S$ (para $\nu = 0$) y $0.955\,V_S$ (para $\nu \to 0.5$) para el rango de $\nu$ físicamente admisible ($0 \leq \nu < 0.5$), como ilustra la **Fig. 2.15** del texto.
 
-> **Implicación crítica para la tesis**: $c_R \approx 0.92\,V_S$ en condiciones típicas. Los geófonos miden la velocidad de Rayleigh. La conversión a $V_S$ requiere conocer $\nu$ o asumirlo, lo que introduce incertidumbre en el perfil final.
+**Interpretación física del rango de variación**: la sensibilidad de $c_R/V_S$ respecto a $\nu$ es relativamente débil (variación total de solo $\pm 5\%$ a través de todo el rango de $\nu$). Esto es una propiedad afortunada para la práctica geotécnica: incluso con incertidumbre en $\nu$, la relación $c_R \approx 0.92\,V_S$ es robusta y permite estimar $V_S$ con un error sistemático controlado.
+
+La razón física de que $c_R < V_S$ es que la onda de Rayleigh requiere desplazamientos evanescentes (con decaimiento real en profundidad), lo que impone $k > \omega/V_S$ — es decir, la velocidad de fase es subsónica respecto a $V_S$. A medida que $\nu \to 0.5$ (materiales casi incompresibles, como suelos saturados), la relación $V_P/V_S \to \infty$ modifica los coeficientes de la ecuación secular y desplaza la raíz $c_R$ hacia valores más cercanos a $V_S$.
+
+**Implicación crítica para la tesis**: los [[Geophone|geófonos]] miden $c_R$ mediante la [[Dispersion Curve|curva de dispersión]] MASW. La conversión a $V_S$ requiere conocer o asumir $\nu$; un error de $\Delta\nu = \pm 0.1$ introduce un error de conversión de $\sim \pm 2\%$ en $V_S$ — generalmente aceptable en comparación con otras fuentes de incertidumbre del proceso de [[Inversión|inversión]].
 
 #### Eigenfunciones de desplazamiento (Foti Ecs. 2.43–2.45)
 
@@ -1346,13 +1333,17 @@ En el **campo lejano** y medios **normalmente dispersivos**, la velocidad aparen
 
 #### Definición (Foti Ec. 2.93)
 
-A partir de la condición de fase constante del campo resultante, la [[Phase Velocity|velocidad de fase]] aparente es:
+A partir de la condición de fase constante del campo resultante — análoga a la velocidad de fase de una onda monocromática pero aplicada al campo multimodal —, la [[Phase Velocity|velocidad de fase]] aparente es (Foti Ec. 2.93):
 
 $$
 V_l^{app}(r, x_2, \omega) = \frac{\omega}{\partial\psi_l(r, x_2, \omega)/\partial r}, \qquad l = r, 2
 $$
 
-Es una cantidad **local**: su valor depende de la posición del receptor $r$. Al variar con $\omega$ y $r$ define una **superficie de dispersión** $V_l^{app}(r, 0, \omega)$ en el plano $(\omega, r)$.
+donde $\psi_l(r, x_2, \omega)$ es la **fase del campo de desplazamiento resultante** en el punto $(r, x_2)$ para la frecuencia $\omega$. El gradiente espacial $\partial\psi/\partial r$ es precisamente lo que un par de geófonos adyacentes mide: la diferencia de fase entre los dos puntos dividida por su separación. En términos operacionales, los métodos [[MASW Method|MASW]] y f-k estiman $V^{app} = \omega/(\Delta\psi/\Delta r)$ a partir de los registros de los geófonos.
+
+Es una cantidad **local**: su valor depende de la posición del receptor $r$, de la frecuencia $\omega$ y de la profundidad de observación $x_2$. Al variar con $\omega$ y $r$, define una **superficie de dispersión** $V_l^{app}(r, 0, \omega)$ en el plano $(\omega, r)$.
+
+**Conexión con los modos**: cuando existe un único modo activo (campo lejano, medio normalmente dispersivo, frecuencias intermedias), $\psi_l \approx k_1 r - \pi/4$ y $\partial\psi/\partial r \approx k_1(\omega)$, de modo que $V^{app} \approx \omega/k_1 = (V_R)_1$ — la velocidad del [[Surface Wave Modes|modo fundamental]]. La aproximación monomodal es el fundamento de la [[Inversión|inversión]] estándar [[MASW Method|MASW]]; su validez debe verificarse caso a caso, especialmente en perfiles inversamente dispersivos.
 
 #### Expresión explícita en términos de autofunciones (Foti Ec. 2.95)
 
@@ -1399,21 +1390,25 @@ El marco viscoelástico lineal es fundamentalmente diferente de la plasticidad o
 
 ### 2.5.2 Modelo constitutivo: ecuación de Boltzmann (Foti Ec. 2.96)
 ![[Pasted image 20260318141045.png]]
-Bajo esas hipótesis, la relación esfuerzo–historia de deformación es (Foti Ec. 2.96):
+La diferencia fundamental entre un material elástico y un material [[Viscoelastic Media|viscoelástico]] es la **memoria**: en un sólido elástico, el esfuerzo presente depende únicamente de la deformación presente; en un material viscoelástico, el esfuerzo depende de toda la **historia de deformación** hasta el instante actual. Esta propiedad — físicamente motivada por los mecanismos de rozamiento intergranular, flujo viscoso de la película de agua poral y reorganización de la estructura de granos — se formaliza mediante la **integral de Boltzmann**.
+
+La relación esfuerzo–historia de deformación es (Foti Ec. 2.96):
 
 $$
 \boldsymbol{\sigma}(t) = \int_{-\infty}^{t} \mathbf{G}(t-\tau):\frac{d\boldsymbol{\varepsilon}(\tau)}{d\tau}\,d\tau
 $$
 
-donde $\mathbf{G}(t)$ es el **tensor función de relajación** del material. Para un material isotrópico, solo dos funciones escalares son necesarias: $G_S(t)$ (corte) y $G_B(t)$ (volumétrica).
+donde $\mathbf{G}(t)$ es el **tensor función de relajación** del material. La dependencia en $(t-\tau)$ — no en $t$ y $\tau$ por separado — refleja la *homogeneidad temporal* del material (sus propiedades no cambian con el tiempo). Físicamente, $\mathbf{G}(t-\tau)$ pondera la contribución de la tasa de deformación en el pasado $\tau$ al esfuerzo presente $t$: las deformaciones más antiguas contribuyen menos (el material "olvida" progresivamente).
 
-En el dominio frecuencial, para excitación armónica $\boldsymbol{\varepsilon}(t) = \boldsymbol{\varepsilon}_0 e^{i\omega t}$, la relación se convierte en (Foti Ec. 2.98):
+Para un material **isotrópico**, solo dos funciones escalares independientes son necesarias: $G_S(t)$ (relajación en corte) y $G_B(t)$ (relajación volumétrica). En el **caso elástico**, $\mathbf{G}(t-\tau) = \mathbf{C}\,\delta(t-\tau)$ — la función de relajación es una delta de Dirac y la integral se reduce a la ley de Hooke instantánea.
+
+En el dominio frecuencial, para excitación armónica $\boldsymbol{\varepsilon}(t) = \boldsymbol{\varepsilon}_0 e^{i\omega t}$, la convolución temporal se convierte en una multiplicación (Foti Ec. 2.98):
 
 $$
 \boldsymbol{\sigma}(t) = \mathbf{G}^*(\omega):\boldsymbol{\varepsilon}_0\,e^{i\omega t}
 $$
 
-donde $\mathbf{G}^*(\omega) = \mathbf{G}_{(1)}(\omega) + i\,\mathbf{G}_{(2)}(\omega)$ es el **módulo complejo**. Las partes real e imaginaria son los módulos de *storage* y de *loss*.
+donde $\mathbf{G}^*(\omega) = \mathbf{G}_{(1)}(\omega) + i\,\mathbf{G}_{(2)}(\omega)$ es el **módulo dinámico complejo**. La parte real $G_{(1)}$ (módulo de *storage*) cuantifica la energía elástica almacenada por ciclo; la parte imaginaria $G_{(2)}$ (módulo de *loss*) cuantifica la energía disipada. La razón $G_{(2)}/G_{(1)} = \tan\delta = 2D$ define la [[Damping Ratio|razón de amortiguamiento]] del material.
 
 *(Fuente: Foti Ch. 2, Sec. 2.5.1, p. 98–100, Ec. 2.96)*
 

@@ -10,9 +10,19 @@
 - Chapter 8: **consolidado (quinta fase completa)** — 3×[!EXAMPLE] (033, 038, 017); wikilinks 2.61/100w
 
 ## Último punto procesado
-- Capítulo actual: Ch2 — expansión thin sections continuada (iteración 96)
+- Capítulo actual: Ch2 — expansión thin sections continuada (iteración 97)
 - Fase actual: quinta en progreso (densidad ≥2.5/100w; todos los caps ≥3 [!EXAMPLE]; 19 total)
-- Pendiente: thin sections Ch2 restantes (~30, mayoría ecuacionales aceptables); §Frecuencia/Periodo/Longitud onda (definitivos, ok dejar cortos); §2.4 intro, §Limitación saturados, §Result fund
+- Pendiente: thin sections Ch2 restantes (~20, mayoría ecuacionales aceptables); §Frecuencia/Periodo/Longitud onda (definitivos, ok dejar cortos); §Expresión explícita Ec.2.95 (fórmula compleja, ok)
+
+## Conceptos creados o actualizados en la última iteración (iteración 97 — 2026-04-12)
+- **Fase 16 — expansión thin sections Ch2 física/conceptual**:
+  - **§Resultado fundamental**: 106w → 220w (VR/VS dependencia en ν, sensibilidad débil ±5%, error ΔVS por incertidumbre ν, porqué cR<VS)
+  - **§Limitación geomateriales saturados**: 95w → 220w (teoría Biot, VP controlada por compresibilidad agua, ν_u→0.5, VP≈1500m/s constante bajo nivel freático)
+  - **§2.5.2 Boltzmann**: 80w → 240w (memoria material, función relajación G(t), limite elástico delta Dirac, módulos storage/loss, tanδ=2D)
+  - **§Definición Vapp (Ec.2.93)**: 65w → 200w (gradiente de fase, medición por par geófonos, Δψ/Δr, aproximación monomodal y validez)
+  - **§2.4 Surface waves intro**: 91w → 220w (transición clave elástico→estratificado, dispersivo→multimodal, forward problem)
+  - **§Profundidad efectiva de penetración**: 107w → 230w (skin depth 0.94λ, zmax≈λ/2 regla operacional, diseño arreglo MASW)
+- Papers integrados: ninguno nuevo (trabajo de expansión física/conceptual)
 
 ## Conceptos creados o actualizados en la última iteración (iteración 96 — 2026-04-12)
 - **Fase 15 — expansión thin sections Ch2 continuada**:
