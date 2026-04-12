@@ -251,25 +251,27 @@ La distinción es fundamental para los métodos de ondas superficiales: la [[Geo
 
 #### Tipos de dispersión
 
-Es importante distinguir entre:
+La **[[Dispersion Relation|dispersión]]** en el contexto de propagación de ondas significa que la [[Phase Velocity|velocidad de fase]] depende de la frecuencia: $V_{ph} = V_{ph}(\omega)$. Existen dos mecanismos físicamente distintos que producen dispersión:
 
 ##### [[Material Dispersion]]
 
-Originada por las propiedades constitutivas del medio.
+La **dispersión material** se origina en las propiedades constitutivas intrínsecas del medio: el material responde de forma diferente a diferentes frecuencias de excitación. Surge en medios con comportamiento dependiente del tiempo (no puramente elásticos):
 
-Ejemplos:
+- **[[Viscoelastic Media|Medios viscoelásticos]]**: los módulos elásticos son complejos y dependientes de la frecuencia $G^*(\omega) = G_1(\omega) + iG_2(\omega)$. El módulo varía con la frecuencia (dispersión de fase); la parte imaginaria produce atenuación.
+- **[[Porous Media|Medios porosos]] (Biot)**: en medios saturados, el fluido intersticial disipa energía por movimiento relativo fluido-sólido, generando dispersión y atenuación dependientes de la frecuencia en el rango de Biot.
 
-- [[Viscoelastic Media]]
-- [[Porous Media]]
+En la mayoría de los geomateriales dentro del **umbral de deformación lineal cíclica** ($\gamma < 10^{-4}$), la dispersión material es pequeña ($D \leq 5\%$) y puede tratarse como perturbación al problema elástico.
 
 ##### [[Geometric Dispersion]]
 
-Aparece cuando el medio es [[Vertically Inhomogeneous Media]] o estratificado.
+La **dispersión geométrica** aparece cuando el medio es [[Vertically Inhomogeneous Media|verticalmente inhomogéneo]] o estratificado: distintas frecuencias penetran a distintas profundidades y "ven" diferentes velocidades elásticas. No requiere viscoelasticidad — ocurre en medios perfectamente elásticos estratificados.
 
-Consecuencias:
+Consecuencias fundamentales:
+- La [[Phase Velocity|velocidad de fase]] depende de la frecuencia: $V_{ph}(f)$ — la [[Dispersion Curve|curva de dispersión]]
+- Aparecen múltiples [[Surface Wave Modes|modos de propagación]] (modo fundamental + modos superiores)
+- Cada modo tiene su propia [[Dispersion Curve|curva de dispersión]] $V_j(f)$ y función propia $r_j(z)$
 
-- la [[Phase Velocity]] depende de la frecuencia
-- aparecen múltiples [[Surface Wave Modes]]
+**La dispersión geométrica es el fundamento de todos los métodos de ondas superficiales**: la información sobre el perfil $V_S(z)$ está codificada en $V_{ph}(f)$.
 
 #### Implicación para [[Surface Waves]]
 
@@ -371,14 +373,14 @@ Impacto práctico:
 
 ### 2.1.3 Body Waves in Unbounded Homogeneous Elastic Media
 
-Esta sección introduce el modelo fundamental de propagación de ondas en medios elásticos continuos.
+Esta sección introduce el modelo fundamental de propagación de ondas en medios elásticos continuos: el **semiespacio elástico homogéneo no acotado**. A partir de las ecuaciones de la elastodinámica lineal (ecuaciones de Navier) y la descomposición de Helmholtz del campo de desplazamiento, se demuestra la existencia de dos tipos fundamentales de [[Body Waves|ondas de cuerpo]]:
 
-A partir de las ecuaciones de la elastodinámica lineal se demuestra la existencia de dos tipos fundamentales de [[Body Waves|ondas de cuerpo]]:
+- **[[P-waves|Ondas P]]** (primarias, compresionales, longitudinales): el desplazamiento de las partículas es paralelo a la dirección de propagación. La velocidad de propagación es $V_P = \sqrt{(\lambda + 2\mu)/\rho}$, donde $\lambda$ y $\mu$ son las [[Lamé Constants|constantes de Lamé]]. Son las ondas sísmicas más rápidas.
+- **[[S-Waves|Ondas S]]** (secundarias, de corte, transversales): el desplazamiento de las partículas es perpendicular a la dirección de propagación. La velocidad es $V_S = \sqrt{\mu/\rho}$. Las ondas S no se propagan en fluidos ($\mu = 0$ → $V_S = 0$).
 
-- [[P-waves]]
-- [[S-Waves]]
+Las ondas de cuerpo son los **bloques de construcción** de las ondas superficiales: las [[Rayleigh Waves|ondas de Rayleigh]] surgen del acoplamiento entre ondas P y SV (ondas S de polarización vertical) en presencia de la superficie libre; las [[Love Waves|ondas Love]] surgen del atrapamiento de ondas SH (polarización horizontal) en capas de menor velocidad. Sin entender las ondas de cuerpo, no es posible derivar la ecuación secular de Rayleigh ni comprender la formación de modos.
 
-Estas ondas constituyen los modos básicos de propagación en sólidos elásticos y sirven como base física para la formación de [[Surface Waves]].
+*(Fuente: Foti Ch. 2, Sec. 2.1.3, p. 40–44)*
 
 #### Marco físico
 
@@ -582,29 +584,25 @@ De estas expresiones se deduce que $V_P > V_S$ en cualquier material físicament
 
 ### Relación con el [[Poisson Ratio|coeficiente de Poisson]]
 
-El cociente entre velocidades puede expresarse en función del [[Poisson Ratio|coeficiente de Poisson]] $\nu$:
+El cociente entre velocidades puede expresarse en función del [[Poisson Ratio|coeficiente de Poisson]] $\nu$ (definido como la razón entre la deformación lateral y axial bajo carga uniaxial):
 
 $$
 \frac{V_P}{V_S} = \sqrt{\frac{2(1-\nu)}{1-2\nu}}
 $$
 
-Esto muestra que siempre se cumple:
+Esta expresión tiene dos consecuencias inmediatas:
+1. Como $\nu < 0.5$ para cualquier material físicamente admisible, siempre se cumple $V_S < V_P$
+2. Cuando $\nu \to 0.5$ (material incompresible, como agua o arcilla saturada no drenada), $V_P/V_S \to \infty$ — las ondas P se vuelven infinitamente rápidas respecto a las S
+
+Para el valor típico de rocas y suelos granulares $\nu \approx 0.25$ (**sólido de Poisson**):
 
 $$  
-V_S < V_P  
+V_P = \sqrt{3}\,V_S \approx 1.73\,V_S
 $$
 
-Para un valor típico de varios materiales,
+**Importancia para la inversión**: como la [[Dispersion Curve|curva de dispersión]] de Rayleigh es muy poco sensible a $V_P$ (y por tanto a $\nu$), en la práctica se asume $\nu$ conocido (estimado de la litología o de mediciones de refracción P) y solo se invierte $V_S$. Este desacoplamiento es la base del procedimiento estándar de [[Inversión|inversión]] [[MASW Method|MASW]].
 
-$$  
-\nu = 0.25  
-$$
-
-se obtiene aproximadamente:
-
-$$  
-V_P = \sqrt{3},V_S  
-$$
+*(Fuente: Foti Ch. 2, Sec. 2.1.3, p. 43–44)*
 
 ### Limitación en geomateriales saturados
 
