@@ -1,7 +1,7 @@
 # Worklog de resumen
 
 ## Estado general
-- Chapter 1: **consolidado (quinta fase completa)** — 2×[!EXAMPLE] (026, 009); wikilinks 3.30/100w; ninguna sección crítica thin
+- Chapter 1: **consolidado (quinta fase COMPLETA)** — 3×[!EXAMPLE] (026, 009, 003); wikilinks 3.30/100w; ninguna sección crítica thin
 - Chapter 2: **consolidado (quinta fase en progreso)** — 3×[!EXAMPLE] (002, 031, 008); wikilinks ~3.7/100w; 17 subsecciones thin expandidas en iters 91-94; ~57 secciones thin restantes
 - Chapter 3: **consolidado (quinta fase completa)** — 3×[!EXAMPLE] (001, 024, 046); wikilinks 2.55/100w; ninguna sección crítica pendiente
 - Chapter 4 y 5: **consolidado (quinta fase completa)** — 3×[!EXAMPLE] (027, 023, 053); wikilinks 2.88/100w
@@ -10,9 +10,17 @@
 - Chapter 8: **consolidado (quinta fase completa)** — 3×[!EXAMPLE] (033, 038, 017); wikilinks 2.61/100w
 
 ## Último punto procesado
-- Capítulo actual: Ch2 — expansión thin sections continuada (iteración 98)
-- Fase actual: quinta en progreso (densidad ≥2.5/100w; todos los caps ≥3 [!EXAMPLE]; 19 total)
-- Pendiente: thin sections Ch2 restantes (~10–15, mayoría ecuacionales aceptables o headers cortos ya con contexto); considerar avanzar a Ch1 (aún 2×[!EXAMPLE]) o crear/verificar Concepts/
+- Capítulo actual: Ch1 3rd [!EXAMPLE] completado + Ch2 thin sections exploradas (iteración 99)
+- Fase actual: **quinta fase COMPLETA** para Ch1 (ahora 3×[!EXAMPLE]: 026, 009, 003); todos los capítulos ≥3 [!EXAMPLE] (20 total)
+- Estado general actualizado: Ch1 consolidado quinta fase; Ch2 en progreso; todos los demás caps completos
+- Pendiente: thin sections Ch2 restantes (~5–8 secciones cortas ecuacionales); posible expansión Concepts/
+
+## Conceptos creados o actualizados en la última iteración (iteración 99 — 2026-04-12)
+- **Fase 18 — 3rd [!EXAMPLE] Ch1 + cierre de thin sections Ch2**:
+  - **Chapter 1.md §1.5.3**: [!EXAMPLE] Paper 003 (Nazarian & Stokoe 1984) — SASW fundacional: primer análisis espectral sistemático para Vs(z) in situ; 3 limitaciones que motivaron MASW; >3000 citas
+  - **Ch1 ahora tiene 3×[!EXAMPLE]**: (026, 009, 003) — quinta fase COMPLETA
+  - **Ch2 thin sections verificadas**: §Geometría de fase, §Polarización P/S, §Conversión modos, §Rel.constitutiva, §Navier, §Atenuación geométrica — ya bien desarrolladas (>100w c/u); no requieren expansión adicional
+- Papers integrados: Paper 003 (Nazarian & Stokoe 1984) en Ch1
 
 ## Conceptos creados o actualizados en la última iteración (iteración 98 — 2026-04-12)
 - **Fase 17 — expansión thin sections Ch2 cinemática/señal**:
