@@ -10,9 +10,18 @@
 - Chapter 8: **consolidado (quinta fase completa)** — 3×[!EXAMPLE] (033, 038, 017); wikilinks 2.61/100w
 
 ## Último punto procesado
-- Capítulo actual: Ch2 — expansión thin sections continuada (iteración 97)
+- Capítulo actual: Ch2 — expansión thin sections continuada (iteración 98)
 - Fase actual: quinta en progreso (densidad ≥2.5/100w; todos los caps ≥3 [!EXAMPLE]; 19 total)
-- Pendiente: thin sections Ch2 restantes (~20, mayoría ecuacionales aceptables); §Frecuencia/Periodo/Longitud onda (definitivos, ok dejar cortos); §Expresión explícita Ec.2.95 (fórmula compleja, ok)
+- Pendiente: thin sections Ch2 restantes (~10–15, mayoría ecuacionales aceptables o headers cortos ya con contexto); considerar avanzar a Ch1 (aún 2×[!EXAMPLE]) o crear/verificar Concepts/
+
+## Conceptos creados o actualizados en la última iteración (iteración 98 — 2026-04-12)
+- **Fase 17 — expansión thin sections Ch2 cinemática/señal**:
+  - **§Parámetros fundamentales (header)**: 0w → 110w (intro onda armónica como bloque constituyente, transformada de Fourier)
+  - **§Importancia métodos ondas superficiales (§2.1.3)**: 80w → 230w (cadena VP/VS→VR≈0.92VS, ecuación secular, chain MASW→inversión)
+  - **§Importancia métodos ondas superficiales (§2.1.2)**: 73w → 200w (cadena f→λ→z_inv, ejemplo concreto 30m/3Hz, diseño experimental)
+  - **§Expresión explícita Ec.2.95**: 28w → 200w (interpretación interferencia cruzada modos, cos[r(ki-kj)], campo lejano=promedio a 0, zona campo cercano)
+  - **§Longitud de onda**: 50w → 160w (λ=V/f, conexión λ→zeff→VS(z), razón MASW multiespectral)
+- Papers integrados: ninguno nuevo (trabajo de expansión física/conceptual)
 
 ## Conceptos creados o actualizados en la última iteración (iteración 97 — 2026-04-12)
 - **Fase 16 — expansión thin sections Ch2 física/conceptual**:

@@ -559,23 +559,17 @@ Soluciones más generales para campos de ondas multifrequencia (paquetes de onda
 
 #### Importancia para métodos de ondas superficiales
 
-Aunque esta sección describe [[Body Waves|ondas de cuerpo]], su análisis es esencial para comprender los métodos de caracterización basados en [[Surface Waves]].
+Aunque esta sección describe [[Body Waves|ondas de cuerpo]], su análisis es esencial para comprender los métodos de caracterización basados en [[Surface Waves|ondas superficiales]].
 
-Las ondas superficiales pueden interpretarse como combinaciones de [[Body Waves|ondas de cuerpo]] que satisfacen condiciones de frontera en la superficie libre.
+Las [[Surface Waves|ondas superficiales]] no son entidades independientes: **surgen del acoplamiento de ondas de cuerpo con la condición de frontera libre**. Las [[Rayleigh Waves|ondas de Rayleigh]] resultan del acoplamiento resonante entre componentes P y SV en la superficie libre ($r_3 = r_4 = 0$, ver §2.4.1); las [[Love Waves|ondas de Love]] surgen del atrapamiento de [[SH-wave|ondas SH]] en capas superficiales de menor velocidad. Por eso, las velocidades $V_P$ y $V_S$ de las ondas de cuerpo son los **parámetros de control** del problema de ondas superficiales:
 
-En particular:
+- La velocidad de Rayleigh $V_R \approx 0.92\,V_S$ en el semiespacio homogéneo (§2.2.2)
+- La condición de existencia de Love waves requiere $V_{S1} < c_L < V_{S2}$ (§2.3)
+- La ecuación secular de Rayleigh en medios estratificados tiene coeficientes que dependen de $V_P(z)$ y $V_S(z)$ en cada capa (§2.4.1)
 
-- [[Rayleigh Waves]] → acoplamiento P + SV
-- [[Love Waves]] → ondas SH guiadas
+Por tanto, lo que los geófonos miden en campo (la [[Dispersion Curve|curva de dispersión]] de ondas superficiales) es, en última instancia, una **función del perfil $V_S(z)$** del subsuelo — siendo $V_S$ el parámetro dominante. La [[Inversión|inversión]] de esta curva para recuperar $V_S(z)$ es el objetivo central de los métodos [[MASW Method|MASW]] y [[SASW|SASW]], y los capítulos 3–6 del libro de Foti desarrollan esta cadena en detalle.
 
-Por lo tanto, las propiedades de las ondas superficiales dependen directamente de:
-
-- $V_P$
-- $V_S$
-
-y de la estructura del medio descrita en [[Layered Media]].
-
-Estos principios constituyen la base física de los métodos utilizados en [[Métodos Sísmicos No Invasivos]].
+Estos principios constituyen la base física de los métodos utilizados en [[Métodos Sísmicos No Invasivos|caracterización sísmica no invasiva]].
 
 ![[Pasted image 20260316135658.png]]
 
@@ -742,6 +736,8 @@ Esta relación es la base de la extracción de la [[Dispersion Curve|curva de di
 
 ### Parámetros fundamentales de una onda armónica
 
+Una **onda armónica** (monocromática) es la solución de menor complejidad de la ecuación de ondas: una oscilación periódica con una única frecuencia $f$ y un único número de onda $k$. Aunque las señales sísmicas reales son superposiciones de muchas frecuencias, la onda armónica es el **bloque constituyente fundamental**: toda señal puede descomponerse en ondas armónicas mediante la [[Fourier Integral|transformada de Fourier]], y las propiedades de propagación del medio (velocidad, atenuación) se definen separadamente para cada frecuencia. Los cuatro parámetros que siguen definen completamente el estado cinemático de una onda armónica plana.
+
 #### Frecuencia angular y frecuencia
 
 $$  
@@ -758,40 +754,37 @@ $$
 
 #### [[Wavelength|Longitud de onda]]
 
-La [[Wavelength|longitud de onda]] es la distancia entre dos puntos con la misma fase:
+La [[Wavelength|longitud de onda]] es la distancia espacial entre dos puntos con la misma fase (e.g., dos crestas consecutivas):
 
 $$  
 \lambda = \frac{2\pi}{k}  
 $$
 
-Combinando con la definición de [[Phase Velocity|velocidad de fase]]:
+Combinando con la definición de [[Phase Velocity|velocidad de fase]] $V_{ph} = \omega/k$:
 
 $$  
-\lambda = \frac{V}{f}  
+\lambda = \frac{V_{ph}}{f}  
 $$
-![[Pasted image 20260316141321.png]]
-Esta relación conecta directamente:
 
-- velocidad de propagación
-- frecuencia
-- [[Wavelength|longitud de onda]]
+![[Pasted image 20260316141321.png]]
+
+Esta relación conecta tres parámetros observables — velocidad de propagación, frecuencia y longitud de onda — de forma que conocer dos determina el tercero. Para ondas superficiales, esta identidad es operacionalmente crucial: $\lambda = V_{ph}/f$ significa que **diferentes frecuencias generan diferentes longitudes de onda**, y dado que $\lambda$ controla la profundidad de penetración ($z_{eff} \approx \lambda/2$), la dependencia $V_{ph}(f)$ mapea directamente el perfil de velocidades $V_S(z)$. Esta es la razón fundamental por la que el análisis multiespectral de ondas superficiales ([[MASW Method|MASW]], [[SASW|SASW]]) puede recuperar la variación de rigidez con la profundidad.
 
 ### Importancia para métodos de ondas superficiales
 
-Estas relaciones son fundamentales porque permiten conectar el comportamiento de ondas armónicas con la interpretación experimental.
+Estas relaciones son fundamentales porque establecen la cadena $f \to \lambda \to z_{inv}$ que hace posible la caracterización geotécnica no invasiva:
 
-En particular:
+- la **frecuencia** $f$ controla la [[Wavelength|longitud de onda]] a través de $\lambda = V_{ph}/f$
+- la **longitud de onda** controla la profundidad efectiva de investigación: $z_{max} \approx \lambda/2$
+- la **dependencia velocidad–frecuencia** $V_{ph}(f)$ es la [[Dispersion Curve|curva de dispersión]], cuya inversión produce el perfil $V_S(z)$
 
-- la frecuencia controla la [[Wavelength|longitud de onda]]
-- la [[Wavelength|longitud de onda]] controla la profundidad efectiva de investigación
-- la dependencia entre velocidad y frecuencia es la base de las [[Dispersion Relation|curvas de dispersión]]
+En la práctica de campo, esta cadena se traduce en una regla de diseño concreta: para investigar hasta $z_{max} = 30$ m en un suelo con $V_S \approx 200$ m/s, se requieren longitudes de onda de $\lambda_{max} \approx 60$ m, que corresponden a frecuencias $f_{min} = V_S/\lambda_{max} \approx 3$ Hz. Generar y registrar estas frecuencias bajas con suficiente relación señal-ruido impone restricciones en la selección de la fuente (martillo de masa, carro vibrador), la longitud del arreglo y el filtro de los geófonos.
 
-Por eso, estos parámetros serán esenciales en las secciones posteriores sobre:
+Los parámetros $\omega$, $k$, $\lambda$, $T$ y $V_{ph}$ aparecen de forma ubicua en:
 
-- [[Rayleigh Waves]]
-- [[Love Waves]]
-- [[Dispersion Relation]]
-- análisis de [[Adquisición de Datos|adquisición]] e [[Inversión|inversión]]
+- la derivación de la [[Dispersion Curve|curva de dispersión]] de [[Rayleigh Waves|ondas de Rayleigh]] y [[Love Waves|Love]] (§2.2–§2.3)
+- el análisis espectral (f-k, phase-shift) en el [[Signal Processing|procesamiento de señal]] (Cap. 4)
+- el [[Forward Problem|problema directo]] e [[Inversión|inverso]] de la caracterización de sitio (Cap. 5–6)
 
 ## 2.2 Rayleigh Waves in Homogeneous Elastic Half-Spaces
 
@@ -1347,11 +1340,15 @@ Es una cantidad **local**: su valor depende de la posición del receptor $r$, de
 
 #### Expresión explícita en términos de autofunciones (Foti Ec. 2.95)
 
+La expresión analítica de $V^{app}$ en términos de los parámetros modales es (Foti Ec. 2.95):
+
 $$
 V_r^{app}(r,x_2,\omega) = 2\omega\cdot\frac{\displaystyle\sum_{i=1}^{M}\sum_{j=1}^{M}\frac{r_1(x_2,k_i)\,r_1(x_2,k_j)\,r_2(0,k_i)\,r_2(0,k_j)\,\cos[r(k_i-k_j)]}{\left[(V_R)_i(U_R)_i(I_R)_i\right]\left[(V_R)_j(U_R)_j(I_R)_j\right]\sqrt{k_i k_j}}}{\displaystyle\sum_{n=1}^{M}\sum_{m=1}^{M}\frac{r_1(x_2,k_n)\,r_1(x_2,k_m)\,r_2(0,k_n)\,r_2(0,k_m)\,(k_n+k_m)\,\cos[r(k_n-k_m)]}{\left[(V_R)_n(U_R)_n(I_R)_n\right]\left[(V_R)_m(U_R)_m(I_R)_m\right]\sqrt{k_n k_m}}}
 $$
 
 donde $(V_R)_j$, $(U_R)_j$ y $(I_R)_j$ son la [[Phase Velocity|velocidad de fase]], velocidad de grupo e integral de energía del $j$-ésimo modo.
+
+**Interpretación física de la fórmula**: la doble suma refleja las **interferencias cruzadas** entre todos los pares de modos $(i,j)$ activos. El término $\cos[r(k_i - k_j)]$ es la **figura de interferencia espacial** entre los modos $i$ y $j$: oscila con período $2\pi/(k_i-k_j)$, que es la longitud de batido entre los dos modos. Cuando $r \gg 2\pi/(k_i - k_j)$ para todos los pares cruzados $i \neq j$, los términos cruzados se promedian a cero y la suma doble se reduce a la suma simple de las contribuciones diagonales $i = j$ — recuperando la aproximación del campo lejano donde $V^{app} \approx (V_R)_1$ (modo fundamental dominante). La dependencia en $r$ de los factores $\cos[\cdot]$ es precisamente la razón por la que la velocidad aparente depende de la posición del receptor, y por qué la [[Near-field Effect|zona de campo cercano]] (donde los batidos entre modos no se han promediado) produce curvas de dispersión distorsionadas.
 
 #### Implicaciones para la [[Inversión|inversión]]
 ![[Pasted image 20260318140813.png]]
