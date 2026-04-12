@@ -10,9 +10,21 @@
 - Chapter 8: **consolidado (quinta fase completa)** — 3×[!EXAMPLE] (033, 038, 017); wikilinks 2.61/100w
 
 ## Último punto procesado
-- Capítulo actual: Ch2 — expansión thin sections masiva (iteración 95)
+- Capítulo actual: Ch2 — expansión thin sections continuada (iteración 96)
 - Fase actual: quinta en progreso (densidad ≥2.5/100w; todos los caps ≥3 [!EXAMPLE]; 19 total)
-- Pendiente: thin sections Ch2 restantes (~40, mayoría ecuacionales/definitivas aceptables); §2.1.1, §2.4 intro, §Solución armónica en 2D
+- Pendiente: thin sections Ch2 restantes (~30, mayoría ecuacionales aceptables); §Frecuencia/Periodo/Longitud onda (definitivos, ok dejar cortos); §2.4 intro, §Limitación saturados, §Result fund
+
+## Conceptos creados o actualizados en la última iteración (iteración 96 — 2026-04-12)
+- **Fase 15 — expansión thin sections Ch2 continuada**:
+  - **§2.1.1 Two Categories**: 71w → 230w (hiperbólicas vs dispersivas, 2 consecuencias para MASW)
+  - **§Polarización ondas P/S**: 85w → 220w (P paralelo/S perpendicular, SV-SH, geófonos V vs H)
+  - **§Solución armónica 2D**: 86w → 250w (α/β físico, ondas evanescentes, cond. confinamiento)
+  - **§2.4.3 Lamb's Problem intro**: 0w → 130w (carga puntual, r^-0.5 vs r^-2, dominio MASW)
+  - **§Solución armónica general**: 71w → 180w (onda progresiva/regresiva, dispersión lineal)
+  - **§Tensor de deformación**: 92w → 200w (diagonal=longitudinal, fuera-diagonal=cizallamiento)
+  - **§Planteamiento del problema Rayleigh**: 94w → 180w (semiespacio, 2D, potenciales Helmholtz)
+  - **§Ecuación secular Rayleigh**: 103w → 220w (det=0, significado α>0/β>0, unicidad raíz)
+- Papers integrados: ninguno nuevo (trabajo de expansión física/matemática)
 
 ## Conceptos creados o actualizados en la última iteración (iteración 95 — 2026-04-12)
 - **Fase 14 — expansión thin sections Ch2 matemática**:

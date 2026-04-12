@@ -406,15 +406,21 @@ En el caso unidimensional simplificado se escribe $u(x,t)$, pero en el problema 
 
 #### Tensor de deformación
 
-Las deformaciones se describen mediante el [[Strain Tensor|tensor de deformaciones infinitesimal]] $\boldsymbol{\varepsilon}$, que cuantifica el cambio relativo de longitudes y ángulos. Para deformaciones pequeñas ($|\nabla \mathbf{u}| \ll 1$), la parte simétrica del gradiente de desplazamiento es suficiente:
+Las deformaciones se describen mediante el [[Strain Tensor|tensor de deformaciones infinitesimal]] $\boldsymbol{\varepsilon}$, que cuantifica el cambio relativo de longitudes y ángulos en un volumen diferencial. Para deformaciones pequeñas ($|\nabla \mathbf{u}| \ll 1$), la parte simétrica del gradiente de desplazamiento es suficiente (se ignora la parte antisimétrica, que corresponde a rotaciones de cuerpo rígido sin deformación):
 
 $$
 \boldsymbol{\varepsilon} =
 \frac{1}{2}
-(\nabla \mathbf{u} + (\nabla \mathbf{u})^T)
+(\nabla \mathbf{u} + (\nabla \mathbf{u})^T), \quad \varepsilon_{ij} = \frac{1}{2}\left(\frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}\right)
 $$
 
-La componente diagonal $\varepsilon_{ii}$ representa la deformación longitudinal en la dirección $i$ (extensión/compresión), mientras que las componentes fuera de diagonal $\varepsilon_{ij}$ ($i \neq j$) representan deformaciones angulares (cizallamiento). La traza $\text{tr}(\boldsymbol{\varepsilon}) = \nabla \cdot \mathbf{u}$ mide el cambio volumétrico, directamente ligado a las [[P-waves|ondas P]].
+Interpretación de componentes:
+- **Diagonal** ($\varepsilon_{ii}$): deformación longitudinal en dirección $i$ — extensión ($\varepsilon_{ii} > 0$) o compresión ($\varepsilon_{ii} < 0$). La suma diagonal $\text{tr}(\boldsymbol{\varepsilon}) = \nabla \cdot \mathbf{u}$ es el cambio volumétrico relativo, directamente ligado a las [[P-waves|ondas P]] (compresionales).
+- **Fuera de diagonal** ($\varepsilon_{ij}$, $i \neq j$): deformaciones angulares (cizallamiento) — el ángulo recto entre dos segmentos materiales ortogonales cambia en $2\varepsilon_{ij}$. Este es el tipo de deformación que excitan y propagan las [[S-Waves|ondas S]].
+
+La simetría $\varepsilon_{ij} = \varepsilon_{ji}$ (parte simétrica del gradiente) garantiza que solo haya 6 componentes independientes en 3D.
+
+*(Fuente: Foti Ch. 2, Sec. 2.1.2, p. 37–39)*
 
 #### Tensor de esfuerzos
 
@@ -665,21 +671,23 @@ Los valores de $V_P$ y $V_S$ varían ampliamente según el tipo de material, su 
 
 ### Solución armónica general
 
-Una solución monocromática del campo de desplazamientos puede escribirse como:
+La solución general de las [[Navier Equations|ecuaciones de Navier]] para un medio homogéneo es una superposición de soluciones monocromáticas (**ondas armónicas** o planas). Para propagación en una dirección $x$, la solución monocromática del campo de desplazamientos es:
 
 $$  
 u(x,t)=A_1 e^{i(\omega t-k_\chi \cdot x)} + A_2 e^{i(\omega t+k_\chi \cdot x)}  
 $$
 
 donde:
+- $A_1, A_2$ son amplitudes complejas de la onda progresiva (dirección $+x$) y regresiva (dirección $-x$)
+- $\omega$ es la [[Angular Frequency|frecuencia angular]] ($\omega = 2\pi f$)
+- $k_\chi$ es el [[Wavenumber|número de onda]] ($k = \omega/V_\chi$, con $V_\chi = V_P$ o $V_S$)
+- $\chi = P, S$ indica si se trata de onda compresional o cortante
 
-- $A_1, A_2$ son amplitudes constantes
-- $\omega$ es la frecuencia angular
-- $k_\chi$ es el vector [[Wavenumber|número de onda]]
-- $\chi = P, S$ indica si se trata de onda longitudinal o transversal
+La parte real de $u(x,t)$ es la solución física; se usa la representación compleja por conveniencia matemática. La **relación de dispersión** del medio elástico homogéneo es simplemente $\omega = V_\chi \cdot k$ — una relación lineal que confirma la ausencia de dispersión. La solución de Fourier de cualquier perturbación arbitraria es una integral de tales modos armónicos ponderados por su espectro de frecuencias.
 
-Esta expresión representa una onda armónica propagándose en direcciones opuestas.
 ![[Pasted image 20260316140712.png]]
+
+*(Fuente: Foti Ch. 2, Sec. 2.1.3, p. 44–48)*
 ### Geometría de fase
 
 El vector [[Wavenumber|número de onda]] $\mathbf{k}$ es **normal a los planos de fase constante** (frentes de onda), definidos por:
@@ -923,14 +931,16 @@ La existencia de las [[Rayleigh Waves]] se demuestra formalmente mediante la [[H
 
 #### Planteamiento del problema
 
+Se busca la solución de las ecuaciones de elastodinámica lineal para propagación de ondas en un **[[Elastic Half Space|semiespacio elástico homogéneo]]** con superficie libre. El objetivo es determinar si existen soluciones que: (a) se propaguen horizontalmente sin decaer, y (b) decaigan exponencialmente con la profundidad — definición de onda superficial. El planteamiento es el de Lord Rayleigh (1885).
+
 Se considera un medio:
+- **elástico lineal** — relación de Hooke generalizada
+- **homogéneo** — propiedades constantes en espacio ($\lambda$, $\mu$, $\rho$ = cte)
+- **isotrópico** — propiedades independientes de la dirección
+- **semi-infinito**: $z \geq 0$ (superficie libre en $z = 0$, medio se extiende hacia $z > 0$)
+- **2D**: propagación en el plano $(x, z)$ — ondas P y SV acopladas (ondas Rayleigh)
 
-- elástico lineal
-- homogéneo
-- isotrópico
-- semi-infinito: $z \geq 0$ (superficie libre en $z = 0$, medio se extiende hacia $z > 0$)
-
-El campo de desplazamientos $\mathbf{u}$ se descompone mediante los [[Elastic Wave Potentials]]:
+El campo de desplazamientos $\mathbf{u}$ se descompone mediante los [[Elastic Wave Potentials|potenciales de Helmholtz]]:
 
 $$
 \mathbf{u} = \nabla \phi + \nabla \times \mathbf{\psi}
@@ -997,21 +1007,21 @@ Aplicando ambas condiciones al campo de desplazamientos derivado de los potencia
 
 #### Ecuación secular de Rayleigh
 
-Para que el sistema tenga solución no trivial, el determinante de la matriz de coeficientes debe ser cero. Esto conduce a la **ecuación secular de Rayleigh**:
+Para que el sistema lineal homogéneo en $A$ y $B$ tenga solución no trivial (amplitudes no nulas — onda real existente), el determinante de la matriz de coeficientes debe ser cero. Esta condición de determinante nulo genera la **ecuación secular de Rayleigh**:
 
 $$
 \left(2 - \frac{c_R^2}{V_S^2}\right)^2 = 4\sqrt{1 - \frac{c_R^2}{V_P^2}}\sqrt{1 - \frac{c_R^2}{V_S^2}}
 $$
 
-donde $c_R$ es la [[Phase Velocity|velocidad de fase]] de las [[Rayleigh Waves|ondas de Rayleigh]].
+donde $c_R$ es la [[Phase Velocity|velocidad de fase]] de las [[Rayleigh Waves|ondas de Rayleigh]]. Los dos factores bajo las raíces son exactamente $\alpha^2/k^2$ y $\beta^2/k^2$ (los coeficientes de decaimiento normalizados), lo que muestra que la ecuación secular es la condición simultánea de: (1) superficie libre ($\sigma = 0$) y (2) decaimiento exponencial con profundidad ($\alpha, \beta > 0$).
 
-Esta ecuación puede reescribirse en términos de la razón $\xi = c_R / V_S$ como un polinomio:
+Esta ecuación puede reescribirse en términos de la razón $\xi = c_R / V_S$ elevando al cuadrado:
 
 $$
 \xi^6 - 8\xi^4 + \left(24 - 16\frac{V_S^2}{V_P^2}\right)\xi^2 - 16\left(1 - \frac{V_S^2}{V_P^2}\right) = 0
 $$
 
-Este polinomio cúbico en $\xi^2$ tiene en general una única raíz real físicamente admisible (con $0 < c_R < V_S$).
+Este polinomio cúbico en $\xi^2$ tiene, para valores físicamente admisibles del [[Poisson Ratio|coeficiente de Poisson]] ($0 \leq \nu < 0.5$), **una única raíz real** con $0 < c_R < V_S$ — confirmando la unicidad de la onda de Rayleigh en el semispacio homogéneo. El significado físico de la condición $c_R < V_S < V_P$ es que la velocidad de Rayleigh es menor que ambas velocidades de cuerpo, garantizando $\alpha > 0$ y $\beta > 0$ (decaimiento real, no oscilatorio).
 
 #### Resultado fundamental
 
