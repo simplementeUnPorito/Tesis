@@ -640,17 +640,24 @@ En suelos y depósitos saturados, la práctica estándar de caracterización geo
 
 ### Valores típicos de velocidades en geomateriales
 
-Los valores de $V_P$ y $V_S$ pueden variar ampliamente según el material.
-![[Pasted image 20260316140452.png]]
-Ejemplos típicos cerca de superficie:
-- rocas cristalinas: velocidades altas de $V_P$ y $V_S$
-- arenas densas: valores intermedios
-- arcillas muy blandas: valores bajos
+Los valores de $V_P$ y $V_S$ varían ampliamente según el tipo de material, su estado de consolidación y grado de saturación. La tabla siguiente resume rangos representativos para caracterización de sitio geotécnica:
 
-En general:
-- materiales más rígidos presentan mayores velocidades
-- materiales blandos o poco consolidados presentan menores velocidades
-- la saturación incrementa especialmente $V_P$
+| Material | $V_P$ (m/s) | $V_S$ (m/s) | $V_P/V_S$ |
+|---|---|---|---|
+| Roca sana (granito, basalto) | 3000–6000 | 1500–3500 | ~1.7–2.0 |
+| Roca blanda (caliza, arenisca) | 1500–4000 | 700–2000 | ~2.0–3.0 |
+| Grava densa seca | 500–1200 | 250–600 | ~1.7–2.5 |
+| Arena saturada | 1400–1800 | 100–300 | ~5–15 |
+| Arcilla blanda saturada | 1400–1800 | 50–200 | ~7–30+ |
+
+![[Pasted image 20260316140452.png]]
+
+**Tendencias clave**:
+- Materiales más rígidos (mayor $G_{Max} = \mu$) → mayor $V_S$: $V_S = \sqrt{\mu/\rho}$
+- La saturación eleva drásticamente $V_P$ (agua incompresible aumenta $K$) pero afecta poco $V_S$ (módulo de corte casi no depende de la presión de poros a deformaciones pequeñas)
+- La razón $V_P/V_S$ es un indicador directo del [[Poisson Ratio|coeficiente de Poisson]]: $\nu = (V_P^2 - 2V_S^2)/(2(V_P^2 - V_S^2))$
+
+*(Fuente: Foti Ch. 2, Sec. 2.1.2, p. 42–44)*
 
 ### Solución armónica general
 
@@ -859,13 +866,13 @@ Este fenómeno fue reconocido tempranamente en el contexto de [[Lamb's Problem]]
 
 ### Decaimiento con profundidad
 
-El campo de desplazamientos generado por una [[Rayleigh Waves]] presenta una propiedad característica:
+El campo de desplazamientos generado por [[Rayleigh Waves|ondas de Rayleigh]] en un semispacio homogéneo presenta una propiedad característica: la **amplitud decrece exponencialmente con la profundidad** — las funciones propias de desplazamiento $r_1(x_2)$ y $r_2(x_2)$ son combinaciones de exponenciales decrecientes con $x_2$.
 
-la **amplitud decrece exponencialmente con la profundidad**.
+Esto ocurre porque la energía de las ondas superficiales **no se propaga hacia el interior del medio** — los eigenvalores $k$ son reales y mayores que los números de onda de [[Body Waves|ondas de cuerpo]] P y S, lo que produce soluciones evanescentes (exponencialmente decrecientes) en profundidad. Esta propiedad de confinamiento de energía cerca de la superficie es la **definición operativa de una [[Surface Waves|onda superficial]]**: una onda cuya amplitud decae al alejarse de la interfaz libre.
 
-Esto ocurre porque la energía de estas ondas **no se propaga hacia el interior del medio**, sino que permanece confinada cerca de la superficie.
+**Consecuencia para la [[Inversión|inversión]]**: el decaimiento exponencial implica que cada frecuencia $f$ interroga predominantemente hasta una profundidad máxima $z_{max} \approx \lambda_R/2 = V_R(f)/(2f)$. Las frecuencias bajas (longitudes de onda largas) penetran más profundo; las altas frecuencias solo interrogan las capas superficiales. Esta correspondencia frecuencia–profundidad es el fundamento físico de la [[Inversión|inversión]] de [[Dispersion Curve|curvas de dispersión]] para obtener $V_S(z)$.
 
-De hecho, esta propiedad suele utilizarse como **definición operativa de una [[Surface Waves]]**.
+*(Fuente: Foti Ch. 2, Sec. 2.2.1, p. 44–52)*
 
 ---
 
@@ -1156,13 +1163,19 @@ En un medio verticalmente inhomogéneo — donde $\lambda = \lambda(x_2)$, $\mu 
 
 #### Sistemas de EDOs de primer orden
 
-Para **Love waves** (Foti Ec. 2.65):
+La formulación del [[Rayleigh Eigenproblem|eigenproblem]] de Rayleigh en medios [[Vertically Inhomogeneous Media|verticalmente inhomogéneos]] recurre a la representación de **vector de estado** (o vector de Haskell): en lugar de resolver ecuaciones diferenciales de orden superior, se reformula el problema como un sistema de EDOs de primer orden en las variables de desplazamiento y esfuerzo. Esta representación es la base de los algoritmos de [[Thomson-Haskell Matrix|Thomson-Haskell]] y matrices de rigidez.
+
+Para **[[Love Waves|Love waves]]** (Foti Ec. 2.65) — sistema de 2° orden, vector $[l_1, l_2]^T$ = [desplazamiento SH, esfuerzo cortante SH]:
 
 $$
 \frac{d}{dx_2}\begin{bmatrix}l_1\\l_2\end{bmatrix} = \begin{bmatrix}0 & \mu(x_2)^{-1}\\ k^2\mu(x_2)-\omega^2\rho(x_2) & 0\end{bmatrix}\begin{bmatrix}l_1\\l_2\end{bmatrix}
 $$
 
-Para **Rayleigh waves** (Foti Ec. 2.66), sistema de cuarto orden $d\mathbf{f}/dx_2 = A(x_2)\cdot\mathbf{f}(x_2)$ donde $\mathbf{f} = [r_1, r_2, r_3, r_4]^T$ contiene las funciones propias de desplazamiento ($r_1$, $r_2$) y esfuerzo ($r_3$, $r_4$).
+Para **[[Rayleigh Waves|Rayleigh waves]]** (Foti Ec. 2.66), sistema de 4° orden $d\mathbf{f}/dx_2 = A(x_2)\cdot\mathbf{f}(x_2)$ donde el vector de estado es $\mathbf{f} = [r_1, r_2, r_3, r_4]^T$ — desplazamientos ($r_1$ = horizontal, $r_2$ = vertical) y esfuerzos ($r_3$, $r_4$) correspondientes. La matriz de coeficientes $A(x_2)$ depende del perfil $\lambda(x_2)$, $\mu(x_2)$, $\rho(x_2)$, del número de onda $k$ y la frecuencia $\omega$.
+
+La solución en cada capa homogénea es una combinación lineal de exponenciales (con coeficientes determinados por las condiciones de contorno en las interfaces). La continuidad del vector de estado en cada interfaz conduce al esquema matricial de Thomson-Haskell.
+
+*(Fuente: Foti Ch. 2, Sec. 2.4.1, p. 66–72, Ecs. 2.65–2.66)*
 
 #### Condiciones de contorno (Foti Ecs. 2.72–2.73)
 
@@ -1295,6 +1308,17 @@ En el caso homogéneo ($M=1$), $Y_l$ se reduce a $E_l/\sqrt{r}$, recuperando la 
 
 **Este es el concepto más crítico de la tesis**: lo que los geófonos miden no es la [[Phase Velocity|velocidad de fase]] de ningún modo individual, sino la **[[Phase Velocity|velocidad de fase]] aparente** o efectiva resultante de la superposición de todos los modos activos.
 
+La distinción es fundamental: los métodos de procesamiento (f-k, phase-shift, SPAC) extraen del registro sísmico la velocidad de fase del tren de ondas que viaja entre dos receptores consecutivos. Cuando varios modos coexisten en el mismo rango de frecuencia, sus contribuciones se suman constructiva o destructivamente según sus amplitudes y números de onda relativos, y el resultado es una velocidad **aparente** que no corresponde a ningún modo individual sino a la combinación ponderada de todos ellos.
+
+La velocidad aparente depende de:
+- La frecuencia $\omega$ (como cualquier velocidad de fase en un medio dispersivo)
+- La posición del receptor $r$ (porque la superposición varía con la distancia — las contribuciones modales interfieren de forma diferente en cada punto)
+- El perfil de velocidades $V_S(z)$ que determina las amplitudes y velocidades de cada modo
+
+En el **campo lejano** y medios **normalmente dispersivos**, la velocidad aparente converge hacia la velocidad del [[Surface Wave Modes|modo fundamental]] porque este domina energéticamente. En medios **inversamente dispersivos** (capas duras sobre blandas), los [[Surface Wave Modes|modos superiores]] pueden dominar, y la velocidad aparente diverge significativamente del [[Surface Wave Modes|modo fundamental]] — lo que convierte la [[Inversión|inversión]] monomodal en un procedimiento incorrecto.
+
+*(Fuente: Foti Ch. 2, Sec. 2.4.2.4, p. 88–95)*
+
 #### Definición (Foti Ec. 2.93)
 
 A partir de la condición de fase constante del campo resultante, la [[Phase Velocity|velocidad de fase]] aparente es:
@@ -1404,17 +1428,21 @@ El **poder del principio de correspondencia** reside en que **no es necesario re
 
 #### Velocidades complejas de [[Body Waves|ondas de cuerpo]] (Foti Ec. 2.118)
 
+Aplicando el [[Correspondence Principle|principio de correspondencia]] — reemplazar los módulos elásticos reales por los módulos viscoelásticos complejos $G^*(\omega) = G_{(1)}(\omega) + iG_{(2)}(\omega)$ — se obtienen las **velocidades complejas** de ondas de cuerpo:
+
 $$
 V_P^*(\omega) = \sqrt{\frac{G_B^*(\omega) + \frac{4}{3}G_S^*(\omega)}{\rho}}, \qquad V_S^*(\omega) = \sqrt{\frac{G_S^*(\omega)}{\rho}}
 $$
 
-El [[Wavenumber|número de onda]] complejo $k_\chi^* = \omega/V_\chi^* = k_\chi - i\alpha_\chi$ conduce a la solución armónica:
+La parte real de $V_\chi^*$ da la [[Phase Velocity|velocidad de fase]] del modo; la parte imaginaria introduce el decaimiento. El [[Wavenumber|número de onda]] complejo resultante $k_\chi^* = \omega/V_\chi^* = k_\chi - i\alpha_\chi$ descompone la propagación en fase y amplitud:
 
 $$
 u \propto e^{-\alpha_\chi x}\,e^{i(k_\chi x - \omega t)}
 $$
 
-donde $\alpha_\chi$ es el **coeficiente de atenuación espacial**.
+El factor real $e^{-\alpha_\chi x}$ describe la **atenuación espacial**: la amplitud de la onda decrece exponencialmente con la distancia. El factor imaginario $e^{i(k_\chi x - \omega t)}$ describe la **propagación** con velocidad de fase $V_\chi = \omega/k_\chi$. Los dos factores son independientes solo en la aproximación de disipación débil ($D \ll 1$); en el caso general están acoplados a través de las [[Kramers-Kronig Relations|relaciones de Kramers-Krönig]].
+
+*(Fuente: Foti Ch. 2, Sec. 2.5.2, p. 104–108, Ec. 2.118)*
 
 #### Razón de amortiguamiento material (Foti Ec. 2.115)
 
