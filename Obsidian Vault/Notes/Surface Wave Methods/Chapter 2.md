@@ -1148,6 +1148,11 @@ Esta dependencia frecuencial multimodal es la base de la [[Geometric Dispersion|
 *(Fuente: Foti Ch. 2, Sec. 2.3, p. 65, Ec. 2.55)*
 
 ![[Pasted image 20260317202522.png]]
+
+> [!EXAMPLE] Evidencia empírica: Paper 045 (Dal Moro & Ferigo 2011) — inversión conjunta Rayleigh+Love: reducción de no-unicidad y mejora del perfil Vs
+> **Paper 045 (Dal Moro & Ferigo 2011, *J. Appl. Geophys.* Vol.75:573–589, 58 citas)** evalúa el impacto de combinar curvas de dispersión de [[Rayleigh Waves|ondas de Rayleigh]] y [[Love Waves|ondas de Love]] en la [[Inversión|inversión]] conjunta usando algoritmos evolutivos multiobjetivo (MOEA). La motivación teórica directa del §2.3: las [[Love Waves|ondas de Love]] son puramente de corte ([[SH-wave|SH]]) mientras que las [[Rayleigh Waves|ondas de Rayleigh]] mezclan movimiento SV y P — los dos tipos de onda muestran **distinta distribución de sensibilidad con la profundidad** para el mismo perfil $V_S(z)$. Con datos sintéticos y dos sitios reales (uno con perfil inversamente dispersivo), el estudio cuantifica que la [[Joint Inversion|inversión conjunta]] Rayleigh+Love reduce el rango de modelos aceptables (test de Fisher $\alpha=5\%$) en un 45–60% respecto a la [[Inversión|inversión]] individual de Rayleigh, eliminando ambigüedades modales. La adquisición requiere geófonos triaxiales (componentes vertical + horizontal) y dos tipos de fuente: impacto vertical para Rayleigh e impacto horizontal en viga para Love. Esta mayor complejidad logística (media factibilidad económica) justifica el uso de solo [[Rayleigh Waves|Rayleigh]] como configuración estándar en trabajos con recursos limitados, reservando la [[Joint Inversion|inversión conjunta]] para sitios con alta variabilidad o [[Non-uniqueness|no-unicidad]] severa.
+> — Research Database, entrada 045; Dal Moro & Ferigo (2011), *J. Appl. Geophys.* 75:573–589. DOI: 10.1016/j.jappgeo.2011.09.008.
+
 ---
 
 ## 2.4 Surface Waves in Vertically Inhomogeneous Media
