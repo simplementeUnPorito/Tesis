@@ -10,13 +10,22 @@
 - Chapter 8: **consolidado (tercera fase completa)** — intro sección 8.3 añadida (~190 palabras); sección 8.3.2 intro expandida de ~80 a ~230 palabras
 
 ## Último punto procesado
-- Capítulo actual: Chapter 1 — segunda fase (completada)
-- Sección actual: todas las secciones del capítulo presentes y con trazabilidad Foti
-- Fase actual: segunda (Chapter 1 consolidado)
-- PDF fuente utilizado: Sebastiano Foti Chapter 1.pdf, pp. 1–20 (secciones 1.2–1.3.3 del PDF)
-- Página inicial aproximada: 5
-- Página final aproximada: 20
-- Pendiente Chapter 1: ninguno — capítulo en estado comparable al resto del vault
+- Capítulo actual: TODOS — enriquecimiento masivo de wikilinks (iteración 92)
+- Fase actual: cuarta (densidad wikilinks ≥2.5/100w en todos los capítulos)
+- Pendiente: nuevas secciones thin si las hay; [!EXAMPLE] adicionales en Ch2 y Ch7
+
+## Conceptos creados o actualizados en la última iteración (iteración 92 — 2026-04-12)
+- **Fase 11 — wikilink sweep masivo: [[Inversión]], [[Surface Wave Modes]], [[Rayleigh Waves]], [[Love Waves]], [[Geophone]], [[Seismic Cone Penetration Test]], [[Attenuation Coefficient]]**:
+  - **Chapter 2.md §thin math**: 4 subsecciones expandidas (Implicación práctica, Geometría de fase, Caso unidimensional, Conversión de modos) — commit e28f94c
+  - **Chapter 7.md**: +63 links (inversión×40, geófonos×7, SCPT×2, coef.atenuación×2, modo fundamental×7, modos superiores×5) → 108→160 links (1.97→2.90/100w)
+  - **Chapter 8.md**: +42 links (inversión×15, modo fundamental×15, modos superiores×2, ondas Rayleigh×9, ondas Love×1) → 147→189 links (1.99→2.54/100w)
+  - **Chapter 3.md**: +27 links (inversión×8, modo fundamental×8, modos superiores×12) → 206→233 links (2.26→2.55/100w)
+  - **Chapter 4 y 5.md**: +8 links (inversión×3, modo fund×3, modos sup×1, Rayleigh×1) → 142→150 links (2.76→2.91/100w)
+  - **Chapter 6.md**: +38 links (inversión×41, modos sup×1) → 154→192 links (2.18→2.72/100w)
+  - **Chapter 1.md**: +40 links (inversión×22, modo fund×3, modos sup×3, Rayleigh×10, Love×2) → 229→269 links (2.85→3.34/100w)
+  - **Chapter 2.md wikilinks**: +16 links adicionales → 317→333 links (3.55→3.72/100w)
+- **Estado densidad wikilinks**: Ch1(3.34), Ch2(3.72), Ch3(2.55), Ch4y5(2.91), Ch6(2.72), Ch7(2.90), Ch8(2.54) — TODOS ≥2.5/100w
+- **Total links en vault**: 1,526 (anterior: ~1,386 estimado)
 
 ## Conceptos creados o actualizados en la última iteración (iteración 90 — 2026-04-12)
 - **Fase 10f — [!EXAMPLE] callouts en Caps 1 y 2**:

@@ -39,7 +39,7 @@ Las líneas de [[Phase Velocity|velocidad de fase]] constante son rectas radiale
 
 En propagación multimodal, cada modo $n$ tiene sus propias [[Dispersion Curve|curva de dispersión]] de fase y de grupo (Figura 4.3, p. 208). Las curvas de grupo pueden cruzarse o acercarse entre modos incluso cuando las curvas de fase están bien separadas, lo que complica la identificación modal en el dominio del tiempo.
 
-#### Por qué se usa la [[Phase Velocity|velocidad de fase]] en inversión
+#### Por qué se usa la [[Phase Velocity|velocidad de fase]] en [[Inversión|inversión]]
 
 Los métodos de ondas superficiales para caracterización de sitios explotan principalmente la **[[Phase Velocity|velocidad de fase]]**, por dos razones fundamentales:
 1. La [[Phase Velocity|velocidad de fase]] tiene una relación más directa y sensible con la estratigrafía $V_S(z)$ a través de la [[Dispersion Relation|curva de dispersión]].
@@ -86,7 +86,7 @@ Una extensión con múltiples receptores en posiciones fijas es el *Continuous S
 
 - **Velocidad de adquisición**: una frecuencia a la vez → [[Dispersion Curve|curva de dispersión]] lenta de construir, especialmente si se necesita un rango amplio de frecuencias.
 - **Fuente activa controlada**: requiere un vibrador electromecánico, más costoso y menos portable que un sledgehammer.
-- **No separa modos**: la velocidad observada es la [[Phase Velocity|velocidad de fase]] aparente del campo total, no la del modo fundamental.
+- **No separa modos**: la velocidad observada es la [[Phase Velocity|velocidad de fase]] aparente del campo total, no la del [[Surface Wave Modes|modo fundamental]].
 - **Superado por métodos multicanal**: métodos como [[SASW Method|SASW]] (Sec. 4.3) y los métodos de transformada (Sec. 4.6) entregan la [[Dispersion Curve|curva de dispersión]] completa en un solo disparo o registro.
 
 A pesar de sus limitaciones, el SSRM demostró la viabilidad del concepto y sentó las bases para el desarrollo de todos los métodos posteriores de ondas superficiales en ingeniería.
@@ -236,7 +236,7 @@ $$k_x = k \cdot \cos\vartheta$$
 
 La velocidad aparente medida siempre sobrestima la verdadera ($V_{app} \geq V_{true}$). Sin embargo, si el campo de ondas es **isótropo**, el espectro ReMi tiene simetría y sus máximos se aproximan al [[Wavenumber|número de onda]] verdadero.
 
-El procedimiento de Strobbia y Cassiani (2011) permite la inversión automática del espectro ReMi sin picking manual, verificando además la hipótesis de isotropía por la simetría positiva/negativa del espectro.
+El procedimiento de Strobbia y Cassiani (2011) permite la [[Inversión|inversión]] automática del espectro ReMi sin picking manual, verificando además la hipótesis de isotropía por la simetría positiva/negativa del espectro.
 
 *Fuente: Foti Ch. 4, Sec. 4.6, pp. 235–251*
 
@@ -312,11 +312,11 @@ $$|U_2(r,\omega)| = F \cdot Y(r,\omega) \cdot e^{-\alpha_R(\omega) \cdot r}$$
 
 donde $Y(r,\omega)$ es la función de [[Geometric Spreading|spreading geométrico]] (calculada a partir del perfil de $V_s$ conocido o estimado), y $F$ es la magnitud de la fuerza fuente.
 
-**Simplificación práctica:** si se asume propagación dominada por el modo fundamental en un medio homogéneo, $Y(r,\omega) \propto r^{-0.5}$, lo que reduce el problema a:
+**Simplificación práctica:** si se asume propagación dominada por el [[Surface Wave Modes|modo fundamental]] en un medio homogéneo, $Y(r,\omega) \propto r^{-0.5}$, lo que reduce el problema a:
 
 $$|U_2(r,\omega)| = F \cdot \frac{e^{-\alpha_R r}}{\sqrt{r}}$$
 
-Esta simplificación introduce errores cuando los modos superiores son relevantes (oscilaciones en la función de spreading teórica). La fuente $F$ puede tratarse como incógnita adicional para independizar el análisis de su calibración.
+Esta simplificación introduce errores cuando los [[Surface Wave Modes|modos superiores]] son relevantes (oscilaciones en la función de spreading teórica). La fuente $F$ puede tratarse como incógnita adicional para independizar el análisis de su calibración.
 
 *Fuente: Foti Ch. 5, Sec. 5.2, pp. 258–261*
 
@@ -334,7 +334,7 @@ $$\tilde{F}(r,\omega) = \frac{F_i(\omega)}{F_1(\omega)}$$
 
 Esta eliminación de la firma de la fuente hace el método robusto frente a incertidumbres en la fuerza aplicada. La regresión no lineal sobre $k^*(\omega)$ entrega simultáneamente $V_R(\omega)$ y $\alpha_R(\omega)$.
 
-**Iteración necesaria:** $Y(r,\omega)$ requiere conocer el perfil $V_s(z)$, que se obtiene de la [[Inversión|inversión]] de la [[Dispersion Curve|curva de dispersión]]. Por tanto, el procedimiento es iterativo: primero se invierte la dispersión, luego se calcula $Y$, luego se estima la atenuación, y se repite hasta convergencia (ver Sec. 6.4.3 para la inversión acoplada).
+**Iteración necesaria:** $Y(r,\omega)$ requiere conocer el perfil $V_s(z)$, que se obtiene de la [[Inversión|inversión]] de la [[Dispersion Curve|curva de dispersión]]. Por tanto, el procedimiento es iterativo: primero se invierte la dispersión, luego se calcula $Y$, luego se estima la atenuación, y se repite hasta convergencia (ver Sec. 6.4.3 para la [[Inversión|inversión]] acoplada).
 
 *Fuente: Foti Ch. 5, Sec. 5.3, pp. 261–265*
 
@@ -378,7 +378,7 @@ Este procedimiento de corrección hace el método aplicable a arrays de apertura
 
 ##### Capacidad multimodal
 
-Una ventaja del método es que puede identificar los coeficientes de atenuación de **diferentes modos de propagación**, siempre que sus contribuciones espectrales puedan separarse en el plano f-k. La Fig. 5.10 (p. 269) muestra los resultados para los datos de la Fig. 5.7 (24 geófonos, $\Delta x = 2\,\text{m}$, sledgehammer): se identificaron tres modos de propagación, y la razón de amortiguamiento del modo fundamental varía entre 1% y 4% en el rango 5–40 Hz.
+Una ventaja del método es que puede identificar los coeficientes de atenuación de **diferentes modos de propagación**, siempre que sus contribuciones espectrales puedan separarse en el plano f-k. La Fig. 5.10 (p. 269) muestra los resultados para los datos de la Fig. 5.7 (24 geófonos, $\Delta x = 2\,\text{m}$, sledgehammer): se identificaron tres modos de propagación, y la razón de amortiguamiento del [[Surface Wave Modes|modo fundamental]] varía entre 1% y 4% en el rango 5–40 Hz.
 
 *(Fuente: Foti Ch. 5, Sec. 5.5.1, pp. 268–270, Figs. 5.9–5.10)*
 
@@ -386,7 +386,7 @@ Una ventaja del método es que puede identificar los coeficientes de atenuación
 
 #### 5.5.2 Decaimiento espacial de la intensidad de Arias
 
-El método propuesto por Badsar et al. (2011) evita el paso intermedio de estimar la curva de atenuación $\alpha_R(\omega)$ de las ondas de Rayleigh. En cambio, invierte **directamente el decaimiento de la intensidad de Arias con el offset** para obtener el perfil de razón de amortiguamiento $D_s(z)$.
+El método propuesto por Badsar et al. (2011) evita el paso intermedio de estimar la curva de atenuación $\alpha_R(\omega)$ de las [[Rayleigh Waves|ondas de Rayleigh]]. En cambio, invierte **directamente el decaimiento de la intensidad de Arias con el offset** para obtener el perfil de razón de amortiguamiento $D_s(z)$.
 
 ##### Concepto de la intensidad de Arias
 

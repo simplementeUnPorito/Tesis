@@ -1199,9 +1199,9 @@ La **Fig. 2.20** ilustra el comportamiento de $|\Phi_R[\cdot]|$ calculada con Th
 
 La función oscila rápidamente con el [[Wavenumber|número de onda]] (especialmente a alta frecuencia), lo que requiere técnicas robustas de *root-bracketing* con bisección para localizar confiablemente todas las raíces.
 
-La **Fig. 2.21** muestra las [[Dispersion Curve|curvas de dispersión]] modales (24 modos identificados) para este sistema: [[Phase Velocity|velocidad de fase]] Rayleigh vs. frecuencia. Cada curva corresponde a un autovalor de la Ec. 2.71. Los modos superiores tienen mayor [[Phase Velocity|velocidad de fase]] y mayor profundidad de penetración. Al aumentar la frecuencia, aparecen nuevos modos y las curvas se empaquetan más densamente.
+La **Fig. 2.21** muestra las [[Dispersion Curve|curvas de dispersión]] modales (24 modos identificados) para este sistema: [[Phase Velocity|velocidad de fase]] Rayleigh vs. frecuencia. Cada curva corresponde a un autovalor de la Ec. 2.71. Los [[Surface Wave Modes|modos superiores]] tienen mayor [[Phase Velocity|velocidad de fase]] y mayor profundidad de penetración. Al aumentar la frecuencia, aparecen nuevos modos y las curvas se empaquetan más densamente.
 
-La **Fig. 2.22** muestra los perfiles de profundidad de las eigenfunciones de desplazamiento $r_1$ (horizontal) y $r_2$ (vertical) a $f = 16\,\text{Hz}$ para los primeros 4 modos. El resultado clave es que **los modos superiores penetran más profundamente**, lo que fundamenta la posibilidad de invertir modos superiores para resolver estructuras a mayor profundidad.
+La **Fig. 2.22** muestra los perfiles de profundidad de las eigenfunciones de desplazamiento $r_1$ (horizontal) y $r_2$ (vertical) a $f = 16\,\text{Hz}$ para los primeros 4 modos. El resultado clave es que **los [[Surface Wave Modes|modos superiores]] penetran más profundamente**, lo que fundamenta la posibilidad de invertir [[Surface Wave Modes|modos superiores]] para resolver estructuras a mayor profundidad.
 
 *(Fuente: Foti Ch. 2, Sec. 2.4.1, pp. 65–76, Ecs. 2.56–2.74, Tabla 2.4, Figs. 2.20–2.22)*
 
@@ -1211,12 +1211,12 @@ La **Fig. 2.22** muestra los perfiles de profundidad de las eigenfunciones de de
 
 En medios estratificados, tanto [[Rayleigh Waves]] como [[Love Waves]] presentan **múltiples modos de propagación**:
 
-- modo fundamental: mayor amplitud en superficie, más fácil de identificar experimentalmente
-- modos superiores: mayor profundidad de penetración; pueden dominar cuando hay fuertes contrastes de velocidad
+- [[Surface Wave Modes|modo fundamental]]: mayor amplitud en superficie, más fácil de identificar experimentalmente
+- [[Surface Wave Modes|modos superiores]]: mayor profundidad de penetración; pueden dominar cuando hay fuertes contrastes de velocidad
 
 El campo de ondas registrado por un arreglo de geófonos es en general una **superposición de modos** — ver [[Mode Superposition]].
 
-> **Implicación crítica para la tesis**: en medios inversamente dispersivos, los modos superiores contribuyen de manera importante incluso a frecuencias bajas. Invertir la [[Dispersion Curve|curva de dispersión]] aparente como si fuera del modo fundamental introduce errores sistemáticos en el perfil $V_S(z)$. Este es uno de los problemas más frecuentes en la práctica.
+> **Implicación crítica para la tesis**: en medios inversamente dispersivos, los [[Surface Wave Modes|modos superiores]] contribuyen de manera importante incluso a frecuencias bajas. Invertir la [[Dispersion Curve|curva de dispersión]] aparente como si fuera del [[Surface Wave Modes|modo fundamental]] introduce errores sistemáticos en el perfil $V_S(z)$. Este es uno de los problemas más frecuentes en la práctica.
 
 ---
 
@@ -1290,16 +1290,16 @@ $$
 
 donde $(V_R)_j$, $(U_R)_j$ y $(I_R)_j$ son la [[Phase Velocity|velocidad de fase]], velocidad de grupo e integral de energía del $j$-ésimo modo.
 
-#### Implicaciones para la inversión
+#### Implicaciones para la [[Inversión|inversión]]
 ![[Pasted image 20260318140813.png]]
-- En medios **normalmente dispersivos**: la curva aparente está cerca del modo fundamental a frecuencias intermedias; la aproximación monomodal suele ser aceptable
-- En medios **inversamente dispersivos**: la curva aparente diverge significativamente del modo fundamental desde frecuencias bajas (~8 Hz en los ejemplos de Foti) — invertirla como modo fundamental introduce errores severos en $V_S(z)$
+- En medios **normalmente dispersivos**: la curva aparente está cerca del [[Surface Wave Modes|modo fundamental]] a frecuencias intermedias; la aproximación monomodal suele ser aceptable
+- En medios **inversamente dispersivos**: la curva aparente diverge significativamente del [[Surface Wave Modes|modo fundamental]] desde frecuencias bajas (~8 Hz en los ejemplos de Foti) — invertirla como [[Surface Wave Modes|modo fundamental]] introduce errores severos en $V_S(z)$
 - Lo que los métodos experimentales ([[MASW Method|MASW]], f-k) extraen es $V^{app}$, no curvas modales; el proceso de [[Inversión|inversión]] debe tener esto en cuenta
 
 *(Fuente: Foti Ch. 2, Sec. 2.4.2.4, p. 90–95, Ecs. 2.93–2.95)*
 
 > [!EXAMPLE] Evidencia empírica: Paper 002 (Xia et al. 1999) — dispersión multimodal en medio estratificado
-> **Paper 002 (Xia, Miller & Park 1999, *Geophysics* 64(3):691–700, 2000+ citas)** — el paper fundacional de la inversión [[MASW Method|MASW]] — implementa el [[Forward Problem|problema directo]] para [[Rayleigh Waves|ondas de Rayleigh]] en medios estratificados usando la [[Thomson-Haskell Matrix|matriz de Thomson-Haskell]], cuya solución es exactamente el eigenproblem desarrollado en esta sección (§2.4.1). El sitio de Kansas (substrato de caliza, perfil normalmente dispersivo) mostró una [[Dispersion Curve|curva de dispersión]] aparente dominada por el modo fundamental en el rango 5–50 Hz, con [[Surface Wave Modes|modos superiores]] visibles pero energéticamente débiles en el espectro f-k. La [[Jacobian Matrix|Jacobiana]] analítica calculada a partir de las autofunciones de eigendesplazamiento (ecuaciones análogas a Ec. 2.66) permitió convergencia del esquema Gauss-Newton en <5 iteraciones. El perfil $V_S$ resultante concordó con sondeos de refracción dentro del 15% en los primeros 10 m, validando el eigenproblem de Rayleigh como herramienta de caracterización para el [[Forward Problem|problema directo]] en inversión iterativa.
+> **Paper 002 (Xia, Miller & Park 1999, *Geophysics* 64(3):691–700, 2000+ citas)** — el paper fundacional de la [[Inversión|inversión]] [[MASW Method|MASW]] — implementa el [[Forward Problem|problema directo]] para [[Rayleigh Waves|ondas de Rayleigh]] en medios estratificados usando la [[Thomson-Haskell Matrix|matriz de Thomson-Haskell]], cuya solución es exactamente el eigenproblem desarrollado en esta sección (§2.4.1). El sitio de Kansas (substrato de caliza, perfil normalmente dispersivo) mostró una [[Dispersion Curve|curva de dispersión]] aparente dominada por el [[Surface Wave Modes|modo fundamental]] en el rango 5–50 Hz, con [[Surface Wave Modes|modos superiores]] visibles pero energéticamente débiles en el espectro f-k. La [[Jacobian Matrix|Jacobiana]] analítica calculada a partir de las autofunciones de eigendesplazamiento (ecuaciones análogas a Ec. 2.66) permitió convergencia del esquema Gauss-Newton en <5 iteraciones. El perfil $V_S$ resultante concordó con sondeos de refracción dentro del 15% en los primeros 10 m, validando el eigenproblem de Rayleigh como herramienta de caracterización para el [[Forward Problem|problema directo]] en [[Inversión|inversión]] iterativa.
 >
 > — Research Database, entrada 002; Xia et al. (1999), *Geophysics* 64(3):691–700.
 
@@ -1419,7 +1419,7 @@ $$
 
 Experimentalmente, los geomateriales dentro del umbral de deformación lineal cíclica satisfacen típicamente $D \sim 1\text{–}5\%$, por lo que esta aproximación es adecuada para la mayoría de aplicaciones geofísicas (Foti p. 110).
 
-**Consecuencia crítica**: la [[Phase Velocity|velocidad de fase]] $V_\chi(\omega)$ se ve afectada por $D$ solo en **segundo orden** — la disipación no afecta significativamente la [[Dispersion Curve|curva de dispersión]]. Esto justifica el procedimiento estándar: inversión de dispersión primero (para $V_S$), inversión de atenuación después (para $D_S$), tratándolas como problemas desacoplados.
+**Consecuencia crítica**: la [[Phase Velocity|velocidad de fase]] $V_\chi(\omega)$ se ve afectada por $D$ solo en **segundo orden** — la disipación no afecta significativamente la [[Dispersion Curve|curva de dispersión]]. Esto justifica el procedimiento estándar: [[Inversión|inversión]] de dispersión primero (para $V_S$), [[Inversión|inversión]] de atenuación después (para $D_S$), tratándolas como problemas desacoplados.
 
 *(Fuente: Foti Ch. 2, Sec. 2.5.2, p. 110, Ec. 2.128)*
 

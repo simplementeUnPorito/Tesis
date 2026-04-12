@@ -67,7 +67,7 @@ Las ondas superficiales son **eventos de baja velocidad** y altamente dispersivo
 
 La medición de ondas superficiales requiere estimar con precisión las propiedades de propagación — principalmente la [[Phase Velocity|velocidad de fase]] como función de la frecuencia — sobre un rango amplio de frecuencias. Esto impone exigencias que no son intuitivas desde la experiencia con otras técnicas sísmicas:
 
-- Los datos están contaminados por **ruido incoherente** (ambiental, electrónico) y **ruido coherente** ([[Body Waves|ondas de cuerpo]], modos superiores, [[Near-field Effect|efectos de campo cercano]]). El diseño de la adquisición debe minimizar ambos.
+- Los datos están contaminados por **ruido incoherente** (ambiental, electrónico) y **ruido coherente** ([[Body Waves|ondas de cuerpo]], [[Surface Wave Modes|modos superiores]], [[Near-field Effect|efectos de campo cercano]]). El diseño de la adquisición debe minimizar ambos.
 - Las limitaciones del muestreo espacial y temporal afectan la **exactitud y el ancho de banda** de las propiedades estimadas — no solo la resolución espacial.
 - La medición puede modelarse como un problema de **muestreo de señal multidimensional**: las restricciones del [[Nyquist Theorem|teorema de Nyquist–Shannon]] se aplican tanto en el dominio del tiempo como en el del espacio.
 
@@ -305,7 +305,7 @@ $$\Delta k = \frac{2\pi}{D}$$
 - Mayor apertura $D$ → mayor resolución en [[Wavenumber|número de onda]] → mayor capacidad de separar modos con valores de $k$ cercanos.
 - Apertura insuficiente → los modos se superponen en el espacio f-k → la [[Dispersion Curve|curva de dispersión]] extraída es una "curva aparente" que mezcla contribuciones de varios modos.
 
-> **Implicación crítica para la tesis**: la resolución modal en la estimación de la [[Dispersion Relation|curva de dispersión]] está directamente controlada por la apertura del arreglo de [[Geophone|geófonos]]. Para sitios donde los [[Surface Wave Modes|modos superiores]] son relevantes (inversión de velocidad en subsuelo), la apertura insuficiente es la principal fuente de error en el perfil $V_S(z)$. Este es uno de los criterios de diseño más importantes en ensayos [[MASW Method|MASW]].
+> **Implicación crítica para la tesis**: la resolución modal en la estimación de la [[Dispersion Relation|curva de dispersión]] está directamente controlada por la apertura del arreglo de [[Geophone|geófonos]]. Para sitios donde los [[Surface Wave Modes|modos superiores]] son relevantes ([[Inversión|inversión]] de velocidad en subsuelo), la apertura insuficiente es la principal fuente de error en el perfil $V_S(z)$. Este es uno de los criterios de diseño más importantes en ensayos [[MASW Method|MASW]].
 
 *(Fuente: Foti Ch. 3, Sec. 3.3.5, p. 137–140, Ecs. 3.15–3.16, Figs. 3.12–3.13)*
 
@@ -345,9 +345,9 @@ La **Fig. 3.14** (p. 141) ilustra una conversión de 4 bits: la parte superior m
 
 #### Implicación práctica
 
-El rango dinámico del convertidor debe ser suficiente para capturar tanto los eventos de pequeña amplitud (reflexiones débiles, modos superiores de ondas superficiales) como los de gran amplitud (ondas superficiales dominantes a offsets cortos) sin saturación ni excesivo error de cuantización. Para este motivo, los sistemas sísmicos usan 24 bits: la diferencia de amplitud entre la onda superficial directa y un reflector profundo puede superar 100 dB.
+El rango dinámico del convertidor debe ser suficiente para capturar tanto los eventos de pequeña amplitud (reflexiones débiles, [[Surface Wave Modes|modos superiores]] de ondas superficiales) como los de gran amplitud (ondas superficiales dominantes a offsets cortos) sin saturación ni excesivo error de cuantización. Para este motivo, los sistemas sísmicos usan 24 bits: la diferencia de amplitud entre la onda superficial directa y un reflector profundo puede superar 100 dB.
 
-> **Para la tesis**: al seleccionar el sistema de adquisición, la resolución del ADC determina la capacidad de capturar modos de pequeña amplitud que de otro modo quedarían sumergidos en el ruido de cuantización. En sistemas de bajo costo (como los basados en [[Geophone|geófonos]] MEMS o tarjetas de audio), la resolución del ADC es una limitación real que afecta el rango de frecuencias y la detección de modos superiores.
+> **Para la tesis**: al seleccionar el sistema de adquisición, la resolución del ADC determina la capacidad de capturar modos de pequeña amplitud que de otro modo quedarían sumergidos en el ruido de cuantización. En sistemas de bajo costo (como los basados en [[Geophone|geófonos]] MEMS o tarjetas de audio), la resolución del ADC es una limitación real que afecta el rango de frecuencias y la detección de [[Surface Wave Modes|modos superiores]].
 
 *(Fuente: Foti Ch. 3, Sec. 3.3.6, pp. 140–141, Fig. 3.14)*
 
@@ -414,7 +414,7 @@ La limitación más crítica en la práctica ocurre con **múltiples modos** con
 ![[Pasted image 20260410154316.png]]
 La conclusión es inequívoca (Foti p. 148): *"to accurately measure multiple surface wave modes, the spatial sampling aperture has to provide sufficient wavenumber resolution to distinguish between modes."*
 
-> **Implicación para la tesis**: en sitios con inversión de velocidad o modos superiores relevantes, una apertura insuficiente produce una [[Dispersion Curve|curva de dispersión]] aparente que mezcla modos y genera perfiles $V_S(z)$ erróneos. Este análisis justifica cuantitativamente el criterio de diseño en ensayos [[MASW Method|MASW]]: la longitud del arreglo no es solo un parámetro logístico, sino el factor determinante de la resolución modal. La condición exacta es $D > 2\pi / |k_1 - k_2|$.
+> **Implicación para la tesis**: en sitios con [[Inversión|inversión]] de velocidad o [[Surface Wave Modes|modos superiores]] relevantes, una apertura insuficiente produce una [[Dispersion Curve|curva de dispersión]] aparente que mezcla modos y genera perfiles $V_S(z)$ erróneos. Este análisis justifica cuantitativamente el criterio de diseño en ensayos [[MASW Method|MASW]]: la longitud del arreglo no es solo un parámetro logístico, sino el factor determinante de la resolución modal. La condición exacta es $D > 2\pi / |k_1 - k_2|$.
 
 *(Fuente: Foti Ch. 3, Sec. 3.3.7, p. 141–148, Ecs. 3.17–3.29, Figs. 3.15–3.18)*
 
@@ -456,8 +456,8 @@ El ruido coherente es reproducible determinísticamente. No se puede eliminar co
 Tipos de ruido coherente en adquisición de ondas superficiales:
 
 - **[[Body Waves|Ondas de cuerpo]]** (P y S): llegan antes o simultáneamente con las ondas superficiales. En aplicaciones de pequeña escala suelen tener menor amplitud. Pueden identificarse en tiempo-offset y eliminarse o ignorarse.
-- **[[Surface Wave Modes|Modos superiores]]** de propagación: en sitios inversamente dispersivos pueden dominar la respuesta. Si el modelo solo considera el modo fundamental, los modos superiores son ruido coherente. La solución correcta es incluirlos en el modelo (inversión multimodal).
-- **[[Near-field Effect|Efecto de campo cercano]]** (*near-field effect*): las [[Rayleigh Waves|Rayleigh waves]] solo se comportan como ondas planas más allá de cierta distancia de la fuente. Dentro de esa zona, el campo está dominado por contribuciones de [[Body Waves|ondas de cuerpo]] y la velocidad aparente no corresponde a la del modo fundamental.
+- **[[Surface Wave Modes|Modos superiores]]** de propagación: en sitios inversamente dispersivos pueden dominar la respuesta. Si el modelo solo considera el [[Surface Wave Modes|modo fundamental]], los [[Surface Wave Modes|modos superiores]] son ruido coherente. La solución correcta es incluirlos en el modelo ([[Inversión|inversión]] multimodal).
+- **[[Near-field Effect|Efecto de campo cercano]]** (*near-field effect*): las [[Rayleigh Waves|Rayleigh waves]] solo se comportan como ondas planas más allá de cierta distancia de la fuente. Dentro de esa zona, el campo está dominado por contribuciones de [[Body Waves|ondas de cuerpo]] y la velocidad aparente no corresponde a la del [[Surface Wave Modes|modo fundamental]].
 - **Air blast**: la onda de presión acústica en el aire (velocidad ~331–360 m/s) puede ser detectada por los [[Geophone|geófonos]]. Aparece en el dominio f-k como un evento lineal de velocidad constante.
 - **Variaciones laterales**: heterogeneidades subsuperficiales hacen que las ondas superficiales no sigan el modelo de propagación plana 1D, generando difracción y distorsión de la velocidad aparente.
 
@@ -467,7 +467,7 @@ Tipos de ruido coherente en adquisición de ondas superficiales:
 
 ### 3.4.1.7 Variaciones laterales
 
-El procesamiento estándar de [[MASW Method|MASW]] asume un modelo 1D: la propagación es **lateralmente homogénea** bajo el arreglo completo. Las variaciones laterales del subsuelo (capas buzantes, cambios de litología, rellenos discontinuos, fallas) producen efectos que el modelo 1D no puede reproducir y que aparecen como ruido coherente en la [[Dispersion Curve|curva de dispersión]] experimental. En presencia de heterogeneidades laterales fuertes, la [[Dispersion Curve|curva de dispersión]] puede mostrar ramificaciones, saltos anómalos o dispersión excesiva que dificultan o imposibilitan una inversión confiable.
+El procesamiento estándar de [[MASW Method|MASW]] asume un modelo 1D: la propagación es **lateralmente homogénea** bajo el arreglo completo. Las variaciones laterales del subsuelo (capas buzantes, cambios de litología, rellenos discontinuos, fallas) producen efectos que el modelo 1D no puede reproducir y que aparecen como ruido coherente en la [[Dispersion Curve|curva de dispersión]] experimental. En presencia de heterogeneidades laterales fuertes, la [[Dispersion Curve|curva de dispersión]] puede mostrar ramificaciones, saltos anómalos o dispersión excesiva que dificultan o imposibilitan una [[Inversión|inversión]] confiable.
 
 Implicaciones prácticas para el diseño de la adquisición:
 - **Ubicación del arreglo**: evitar situar el tendido en zonas con discontinuidades litológicas conocidas, cambios de facies o capas claramente inclinadas visibles en afloramientos o perforaciones previas.
@@ -479,19 +479,19 @@ Implicaciones prácticas para el diseño de la adquisición:
 
 ### 3.4.1.8 Modos superiores
 
-La propagación de [[Surface Waves|ondas superficiales]] en un [[Layered Media|medio estratificado]] es inherentemente multimodal. Cada modo tiene su propia [[Dispersion Curve|curva de dispersión]] y penetra a distintas profundidades: los modos superiores (modo 1, 2, ...) tienen mayor [[Wavenumber|número de onda]] a frecuencia fija y penetran menos que el modo fundamental, lo que los hace más sensibles a las capas superficiales. En sitios **inversamente dispersivos** (costra superficial rígida sobre material más blando), los [[Surface Wave Modes|modos superiores]] pueden dominar la respuesta energética sobre el modo fundamental en ciertas bandas de frecuencia.
+La propagación de [[Surface Waves|ondas superficiales]] en un [[Layered Media|medio estratificado]] es inherentemente multimodal. Cada modo tiene su propia [[Dispersion Curve|curva de dispersión]] y penetra a distintas profundidades: los [[Surface Wave Modes|modos superiores]] (modo 1, 2, ...) tienen mayor [[Wavenumber|número de onda]] a frecuencia fija y penetran menos que el [[Surface Wave Modes|modo fundamental]], lo que los hace más sensibles a las capas superficiales. En sitios **inversamente dispersivos** (costra superficial rígida sobre material más blando), los [[Surface Wave Modes|modos superiores]] pueden dominar la respuesta energética sobre el [[Surface Wave Modes|modo fundamental]] en ciertas bandas de frecuencia.
 
-Los modos superiores deben tratarse como **información útil para la inversión**, no como ruido, ya que aportan resolución vertical adicional. La inversión multimodal — que ajusta simultáneamente los modos identificados — reduce la [[Non-uniqueness|no-unicidad]] de la solución y mejora la resolución en profundidad respecto a la inversión monoModal del modo fundamental (véase Capítulo 6, §6.4).
+Los [[Surface Wave Modes|modos superiores]] deben tratarse como **información útil para la [[Inversión|inversión]]**, no como ruido, ya que aportan resolución vertical adicional. La [[Inversión|inversión]] multimodal — que ajusta simultáneamente los modos identificados — reduce la [[Non-uniqueness|no-unicidad]] de la solución y mejora la resolución en profundidad respecto a la [[Inversión|inversión]] monoModal del [[Surface Wave Modes|modo fundamental]] (véase Capítulo 6, §6.4).
 
 Consecuencias de no resolver modos correctamente:
 - **Apertura insuficiente**: los modos se superponen en el dominio f-k → [[Dispersion Curve|curva de dispersión]] aparente que es una mezcla energética de varios modos, no uno solo.
-- **Error de identificación modal**: invertir la curva aparente como si fuera el modo fundamental cuando en realidad es un modo superior conduce a perfiles $V_S(z)$ sistemáticamente erróneos — típicamente con velocidades superficiales sobreestimadas.
+- **Error de identificación modal**: invertir la curva aparente como si fuera el [[Surface Wave Modes|modo fundamental]] cuando en realidad es un modo superior conduce a perfiles $V_S(z)$ sistemáticamente erróneos — típicamente con velocidades superficiales sobreestimadas.
 - **Solución**: apertura de arreglo suficiente para resolver los modos en el plano f-k, y comparación entre la curva aparente experimental y la curva teórica de superposición modal calculada con el [[Forward Problem|problema directo]] completo.
 
 *(Fuente: Foti Ch. 3, Sec. 3.4.1.8, p. 162–164)*
 
-> [!EXAMPLE] Evidencia empírica: Paper 046 (Garofalo et al. 2016) — validación de modos superiores en InterPACIFIC
-> **Paper 046 (Garofalo et al. 2016 Part II, *Soil Dyn. EE* 82:241–254, 153 citas)** reporta el experimento ciego InterPACIFIC: 14 equipos independientes procesaron los mismos datos sísmicos en tres sitios (Grenoble, Cadarache, Mirandola) con diferentes niveles de complejidad de perfiles. En el sitio de Grenoble — donde el perfil es inversamente dispersivo — los equipos que incluyeron [[Surface Wave Modes|modos superiores]] en la inversión obtuvieron perfiles $V_S(z)$ dentro del 5% del resultado de referencia (borehole), mientras que los que asumieron solo modo fundamental divergieron hasta un 20% en las capas intermedias. Este experimento demostró empíricamente que la identificación correcta de modos es crítica para la exactitud del perfil en sitios inversamente dispersivos. La varianza entre equipos fue mínima para $V_{S,30}$ (< 6.5%) pero alta para la forma detallada del perfil, confirmando que el parámetro normativo es robusto pero el perfil completo no lo es si se ignoran los modos superiores.
+> [!EXAMPLE] Evidencia empírica: Paper 046 (Garofalo et al. 2016) — validación de [[Surface Wave Modes|modos superiores]] en InterPACIFIC
+> **Paper 046 (Garofalo et al. 2016 Part II, *Soil Dyn. EE* 82:241–254, 153 citas)** reporta el experimento ciego InterPACIFIC: 14 equipos independientes procesaron los mismos datos sísmicos en tres sitios (Grenoble, Cadarache, Mirandola) con diferentes niveles de complejidad de perfiles. En el sitio de Grenoble — donde el perfil es inversamente dispersivo — los equipos que incluyeron [[Surface Wave Modes|modos superiores]] en la [[Inversión|inversión]] obtuvieron perfiles $V_S(z)$ dentro del 5% del resultado de referencia (borehole), mientras que los que asumieron solo [[Surface Wave Modes|modo fundamental]] divergieron hasta un 20% en las capas intermedias. Este experimento demostró empíricamente que la identificación correcta de modos es crítica para la exactitud del perfil en sitios inversamente dispersivos. La varianza entre equipos fue mínima para $V_{S,30}$ (< 6.5%) pero alta para la forma detallada del perfil, confirmando que el parámetro normativo es robusto pero el perfil completo no lo es si se ignoran los [[Surface Wave Modes|modos superiores]].
 >
 > — Research Database, entrada 046; Garofalo et al. (2016 Part II), *Soil Dyn. Earthq. Eng.* 82:241–254.
 
@@ -535,7 +535,7 @@ $$
 
 Para separar dos modos con wavenumbers $k_1$ y $k_2$, se requiere $D > 2\pi / |k_1 - k_2|$.
 
-Arrays más largos → mayor resolución modal → mejor identificación de modos superiores y mayor exactitud en la estimación de velocidad. Pero arrays más largos aumentan el riesgo de variaciones laterales.
+Arrays más largos → mayor resolución modal → mejor identificación de [[Surface Wave Modes|modos superiores]] y mayor exactitud en la estimación de velocidad. Pero arrays más largos aumentan el riesgo de variaciones laterales.
 
 **Longitudes típicas**: 20–100 m para aplicaciones de ingeniería superficiales.
 
@@ -701,7 +701,7 @@ Los receptores de dos componentes (vertical + horizontal radial) permiten medir 
 *(Fuente: Foti Ch. 3, Sec. 3.5.2.3–3.5.2.4, p. 198–199)*
 
  > [!EXAMPLE] Evidencia empírica: Paper 001 (Park et al. 1999) — equipamiento y diseño estándar MASW
-> **Paper 001 (Park, Miller & Xia 1999, *Geophysics* 64(3):800–808)** — el artículo fundacional del [[MASW Method|MASW]] — establece los parámetros de equipamiento estándar que siguen siendo referencia hoy: 24 canales de [[Geophone|geófonos]] verticales de 4.5 Hz con espaciado uniforme, sismógrafo de adquisición multicanal, y sledgehammer como fuente impulsiva. En el ensayo de Kansas, el arreglo de 24 [[Geophone|geófonos]] con espaciado de 1 m proporcionó un rango de [[Wavenumber|número de onda]] suficiente para resolver la [[Dispersion Curve|curva de dispersión]] entre 5 y 50 Hz, correspondiente a una profundidad de investigación de ~15 m. El análisis f-k del sismograma multicanal identificó el máximo espectral del modo fundamental con relación señal-ruido >10 dB en toda la banda útil. La comparación con sondeos de refracción sísmica existentes validó el perfil $V_S(z)$ resultante dentro del 15% en los primeros 10 m. Este trabajo demostró que un único disparo con equipamiento estándar de campo produce resultados equivalentes a múltiples ensayos [[SASW Method|SASW]] con fracción del tiempo de campo.
+> **Paper 001 (Park, Miller & Xia 1999, *Geophysics* 64(3):800–808)** — el artículo fundacional del [[MASW Method|MASW]] — establece los parámetros de equipamiento estándar que siguen siendo referencia hoy: 24 canales de [[Geophone|geófonos]] verticales de 4.5 Hz con espaciado uniforme, sismógrafo de adquisición multicanal, y sledgehammer como fuente impulsiva. En el ensayo de Kansas, el arreglo de 24 [[Geophone|geófonos]] con espaciado de 1 m proporcionó un rango de [[Wavenumber|número de onda]] suficiente para resolver la [[Dispersion Curve|curva de dispersión]] entre 5 y 50 Hz, correspondiente a una profundidad de investigación de ~15 m. El análisis f-k del sismograma multicanal identificó el máximo espectral del [[Surface Wave Modes|modo fundamental]] con relación señal-ruido >10 dB en toda la banda útil. La comparación con sondeos de refracción sísmica existentes validó el perfil $V_S(z)$ resultante dentro del 15% en los primeros 10 m. Este trabajo demostró que un único disparo con equipamiento estándar de campo produce resultados equivalentes a múltiples ensayos [[SASW Method|SASW]] con fracción del tiempo de campo.
 >
 > — Research Database, entrada 001; Park et al. (1999), *Geophysics* 64(3):800–808.
 
@@ -717,7 +717,7 @@ El flujo de trabajo completo de adquisición de ondas superficiales involucra:
 
 3. **Receptores**: [[Geophone|geófonos]] verticales de baja frecuencia natural (1–4.5 Hz) para capturar [[Rayleigh Waves|Rayleigh waves]] sobre un rango amplio de frecuencias.
 
-4. **Control de ruido**: maximizar SNR (stacking, adquisición nocturna), identificar y mitigar ruido coherente (campo cercano, modos superiores, variaciones laterales).
+4. **Control de ruido**: maximizar SNR (stacking, adquisición nocturna), identificar y mitigar ruido coherente (campo cercano, [[Surface Wave Modes|modos superiores]], variaciones laterales).
 
 La limitación fundamental es que la **[[Dispersion Relation|curva de dispersión]] experimental es siempre una curva aparente**: depende de los parámetros de adquisición, no solo del subsuelo. El proceso de [[Inversión|inversión]] debe tener esto en cuenta. Este capítulo es la base del flujo de trabajo del método [[MASW Method|MASW]] y sus variantes.
 
