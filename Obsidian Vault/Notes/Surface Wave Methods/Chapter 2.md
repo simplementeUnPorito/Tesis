@@ -578,13 +578,7 @@ V_P=\sqrt{\frac{\lambda+2\mu}{\rho}},
 V_S=\sqrt{\frac{\mu}{\rho}}  
 $$
 
-De estas expresiones se deduce que:
-
-$$  
-V_P > V_S  
-$$
-
-porque las [[P-waves|ondas P]] dependen de la rigidez volumétrica y de corte, mientras que las [[S-Waves|ondas S]] dependen únicamente de la rigidez de corte.
+De estas expresiones se deduce que $V_P > V_S$ en cualquier material físicamente admisible, porque las [[P-waves|ondas P]] dependen de la **rigidez volumétrica** ($\lambda + 2\mu$, que incluye tanto la resistencia al cambio de volumen como la resistencia al cizallamiento), mientras que las [[S-Waves|ondas S]] dependen únicamente de la **rigidez de corte** ($\mu$). La razón $V_P/V_S$ es un indicador de la compresibilidad relativa del material: materiales duros e incompresibles (como granito) tienen $V_P/V_S \approx 1.7$; materiales blandos y compresibles (como arcillas saturadas) pueden tener $V_P/V_S > 10$. Esta razón equivale a $\sqrt{(2-2\nu)/(1-2\nu)}$ en función del [[Poisson Ratio|coeficiente de Poisson]] $\nu$ (sección siguiente).
 
 ### Relación con el [[Poisson Ratio|coeficiente de Poisson]]
 
@@ -817,14 +811,17 @@ Estas ondas aparecen como consecuencia de la **condición de esfuerzo nulo en la
 
 ### Propagación superficial
 
-A diferencia de las [[Body Waves]], las [[Rayleigh Waves]] presentan un patrón de radiación esencialmente **bidimensional (2D)**.
+A diferencia de las [[Body Waves|ondas de cuerpo]], que propagan energía esféricamente en 3D, las [[Rayleigh Waves|ondas de Rayleigh]] presentan un patrón de radiación esencialmente **bidimensional (2D)** — sus frentes de onda son cilíndricos, propagándose horizontalmente a lo largo de la superficie con amplitudes que decaen exponencialmente en profundidad.
+
 ![[Pasted image 20260316143212.png]]
+
 Esto implica que la energía se propaga principalmente:
 
-- a lo largo de la superficie
-- con muy poca propagación hacia el interior del medio.
+- a lo largo de la superficie, con frentes cilíndricos de radio creciente
+- con amplitud decreciente exponencialmente con la profundidad (ver §Decaimiento con profundidad)
+- sin propagación hacia el interior del medio más allá de una o dos longitudes de onda.
 
-Como consecuencia, las ondas superficiales presentan una **[[Attenuation|atenuación]] geométrica mucho menor** que las [[Body Waves|ondas de cuerpo]].
+Como consecuencia, las [[Rayleigh Waves|ondas de Rayleigh]] presentan una **[[Attenuation|atenuación]] geométrica mucho menor** que las [[Body Waves|ondas de cuerpo]]: la amplitud decrece como $r^{-0.5}$ (fuente puntual, propagación cilíndrica) frente a $r^{-2}$ para las ondas de cuerpo en la superficie. Esta diferencia de decaimiento explica por qué, a distancias del orden de una longitud de onda, el campo de ondas sísmicas en superficie queda dominado por las ondas superficiales — justificando la viabilidad de los métodos [[MASW Method|MASW]] a distancias moderadas de la fuente.
 
 ---
 
@@ -903,14 +900,12 @@ Esto implica que:
 
 ### Implicación geofísica fundamental
 
-Esta relación entre **[[Wavelength|longitud de onda]] y profundidad de penetración** es la base física de los métodos de caracterización del subsuelo mediante [[Surface Waves]].
+Esta relación entre **[[Wavelength|longitud de onda]] y profundidad de penetración** es la base física de todos los métodos de caracterización del subsuelo mediante [[Surface Waves|ondas superficiales]]. La [[Dispersion Curve|curva de dispersión]] experimental — la variación de la [[Phase Velocity|velocidad de fase]] con la frecuencia — refleja directamente la variación de $V_S$ con la profundidad:
 
-En particular:
+- frecuencias **bajas** (longitudes de onda grandes, $\lambda \approx V_S/f$) investigan **mayores profundidades** — la onda "siente" el promedio de las propiedades elásticas hasta $\sim\lambda$ de profundidad.
+- frecuencias **altas** investigan **capas superficiales** — la onda es más energética a poca profundidad y su velocidad refleja las propiedades de las capas más someras.
 
-- frecuencias **bajas** (longitudes de onda grandes) investigan **mayores profundidades**
-- frecuencias **altas** investigan **capas superficiales**
-
-Este principio permite reconstruir perfiles de velocidad de corte del subsuelo mediante el análisis de la **[[Dispersion Relation]]** de [[Rayleigh Waves]].
+Este principio permite reconstruir perfiles de velocidad de corte del subsuelo mediante el análisis de la [[Dispersion Relation|relación de dispersión]] de [[Rayleigh Waves|ondas de Rayleigh]]: la [[Inversión|inversión]] de la [[Dispersion Curve|curva de dispersión]] experimental $V_{ph}(f)$ determina el perfil $V_S(z)$ mediante un [[Forward Problem|problema directo]] iterativo (Capítulo 6). La profundidad máxima de investigación $z_{max} \approx \lambda_{max}/2$ queda determinada por la longitud de onda máxima accesible con el arreglo de adquisición.
 
 ### 2.2.2 Derivación mediante [[Elastic Wave Potentials|potenciales de onda elástica]]
 
