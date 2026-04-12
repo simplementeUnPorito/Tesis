@@ -164,7 +164,9 @@ Este ejemplo ilustra que la elección del modelo de referencia (capas vs. contin
 
 > Figura clave: 7.23 (p. 375).
 
----
+> [!EXAMPLE] Evidencia empírica: Paper 010 (Park et al. 2007) — MASW activo y pasivo con mismo equipamiento: complementariedad y profundidad
+> **Paper 010 (Park, Miller, Xia & Ivanov 2007, *The Leading Edge* Vol.26(1):60–64, 258 citas)** revisa y compara las dos variantes del [[MASW Method|MASW]] — activo (fuente controlada) y pasivo (ruido ambiental) — demostrando que el **mismo arreglo de [[Geophone|geófonos]] y el mismo sismógrafo** sirven para ambos modos sin costo adicional de hardware. Las diferencias clave son: MASW activo alcanza ~30 m de profundidad con control total de la fuente; MASW pasivo puede superar los 100 m aprovechando el ruido ambiental, pero depende de su calidad y direccionalidad. La combinación activo+pasivo maximiza el rango de profundidad investigado sin inversión adicional, con el modo activo aportando alta resolución superficial y el modo pasivo aportando información más profunda. Este resultado valida directamente los esquemas de [[Inversión|inversión]] multi-dataset del Capítulo 7, donde los perfiles activo y pasivo del mismo sitio La Salle se combinan para construir un modelo de $V_S(z)$ más completo.
+> — Research Database, entrada 010; Park et al. (2007), *The Leading Edge* Vol.26(1):60–64. DOI: 10.1190/1.2431832.
 
 ---
 

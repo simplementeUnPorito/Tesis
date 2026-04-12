@@ -300,6 +300,10 @@ Cuando los datos se adquieren y procesan correctamente, el ratio H/V depende de 
 
 La importancia relativa de las [[Rayleigh Waves|ondas de Rayleigh]] y [[Love Waves|ondas de Love]] puede afectar la forma de la curva H/V y varía de sitio a sitio. Los métodos de vibración ambiental con estaciones multicomponente monoestación y el método H/V pueden contribuir eficazmente a la evaluación del efecto de sitio sísmico, especialmente en [[Seismic Microzonation|microzonación sísmica urbana]] y en países en desarrollo por su bajo costo.
 
+> [!EXAMPLE] Evidencia empírica: Paper 017 (Nakamura 1989) — técnica HVSR: frecuencia fundamental del sitio con un solo sensor triaxial
+> **Paper 017 (Nakamura 1989, *RTRI Quarterly Report* Vol.30(1):25–33, miles de citas)** introduce la **técnica H/V** para estimar la frecuencia fundamental de resonancia $f_0$ del sitio usando únicamente microtremores registrados en superficie con un sensor triaxial, sin fuente activa ni array multicanal. El cociente espectral H/V muestra un pico claro en $f_0$ del depósito sedimentario, relacionado con la elipticidad del [[Surface Wave Modes|modo fundamental]] de las [[Rayleigh Waves|ondas de Rayleigh]] según el consenso actual de la comunidad (no con la amplificación de ondas S como planteó originalmente Nakamura). La técnica ha sido validada extensamente: el pico H/V a $f_0$ coincide con la profundidad del contraste de impedancia estimada por [[Inversión|inversión]] de [[Dispersion Curve|curvas de dispersión]] MASW, y la combinación MASW + HVSR es práctica estándar para constrañer mejor los modelos 1D con mínimo costo. La factibilidad económica es extrema — requiere solo 1 sensor 3C + grabador — lo que lo hace el complemento más accesible al [[MASW Method|MASW]] activo en contextos de recursos limitados.
+> — Research Database, entrada 017; Nakamura (1989), *RTRI Quarterly Report* Vol.30(1):25–33.
+
 ### 8.5.3 Adquisición y procesamiento de H/V
 
 La adquisición y el procesamiento de datos H/V están documentados extensamente en la documentación del proyecto SESAME (SESAME 2004). Las condiciones clave son:

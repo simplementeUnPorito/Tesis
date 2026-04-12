@@ -414,6 +414,10 @@ Los métodos de sondeo eléctrico vertical (VES) y de ondas superficiales compar
 
 *Trazabilidad: Foti Cap. 6, §6.4.4, pp. 320–323*
 
+> [!EXAMPLE] Evidencia empírica: Paper 025 (Xia et al. 2003) — inversión multimodal: mayor resolución en profundidad y detección de inversiones de velocidad
+> **Paper 025 (Xia, Miller, Park & Tian 2003, *J. Appl. Geophys.* Vol.52(1):45–57, 448 citas)** extiende el algoritmo LS iterativo de Xia et al. (1999) para incorporar simultáneamente el [[Surface Wave Modes|modo fundamental]] y [[Surface Wave Modes|modos superiores]] de [[Rayleigh Waves|ondas de Rayleigh]] en la función de desajuste. Con datos sintéticos y de campo (Kansas), el estudio demuestra que la [[Inversión|inversión]] multimodal: (1) mejora la resolución del perfil $V_S(z)$ en profundidad — los [[Surface Wave Modes|modos superiores]] poseen [[Sensitivity Kernel|kernels de sensibilidad]] distribuidos a mayor profundidad que el [[Surface Wave Modes|modo fundamental]]; (2) detecta correctamente las **[[Non-uniqueness|inversiones de velocidad]]** (capas blandas bajo capas rígidas) que la [[Inversión|inversión]] de [[Surface Wave Modes|modo fundamental]] solo no puede resolver; (3) reduce la [[Non-uniqueness|no-unicidad]] del problema inverso al imponer restricciones adicionales mediante los perfiles de velocidad de múltiples modos. El trabajo confirma empíricamente que la información a priori modal —cuando está disponible— es la herramienta más efectiva para estabilizar la [[Inversión|inversión]] en perfiles inversamente dispersivos, complementando las restricciones geológicas de §6.4.4.
+> — Research Database, entrada 025; Xia et al. (2003), *J. Appl. Geophys.* Vol.52(1):45–57. DOI: 10.1016/S0926-9851(02)00239-2.
+
 ---
 
 ## 6.5 Incertidumbre en la [[Inversión|inversión]]

@@ -956,13 +956,21 @@ La condición $\text{Re}(\alpha) > 0$ y $\text{Re}(\beta) > 0$ garantiza que las
 
 #### Condiciones de frontera en superficie libre
 
-En $z = 0$ los esfuerzos normales y de corte deben ser nulos (superficie libre sin carga aplicada):
+La superficie terrestre es un **semiespacio libre**: ninguna fuerza externa actúa desde el semispacio superior (aire), por lo que los esfuerzos en la interfaz $z = 0$ deben ser nulos. Las dos condiciones son:
 
 $$
 \sigma_{zz}\big|_{z=0} = 0, \qquad \sigma_{xz}\big|_{z=0} = 0
 $$
 
-Aplicando estas dos condiciones al campo de desplazamientos derivado de los potenciales se obtiene un sistema lineal homogéneo en $A$ y $B$.
+La primera anula el esfuerzo normal (compresión/tracción perpendicular a la superficie); la segunda anula el esfuerzo cortante (fricción tangencial). En el contexto de la descomposición de Helmholtz, estas condiciones se traducen en relaciones entre las amplitudes $A$ (potencial escalar $\phi$ — onda P) y $B$ (potencial vectorial $\psi$ — onda SV):
+
+$$
+\left[\frac{\partial^2\phi}{\partial z^2} + \frac{\partial^2\phi}{\partial x^2}\right]\bigg|_{z=0} + \lambda/\mu \cdot \nabla^2\phi\big|_{z=0} + 2\frac{\partial^2\psi}{\partial x \partial z}\bigg|_{z=0} = 0
+$$
+
+Aplicando ambas condiciones al campo de desplazamientos derivado de los potenciales se obtiene un **sistema lineal homogéneo en $A$ y $B$**: $\mathbf{M}(c_R, V_P, V_S) \cdot [A, B]^T = \mathbf{0}$. Para que el sistema tenga solución no trivial (y por tanto ondas de superficie reales) el determinante de la matriz de coeficientes $\mathbf{M}$ debe ser cero — condición que define la ecuación secular.
+
+*(Fuente: Foti Ch. 2, Sec. 2.2.1, p. 44–47)*
 
 #### Ecuación secular de Rayleigh
 
@@ -1151,9 +1159,15 @@ Para **Rayleigh waves** (Foti Ec. 2.66), sistema de cuarto orden $d\mathbf{f}/dx
 
 #### Condiciones de contorno (Foti Ecs. 2.72–2.73)
 
-Para **Love waves**: $l_2 = 0$ en $x_2 = 0$, y $l_1 \to 0$ para $x_2 \to \infty$
+Las condiciones de contorno imponen dos requerimientos físicos simultáneos: (1) **superficie libre** — los esfuerzos normales se anulan en $x_2 = 0$ (nadie ejerce fuerza sobre el semispacio desde arriba); (2) **radiación** — los desplazamientos decrecen con la profundidad (la energía queda confinada cerca de la superficie).
 
-Para **Rayleigh waves**: $r_3 = r_4 = 0$ en $x_2 = 0$, y $r_1, r_2 \to 0$ para $x_2 \to \infty$
+Para **[[Love Waves|Love waves]]**: $l_2 = 0$ en $x_2 = 0$ (esfuerzo cortante nulo en superficie), y $l_1 \to 0$ para $x_2 \to \infty$ (amplitud nula a profundidad infinita).
+
+Para **[[Rayleigh Waves|Rayleigh waves]]**: $r_3 = r_4 = 0$ en $x_2 = 0$ (ambas componentes del vector de esfuerzo nulas en superficie), y $r_1, r_2 \to 0$ para $x_2 \to \infty$.
+
+**Implicación física**: estas condiciones sobredeterminan el sistema de EDOs — solo ciertos valores discretos de $k$ (los autovalores) permiten satisfacerlas simultáneamente. Esto es lo que genera la estructura modal discreta: [[Surface Wave Modes|modo fundamental]], primer modo superior, etc. A cada frecuencia $\omega$ solo un conjunto finito de números de onda $k_j(\omega)$ son soluciones válidas.
+
+*(Fuente: Foti Ch. 2, Sec. 2.4.1, p. 70–72, Ecs. 2.72–2.73)*
 
 #### Ecuación de dispersión general (Foti Ec. 2.74)
 
@@ -1163,7 +1177,14 @@ $$
 \Phi_{L/R}[\lambda(x_2),\, \mu(x_2),\, \rho(x_2),\, k,\, \omega] = 0
 $$
 
-Esta es la ecuación de dispersión general: altamente no lineal, trascendente, sin solución cerrada.
+Esta es la **ecuación secular** (o ecuación de dispersión general): altamente no lineal y trascendente, sin solución cerrada. Sus raíces $k_j(\omega)$ dependen del perfil completo de propiedades elásticas $\lambda(x_2)$, $\mu(x_2)$ y $\rho(x_2)$ — es decir, del modelo de subsuelo completo. La [[Dispersion Curve|curva de dispersión]] $V_j(\omega) = \omega/k_j(\omega)$ codifica toda la información sobre la estructura del subsuelo que puede extraerse desde la superficie.
+
+**Propiedades clave**:
+- La función $\Phi_{L/R}$ se evalúa numéricamente para cada par $(k, \omega)$ mediante los algoritmos de la sección siguiente (Thomson–Haskell, matrices de rigidez).
+- Para un medio homogéneo (sin estratificación), $\Phi_R = 0$ tiene una única raíz real: $V_R \approx 0.919 V_S$ — la velocidad de Rayleigh del semispacio homogéneo.
+- En un [[Layered Media|medio estratificado]], $\Phi_{L/R} = 0$ tiene múltiples raíces a cada frecuencia: los modos de propagación. El número de modos crece con la frecuencia.
+
+*(Fuente: Foti Ch. 2, Sec. 2.4.1, p. 72, Ec. 2.74)*
 
 #### Algoritmos numéricos (Foti Sec. 2.4.1.1, p. 72–74)
 
@@ -1384,11 +1405,19 @@ donde $\alpha_\chi$ es el **coeficiente de atenuación espacial**.
 
 #### Razón de amortiguamiento material (Foti Ec. 2.115)
 
+La **razón de amortiguamiento material** $D_\chi$ cuantifica la fracción de energía elástica disipada por ciclo de deformación. Se define como la relación entre la parte imaginaria y real del módulo complejo:
+
 $$
 D_\chi(\omega) = \frac{G_{(2)\chi}}{2G_{(1)\chi}}, \qquad \chi = P, S
 $$
 
-Su relación con el [[Quality Factor|factor de calidad]]: $Q_\chi(\omega) = 1/(2D_\chi(\omega))$.
+donde $G_{(1)\chi}$ es el módulo de almacenamiento (energía recuperable — deformación elástica) y $G_{(2)\chi}$ es el módulo de pérdida (energía disipada — histéresis). El factor 2 en el denominador aparece de la definición energética: la energía disipada por ciclo dividida por $4\pi$ veces la energía máxima almacenada.
+
+**Relación con el factor de calidad**: $Q_\chi(\omega) = 1/(2D_\chi(\omega))$. Un suelo con $D_S = 5\%$ tiene $Q_S = 10$ — absorbe el 10% de la energía por ciclo. Valores típicos para geomateriales dentro del umbral de deformación lineal: $D_S \approx 1\text{–}5\%$, $D_P \approx 0.5\text{–}2\%$ (las ondas P disipen menos por su mecanismo de deformación volumétrica vs. cortante).
+
+**Importancia**: $D_S(z)$ es el segundo parámetro objetivo de la [[Inversión|inversión]] viscoelástica (después de $V_S(z)$). Controla la amplificación dinámica del suelo en la frecuencia de resonancia del depósito — relevante para la evaluación del efecto de sitio sísmico.
+
+*(Fuente: Foti Ch. 2, Sec. 2.5.2, p. 106–108, Ec. 2.115)*
 
 *(Fuente: Foti Ch. 2, Sec. 2.5.2, p. 106–112, Ecs. 2.115, 2.118)*
 
@@ -1444,6 +1473,10 @@ donde $V_R^e$ es la velocidad de Rayleigh del medio elástico asociado ($D=0$), 
 > **Implicación para la tesis**: si el objetivo es el perfil $V_S$, la disipación es de segundo orden y puede ignorarse en la [[Dispersion Curve|curva de dispersión]]. Si el objetivo incluye el perfil $D_S$, se requiere medir amplitudes con calibración cuidadosa — exigencia instrumental significativamente mayor.
 
 *(Fuente: Foti Ch. 2, Sec. 2.5.3, p. 113–119, Ec. 2.133)*
+
+> [!EXAMPLE] Evidencia empírica: Paper 008 (Socco & Strobbia 2004) — tutorial completo: desacoplamiento $V_S$/$D_S$ y flujo de [[Inversión|inversión]] en campo
+> **Paper 008 (Socco & Strobbia 2004, *Near Surface Geophysics* Vol.2(4):165–185, 306 citas)** presenta el flujo metodológico completo para caracterización sísmica superficial, validando en datos reales que el análisis del [[Attenuation Coefficient|coeficiente de atenuación]] puede desacoplarse del análisis de [[Phase Velocity|velocidad de fase]] bajo la hipótesis de disipación débil (Foti Ec. 2.133): la [[Inversión|inversión]] de [[Dispersion Curve|dispersión]] para $V_S(z)$ se realiza primero; la [[Inversión|inversión]] de atenuación para $D_S(z)$ se ejecuta después usando el perfil $V_S$ como entrada. El tutorial confirma que los geomateriales típicos satisfacen $D \leq 5\%$, validando la aplicabilidad práctica del [[Correspondence Principle|principio de correspondencia viscoelástico]]. Las guías de adquisición y procesamiento cubren efectos de [[Near-field Effect|campo cercano]], aliasing espacial, métodos de [[Inversión|inversión]] locales y globales. Un resultado clave: la estimación de $D_S$ requiere calibración de amplitudes —exigencia no requerida en la [[Inversión|inversión]] de dispersión— lo que eleva significativamente la complejidad instrumental al incluir la atenuación como objetivo de [[Inversión|inversión]].
+> — Research Database, entrada 008; Socco & Strobbia (2004), *Near Surface Geophysics* Vol.2(4):165–185. DOI: 10.3997/1873-0604.2004015.
 
 ---
 

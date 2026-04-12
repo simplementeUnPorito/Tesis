@@ -1,18 +1,31 @@
 # Worklog de resumen
 
 ## Estado general
-- Chapter 1: **consolidado (cuarta fase completa)** — 2×[!EXAMPLE] (026, 009); wikilinks 3.30/100w; ninguna sección crítica thin
-- Chapter 2: **consolidado (cuarta fase en progreso)** — 2×[!EXAMPLE] (002, 031); wikilinks 3.66/100w; 14 subsecciones thin expandidas en iter 91-93; ~60 secciones thin aún restantes (mayoría ecuacionales aceptables)
-- Chapter 3: **consolidado (cuarta fase completa)** — 2×[!EXAMPLE] (001, 003); wikilinks 2.55/100w; ninguna sección crítica pendiente
-- Chapter 4 y 5: **consolidado (cuarta fase completa)** — 2×[!EXAMPLE] (053, 027); wikilinks 2.88/100w
-- Chapter 6: **consolidado (cuarta fase completa)** — 2×[!EXAMPLE] (003, 037); wikilinks 2.77/100w
-- Chapter 7: **consolidado (cuarta fase completa)** — 2×[!EXAMPLE] (034, 046); wikilinks 2.87/100w; sin thin sections restantes
-- Chapter 8: **consolidado (cuarta fase completa)** — 2×[!EXAMPLE] (033, 038); wikilinks 2.61/100w
+- Chapter 1: **consolidado (quinta fase completa)** — 2×[!EXAMPLE] (026, 009); wikilinks 3.30/100w; ninguna sección crítica thin
+- Chapter 2: **consolidado (quinta fase en progreso)** — 3×[!EXAMPLE] (002, 031, 008); wikilinks ~3.7/100w; 17 subsecciones thin expandidas en iters 91-94; ~57 secciones thin restantes
+- Chapter 3: **consolidado (quinta fase completa)** — 3×[!EXAMPLE] (001, 024, 046); wikilinks 2.55/100w; ninguna sección crítica pendiente
+- Chapter 4 y 5: **consolidado (quinta fase completa)** — 3×[!EXAMPLE] (027, 023, 053); wikilinks 2.88/100w
+- Chapter 6: **consolidado (quinta fase completa)** — 3×[!EXAMPLE] (003, 037, 025); wikilinks 2.77/100w
+- Chapter 7: **consolidado (quinta fase completa)** — 3×[!EXAMPLE] (034, 046, 010); wikilinks 2.87/100w
+- Chapter 8: **consolidado (quinta fase completa)** — 3×[!EXAMPLE] (033, 038, 017); wikilinks 2.61/100w
 
 ## Último punto procesado
-- Capítulo actual: TODOS — [!EXAMPLE] sweep completo, todos los caps ≥2 [!EXAMPLE] (iteración 93)
-- Fase actual: cuarta completada (densidad ≥2.5/100w; todos los caps ≥2 [!EXAMPLE]; 13 total)
-- Pendiente: expansión subsecciones thin Ch2 (73 restantes); nuevos papers en §§ de mayor interés
+- Capítulo actual: TODOS — 3×[!EXAMPLE] sweep completo, todos los caps ≥3 [!EXAMPLE] (iteración 94)
+- Fase actual: quinta en progreso (densidad ≥2.5/100w; todos los caps ≥3 [!EXAMPLE]; 19 total)
+- Pendiente: expansión subsecciones thin Ch2 (≥50 restantes); wikilink sweep adicional si densidad cae
+
+## Conceptos creados o actualizados en la última iteración (iteración 94 — 2026-04-12)
+- **Fase 13 — 3rd [!EXAMPLE] sweep + expansión thin sections Ch2**:
+  - **Chapter 2.md §2.5.6**: [!EXAMPLE] Paper 008 (Socco & Strobbia 2004) — tutorial completo: desacoplamiento VS/DS, validación hipótesis disipación débil (D≤5%)
+  - **Chapter 6.md §6.4.4**: [!EXAMPLE] Paper 025 (Xia et al. 2003) — inversión multimodal: modos superiores mejoran resolución, detectan inversiones de velocidad
+  - **Chapter 7.md §7.2.5**: [!EXAMPLE] Paper 010 (Park et al. 2007) — MASW activo+pasivo: mismo equipamiento, activo 30m / pasivo 100m+
+  - **Chapter 8.md §8.5.2**: [!EXAMPLE] Paper 017 (Nakamura 1989) — técnica HVSR: f0 del sitio con sensor triaxial único
+  - **Chapter 2.md §Condiciones de contorno**: 46w → 150w (física de sobredeterminación → modos discretos)
+  - **Chapter 2.md §Ecuación de dispersión general**: 53w → 150w (ecuación secular, propiedades clave, medio homogéneo vs estratificado)
+  - **Chapter 2.md §Razón de amortiguamiento material**: 41w → 160w (G1/G2, factor de calidad Q, valores típicos geomateriales)
+  - **Chapter 2.md §Condiciones de frontera en superficie libre**: 56w → 180w (sistema homogéneo A/B, det=0 → ecuación secular)
+- **Estado [!EXAMPLE] por capítulo**: Ch1(2), Ch2(3), Ch3(3), Ch4y5(3), Ch6(3), Ch7(3), Ch8(3) — TODOS ≥3 [!EXAMPLE]; total=19
+- Papers integrados: 008, 010, 017, 025
 
 ## Conceptos creados o actualizados en la última iteración (iteración 93 — 2026-04-12)
 - **Fase 12 — [!EXAMPLE] sweep + wikilinks masivos + expansión Ch2 matemática**:
