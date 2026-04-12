@@ -54,7 +54,7 @@ En el caso de ondas superficiales, la [[Non-uniqueness|no-unicidad]] implica que
 **Estrategias de mitigación:**
 - **Información a priori:** incorporar datos externos como perfiles de pozo (boreholes), ensayos SPT, mediciones de densidad, para restringir el espacio de soluciones admisibles.
 - **Restricciones de suavidad o acotamiento:** forzar que los parámetros varíen dentro de rangos físicamente plausibles (por ejemplo, que la razón de amortiguamiento sea no negativa).
-- **Métodos de [[Regularization|regularización]]:** aproximar el problema ill-posed mediante una familia de problemas mejor condicionados. Los métodos de **regularización de Tikhonov** son los más utilizados y se desarrollan en la sección 6.4.
+- **Métodos de [[Regularization|regularización]]:** aproximar el problema ill-posed mediante una familia de problemas mejor condicionados. Los métodos de **regularización de [[Tikhonov Regularization|Tikhonov]]** son los más utilizados y se desarrollan en la sección 6.4.
 
 *Trazabilidad: Foti Cap. 6, §6.1.2, pp. 277–280*
 
@@ -88,7 +88,7 @@ En la práctica, la mayoría de las inversiones de ondas superficiales utilizan 
 
 La capacidad de resolver el problema inverso depende directamente de poder resolver eficientemente el **[[Forward Problem|problema directo]]**: dado un modelo del subsuelo $\mathbf{m}$, calcular las [[Dispersion Curve|curvas de dispersión]] $c(\omega)$ y atenuación $\alpha(\omega)$ esperadas. Este cálculo — formalizado como $\mathbf{d}_{calc} = \mathcal{F}(\mathbf{m})$ — debe ejecutarse en cada iteración del proceso de [[Inversión|inversión]] para comparar los datos sintéticos con los observados y actualizar el modelo.
 
-En métodos de búsqueda local (Gauss-Newton, [[Levenberg-Marquardt|Levenberg-Marquardt]]) el [[Forward Problem|problema directo]] se evalúa decenas de veces; en métodos de búsqueda global ([[Monte Carlo Methods|Monte Carlo]], [[Neighbourhood Algorithm|algoritmo de vecindad]]) puede evaluarse miles o millones de veces. La eficiencia del *forward solver* determina el costo computacional total de la inversión. El método estándar de la industria es la **[[Thomson-Haskell Matrix|matriz de Thomson-Haskell]]** — resolución del determinante de dispersión para hallar las [[Phase Velocity|velocidades de fase]] en que se anulan las condiciones de borde — complementada por el **eigenproblem de Rayleigh** para situaciones de alta velocidad con riesgo de desbordamiento numérico.
+En métodos de búsqueda local ([[Gauss-Newton Method|Gauss-Newton]], [[Levenberg-Marquardt|Levenberg-Marquardt]]) el [[Forward Problem|problema directo]] se evalúa decenas de veces; en métodos de búsqueda global ([[Monte Carlo Methods|Monte Carlo]], [[Neighbourhood Algorithm|algoritmo de vecindad]]) puede evaluarse miles o millones de veces. La eficiencia del *forward solver* determina el costo computacional total de la inversión. El método estándar de la industria es la **[[Thomson-Haskell Matrix|matriz de Thomson-Haskell]]** — resolución del determinante de dispersión para hallar las [[Phase Velocity|velocidades de fase]] en que se anulan las condiciones de borde — complementada por el **eigenproblem de Rayleigh** para situaciones de alta velocidad con riesgo de desbordamiento numérico.
 
 El modelo matemático del subsuelo debe especificar tres aspectos:
 
@@ -242,7 +242,7 @@ Importante: la ill-posedness es una propiedad intrínseca de la matriz **G** (es
 
 *Trazabilidad: Foti Cap. 6, §6.4.2.1–6.4.2.2, pp. 293–298*
 
-#### 6.4.2.3 Regularización de Tikhonov
+#### 6.4.2.3 Regularización de [[Tikhonov Regularization|Tikhonov]]
 
 La **[[Tikhonov Regularization|regularización de Tikhonov]]** es la técnica más sistemática para mitigar la ill-posedness. La idea central es modificar el problema de minimización añadiendo un término de penalización que controla la complejidad de la solución:
 
@@ -276,7 +276,7 @@ La regularización de orden superior es especialmente apropiada en geofísica po
 #### 6.4.2.4 Otros métodos de regularización
 
 - **Constraints de bounds:** se impone que los parámetros permanezcan en rangos físicamente admisibles (por ejemplo, Ds ≥ 0). Se resuelven con multiplicadores de Lagrange o mínimos cuadrados con restricciones.
-- **[[Total Variation Regularization|Variación total]] (*total variation*):** usa la norma L₁ en lugar de L₂ para la penalización del gradiente. A diferencia de Tikhonov, no penaliza las discontinuidades abruptas, lo que lo hace adecuado para sitios con interfaces geológicas bien definidas entre capas de propiedades muy diferentes.
+- **[[Total Variation Regularization|Variación total]] (*total variation*):** usa la norma L₁ en lugar de L₂ para la penalización del gradiente. A diferencia de [[Tikhonov Regularization|Tikhonov]], no penaliza las discontinuidades abruptas, lo que lo hace adecuado para sitios con interfaces geológicas bien definidas entre capas de propiedades muy diferentes.
 
 #### 6.4.2.5 Resolución y matrices de resolución
 
@@ -325,7 +325,7 @@ Cuando la linearización no es posible o introduce sesgos inaceptables, se recur
 
 $$\mathbf{G}(\mathbf{m}) \approx \mathbf{G}(\mathbf{m}_0) + \mathbf{J}(\mathbf{m})_{\mathbf{m}_0} \cdot (\mathbf{m} - \mathbf{m}_0) \qquad (6.29)$$
 
-donde **J** es la **matriz Jacobiana** (gradiente del operador G respecto a los parámetros del modelo). Truncando a primer orden, el problema no lineal se convierte localmente en lineal y puede resolverse con los métodos de la sección 6.4.2. Iterando este proceso:
+donde **J** es la **matriz [[Jacobian Matrix|Jacobiano]]** (gradiente del operador G respecto a los parámetros del modelo). Truncando a primer orden, el problema no lineal se convierte localmente en lineal y puede resolverse con los métodos de la sección 6.4.2. Iterando este proceso:
 
 $$\mathbf{m}_{k+1} = (\mathbf{J}_k^T \mathbf{J}_k)^{-1} \mathbf{J}_k^T \cdot \left\{ \mathbf{J}_k \cdot \mathbf{m}_k + [\mathbf{d} - \mathbf{G}(\mathbf{m}_k)] \right\} \qquad (6.32)$$
 
@@ -345,18 +345,18 @@ Esta es la base del método de **[[Gauss-Newton Method|Gauss-Newton]]** y sus va
 
 Los métodos GS son más robustos que los LS pero computacionalmente mucho más costosos. Son especialmente importantes para perfiles inversamente dispersivos.
 
-#### 6.4.3.3 Jacobiano analítico vs numérico
+#### 6.4.3.3 [[Jacobian Matrix|Jacobiano]] analítico vs numérico
 
-Todos los métodos LS iterativos requieren calcular el **Jacobiano** J(m) en cada iteración. Existen dos aproximaciones:
+Todos los métodos LS iterativos requieren calcular el **[[Jacobian Matrix|Jacobiano]]** J(m) en cada iteración. Existen dos aproximaciones:
 
-- **Jacobiano numérico:** se calcula perturbando cada parámetro y evaluando G(m + δm) – G(m). Es general pero computacionalmente costoso (requiere nl + 1 evaluaciones del [[Forward Problem|problema directo]] por iteración) y numéricamente inestable.
-- **Jacobiano analítico:** derivadas exactas de G(Vs) respecto a Vs calculadas mediante fórmulas explícitas. Para la [[Phase Velocity|velocidad de fase]] de Rayleigh VR, existen expresiones analíticas exactas (Ec. 6.33) derivadas de los [[Variational Principles|principios variacionales de Love y Rayleigh]].
+- **[[Jacobian Matrix|Jacobiano]] numérico:** se calcula perturbando cada parámetro y evaluando G(m + δm) – G(m). Es general pero computacionalmente costoso (requiere nl + 1 evaluaciones del [[Forward Problem|problema directo]] por iteración) y numéricamente inestable.
+- **[[Jacobian Matrix|Jacobiano]] analítico:** derivadas exactas de G(Vs) respecto a Vs calculadas mediante fórmulas explícitas. Para la [[Phase Velocity|velocidad de fase]] de Rayleigh VR, existen expresiones analíticas exactas (Ec. 6.33) derivadas de los [[Variational Principles|principios variacionales de Love y Rayleigh]].
 
-La ventaja clave del Jacobiano analítico en ondas superficiales es que puede calcularse con los mismos eigenfunciones del [[Forward Problem|problema directo]] (sin perturbaciones adicionales), lo que lo hace eficiente y estable.
+La ventaja clave del [[Jacobian Matrix|Jacobiano]] analítico en ondas superficiales es que puede calcularse con los mismos eigenfunciones del [[Forward Problem|problema directo]] (sin perturbaciones adicionales), lo que lo hace eficiente y estable.
 
 **Observación importante sobre Vp:** la [[Phase Velocity|velocidad de fase]] de Rayleigh es relativamente insensible a cambios en Vp (o equivalentemente en la razón de Poisson). Esto produce un "fondo plano" en la función de error (Figura 6.11d) cuando se intenta invertir Vp. Por eso, en la práctica, Vp (o la razón de Poisson) se asume conocida a priori y solo se invierte Vs.
 
-#### 6.4.3.4 Algoritmo de Occam — [[Joint Inversion|inversión conjunta]] de dispersión y atenuación
+#### 6.4.3.4 Algoritmo de [[Occam Algorithm|Occam]] — [[Joint Inversion|inversión conjunta]] de dispersión y atenuación
 
 El **[[Occam Algorithm|algoritmo de Occam]]** (Constable et al. 1987, adaptado por Lai 2005) es el método más completo presentado en el capítulo: realiza la **[[Joint Inversion|inversión conjunta]]** de la [[Dispersion Curve|curva de dispersión]] y la curva de atenuación simultáneamente, usando la teoría de variables complejas para tratar ambas curvas como una sola función compleja.
 
@@ -378,11 +378,11 @@ El parámetro μ es el multiplicador de Lagrange (parámetro de suavizado) ajust
 
 Una vez convergido, se recuperan Vs y Ds de la parte real e imaginaria de $V_s^*$ (Ec. 6.45).
 
-> **Figura 6.12** (p. 318): Ajuste entre curvas sintéticas de dispersión (superior) y atenuación (inferior) de Rayleigh y las curvas teóricas obtenidas con el algoritmo de Occam, convergiendo en 3 iteraciones.
+> **Figura 6.12** (p. 318): Ajuste entre curvas sintéticas de dispersión (superior) y atenuación (inferior) de Rayleigh y las curvas teóricas obtenidas con el algoritmo de [[Occam Algorithm|Occam]], convergiendo en 3 iteraciones.
 
-> **Figura 6.13** (p. 319): Perfiles Vs y Ds obtenidos de la [[Joint Inversion|inversión conjunta]] con Occam para el medio de la Tabla 6.1 (4 capas + semiespacio). Los perfiles recuperados coinciden bien con los perfiles reales.
+> **Figura 6.13** (p. 319): Perfiles Vs y Ds obtenidos de la [[Joint Inversion|inversión conjunta]] con [[Occam Algorithm|Occam]] para el medio de la Tabla 6.1 (4 capas + semiespacio). Los perfiles recuperados coinciden bien con los perfiles reales.
 
-**Tabla 6.1** (p. 319): Parámetros del medio sintético usado para la validación del algoritmo de Occam: 4 capas (espesores 5, 10, 10 m + semiespacio), Vp entre 400–1000 m/s, Vs entre 200–500 m/s, Ds entre 0.020–0.035, ρ = 1.7–1.8 Mg/m³. El medio es **normalmente dispersivo**.
+**Tabla 6.1** (p. 319): Parámetros del medio sintético usado para la validación del algoritmo de [[Occam Algorithm|Occam]]: 4 capas (espesores 5, 10, 10 m + semiespacio), Vp entre 400–1000 m/s, Vs entre 200–500 m/s, Ds entre 0.020–0.035, ρ = 1.7–1.8 Mg/m³. El medio es **normalmente dispersivo**.
 
 *Trazabilidad: Foti Cap. 6, §6.4.3, pp. 303–320*
 
@@ -436,7 +436,7 @@ $$\begin{cases} E(\mathbf{m}) = \mathbf{G}^{-g} E(\mathbf{d}) \\ \text{Cov}(\mat
 
 > **Figura 6.16** (p. 327): Gráfica de χ² vs frecuencia para el conjunto de datos. Todos los puntos caen bajo el umbral χ²₀.₀₅, confirmando que la hipótesis de gaussianidad es válida en todo el rango de frecuencias de interés.
 
-**Problemas no lineales:** si la inversión es no lineal, los errores gaussianos de los datos se mapean en distribuciones no gaussianas de los parámetros del modelo, complicando el análisis. La aproximación práctica más usada es el método **[[First-Order Second-Moment Method|FOSM (First-Order Second-Moment)]]**, que usa el Jacobiano en el punto de convergencia para linealizar la relación datos-parámetros:
+**Problemas no lineales:** si la inversión es no lineal, los errores gaussianos de los datos se mapean en distribuciones no gaussianas de los parámetros del modelo, complicando el análisis. La aproximación práctica más usada es el método **[[First-Order Second-Moment Method|FOSM (First-Order Second-Moment)]]**, que usa el [[Jacobian Matrix|Jacobiano]] en el punto de convergencia para linealizar la relación datos-parámetros:
 
 $$\text{Cov}[\mathbf{m}] \approx \left[ (\mathbf{J}^T \text{Cov}[\mathbf{d}]^{-1} \mathbf{J})^{-1} \mathbf{J}^T \text{Cov}[\mathbf{d}]^{-1} \right]_{\text{last}} \cdot \text{Cov}[\mathbf{d}] \cdot [\ldots]^T \qquad (6.51)$$
 
@@ -475,16 +475,16 @@ La incertidumbre de la curva de atenuación $\alpha_R(\omega)$ se propaga desde 
 
 Una vez estimada la incertidumbre de los datos ([[Dispersion Curve|curva de dispersión]]), el siguiente paso es proyectarla sobre los parámetros del modelo (perfil de Vs).
 
-Para la **inversión de la [[Dispersion Curve|curva de dispersión]]** (no lineal), usando el Jacobiano J_Vs evaluado en la última iteración:
+Para la **inversión de la [[Dispersion Curve|curva de dispersión]]** (no lineal), usando el [[Jacobian Matrix|Jacobiano]] J_Vs evaluado en la última iteración:
 $$\text{Cov}[\mathbf{V}_s] = [(\mathbf{J}_{V_s}^T \text{Cov}[\mathbf{V}_R]^{-1} \mathbf{J}_{V_s})^{-1} \mathbf{J}_{V_s}^T \text{Cov}[\mathbf{V}_R]^{-1}]_{\text{last}} \cdot \text{Cov}[\mathbf{V}_R] \cdot [\ldots]^T \qquad (6.75)$$
 
-Si se usa el **algoritmo de Occam**, la incertidumbre de Vs incluye además el efecto del parámetro de suavizado μ (Ec. 6.76), que amortigua la proyección de los errores de los datos sobre los parámetros del modelo.
+Si se usa el **algoritmo de [[Occam Algorithm|Occam]]**, la incertidumbre de Vs incluye además el efecto del parámetro de suavizado μ (Ec. 6.76), que amortigua la proyección de los errores de los datos sobre los parámetros del modelo.
 
 Para la **inversión de la curva de atenuación** (lineal), la propagación de la incertidumbre es directa mediante mínimos cuadrados estándar (Ec. 6.77).
 
-> **Figura 6.17** (p. 341): Perfil de Vs con barras de error (desviación estándar) obtenido con el algoritmo de Occam aplicado a datos reales en Italia. Coeficientes de variación de 0.2–4%.
+> **Figura 6.17** (p. 341): Perfil de Vs con barras de error (desviación estándar) obtenido con el algoritmo de [[Occam Algorithm|Occam]] aplicado a datos reales en Italia. Coeficientes de variación de 0.2–4%.
 
-> **Figura 6.18** (p. 341): [[Dispersion Curve|Curva de dispersión]] experimental con barras de error, y curva teórica final del algoritmo de Occam (iteración 9). La región de baja frecuencia (<11 Hz) tiene mayor incertidumbre (hasta 14%) que la región de alta frecuencia.
+> **Figura 6.18** (p. 341): [[Dispersion Curve|Curva de dispersión]] experimental con barras de error, y curva teórica final del algoritmo de [[Occam Algorithm|Occam]] (iteración 9). La región de baja frecuencia (<11 Hz) tiene mayor incertidumbre (hasta 14%) que la región de alta frecuencia.
 
 **Conclusión del capítulo sobre incertidumbre:** los métodos [[SASW Method|SASW]] y [[MASW Method|MASW]] son técnicas robustas con coeficientes de variación del orden del 5–10% incluso con ruido ambiental significativo, lo que los hace aplicables en entornos urbanos. La incertidumbre aumenta con la profundidad, lo que refleja la disminución de la resolución intrínseca del método.
 
@@ -519,8 +519,8 @@ Esta relación se visualiza mediante la **curva de trade-off** (Figura 6.20): no
 | 6.2 Forward Modeling | ✅ sintetizado |
 | 6.3 Métodos empíricos (SSRM) | ✅ sintetizado |
 | 6.4.1 Medidas de bondad de ajuste | ✅ sintetizado |
-| 6.4.2 Problema inverso lineal (SVD, Tikhonov) | ✅ sintetizado |
-| 6.4.3 Problema inverso no lineal (LS/GS, Occam) | ✅ sintetizado |
+| 6.4.2 Problema inverso lineal (SVD, [[Tikhonov Regularization|Tikhonov]]) | ✅ sintetizado |
+| 6.4.3 Problema inverso no lineal (LS/GS, [[Occam Algorithm|Occam]]) | ✅ sintetizado |
 | 6.4.4 Información a priori | ✅ sintetizado |
 | 6.5 Incertidumbre (mediciones, proyección, trade-off) | ✅ sintetizado |
 

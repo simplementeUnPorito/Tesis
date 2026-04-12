@@ -18,6 +18,19 @@
 - Página final aproximada: 20
 - Pendiente Chapter 1: ninguno — capítulo en estado comparable al resto del vault
 
+## Conceptos creados o actualizados en la última iteración (iteración 88 — 2026-04-12)
+- **Fase 10d — intros 0w en Ch3 + wikilinks caps 3, 6, 8 + [!EXAMPLE] Paper 001**:
+  - **Chapter 3.md §3.2 intro**: 0w→120w — naturaleza del campo de ondas muestreado
+  - **Chapter 3.md §3.3 intro**: 0w→130w — fundamentos de señal digital, f-k, MASW
+  - **Chapter 3.md §3.4 intro**: 0w→130w — diseño 4 objetivos en tensión: offset, frecuencia, campo cercano, aliasing
+  - **Chapter 3.md §3.5 intro**: 0w→120w — 3 subsistemas: fuente, geófonos, registro
+  - **Chapter 3.md §Síntesis**: [!EXAMPLE] Paper 001 (Park 1999, MASW Kansas, SNR>10dB)
+  - **Chapter 3.md wikilinks**: geófonos(16)→[[Geophone]], Fourier(15)→[[Fourier Integral]], velocidades de fase(1)→[[Phase Velocity]], vertical stacking→[[Signal Stacking]] — Ch3: 153→206 links (1.80→2.26/100w)
+  - **Chapter 6.md wikilinks**: Gauss-Newton(1), Occam(8), Tikhonov(4), Jacobiano(8) — Ch6: 133→154 links (1.89→2.18/100w)
+  - **Chapter 8.md wikilinks**: geófonos(6), curva de dispersión(1), velocidad de fase(1) — Ch8: 131→139 links (1.82→1.93/100w)
+- Papers integrados: 001 (Park et al. 1999, Geophysics) en Ch3 §Síntesis
+- Commits: `[INVESTIGADOR] expand+enrich: intros 0w Ch3 + wikilinks caps 3,6,8 (iteración 88)`
+
 ## Conceptos creados o actualizados en la última iteración (iteración 87 — 2026-04-11)
 - **Fase 10c — expansión de secciones thin en Caps 3, 4y5, 7**:
   - **Chapter 3.md §Introducción**: 93w → 210w — añadida fuente Foti Cap.3, flujo experimental activo/pasivo, impacto del diseño sobre calidad, criterios de diseño cuantitativos; links a [[Aliasing]], [[Near-field Effect]]

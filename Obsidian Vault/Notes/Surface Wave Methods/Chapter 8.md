@@ -21,7 +21,7 @@ El objetivo del capítulo no es una revisión exhaustiva sino dar perspectiva so
 
 > Fuente: Foti et al. (2014), Sección 8.1, pp. 393–410.
 
-Las [[Love Waves|ondas Love]] ofrecen complementariedad única respecto a las [[Rayleigh Waves|ondas de Rayleigh]] en la caracterización del subsuelo: sondean el mismo parámetro $V_S$ con diferente profundidad de sensibilidad modal, propagan en la componente horizontal transversal (SH) — no contaminada por componentes P — y presentan curvas de dispersión modales más regulares sin puntos de osculación. Su [[Joint Inversion|inversión conjunta]] con [[Rayleigh Waves|Rayleigh]] reduce significativamente la [[Non-uniqueness|no-unicidad]] del problema inverso. La principal dificultad práctica es la necesidad de fuentes horizontales y receptores orientados perpendicularmente a la línea de adquisición, lo que aumenta la complejidad logística respecto a los ensayos estándar de [[Rayleigh Waves|Rayleigh]].
+Las [[Love Waves|ondas Love]] ofrecen complementariedad única respecto a las [[Rayleigh Waves|ondas de Rayleigh]] en la caracterización del subsuelo: sondean el mismo parámetro $V_S$ con diferente profundidad de sensibilidad modal, propagan en la componente horizontal transversal (SH) — no contaminada por componentes P — y presentan [[Dispersion Curve|curva de dispersión]] modales más regulares sin puntos de osculación. Su [[Joint Inversion|inversión conjunta]] con [[Rayleigh Waves|Rayleigh]] reduce significativamente la [[Non-uniqueness|no-unicidad]] del problema inverso. La principal dificultad práctica es la necesidad de fuentes horizontales y receptores orientados perpendicularmente a la línea de adquisición, lo que aumenta la complejidad logística respecto a los ensayos estándar de [[Rayleigh Waves|Rayleigh]].
 
 ### 8.1.1 Naturaleza de las [[Love Waves|ondas Love]]
 
@@ -44,13 +44,13 @@ En lo que respecta a la **polarización**: en materiales anisótropos, las [[Lov
 
 ### 8.1.2 Configuraciones experimentales
 
-La adquisición de ondas de Rayleigh es directa con equipamiento sísmico estándar (fuente vertical sobre placa metálica + geófonos verticales), ya que el movimiento de partícula de Rayleigh tiene una componente vertical dominante en superficie.
+La adquisición de ondas de Rayleigh es directa con equipamiento sísmico estándar (fuente vertical sobre placa metálica + [[Geophone|geófonos]] verticales), ya que el movimiento de partícula de Rayleigh tiene una componente vertical dominante en superficie.
 
 En cambio, la adquisición de [[Love Waves|ondas Love]] requiere:
 
 1. **Fuente horizontal:** una fuerza horizontal genera movimiento SH y, por tanto, [[Love Waves|ondas Love]]. La fuente más común en campo es golpear horizontalmente una viga o durmiente de madera cargado (el peso de personas paradas sobre el durmiente aumenta la fricción con el suelo). Esta fuerza también genera componentes de presión (ondas P y Rayleigh) que contaminan el registro.
 
-2. **Receptores horizontales:** se requieren geófonos o acelerómetros con orientación horizontal perpendicular a la línea de adquisición (componente SH). Los receptores verticales son insensibles al movimiento SH puro.
+2. **Receptores horizontales:** se requieren [[Geophone|geófonos]] o acelerómetros con orientación horizontal perpendicular a la línea de adquisición (componente SH). Los receptores verticales son insensibles al movimiento SH puro.
 
 **Técnica de inversión de polaridad:** dado que la fuerza horizontal genera tanto componentes SH (→ Love + SH refracciones) como componentes de compresión (→ Rayleigh + P refracciones), es posible separar las primeras invirtiendo la polaridad de la fuente (golpear en sentido opuesto). La componente SH cambia de signo al invertir la polaridad; la componente de compresión no. La **resta** de los dos registros cancela la componente de compresión y deja la componente SH. Una alternativa operacionalmente más eficiente es el uso de receptores acoplados que realizan esta resta eléctricamente de forma sincrónica (Sambuelli et al. 2001), aumentando la precisión y reduciendo el tiempo de adquisición.
 
@@ -60,14 +60,14 @@ En cambio, la adquisición de [[Love Waves|ondas Love]] requiere:
 
 **Sitio:** Localidad de São Sebastião, isla Terceira (Archipiélago de las Azores, Portugal). El pueblo sufrió daños graves por un terremoto en 1980 atribuido a efectos de amplificación local. El sitio se encuentra en una caldera volcánica con substrato de roca basáltica y presencia de conos piroclásticos laterales.
 
-**Adquisición:** sismógrafo de 24 canales activos. Para [[Love Waves|ondas Love]]: durmiente de madera golpeado horizontalmente con maza + geófonos swyphone horizontales. Para ondas de Rayleigh: maza sobre placa de acero + geófonos verticales 4.5 Hz. Mismo arreglo espacial para ambas adquisiciones.
+**Adquisición:** sismógrafo de 24 canales activos. Para [[Love Waves|ondas Love]]: durmiente de madera golpeado horizontalmente con maza + [[Geophone|geófonos]] swyphone horizontales. Para ondas de Rayleigh: maza sobre placa de acero + [[Geophone|geófonos]] verticales 4.5 Hz. Mismo arreglo espacial para ambas adquisiciones.
 
 **Procesamiento:**
 
 - **Rayleigh (Figura 8.7, p. 401):** el sismograma y su espectro f-k muestran dos ramas de dispersión. El modo fundamental sufre una [[Attenuation|atenuación]] fuerte (>1.3 dB/m), lo que lo debilita en el espectro. El modo superior, con mayor [[Wavenumber|número de onda]] (mayor frecuencia), está menos atenuado por su menor profundidad de penetración y es claramente visible.
 - **Love (Figura 8.8, p. 402):** el sismograma muestra un tren de ondas dominante de modo fundamental con baja velocidad (inicio ≈ 130 m/s, extremo ≈ 80 m/s en alta frecuencia) y buena coherencia espacial. El modo fundamental está mejor definido que el de Rayleigh.
 
-**Resolución de ambigüedades:** la rama de velocidades de fase Love es consistente con la rama de menor velocidad del espectro de Rayleigh (modo fundamental). Esto permite confirmar qué rama del espectro f-k de Rayleigh corresponde al modo fundamental, resolviendo la ambigüedad generada por la presencia y visibilidad del modo superior. En síntesis, la **[[Joint Inversion|inversión conjunta]] Love + Rayleigh** proporciona mayor constraño del perfil Vs y mayor robustez en la identificación de modos.
+**Resolución de ambigüedades:** la rama de [[Phase Velocity|velocidad de fase]] Love es consistente con la rama de menor velocidad del espectro de Rayleigh (modo fundamental). Esto permite confirmar qué rama del espectro f-k de Rayleigh corresponde al modo fundamental, resolviendo la ambigüedad generada por la presencia y visibilidad del modo superior. En síntesis, la **[[Joint Inversion|inversión conjunta]] Love + Rayleigh** proporciona mayor constraño del perfil Vs y mayor robustez en la identificación de modos.
 
 > Figuras clave: 8.1 (p. 394), 8.2 (p. 395), 8.3 (p. 396), 8.4 (p. 398), 8.5 (p. 399), 8.6 (p. 400), 8.7 (p. 401), 8.8 (p. 402).
 
@@ -96,7 +96,7 @@ La Figura 8.12 (p. 407) muestra la diferencia relativa de velocidad entre Scholt
 
 **Generación y registro:**
 - Fuentes: impacto o vibrador en el fondo marino, o **fuente de presión en la columna de agua** (air-gun, sparker). Un air-gun puede excitar ondas de Scholte con alta eficiencia en 100 m de agua; el filtro high-cut de la capa de agua actúa como limitación hacia las bajas frecuencias.
-- Receptores: hidrófonos acoplados al fondo, geófonos enterrados en el sedimento (OBS — ocean bottom seismometer), o hidrófonos en líneas de tendido.
+- Receptores: hidrófonos acoplados al fondo, [[Geophone|geófonos]] enterrados en el sedimento (OBS — ocean bottom seismometer), o hidrófonos en líneas de tendido.
 
 ### 8.2.2 Ondas guiadas de tipo P
 
@@ -115,7 +115,7 @@ Un arreglo de **12 hidrófonos espaciados 2 m en el fondo marino** fue utilizado
 - **Dominado por ondas guiadas de tipo P** (alta frecuencia, >1500 m/s): llegan primero, bien separadas.
 - **Ondas de Scholte débiles:** visibles tras aplicar un **filtro paso-bajo** a las primeras trazas (Figura 8.16, p. 411). La velocidad del tren de Scholte es muy baja (<50 m/s), propio de sedimentos muy blandos.
 
-La Figura 8.17 (p. 412) presenta un caso de **adquisición en la orilla** (shoreline): las primeras 12 trazas corresponden a geófonos en tierra y el resto a hidrófonos en el fondo. La fuente (maza) está sobre la orilla. En el mismo registro se identifican ondas de Rayleigh en la parte terrestre y ondas de Scholte en la parte submarina. Esto ilustra la posibilidad de **[[Joint Inversion|inversión conjunta]]** de datos terrestres y marinos para una caracterización continua a lo largo de la línea costera.
+La Figura 8.17 (p. 412) presenta un caso de **adquisición en la orilla** (shoreline): las primeras 12 trazas corresponden a [[Geophone|geófonos]] en tierra y el resto a hidrófonos en el fondo. La fuente (maza) está sobre la orilla. En el mismo registro se identifican ondas de Rayleigh en la parte terrestre y ondas de Scholte en la parte submarina. Esto ilustra la posibilidad de **[[Joint Inversion|inversión conjunta]]** de datos terrestres y marinos para una caracterización continua a lo largo de la línea costera.
 
 Si se adquieren simultáneamente ondas de Scholte (sensibles a Vs) y ondas guiadas de tipo P (sensibles a Vp), la **[[Joint Inversion|inversión conjunta]]** permite estimar ambos perfiles acoplando los modelos geométricos (espesores compartidos).
 

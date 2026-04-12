@@ -51,7 +51,7 @@ $$\lambda = \frac{V}{f}$$
 
 donde $V$ es la [[Phase Velocity|velocidad de fase]] de la onda superficial y $f$ la frecuencia. La velocidad $V$ es función de las propiedades mecánicas del subsuelo — que son precisamente el objetivo del experimento y no pueden controlarse a priori. Por eso, el parámetro controlable es la **frecuencia**: **a menor frecuencia, mayor [[Wavelength|longitud de onda]], mayor profundidad de investigación**.
 
-Esta relación tiene una consecuencia práctica directa: para explorar hasta 30 m de profundidad (objetivo típico en [[Vs30|$V_{S,30}$]]) se necesitan [[Rayleigh Waves|ondas de Rayleigh]] con longitudes de onda del orden de 30–60 m, lo que corresponde a frecuencias de 2–10 Hz para velocidades de corte típicas de suelos (~100–300 m/s). Estas frecuencias bajas exigen fuentes energéticas y geófonos de baja frecuencia natural.
+Esta relación tiene una consecuencia práctica directa: para explorar hasta 30 m de profundidad (objetivo típico en [[Vs30|$V_{S,30}$]]) se necesitan [[Rayleigh Waves|ondas de Rayleigh]] con longitudes de onda del orden de 30–60 m, lo que corresponde a frecuencias de 2–10 Hz para velocidades de corte típicas de suelos (~100–300 m/s). Estas frecuencias bajas exigen fuentes energéticas y [[Geophone|geófonos]] de baja frecuencia natural.
 
 #### Características físicas del registro
 
@@ -78,6 +78,10 @@ La medición de ondas superficiales requiere estimar con precisión las propieda
 ---
 
 ## 3.2 The Wave Field as a Signal in Time and Space
+
+> Fuente: Foti et al. (2014), Sección 3.2, pp. 126–130.
+
+Antes de diseñar la adquisición, es necesario entender la naturaleza física del campo de ondas que se va a registrar. El **campo de ondas de [[Surface Waves|ondas superficiales]]** en un medio 1D es una función bidimensional espacio-tiempo $s(x,t)$, y el instrumento de adquisición (geófono + digitalizador) solo captura una versión discretamente muestreada, filtrada y contaminada por ruido de esa función continua. La calidad del dato experimental — y por tanto la fiabilidad de la [[Dispersion Curve|curva de dispersión]] extraída — depende de cuánto se aparta el experimento real del experimento ideal.
 
 ### Naturaleza del campo de ondas
 
@@ -119,6 +123,10 @@ En los métodos de ondas superficiales, el **muestreo en espacio** es incluso m�
 
 ## 3.3 Acquisition of Digital Seismic Signals
 
+> Fuente: Foti et al. (2014), Sección 3.3, pp. 130–175.
+
+La adquisición digital convierte el campo físico continuo $s(x,t)$ en un conjunto discreto de números. Esta sección desarrolla los fundamentos matemáticos de esta conversión — la transformada de [[Fourier Integral|Fourier]], el muestreo temporal y espacial, el [[Aliasing|aliasing]] y la resolución — y los criterios que deben satisfacer los parámetros de adquisición (tasa de muestreo, espaciado de [[Geophone|geófonos]], longitud de arreglo) para capturar la [[Dispersion Curve|curva de dispersión]] sin distorsión artefactual. Las transformadas 2D espacio-tiempo a [[Wavenumber|número de onda]]-frecuencia (f-k) constituyen el núcleo del análisis de dispersión de [[MASW Method|MASW]].
+
 ### 3.3.1 Análisis espectral y transformadas de campo de ondas
 
 El concepto de **frecuencia** es intuitivo para procesos cíclicos: indica el número de ocurrencias de un evento por unidad de tiempo. Para una señal armónica, la frecuencia es el inverso de la duración de un ciclo (el período). Las señales no cíclicas pueden descomponerse en suma de funciones cíclicas simples — esta es la idea central del análisis espectral.
@@ -136,7 +144,7 @@ Los operadores matemáticos que realizan esta descomposición se denominan **[[F
 | Espacio $x$      | [[Wavenumber|Número de onda]] $k$   | Ciclos por metro [1/m]  |
 
 Esta dualidad tiempo–frecuencia y espacio–[[Wavenumber|número de onda]] es fundamental en el análisis de ondas superficiales porque:
-- La **[[Phase Velocity|velocidad de fase]]** se estima directamente como la razón $c = f/k$ en el [[2D Fourier Transform|dominio transformado 2D]]
+- La **[[Phase Velocity|velocidad de fase]]** se estima directamente como la razón $c = f/k$ en el [[2D [[Fourier Integral|Fourier]] Transform|dominio transformado 2D]]
 - La distribución de energía en el plano $f$–$k$ revela los modos de propagación y sus velocidades
 - Las limitaciones del muestreo en tiempo y espacio se traducen directamente en resolución en frecuencia y en [[Wavenumber|número de onda]]
 
@@ -144,9 +152,9 @@ Esta dualidad tiempo–frecuencia y espacio–[[Wavenumber|número de onda]] es 
 
 *(Fuente: Foti Ch. 3, Sec. 3.3.1, p. 130–131)*
 
-### 3.3.2 Transformada de Fourier y sus propiedades
+### 3.3.2 Transformada de [[Fourier Integral|Fourier]] y sus propiedades
 
-#### De la serie de Fourier a la transformada
+#### De la serie de [[Fourier Integral|Fourier]] a la transformada
 
 La **[[Fourier Series|serie de Fourier]]** establece que cualquier señal **periódica** de período $T$ puede descomponerse exactamente en una suma infinita de funciones armónicas (senos o cosenos):
 
@@ -156,7 +164,7 @@ $$
 
 donde $A_n$ es la amplitud compleja (que codifica amplitud y fase) del $n$-ésimo armónico. El espectro de frecuencias es **discreto**: solo están presentes las frecuencias $f_n = n/T$, múltiplos enteros de la frecuencia fundamental $1/T$.
 
-La **[[Fourier Integral|transformada de Fourier]]** es la extensión al caso de señales no periódicas: cuando el período $T \to \infty$, las frecuencias discretas se convierten en un continuo, y la suma discreta se convierte en una integral. El resultado es la **transformada de Fourier** (Foti Ec. 3.3):
+La **[[Fourier Integral|transformada de Fourier]]** es la extensión al caso de señales no periódicas: cuando el período $T \to \infty$, las frecuencias discretas se convierten en un continuo, y la suma discreta se convierte en una integral. El resultado es la **transformada de [[Fourier Integral|Fourier]]** (Foti Ec. 3.3):
 
 $$
 G(f) = \int_{-\infty}^{+\infty} g(t)\,e^{-j2\pi ft}\,dt \tag{3.3}
@@ -168,11 +176,11 @@ $$
 g(t) = \int_{-\infty}^{+\infty} G(f)\,e^{+j2\pi ft}\,df \tag{3.4}
 $$
 
-El par $(g, G)$ recibe el nombre de **par de Fourier** y se denota $g(t) \xleftrightarrow{F} G(f)$ (Foti Ec. 3.5). Las dos representaciones son **complementarias**: contienen exactamente la misma información sobre la señal, solo organizada de diferente manera.
+El par $(g, G)$ recibe el nombre de **par de [[Fourier Integral|Fourier]]** y se denota $g(t) \xleftrightarrow{F} G(f)$ (Foti Ec. 3.5). Las dos representaciones son **complementarias**: contienen exactamente la misma información sobre la señal, solo organizada de diferente manera.
 
 #### Transformada en el dominio espacial: el [[Wavenumber|número de onda]]
 
-El mismo concepto se aplica cuando la variable independiente es el **espacio** $x$ en lugar del tiempo $t$. La variable dual del espacio es el **[[Wavenumber|número de onda]]** $k$ (ciclos por metro), y la transformada de Fourier espacial es (Foti Ec. 3.6):
+El mismo concepto se aplica cuando la variable independiente es el **espacio** $x$ en lugar del tiempo $t$. La variable dual del espacio es el **[[Wavenumber|número de onda]]** $k$ (ciclos por metro), y la transformada de [[Fourier Integral|Fourier]] espacial es (Foti Ec. 3.6):
 
 $$
 g(x) \xleftrightarrow{F} G(k) \tag{3.6}
@@ -180,9 +188,9 @@ $$
 
 El [[Wavenumber|número de onda]] $k$ es el análogo espacial de la frecuencia temporal: mide cuántos ciclos por unidad de distancia contiene la señal. En muchos textos se usa el **[[Wavenumber|número de onda]] circular** $\kappa = 2\pi k$ (radianes por metro), análogo a $\omega = 2\pi f$.
 
-> **Por qué esto importa para ondas superficiales**: la [[Phase Velocity|velocidad de fase]] de una onda es $c = f/k$. Al aplicar la [[2D Fourier Transform|transformada de Fourier 2D]] (espacio + tiempo) a un sismograma multicanal, cada modo de propagación aparece como un punto (o pico) en el plano $f$–$k$ con coordenadas $(f_0, k_0)$. La [[Phase Velocity|velocidad de fase]] se lee directamente como la pendiente $c = f_0/k_0$ de la recta que une ese punto con el origen.
+> **Por qué esto importa para ondas superficiales**: la [[Phase Velocity|velocidad de fase]] de una onda es $c = f/k$. Al aplicar la [[2D [[Fourier Integral|Fourier]] Transform|transformada de [[Fourier Integral|Fourier]] 2D]] (espacio + tiempo) a un sismograma multicanal, cada modo de propagación aparece como un punto (o pico) en el plano $f$–$k$ con coordenadas $(f_0, k_0)$. La [[Phase Velocity|velocidad de fase]] se lee directamente como la pendiente $c = f_0/k_0$ de la recta que une ese punto con el origen.
 
-#### Propiedades fundamentales de la transformada de Fourier (Sec. 3.3.2.1)
+#### Propiedades fundamentales de la transformada de [[Fourier Integral|Fourier]] (Sec. 3.3.2.1)
 
 Las propiedades siguientes son esenciales para entender cómo el muestreo y la ventana afectan al espectro:
 
@@ -203,7 +211,7 @@ $$g(t) \cdot h(t) \xleftrightarrow{F} G(f) * H(f) \tag{3.12b}$$
 
 Esta propiedad, el **[[Convolution Theorem|teorema de la convolución]]**, es el puente que conecta el muestreo (multiplicación en tiempo) con el aliasing (convolución en frecuencia), y la ventana temporal (multiplicación) con el spectral leakage (convolución con una sinc). Sin entender el teorema de convolución, no puede entenderse por qué el muestreo finito degrada el espectro de la manera que lo hace.
 
-> **Implicación para la tesis**: el análisis f-k de sismogramas de geófonos depende enteramente de estas propiedades. La conversión de una traza en su espectro (Ec. 3.3), la relación entre apertura del arreglo y resolución espectral (Ec. 3.9), y el efecto de la ventana temporal sobre el leakage (Ec. 3.12b) son todos consecuencia directa de las propiedades de la transformada de Fourier. El dominio f-k es el espacio donde la [[Dispersion Relation|curva de dispersión]] de las [[Rayleigh Waves|ondas de Rayleigh]] se hace visible como un patrón de energía cuya pendiente revela la [[Phase Velocity|velocidad de fase]].
+> **Implicación para la tesis**: el análisis f-k de sismogramas de [[Geophone|geófonos]] depende enteramente de estas propiedades. La conversión de una traza en su espectro (Ec. 3.3), la relación entre apertura del arreglo y resolución espectral (Ec. 3.9), y el efecto de la ventana temporal sobre el leakage (Ec. 3.12b) son todos consecuencia directa de las propiedades de la transformada de [[Fourier Integral|Fourier]]. El dominio f-k es el espacio donde la [[Dispersion Relation|curva de dispersión]] de las [[Rayleigh Waves|ondas de Rayleigh]] se hace visible como un patrón de energía cuya pendiente revela la [[Phase Velocity|velocidad de fase]].
 
 *(Fuente: Foti Ch. 3, Sec. 3.3.2–3.3.2.1, pp. 131–134, Ecs. 3.3–3.12)*
 
@@ -243,15 +251,15 @@ El aliasing genera distorsiones y artefactos irreversibles en la señal reconstr
 - **Filtros digitales + sobremuestreo** (*software antialiasing*): muestrear a frecuencia mayor que la necesaria y luego aplicar filtro digital para eliminar las réplicas. Requiere mayor capacidad de almacenamiento.
 - Para la **dimensión espacial** (muestreo del array), la protección equivalente es el sobremuestreo espacial o el uso de arrays de receptores analógicos combinados en una sola traza.
 
-#### Aliasing espacial en arreglos de geófonos
+#### Aliasing espacial en arreglos de [[Geophone|geófonos]]
 
-El mismo mecanismo se aplica al **muestreo espacial** del array: el espaciado $\Delta X$ entre geófonos define el [[Wavenumber|número de onda]] de Nyquist:
+El mismo mecanismo se aplica al **muestreo espacial** del array: el espaciado $\Delta X$ entre [[Geophone|geófonos]] define el [[Wavenumber|número de onda]] de Nyquist:
 
 $$k_{Nyq} = \frac{1}{2\Delta X}$$
 
-Las ondas con $k > k_{Nyq}$ (velocidades de fase muy bajas) aparecen como componentes ficticias de [[Wavenumber|número de onda]] negativo. En arreglos *end-off*, esta información aliasada puede recuperarse extendiendo el análisis al cuadrante negativo del dominio f-k, aumentando el [[Wavenumber|número de onda]] máximo efectivo a $2k_{Nyq}$.
+Las ondas con $k > k_{Nyq}$ ([[Phase Velocity|velocidades de fase]] muy bajas) aparecen como componentes ficticias de [[Wavenumber|número de onda]] negativo. En arreglos *end-off*, esta información aliasada puede recuperarse extendiendo el análisis al cuadrante negativo del dominio f-k, aumentando el [[Wavenumber|número de onda]] máximo efectivo a $2k_{Nyq}$.
 
-> **Regla práctica para [[MASW Method|MASW]]**: el espaciado entre geófonos debe ser menor que la mitad de la [[Wavelength|longitud de onda]] mínima de interés: $\Delta X < \lambda_{min}/2$. Para frecuencias altas (alta resolución superficial) se requieren espaciados más pequeños; para profundidades mayores se pueden usar espaciados más grandes.
+> **Regla práctica para [[MASW Method|MASW]]**: el espaciado entre [[Geophone|geófonos]] debe ser menor que la mitad de la [[Wavelength|longitud de onda]] mínima de interés: $\Delta X < \lambda_{min}/2$. Para frecuencias altas (alta resolución superficial) se requieren espaciados más pequeños; para profundidades mayores se pueden usar espaciados más grandes.
 
 *(Fuente: Foti Ch. 3, Sec. 3.3.3–3.3.4, p. 134–137, Ecs. 3.13–3.14, Figs. 3.8–3.11)*
 
@@ -271,7 +279,7 @@ donde $T$ es la duración del registro.
 
 #### Efecto en el espectro: *spectral leakage*
 
-Por la propiedad de convolución de la transformada de Fourier, la **multiplicación en el tiempo** equivale a la **convolución en el dominio de la frecuencia**:
+Por la propiedad de convolución de la transformada de [[Fourier Integral|Fourier]], la **multiplicación en el tiempo** equivale a la **convolución en el dominio de la frecuencia**:
 
 $$Z(f) = W(f) * S(f)$$
 
@@ -297,7 +305,7 @@ $$\Delta k = \frac{2\pi}{D}$$
 - Mayor apertura $D$ → mayor resolución en [[Wavenumber|número de onda]] → mayor capacidad de separar modos con valores de $k$ cercanos.
 - Apertura insuficiente → los modos se superponen en el espacio f-k → la [[Dispersion Curve|curva de dispersión]] extraída es una "curva aparente" que mezcla contribuciones de varios modos.
 
-> **Implicación crítica para la tesis**: la resolución modal en la estimación de la [[Dispersion Relation|curva de dispersión]] está directamente controlada por la apertura del arreglo de geófonos. Para sitios donde los [[Surface Wave Modes|modos superiores]] son relevantes (inversión de velocidad en subsuelo), la apertura insuficiente es la principal fuente de error en el perfil $V_S(z)$. Este es uno de los criterios de diseño más importantes en ensayos [[MASW Method|MASW]].
+> **Implicación crítica para la tesis**: la resolución modal en la estimación de la [[Dispersion Relation|curva de dispersión]] está directamente controlada por la apertura del arreglo de [[Geophone|geófonos]]. Para sitios donde los [[Surface Wave Modes|modos superiores]] son relevantes (inversión de velocidad en subsuelo), la apertura insuficiente es la principal fuente de error en el perfil $V_S(z)$. Este es uno de los criterios de diseño más importantes en ensayos [[MASW Method|MASW]].
 
 *(Fuente: Foti Ch. 3, Sec. 3.3.5, p. 137–140, Ecs. 3.15–3.16, Figs. 3.12–3.13)*
 
@@ -339,7 +347,7 @@ La **Fig. 3.14** (p. 141) ilustra una conversión de 4 bits: la parte superior m
 
 El rango dinámico del convertidor debe ser suficiente para capturar tanto los eventos de pequeña amplitud (reflexiones débiles, modos superiores de ondas superficiales) como los de gran amplitud (ondas superficiales dominantes a offsets cortos) sin saturación ni excesivo error de cuantización. Para este motivo, los sistemas sísmicos usan 24 bits: la diferencia de amplitud entre la onda superficial directa y un reflector profundo puede superar 100 dB.
 
-> **Para la tesis**: al seleccionar el sistema de adquisición, la resolución del ADC determina la capacidad de capturar modos de pequeña amplitud que de otro modo quedarían sumergidos en el ruido de cuantización. En sistemas de bajo costo (como los basados en geófonos MEMS o tarjetas de audio), la resolución del ADC es una limitación real que afecta el rango de frecuencias y la detección de modos superiores.
+> **Para la tesis**: al seleccionar el sistema de adquisición, la resolución del ADC determina la capacidad de capturar modos de pequeña amplitud que de otro modo quedarían sumergidos en el ruido de cuantización. En sistemas de bajo costo (como los basados en [[Geophone|geófonos]] MEMS o tarjetas de audio), la resolución del ADC es una limitación real que afecta el rango de frecuencias y la detección de modos superiores.
 
 *(Fuente: Foti Ch. 3, Sec. 3.3.6, pp. 140–141, Fig. 3.14)*
 
@@ -349,7 +357,7 @@ El rango dinámico del convertidor debe ser suficiente para capturar tanto los e
 
 Los datos sísmicos de un arreglo lineal son señales **bidimensionales**: el campo de ondas se representa como $s(x,t)$, donde $x$ es el offset y $t$ el tiempo. Para analizar este dato es necesario extender el análisis espectral al dominio 2D.
 
-La **[[2D Fourier Transform|transformada de Fourier 2D]]** (transformada **f-k**) aplica simultáneamente una transformada temporal y una espacial (Foti Ec. 3.17):
+La **[[2D [[Fourier Integral|Fourier]] Transform|transformada de [[Fourier Integral|Fourier]] 2D]]** (transformada **f-k**) aplica simultáneamente una transformada temporal y una espacial (Foti Ec. 3.17):
 
 $$G(f,k) = \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} g(t,x)\,e^{-j2\pi(ft+kx)}\,dx\,dt \tag{3.17}$$
 
@@ -414,6 +422,10 @@ La conclusión es inequívoca (Foti p. 148): *"to accurately measure multiple su
 
 ## 3.4 Acquisition of Surface Waves
 
+> Fuente: Foti et al. (2014), Sección 3.4, pp. 175–220.
+
+Esta sección aplica los principios de señal y muestreo al diseño específico del experimento de [[Surface Waves|ondas superficiales]]. El diseño óptimo equilibra cuatro objetivos en tensión: (1) maximizar el rango de [[Phase Velocity|velocidades de fase]] medibles (depende del offset y la longitud del arreglo); (2) maximizar el rango de frecuencias (depende de la fuente y del número de receptores); (3) minimizar los efectos del [[Near-field Effect|campo cercano]] (requiere offset mínimo suficiente); y (4) minimizar el [[Aliasing|aliasing]] espacial (requiere espaciado entre [[Geophone|geófonos]] ≤ λ_min/2). Los criterios de diseño cuantitativos para cada parámetro se desarrollan a partir de las relaciones entre [[Wavelength|longitud de onda]], profundidad de investigación y resolución.
+
 ### 3.4.1 Ruido sísmico
 
 El dato adquirido contiene señal y **ruido**. En el contexto de ondas superficiales, señal = ondas superficiales planas compatibles con el modelo 1D asumido. Todo lo demás es ruido.
@@ -446,7 +458,7 @@ Tipos de ruido coherente en adquisición de ondas superficiales:
 - **[[Body Waves|Ondas de cuerpo]]** (P y S): llegan antes o simultáneamente con las ondas superficiales. En aplicaciones de pequeña escala suelen tener menor amplitud. Pueden identificarse en tiempo-offset y eliminarse o ignorarse.
 - **[[Surface Wave Modes|Modos superiores]]** de propagación: en sitios inversamente dispersivos pueden dominar la respuesta. Si el modelo solo considera el modo fundamental, los modos superiores son ruido coherente. La solución correcta es incluirlos en el modelo (inversión multimodal).
 - **[[Near-field Effect|Efecto de campo cercano]]** (*near-field effect*): las [[Rayleigh Waves|Rayleigh waves]] solo se comportan como ondas planas más allá de cierta distancia de la fuente. Dentro de esa zona, el campo está dominado por contribuciones de [[Body Waves|ondas de cuerpo]] y la velocidad aparente no corresponde a la del modo fundamental.
-- **Air blast**: la onda de presión acústica en el aire (velocidad ~331–360 m/s) puede ser detectada por los geófonos. Aparece en el dominio f-k como un evento lineal de velocidad constante.
+- **Air blast**: la onda de presión acústica en el aire (velocidad ~331–360 m/s) puede ser detectada por los [[Geophone|geófonos]]. Aparece en el dominio f-k como un evento lineal de velocidad constante.
 - **Variaciones laterales**: heterogeneidades subsuperficiales hacen que las ondas superficiales no sigan el modelo de propagación plana 1D, generando difracción y distorsión de la velocidad aparente.
 
 *(Fuente: Foti Ch. 3, Sec. 3.4.1.3–3.4.1.6, p. 158–160)*
@@ -600,8 +612,8 @@ Se prefieren arreglos bidimensionales que permitan estimar el vector $\mathbf{k}
 - **Espaciado entre receptores**: debe ser menor que la mitad de la mínima [[Wavelength|longitud de onda]] (criterio antialiasing), igual que en datos activos.
 
 Configuraciones de array típicas en la práctica (**Fig. 3.44**, p. 181): L, T, cruz, cuadrado, círculo, triángulo equilátero simple y anidado, cuadrícula hexagonal y rectangular. La elección depende del método de procesamiento:
-- Para métodos de [[SPAC Method|SPAC]]/ESAC: el **triángulo con triángulos equiláteros anidados** da buenos resultados con un número limitado de geófonos.
-- Para métodos tipo [[Beamforming|beamformer]] o [[2D Fourier Transform|f-k 2D]]: las distribuciones irregulares pero con buena cobertura azimutal son preferidas.
+- Para métodos de [[SPAC Method|SPAC]]/ESAC: el **triángulo con triángulos equiláteros anidados** da buenos resultados con un número limitado de [[Geophone|geófonos]].
+- Para métodos tipo [[Beamforming|beamformer]] o [[2D [[Fourier Integral|Fourier]] Transform|f-k 2D]]: las distribuciones irregulares pero con buena cobertura azimutal son preferidas.
 
 ##### Adquisición: registro de ruido ambiental
 
@@ -619,6 +631,10 @@ Sin embargo, las **limitaciones del array lineal para datos pasivos son severas*
 
 ## 3.5 Equipment
 
+> Fuente: Foti et al. (2014), Sección 3.5, pp. 183–200.
+
+El equipamiento del ensayo de [[Surface Waves|ondas superficiales]] comprende tres subsistemas: **fuente**, **receptores** ([[Geophone|geófonos]]) y **sistema de registro** (sismógrafo). La selección de cada componente determina el rango de frecuencias accesible, la relación señal-ruido (SNR) y por tanto la profundidad máxima investigable. El equipamiento estándar para [[MASW Method|MASW]] activo en aplicaciones geotécnicas incluye [[Geophone|geófonos]] verticales de 4.5 Hz, sismógrafo multicanal (≥24 canales) y sledgehammer como fuente. Las variantes pasivas (arreglos circulares, [[Beamforming|beamforming]] 2D) requieren [[Geophone|geófonos]] de frecuencia natural más baja (1–2 Hz) para capturar energía de microtremores en el rango de interés geotécnico (1–20 Hz).
+
 ### 3.5.1 Fuentes sísmicas
 
 La fuente debe generar ondas superficiales con suficiente SNR en el rango de frecuencias de interés. Los parámetros clave son **energía** y **contenido espectral** (especialmente a baja frecuencia, para mayor profundidad).
@@ -634,7 +650,7 @@ Son las más utilizadas en aplicaciones de ingeniería superficiales. Inputan en
 | Seismic gun | Media | 5–200 Hz | Más energía que sledgehammer |
 | Explosivos | Alta | 5–150 Hz | Broadband, escalable; requiere autorización |
 
-El **sledgehammer** es la fuente más común en ensayos geotécnicos de pequeña escala. Permite fácil *vertical stacking* con interruptor de inercia. Genera suficiente energía para arreglos de 50–100 m.
+El **sledgehammer** es la fuente más común en ensayos geotécnicos de pequeña escala. Permite fácil *[[Signal Stacking|vertical stacking]]* con interruptor de inercia. Genera suficiente energía para arreglos de 50–100 m.
 
 *(Fuente: Foti Ch. 3, Sec. 3.5.1.1, p. 183–186)*
 
@@ -661,7 +677,7 @@ Los receptores transducen el movimiento del terreno en una señal eléctrica. En
 Los **[[Geophone|geófonos]]** son velocímetros electrodinámicos (bobina móvil en campo magnético). Se comportan como osciladores de un grado de libertad con frecuencia natural $f_n$ y amortiguamiento $D$.
 
 Consideraciones críticas para ondas superficiales:
-- La amplitud se atenúa fuertemente **por debajo** de $f_n$. Para medir frecuencias bajas se necesitan geófonos con $f_n$ baja (1–4.5 Hz).
+- La amplitud se atenúa fuertemente **por debajo** de $f_n$. Para medir frecuencias bajas se necesitan [[Geophone|geófonos]] con $f_n$ baja (1–4.5 Hz).
 - La **respuesta en fase** afecta la estimación de velocidad. Geófonos no idénticos introducen diferencias de fase espurias.
 - Geófonos verticales: capturan la componente vertical del movimiento → sensibles a [[Rayleigh Waves|Rayleigh waves]].
 - Geófonos horizontales transversales: sensibles a [[Love Waves|Love waves]].
@@ -684,6 +700,11 @@ Los receptores de dos componentes (vertical + horizontal radial) permiten medir 
 
 *(Fuente: Foti Ch. 3, Sec. 3.5.2.3–3.5.2.4, p. 198–199)*
 
+ > [!EXAMPLE] Evidencia empírica: Paper 001 (Park et al. 1999) — equipamiento y diseño estándar MASW
+> **Paper 001 (Park, Miller & Xia 1999, *Geophysics* 64(3):800–808)** — el artículo fundacional del [[MASW Method|MASW]] — establece los parámetros de equipamiento estándar que siguen siendo referencia hoy: 24 canales de [[Geophone|geófonos]] verticales de 4.5 Hz con espaciado uniforme, sismógrafo de adquisición multicanal, y sledgehammer como fuente impulsiva. En el ensayo de Kansas, el arreglo de 24 [[Geophone|geófonos]] con espaciado de 1 m proporcionó un rango de [[Wavenumber|número de onda]] suficiente para resolver la [[Dispersion Curve|curva de dispersión]] entre 5 y 50 Hz, correspondiente a una profundidad de investigación de ~15 m. El análisis f-k del sismograma multicanal identificó el máximo espectral del modo fundamental con relación señal-ruido >10 dB en toda la banda útil. La comparación con sondeos de refracción sísmica existentes validó el perfil $V_S(z)$ resultante dentro del 15% en los primeros 10 m. Este trabajo demostró que un único disparo con equipamiento estándar de campo produce resultados equivalentes a múltiples ensayos [[SASW Method|SASW]] con fracción del tiempo de campo.
+>
+> — Research Database, entrada 001; Park et al. (1999), *Geophysics* 64(3):800–808.
+
 ---
 
 ## Síntesis del capítulo
@@ -694,7 +715,7 @@ El flujo de trabajo completo de adquisición de ondas superficiales involucra:
 
 2. **Fuente**: generar suficiente energía a baja frecuencia para la profundidad objetivo. Sledgehammer para aplicaciones de ingeniería (<100 m); fuentes más energéticas para mayor profundidad.
 
-3. **Receptores**: geófonos verticales de baja frecuencia natural (1–4.5 Hz) para capturar [[Rayleigh Waves|Rayleigh waves]] sobre un rango amplio de frecuencias.
+3. **Receptores**: [[Geophone|geófonos]] verticales de baja frecuencia natural (1–4.5 Hz) para capturar [[Rayleigh Waves|Rayleigh waves]] sobre un rango amplio de frecuencias.
 
 4. **Control de ruido**: maximizar SNR (stacking, adquisición nocturna), identificar y mitigar ruido coherente (campo cercano, modos superiores, variaciones laterales).
 
