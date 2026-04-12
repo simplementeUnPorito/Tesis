@@ -215,7 +215,9 @@ Este resultado es consistente con la dependencia en frecuencia del amortiguamien
 
 > Figuras clave: 7.27 (p. 379), 7.28 (p. 379), 7.29 (p. 380).
 
----
+> [!EXAMPLE] Evidencia empírica: Paper 046 (Garofalo et al. 2016) — [[Inversión|inversión]] de ondas superficiales vs. borehole: validación InterPACIFIC en tres sitios europeos
+> **Paper 046 (Garofalo, Foti, Hollender, Bard, Cornou, Cox et al. 2016, *Soil Dyn. Earthq. Eng.* 82:241–254, 153 citas)** presenta los resultados del ejercicio ciego multi-equipo del proyecto **InterPACIFIC**: múltiples laboratorios independientes procesaron el mismo dataset de ondas superficiales (MASW, SPAC, f-k beamforming) y compararon sus perfiles [[Vs30|$V_{S,30}$]] con datos de borehole (downhole/crosshole) en tres sitios de referencia en Italia y Francia. Los resultados muestran que los métodos no invasivos de ondas superficiales producen estimaciones de [[Vs30|$V_{S,30}$]] **comparables a las de borehole**, con diferencias típicas del 10–15%. La variabilidad entre laboratorios procesando los mismos datos es mayor que la diferencia entre métodos invasivos y no invasivos, lo que subraya la importancia de las buenas prácticas de procesamiento e [[Inversión|inversión]] (Foti et al. 2018, Guías InterPACIFIC). La mayor limitación de los métodos superficiales frente al borehole está en la **resolución de capas delgadas** con fuerte contraste de impedancia, donde el borehole ofrece mayor resolución vertical.
+> — Research Database, entrada 046; Garofalo et al. (2016), *Soil Dyn. Earthq. Eng.* 82:241–254. DOI: 10.1016/j.soildyn.2015.12.009.
 
 ---
 

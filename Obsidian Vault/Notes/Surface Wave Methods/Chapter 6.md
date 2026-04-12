@@ -345,6 +345,10 @@ Esta es la base del método de **[[Gauss-Newton Method|Gauss-Newton]]** y sus va
 
 Los métodos GS son más robustos que los LS pero computacionalmente mucho más costosos. Son especialmente importantes para perfiles inversamente dispersivos.
 
+> [!EXAMPLE] Evidencia empírica: Paper 037 (Bergamo et al. 2011) — [[Inversión|inversión]] Monte Carlo multimodal en sitios con basamento superficial
+> **Paper 037 (Bergamo, Comina, Foti & Maraschini 2011, *Soil Dyn. Earthq. Eng.* 31(3):530–534)** aplica [[Monte Carlo Methods|inversión Monte Carlo]] multimodal para caracterizar sitios de la red acelerométrica italiana (Liguria y Sicilia) con basamento poco profundo (5–20 m). El método genera 10⁶–10⁷ perfiles Vs aleatorios, evalúa el [[Forward Problem|forward problem]] para todos los modos disponibles sin asignación modal a priori, y selecciona los modelos compatibles con las [[Dispersion Curve|curvas de dispersión]] experimentales. Los resultados demuestran que la [[Inversión|inversión]] multimodal Global Search maneja correctamente las **[[Non-uniqueness|inversiones de velocidad]]** — situaciones donde una capa lenta subyace a una capa rígida — que la [[Inversión|inversión]] de [[Surface Wave Modes|modo fundamental]] solo no puede resolver. Los perfiles Vs son validados mediante razones espectrales H/V en los mismos sitios, confirmando la profundidad del basamento estimada. El estudio es una demostración directa de las ventajas de los métodos GS frente a LS en presencia de [[Non-uniqueness|no-unicidad]].
+> — Research Database, entrada 037; Bergamo et al. (2011), *Soil Dyn. Earthq. Eng.* 31(3):530–534. DOI: 10.1016/j.soildyn.2010.10.006.
+
 #### 6.4.3.3 [[Jacobian Matrix|Jacobiano]] analítico vs numérico
 
 Todos los métodos LS iterativos requieren calcular el **[[Jacobian Matrix|Jacobiano]]** J(m) en cada iteración. Existen dos aproximaciones:
