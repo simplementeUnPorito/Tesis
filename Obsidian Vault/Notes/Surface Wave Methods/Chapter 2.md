@@ -277,10 +277,12 @@ Consecuencias:
 
 #### Implicación para [[Surface Waves]]
 
-Un resultado importante discutido posteriormente en el capítulo es que:
+Un resultado importante que se deriva del análisis de la [[Dispersion Relation|relación de dispersión]] es que:
 
-- las [[Rayleigh Waves]] en un [[Elastic Half Space]] homogéneo son no dispersivas
-- se vuelven dispersivas cuando el medio es [[Layered Media]]
+- las [[Rayleigh Waves|ondas de Rayleigh]] en un [[Elastic Half Space|semiespacios elástico homogéneo]] son **no dispersivas** — la velocidad de fase es constante, independiente de la frecuencia, y el perfil de profundidad de la onda es siempre el mismo.
+- se vuelven **dispersivas** en [[Layered Media|medios estratificados]] — distintas frecuencias penetran a distintas profundidades y experimentan propiedades elásticas diferentes, generando una relación $V_{ph}(f)$ que contiene la información sobre el perfil $V_S(z)$.
+
+Esta propiedad de dispersión geométrica es el fundamento físico de todos los métodos de inversión de ondas superficiales: la variación de la [[Phase Velocity|velocidad de fase]] con la frecuencia se usa como dato observacional para recuperar el perfil de velocidades del subsuelo.
 
 ### 2.1.2 Group Velocity
 
@@ -384,33 +386,31 @@ Estas ondas constituyen los modos básicos de propagación en sólidos elástico
 
 #### Marco físico
 
-El modelo considera un medio continuo con las siguientes hipótesis:
+El modelo considera un medio continuo con las siguientes hipótesis, cada una con implicaciones físicas concretas:
 
-- medio elástico lineal
-- medio isotrópico
-- deformaciones pequeñas
-- medio homogéneo
-- dominio no acotado
+- **medio elástico lineal** — la respuesta deformacional es proporcional al esfuerzo aplicado y completamente reversible; no hay histéresis ni disipación de energía (extensión viscoelástica en §2.5).
+- **medio isotrópico** — las propiedades mecánicas son independientes de la dirección; el medio queda caracterizado por únicamente dos parámetros escalares ([[Lamé Constants|constantes de Lamé]] $\lambda, \mu$).
+- **deformaciones pequeñas** — se aplica la teoría lineal de deformaciones ($|\nabla u| \ll 1$), que permite ignorar los términos cuadráticos en el [[Strain Tensor|tensor de deformación]] y superponer soluciones.
+- **medio homogéneo** — las propiedades son constantes en el espacio; no hay variación espacial de $\lambda$, $\mu$ o $\rho$. Esta hipótesis se relaja en la Sec. 2.4 para medios estratificados.
+- **dominio no acotado** — sin reflexiones desde bordes laterales o inferior; condición de campo lejano. En la práctica, esta condición se aplica mediante condiciones de [[Radiation Condition|condición de radiación de Sommerfeld]].
 
 #### Campo de desplazamiento
 
-La variable fundamental es el campo de desplazamiento:
+La variable fundamental es el **campo vectorial de desplazamiento** $\mathbf{u}(\mathbf{x}, t)$, que asigna a cada punto material $\mathbf{x}$ del continuo su desplazamiento respecto a la posición de equilibrio en el instante $t$.
 
-$$
-u(x,t)
-$$
-
-Este campo describe el desplazamiento de cada punto material del continuo respecto a su posición de equilibrio.
+En el caso unidimensional simplificado se escribe $u(x,t)$, pero en el problema general tridimensional $\mathbf{u} = (u_1, u_2, u_3)$ tiene tres componentes independientes. Las mediciones geofísicas de campo registran típicamente la componente vertical $u_3$ (geófonos verticales) y/o las componentes horizontales $u_1, u_2$ (geófonos de tres componentes), en función del tipo de onda de interés: la componente vertical registra las [[Rayleigh Waves|ondas de Rayleigh]], mientras que la componente horizontal transversal registra las [[Love Waves|ondas de Love]].
 
 #### Tensor de deformación
 
-Las deformaciones se describen mediante el [[Strain Tensor]]. Para deformaciones pequeñas:
+Las deformaciones se describen mediante el [[Strain Tensor|tensor de deformaciones infinitesimal]] $\boldsymbol{\varepsilon}$, que cuantifica el cambio relativo de longitudes y ángulos. Para deformaciones pequeñas ($|\nabla \mathbf{u}| \ll 1$), la parte simétrica del gradiente de desplazamiento es suficiente:
 
 $$
-\varepsilon =
+\boldsymbol{\varepsilon} =
 \frac{1}{2}
-(\nabla u + (\nabla u)^T)
+(\nabla \mathbf{u} + (\nabla \mathbf{u})^T)
 $$
+
+La componente diagonal $\varepsilon_{ii}$ representa la deformación longitudinal en la dirección $i$ (extensión/compresión), mientras que las componentes fuera de diagonal $\varepsilon_{ij}$ ($i \neq j$) representan deformaciones angulares (cizallamiento). La traza $\text{tr}(\boldsymbol{\varepsilon}) = \nabla \cdot \mathbf{u}$ mide el cambio volumétrico, directamente ligado a las [[P-waves|ondas P]].
 
 #### Tensor de esfuerzos
 
@@ -433,35 +433,35 @@ $$
 
 #### Relación constitutiva
 
-Para un material elástico isotrópico:
+La [[Hooke's Law|ley de Hooke generalizada]] para un material elástico lineal isotrópico relaciona el [[Stress Tensor|tensor de esfuerzos]] $\boldsymbol{\sigma}$ con el [[Strain Tensor|tensor de deformaciones]] $\boldsymbol{\varepsilon}$:
 
 $$
-\sigma =
-\lambda\,tr(\varepsilon)\,I
+\boldsymbol{\sigma} =
+\lambda\,\text{tr}(\boldsymbol{\varepsilon})\,\mathbf{I}
 +
-2\mu\,\varepsilon
+2\mu\,\boldsymbol{\varepsilon}
 $$
 
 con:
 
-- $\lambda, \mu$ → [[Lamé Constants|constantes de Lamé]]
-- $I$ → tensor identidad
-- $tr(\varepsilon)$ → traza del tensor de deformación
+- $\lambda, \mu$ → [[Lamé Constants|constantes de Lamé]] (los dos parámetros independientes del medio isotrópico)
+- $\mathbf{I}$ → tensor identidad
+- $\text{tr}(\boldsymbol{\varepsilon}) = \nabla \cdot \mathbf{u}$ → traza del tensor de deformación (deformación volumétrica)
 
-Esta separación distingue entre deformación volumétrica y deformación de corte.
+El término $\lambda\,\text{tr}(\boldsymbol{\varepsilon})\,\mathbf{I}$ representa la respuesta esférica (cambio de volumen, asociado a [[P-waves|ondas P]]), mientras que $2\mu\,\boldsymbol{\varepsilon}$ representa la respuesta de corte (cambio de forma, asociado a [[S-Waves|ondas S]]). La separación de estas contribuciones permite tratar P y S como ondas independientes en medios homogéneos. El parámetro $\mu$ (módulo de corte) es equivalente al [[Shear Modulus|módulo de corte dinámico]] $G_{\max} = \mu = \rho V_S^2$, el parámetro geotécnico de mayor interés práctico.
 
 #### Ecuaciones de Navier
 
-Sustituyendo la ley de Hooke en la ecuación de movimiento se obtiene:
+Sustituyendo la [[Hooke's Law|ley de Hooke]] (relación constitutiva elástica isotrópica) en la ecuación de movimiento se obtienen las **ecuaciones de Navier**, la formulación vectorial de la elastodinámica lineal:
 
 $$
-\mu \nabla^2 u +
-(\lambda + \mu)\nabla(\nabla \cdot u)
+\mu \nabla^2 \mathbf{u} +
+(\lambda + \mu)\nabla(\nabla \cdot \mathbf{u})
 =
-\rho \frac{\partial^2 u}{\partial t^2}
+\rho \frac{\partial^2 \mathbf{u}}{\partial t^2}
 $$
 
-Estas ecuaciones constituyen un sistema de [[Hyperbolic Partial Differential Equations]].
+Estas ecuaciones constituyen un sistema de [[Hyperbolic Partial Differential Equations|ecuaciones diferenciales parciales hiperbólicas]], cuya solución general describe propagación de perturbaciones a velocidades finitas. El primer término $\mu \nabla^2 \mathbf{u}$ controla la propagación de ondas de corte (velocidad $V_S = \sqrt{\mu/\rho}$); el segundo término $(\lambda + \mu)\nabla(\nabla \cdot \mathbf{u})$ controla la propagación de ondas compresionales (velocidad $V_P = \sqrt{(\lambda+2\mu)/\rho}$). La separación formal de estas contribuciones mediante la [[Helmholtz Decomposition|descomposición de Helmholtz]] (sección siguiente) permite tratar las ondas P y S como modos independientes.
 
 #### Descomposición del campo de desplazamiento
 
@@ -507,15 +507,12 @@ Estas velocidades corresponden a la [[Phase Velocity]] de las [[Body Waves|ondas
 
 #### Polarización de ondas S
 
-Las [[S-Waves]] poseen dos posibles polarizaciones:
+Las [[S-Waves|ondas S]] poseen movimiento de partícula perpendicular a la dirección de propagación y admiten dos modos de polarización independientes, definidos respecto al plano vertical de propagación:
 
-- [[SV-wave|SV]] → polarización vertical
-- [[SH-wave|SH]] → polarización horizontal
+- **[[SV-wave|SV]]** (Shear-Vertical): polarización en el plano vertical que contiene la dirección de propagación. Las ondas SV se acoplan con las [[P-waves|ondas P]] en interfaces (conversión P–SV) y son el componente de corte vertical de las [[Rayleigh Waves|ondas de Rayleigh]].
+- **[[SH-wave|SH]]** (Shear-Horizontal): polarización horizontal, perpendicular al plano de propagación. Las ondas SH no se acoplan con P ni SV en interfaces planas y constituyen el modo de las [[Love Waves|ondas de Love]].
 
-Esto es fundamental para la clasificación de las [[Surface Waves]]:
-
-- [[Rayleigh Waves]] → acoplamiento P + SV
-- [[Love Waves]] → ondas SH guiadas
+Esta distinción de polarización es fundamental para la clasificación de las [[Surface Waves|ondas superficiales]]: las [[Rayleigh Waves]] resultan del acoplamiento P + SV con la condición de superficie libre, mientras que las [[Love Waves]] son ondas SH guiadas por contrastes de impedancia en [[Layered Media|medios estratificados]].
 
 #### Conversión de modos
 
@@ -919,7 +916,7 @@ Este principio permite reconstruir perfiles de velocidad de corte del subsuelo m
 
 ### 2.2.2 Derivación mediante [[Elastic Wave Potentials|potenciales de onda elástica]]
 
-La existencia de las [[Rayleigh Waves]] se demuestra formalmente mediante la descomposición de Helmholtz del campo de desplazamientos, aplicando condiciones de frontera en la superficie libre.
+La existencia de las [[Rayleigh Waves]] se demuestra formalmente mediante la [[Helmholtz Decomposition|descomposición de Helmholtz]] del campo de desplazamientos, separando las contribuciones irrotacional ([[P-waves|onda P]]) y solenoidal ([[S-Waves|onda SV]]), y aplicando las condiciones de frontera en la superficie libre del [[Elastic Half Space|semiespacios elástico]]. El resultado es la **ecuación de dispersión de Rayleigh**, un polinomio implícito en la razón $V_R/V_S$ que determina la velocidad de propagación de la [[Rayleigh Waves|onda de Rayleigh]] en función de las constantes elásticas del medio. Esta sección es el núcleo matemático del capítulo y la base de los algoritmos de [[Forward Problem|modelado directo]] (forward problem) empleados en la [[Inversión|inversión]].
 
 #### Planteamiento del problema
 
