@@ -1293,6 +1293,11 @@ donde $(V_R)_j$, $(U_R)_j$ y $(I_R)_j$ son la [[Phase Velocity|velocidad de fase
 
 *(Fuente: Foti Ch. 2, Sec. 2.4.2.4, p. 90–95, Ecs. 2.93–2.95)*
 
+> [!EXAMPLE] Evidencia empírica: Paper 002 (Xia et al. 1999) — dispersión multimodal en medio estratificado
+> **Paper 002 (Xia, Miller & Park 1999, *Geophysics* 64(3):691–700, 2000+ citas)** — el paper fundacional de la inversión [[MASW Method|MASW]] — implementa el [[Forward Problem|problema directo]] para [[Rayleigh Waves|ondas de Rayleigh]] en medios estratificados usando la [[Thomson-Haskell Matrix|matriz de Thomson-Haskell]], cuya solución es exactamente el eigenproblem desarrollado en esta sección (§2.4.1). El sitio de Kansas (substrato de caliza, perfil normalmente dispersivo) mostró una [[Dispersion Curve|curva de dispersión]] aparente dominada por el modo fundamental en el rango 5–50 Hz, con [[Surface Wave Modes|modos superiores]] visibles pero energéticamente débiles en el espectro f-k. La [[Jacobian Matrix|Jacobiana]] analítica calculada a partir de las autofunciones de eigendesplazamiento (ecuaciones análogas a Ec. 2.66) permitió convergencia del esquema Gauss-Newton en <5 iteraciones. El perfil $V_S$ resultante concordó con sondeos de refracción dentro del 15% en los primeros 10 m, validando el eigenproblem de Rayleigh como herramienta de caracterización para el [[Forward Problem|problema directo]] en inversión iterativa.
+>
+> — Research Database, entrada 002; Xia et al. (1999), *Geophysics* 64(3):691–700.
+
 ---
 
 ## 2.5 Surface Waves in Vertically Inhomogeneous, Inelastic Continua

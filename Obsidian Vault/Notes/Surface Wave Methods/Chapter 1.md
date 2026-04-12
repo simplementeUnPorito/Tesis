@@ -288,6 +288,11 @@ La **profundidad máxima investigable** se estima a partir de la [[Wavelength|lo
 
 La Figura 1.12 (p. 28) ilustra otro problema: si la [[Dispersion Curve|curva de dispersión]] experimental está igualmente espaciada en frecuencia, la representación en el dominio [[Wavelength|longitud de onda]]–velocidad muestra una concentración de puntos a longitudes de onda cortas y muy pocos puntos a longitudes de onda largas. Esto hace que la inversión esté sobre-condicionada por la parte superficial del perfil. Estrategias de remuestreo con distribución exponencial de frecuencias, o el ajuste de la curva en el dominio de [[Wavelength|longitud de onda]], permiten mejorar la distribución de la información y la calidad del perfil invertido a profundidad.
 
+ > [!EXAMPLE] Evidencia empírica: Paper 026 (Park et al. 2002) — criterios óptimos de diseño MASW
+> **Paper 026 (Park, Miller & Miura 2002, SEG-J abstract, alta calidad-KGS group)** — de los inventores del [[MASW Method|MASW]] — establece los parámetros de diseño del arreglo que maximizan la robustez de la [[Dispersion Curve|curva de dispersión]] extraída. Los autores ensayaron sistemáticamente combinaciones de offset mínimo, offset máximo, frecuencia de [[Geophone|geófonos]] y tipo de fuente en dos tipos de suelo (suelto húmedo y duro seco), identificando que: (1) con offset mínimo de 10 m, los efectos de [[Near-field Effect|campo cercano]] son despreciables para $\lambda \leq 60$ m; (2) el offset máximo de 100 m evita la contaminación por [[Body Waves|ondas de cuerpo]] en offsets grandes; (3) [[Geophone|geófonos]] de 4.5 Hz pueden registrar frecuencias hasta 5 Hz en la mayoría de sitios de suelo; y (4) el [[MASW Method|MASW]] es el método sísmico más tolerante a variaciones paramétricas entre todos los métodos sísmicos de exploración. Esta guía es directamente aplicable al diseño del experimento en la tesis y justifica los parámetros de instrumentación elegidos.
+>
+> — Research Database, entrada 026; Park et al. (2002), SEG-J Annual Meeting abstract, Tokyo.
+
 ---
 
 ## 1.7 Aplicaciones Típicas

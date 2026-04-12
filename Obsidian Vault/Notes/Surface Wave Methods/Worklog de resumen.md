@@ -18,6 +18,14 @@
 - Página final aproximada: 20
 - Pendiente Chapter 1: ninguno — capítulo en estado comparable al resto del vault
 
+## Conceptos creados o actualizados en la última iteración (iteración 90 — 2026-04-12)
+- **Fase 10f — [!EXAMPLE] callouts en Caps 1 y 2**:
+  - **Chapter 1.md §1.6.4→§1.7**: [!EXAMPLE] Paper 026 (Park et al. 2002) — criterios óptimos diseño MASW: offset mínimo 10m, offset máximo 100m, geófonos 4.5Hz
+  - **Chapter 2.md §2.4.4→§2.5**: [!EXAMPLE] Paper 002 (Xia et al. 1999, 2000+ citas) — eigenproblem Rayleigh, Jacobiana analítica, Kansas site validation 15%
+- **Estado [!EXAMPLE] por capítulo**: Ch1(1), Ch2(1), Ch3(2), Ch4y5(1), Ch6(1), Ch7(1), Ch8(1) — todos los capítulos tienen al menos 1 [!EXAMPLE]
+- Papers integrados: 026 (Park 2002 SEG-J), 002 (Xia 1999 Geophysics)
+- Commits: `[INVESTIGADOR] add: [!EXAMPLE] caps 1 y 2 + papers 026/002 (iteración 90)`
+
 ## Conceptos creados o actualizados en la última iteración (iteración 89 — 2026-04-12)
 - **Fase 10e — [!EXAMPLE] callouts en Caps 4y5, 7, 8**:
   - **Chapter 4 y 5.md §4.8**: [!EXAMPLE] Paper 053 (Xu et al. 2006, J. Appl. Geophys.) — offset mínimo y [[Near-field Effect]]: criterio $x_{min} \approx 0.5\,\lambda_{max}$, error 15-20% con offset insuficiente
