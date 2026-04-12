@@ -418,18 +418,20 @@ Las fuerzas internas del medio se describen mediante el [[Stress Tensor]].
 
 #### Fuerzas internas y ecuación de movimiento
 
-Las fuerzas internas que actúan sobre un volumen diferencial se obtienen mediante la divergencia del tensor de esfuerzos:
+Las fuerzas internas que actúan sobre un volumen diferencial se obtienen mediante la divergencia del [[Stress Tensor|tensor de esfuerzos]]. La fuerza resultante por unidad de volumen en la dirección $i$ es $\sum_j \partial \sigma_{ij}/\partial x_j$, o en notación vectorial:
 
 $$
-\nabla \cdot \sigma
+\mathbf{f}_{int} = \nabla \cdot \boldsymbol{\sigma}
 $$
 
-Aplicando el balance dinámico al continuo se obtiene:
+Aplicando la **segunda ley de Newton** al volumen diferencial (balance dinámico, ignorando fuerzas de cuerpo externas) se obtiene la ecuación de movimiento del continuo:
 
 $$
-\nabla \cdot \sigma =
-\rho \frac{\partial^2 u}{\partial t^2}
+\nabla \cdot \boldsymbol{\sigma} =
+\rho \frac{\partial^2 \mathbf{u}}{\partial t^2}
 $$
+
+Esta ecuación relaciona la distribución interna de esfuerzos con la aceleración del campo de desplazamiento. Es válida para cualquier material continuo, independientemente de la relación constitutiva. La especificidad del comportamiento elástico lineal aparece al sustituir la relación constitutiva ([[Hooke's Law|ley de Hooke]]) en esta ecuación, dando lugar a las [[Navier Equations|ecuaciones de Navier]] (sección siguiente).
 
 #### Relación constitutiva
 
@@ -465,45 +467,36 @@ Estas ecuaciones constituyen un sistema de [[Hyperbolic Partial Differential Equ
 
 #### Descomposición del campo de desplazamiento
 
-Mediante la [[Helmholtz Decomposition|descomposición de Helmholtz]], el campo admite:
+Mediante la [[Helmholtz Decomposition|descomposición de Helmholtz]], cualquier campo vectorial se puede descomponer de forma única en una **parte irrotacional** (gradiente de un escalar) y una **parte solenoidal** (rotacional de un vector):
 
-- una componente irrotacional
-- una componente rotacional
+$$\mathbf{u} = \nabla \phi + \nabla \times \boldsymbol{\psi}$$
 
-Como consecuencia, el sistema admite dos tipos independientes de ondas:
+donde $\phi$ es el **potencial escalar** (irrotacional, $\nabla \times \nabla\phi = 0$) y $\boldsymbol{\psi}$ es el **potencial vectorial** (solenoidal, $\nabla \cdot \nabla\times\boldsymbol{\psi} = 0$). Sustituyendo esta descomposición en las [[Navier Equations|ecuaciones de Navier]], el sistema se separa en dos ecuaciones de onda independientes:
 
-- [[P-waves]] → asociadas a $\nabla \cdot u$
-- [[S-Waves]] → asociadas a $\nabla \times u$
+- $\phi$ satisface la ecuación de onda con velocidad $V_P = \sqrt{(\lambda+2\mu)/\rho}$ → **[[P-waves|onda P]]** (irrotacional, compresional)
+- $\boldsymbol{\psi}$ satisface la ecuación de onda con velocidad $V_S = \sqrt{\mu/\rho}$ → **[[S-Waves|onda S]]** (solenoidal, de corte)
+
+Esta separación es la base formal del **método de [[Elastic Wave Potentials|potenciales de onda elástica]]** utilizado en la derivación de las [[Rayleigh Waves|ondas de Rayleigh]] (§2.2.2) y las [[Love Waves|ondas de Love]] (§2.3).
 
 #### Velocidades de propagación
 
-Para [[P-waves]]:
+Las dos velocidades de cuerpo del medio elástico isotrópico se expresan como:
+
+Para [[P-waves|ondas P]] (compresionales):
 
 $$
-V_P =
-\sqrt{
-\frac{\lambda + 2\mu}{\rho}
-}
+V_P = \sqrt{\frac{\lambda + 2\mu}{\rho}}
 $$
 
-Para [[S-Waves]]:
+Para [[S-Waves|ondas S]] (de corte):
 
 $$
-V_S =
-\sqrt{
-\frac{\mu}{\rho}
-}
+V_S = \sqrt{\frac{\mu}{\rho}}
 $$
 
-Siempre se cumple:
+Siempre se cumple $V_S < V_P$ (ya que $\lambda + 2\mu > \mu$ para medios físicamente admisibles con $\lambda > 0$). En materiales geológicos típicos, la razón $V_P/V_S$ varía desde ~1.5–1.7 en rocas duras hasta ~5–20 en sedimentos saturados. El [[Shear Modulus|módulo de corte]] $G = \mu = \rho V_S^2$ es la propiedad mecánica directamente accesible mediante ondas de corte.
 
-$$
-V_S < V_P
-$$
-
-Estas velocidades corresponden a la [[Phase Velocity]] de las [[Body Waves|ondas de cuerpo]]. En medios homogéneos, además:
-
-[[Group Velocity]] = [[Phase Velocity]]
+Estas velocidades corresponden a la [[Phase Velocity|velocidad de fase]] de las [[Body Waves|ondas de cuerpo]] monocromáticas en medios **homogéneos**. En medios homogéneos, además, [[Group Velocity|velocidad de grupo]] = [[Phase Velocity|velocidad de fase]] (no hay dispersión). La dispersión (diferencia entre velocidades de fase y grupo) aparece solo en medios **heterogéneos** (estratificados), donde distintas frecuencias penetran distintas profundidades — principio físico de los métodos de ondas superficiales.
 
 #### Polarización de ondas S
 
@@ -526,27 +519,29 @@ Este fenómeno es esencial para comprender la propagación en [[Layered Media]] 
 
 #### Ondas armónicas
 
-Una solución monocromática del campo de desplazamientos puede escribirse como:
+La solución **monocromática** (un único componente de frecuencia $\omega$) del campo de desplazamientos para propagación 1D puede escribirse como superposición de una onda progresiva y una regresiva:
 
 $$
 u(x,t)=A_1 e^{i(\omega t-kx)} + A_2 e^{i(\omega t+kx)}
 $$
 
-donde:
+donde $A_1$ es la amplitud compleja de la onda en la dirección $+x$ y $A_2$ en la dirección $-x$. Los parámetros fundamentales son:
 
-- $\omega$ → [[Angular Frequency]]
-- $k$ → [[Wavenumber]]
+- $\omega$ → [[Angular Frequency|frecuencia angular]] ($\omega = 2\pi f$)
+- $k$ → [[Wavenumber|número de onda]] ($k = 2\pi / \lambda$)
 
-La [[Phase Velocity|velocidad de fase]] es:
+La [[Phase Velocity|velocidad de fase]] relaciona ambas variables a través de la [[Dispersion Relation|relación de dispersión]] del medio:
 
 $$
-c=\frac{\omega}{k}
+c = V_{ph} = \frac{\omega}{k}
 $$
 
-Soluciones más generales pueden construirse mediante:
+Para ondas en medios no dispersivos (como cuerpo en medio homogéneo), $c$ es constante con $\omega$. En medios dispersivos (como ondas superficiales en medio estratificado), $c = c(\omega)$ es una función de la frecuencia — la [[Dispersion Curve|curva de dispersión]].
 
-- [[Fourier Integral]]
-- [[Wave Superposition]]
+Soluciones más generales para campos de ondas multifrequencia (paquetes de onda, señales transitorias) se construyen mediante superposición:
+
+- [[Fourier Integral|transformada de Fourier]] → suma continua de componentes monocromáticas
+- [[Wave Superposition|superposición de modos]] → suma discreta de modos propios en medios estratificados
 
 #### Importancia para métodos de ondas superficiales
 
