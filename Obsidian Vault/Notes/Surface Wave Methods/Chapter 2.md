@@ -58,36 +58,29 @@ La relación funcional entre frecuencia y [[Wavenumber|número de onda]] constit
 
 ### 2.2 Rayleigh waves in homogeneous elastic continua
 
-En esta sección se demuestra la existencia de [[Rayleigh Waves]] propagándose en un medio elástico homogéneo semi-infinito.
+Esta sección demuestra la existencia de [[Rayleigh Waves|ondas de Rayleigh]] en un **[[Elastic Half Space|semiespacio elástico homogéneo]]** y establece sus propiedades fundamentales: [[Phase Velocity|velocidad de fase]], [[Attenuation|decaimiento en profundidad]], polarización elíptica y no-dispersividad. El desarrollo formal utiliza el método de [[Elastic Wave Potentials|potenciales de onda elástica]] (§2.2.2), que descompone el campo de desplazamiento en componentes irrotacional ([[P-waves|P]]) y solenoidal ([[SV-wave|SV]]) mediante la [[Helmholtz Decomposition|descomposición de Helmholtz]], y aplica las condiciones de esfuerzo nulo en la superficie libre.
 
-El desarrollo teórico se realiza utilizando el método de [[Elastic Wave Potentials]].
+El resultado principal — la **ecuación secular de Rayleigh** — es un polinomio implícito de tercer grado en la razón $V_R^2/V_S^2$ que determina la velocidad de la onda en función de $V_S$ y $V_P$ (o equivalentemente del [[Poisson Ratio|coeficiente de Poisson]]). Para $\nu = 0.25$, $V_R \approx 0.9194\,V_S$. La velocidad $V_R$ es **siempre ligeramente menor que $V_S$**, lo que asegura que la energía de Rayleigh quede atrapada en la superficie.
 
-El resultado principal es la obtención de la ecuación de dispersión de Rayleigh, que relaciona:
-
-- propiedades elásticas del medio
-- velocidad de propagación de la onda
-
-Este resultado constituye la base teórica de los métodos modernos de caracterización de sitio mediante ondas superficiales.
+Este resultado es **la base teórica** de todos los métodos modernos de [[MASW Method|MASW]], [[SASW Method|SASW]] y métodos pasivos de ondas superficiales: la [[Inversión|inversión]] recupera $V_S(z)$ a partir de la variación de $V_R$ con la frecuencia en medios estratificados (Sec. 2.4).
 
 ### 2.3 Love waves in layered media
 
-Esta sección analiza las condiciones necesarias para la existencia de [[Love Waves]].
-
-Las Love waves aparecen cuando existe la siguiente estructura del subsuelo:
+Esta sección establece las condiciones necesarias para la existencia de [[Love Waves|ondas de Love]] y deriva su relación de dispersión en el sistema más simple posible: una **capa elástica sobre un semiespacio elástico**. A diferencia de las [[Rayleigh Waves|ondas de Rayleigh]], que existen en cualquier semiespacio elástico (incluso homogéneo), las ondas de Love **requieren estratificación** para existir: son ondas SH guiadas por el contraste de impedancia entre la capa (velocidad $V_{S1}$) y el semiespacio ($V_{S2} > V_{S1}$). Sin contraste de velocidad, no hay onda de Love.
 
 ```text
-capa elástica
+capa elástica (VS1, ρ1, espesor h)
 sobre
-semi-espacio elástico
+semi-espacio elástico (VS2 > VS1, ρ2)
 ```
 
-Se estudian:
+La sección estudia:
 
-- condiciones de guiado de ondas
-- [[Dispersion Relation]]
-- comparación con [[Rayleigh Waves]]
+- **condiciones de guiado**: cuándo el ángulo de incidencia de las ondas SH produce reflexión total interna y da lugar a una onda guiada atrapada en la capa
+- **[[Dispersion Relation|relación de dispersión]]**: la ecuación trascendente que relaciona la [[Phase Velocity|velocidad de fase]] con la frecuencia y los parámetros del medio
+- **comparación con [[Rayleigh Waves|ondas de Rayleigh]]**: las ondas de Love son puramente SH (no hay componente vertical), lo que las hace independientes de $V_P$ y más sensibles al contraste de [[Shear Modulus|módulo de corte]].
 
-Una diferencia fundamental es que las Love waves presentan comportamiento dispersivo cuando el medio es estratificado, fenómeno asociado a la [[Geometric Dispersion]].
+Una diferencia fundamental operativa es que las ondas de Love presentan **dispersión geométrica pura** ([[Geometric Dispersion]]) sin la complicación del acoplamiento P–SV. Sus [[Dispersion Curve|curvas de dispersión]] son más simples de interpretar y menos susceptibles a la [[Mode Superposition|superposición modal]] ambigua. En campo se requieren [[Geophone|geófonos]] horizontales transversales para registrarlas, a diferencia de los geófonos verticales estándar usados en [[MASW Method|MASW]] para [[Rayleigh Waves|Rayleigh]].
 
 ### 2.4 Surface waves in vertically inhomogeneous media
 
@@ -798,14 +791,14 @@ El caso del **[[Elastic Half Space|semiespacio elástico homogéneo]]** es el pu
 
 Los continuos elásticos **homogéneos, isotrópicos y no acotados** solo permiten la propagación de [[Body Waves|ondas de cuerpo]]:
 
-- [[P-waves]]
-- [[S-Waves]]
+- [[P-waves|ondas P]] (compresionales, velocidad $V_P$)
+- [[S-Waves|ondas S]] (de corte, velocidad $V_S$)
 
-Sin embargo, **la introducción de una frontera en el medio** permite la existencia de otro tipo de ondas llamadas **[[Surface Waves]]**, que se propagan **a lo largo de la superficie del medio** en lugar de propagarse a través de su interior.
+Sin embargo, **la introducción de una frontera libre en el medio** — la condición de esfuerzo tangencial y normal nulos en la superficie — permite la existencia de un tercer tipo de ondas: las **[[Surface Waves|ondas superficiales]]**, que se propagan a lo largo de la superficie en lugar de propagarse hacia el interior.
 
-Las **[[Rayleigh Waves]]** fueron predichas por primera vez por **Lord Rayleigh en 1885**.
+Las **[[Rayleigh Waves|ondas de Rayleigh]]** fueron predichas teóricamente por **Lord Rayleigh en 1885** ("On waves propagated along the plane surface of an elastic solid", *Proc. London Math. Soc.*), antes de cualquier observación sismológica. Su existencia se estableció puramente por análisis matemático de las condiciones de borde en la superficie libre de un semiespacio elástico. La observación ulterior en registros sísmicos reales (terremotos, explosiones) confirmó la predicción: las ondas de Rayleigh son la fase dominante de amplitud en los sismogramas de campo lejano, especialmente en la componente vertical.
 
-Estas ondas aparecen como consecuencia de la **condición de esfuerzo nulo en la superficie libre** de un sólido elástico.
+Estas ondas resultan del **acoplamiento resonante** entre las componentes P y SV en la superficie libre: ambas componentes se propagan horizontalmente (a lo largo de la superficie) con el mismo número de onda $k_R$, y la condición de borde libre selecciona la única velocidad $V_R < V_S < V_P$ para la que esta superposición satisface el decaimiento en profundidad.
 
 ---
 
@@ -1116,10 +1109,10 @@ Esta ecuación es **trascendente y no tiene solución cerrada en general**. Sus 
 
 ### Modos de Love y frecuencia de corte (Foti Ec. 2.55)
 
-La relación de dispersión admite múltiples ramas (modos):
+La relación de dispersión de Love admite múltiples soluciones (modos) a cada frecuencia. La estructura modal es asimétrica:
 
-- **Modo fundamental** ($n = 1$): existe para **todas** las frecuencias
-- **Modos superiores** ($n = 2, 3, \ldots$): existen solo por encima de una **frecuencia de corte**
+- **[[Surface Wave Modes|Modo fundamental]]** ($n = 1$): existe para **todas** las frecuencias — incluso para $\omega \to 0$, aunque su [[Phase Velocity|velocidad de fase]] tiende a $V_{S2}$ (velocidad del semiespacio) a baja frecuencia y a $V_{S1}$ (velocidad de la capa) a alta frecuencia.
+- **[[Surface Wave Modes|Modos superiores]]** ($n = 2, 3, \ldots$): existen solo por encima de una **frecuencia de corte** $\omega_c^n$, por debajo de la cual la energía no puede quedar atrapada en la capa.
 
 La [[Angular Frequency|frecuencia angular]] de corte del $n$-ésimo modo es (Foti Ec. 2.55):
 
@@ -1127,7 +1120,9 @@ $$
 \frac{\omega_c^n \cdot h}{V_{S1}} = \frac{\pi(n-1)}{\sqrt{1 - \left(\frac{V_{S1}}{V_{S2}}\right)^2}}, \qquad n = 1, 2, \ldots
 $$
 
-Esta dependencia frecuencial multimodal es la base de la [[Geometric Dispersion]] para Love waves.
+**Implicación práctica:** la frecuencia de corte del primer modo superior ($n=2$) depende del espesor de la capa $h$ y del contraste de velocidad $V_{S1}/V_{S2}$. Para un sitio con $h = 20$ m y $V_{S1}/V_{S2} = 0.5$, $\omega_c^2 \approx \pi V_{S1}/(h\sqrt{1-(V_{S1}/V_{S2})^2}) \approx \pi \cdot V_{S1}/(h \cdot 0.866)$. Capas superficiales delgadas producen [[Surface Wave Modes|modos superiores]] a frecuencias altas, accesibles con arreglos de geófonos densos.
+
+Esta dependencia frecuencial multimodal es la base de la [[Geometric Dispersion|dispersión geométrica]] para ondas de Love y justifica el uso del análisis multimodal en la [[Inversión|inversión]] de sitios con estratificación pronunciada.
 
 *(Fuente: Foti Ch. 2, Sec. 2.3, p. 65, Ec. 2.55)*
 
@@ -1365,11 +1360,13 @@ $$
 
 ### 2.5.4 Ondas viscoelásticas en medios homogéneos: principio de correspondencia
 
-La analogía entre las ecuaciones de campo de la elasticidad y la viscoelasticidad en el dominio frecuencial constituye el **[[Correspondence Principle|principio de correspondencia elástico–viscoelástico]]** (Foti Sec. 2.5.2):
+La analogía entre las ecuaciones de campo de la elasticidad y la [[Viscoelastic Media|viscoelasticidad]] en el dominio frecuencial constituye el **[[Correspondence Principle|principio de correspondencia elástico–viscoelástico]]** (Foti Sec. 2.5.2). Su enunciado es notablemente conciso:
 
-> Las soluciones del problema viscoelástico en dominio frecuencial se obtienen reemplazando las constantes elásticas reales $\lambda$, $\mu$ por sus equivalentes complejos $G_S^*(\omega)$, $G_B^*(\omega)$ en las expresiones del caso elástico.
+> Las soluciones del problema [[Viscoelastic Media|viscoelástico]] en dominio frecuencial se obtienen reemplazando las constantes elásticas reales $\lambda$, $\mu$ por sus equivalentes complejos $G_S^*(\omega)$, $G_B^*(\omega)$ en las expresiones del caso elástico.
 
-Esto hace que todas las fórmulas derivadas para medios elásticos (incluyendo la ecuación secular de Rayleigh) sean válidas en medios viscoelásticos, con $\lambda, \mu \in \mathbb{C}(\omega)$.
+Esta sustitución es posible porque la [[Fourier Integral|transformada de Fourier]] de la integral de Boltzmann transforma la convolución temporal en una multiplicación por el módulo complejo en el dominio frecuencial. Las ecuaciones de movimiento transformadas son **formalmente idénticas** a las ecuaciones elásticas con módulos reales, excepto que los módulos son ahora funciones complejas de $\omega$.
+
+El **poder del principio de correspondencia** reside en que **no es necesario re-derivar toda la teoría de ondas**: las [[Dispersion Relation|relaciones de dispersión]] para [[Rayleigh Waves|ondas de Rayleigh]] y [[Love Waves|Love]], las condiciones de borde, las expresiones de [[Phase Velocity|velocidad de fase]] — todas son válidas en medios viscoelásticos con la sustitución $\{V_S, V_P\} \to \{V_S^*, V_P^*\}$. En particular, la **ecuación secular de Rayleigh** (que en el caso elástico tiene coeficientes reales y raíces reales) pasa a tener coeficientes complejos y raíz compleja $V_R^* = V_R - i\,V_R\,D_R$, donde la parte imaginaria codifica la atenuación de la onda de Rayleigh.
 
 #### Velocidades complejas de [[Body Waves|ondas de cuerpo]] (Foti Ec. 2.118)
 
@@ -1421,7 +1418,9 @@ Experimentalmente, los geomateriales dentro del umbral de deformación lineal c�
 
 ### 2.5.6 [[Rayleigh Eigenproblem]] en medios débilmente disipativos (Foti Ec. 2.133)
 
-Aplicando [[Variational Principles|principios variacionales de Love–Rayleigh]] bajo la hipótesis de disipación débil (Ecs. 2.128–2.129), se obtiene el resultado central de la sección (Foti Ec. 2.133):
+La combinación del [[Correspondence Principle|principio de correspondencia]] con la **hipótesis de disipación débil** ($D_S, D_P \leq 5\%$) y los [[Variational Principles|principios variacionales de Love–Rayleigh]] produce el resultado más importante de la sección: una expresión analítica cerrada para la [[Phase Velocity|velocidad de fase]] $V_R(\omega)$ y el [[Attenuation Coefficient|coeficiente de atenuación]] $\alpha_R(\omega)$ en función de los perfiles de velocidad y amortiguamiento. Este resultado — Foti Ec. 2.133 — es el **[[Forward Problem|operador del problema directo]] viscoelástico** que se invierte en los algoritmos de Capítulo 6 para recuperar $V_S(z)$ y $D_S(z)$ simultáneamente desde las curvas medidas.
+
+Aplicando los principios variacionales bajo la hipótesis de disipación débil (Ecs. 2.128–2.129), se obtiene (Foti Ec. 2.133):
 
 $$
 \begin{cases}
