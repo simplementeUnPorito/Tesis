@@ -18,6 +18,14 @@
 - Página final aproximada: 20
 - Pendiente Chapter 1: ninguno — capítulo en estado comparable al resto del vault
 
+## Conceptos creados o actualizados en la última iteración (iteración 89 — 2026-04-12)
+- **Fase 10e — [!EXAMPLE] callouts en Caps 4y5, 7, 8**:
+  - **Chapter 4 y 5.md §4.8**: [!EXAMPLE] Paper 053 (Xu et al. 2006, J. Appl. Geophys.) — offset mínimo y [[Near-field Effect]]: criterio $x_{min} \approx 0.5\,\lambda_{max}$, error 15-20% con offset insuficiente
+  - **Chapter 7.md §7.2.4**: [!EXAMPLE] Paper 034 (Maraschini & Foti 2010, GJI) — Monte Carlo multimodal: no-unicidad ±12%→±5% con modos superiores
+  - **Chapter 8.md §8.3.2**: [!EXAMPLE] Paper 033 (Socco et al. 2010, Geophysics) — joint inversion ondas superficiales + refracción: capa oculta detectada, confirmada por sondeo
+- Papers integrados: 053 (Xu 2006), 034 (Maraschini & Foti 2010), 033 (Socco 2010)
+- Commits: `[INVESTIGADOR] add: [!EXAMPLE] caps 4y5/7/8 + papers 053/034/033 (iteración 89)`
+
 ## Conceptos creados o actualizados en la última iteración (iteración 88 — 2026-04-12)
 - **Fase 10d — intros 0w en Ch3 + wikilinks caps 3, 6, 8 + [!EXAMPLE] Paper 001**:
   - **Chapter 3.md §3.2 intro**: 0w→120w — naturaleza del campo de ondas muestreado

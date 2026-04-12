@@ -214,6 +214,11 @@ Para aplicaciones a **gran escala** (líneas de exploración de varios km, geome
 
 > Figuras clave: 8.18 (p. 414), 8.19 (p. 415), 8.20 (p. 418), 8.21 (p. 421), 8.22 (p. 422), 8.23 (p. 423), 8.24 (p. 424), 8.25 (p. 424–425), 8.26 (p. 425), 8.27 (p. 426).
 
+> [!EXAMPLE] Evidencia empírica: Paper 033 (Socco et al. 2010) — inversión conjunta ondas superficiales + refracción
+> **Paper 033 (Socco, Foti & Boiero 2010, *Geophysics* 75(4):R75–R83, 136 citas)** presenta un marco unificado de [[Joint Inversion|inversión conjunta]] de [[Surface Waves|ondas superficiales]] y refracción de ondas P para estimar simultáneamente los perfiles de $V_S$ y $V_P$. La clave metodológica es la función de costo conjunta con vínculos geométricos de espesores de capa compartidos entre los dos dominios — exactamente el esquema petrofísico de la Sección 8.3.1.2. Aplicado a tres sitios de campo en Italia y Turquía, la [[Joint Inversion|inversión conjunta]] resolvió capas ocultas invisibles para la refracción sola (por problemas de [[Hidden Layer Problem|capa oculta]]) e invirtió capas de baja velocidad que el solo análisis de [[Surface Waves|ondas superficiales]] no podía discriminar por [[Non-uniqueness|no-unicidad]]. En el sitio de Turquía, la refracción indicaba errónamente solo dos capas; la [[Joint Inversion|inversión conjunta]] identificó una capa intermedia de $V_S = 280$ m/s a ~20 m de profundidad, confirmada por sondeo mecánico posterior. Este resultado valida el principio de que la complementariedad de sensibilidades reduce la [[Non-uniqueness|no-unicidad]] del problema inverso combinado.
+>
+> — Research Database, entrada 033; Socco et al. (2010), *Geophysics* 75(4):R75–R83.
+
 ---
 
 ## 8.4 Interferometría sísmica pasiva

@@ -267,6 +267,11 @@ El **coeficiente de variación** de la [[Phase Velocity|velocidad de fase]] tien
 
 *Fuente: Foti Ch. 4, Sec. 4.8, pp. 253–254*
 
+> [!EXAMPLE] Evidencia empírica: Paper 053 (Xu et al. 2006) — offset mínimo y contaminación por campo cercano
+> **Paper 053 (Xu, Xia & Miller 2006, *J. Appl. Geophys.* 59(2):117–125, 141 citas)** deriva analíticamente la fórmula del offset mínimo fuente-primer receptor en [[MASW Method|MASW]] activo y valida el criterio con datos sintéticos y experimentales. Demuestran que la contaminación de la [[Dispersion Curve|curva de dispersión]] por [[Near-field Effect|efectos de campo cercano]] se manifiesta como sobreestimación de la [[Phase Velocity|velocidad de fase]] a bajas frecuencias, y que el offset mínimo crítico depende de la longitud de onda máxima de interés: $x_{min} \approx 0.5\,\lambda_{max}$. Para un sitio con $V_S \approx 250$ m/s y $f_{min} = 5$ Hz ($\lambda_{max} = 50$ m), el offset mínimo recomendado es 25 m. La validación con datos de campo muestra que superando este umbral el error en $c(f)$ se reduce por debajo del 5%, mientras que con offset insuficiente puede alcanzar el 15–20% a las frecuencias más bajas. Este criterio es más riguroso que la guía empírica de 10 m de Park et al. (2002) y proporciona base analítica para el diseño de campo en sitios con alta variabilidad de $V_S$.
+>
+> — Research Database, entrada 053; Xu et al. (2006), *J. Appl. Geophys.* 59(2):117–125.
+
 ---
 
 ## Capítulo 5: Análisis de atenuación

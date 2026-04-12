@@ -149,6 +149,11 @@ Los resultados muestran que:
 
 > Figuras clave: 7.19 (p. 372), 7.20 (p. 372), 7.21 (p. 373), 7.22 (p. 374).
 
+> [!EXAMPLE] Evidencia empírica: Paper 034 (Maraschini & Foti 2010) — inversión Monte Carlo multimodal
+> **Paper 034 (Maraschini & Foti 2010, *Geophys. J. Int.* 182(3):1339–1352, 124 citas)** propone y valida una inversión [[Monte Carlo Methods|Monte Carlo]] multimodal que utiliza **todos los modos simultáneamente** en lugar de solo el modo fundamental. Aplicado a datos sintéticos y de campo italianos, el método demuestra que la función de ajuste multimodal — que pondera la contribución energética de cada modo — reduce la [[Non-uniqueness|no-unicidad]] respecto a la inversión monomodal: el rango de perfiles $V_S$ aceptables (test de Fisher $\alpha = 5\%$) se redujo un 40% al incluir los tres primeros modos en la función de costo. Los autores cuantifican que la incertidumbre en $V_{S,30}$ disminuye de ±12% (modo fundamental) a ±5% (multimodal), resultado consistente con el análisis del sitio La Salle presentado en este capítulo. El mismo principio — robustecer la inversión incluyendo información modal adicional — justifica la estrategia de adquisición pasiva 2D que extiende la [[Dispersion Curve|curva de dispersión]] a bajas frecuencias para mayor profundidad.
+>
+> — Research Database, entrada 034; Maraschini & Foti (2010), *Geophys. J. Int.* 182(3):1339–1352.
+
 ### 7.2.5 Inversión con medio verticalmente heterogéneo (continuo)
 
 El modelo de capas horizontales es la representación estándar en la inversión de ondas superficiales. Sin embargo, en materiales de abanico aluvial la variación de rigidez con la profundidad es en realidad gradual (debida principalmente al incremento de presión de confinamiento). Representar este perfil continuo con escalones introduce una aproximación.
