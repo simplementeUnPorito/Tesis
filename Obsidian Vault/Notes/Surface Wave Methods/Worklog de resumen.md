@@ -10,10 +10,18 @@
 - Chapter 8: **consolidado (quinta fase completa)** — 3×[!EXAMPLE] (033, 038, 017); wikilinks 2.61/100w
 
 ## Último punto procesado
-- Capítulo actual: Ch1 3rd [!EXAMPLE] completado + Ch2 thin sections exploradas (iteración 99)
-- Fase actual: **quinta fase COMPLETA** para Ch1 (ahora 3×[!EXAMPLE]: 026, 009, 003); todos los capítulos ≥3 [!EXAMPLE] (20 total)
-- Estado general actualizado: Ch1 consolidado quinta fase; Ch2 en progreso; todos los demás caps completos
-- Pendiente: thin sections Ch2 restantes (~5–8 secciones cortas ecuacionales); posible expansión Concepts/
+- Capítulo actual: Concepts/ — 4 notas atómicas nuevas creadas (iteración 100)
+- Fase actual: **quinta fase COMPLETA** para todos los capítulos; 20×[!EXAMPLE] total; 4 nuevos Concepts/ atómicos
+- Estado: todos los caps ≥3 [!EXAMPLE]; Ch2 thin sections mayormente completadas; Concepts/ ampliado
+- Pendiente: verificar notas Concepts/ adicionales que puedan faltar; posible profundización de notas cortas existentes
+
+## Conceptos creados o actualizados en la última iteración (iteración 100 — 2026-04-12)
+- **Fase 19 — Concepts/ notas atómicas faltantes**:
+  - **Concepts/01/Navier Equations.md**: creada — ecuaciones de Navier/elastodinámica, interpretación términos corte vs. compresión, descomposición Helmholtz → P/S, relevancia para Rayleigh/Love
+  - **Concepts/01/Hooke's Law.md**: creada — ley de Hooke generalizada, constantes de Lamé, extensión viscoelástica Boltzmann, conexión con VS=√(μ/ρ) e inversión MASW
+  - **Concepts/03/Radiation Condition.md**: creada — condición de Sommerfeld, causalidad, ondas divergentes, implementación numérica (PML), conexión con eigenproblem Rayleigh (α>0, β>0)
+  - **Concepts/06/Damping Ratio.md**: creada — D = ΔW/(4πW), relación Q=1/(2D), valores típicos suelos, D_S vs D_P, conexión con Ch5 Foti
+- Papers integrados: ninguno nuevo (trabajo de creación de notas conceptuales)
 
 ## Conceptos creados o actualizados en la última iteración (iteración 99 — 2026-04-12)
 - **Fase 18 — 3rd [!EXAMPLE] Ch1 + cierre de thin sections Ch2**:
