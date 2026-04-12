@@ -428,13 +428,17 @@ Esta sección aplica los principios de señal y muestreo al diseño específico 
 
 ### 3.4.1 Ruido sísmico
 
-El dato adquirido contiene señal y **ruido**. En el contexto de ondas superficiales, señal = ondas superficiales planas compatibles con el modelo 1D asumido. Todo lo demás es ruido.
+El dato adquirido en campo siempre contiene señal y **ruido**. En el contexto de métodos de ondas superficiales, la **señal** son las ondas superficiales planas (principalmente [[Rayleigh Waves|Rayleigh]] en modo fundamental) que se propagan horizontalmente y son compatibles con el modelo 1D de capas planas horizontales. **Todo lo demás es ruido** — aunque "ruido" tiene connotaciones muy diferentes según su naturaleza.
+
+La relación señal-ruido se cuantifica mediante el **SNR** (*Signal-to-Noise Ratio*):
 
 $$
 \text{SNR [dB]} = 20\log_{10}\frac{S}{N}
 $$
 
-El diseño de la adquisición debe maximizar el SNR para maximizar la exactitud de las propiedades estimadas.
+El diseño de la adquisición debe maximizar el SNR para maximizar la exactitud de las propiedades estimadas. Un SNR bajo produce incertidumbre alta en la [[Phase Velocity|velocidad de fase]] estimada, que se propaga a la [[Inversión|inversión]] como incertidumbre en el perfil $V_S(z)$. La regla empírica de Park et al. (1999) recomienda SNR > 10 dB para que el análisis f-k produzca [[Dispersion Curve|curvas de dispersión]] fiables.
+
+El ruido tiene dos clases fundamentales con estrategias de mitigación muy distintas:
 ![[Pasted image 20260410154455.png]]
 #### Ruido incoherente
 
@@ -573,6 +577,10 @@ La geometría básica es un **arreglo lineal de receptores uniformemente espacia
 
 *(Fuente: Foti Ch. 3, Sec. 3.4.3.1, p. 174–178)*
 
+> [!EXAMPLE] Evidencia empírica: Paper 024 (Yoon & Rix 2009) — criterio de offset mínimo y sesgo por [[Near-field Effect|campo cercano]] en [[MASW Method|MASW]] activo
+> **Paper 024 (Yoon & Rix 2009, *ASCE JGGE* 135(3):399–406)** cuantifica numéricamente el **sesgo sistemático** en las [[Dispersion Curve|curvas de dispersión]] [[MASW Method|MASW]] causado por el [[Near-field Effect|efecto de campo cercano]] cuando el offset fuente–primer receptor es insuficiente. Mediante simulaciones numéricas 2D con variación paramétrica de la razón $x_1/\lambda$ (offset sobre longitud de onda analizada), el estudio establece que: (1) el sesgo es significativo para $x_1/\lambda < 0.5$ — las [[Phase Velocity|velocidades de fase]] estimadas son **menores que las reales** (subestimación sistemática del perfil $V_S$); (2) el efecto es más severo a bajas frecuencias (longitudes de onda grandes = mayor profundidad de investigación); (3) el criterio de diseño estándar **$x_1 \geq 0.5 \cdot \lambda_{\max}$** garantiza que el sesgo sea menor al 5% en la mayoría de los casos. Este criterio — junto con el de Xu et al. (2006, Paper 053) — es el estándar de facto referenciado por Foti et al. (2018, InterPACIFIC) y por las guías de adquisición MASW. Implica directamente que para investigar a 30 m de profundidad (longitud de onda $\lambda \approx 60$ m), el primer geófono debe estar al menos a 30 m de la fuente.
+> — Research Database, entrada 024; Yoon & Rix (2009), *ASCE JGGE* 135(3):399–406. DOI: 10.1061/(ASCE)1090-0241(2009)135:3(399).
+
 #### 3.4.3.2 Método de dos estaciones ([[SASW Method|SASW]])
 
 El método [[SASW Method|SASW]] (*Spectral Analysis of Surface Waves*) es un caso especial con solo dos receptores. Su ventaja es la simplicidad logística; su limitación es la mayor vulnerabilidad al aliasing espacial y a la superposición de modos.
@@ -656,15 +664,23 @@ El **sledgehammer** es la fuente más común en ensayos geotécnicos de pequeña
 
 #### Fuentes vibratorias
 
-Las fuentes vibratorias (vibradores electromecánicos, vibroseis) inputan energía con señales controladas de larga duración. Ventajas: SNR alto mediante correlación (*sweep*), control del contenido espectral. Desventajas: mayor complejidad logística.
+Las fuentes vibratorias (vibradores electromecánicos, vibroseis) generan señales controladas de larga duración en lugar de impulsos. El principio es el siguiente: la fuente barre un rango de frecuencias (señal de *sweep*), el registro se comprime por [[Cross-Correlation|correlación cruzada]] con la señal piloto, y el resultado es un sismograma equivalente al de una fuente impulsiva pero con SNR mucho mayor.
 
 La señal de barrido lineal varía la frecuencia con el tiempo:
 
 $$
-f(t) = c \cdot t + f_0
+f(t) = c \cdot t + f_0, \qquad t \in [0, T_{sweep}]
 $$
 
-La [[Cross-Correlation|correlación cruzada]] del registro con la señal de sweep produce un sismograma equivalente al de una fuente impulsiva de alta SNR.
+donde $c$ es la tasa de barrido (Hz/s) y $T_{sweep}$ típicamente 5–30 s. La [[Cross-Correlation|correlación cruzada]] del registro $R(t)$ con el sweep piloto $S(t)$ produce el sismograma correlacionado con energía comprimida en el dominio temporal:
+
+$$
+\text{Sismograma correlacionado} = R(t) \star S(-t)
+$$
+
+**Ventajas:** SNR muy alto (la energía de señal se comprime, el ruido incoherente no), control del contenido espectral (se puede diseñar el sweep para favorecer bajas frecuencias que dan mayor profundidad de investigación), y la fuente no produce impactos repetidos (útil en entornos urbanos o donde el impacto puede dañar estructuras). El vibrador electromecánico usado por Strobbia & Foti en Memphis (Paper 027) es un ejemplo de esta clase de fuente con excelente control de amplitud para medición de [[Attenuation Coefficient|coeficiente de atenuación]].
+
+**Desventajas:** mayor complejidad logística y costo, necesidad de sincronización entre fuente y grabadora.
 
 *(Fuente: Foti Ch. 3, Sec. 3.5.1.2–3.5.1.3, p. 186–191)*
 
