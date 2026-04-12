@@ -197,6 +197,10 @@ Tanto Ec. 4.33 (unidireccional) como Ec. 4.40 (isótropa) pueden usarse con ESAC
 
 *(Fuente: Foti Ch. 4, Sec. 4.5, pp. 231–235, Ecs. 4.28–4.41, Figs. 4.24–4.25)*
 
+> [!EXAMPLE] Evidencia empírica: Paper 005 (Aki 1957) — SPAC fundacional: curva de dispersión de microtremores a partir de la función de Bessel J₀
+> **Paper 005 (Aki 1957, *Bull. Earthq. Res. Inst.* Vol.35(3):415–456, UTokyo OA)** introduce el marco teórico completo del método [[SPAC Method|SPAC]] (*Spatial Autocorrelation*) y su primera validación experimental con microtremores en Japón. La ecuación fundacional $\rho(r,\omega) = J_0(\omega r / c(\omega))$ — donde la autocorrelación espacial normalizada entre dos receptores a distancia $r$ es la [[Bessel Function|función de Bessel de orden cero]] evaluada en el argumento adimensional $kr$ — permite extraer la [[Phase Velocity|velocidad de fase]] $c(\omega)$ sin ninguna fuente activa, usando únicamente ruido ambiental. Aki demostró experimentalmente que el campo de [[Microtremor|microtremores]] puede aproximarse como isótropo a escala local, lo que valida la hipótesis de simetría radial que lleva directamente a la ecuación de Bessel. Esta relación es la misma que aparece en la Ec. 4.40 de Foti et al. y es el principio que justifica todos los métodos pasivos de [[SPAC Method|SPAC]] y [[SPAC Method|ESAC]] descritos en §4.5. El trabajo de Aki (1957) también introdujo la noción de que el espectro de amplitud del campo de ruido no necesita ser conocido para extraer la velocidad de fase — basta con la autocorrelación normalizada, haciendo el método robusto ante variaciones espectrales de la fuente.
+> — Research Database, entrada 005; Aki (1957), *Bull. Earthq. Res. Inst.* 35(3):415–456. DOI: 10.15083/0000033938.
+
 ---
 
 ### 4.6 Métodos basados en transformadas

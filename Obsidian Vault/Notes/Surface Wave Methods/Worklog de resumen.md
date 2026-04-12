@@ -1,19 +1,25 @@
 # Worklog de resumen
 
 ## Estado general
-- Chapter 1: **consolidado (quinta fase COMPLETA)** — 3×[!EXAMPLE] (026, 009, 003); wikilinks 3.30/100w; ninguna sección crítica thin
+- Chapter 1: **consolidado (sexta fase)** — **4×[!EXAMPLE]** (026, 009, 003, **015**); wikilinks 3.30/100w; ninguna sección crítica thin
 - Chapter 2: **consolidado (quinta fase en progreso)** — 3×[!EXAMPLE] (002, 031, 008); wikilinks ~3.7/100w; 17 subsecciones thin expandidas en iters 91-94; ~57 secciones thin restantes
-- Chapter 3: **consolidado (sexta fase)** — **4×[!EXAMPLE]** (001, 024, 046, **023**); wikilinks 2.55/100w; ninguna sección crítica pendiente
-- Chapter 4 y 5: **consolidado (quinta fase completa)** — 3×[!EXAMPLE] (027, 023, 053); wikilinks 2.88/100w
-- Chapter 6: **consolidado (sexta fase)** — **4×[!EXAMPLE]** (003, 037, 025, **042**); wikilinks 2.77/100w
-- Chapter 7: **consolidado (sexta fase)** — **4×[!EXAMPLE]** (034, 046, 010, **009**); wikilinks 2.87/100w
-- Chapter 8: **consolidado (sexta fase)** — **4×[!EXAMPLE]** (033, 038, 017, **048**); wikilinks 2.61/100w
+- Chapter 3: **consolidado (sexta fase)** — **4×[!EXAMPLE]** (001, 024, 046, 023); wikilinks 2.55/100w; ninguna sección crítica pendiente
+- Chapter 4 y 5: **consolidado (sexta fase)** — **4×[!EXAMPLE]** (027, 023, 053, **005**); wikilinks 2.88/100w
+- Chapter 6: **consolidado (sexta fase)** — **4×[!EXAMPLE]** (003, 037, 025, 042); wikilinks 2.77/100w
+- Chapter 7: **consolidado (sexta fase)** — **4×[!EXAMPLE]** (034, 046, 010, 009); wikilinks 2.87/100w
+- Chapter 8: **consolidado (sexta fase)** — **4×[!EXAMPLE]** (033, 038, 017, 048); wikilinks 2.61/100w
 
 ## Último punto procesado
-- Capítulo actual: Ch3, Ch6, Ch7, Ch8 — 4to [!EXAMPLE] añadido a cada uno (iteración 102)
-- Fase actual: **sexta fase en progreso** — 4 capítulos con 4×[!EXAMPLE]; todos los wikilinks de caps 3-8 con Concepts/ existentes verificados; Concepts/ auditado
-- Estado: Ch3+Ch6+Ch7+Ch8 ahora con 4×[!EXAMPLE]; Ch1+Ch4y5 con 3×[!EXAMPLE]; Ch2 con 3×[!EXAMPLE]
-- Pendiente: añadir 4to [!EXAMPLE] a Ch1, Ch4y5, Ch2; posible profundización thin sections Ch3-Ch8
+- Capítulo actual: Ch1, Ch4y5 — 4to [!EXAMPLE] añadido (iteración 103)
+- Fase actual: **sexta fase casi completa** — 6 de 7 capítulos con 4×[!EXAMPLE]; solo Ch2 con 3×[!EXAMPLE]
+- Estado: Ch1+Ch3+Ch4y5+Ch6+Ch7+Ch8 con 4×[!EXAMPLE]; Ch2 pendiente con 3×[!EXAMPLE]; todos los Concepts/ auditados
+- Pendiente: añadir 4to [!EXAMPLE] a Ch2; profundizar thin sections restantes en Ch2
+
+## Conceptos creados o actualizados en la última iteración (iteración 103 — 2026-04-12)
+- **Fase 21 — 4to [!EXAMPLE] en Ch1 y Ch4y5**:
+  - **Chapter 1.md §1.8**: [!EXAMPLE] Paper 015 (Moffat, Correia & Pastén 2016) — MASW vs downhole en Chile central (5 sitios); 12 geófonos 4.5 Hz; Vs30 ±10-15%; primer estudio validación Chile; contexto análogo al paraguayo
+  - **Chapter 4 y 5.md §4.5**: [!EXAMPLE] Paper 005 (Aki 1957) — SPAC fundacional: ρ(r,ω)=J₀(kr); campo isótropo; espectro amplitude no necesario; base de todos los métodos pasivos
+- Papers integrados: 015 (Ch1), 005 (Ch4y5)
 
 ## Conceptos creados o actualizados en la última iteración (iteración 102 — 2026-04-12)
 - **Fase 20 — 4to [!EXAMPLE] en Ch3, Ch6, Ch7, Ch8**:
