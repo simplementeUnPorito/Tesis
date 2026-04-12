@@ -244,6 +244,12 @@ El procedimiento de Strobbia y Cassiani (2011) permite la [[Inversión|inversió
 
 *Fuente: Foti Ch. 4, Sec. 4.6, pp. 235–251*
 
+> [!EXAMPLE] Evidencia empírica: Paper 023 (Park et al. 1998) — método **phase-shift**: fundamento algorítmico de [[MASW Method|MASW]] multicanal
+> **Paper 023 (Park, Miller & Xia 1998, *SEG Tech. Prog. Expanded Abstr.*, 761 citas)** introduce la transformación **phase-shift** que convierte un shot gather multicanal directamente en imágenes de alta resolución de [[Dispersion Curve|curvas de dispersión]] multimodo. La suma de trazas normalizadas con corrección de fase en función de la velocidad de prueba $c_T$:
+> $$A(\omega, c_T) = \sum_j \left[\frac{u(x_j,\omega)}{|u(x_j,\omega)|} \cdot e^{i\,\omega\,x_j/c_T}\right]$$
+> produce crestas de amplitud en el espacio $(f, c_T)$ que identifican los modos de propagación. **Ventajas sobre f-k y τ–p clásicos:** funciona con número reducido de trazas (no requiere gran apertura), es apto para offsets cercanos a la fuente (condición frecuente en ingeniería), y provee alta resolución multimodal con registros compactos. Este algoritmo es el núcleo de MASWaves, Geopsy y SurfSeis, y precede directamente al paper fundacional Park et al. 1999 (Paper 001). Junto con Papers 001 y 002 (Xia 1999), forma la tríada fundacional del procesamiento [[MASW Method|MASW]] moderno.
+> — Research Database, entrada 023; Park, Miller & Xia (1998), *SEG Tech. Prog. Expanded Abstr.* 1998, pp. 1377–1380. DOI: 10.1190/1.1820161.
+
 ---
 
 ### 4.7 Análisis de [[Group Velocity|velocidad de grupo]]
