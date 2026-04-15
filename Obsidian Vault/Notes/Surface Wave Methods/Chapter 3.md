@@ -456,7 +456,7 @@ Estrategias para aumentar el SNR ante ruido incoherente:
 - Aumentar la energía de la fuente.
 
 El ruido incoherente afecta directamente la **incertidumbre en la fase**, que se propaga a la incertidumbre en la [[Phase Velocity|velocidad de fase]] estimada.
-
+![[Pasted image 20260413194620.png]]
 *(Fuente: Foti Ch. 3, Sec. 3.4.1.1–3.4.1.2, p. 149–157)*
 
 #### Ruido coherente
@@ -521,6 +521,8 @@ La [[Dispersion Relation|curva de dispersión]] experimental es siempre una **cu
 
 *(Fuente: Foti Ch. 3, Sec. 3.4.2.1, p. 165–168)*
 
+![[Pasted image 20260413200411.png]]
+![[Pasted image 20260413200531.png]]
 #### 3.4.2.2 Wavenumber máximo y aliasing espacial
 
 El espaciado entre receptores $\Delta X$ determina el **[[Wavenumber|número de onda]] de Nyquist**:
@@ -562,7 +564,7 @@ La ventana boxcar produce lóbulos laterales en el dominio f-k que pueden confun
 ### 3.4.3 Survey Design
 
 #### 3.4.3.1 Diseño para ensayos activos
-
+![[Pasted image 20260414153918.png]]
 La geometría básica es un **arreglo lineal de receptores uniformemente espaciados** con fuente en uno de los extremos (end-off) o en el centro. Los parámetros de diseño son:
 
 | Parámetro | Efecto principal |
@@ -587,6 +589,7 @@ La geometría básica es un **arreglo lineal de receptores uniformemente espacia
 > **Paper 024 (Yoon & Rix 2009, *ASCE JGGE* 135(3):399–406)** cuantifica numéricamente el **sesgo sistemático** en las [[Dispersion Curve|curvas de dispersión]] [[MASW Method|MASW]] causado por el [[Near-field Effect|efecto de campo cercano]] cuando el offset fuente–primer receptor es insuficiente. Mediante simulaciones numéricas 2D con variación paramétrica de la razón $x_1/\lambda$ (offset sobre longitud de onda analizada), el estudio establece que: (1) el sesgo es significativo para $x_1/\lambda < 0.5$ — las [[Phase Velocity|velocidades de fase]] estimadas son **menores que las reales** (subestimación sistemática del perfil $V_S$); (2) el efecto es más severo a bajas frecuencias (longitudes de onda grandes = mayor profundidad de investigación); (3) el criterio de diseño estándar **$x_1 \geq 0.5 \cdot \lambda_{\max}$** garantiza que el sesgo sea menor al 5% en la mayoría de los casos. Este criterio — junto con el de Xu et al. (2006, Paper 053) — es el estándar de facto referenciado por Foti et al. (2018, InterPACIFIC) y por las guías de adquisición MASW. Implica directamente que para investigar a 30 m de profundidad (longitud de onda $\lambda \approx 60$ m), el primer geófono debe estar al menos a 30 m de la fuente.
 > — Research Database, entrada 024; Yoon & Rix (2009), *ASCE JGGE* 135(3):399–406. DOI: 10.1061/(ASCE)1090-0241(2009)135:3(399).
 
+![[Pasted image 20260414153949.png]]
 #### 3.4.3.2 Método de dos estaciones ([[SASW Method|SASW]])
 
 El método [[SASW Method|SASW]] (*Spectral Analysis of Surface Waves*) es un caso especial con solo dos receptores. Su ventaja es la simplicidad logística; su limitación es la mayor vulnerabilidad al aliasing espacial y a la superposición de modos.
@@ -594,7 +597,7 @@ El método [[SASW Method|SASW]] (*Spectral Analysis of Surface Waves*) es un cas
 Para cubrir un rango amplio de frecuencias, se repite la medición con diferentes espaciados (short → alta frecuencia; long → baja frecuencia), usando el esquema de punto medio común (*common midpoint*) para mejorar la representatividad.
 
 *(Fuente: Foti Ch. 3, Sec. 3.4.3.2, p. 178–179)*
-
+![[Pasted image 20260414154041.png]]
 #### 3.4.3.3 Métodos pasivos
 
 ##### El ruido sísmico ambiental como fuente
@@ -648,7 +651,7 @@ Sin embargo, las **limitaciones del array lineal para datos pasivos son severas*
 > Fuente: Foti et al. (2014), Sección 3.5, pp. 183–200.
 
 El equipamiento del ensayo de [[Surface Waves|ondas superficiales]] comprende tres subsistemas: **fuente**, **receptores** ([[Geophone|geófonos]]) y **sistema de registro** (sismógrafo). La selección de cada componente determina el rango de frecuencias accesible, la relación señal-ruido (SNR) y por tanto la profundidad máxima investigable. El equipamiento estándar para [[MASW Method|MASW]] activo en aplicaciones geotécnicas incluye [[Geophone|geófonos]] verticales de 4.5 Hz, sismógrafo multicanal (≥24 canales) y sledgehammer como fuente. Las variantes pasivas (arreglos circulares, [[Beamforming|beamforming]] 2D) requieren [[Geophone|geófonos]] de frecuencia natural más baja (1–2 Hz) para capturar energía de microtremores en el rango de interés geotécnico (1–20 Hz).
-
+![[Pasted image 20260414154541.png]]
 ### 3.5.1 Fuentes sísmicas
 
 La fuente debe generar ondas superficiales con suficiente SNR en el rango de frecuencias de interés. Los parámetros clave son **energía** y **contenido espectral** (especialmente a baja frecuencia, para mayor profundidad).
@@ -719,7 +722,7 @@ Los acelerómetros son útiles en aplicaciones de alta frecuencia (ensayos de pa
 El acoplamiento receptor–suelo es fundamental. Los receptores se plantan con espiga de acero o se entierran para maximizar el contacto. Los land streamers ofrecen ventajas logísticas pero menor calidad de acoplamiento.
 
 Los receptores de dos componentes (vertical + horizontal radial) permiten medir la polarización elíptica de las [[Rayleigh Waves|Rayleigh waves]] y separar [[Surface Wave Modes|modos]]. Son útiles para [[Joint Inversion|inversión conjunta]] o aplicaciones de caracterización avanzada.
-
+z
 *(Fuente: Foti Ch. 3, Sec. 3.5.2.3–3.5.2.4, p. 198–199)*
 
  > [!EXAMPLE] Evidencia empírica: Paper 001 (Park et al. 1999) — equipamiento y diseño estándar MASW
