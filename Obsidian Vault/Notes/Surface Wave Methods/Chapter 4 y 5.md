@@ -19,6 +19,7 @@ $$V_{ph} = \frac{\omega}{k}, \qquad V_{g} = \frac{\partial \omega}{\partial k} \
 - **[[Phase Velocity|Velocidad de fase]]** ($V_{ph}$): velocidad a la que se propaga una fase particular de la onda (por ejemplo, una cresta o un nodo). Es la velocidad de un punto de fase constante.
 - **[[Group Velocity|Velocidad de grupo]]** ($V_g$): velocidad a la que viaja la energía de un paquete de ondas. Es la velocidad del *envelope* o envolvente del grupo. La Figura 4.2 (p. 207) ilustra visualmente la diferencia: las crestas individuales del tren de ondas viajan a $V_{ph}$, mientras que el grupo completo (la "caja" que contiene la energía) se desplaza a $V_g$.
 
+![[Pasted image 20260415151723.png]]
 #### Relación entre las dos velocidades
 
 La relación entre $V_g$ y $V_{ph}$ se obtiene derivando (Foti Ec. 4.2):
@@ -34,7 +35,7 @@ La Figura 4.4 (p. 209) ilustra cuatro modos de propagación en el dominio f-k. P
 - La **[[Group Velocity|velocidad de grupo]]** corresponde a la **pendiente tangente** a la curva en ese punto: $V_g = d\omega/dk$.
 
 Las líneas de [[Phase Velocity|velocidad de fase]] constante son rectas radiales desde el origen; las velocidades de grupo varían con la frecuencia y no son rectas.
-
+![[Pasted image 20260415152749.png]]
 #### Caso multimodal
 
 En propagación multimodal, cada modo $n$ tiene sus propias [[Dispersion Curve|curva de dispersión]] de fase y de grupo (Figura 4.3, p. 208). Las curvas de grupo pueden cruzarse o acercarse entre modos incluso cuando las curvas de fase están bien separadas, lo que complica la identificación modal en el dominio del tiempo.
@@ -44,7 +45,7 @@ En propagación multimodal, cada modo $n$ tiene sus propias [[Dispersion Curve|c
 Los métodos de ondas superficiales para caracterización de sitios explotan principalmente la **[[Phase Velocity|velocidad de fase]]**, por dos razones fundamentales:
 1. La [[Phase Velocity|velocidad de fase]] tiene una relación más directa y sensible con la estratigrafía $V_S(z)$ a través de la [[Dispersion Relation|curva de dispersión]].
 2. La [[Phase Velocity|velocidad de fase]] se puede medir con mayor precisión a distancias de arreglo típicas en ingeniería: es la razón $\omega/k$ directamente observable en el espacio f-k, mientras que la [[Group Velocity|velocidad de grupo]] requiere resolución temporal suficiente para separar la envolvente del tren de ondas.
-
+![[Pasted image 20260415153056.png]]
 Como se indica al comienzo del capítulo (Foti p. 205): *"group velocities are rarely used for near-surface applications."*
 
 *(Fuente: Foti Ch. 4, Sec. 4.1, pp. 205–208, Ecs. 4.1–4.2, Figs. 4.2–4.4)*
@@ -58,7 +59,7 @@ Como se indica al comienzo del capítulo (Foti p. 205): *"group velocities are r
 El *Steady-State Rayleigh Method* (SSRM) es el **primer método de caracterización de sitio mediante ondas superficiales** desarrollado para aplicaciones de ingeniería. Fue propuesto por Jones (1958, 1962) y posteriormente adoptado en el *Waterways Experiment Station* de Estados Unidos por Ballard (1964). Aunque fue ampliamente reemplazado por métodos más eficientes, estableció los conceptos fundamentales del workflow: generación de ondas, medición de la [[Wavelength|longitud de onda]], y estimación de la velocidad como función de la frecuencia.
 
 #### Principio físico y procedimiento
-
+![[Pasted image 20260415161954.png]]
 El SSRM genera ondas superficiales monocromáticas mediante un **vibrador electromecánico** que opera a una frecuencia fija. Cuando el vibrador actúa en dirección perpendicular a la superficie libre, genera predominantemente [[Rayleigh Waves|ondas de Rayleigh]]; orientado horizontalmente en dirección transversal a la línea de medición, genera [[Love Waves|ondas de Love]]. La fuente y un receptor único son monitoreados en tiempo real mediante un osciloscopio.
 
 El procedimiento de medición es el siguiente (Fig. 4.5, p. 210):
@@ -75,7 +76,7 @@ $$V_R = f \cdot \lambda_R$$
 #### Determinación robusta de la [[Wavelength|longitud de onda]]
 
 Para evitar errores por posición única, se identifican **múltiples posiciones** donde la señal está en fase (separadas por múltiplos enteros de $\lambda_R$). En el plano offset–número de ciclos, estas posiciones se alinean en una recta; la pendiente inversa de esa recta da $\lambda_R$ (Fig. 4.6, p. 211). Este enfoque promedia el efecto del ruido y da una estimación más robusta.
-
+![[Pasted image 20260415162200.png]]
 Ejemplo numérico del libro (Fig. 4.6): para $f = 10\,\text{Hz}$ se obtiene $\lambda_R = 34\,\text{m}$ → $V_R = 340\,\text{m/s}$; para $f = 25\,\text{Hz}$ se obtiene $\lambda_R = 10\,\text{m}$ → $V_R = 250\,\text{m/s}$; para $f = 50\,\text{Hz}$ se obtiene $\lambda_R = 4\,\text{m}$ → $V_R = 200\,\text{m/s}$.
 
 #### Variante multicanal: el método CSW
