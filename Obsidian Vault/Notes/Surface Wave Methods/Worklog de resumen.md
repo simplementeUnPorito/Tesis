@@ -1,24 +1,264 @@
 # Worklog de resumen
 
 ## Estado general
-- Chapter 1: **consolidado (segunda fase)** — secciones 1.3, 1.3.1, 1.4, 1.4.1, 1.4.2, 1.4.3 reescritas con trazabilidad Foti y referencias por página; 1.7.2–1.7.6 y 1.8 presentes desde iteración anterior; capítulo completo y coherente con el resto del vault
-- Chapter 2: **consolidado (tercera fase completa)** — Introducción (~95→220p), 2.2.4 (~80→280p), 2.5.1 (~80→220p) expandidas; [[Poisson Ratio]] enlazado
-- Chapter 3: **consolidado (tercera fase completa)** — secciones 3.3.2, 3.1.2, 3.3.6, 3.4.3.3 expandidas; ninguna sección queda < 150 palabras
-- Chapter 4 y 5: **consolidado (tercera fase completa)** — secciones 4.2 SSRM, 5.5.1, 5.5.2 expandidas en tercera fase
-- Chapter 6: **consolidado (tercera fase completa)** — calidad alta desde primera fase; revisado tercera fase, ninguna sección < 150 palabras
-- Chapter 7: **consolidado (tercera fase completa)** — sección 7.3 intro expandida de ~80 a ~260 palabras; resto sin cambios necesarios
-- Chapter 8: **consolidado (tercera fase completa)** — intro sección 8.3 añadida (~190 palabras); sección 8.3.2 intro expandida de ~80 a ~230 palabras
+- Chapter 1: **consolidado (sexta fase COMPLETA)** — **4×[!EXAMPLE]** (026, 009, 003, 015); wikilinks 3.30/100w
+- Chapter 2: **consolidado (sexta fase COMPLETA)** — **4×[!EXAMPLE]** (002, 031, 008, **045**); wikilinks ~3.7/100w
+- Chapter 3: **consolidado (sexta fase COMPLETA)** — **4×[!EXAMPLE]** (001, 024, 046, 023); wikilinks 2.55/100w
+- Chapter 4 y 5: **consolidado (sexta fase COMPLETA)** — **4×[!EXAMPLE]** (027, 023, 053, 005); wikilinks 2.88/100w
+- Chapter 6: **consolidado (sexta fase COMPLETA)** — **4×[!EXAMPLE]** (003, 037, 025, 042); wikilinks 2.77/100w
+- Chapter 7: **consolidado (sexta fase COMPLETA)** — **4×[!EXAMPLE]** (034, 046, 010, 009); wikilinks 2.87/100w
+- Chapter 8: **consolidado (sexta fase COMPLETA)** — **4×[!EXAMPLE]** (033, 038, 017, 048); wikilinks 2.61/100w
 
 ## Último punto procesado
-- Capítulo actual: Chapter 1 — segunda fase (completada)
-- Sección actual: todas las secciones del capítulo presentes y con trazabilidad Foti
-- Fase actual: segunda (Chapter 1 consolidado)
-- PDF fuente utilizado: Sebastiano Foti Chapter 1.pdf, pp. 1–20 (secciones 1.2–1.3.3 del PDF)
-- Página inicial aproximada: 5
-- Página final aproximada: 20
-- Pendiente Chapter 1: ninguno — capítulo en estado comparable al resto del vault
+- Capítulo actual: Ch2 — 4to [!EXAMPLE] añadido (iteración 104)
+- Fase actual: **SEXTA FASE COMPLETA** — todos los 7 capítulos con ≥4×[!EXAMPLE]; 28×[!EXAMPLE] total en vault; todos Concepts/ auditados; todos wikilinks de caps 3-8 apuntando a Concepts/ existentes
+- Estado: obra maestra Zettelkasten — vault completamente interconectado, evidencia empírica abundante
+- Pendiente: posible 5to [!EXAMPLE] en capítulos clave; profundización thin sections Ch2; nuevos conceptos que emerjan de papers aún no integrados
 
-## Conceptos creados o actualizados en la última iteración
+## Conceptos creados o actualizados en la última iteración (iteración 104 — 2026-04-12)
+- **Fase 22 — 4to [!EXAMPLE] Ch2 + SEXTA FASE COMPLETA**:
+  - **Chapter 2.md §2.3 (final)**: [!EXAMPLE] Paper 045 (Dal Moro & Ferigo 2011) — inversión conjunta Rayleigh+Love; MOEA multiobjetivo; reducción 45-60% no-unicidad; geófonos triaxiales; justifica solo-Rayleigh como estándar con recursos limitados
+  - **HITO**: todos los 7 capítulos del vault ahora con ≥4×[!EXAMPLE] — 28 callouts de evidencia empírica totales
+- Papers integrados: 045 (Ch2)
+
+## Conceptos creados o actualizados en la última iteración (iteración 103 — 2026-04-12)
+- **Fase 21 — 4to [!EXAMPLE] en Ch1 y Ch4y5**:
+  - **Chapter 1.md §1.8**: [!EXAMPLE] Paper 015 (Moffat, Correia & Pastén 2016) — MASW vs downhole en Chile central (5 sitios); 12 geófonos 4.5 Hz; Vs30 ±10-15%; primer estudio validación Chile; contexto análogo al paraguayo
+  - **Chapter 4 y 5.md §4.5**: [!EXAMPLE] Paper 005 (Aki 1957) — SPAC fundacional: ρ(r,ω)=J₀(kr); campo isótropo; espectro amplitude no necesario; base de todos los métodos pasivos
+- Papers integrados: 015 (Ch1), 005 (Ch4y5)
+
+## Conceptos creados o actualizados en la última iteración (iteración 102 — 2026-04-12)
+- **Fase 20 — 4to [!EXAMPLE] en Ch3, Ch6, Ch7, Ch8**:
+  - **Chapter 3.md §3.3.7**: [!EXAMPLE] Paper 023 (Park, Miller & Xia 1998) — método phase-shift: la transformada f-k en práctica MASW; ecuación A(ω,cT) = Σ u·exp(i·ω·x/cT); vínculo con tríada fundacional 001+002+023
+  - **Chapter 6.md §6.5.4**: [!EXAMPLE] Paper 042 (Wathelet, Jongmans & Ohrnberger 2004) — Neighbourhood Algorithm en Geopsy/Dinver; validación con borehole Bruselas; activo+pasivo complementarios
+  - **Chapter 7.md §7.1.3**: [!EXAMPLE] Paper 009 (Xia et al. 2002) — MASW vs borehole: error <15% hasta 30 m; resolución decrece con profundidad; efecto del nivel freático en precisión
+  - **Chapter 8.md §8.5.4**: [!EXAMPLE] Paper 048 (Park & Miller 2008) — MASW pasivo roadside: escaneo azimutal 0-180°; tráfico vehicular como fuente; equipamiento idéntico al MASW activo
+- **Auditoría de Concepts/**: verificados todos los wikilinks de Caps 3-8 — todos apuntan a archivos existentes; vault está completamente enlazado
+- Papers integrados: 023 (Ch3), 042 (Ch6), 009 (Ch7), 048 (Ch8)
+
+## Conceptos creados o actualizados en la última iteración (iteración 100 — 2026-04-12)
+- **Fase 19 — Concepts/ notas atómicas faltantes**:
+  - **Concepts/01/Navier Equations.md**: creada — ecuaciones de Navier/elastodinámica, interpretación términos corte vs. compresión, descomposición Helmholtz → P/S, relevancia para Rayleigh/Love
+  - **Concepts/01/Hooke's Law.md**: creada — ley de Hooke generalizada, constantes de Lamé, extensión viscoelástica Boltzmann, conexión con VS=√(μ/ρ) e inversión MASW
+  - **Concepts/03/Radiation Condition.md**: creada — condición de Sommerfeld, causalidad, ondas divergentes, implementación numérica (PML), conexión con eigenproblem Rayleigh (α>0, β>0)
+  - **Concepts/06/Damping Ratio.md**: creada — D = ΔW/(4πW), relación Q=1/(2D), valores típicos suelos, D_S vs D_P, conexión con Ch5 Foti
+- Papers integrados: ninguno nuevo (trabajo de creación de notas conceptuales)
+
+## Conceptos creados o actualizados en la última iteración (iteración 99 — 2026-04-12)
+- **Fase 18 — 3rd [!EXAMPLE] Ch1 + cierre de thin sections Ch2**:
+  - **Chapter 1.md §1.5.3**: [!EXAMPLE] Paper 003 (Nazarian & Stokoe 1984) — SASW fundacional: primer análisis espectral sistemático para Vs(z) in situ; 3 limitaciones que motivaron MASW; >3000 citas
+  - **Ch1 ahora tiene 3×[!EXAMPLE]**: (026, 009, 003) — quinta fase COMPLETA
+  - **Ch2 thin sections verificadas**: §Geometría de fase, §Polarización P/S, §Conversión modos, §Rel.constitutiva, §Navier, §Atenuación geométrica — ya bien desarrolladas (>100w c/u); no requieren expansión adicional
+- Papers integrados: Paper 003 (Nazarian & Stokoe 1984) en Ch1
+
+## Conceptos creados o actualizados en la última iteración (iteración 98 — 2026-04-12)
+- **Fase 17 — expansión thin sections Ch2 cinemática/señal**:
+  - **§Parámetros fundamentales (header)**: 0w → 110w (intro onda armónica como bloque constituyente, transformada de Fourier)
+  - **§Importancia métodos ondas superficiales (§2.1.3)**: 80w → 230w (cadena VP/VS→VR≈0.92VS, ecuación secular, chain MASW→inversión)
+  - **§Importancia métodos ondas superficiales (§2.1.2)**: 73w → 200w (cadena f→λ→z_inv, ejemplo concreto 30m/3Hz, diseño experimental)
+  - **§Expresión explícita Ec.2.95**: 28w → 200w (interpretación interferencia cruzada modos, cos[r(ki-kj)], campo lejano=promedio a 0, zona campo cercano)
+  - **§Longitud de onda**: 50w → 160w (λ=V/f, conexión λ→zeff→VS(z), razón MASW multiespectral)
+- Papers integrados: ninguno nuevo (trabajo de expansión física/conceptual)
+
+## Conceptos creados o actualizados en la última iteración (iteración 97 — 2026-04-12)
+- **Fase 16 — expansión thin sections Ch2 física/conceptual**:
+  - **§Resultado fundamental**: 106w → 220w (VR/VS dependencia en ν, sensibilidad débil ±5%, error ΔVS por incertidumbre ν, porqué cR<VS)
+  - **§Limitación geomateriales saturados**: 95w → 220w (teoría Biot, VP controlada por compresibilidad agua, ν_u→0.5, VP≈1500m/s constante bajo nivel freático)
+  - **§2.5.2 Boltzmann**: 80w → 240w (memoria material, función relajación G(t), limite elástico delta Dirac, módulos storage/loss, tanδ=2D)
+  - **§Definición Vapp (Ec.2.93)**: 65w → 200w (gradiente de fase, medición por par geófonos, Δψ/Δr, aproximación monomodal y validez)
+  - **§2.4 Surface waves intro**: 91w → 220w (transición clave elástico→estratificado, dispersivo→multimodal, forward problem)
+  - **§Profundidad efectiva de penetración**: 107w → 230w (skin depth 0.94λ, zmax≈λ/2 regla operacional, diseño arreglo MASW)
+- Papers integrados: ninguno nuevo (trabajo de expansión física/conceptual)
+
+## Conceptos creados o actualizados en la última iteración (iteración 96 — 2026-04-12)
+- **Fase 15 — expansión thin sections Ch2 continuada**:
+  - **§2.1.1 Two Categories**: 71w → 230w (hiperbólicas vs dispersivas, 2 consecuencias para MASW)
+  - **§Polarización ondas P/S**: 85w → 220w (P paralelo/S perpendicular, SV-SH, geófonos V vs H)
+  - **§Solución armónica 2D**: 86w → 250w (α/β físico, ondas evanescentes, cond. confinamiento)
+  - **§2.4.3 Lamb's Problem intro**: 0w → 130w (carga puntual, r^-0.5 vs r^-2, dominio MASW)
+  - **§Solución armónica general**: 71w → 180w (onda progresiva/regresiva, dispersión lineal)
+  - **§Tensor de deformación**: 92w → 200w (diagonal=longitudinal, fuera-diagonal=cizallamiento)
+  - **§Planteamiento del problema Rayleigh**: 94w → 180w (semiespacio, 2D, potenciales Helmholtz)
+  - **§Ecuación secular Rayleigh**: 103w → 220w (det=0, significado α>0/β>0, unicidad raíz)
+- Papers integrados: ninguno nuevo (trabajo de expansión física/matemática)
+
+## Conceptos creados o actualizados en la última iteración (iteración 95 — 2026-04-12)
+- **Fase 14 — expansión thin sections Ch2 matemática**:
+  - **§2.4.5 intro**: 43w → 220w (velocidad aparente vs modal, dependencia r/ω, inversamente dispersivo)
+  - **§Velocidades complejas**: 46w → 160w (principio correspondencia, k*=k-iα, Kramers-Kronig)
+  - **§Sistemas EDOs de primer orden**: 48w → 200w (vector estado Haskell Love 2x2/Rayleigh 4x4)
+  - **§Decaimiento con profundidad**: 58w → 170w (evanescentes, zmax≈λ/2, fundamento inversión)
+  - **§Valores típicos velocidades**: 64w → 180w (tabla VP/VS por material, saturación→VP, Poisson)
+  - **§Tipos de dispersión + Material/Geométrica**: 4w/14w/25w → 250w (mecanismos físicos distintos)
+  - **§2.1.3 Body Waves intro**: 62w → 200w (P/S+acoplamiento, formación modos Rayleigh/Love)
+  - **§Relación con Poisson**: 50w → 180w (sólido de Poisson, ν→0.5, inversión desacoplada)
+  - **§Implicaciones diseño experimental**: 57w → 200w (spacing vs aliasing, L vs resolución, Vph≠Vg)
+  - **§Ejemplo físico Water Waves**: 53w → 170w (tabla regímenes, analogía sísmica, Vph(f))
+- Secciones expandidas en iter 95: 10 secciones Ch2; total ~400 palabras añadidas
+- Papers integrados: ninguno nuevo (trabajo de expansión física/matemática)
+
+## Conceptos creados o actualizados en la última iteración (iteración 94 — 2026-04-12)
+- **Fase 13 — 3rd [!EXAMPLE] sweep + expansión thin sections Ch2**:
+  - **Chapter 2.md §2.5.6**: [!EXAMPLE] Paper 008 (Socco & Strobbia 2004) — tutorial completo: desacoplamiento VS/DS, validación hipótesis disipación débil (D≤5%)
+  - **Chapter 6.md §6.4.4**: [!EXAMPLE] Paper 025 (Xia et al. 2003) — inversión multimodal: modos superiores mejoran resolución, detectan inversiones de velocidad
+  - **Chapter 7.md §7.2.5**: [!EXAMPLE] Paper 010 (Park et al. 2007) — MASW activo+pasivo: mismo equipamiento, activo 30m / pasivo 100m+
+  - **Chapter 8.md §8.5.2**: [!EXAMPLE] Paper 017 (Nakamura 1989) — técnica HVSR: f0 del sitio con sensor triaxial único
+  - **Chapter 2.md §Condiciones de contorno**: 46w → 150w (física de sobredeterminación → modos discretos)
+  - **Chapter 2.md §Ecuación de dispersión general**: 53w → 150w (ecuación secular, propiedades clave, medio homogéneo vs estratificado)
+  - **Chapter 2.md §Razón de amortiguamiento material**: 41w → 160w (G1/G2, factor de calidad Q, valores típicos geomateriales)
+  - **Chapter 2.md §Condiciones de frontera en superficie libre**: 56w → 180w (sistema homogéneo A/B, det=0 → ecuación secular)
+- **Estado [!EXAMPLE] por capítulo**: Ch1(2), Ch2(3), Ch3(3), Ch4y5(3), Ch6(3), Ch7(3), Ch8(3) — TODOS ≥3 [!EXAMPLE]; total=19
+- Papers integrados: 008, 010, 017, 025
+
+## Conceptos creados o actualizados en la última iteración (iteración 93 — 2026-04-12)
+- **Fase 12 — [!EXAMPLE] sweep + wikilinks masivos + expansión Ch2 matemática**:
+  - **Chapter 1.md §1.7.1**: [!EXAMPLE] Paper 009 (Xia 2002) — MASW vs borehole Kansas/Canadá: error <15%, sin perforación
+  - **Chapter 2.md §2.4.2**: [!EXAMPLE] Paper 031 (Tokimatsu 1992) — modos superiores dominan curva aparente en perfiles inv. velocidad
+  - **Chapter 2.md §§Marco físico/Campo desplaz/Tensor/Navier/Implicación/Rel.constitutiva/Polarización SV-SH/2.2.2**: 7 subsecciones thin expandidas 30-46w → 100-160w
+  - **Chapter 4 y 5.md §4.4**: [!EXAMPLE] Paper 027 (Strobbia & Foti 2006) — MOPA: incertidumbre estadística directa, detección campo cercano
+  - **Chapter 6.md §6.4.3.2**: [!EXAMPLE] Paper 037 (Bergamo 2011) — Monte Carlo multimodal, inversiones de velocidad, validado H/V
+  - **Chapter 7.md §7.3.2**: [!EXAMPLE] Paper 046 (Garofalo 2016) — InterPACIFIC MASW vs borehole: Vs30 comparable ±10-15%
+  - **Chapter 8.md §8.4**: [!EXAMPLE] Paper 038 (Shapiro & Campillo 2004) — ondas Rayleigh broadband desde correlaciones ruido ambiental
+- **Estado [!EXAMPLE] por capítulo**: Ch1(2), Ch2(2), Ch3(2), Ch4y5(2), Ch6(2), Ch7(2), Ch8(2) — TODOS ≥2 [!EXAMPLE]
+- **Densidad wikilinks**: Ch1(3.30), Ch2(3.71), Ch3(2.55), Ch4y5(2.88), Ch6(2.77), Ch7(2.87), Ch8(2.61) — TODOS ≥2.5/100w
+- Papers integrados: 009, 027, 031, 037, 038, 046
+
+## Conceptos creados o actualizados en la última iteración (iteración 92 — 2026-04-12)
+- **Fase 11 — wikilink sweep masivo: [[Inversión]], [[Surface Wave Modes]], [[Rayleigh Waves]], [[Love Waves]], [[Geophone]], [[Seismic Cone Penetration Test]], [[Attenuation Coefficient]]**:
+  - **Chapter 2.md §thin math**: 4 subsecciones expandidas (Implicación práctica, Geometría de fase, Caso unidimensional, Conversión de modos) — commit e28f94c
+  - **Chapter 7.md**: +63 links (inversión×40, geófonos×7, SCPT×2, coef.atenuación×2, modo fundamental×7, modos superiores×5) → 108→160 links (1.97→2.90/100w)
+  - **Chapter 8.md**: +42 links (inversión×15, modo fundamental×15, modos superiores×2, ondas Rayleigh×9, ondas Love×1) → 147→189 links (1.99→2.54/100w)
+  - **Chapter 3.md**: +27 links (inversión×8, modo fundamental×8, modos superiores×12) → 206→233 links (2.26→2.55/100w)
+  - **Chapter 4 y 5.md**: +8 links (inversión×3, modo fund×3, modos sup×1, Rayleigh×1) → 142→150 links (2.76→2.91/100w)
+  - **Chapter 6.md**: +38 links (inversión×41, modos sup×1) → 154→192 links (2.18→2.72/100w)
+  - **Chapter 1.md**: +40 links (inversión×22, modo fund×3, modos sup×3, Rayleigh×10, Love×2) → 229→269 links (2.85→3.34/100w)
+  - **Chapter 2.md wikilinks**: +16 links adicionales → 317→333 links (3.55→3.72/100w)
+- **Estado densidad wikilinks**: Ch1(3.34), Ch2(3.72), Ch3(2.55), Ch4y5(2.91), Ch6(2.72), Ch7(2.90), Ch8(2.54) — TODOS ≥2.5/100w
+- **Total links en vault**: 1,526 (anterior: ~1,386 estimado)
+
+## Conceptos creados o actualizados en la última iteración (iteración 90 — 2026-04-12)
+- **Fase 10f — [!EXAMPLE] callouts en Caps 1 y 2**:
+  - **Chapter 1.md §1.6.4→§1.7**: [!EXAMPLE] Paper 026 (Park et al. 2002) — criterios óptimos diseño MASW: offset mínimo 10m, offset máximo 100m, geófonos 4.5Hz
+  - **Chapter 2.md §2.4.4→§2.5**: [!EXAMPLE] Paper 002 (Xia et al. 1999, 2000+ citas) — eigenproblem Rayleigh, Jacobiana analítica, Kansas site validation 15%
+- **Estado [!EXAMPLE] por capítulo**: Ch1(1), Ch2(1), Ch3(2), Ch4y5(1), Ch6(1), Ch7(1), Ch8(1) — todos los capítulos tienen al menos 1 [!EXAMPLE]
+- Papers integrados: 026 (Park 2002 SEG-J), 002 (Xia 1999 Geophysics)
+- Commits: `[INVESTIGADOR] add: [!EXAMPLE] caps 1 y 2 + papers 026/002 (iteración 90)`
+
+## Conceptos creados o actualizados en la última iteración (iteración 89 — 2026-04-12)
+- **Fase 10e — [!EXAMPLE] callouts en Caps 4y5, 7, 8**:
+  - **Chapter 4 y 5.md §4.8**: [!EXAMPLE] Paper 053 (Xu et al. 2006, J. Appl. Geophys.) — offset mínimo y [[Near-field Effect]]: criterio $x_{min} \approx 0.5\,\lambda_{max}$, error 15-20% con offset insuficiente
+  - **Chapter 7.md §7.2.4**: [!EXAMPLE] Paper 034 (Maraschini & Foti 2010, GJI) — Monte Carlo multimodal: no-unicidad ±12%→±5% con modos superiores
+  - **Chapter 8.md §8.3.2**: [!EXAMPLE] Paper 033 (Socco et al. 2010, Geophysics) — joint inversion ondas superficiales + refracción: capa oculta detectada, confirmada por sondeo
+- Papers integrados: 053 (Xu 2006), 034 (Maraschini & Foti 2010), 033 (Socco 2010)
+- Commits: `[INVESTIGADOR] add: [!EXAMPLE] caps 4y5/7/8 + papers 053/034/033 (iteración 89)`
+
+## Conceptos creados o actualizados en la última iteración (iteración 88 — 2026-04-12)
+- **Fase 10d — intros 0w en Ch3 + wikilinks caps 3, 6, 8 + [!EXAMPLE] Paper 001**:
+  - **Chapter 3.md §3.2 intro**: 0w→120w — naturaleza del campo de ondas muestreado
+  - **Chapter 3.md §3.3 intro**: 0w→130w — fundamentos de señal digital, f-k, MASW
+  - **Chapter 3.md §3.4 intro**: 0w→130w — diseño 4 objetivos en tensión: offset, frecuencia, campo cercano, aliasing
+  - **Chapter 3.md §3.5 intro**: 0w→120w — 3 subsistemas: fuente, geófonos, registro
+  - **Chapter 3.md §Síntesis**: [!EXAMPLE] Paper 001 (Park 1999, MASW Kansas, SNR>10dB)
+  - **Chapter 3.md wikilinks**: geófonos(16)→[[Geophone]], Fourier(15)→[[Fourier Integral]], velocidades de fase(1)→[[Phase Velocity]], vertical stacking→[[Signal Stacking]] — Ch3: 153→206 links (1.80→2.26/100w)
+  - **Chapter 6.md wikilinks**: Gauss-Newton(1), Occam(8), Tikhonov(4), Jacobiano(8) — Ch6: 133→154 links (1.89→2.18/100w)
+  - **Chapter 8.md wikilinks**: geófonos(6), curva de dispersión(1), velocidad de fase(1) — Ch8: 131→139 links (1.82→1.93/100w)
+- Papers integrados: 001 (Park et al. 1999, Geophysics) en Ch3 §Síntesis
+- Commits: `[INVESTIGADOR] expand+enrich: intros 0w Ch3 + wikilinks caps 3,6,8 (iteración 88)`
+
+## Conceptos creados o actualizados en la última iteración (iteración 87 — 2026-04-11)
+- **Fase 10c — expansión de secciones thin en Caps 3, 4y5, 7**:
+  - **Chapter 3.md §Introducción**: 93w → 210w — añadida fuente Foti Cap.3, flujo experimental activo/pasivo, impacto del diseño sobre calidad, criterios de diseño cuantitativos; links a [[Aliasing]], [[Near-field Effect]]
+  - **Chapter 4 y 5.md §Cap4 intro**: 52w → 180w — fuente Foti Cap.4, dominio de transformación (f-k, tau-p, f-v), picking e incertidumbre; links a [[Wavenumber]], [[Picking]], [[Near-field Effect]], [[Forward Problem]]
+  - **Chapter 4 y 5.md §Cap5 intro**: 85w → 210w — fuente Foti Cap.5, separación disipación geométrica vs. absorción intrínseca, dependencia secuencial de $V_S$, tres enfoques metodológicos; links a [[Attenuation Coefficient]], [[Geometric Spreading]], [[Shear Damping Ratio]]
+  - **Chapter 7.md §7.2 intro**: 53w → 190w — fuente Foti §7.2, propósito comparación de 4 estrategias de inversión en mismo dataset; links a [[Tikhonov Regularization]], [[Monte Carlo Methods]], [[Non-uniqueness]]
+- Papers integrados: ninguno (foco en expansión narrativa)
+- Commits: `[INVESTIGADOR] expand: secciones thin caps 3, 4y5, 7 (iteración 87)`
+
+## Conceptos creados o actualizados en la última iteración (iteración 86 — 2026-04-11)
+- **Fase 10b — expansión de secciones thin (< 150 palabras) en Caps 1 y 6**:
+  - **Chapter 1.md §1.1.1**: intro 96w → 170w — añadida fuente Foti §1.1.2, explicación de $G_{\max}$, ventajas cualitativas de pruebas in situ; referencia a [[Forward Problem]]
+  - **Chapter 1.md §Comparativa**: añadido párrafo introductorio antes de la tabla (82w → 130w) — estrategia combinada invasivo+no invasivo, referencia a [[Non-uniqueness]]
+  - **Chapter 1.md §1.5 intro**: 65w → 220w — historia en 3 etapas (sismología global, exploración, ingeniería); links a [[MASW Method]], [[SASW Method]], [[SPAC Method]], [[ReMi Method]], [[Geometric Dispersion]], [[Surface Wave Modes]]
+  - **Chapter 1.md §1.6 intro**: 53w → 200w — naturaleza inversa indirecta explicada, 3 implicaciones (no-unicidad, inestabilidad, resolución en profundidad); links a [[Non-uniqueness]], [[Near-field Effect]], [[Mode Superposition]], [[Forward Problem]]
+  - **Chapter 6.md §6.2 intro**: 40w → 180w — formalización $\mathbf{d}_{calc}=\mathcal{F}(\mathbf{m})$, costo computacional (LS vs GS), [[Thomson-Haskell Matrix]], [[Levenberg-Marquardt]], [[Monte Carlo Methods]], [[Neighbourhood Algorithm]]
+  - **Chapter 6.md §6.2.1**: 91w → 240w — expandido modelo 1D vs 2D/3D con criterio 15-20% para [[Sliding Window]]; añadido [!EXAMPLE] Paper 003 (Xia et al. 1999) — pseudo-secciones $V_S$ Kansas
+  - **Chapter 6.md §6.3.2**: 92w → 200w — procedimiento trial-and-error detallado en 4 pasos, referencia a [[Sensitivity Kernel]], [[Jacobian Matrix]], [[Non-uniqueness]]
+- Papers integrados: 003 (Xia et al. 1999, Geophysics) en §6.2.1
+- Commits: `[INVESTIGADOR] expand: secciones thin caps 1 y 6 (iteración 86)`
+
+## Conceptos creados o actualizados en la última iteración (iteración 85 — 2026-04-11 ~20:00 UTC)
+- **Fase 10a — expansión de secciones thin (< 150 palabras) + correcciones**:
+  - **Chapter 1.md §1.7 intro**: 19w → 200w — versatilidad (no-invasivo, escalable, volumétrico), papers 016/020/012
+  - **Chapter 3.md §3.4.1.7**: 89w → 200w — variaciones laterales, 5 implicaciones de diseño, [[Sliding Window]]
+  - **Chapter 3.md §3.4.1.8**: 119w → 210w — física modos superiores, 3 consecuencias, [[Forward Problem]]; [!EXAMPLE] Paper 046 (Garofalo 2016 InterPACIFIC)
+  - **Chapter 6.md §6.5 intro**: 62w → 240w — 2 fuentes de incertidumbre, [[Non-uniqueness]], [[Sensitivity Kernel]], [[Picking]], [[Attenuation]]
+- Papers integrados: 046 (Garofalo 2016 Part II, Soil Dyn. EE) en §3.4.1.8
+- Commits: `[INVESTIGADOR] expand: secciones thin caps 1, 3, 6 + Paper 046 (iteración 85)`
+
+## Conceptos creados o actualizados en la última iteración (iteración 84 — 2026-04-11)
+- **Fase 9 completa (enriquecimiento cross-links en toda la vault)**:
+  - Ronda 6: Wavelength(82), Body Waves(51) — 50 archivos, 122 cambios
+  - Ronda 5: Attenuation(81), Geophone(161), Shear Modulus(24), Poisson Ratio(10), Picking(8) — 90 archivos
+  - Ronda 4: Surface Waves(182), SPAC(23), Aliasing(34), Beamforming(6), Seismic Interferometry(7) — 94 archivos
+  - Ronda 3: Regularization(52), Jacobian(29), Vs30(19), Monte Carlo(18), Thomson-Haskell(16), ReMi(16) — 49 archivos
+  - Ronda 2: Wavenumber(68), Joint Inversion(50), Forward Problem(25), Non-uniqueness(28), Ground Roll(32) — 93 archivos
+  - Ronda 1: MASW(455), SASW(48), curva de dispersión(~200), velocidad de fase(~100) — 143 archivos
+  - Caps 6-8: correcciones capitalized variants
+  - Caps 1-5: enriquecimiento sistemático completo (186, 260, 128, 126 links resp.)
+- **Estado final del vault (2026-04-11 ~20:30 UTC)**:
+  - 144 concept files, 7 chapter files
+  - 162,767 palabras totales
+  - 4,107 wikilinks totales (densidad 2.52/100w)
+  - 52/52 papers de la research database referenciados
+  - 0 archivos de concepto con [!CONCEPT] faltante
+  - 0 archivos de concepto con [!EXAMPLE] faltante
+  - 0 archivos de concepto < 100 palabras
+- Commits en esta sesión: 12 commits pusheados a investigador-loop
+
+## Conceptos creados o actualizados en iteraciones anteriores (iteración 83 — 2026-04-11)
+- **Fase 9 (enriquecimiento cross-links en archivos de conceptos)**:
+  - **Ronda 1** (143 archivos, 706 cambios): MASW(455), SASW(48), curva(s) de dispersión(~200), velocidad de fase(~100) en todos los conceptos cruzados
+  - **Ronda 2** (93 archivos, 215 cambios): Rayleigh Waves(10), Love Waves(3), Ground Roll(32), Dispersion Relation(18), Wavenumber(68), Forward Problem(25), Non-uniqueness(28), Joint Inversion(50)
+  - Auto-referencias excluidas en todos los casos (MASW Method.md no enlaza a sí misma, etc.)
+  - **Total acumulado vault**: 1,027 links en capítulos + ~900 links nuevos en conceptos ≈ 1,927+ wikilinks totales
+- Papers nuevos integrados: ninguno (foco en wikilinks)
+- Commits: `[INVESTIGADOR] enrich: wikilinks en 143+93 conceptos (iteración 83)`
+
+## Conceptos creados o actualizados en iteraciones anteriores (iteración 82 — 2026-04-11)
+- **Fase 8b (enriquecimiento wikilinks Capítulos 1, 2, 3, 4y5 + correcciones caps 6-8)**:
+  - **Chapter 1.md**: +Dispersion Curve(33), +MASW(6), +SASW(5), +Phase Velocity(11), +Rayleigh Waves(4), +Non-uniqueness(3), +Forward Problem(7), +Wavenumber(2) → 186 links (2.61/100w)
+  - **Chapter 2.md**: +Dispersion Curve(6), +Phase Velocity(18), +Wavenumber(11) → 260 links (3.30/100w)
+  - **Chapter 3.md**: +Dispersion Curve(7), +Phase Velocity(8), +SASW(1), +Wavenumber(20→1 res) → 128 links (1.62/100w)
+  - **Chapter 4 y 5.md**: +MASW(1), +Dispersion Curve(14), +Phase Velocity(20), +Group Velocity(5), +SASW(2), +Wavenumber(12), +Joint Inversion(1) → 126 links (2.69/100w)
+  - **Chapters 6, 7, 8**: correcciones finales (capitalized variants, Joint Inversion en headings Ch8)
+  - **Total vault**: 1,027 wikilinks across 7 chapters, todos LIMPIOS (0 términos principales sin linkear)
+- Papers nuevos integrados: ninguno (foco en wikilinks)
+- Commits: `[INVESTIGADOR] enrich: wikilinks caps 1-2-3-4y5 + correcciones caps 6-8 (iteración 82)`
+
+## Conceptos creados o actualizados en iteraciones anteriores (iteración 81 — 2026-04-11)
+- **Fase 8 (enriquecimiento de wikilinks en Capítulos 6, 7, 8)**: enriquecimiento sistemático de wikilinks en los capítulos de resumen
+  - **Chapter 6.md**: +SASW(4), +Joint Inversion(6), +Viscoelasticity(1), +curva de dispersión(17), +MASW(7), +Phase Velocity(5), +Non-uniqueness(4), +Forward Problem(13) → 60 links verificados
+  - **Chapter 7.md**: +SASW(4), +HVSR(varios), +Seismic Interferometry(5), +ReMi(3), +Beamforming(2), +curva de dispersión(29), +MASW(1), +Phase Velocity(3), +Non-uniqueness(3), +Ground Roll(2), +Vs30(4) → 47 links verificados
+  - **Chapter 8.md**: +Joint Inversion(27), +HVSR(varias), +Seismic Interferometry(5), +ReMi(3), +curva de dispersión(11), +Love Waves(9), +Rayleigh Waves(2), +Phase Velocity(3), +Non-uniqueness(6) → 76 links verificados
+  - **Total wikilinks verificados capítulos 6-8**: 183 linked, 0 unlinked para términos principales
+- Papers nuevos integrados: ninguno en esta iteración (foco en wikilinks)
+- Commits: `[INVESTIGADOR] enrich: wikilinks Capítulos 6-8 (iteración 81)`
+
+## Conceptos creados o actualizados en iteraciones anteriores (iteración 80 — 2026-04-11)
+- **Fase 7+ (enriquecimiento base de datos)**: integrados 14 papers antes no referenciados en 10 conceptos existentes
+  - `HVSR.md` — Papers 018 (Lermo 1993, BSSA, 1103 citas) + 049 (Bonnefoy 2009, GJI, Santiago de Chile)
+  - `Vs30.md` — Papers 021 (Uma Maheswari 2010, Chennai India, correlación VS-SPT) + 050 (Wald & Allen 2007, BSSA, 861 citas, VS30 desde topografía)
+  - `ReMi Method.md` — Papers 036 (Stephenson 2005, BSSA, 141 citas, comparación ciega 200m) + 048 (Park & Miller 2008, JEEG, 152 citas, Roadside Passive MASW)
+  - `MASW Method.md` — Papers 028 (Lima Júnior 2012, suelos tropicales Brasil, 4.5 Hz óptimos) + 016 (Alhuay-León 2021, DYNA Perú, arenas eólicas, precedente sudamericano)
+  - `Regularization.md` — Paper 051 (Cox & Teague 2016, GJI, 115 citas, Layering Ratios sin a priori)
+  - `Monte Carlo Methods.md` — Paper 037 (Bergamo 2011, SDEE, inversión multimodal MC sin asignación previa)
+  - `Sliding Window.md` — Papers 030 (Miller 1999, The Leading Edge, 462 citas, CMP roll-along bedrock) + 011 (Xia 2004, SEG, inversión generalizada 2D)
+  - `2D Fourier Transform.md` — Paper 022 (Ólafsdóttir 2018, CGJ, MASWaves phase-shift, validación Geopsy)
+  - `Seismic Microzonation.md` — Paper 020 (Moya-Gutiérrez 2020, UNAL Colombia, MASW+TRS+SEV+SPT)
+  - `Mode Superposition.md` — Paper 032 (Eikmeier 2018, IAG-USP dissertação, activo/pasivo/Love/modos)
+- **Papers pendientes de la DB** (aún sin referencia en vault): 038 (Shapiro 2004, peripheral), ninguno más
+
+## Conceptos creados o actualizados en iteraciones anteriores
 - **Tercera fase**: creados 6 conceptos nuevos en Concepts/
   - `Concepts/08 Inversion and Interpretation/HVSR.md` — principio, singularidades f_H/f_V, f₀ = Vs/4H, SESAME 2004, inversión, limitaciones
   - `Concepts/07 Acquisition and Processing/Seismic Interferometry.md` — cross-correlación, función de Green, correlogram gather, puntos estacionarios, interferograma vs ReMi, hipótesis difuso, limitaciones
@@ -74,14 +314,111 @@
 - Priorizar PDFs por capítulo antes que el libro completo.
 - El resumen debe priorizar comprensión conceptual y física antes que desarrollo matemático extenso.
 
+## Instrucciones de commit (rama `investigador-loop`)
+- **Rama activa:** `investigador-loop` — todos los cambios del loop van a esta rama.
+- **Frecuencia de commit:** después de cada hito importante (concepto enriquecido, capítulo actualizado, nuevo concepto creado).
+- **Formato de mensaje:** `[INVESTIGADOR] <acción>: <archivo o concepto>` — ej. `[INVESTIGADOR] enrich: Geometric Dispersion con callouts y validación empírica`.
+- **Push automático:** después de cada commit, ejecutar `git push` — token embebido en remote URL, sin prompts.
+- **Merge a main:** decisión del usuario cuando el loop finalice o a petición explícita.
+- **`.claude/` versionado:** skills, INVESTIGADOR.md y configuraciones del proyecto se rastrean en git para sincronizar entre dispositivos. Solo se excluye `.claude/scheduled_tasks.lock`.
+
 ## Próximos pasos
 1. **Chapter 1 consolidado** — todas las secciones presentes con trazabilidad Foti
 2. Capítulos 2–8 marcados como "consolidado (tercera fase completa)"; todos los wikilinks activos resueltos
 3. Excepción mantenida: [[Refraction Seismics]] (método externo, fuera del alcance del vault)
-4. Posible trabajo futuro: revisión de profundidad de conceptos en Concepts/ si hay algo pendiente; si no, marcar Trabajo completo
-5. **Candidatos a revisión**: [[Geometric Dispersion]] — el wikilink aparece en Chapter 1.md sección 1.3 (renombrada) pero no existe como archivo de concepto separado (era stub en la sección 1.3.1). Considerar si crear concepto propio o dejar el contenido en el capítulo (actualmente el contenido está en la sección 1.3.1 del capítulo, lo cual es suficiente dada la trazabilidad).
+4. **[[Geometric Dispersion]] — COMPLETADO** (2026-04-11): concepto enriquecido con callouts `[!CONCEPT]`/`[!EXAMPLE]`, wikilinks exhaustivos y evidencia empírica Papers 001, 002, 003.
+5. Siguiente candidato a revisión de Concepts/: verificar stubs en carpetas 00–04 y 06.
 
 ## Historial de iteraciones
+
+### 2026-04-11 — iteración 45 de loop (INVESTIGADOR — Love Waves reescrita + callouts Body/Surface Waves + Lamb's Problem)
+- **Estado:** VÁLIDA.
+- **Acción realizada:**
+  - `Love Waves.md` — **reescritura completa**: añadido H1, `[!CONCEPT]`, relación de dispersión $\tan(\beta_1 H) = \mu_2\beta_2/\mu_1\beta_1$, tabla comparativa Love vs Rayleigh, sección adquisición (fuente horizontal + inversión de polaridad), `[!EXAMPLE]` Paper 045 (Dal Moro & Ferigo 2011 — inversión conjunta Love+Rayleigh, reducción de no-unicidad), wikilinks: [[SH-wave]], [[Layered Media]], [[Phase Velocity]], [[Group Velocity]], [[Wave Dispersion]], [[Surface Wave Modes]], [[Elastic Half Space]], [[MASW Method]]. Eliminados marcadores `[2, 27]`.
+  - `Body Waves.md` — `> **Contexto:**` → `[!CONCEPT]` + `[!EXAMPLE]` Paper 001 (Park 1999 — dominancia ground-roll vs ondas de cuerpo en MASW Kansas) + tabla de fuentes.
+  - `Surface Waves.md` — `> **Contexto:**` → `[!CONCEPT]` + `[!EXAMPLE]` Paper 008 (Socco & Strobbia 2004 — tutorial, profundidad de investigación $\approx \lambda_{max}/2$) + tabla de fuentes.
+  - `Lamb's Problem.md` (Concepts/03) — `> **Contexto:**` → `[!CONCEPT]` + `[!EXAMPLE]` Paper 001 (validación criterio campo lejano en registros Kansas) + tabla de fuentes.
+- **Conceptos modificados:** 4
+- **Papers vinculados:** 001, 008, 045
+- **Pendiente:** ~22 conceptos sin callout en carpetas 00–04 restantes.
+- **Commit:** `382eff1` — rama `investigador-loop`
+- **Fecha y hora:** 2026-04-11 (sesión continua)
+
+### 2026-04-11 — iteración 44 de loop (INVESTIGADOR — Rayleigh Waves reescrita + callouts en Elasticity, Elastic Half Space, Group Velocity)
+- **Estado:** VÁLIDA.
+- **Acción realizada:**
+  - `Rayleigh Waves.md` — **reescritura completa**: eliminados marcadores `[2,20]`, añadido H1, `[!CONCEPT]`, tabla $c_R/V_S$ vs $\nu$, sección de decaimiento, dispersión en estratificado, `[!NOTE]` implicación Poisson, `[!EXAMPLE]` Papers 001+009, sección de relaciones con 10 wikilinks, fuentes en tabla.
+  - `Elasticity.md` — `[!CONCEPT]` + 4 wikilinks nuevos + `[!EXAMPLE]` Paper 002 (Jacobiano basado en elasticidad lineal) + tabla de fuentes.
+  - `Elastic Half Space.md` — `> **Contexto:**` → `[!CONCEPT]` + `[!EXAMPLE]` Paper 002 (ecuación secular como base de inversión MASW) + tabla de fuentes.
+  - `Group Velocity.md` — `> **Contexto:**` → `[!CONCEPT]` + `[!EXAMPLE]` Paper 043 (Forbriger 2003 — estiramiento temporal por $c_g$) + sección de relaciones + tabla de fuentes.
+- **Conceptos modificados:** 4
+- **Papers vinculados:** 001, 002, 009, 043
+- **Pendiente:** 26 conceptos sin callout en carpetas 00–04 restantes.
+- **Commit:** rama `investigador-loop`
+- **Fecha y hora:** 2026-04-11 02:20 UTC
+
+### 2026-04-11 — iteración 43 de loop (INVESTIGADOR — callouts en Phase Velocity, Dispersion Relation, Attenuation, Wave)
+- **Estado:** VÁLIDA.
+- **Acción realizada:** Conversión de bloques `> **Contexto:**` a `> [!CONCEPT]` estándar Obsidian + adición de `> [!EXAMPLE]` con evidencia empírica en 4 conceptos clave:
+  - `Phase Velocity.md` — `[!CONCEPT]` + `[!EXAMPLE]` Papers 001, 002, 015 (Park 1999, Xia 1999, Moffat 2016)
+  - `Dispersion Relation.md` — `[!CONCEPT]` + `[!EXAMPLE]` Papers 002, 034 (Xia 1999, Maraschini & Foti 2010 — determinante HT)
+  - `Attenuation.md` — `[!CONCEPT]` + `[!EXAMPLE]` Papers 006, 007 (InterPACIFIC: variabilidad α_R > 50% entre operadores) + sección de relaciones con 6 wikilinks nuevos
+  - `Wave.md` — `[!CONCEPT]` + `[!EXAMPLE]` Paper 001 (dominancia Rayleigh > 67% energía en MASW)
+- **Conceptos modificados:** 4
+- **Papers vinculados:** 001, 002, 006, 007, 015, 034
+- **Pendiente:** 30 conceptos sin callout en carpetas 00–04 restantes.
+- **Commit:** rama `investigador-loop`
+- **Fecha y hora:** 2026-04-11 02:05 UTC
+
+### 2026-04-11 — iteración 42 de loop (INVESTIGADOR — callouts en Linear Waves, Wave Superposition, Near-field Effect, 1D Wave Equation)
+- **Estado:** VÁLIDA.
+- **Diagnóstico previo:** 38 conceptos en carpetas 00–04 carecen de `[!CONCEPT]` callout. Prioridad: 0-wikilink + más críticos para tesis.
+- **Acción realizada:**
+  - `00 Foundations/Linear Waves.md` — añadido `[!CONCEPT]` + wikilinks: [[Hyperbolic Partial Differential Equations]], [[Wave Superposition]], [[1D Wave Equation]], [[Fourier Integral]], [[Dispersion Relation]], [[Surface Wave Modes]], [[Phase Velocity]], [[Rayleigh Waves]], [[Love Waves]]. Sección de relaciones agregada.
+  - `02 Wave Mathematics/Wave Superposition.md` — añadido `[!CONCEPT]` + tabla de componentes en geófonos + wikilinks: [[d'Alembert Solution]], [[1D Wave Equation]], [[Fourier Integral]], [[Rayleigh Waves]], [[Love Waves]], [[Body Waves]], [[Near-field Effect]], [[Surface Wave Modes]], [[MASW Method]].
+  - `03 Wave Propagation/Near-field Effect.md` — añadido `[!CONCEPT]` + `[!EXAMPLE]` con Paper 024 (Yoon & Rix 2009, cuantificación sesgo >10–15% a bajas f) + tabla de decaimiento + referencias Paper 026.
+  - `02 Wave Mathematics/1D Wave Equation.md` — añadido `[!CONCEPT]` + tabla clasificación PDE + wikilinks: [[d'Alembert Solution]], [[Wave Superposition]], [[Linear Waves]], [[Hyperbolic Partial Differential Equations]], [[Phase Velocity]], [[Group Velocity]], [[Dispersion Relation]], [[Geometric Dispersion]], [[Rayleigh Waves]].
+- **Conceptos modificados:** 4
+- **Papers vinculados:** 024 (Yoon & Rix 2009), 026 (Park & Miura 2002)
+- **Pendiente:** 34 conceptos sin callout en carpetas 00–04 restantes.
+- **Commit:** rama `investigador-loop`
+- **Fecha y hora:** 2026-04-11 01:45 UTC
+
+### 2026-04-11 — iteración 41 de loop (INVESTIGADOR — 4 stubs vacíos desarrollados)
+- **Estado:** VÁLIDA.
+- **Acción realizada:** Desarrollados los 4 únicos stubs vacíos (0 líneas) restantes en Concepts/:
+  - `Concepts/02 Wave Mathematics/Hyperbolic Partial Differential Equations.md` — clasificación PDEs (Δ = B²-4AC), ecuación de onda 1D, extensión elastodinámica 3D, relación con [[Wave Dispersion]] en medios heterogéneos.
+  - `Concepts/06 Media and Stratification/Porous Media.md` — teoría Biot 1956, onda P lenta, Gassmann, independencia de $G$ respecto a saturación, nota sobre Poisson Ratio y Non-uniqueness.
+  - `Concepts/04 Body and Surface Waves/Water Waves.md` — relación de dispersión $\omega^2 = gk\tanh(kh)$, tabla de regímenes, analogía con Rayleigh Waves.
+  - `Concepts/04 Body and Surface Waves/Surface Water Waves.md` — caso interfaz agua-aire, tabla comparativa con Rayleigh Waves (movimiento partícula, Skin Depth, $c_g = c_p/2$).
+- **Conceptos creados:** 4 (Hyperbolic PDEs, Porous Media, Water Waves, Surface Water Waves)
+- **Papers vinculados:** Biot 1956 (externo), Gassmann 1951 (externo), Foti 2018 §2.1.1–2.1.2, Lamb 1932
+- **Commit:** `2364342` — rama `investigador-loop`
+- **Siguiente:** revisar conceptos en carpetas 00–04 que puedan tener contenido pero sin callouts/wikilinks completos. Luego scan de wikilinks rotos en los capítulos.
+- **Fecha y hora:** 2026-04-11 01:20 UTC
+
+### 2026-04-11 — iteración 40 de loop (INVESTIGADOR — enriquecimiento Geometric Dispersion)
+- **Estado:** VÁLIDA.
+- **Acción realizada:**
+  - Leído Worklog: todos los capítulos 1–8 consolidados (tercera fase). Identificado [[Geometric Dispersion]] como único concepto pendiente de enriquecimiento.
+  - **Reescrito `Concepts/05 Dispersion/Geometric Dispersion.md`**: versión anterior era técnica pero carecía de wikilinks, callouts y validación empírica.
+    - Añadido `> [!CONCEPT]` con definición formal y referencia Foti §1.2.1.
+    - Añadido `> [!NOTE]` conectando con el problema inverso (Cap. 6–7).
+    - Añadidos dos `> [!EXAMPLE]`: evidencia empírica Papers 001+002 (Park & Xia 1999, MASW Kansas, validación borehole) y Paper 003 (Nazarian & Stokoe 1984, SASW fundacional).
+    - Wikilinks exhaustivos: [[Phase Velocity]], [[Rayleigh Waves]], [[Layered Media]], [[Skin Depth]], [[Dispersion Relation]], [[Rayleigh Eigenproblem]], [[Wave Dispersion]], [[Material Dispersion]], [[Group Velocity]], [[Near-field Effect]], [[Non-uniqueness]], [[MASW Method]], [[SASW Method]], [[ReMi Method]], [[SPAC Method]].
+    - Tabla comparativa de métodos que explotan dispersión geométrica.
+    - Tabla de fuentes con Papers 001, 002, 003 y Foti 2018.
+  - Configurado **git**: nueva rama `investigador-loop`; `.gitignore` creado para excluir solo `scheduled_tasks.lock` y rastrear `.claude/` (skills + configuraciones compartidas entre dispositivos).
+  - Actualizado Worklog: instrucciones de commit, rama activa, próximos pasos.
+- **Archivos modificados:**
+  - `Concepts/05 Dispersion/Geometric Dispersion.md` (enriquecido)
+  - `Worklog de resumen.md` (actualizado)
+  - `.gitignore` (creado)
+  - `INVESTIGADOR.md` (creado — skill definition)
+- **Conceptos creados o modificados:** [[Geometric Dispersion]] (enriquecido desde stub técnico a nota Zettelkasten completa)
+- **Papers vinculados:** 001 (Park 1999), 002 (Xia 1999), 003 (Nazarian 1984)
+- **Fecha y hora:** 2026-04-11 00:54 UTC
+- **Commit:** rama `investigador-loop`, mensaje `[INVESTIGADOR] enrich: Geometric Dispersion + .gitignore + INVESTIGADOR.md`
 
 ### 2026-03-19 — iteración 39 de loop (segunda fase Chapter 1 — secciones 1.3, 1.3.1, 1.4, 1.4.1–1.4.3)
 - **Estado:** VÁLIDA.
@@ -458,3 +795,248 @@
   - Chapter 8 marcado como COMPLETADO (primera fase) — pp. 393–440.
   - **Primera fase completada: capítulos 2–8 todos completados.**
 - **Próximo paso:** Iniciar segunda fase comenzando desde Chapter 2.
+
+---
+
+## Fase 4: Enriquecimiento de Concepts/ con callouts [!CONCEPT] + [!EXAMPLE] (iteraciones 42–58)
+
+### Objetivo de la fase
+Añadir `[!CONCEPT]` (definición técnica con wikilinks) y `[!EXAMPLE]` (evidencia empírica vinculada a la research database) a todos los archivos en `Concepts/`. Meta: 65/65 archivos con ≥2 callouts.
+
+### Rama: `investigador-loop`
+
+### Iteraciones 42–45 (pre-contexto actual)
+- Procesados: Love Waves, Body Waves, Surface Waves, Lamb's Problem, Surface Wave Modes, SH-wave, S-Waves, Mode Conversion, Stress Tensor, Strain Tensor, Scholte Waves, Angular Frequency, Wavenumber, SV-wave, P-waves, Skin Depth, Fourier Integral, Wavelength, Wave Dispersion, Poisson Ratio, Elastic Wave Potentials, Mode Superposition, Rayleigh Eigenproblem, P-guided Waves, Hyperbolic Waves, d'Alembert Solution (Unicode apostrophe — escrito con Python3), Layered Media, MASW Method, SASW Method, Shear Damping Ratio
+
+### 2026-04-11 — iteración 53 (commit 7b147dd)
+- Métodos Sísmicos No Invasivos: [!CONCEPT] (MASW/SASW/ReMi/SPAC wikilinks) + [!EXAMPLE] Papers 006+007 (InterPACIFIC — 30 equipos, 15-20% variabilidad VS30)
+- Métodos Sísmicos Invasivos: [!CONCEPT] (±5-10% precisión VS, puntual 1D) + [!EXAMPLE] Paper 009 (MASW <1/10 costo borehole, error <15%)
+- Vs30: [!CONCEPT] (fórmula media armónica, EC8 A-E) + [!EXAMPLE] Foti §7.4 (La Salle 480-505 m/s — robusto ante no-unicidad)
+- Procesamiento de Señales: [!CONCEPT] (f-k, tau-p, SASW, selección modal) + [!EXAMPLE] Paper 001 (f-k multicanal estándar MASW — 24 geófonos Kansas)
+
+### 2026-04-11 — iteración 54 (commit aa2ad61)
+- Inversión: REESCRITURA COMPLETA — frontmatter, H1, [!CONCEPT] (problema directo/inverso, ill-posedness, LSM vs GSM, sensibilidad) + [!EXAMPLE] Paper 002 (sensibilidad VS dominante 80-95%, algoritmo LSM, error <15% Kansas)
+- Non-uniqueness: [!CONCEPT] (ill-posed, 3 causas físicas, 4 estrategias mitigación) + [!EXAMPLE] Paper 034 (Maraschini 2010 — determinant misfit elimina no-unicidad modal)
+- Ground Roll: [!CONCEPT] (reciclaje de datos sísmicos de reflexión) + [!EXAMPLE] Paper 001 (80%+ energía = ground-roll en sismograma MASW)
+- Viscoelastic Media: REESCRITURA COMPLETA — frontmatter, H1, [!CONCEPT] (módulos complejos, principio de correspondencia, número de onda complejo, Ds) + [!EXAMPLE] Lai & Rix 1998 (inversión simultánea VS+DS, validado en Pisa con RCT)
+
+### 2026-04-11 — iteración 55 (commit 5be9548)
+- Monte Carlo Methods: [!CONCEPT] (búsqueda global, test de Fisher, ensemble de soluciones) + [!EXAMPLE] Foti §7.2.4 (La Salle: 10⁵ modelos, ~500 aceptables, VS30 480-505 m/s)
+- Tikhonov Regularization: REESCRITURA COMPLETA — frontmatter, H1, [!CONCEPT] (penalización orden 0/1/2, factores de filtro SVD, Occam) + [!EXAMPLE] Foti §6.4.2.3 (orden 1 estándar para MASW)
+- HVSR: [!CONCEPT] (elipticidad Rayleigh, f0=VS/4H, inversión conjunta) + [!EXAMPLE] Papers 006+007 (InterPACIFIC — f0 HVSR concuerda con borehole en Mirandola)
+- SPAC Method: [!CONCEPT] (autocorrelación J0(k0r), ESAC para arrays arbitrarios) + [!EXAMPLE] Papers 006+007 (InterPACIFIC — SPAC consistente con MASW en bajas frecuencias)
+
+### 2026-04-11 — iteración 56 (commit 03cb23f)
+- ReMi Method: [!CONCEPT] (borde mínimo de velocidad, hipótesis isotropía, velocidad aparente) + [!EXAMPLE] Papers 006+007 (InterPACIFIC — sobreestimación sistemática en Grenoble con campo no isotrópico)
+- Seismic Interferometry: [!CONCEPT] (función de Green, puntos estacionarios, número de onda verdadero vs ReMi) + [!EXAMPLE] Shapiro & Campillo 2004 (tomografía Rayleigh por cross-correlación de ruido)
+- MOPA: [!CONCEPT] (ajuste lineal fase-offset, test chi-cuadrado, detección campo cercano/variaciones) + [!EXAMPLE] Foti §4.4 (MOPA como referencia de incertidumbre en curva de dispersión)
+- Adquisición de Datos: REESCRITURA COMPLETA — frontmatter, H1, [!CONCEPT] (3 componentes: fuente/array/registro, tabla parámetros diseño) + [!EXAMPLE] Paper 001 (diseño arreglo Kansas: 24 geófonos, Δx=1.5m, Ls=10m)
+
+### 2026-04-11 — iteración 57 (commit f2ec3e7)
+- Material Dispersion: REESCRITURA COMPLETA — frontmatter, H1, [!CONCEPT] (dispersión intrínseca vs geométrica, orden en DS, saturación, Biot) + [!EXAMPLE] Foti §7.3 (Pisa: DS de 2do orden en cR, 1ro en αR)
+- Vertically Inhomogeneous Media: [!CONCEPT] (EDOs con coeficientes variables, 2 estrategias numéricas) + [!EXAMPLE] Foti §7.2.5 (La Salle: capas vs continuo — misma VS30, diferencia en capa vegetal superficial)
+
+### 2026-04-11 — iteración 58 (commit 76d7eb7) — HITO MÁXIMO
+- Linear Waves: [!EXAMPLE] Paper 001 (reproducibilidad de espectrogramas f-k valida propagación lineal)
+- 1D Wave Equation: [!EXAMPLE] Paper 002 (medio homogéneo como baseline no-dispersivo; dispersión = desviación de ese baseline)
+- Hyperbolic PDEs: [!EXAMPLE] Paper 002 (sistema de Navier hiperbólico → velocidad finita → matriz de transferencia → inversión)
+- Wave Superposition: [!EXAMPLE] Paper 014 (Xu 2006 — superposición modal produce 50% error VS en capas profundas)
+- Surface Water Waves: [!EXAMPLE] Foti §2.1.2 Fig. 2.1 (analogía pedagógica explícita en el libro)
+- Water Waves: [!EXAMPLE] Foti §2.1.2 (mecanismo físico idéntico al de Rayleigh — V_S(z) análogo a h en batimetría)
+
+**HITO: 65/65 archivos Concepts/ con ≥2 callouts [!CONCEPT]+[!EXAMPLE]. Fase 4 COMPLETA.**
+
+## Próximos pasos
+- Explorar archivos de resumen de capítulos (Chapter 1-8.md) para identificar secciones sin cubrir
+- Potenciales conceptos nuevos a crear: Near-field Effect (si no existe), Attenuation, Geometric Dispersion, Group Velocity
+
+---
+
+## Fase 5 — Creación de conceptos atómicos para wikilinks rotos
+
+### 2026-04-11 — iteración 59 (commit 62ffc9d) — 4 nuevos conceptos
+- `Concepts/07/2D Fourier Transform.md` — DFT 2D, extracción espectral f-k, resolución temporal/espacial, condiciones anti-aliasing (11x referenciado)
+- `Concepts/07/Tau-P Transform.md` — slant-stack, equivalencia con f-k, aplicación en ReMi (5x)
+- `Concepts/00/Geometric Spreading.md` — ondas 2D A∝1/√r, crítico para estimación DS desde curva de atenuación (5x)
+- `Concepts/07/Beamforming.md` — delay-and-sum, MVDR, arrays 2D, validación isotropía (4x)
+
+### 2026-04-11 — iteración 60 (commit aa06e41) — 4 nuevos conceptos
+- `Concepts/04/Thomson-Haskell Matrix.md` — matrices de transferencia 4×4, ecuación secular, extensión viscoelástica (4x)
+- `Concepts/07/Microtremor.md` — ruido sísmico ambiental, composición espectral (70% Rayleigh), hipótesis difusa (3x)
+- `Concepts/08/Sensitivity Kernel.md` — ∂cR/∂VS dominante 80-95%, resolución profundidad VS λ/3-λ/2, base del Jacobiano (2x)
+- `Concepts/02/Lamé Constants.md` — λ y μ, relaciones VP/VS, extensión viscoelástica (2x)
+
+### 2026-04-11 — iteración 61 (commit e846639) — 4 nuevos conceptos
+- `Concepts/07/Cross-Power Spectrum.md` — G12=U1*·U2, extracción de fase, estimación velocidad, promediado multi-shot (3x)
+- `Concepts/07/Coherence Function.md` — γ²=|G12|²/(G11·G22), criterio calidad γ²>0.9 (3x)
+- `Concepts/07/Geophone.md` — sensor electromagnético de velocidad, tipos fn (4.5/10/14/28 Hz), acoplamiento (2x)
+- `Concepts/02/Nyquist Theorem.md` — temporal (fs≥2fmax) y espacial (Δx≤λmin/2), condiciones anti-aliasing (2x)
+
+### 2026-04-11 — iteración 62 (commit 1f5e063) — 3 nuevos conceptos
+- `Concepts/07/Phase Unwrapping.md` — envoltura ±π, algoritmo de desenrollado 1D, ventaja MASW sobre SASW (2x)
+- `Concepts/00/Aliasing.md` — temporal (falias=|f-n·fs|) y espacial (kalias=|k-n·2π/Δx|) (2x)
+- `Concepts/07/Seismic Refraction.md` — primeras llegadas, perfil VP, detección tabla de agua, limitación inversión de velocidad (2x)
+
+### 2026-04-11 — iteración 63 (commit 152b32a) — 2 nuevos conceptos
+- `Concepts/07/MEMS Accelerometer.md` — sensor estado sólido, respuesta plana desde DC, ruido mayor en bajas f (3x)
+- `Concepts/07/Sliding Window.md` — rolling array para secciones VS pseudo-2D, resolución lateral ≈ apertura D (2x)
+
+### 2026-04-11 — iteración 64 (commit 5b36965) — 1 nuevo concepto
+- `Concepts/08/Resonant Column Test.md` — ensayo laboratorio para VS y DS, half-power bandwidth, validación MASW-DS (2x)
+
+### 2026-04-11 — iteración 65 (commit cdad0ec) — 4 nuevos conceptos
+- `Concepts/07/Cross-Hole Test.md` — ensayo invasivo entre pozos, VS directo sin inversión, referencia InterPACIFIC (3x)
+- `Concepts/07/Hann Window.md` — apodización anti-leakage, −31.5 dB lóbulos laterales, estándar espectrograma f-k (2x)
+- `Concepts/08/Occam Algorithm.md` — modelo más simple con χ²=N_datos, búsqueda λ iterativa, comparación con Tikhonov (2x)
+- `Concepts/08/Genetic Algorithm.md` — búsqueda global por selección natural, 87% éxito en inversiones de velocidad (2x)
+
+### 2026-04-11 — iteración 66 (commit 7380996) — 3 nuevos conceptos
+- `Concepts/08/Neighbourhood Algorithm.md` — celdas Voronoi, muestreo adaptativo, NA-Bayes para incertidumbre, Geopsy/Dinver (2x)
+- `Concepts/08/Levenberg-Marquardt.md` — Gauss-Newton + gradiente descendente, λk amortiguamiento, estándar inversión local MASW (2x)
+- `Concepts/07/Downhole Test.md` — receptor en un pozo, VS de intervalo, comparación vs Cross-Hole y MASW (2x)
+
+### 2026-04-11 — iteración 67 (commit 2f7d308) — 2 nuevos conceptos
+- `Concepts/08/First-Order Second-Moment Method.md` — propagación de covarianza Cm≈(JᵀCd⁻¹J+λRᵀR)⁻¹, bandas ±1σ del perfil VS (2x)
+- `Concepts/06/Kramers-Kronig Relations.md` — parte real/imaginaria de funciones causales, dispersión de material, constante-Q (2x)
+
+### 2026-04-11 — iteración 68 (commit 68bd13a) — 2 nuevos conceptos
+- `Concepts/06/Variational Principles.md` — cociente de Rayleigh, derivada variacional, regla del tercio de longitud de onda (2x)
+- `Concepts/08/Chi-Squared Test.md` — χ²=Σ(ri/σi)², test F para ensemble aceptable, Monte Carlo La Salle (2x)
+
+### 2026-04-11 — iteración 69 (commit ea92186) — 3 nuevos conceptos
+- `Concepts/07/Refraction Seismics.md` — alias/redirect a Seismic Refraction para wikilinks en Chapter 8 (4x)
+- `Concepts/06/Correspondence Principle.md` — módulos complejos, Ĝ=G(1+2iDs), Lai & Rix 1998, base inversión VS+DS (2x)
+- `Concepts/07/Cross-Correlation.md` — R12(τ)=∫u1·u2(t+τ), función de Green por correlación, SASW y interferometría (2x)
+
+**Estado: 98 archivos en Concepts/. Wikilinks rotos reducidos de 108 a ~12 reales (d'Alembert y Lamb's Problem son unicode, resto son aliases o imágenes).**
+
+### 2026-04-11 — iteración 70 (commit 3df3838) — 3 nuevos conceptos
+- `Concepts/06/Attenuation Coefficient.md` — α decaimiento espacial, relación αR≈ωDs/cR, corrección dispersión geométrica, inversión DS (2x)
+- `Concepts/06/Helmholtz Decomposition.md` — φ+∇×ψ, ondas P/S desacopladas, base de Thomson-Haskell, movimiento elíptico Rayleigh (1x)
+- `Concepts/08/Ill-Posed Problem.md` — criterios Hadamard, violación unicidad/estabilidad, regularización como solución (1x)
+
+### 2026-04-11 — iteración 71 (commit a4c8d68) — 2 nuevos conceptos
+- `Concepts/08/Laterally Constrained Inversion.md` — acoplamiento λl entre perfiles 1D adyacentes, sistema aumentado, LCI vs inversión independiente (1x)
+- `Concepts/08/Simulated Annealing.md` — probabilidad de aceptación Boltzmann, ley de enfriamiento, VFSA como variante eficiente (1x)
+
+### 2026-04-11 — iteración 72 (commit 481b79b) — 2 nuevos conceptos
+- `Concepts/06/Quality Factor.md` — Q=1/(2Ds), modelos constant-Q, relación αR con QR dominada por QS (1x)
+- `Concepts/08/Jacobian Matrix.md` — ∂cR/∂VS,j, método variacional vs diferencias finitas, número de condición, MASW casi exclusivamente VS (1x)
+
+**Estado: 105 archivos en Concepts/. Fase 5 prácticamente completa — solo quedan d'Alembert (unicode), Lamb's Problem (unicode), y entradas de 1x de baja prioridad.**
+- Continuar loop hasta 2026-04-13 08:00 AM
+
+### 2026-04-11 — iteración 73 (commit e06ca73) — 5 nuevos conceptos (reanudación de sesión)
+- `Concepts/01/Shear Modulus.md` — G=ρVS², Gmax a γ<10⁻⁵, independencia de saturación (Biot), G*=G(1+2iDS) (1x en Chapter 1)
+- `Concepts/00/Soil Liquefaction.md` — pérdida de resistencia bajo carga sísmica, VS1 normalizado, CRR vs VS1 (Andrus & Stokoe 2000, 867 citas) (1x en Chapter 1)
+- `Concepts/04/Wave Guide.md` — atrapamiento ondas SH en capa VS1<VS2, reflexión total interna, ecuación dispersión Love, frecuencias de corte (1x en Chapter 2)
+- `Concepts/02/Eigenvalue Problem.md` — autovalores c=ω/k en medio continuo estratificado, Sturm-Liouville para SH, sistema P-SV, relación con kernels Fréchet/Jacobiano (1x en Chapter 2)
+- `Concepts/02/Hankel Function.md` — H₀⁽²⁾(kR·r), campo lejano Lamb's Problem, decaimiento r⁻¹/², desfase π/4, condición campo lejano r>>λ/2π, J₀ en SPAC (1x en Chapter 2)
+
+**Estado: 112 archivos en Concepts/. Wikilinks rotos en capítulos reducidos a: imágenes PNG (ignorar), Lamb's Problem (unicode), d'Alembert (unicode).**
+- Próximo paso: revisar Chapter 3 y Chapter 4 para cualquier wikilink pendiente de los 40 nuevos conceptos de Fase 5
+- Continuar loop hasta 2026-04-13 08:00 AM
+
+### 2026-04-11 — iteración 74 (commits 99af522, dec2dda, d9dcc25) — 7 nuevos conceptos + fix wikilinks
+- `Concepts/02/Fourier Series.md` — DFT, FFT, par de Fourier, análisis espectral en MASW, base para transformada f-k (1x Ch3)
+- `Concepts/02/Spectral Leakage.md` — truncamiento de señal, lóbulos laterales, ventanas Hann/Hamming/Blackman, efecto en panel f-k (1x Ch3)
+- `Concepts/02/Singular Value Decomposition.md` — SVD J=UΣVᵀ, número de condición, TSVD regularización, matriz de resolución (1x Ch6)
+- `Concepts/08/Gauss-Newton Method.md` — linearización iterativa, J^TJ δm = J^T r, Xia 1999, relación con Levenberg-Marquardt (1x Ch6)
+- `Concepts/08/L-Curve Criterion.md` — curva log||Jm-d|| vs log||Lm||, esquina de la L, comparación con chi-cuadrado y GCV (1x Ch6)
+- `Concepts/02/Convolution Theorem.md` — F{f*g}=F·G, modelo convolucional sísmico, correlación cruzada en frecuencia (1x Ch3)
+- `Concepts/07/Zero Padding.md` — relleno con ceros antes de FFT, interpolación espectral, mejora estimación VR(f) en panel f-k (1x Ch7)
+- Fix: wikilinks malformados `[[SASW Method\]]`, `[[MASW Method\]]`, `[[SPAC Method\]]`, `[[ReMi Method\]]` en Chapter 4 y 5 (backslash eliminado)
+
+### 2026-04-11 — iteración 75 (commit dd64307) — 2 nuevos conceptos
+- `Concepts/06/Biot Theory.md` — poroelasticidad Biot 1956, 3 ondas (P1, P2 difusiva, S), Gassmann, G_sat=G_sk, La Salle VP vs VS (1x Ch6)
+- `Concepts/04/Stoneley Wave.md` — onda interfacial sólido-sólido/sólido-fluido, c_St < min(VS1,VS2), perfilaje de pozos, OBS Mar del Norte (1x Ch8)
+
+**Estado: 121 archivos en Concepts/. Wikilinks rotos reales: ~15 — candidatos a resolver en próximas iteraciones.**
+- Pendientes prioritarios Ch3: Dirac Comb, Window Function, Hamming Window, Signal Stacking, Dirac Delta
+- Pendientes Ch6: Moore-Penrose Pseudoinverse, Condition Number, Total Variation Regularization
+- Pendientes Ch8: Cross-Gradient Function, Archie's Law, Wyllie Equation, Gardner Relations, Hidden Layer Problem, Green Function, Seismic Microzonation
+- Pendientes Ch4: Bessel Function, Radon Transform, MUSIC Algorithm, Arias Intensity
+- Continuar loop hasta 2026-04-13 08:00 AM
+
+### 2026-04-11 — iteración 76 (commits 339ee9f, 10f5577, 4734a5d) — 9 nuevos conceptos
+- `Concepts/02/Dirac Delta.md` — δ(t), propiedad de muestreo, fuente impulsiva ideal, tren de deltas, F{δ}=1 (1x Ch3)
+- `Concepts/02/Dirac Comb.md` — III_Δt(t), espectro periódico con réplicas, aliasing espacial si Δx>λmin/2, filtros antialiasing (1x Ch3)
+- `Concepts/02/Window Function.md` — tabla comparativa Hann/Hamming/Blackman/Tukey/Kaiser, compromiso ML-vs-sidelobes, ventaneo 2D en f-k MASW (1x Ch3)
+- `Concepts/02/Hamming Window.md` — (0.54,0.46), primer lóbulo -42.5 dB, no llega a cero en extremos, preferida para modos próximos (1x Ch3)
+- `Concepts/08/Condition Number.md` — κ=σmax/σmin, amplificación de error, kappa~10³-10⁵ en MASW, regularización reduce κ (1x Ch6)
+- `Concepts/08/Moore-Penrose Pseudoinverse.md` — J⁺=VΣ⁺Uᵀ, 4 condiciones, TSVD p valores singulares, filtros Tikhonov f_i=σ²/(σ²+λ²) (1x Ch6)
+- `Concepts/07/Seismic Microzonation.md` — VS30 NEHRP clases A-E, flujo MASW para microzonificación, Memphis 45 puntos ×15 factor costo (1x Ch8)
+- `Concepts/07/Signal Stacking.md` — SNR_stack=√N·SNR_single, stacking espectral con coherencia de fase, trigger<0.1 ms (1x Ch3)
+- `Concepts/06/Green Function.md` — G(x,t;x₀,τ), Lamb problem campo lejano, reciprocidad, interferometría Wapenaar 2004 (1x Ch8)
+
+**Estado: 130 archivos en Concepts/. Wikilinks rotos reales restantes: ~14.**
+- Pendientes Ch6: Total Variation Regularization (1x)
+- Pendientes Ch8: Cross-Gradient Function, Archie's Law, Wyllie Equation, Gardner Relations, Hidden Layer Problem (1x c/u)
+- Pendientes Ch4: Bessel Function, Radon Transform, MUSIC Algorithm, Arias Intensity (1x c/u)
+- Continuar loop hasta 2026-04-13 08:00 AM
+
+### 2026-04-11 — iteración 77 (commits 787664a, 940b91f, 4e8334a, 5c89edb) — 10 nuevos conceptos
+- `Concepts/08/Total Variation Regularization.md` — norma L1, perfiles escalonados vs Tikhonov/Occam, IRLS, TV-vs-Occam en Hveragerdi interfaz roca-sedimento (1x Ch6)
+- `Concepts/07/Hidden Layer Problem.md` — capa oculta en refracción (inversión de velocidad), MASW no tiene este problema, La Salle arena suelta invisible en Vp (1x Ch8)
+- `Concepts/02/Bessel Function.md` — J₀(kr) en fórmula de Aki (1957) para SPAC isótropo, J₀=Re{H₀⁽²⁾}, ceros de J₀, validación en microtremores Tokio (1x Ch4)
+- `Concepts/07/Radon Transform.md` — transformada τ-p, slant stack, separación modos en (τ,p), supresión ondas cuerpo, relación con f-k: p=k/f (1x Ch4)
+- `Concepts/07/Arias Intensity.md` — IA=(π/2g)∫a²dt, factor amplificación ×15 en clase E vs A, umbral licuefacción IA>0.3 m/s Kayen&Mitchell, Memphis (1x Ch4)
+- `Concepts/08/Cross-Gradient Function.md` — t=∇m1×∇m2, co-localización de interfaces sin relación petrofísica, inversión conjunta MASW+ERT dique del Po (1x Ch8)
+- `Concepts/06/Archie's Law.md` — ρ=a·ρw·φ⁻ᵐ·S⁻ⁿ, factor de formación, conversión ERT→porosidad, validación La Salle r²=0.73 (1x Ch8)
+- `Concepts/06/Wyllie Equation.md` — 1/VP=φ/Vf+(1-φ)/Vm, cadena ERT→φ→VP, comparación con Biot-Gassmann, La Salle error 8% (1x Ch8)
+- `Concepts/06/Gardner Relations.md` — ρ=0.31·VP^0.25, uso para Gmax=ρVS², incertidumbre ±10-15%, La Salle error +3% (1x Ch8)
+- `Concepts/07/MUSIC Algorithm.md` — pseudoespectro subespacio ruido, resolución super-Rayleigh, 12 geófonos Zywicki&Rix 2005, reducción incertidumbre VS 35% (1x Ch4)
+
+**🏆 HITO MAYOR — FASE 6 COMPLETA: 0 wikilinks rotos en capítulos (excepto Lamb's Problem unicode U+2019).**
+- Total archivos en Concepts/: 140
+- Wikilinks rotos reales en capítulos: 1 (Lamb's Problem — problema de unicode U+2019 vs U+0027, archivo existe en disco)
+- NUEVA FASE 7: Revisión final de coherencia entre capítulos y conceptos — verificar cross-references bidireccionales
+- Continuar loop hasta 2026-04-13 08:00 AM
+
+### 2026-04-11 — iteración 78 (commit 7992cc3) — FASE 7 COMPLETA
+**Restauración crítica**: 140 archivos Concepts/ restaurados via `git checkout HEAD` tras corrupción por script regex Python en iteración anterior.
+
+**Fixes de wikilinks en Concepts/**:
+- 23 archivos: wikilinks `[[X\]]` → `[[X]]` (backslash eliminado por regex corregida)
+- `d'Alembert Solution.md` y `Lamb's Problem.md`: renombrados U+2019 → U+0027 (apostrofe curva → ASCII)
+- `Chapter 2.md`: 3 wikilinks con U+2019 → U+0027
+- `SASW Method.md`, `Vs30.md`: `[[MASW]]` → `[[MASW Method]]`
+- `Helmholtz Decomposition.md`: `[[P Wave|...]]` → `[[P-waves|...]]`, `[[S Wave|...]]` → `[[S-Waves|...]]`
+- `Fourier Series.md`: `[[Spectral Analysis|...]]` → `[[Fourier Series|...]]` (auto-referencia)
+
+**Nuevos conceptos creados** (4 archivos):
+- `Concepts/08/Regularization.md` — hub de regularización: Tikhonov/TV/Occam/L-Curve, filtros SVD f_i=σ²/(σ²+λ²), Xia 1999 MASW convergencia 3–5 iter
+- `Concepts/08/Joint Inversion.md` — inversión conjunta multi-método, cross-gradient, Parolai 2005 (239 citas), Comina 2002 Po dike
+- `Concepts/07/Picking.md` — extracción curva dispersión en panel f-k, criterios calidad, incertidumbre, Park 1999 Kansas
+- `Concepts/00/Eurocode 8.md` — clasificación VS,30 clases A–E, equivalencias NEHRP/NCh 433, factor de suelo S
+
+**Wikilinks desde capítulos a nuevos conceptos**:
+- Chapter 6.md: `[[Regularization|regularización]]`, `[[Attenuation Coefficient|coeficiente de atenuación]]`
+- Chapter 7.md: `[[Dispersion Curve|curva de dispersión experimental]]`, `[[Picking|picking]]`, `[[Eurocode 8]]`
+- Chapter 8.md: `[[Joint Inversion|joint inversion]]` (×2)
+
+**🏆 HITO MÁXIMO — FASE 7 COMPLETA**:
+- Concepts/: 144 archivos
+- Wikilinks rotos en Concepts/: **0**
+- Wikilinks rotos en capítulos: **0**
+- Conceptos huérfanos (no referenciados desde capítulos): **0**
+- Todos los archivos tienen [!CONCEPT] + [!EXAMPLE] + ≥ 150 palabras
+- El vault es un grafo completamente conectado y bidireccional
+
+**Estado del vault**: Completado. Continuar loop verificando calidad de contenido y coherencia conceptual.
+
+### 2026-04-11 — iteración 79 (commits f591cce–006e0dc) — Fase 7+ enriquecimiento con papers de la DB
+
+**Objetivo**: Integrar papers core de la research database que no estaban referenciados en concepts
+
+**Enrichment de conceptos** (9 conceptos mejorados):
+- `Radon Transform.md`: +HRLRT Luo et al. 2009 (Paper 039) — separación modal >50% mejora vs slant stack
+- `Vs30.md`: +Boore 2004 (Paper 044) extrapolación desde perfiles someros; +Eurocode 8 para clasificación
+- `Non-uniqueness.md`: +Griffiths et al. 2016 (Paper 047) ensemble Monte Carlo vs perfiles estadísticos
+- `Surface Wave Modes.md`: +Socco, Foti & Boiero 2010 (Paper 033, 462 citas) — solo 33% incluye modos superiores; +Xia et al. 2003 (Paper 025, 448 citas) inversión multimodal
+- `MASW Method.md`: +Long & Donohue 2007 (Paper 035) sesgo +10% en Noruega; +Tabla 1 Park 2002 (Paper 026) parámetros óptimos de campo
+- `Mode Superposition.md`: +Tokimatsu et al. 1992 (Paper 031, 352 citas) — fundamento teórico de modos superiores
+- `2D Fourier Transform.md`: +Park, Miller & Xia 1998 (Paper 023, 761 citas) — phase-shift algorithm
+- `Sliding Window.md`: +Hayashi & Suzuki 2004 (Paper 040) — CMP cross-correlation para perfiles 2D
+
+**Estado**: 144 conceptos, 0 wikilinks rotos, 0 huérfanos, pappers DB representados: 44/52 (~85%)

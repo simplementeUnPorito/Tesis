@@ -1,13 +1,15 @@
 ---
 name: Mode Conversion
-description: Fenómeno por el que una onda incidente sobre una interfaz elástica genera ondas reflejadas y transmitidas de distinto tipo; clave para la formación de ondas superficiales en medios estratificados
+description: Fenómeno por el que una onda incidente sobre una interfaz elástica genera ondas reflejadas y transmitidas de distinto tipo; clave para la formación de [[Surface Waves|ondas superficiales]] en medios estratificados
 type: reference
 ---
 
 # Conversión de Modos (Mode Conversion)
 
-> **Contexto:** Cuando una onda elástica (P o S) incide sobre una interfaz entre dos medios con propiedades elásticas diferentes, parte de su energía se refleja y parte se transmite — y en ambos casos pueden generarse ondas de tipo distinto al incidente. Este fenómeno es fundamental para entender la formación de [[Rayleigh Waves]] (acoplamiento P–SV) y la ausencia de [[Love Waves]] en semiespacios homogéneos.
-> **Fuente:** Foti et al. (2014), Cap. 2.1.3, pp. 46–50.
+> [!CONCEPT] Definición
+> La **conversión de modos** es el fenómeno por el que una onda elástica (P o SV) que incide sobre una interfaz entre dos medios genera ondas reflejadas y transmitidas de tipo diferente al incidente. En cualquier interfaz plana, las ondas P y SV están acopladas — una onda P incidente genera tanto P como SV en reflexión/transmisión. Las [[SH-wave|ondas SH]] son la excepción: sus condiciones de frontera están desacopladas y solo generan SH. Este acoplamiento P–SV es la base física de las [[Rayleigh Waves]] y explica la ausencia de [[Love Waves]] en semiespacios homogéneos.
+>
+> — Foti et al. (2018), §2.1.3, pp. 46–50.
 
 ## Intuición física
 
@@ -25,7 +27,7 @@ La excepción son las ondas SH: sus condiciones de frontera están desacopladas 
 
 La dirección y amplitud de cada onda generada se determinan por las **ecuaciones de Zoeppritz**, que aplican las condiciones de continuidad de cuatro cantidades en la interfaz: desplazamientos normales y tangenciales, y esfuerzos normales y de corte.
 
-## Relación con las ondas superficiales
+## Relación con las [[Surface Waves|ondas superficiales]]
 
 ### Formación de ondas de Rayleigh
 
@@ -39,19 +41,27 @@ Las [[Love Waves]] son ondas SH guiadas en una capa superficial. No involucran c
 
 ### Modos superiores de Rayleigh
 
-En medios [[Layered Media|estratificados]], las múltiples reflexiones P–SV en distintas interfaces dan lugar a los [[Surface Wave Modes|modos superiores de Rayleigh]]. La conversión de modos en cada interfaz determina cuánta energía se transfiere entre modos, condicionando la amplitud relativa del modo fundamental y los superiores en el registro del arreglo de geófonos.
+En medios [[Layered Media|estratificados]], las múltiples reflexiones P–SV en distintas interfaces dan lugar a los [[Surface Wave Modes|modos superiores de Rayleigh]]. La conversión de modos en cada interfaz determina cuánta energía se transfiere entre modos, condicionando la amplitud relativa del modo fundamental y los superiores en el registro del arreglo de [[Geophone|geófono]].
 
 ## Importancia para la adquisición
 
 La conversión de modos tiene consecuencias prácticas en el diseño del arreglo:
 
-1. **Contaminación de registros**: si la fuente genera ondas P, en las interfaces del subsuelo se generan ondas SV convertidas que llegan a los geófonos con diferentes moveouts. En ciertos casos pueden interferir con el tren de ondas superficiales.
+1. **Contaminación de registros**: si la fuente genera ondas P, en las interfaces del subsuelo se generan ondas SV convertidas que llegan a los [[Geophone|geófono]] con diferentes moveouts. En ciertos casos pueden interferir con el tren de [[Surface Waves|ondas superficiales]].
 
-2. **Separación en procesamiento**: el análisis f-k permite separar ondas con diferentes velocidades de fase (y por tanto diferentes pendientes en el sismograma). Las ondas de cuerpo convertidas tienen velocidades mayores que las ondas superficiales y se distinguen en el espectro f-k.
+2. **Separación en procesamiento**: el análisis f-k permite separar ondas con diferentes velocidades de fase (y por tanto diferentes pendientes en el sismograma). Las [[Body Waves|ondas de cuerpo]] convertidas tienen velocidades mayores que las [[Surface Waves|ondas superficiales]] y se distinguen en el espectro f-k.
 
 3. **Fuentes horizontales y Love**: las fuentes horizontales generan principalmente ondas SH, minimizando la conversión a P y SV. Esto es ventajoso para la adquisición de [[Love Waves]] con menor contaminación de componentes P–SV.
 
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — acoplamiento P–SV como origen del [[Ground Roll|ground-roll]] de Rayleigh
+> **Paper 001 (Park, Miller & Xia 1999)** muestra sismogramas de campo donde el [[Ground Roll|ground-roll]] de Rayleigh es claramente la componente dominante del campo sísmico a distancias $> 5$ m de la fuente. El [[Ground Roll|ground-roll]] surge directamente del acoplamiento P–SV en la superficie libre: la fuente vertical genera ondas P y SV, que se convierten mutuamente en la superficie y producen el modo de Rayleigh. La transformada f-k extracta este modo con alta relación señal/ruido, confirmando que la conversión de modos P–SV es el mecanismo generador de la señal útil en [[MASW Method|MASW]].
+>
+> — Research Database, entrada 001 (core).
+
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.1.3, pp. 46–50 — condiciones de frontera y conversión P–SV–SH.
-- Foti et al. (2014), Cap. 2.2, pp. 50–62 — formación de ondas de Rayleigh por acoplamiento P–SV.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.3, pp. 46–50 — condiciones de frontera y conversión P–SV–SH |
+| Foti et al. (2018), *Surface Wave Methods* | §2.2, pp. 50–62 — formación de Rayleigh por acoplamiento P–SV |
+| Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 — acoplamiento P–SV en sismogramas de campo |

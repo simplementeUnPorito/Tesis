@@ -6,18 +6,20 @@ type: reference
 
 # Semiespacio Elástico (Elastic Half Space)
 
-> **Contexto:** Modelo idealizado de subsuelo consistente en un medio elástico, lineal, isotrópico y homogéneo que ocupa el semi-espacio $z \geq 0$ (superficie libre en $z = 0$). Es el punto de partida teórico de la teoría de ondas superficiales y el caso más simple en que las [[Rayleigh Waves]] existen.
-> **Fuente:** Foti et al. (2014), Cap. 2.2, pp. 50–62.
+> [!CONCEPT] Definición
+> El **semiespacio elástico** es el modelo idealizado de subsuelo más simple: un medio [[Elasticity|elástico]], lineal, isotrópico y homogéneo que ocupa $z \geq 0$ con superficie libre en $z = 0$. Es el punto de partida teórico de la teoría de [[Surface Waves|ondas superficiales]] y el caso en que las [[Rayleigh Waves]] existen en su forma más pura — **no dispersivas**, velocidad constante $c_R \approx 0.919\,V_S$ para $\nu = 0.25$.
+>
+> — Foti et al. (2018), §2.2, pp. 50–62; Lord Rayleigh (1885).
 
 ## Intuición física
 
 El semiespacio elástico representa el caso más simple posible: un material perfectamente homogéneo que se extiende infinitamente en profundidad y en horizontal, con una superficie libre plana horizontal en la parte superior. En este medio:
 
-- Existen dos tipos de ondas de cuerpo: [[P-waves]] y [[S-Waves]], que se propagan en todas las direcciones.
+- Existen dos tipos de [[Body Waves|ondas de cuerpo]]: [[P-waves]] y [[S-Waves]], que se propagan en todas las direcciones.
 - En la interfaz superficie libre–semiespacio, la condición de esfuerzo nulo obliga a que exista también una onda que viaja *a lo largo de la superficie*: las [[Rayleigh Waves]].
 - Las ondas de Rayleigh en este medio son **no dispersivas**: viajan siempre a la misma velocidad $V_R \approx 0.92 V_S$, independientemente de la frecuencia.
 
-La no-dispersividad es una consecuencia directa de la homogeneidad: no existe ninguna longitud de escala intrínseca en el medio que pueda hacer que ondas de diferente longitud de onda se propaguen a diferente velocidad. Esto contrasta con el caso de [[Layered Media]], donde la estratificación introduce longitudes de escala (espesores de capa) que producen dispersión.
+La no-dispersividad es una consecuencia directa de la homogeneidad: no existe ninguna longitud de escala intrínseca en el medio que pueda hacer que ondas de diferente [[Wavelength|longitud de onda]] se propaguen a diferente velocidad. Esto contrasta con el caso de [[Layered Media]], donde la estratificación introduce longitudes de escala (espesores de capa) que producen dispersión.
 
 ## Parámetros del modelo
 
@@ -54,7 +56,7 @@ La velocidad de Rayleigh $c_R$ depende únicamente de $V_S$ y del [[Poisson Rati
 
 Para $\nu = 0.25$ (valor clásico de muchas rocas): $c_R \approx 0.919\,V_S$.
 
-**Consecuencia práctica**: los geófonos miden $c_R$. Para obtener $V_S$ se necesita conocer $\nu$. Si $\nu$ no se conoce, se introduce una incertidumbre del orden de 4–9% en $V_S$ según el rango plausible de $\nu$.
+**Consecuencia práctica**: los [[Geophone|geófono]] miden $c_R$. Para obtener $V_S$ se necesita conocer $\nu$. Si $\nu$ no se conoce, se introduce una incertidumbre del orden de 4–9% en $V_S$ según el rango plausible de $\nu$.
 
 ## Movimiento de partícula
 
@@ -64,11 +66,11 @@ En el semiespacio, las partículas en superficie describen una **elipse retrógr
 - A profundidad crítica $x_2^c \approx 0.2\lambda$: la componente horizontal se anula, inversión de sentido de la órbita.
 - Por debajo de esa profundidad: movimiento prograde.
 
-Esta polarización elíptica con dominancia vertical es la razón por la que los **geófonos verticales** capturan eficientemente las ondas de Rayleigh.
+Esta polarización elíptica con dominancia vertical es la razón por la que los **[[Geophone|geófono]] verticales** capturan eficientemente las ondas de Rayleigh.
 
 ## Decaimiento con profundidad
 
-Los desplazamientos decaen exponencialmente con la profundidad. La mayor parte de la energía está confinada dentro de una profundidad $\approx \lambda_R$ (longitud de onda de Rayleigh). El **[[Skin Depth]]** (profundidad donde la amplitud cae a $1/e$ del valor superficial) es $\approx 0.94\lambda_R$. Esta propiedad establece la **regla de investigación**: la profundidad máxima explorada es aproximadamente $\lambda_R/2$ a $\lambda_R$.
+Los desplazamientos decaen exponencialmente con la profundidad. La mayor parte de la energía está confinada dentro de una profundidad $\approx \lambda_R$ ([[Wavelength|longitud de onda]] de Rayleigh). El **[[Skin Depth]]** (profundidad donde la amplitud cae a $1/e$ del valor superficial) es $\approx 0.94\lambda_R$. Esta propiedad establece la **regla de investigación**: la profundidad máxima explorada es aproximadamente $\lambda_R/2$ a $\lambda_R$.
 
 ## Decaimiento geométrico
 
@@ -76,17 +78,27 @@ Para una fuente puntual vertical en la superficie libre, la amplitud de las onda
 
 $$A_R \propto \frac{1}{\sqrt{r}}$$
 
-mientras que las ondas de cuerpo en la misma superficie decaen como $1/r^2$. Esto implica que a distancias mayores de una o dos longitudes de onda, el campo de ondas queda dominado por las ondas de Rayleigh. Es la base experimental de los métodos MASW y SASW.
+mientras que las [[Body Waves|ondas de cuerpo]] en la misma superficie decaen como $1/r^2$. Esto implica que a distancias mayores de una o dos longitudes de onda, el campo de ondas queda dominado por las ondas de Rayleigh. Es la base experimental de los métodos [[MASW Method|MASW]] y [[SASW Method|SASW]].
 
 ## Relación con medios reales
 
 El semiespacio elástico es una idealización: ningún suelo real es perfectamente homogéneo. En la práctica:
 
-- El semiespacio homogéneo sirve como **referencia teórica** para derivar límites asintóticos de la curva de dispersión.
-- La diferencia entre la curva de dispersión experimental y la velocidad constante del semiespacio equivalente **cuantifica la heterogeneidad** del perfil.
+- El semiespacio homogéneo sirve como **referencia teórica** para derivar límites asintóticos de la [[Dispersion Curve|curva de dispersión]].
+- La diferencia entre la [[Dispersion Curve|curva de dispersión]] experimental y la velocidad constante del semiespacio equivalente **cuantifica la heterogeneidad** del perfil.
 - Los **métodos de inversión empírica** usan la relación $V_S \approx V_R/0.92$ como primera estimación antes de una inversión formal (véase [[Inversión]]).
+
+> [!EXAMPLE] Evidencia empírica: Xia et al. (1999) — uso de la ecuación secular en inversión [[MASW Method|MASW]]
+> **Paper 002 (Xia, Miller & Park 1999)** usa la ecuación secular del semiespacio generalizada al caso estratificado ([[Thomson-Haskell Matrix|Thomson-Haskell]]) como núcleo del [[Forward Problem|problema directo]] de inversión. La relación $V_S \approx V_R/0.919$ sirve como estimación inicial del modelo antes de la inversión iterativa — primera aproximación derivada directamente del semiespacio homogéneo.
+>
+> Los sitios de validación en Kansas confirman que la ecuación secular del semiespacio estratificado predice $c_R(f)$ con precisión suficiente para recuperar $V_S(z)$ con error < 15% respecto a borehole.
+>
+> — Research Database, entrada 002 (core).
 
 ## Referencias
 
-- Lord Rayleigh (1885). *Proc. London Math. Soc.*, 17, 4–11 — predicción teórica original.
-- Foti et al. (2014), Cap. 2.2, pp. 50–62, Ecs. 2.36–2.46 — derivación completa incluyendo eigenfunciones y Fig. 2.15.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Lord Rayleigh (1885), *Proc. London Math. Soc.* | 17, 4–11 |
+| Foti et al. (2018), *Surface Wave Methods* | §2.2, pp. 50–62, Ecs. 2.36–2.46 |
+| Xia, Miller & Park (1999), *Geophysics* 64(3) | Paper 002 |

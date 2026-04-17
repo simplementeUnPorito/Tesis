@@ -12,28 +12,28 @@ La [[Inversión|inversión]] es el paso final de la interpretación de datos en 
 El capítulo aborda este problema desde los fundamentos conceptuales hasta los algoritmos específicos:
 - **6.1** Aspectos conceptuales: problemas directos e inversos, ill-posedness, estrategias de búsqueda
 - **6.2** Modelización directa (*forward modeling*)
-- **6.3** Métodos empíricos de inversión (SSRM, inversión manual)
-- **6.4** Métodos analíticos de inversión (mínimos cuadrados, [[Tikhonov Regularization|regularización Tikhonov]], [[Occam Algorithm|algoritmo de Occam]], búsqueda global)
-- **6.5** Incertidumbre en la inversión y enfoque bayesiano
+- **6.3** Métodos empíricos de [[Inversión|inversión]] (SSRM, [[Inversión|inversión]] manual)
+- **6.4** Métodos analíticos de [[Inversión|inversión]] (mínimos cuadrados, [[Tikhonov Regularization|regularización Tikhonov]], [[Occam Algorithm|algoritmo de Occam]], búsqueda global)
+- **6.5** Incertidumbre en la [[Inversión|inversión]] y enfoque bayesiano
 
 ---
 
 ## 6.1 Aspectos conceptuales
 
-### 6.1.1 Problema directo e inverso en geofísica
+### 6.1.1 [[Forward Problem|problema directo]] e inverso en geofísica
 
 El punto de partida es distinguir dos direcciones de análisis:
 
-- **Problema directo (forward problem):** dado un modelo del subsuelo (parámetros mecánicos, espesor de capas, etc.), calcular la respuesta esperada —curva de dispersión o atenuación. Es un proceso de causa a efecto.
+- **[[Forward Problem|problema directo]] (forward problem):** dado un modelo del subsuelo (parámetros mecánicos, espesor de capas, etc.), calcular la respuesta esperada —[[Dispersion Curve|curva de dispersión]] o atenuación. Es un proceso de causa a efecto.
 - **Problema inverso (backward/inverse problem):** dada la respuesta medida en campo, determinar los parámetros del modelo que la generan. Es el proceso de inferir causas desde efectos.
 
 En la notación formal de Foti, si **G** es el operador matemático que representa el modelo físico, **m** los parámetros del modelo y **d** los datos observados, entonces:
 
-$$G(m) = d \quad \text{(problema directo)}$$
+$$G(m) = d \quad \text{([[Forward Problem|problema directo]])}$$
 
 El problema inverso busca determinar **m** conociendo **G** y **d**. En el caso de ondas superficiales, esto es un *problema de identificación de modelo* (categoría 2), que equivale a determinar los coeficientes de las ecuaciones diferenciales que gobiernan la propagación de ondas a partir del conocimiento de sus autovalores ([[Phase Velocity|velocidades de fase]] a distintas frecuencias).
 
-> **Figura 6.1** (p. 276): Diagrama que ilustra la relación entre el problema directo (estimulación o convolución: G, m → d) y los dos tipos de problema inverso. Categoría 1: deconvolución (determinar m dado G y d). Categoría 2: identificación del modelo (determinar G dado m y d). El problema de ondas superficiales pertenece a la categoría 2.
+> **Figura 6.1** (p. 276): Diagrama que ilustra la relación entre el [[Forward Problem|problema directo]] (estimulación o convolución: G, m → d) y los dos tipos de problema inverso. Categoría 1: deconvolución (determinar m dado G y d). Categoría 2: identificación del modelo (determinar G dado m y d). El problema de ondas superficiales pertenece a la categoría 2.
 
 > **Figura 6.2** (p. 276): Esquema conceptual del problema inverso geofísico. El subsuelo (geometría y propiedades mecánicas desconocidas) debe inferirse a partir de mediciones en superficie. Ilustra la irreductible incertidumbre del problema.
 
@@ -46,23 +46,23 @@ Según Hadamard (1923), un problema matemático está **bien puesto** (*well-pos
 
 Si alguna de estas condiciones falla, el problema es **[[Ill-Posed Problem|ill-posed]]** (mal condicionado). Los problemas inversos violan habitualmente las condiciones de **unicidad** y **estabilidad**:
 
-- **[[Non-uniqueness|No unicidad]]:** distintos perfiles de Vs pueden producir curvas de dispersión prácticamente idénticas. Matemáticamente, la información disponible no es suficiente para determinar unívocamente la solución. Ejemplo físico directo: distintas distribuciones de masa en el interior de la Tierra pueden producir el mismo campo gravitatorio en superficie.
-- **Inestabilidad:** pequeñas variaciones en los datos de entrada (debidas a ruido o errores de medición) pueden traducirse en grandes cambios en el perfil resultante. Esto es particularmente grave en problemas no lineales, como la inversión de la curva de dispersión de [[Rayleigh Waves|Rayleigh]].
+- **[[Non-uniqueness|No unicidad]]:** distintos perfiles de Vs pueden producir [[Dispersion Curve|curvas de dispersión]] prácticamente idénticas. Matemáticamente, la información disponible no es suficiente para determinar unívocamente la solución. Ejemplo físico directo: distintas distribuciones de masa en el interior de la Tierra pueden producir el mismo campo gravitatorio en superficie.
+- **Inestabilidad:** pequeñas variaciones en los datos de entrada (debidas a ruido o errores de medición) pueden traducirse en grandes cambios en el perfil resultante. Esto es particularmente grave en problemas no lineales, como la [[Inversión|inversión]] de la [[Dispersion Curve|curva de dispersión]] de [[Rayleigh Waves|Rayleigh]].
 
-En el caso de ondas superficiales, la no unicidad implica que **una misma curva de dispersión experimental puede corresponder a más de un perfil de Vs**. Esto no es una limitación del algoritmo de inversión, sino una propiedad intrínseca del problema físico.
+En el caso de ondas superficiales, la [[Non-uniqueness|no-unicidad]] implica que **una misma [[Dispersion Curve|curva de dispersión]] experimental puede corresponder a más de un perfil de Vs**. Esto no es una limitación del algoritmo de [[Inversión|inversión]], sino una propiedad intrínseca del problema físico.
 
 **Estrategias de mitigación:**
 - **Información a priori:** incorporar datos externos como perfiles de pozo (boreholes), ensayos SPT, mediciones de densidad, para restringir el espacio de soluciones admisibles.
 - **Restricciones de suavidad o acotamiento:** forzar que los parámetros varíen dentro de rangos físicamente plausibles (por ejemplo, que la razón de amortiguamiento sea no negativa).
-- **Métodos de regularización:** aproximar el problema ill-posed mediante una familia de problemas mejor condicionados. Los métodos de **regularización de Tikhonov** son los más utilizados y se desarrollan en la sección 6.4.
+- **Métodos de [[Regularization|regularización]]:** aproximar el problema ill-posed mediante una familia de problemas mejor condicionados. Los métodos de **regularización de [[Tikhonov Regularization|Tikhonov]]** son los más utilizados y se desarrollan en la sección 6.4.
 
 *Trazabilidad: Foti Cap. 6, §6.1.2, pp. 277–280*
 
-### 6.1.3 Estrategias de inversión: local vs global
+### 6.1.3 Estrategias de [[Inversión|inversión]]: local vs global
 
 El problema de identificación de parámetros asociado con ondas superficiales se convierte en un problema de **optimización**: encontrar el vector de parámetros del modelo que minimiza una función de error entre la curva teórica y la experimental.
 
-Los algoritmos de inversión se dividen en dos grandes familias:
+Los algoritmos de [[Inversión|inversión]] se dividen en dos grandes familias:
 
 **Métodos de búsqueda local (LS — Local Search):**
 - Parten de un modelo inicial tentativo.
@@ -76,9 +76,9 @@ Los algoritmos de inversión se dividen en dos grandes familias:
 - Requieren mayor esfuerzo computacional.
 - Ejemplos: [[Neighbourhood Algorithm]], [[Monte Carlo Methods|Monte Carlo]], algoritmos evolutivos.
 
-En la práctica, la mayoría de las inversiones de ondas superficiales utilizan métodos LS, usando la curva de dispersión modal o aparente como función de respuesta. Sin embargo, en perfiles inversamente dispersivos (con capas blandas o rígidas intercaladas), los métodos GS son más apropiados porque el espacio de soluciones puede tener múltiples mínimos.
+En la práctica, la mayoría de las inversiones de ondas superficiales utilizan métodos LS, usando la [[Dispersion Curve|curva de dispersión]] modal o aparente como función de respuesta. Sin embargo, en perfiles inversamente dispersivos (con capas blandas o rígidas intercaladas), los métodos GS son más apropiados porque el espacio de soluciones puede tener múltiples mínimos.
 
-> **Figura 6.3** (p. 282): Árbol taxonómico de los algoritmos para la solución del problema de identificación de parámetros con ondas superficiales. Clasifica los métodos por: tipo de inversión (global/local), tipo de análisis de atenuación (acoplado/desacoplado), tipo de movimiento H/V (acoplado/desacoplado), y tipo de función de respuesta (dominio frecuencia/tiempo, funciones modales/aparentes).
+> **Figura 6.3** (p. 282): Árbol taxonómico de los algoritmos para la solución del problema de identificación de parámetros con ondas superficiales. Clasifica los métodos por: tipo de [[Inversión|inversión]] (global/local), tipo de análisis de atenuación (acoplado/desacoplado), tipo de movimiento H/V (acoplado/desacoplado), y tipo de función de respuesta (dominio frecuencia/tiempo, funciones modales/aparentes).
 
 *Trazabilidad: Foti Cap. 6, §6.1.3, pp. 280–282*
 
@@ -86,17 +86,24 @@ En la práctica, la mayoría de las inversiones de ondas superficiales utilizan 
 
 ## 6.2 Modelización directa (Forward Modeling)
 
-La capacidad de resolver el problema inverso depende directamente de poder resolver eficientemente el **problema directo**: dado un modelo del subsuelo, calcular las curvas de dispersión y atenuación esperadas.
+La capacidad de resolver el problema inverso depende directamente de poder resolver eficientemente el **[[Forward Problem|problema directo]]**: dado un modelo del subsuelo $\mathbf{m}$, calcular las [[Dispersion Curve|curvas de dispersión]] $c(\omega)$ y atenuación $\alpha(\omega)$ esperadas. Este cálculo — formalizado como $\mathbf{d}_{calc} = \mathcal{F}(\mathbf{m})$ — debe ejecutarse en cada iteración del proceso de [[Inversión|inversión]] para comparar los datos sintéticos con los observados y actualizar el modelo.
+
+En métodos de búsqueda local ([[Gauss-Newton Method|Gauss-Newton]], [[Levenberg-Marquardt|Levenberg-Marquardt]]) el [[Forward Problem|problema directo]] se evalúa decenas de veces; en métodos de búsqueda global ([[Monte Carlo Methods|Monte Carlo]], [[Neighbourhood Algorithm|algoritmo de vecindad]]) puede evaluarse miles o millones de veces. La eficiencia del *forward solver* determina el costo computacional total de la [[Inversión|inversión]]. El método estándar de la industria es la **[[Thomson-Haskell Matrix|matriz de Thomson-Haskell]]** — resolución del determinante de dispersión para hallar las [[Phase Velocity|velocidades de fase]] en que se anulan las condiciones de borde — complementada por el **eigenproblem de Rayleigh** para situaciones de alta velocidad con riesgo de desbordamiento numérico.
 
 El modelo matemático del subsuelo debe especificar tres aspectos:
 
 ### 6.2.1 Modelo geométrico
 
 Define cómo se idealiza la variabilidad espacial del subsuelo. Las opciones son:
-- **Modelo 1D (unidimensional):** las propiedades mecánicas solo varían con la profundidad (modelo lateralmente homogéneo). Es el estándar en la práctica habitual de ensayos de ondas superficiales.
-- **Modelos 2D/3D:** permiten variabilidad lateral. Son más realistas en sitios con complejidad geológica, pero mucho más costosos computacionalmente. Están disponibles en aplicaciones avanzadas.
 
-La elección incorrecta del modelo geométrico puede introducir errores sistemáticos graves. Si el sitio tiene variabilidad lateral significativa y se usa un modelo 1D, los resultados serán sesgados.
+- **Modelo 1D (unidimensional):** las propiedades mecánicas solo varían con la profundidad (modelo lateralmente homogéneo). Es el estándar en la práctica habitual de ensayos de ondas superficiales porque la teoría de [[Layered Media|medios estratificados]] horizontalmente es matemáticamente tratable y computacionalmente eficiente. El modelo 1D es adecuado cuando la estratificación lateral es suave en comparación con la longitud del arreglo.
+- **Modelos 2D/3D:** permiten variabilidad lateral. Son más realistas en sitios con complejidad geológica (cuencas sedimentarias, rellenos antrópicos, frentes de erosión), pero mucho más costosos computacionalmente porque requieren métodos de elementos finitos o diferencias finitas en lugar de la [[Thomson-Haskell Matrix|matriz de Thomson-Haskell]]. Están disponibles en aplicaciones avanzadas de tomografía de ondas superficiales.
+
+La elección incorrecta del modelo geométrico puede introducir errores sistemáticos graves. Si el sitio tiene variabilidad lateral significativa y se usa un modelo 1D, los resultados serán sesgados: el perfil invertido reflejará una promediación horizontal de las propiedades reales en lugar de la estructura local. Una verificación práctica es la técnica de **[[Sliding Window|ventana deslizante]]**: aplicar la [[Inversión|inversión]] 1D en subventanas del arreglo para detectar si el perfil resultante varía con la posición. Una variación superior al 15–20% en $V_S$ entre ventanas adyacentes indica heterogeneidad lateral que invalida la hipótesis 1D (Foti et al. 2014, §6.2.1).
+
+> [!EXAMPLE] Evidencia empírica: Paper 003 (Xia et al. 1999) — modelo 1D en MASW
+> **Paper 003 (Xia, Miller & Park 1999, *Geophysics* 64(3):691–700)** — el trabajo fundacional del [[MASW Method|MASW]] activo — usa el modelo 1D de capas horizontales como marco de referencia universal para la [[Inversión|inversión]]. El sitio de Kansas (substrato de caliza) presentaba variabilidad lateral detectada por el arreglo multicanal; sin embargo, la [[Inversión|inversión]] 1D por [[Sliding Window|ventana deslizante]] (segmentos de 24 trazas) produjo pseudo-secciones de $V_S$ que revelaron la topografía de la roca basal con acuerdo del 85% respecto a los sondeos de refracción. Esto confirma que el modelo 1D con ventana deslizante es una aproximación válida para capturar variabilidad lateral suave, siempre que la longitud de cada ventana sea pequeña respecto a la escala de variación lateral.
+> — Research Database, entrada 003; Xia et al. (1999), *Geophysics* 64(3):691–700.
 
 ### 6.2.2 Modelo numérico (discretización)
 
@@ -112,24 +119,24 @@ Determina cómo se representa matemáticamente el modelo geométrico:
 Describe el comportamiento mecánico de los geomateriales bajo excitaciones dinámicas de baja amplitud:
 
 - **Elasticidad lineal:** adecuada cuando la atenuación es despreciable o no interesa.
-- **Viscoelasticidad lineal:** permite describir simultáneamente la dispersión y la atenuación. Es el modelo más común cuando se quiere invertir también la curva de atenuación.
-- **[[Biot Theory|Poroelasticidad (Biot)]]:** reconoce la naturaleza multicomponente de los suelos saturados. Rara vez se usa en inversión de ondas superficiales porque el problema directo es considerablemente más complejo. Importante excepción: en sitios con nivel freático superficial, el [[Poisson Ratio|coeficiente de Poisson]] debe reflejar correctamente las condiciones de saturación, ya que es muy diferente en materiales saturados respecto a materiales secos bajo carga dinámica no drenada.
+- **[[Viscoelastic Media|Viscoelasticidad lineal]]:** permite describir simultáneamente la dispersión y la atenuación. Es el modelo más común cuando se quiere invertir también la curva de atenuación.
+- **[[Biot Theory|Poroelasticidad (Biot)]]:** reconoce la naturaleza multicomponente de los suelos saturados. Rara vez se usa en [[Inversión|inversión]] de ondas superficiales porque el [[Forward Problem|problema directo]] es considerablemente más complejo. Importante excepción: en sitios con nivel freático superficial, el [[Poisson Ratio|coeficiente de Poisson]] debe reflejar correctamente las condiciones de saturación, ya que es muy diferente en materiales saturados respecto a materiales secos bajo carga dinámica no drenada.
 
-### 6.2.4 Formulación del problema directo para inversión
+### 6.2.4 Formulación del [[Forward Problem|problema directo]] para [[Inversión|inversión]]
 
-Para un medio multicapa, el problema directo se escribe de forma vectorial:
+Para un medio multicapa, el [[Forward Problem|problema directo]] se escribe de forma vectorial:
 
 **Dispersión (no lineal):**
 $$G(V_s) = V_{R/L}$$
 
-donde $V_s = [(V_s)_1, \ldots, (V_s)_{nl}]$ es el vector de velocidades de corte por capa y $V_{R/L}$ la curva de dispersión de Rayleigh (o Love). Este operador **G** es no lineal.
+donde $V_s = [(V_s)_1, \ldots, (V_s)_{nl}]$ es el vector de velocidades de corte por capa y $V_{R/L}$ la [[Dispersion Curve|curva de dispersión]] de Rayleigh (o Love). Este operador **G** es no lineal.
 
 **Atenuación (lineal bajo disipación débil):**
 $$G \cdot D_s = \alpha_{R/L}$$
 
-donde $D_s$ es el vector de razones de amortiguamiento por capa y $\alpha_{R/L}$ la curva de atenuación. Este problema es **lineal**, lo que lo hace matemáticamente más tratable.
+donde $D_s$ es el vector de razones de amortiguamiento por capa y $\alpha_{R/L}$ es el [[Attenuation Coefficient|coeficiente de atenuación]] de Rayleigh/Love. Este problema es **lineal**, lo que lo hace matemáticamente más tratable.
 
-En resumen, existen tres tipos de problema directo en ondas superficiales: (I) predecir la dispersión desde $V_s$, (II) predecir la atenuación desde $D_s$, y (III) predecir la función de dispersión compleja desde el perfil de velocidad complejo $V_s^*$. Los problemas I y III son no lineales; el problema II es lineal.
+En resumen, existen tres tipos de [[Forward Problem|problema directo]] en ondas superficiales: (I) predecir la dispersión desde $V_s$, (II) predecir la atenuación desde $D_s$, y (III) predecir la función de dispersión compleja desde el perfil de velocidad complejo $V_s^*$. Los problemas I y III son no lineales; el problema II es lineal.
 
 *Trazabilidad: Foti Cap. 6, §6.2, pp. 282–286*
 
@@ -139,13 +146,13 @@ En resumen, existen tres tipos de problema directo en ondas superficiales: (I) p
 
 ### 6.3.1 Método SSRM (Steady-State Rayleigh Method)
 
-El método más antiguo y simple de inversión empírica es el **SSRM**, precursor de los modernos métodos espectrales (SASW, MASW).
+El método más antiguo y simple de [[Inversión|inversión]] empírica es el **SSRM**, precursor de los modernos métodos espectrales ([[SASW Method|SASW]], [[MASW Method|MASW]]).
 
-**Fundamento físico:** en un [[Elastic Half Space|semiespacio elástico homogéneo]], la onda de Rayleigh tiene una velocidad de fase $V_R$ próxima a la velocidad de corte del medio: $V_R \approx 0.92 \cdot V_s$. Inversamente, $V_s \approx 1.1 \cdot V_R$. Además, el movimiento de onda superficial está confinado principalmente en la zona de la *skin depth* (~1 longitud de onda de profundidad), y la mayor parte de la energía se concentra dentro de los primeros $\lambda/3$ de profundidad.
+**Fundamento físico:** en un [[Elastic Half Space|semiespacio elástico homogéneo]], la onda de Rayleigh tiene una [[Phase Velocity|velocidad de fase]] $V_R$ próxima a la velocidad de corte del medio: $V_R \approx 0.92 \cdot V_s$. Inversamente, $V_s \approx 1.1 \cdot V_R$. Además, el movimiento de onda superficial está confinado principalmente en la zona de la *skin depth* (~1 [[Wavelength|longitud de onda]] de profundidad), y la mayor parte de la energía se concentra dentro de los primeros $\lambda/3$ de profundidad.
 
 **Procedimiento (Figura 6.5, p. 287):**
 Para cada frecuencia del ensayo:
-1. Medir la velocidad de fase $V_R^*$ y la longitud de onda $\lambda_R^*$.
+1. Medir la [[Phase Velocity|velocidad de fase]] $V_R^*$ y la [[Wavelength|longitud de onda]] $\lambda_R^*$.
 2. Estimar $V_s \approx 1.1 \cdot V_R^*$.
 3. Asignar ese valor de $V_s$ a la profundidad $z \approx \lambda_R^*/3$.
 4. Repetir para todas las frecuencias disponibles → construir el perfil $V_s(z)$.
@@ -153,15 +160,17 @@ Para cada frecuencia del ensayo:
 > **Figura 6.5** (p. 287): Esquema del procedimiento empírico SSRM. El diagrama muestra el mapeo desde el dominio $\{V_R, \lambda_R\}$ (izquierda) al dominio $\{V_s, \text{profundidad}\}$ (derecha).
 
 **Limitaciones (Figura 6.6, p. 288):**
-El método solo funciona bien para **perfiles normalmente dispersivos** (velocidad Vs aumenta monotónicamente con la profundidad — caso A en Fig. 6.6). En perfiles inversamente dispersivos (capa blanda intermedia = caso B; capa rígida superficial = caso C), el método falla en capturar la estructura real. Sin embargo, el perfil obtenido puede usarse como **modelo de referencia inicial** para algoritmos de inversión iterativos más rigurosos.
+El método solo funciona bien para **perfiles normalmente dispersivos** (velocidad Vs aumenta monotónicamente con la profundidad — caso A en Fig. 6.6). En perfiles inversamente dispersivos (capa blanda intermedia = caso B; capa rígida superficial = caso C), el método falla en capturar la estructura real. Sin embargo, el perfil obtenido puede usarse como **modelo de referencia inicial** para algoritmos de [[Inversión|inversión]] iterativos más rigurosos.
 
-> **Figura 6.6** (p. 288): Resultados de la inversión empírica SSRM para tres perfiles sintéticos (A, B, C). Muestra el perfil real (línea negra continua) vs las estimaciones con distintos valores de λ/3, λ/2.5, λ/2. El caso A (normalmente dispersivo) tiene un ajuste aceptable; los casos B y C (inversamente dispersivos) presentan desviaciones significativas.
+> **Figura 6.6** (p. 288): Resultados de la [[Inversión|inversión]] empírica SSRM para tres perfiles sintéticos (A, B, C). Muestra el perfil real (línea negra continua) vs las estimaciones con distintos valores de λ/3, λ/2.5, λ/2. El caso A (normalmente dispersivo) tiene un ajuste aceptable; los casos B y C (inversamente dispersivos) presentan desviaciones significativas.
 
 ### 6.3.2 Inversión manual
 
 Los métodos empíricos también incluyen los procedimientos **trial-and-error** (ensayo y error), en los que el operador ajusta manualmente los parámetros del modelo hasta obtener una curva teórica que visualmente reproduzca la experimental.
 
-Requieren disponibilidad de un algoritmo de problema directo (forward solver). Son subjetivos y operador-dependientes, pero tienen la ventaja de que un operador experimentado puede converger a una solución razonable incluso en casos donde los algoritmos automáticos fallan (por ejemplo, curvas de dispersión "patológicas" donde el cálculo del Jacobiano es inestable).
+El procedimiento requiere: (1) definir un modelo inicial de capas $\mathbf{m}_0 = \{V_{Sj}, V_{Pj}, \rho_j, h_j\}$; (2) ejecutar el [[Forward Problem|problema directo]] para calcular la [[Dispersion Curve|curva de dispersión]] teórica $c_{calc}(\omega) = \mathcal{F}(\mathbf{m}_0)$; (3) comparar visualmente con la curva experimental $c_{obs}(\omega)$; y (4) modificar un parámetro a la vez — typically $V_S$ de la capa que más influye en la banda de frecuencia donde el ajuste es peor — y repetir hasta convergencia visual. La [[Sensitivity Kernel|sensibilidad]] de la [[Dispersion Curve|curva de dispersión]] a cada capa (kernels de Fréchet) guía al operador experto: las altas frecuencias están controladas por las capas superficiales, las bajas por las profundas.
+
+Son subjetivos y operador-dependientes, pero tienen la ventaja de que un operador experimentado puede converger a una solución razonable incluso en casos donde los algoritmos automáticos fallan: por ejemplo, [[Dispersion Curve|curvas de dispersión]] "patológicas" con discontinuidades o saltos modales donde el cálculo de la [[Jacobian Matrix|Jacobiana]] es inestable, o cuando la [[Non-uniqueness|no-unicidad]] del problema inverso hace que el algoritmo oscile entre múltiples mínimos. La [[Inversión|inversión]] manual es también el método preferido para verificar la razonabilidad física del perfil obtenido automáticamente — un filtro de sanidad antes de reportar resultados.
 
 *Trazabilidad: Foti Cap. 6, §6.3, pp. 286–289*
 
@@ -171,7 +180,7 @@ Requieren disponibilidad de un algoritmo de problema directo (forward solver). S
 
 ### 6.4.1 Medidas de bondad de ajuste
 
-Antes de desarrollar algoritmos de inversión, es necesario definir qué significa "ajustar bien" los datos. El problema de ajustar una curva teórica a los datos experimentales es un **problema de regresión**, y la calidad del ajuste depende de la norma usada para medir el error.
+Antes de desarrollar algoritmos de [[Inversión|inversión]], es necesario definir qué significa "ajustar bien" los datos. El problema de ajustar una curva teórica a los datos experimentales es un **problema de regresión**, y la calidad del ajuste depende de la norma usada para medir el error.
 
 El **error de predicción** entre los datos medidos **d** y los datos predichos **Gm** se escribe genéricamente como:
 
@@ -185,7 +194,7 @@ $$\mathbf{m} = (\mathbf{G}^T \mathbf{G})^{-1} \mathbf{G}^T \mathbf{d} \qquad (6.
 
 > **Figura 6.7** (p. 291): Ejemplo de regresión lineal con normas L₂, L₁ y Lp ante la presencia de un *outlier*. La L₂ es desviada por el outlier; la L₁ es más robusta. La Lp con p grande sigue la tendencia principal pero ignora el outlier.
 
-**Implicación práctica:** en la inversión de curvas de dispersión, se suele usar L₂ por su tratabilidad matemática. Sin embargo, si los datos contienen mediciones atípicas (por ejemplo, por contaminación de modos superiores en ciertas frecuencias), considerar normas alternativas puede mejorar la robustez de la inversión.
+**Implicación práctica:** en la [[Inversión|inversión]] de [[Dispersion Curve|curvas de dispersión]], se suele usar L₂ por su tratabilidad matemática. Sin embargo, si los datos contienen mediciones atípicas (por ejemplo, por contaminación de [[Surface Wave Modes|modos superiores]] en ciertas frecuencias), considerar normas alternativas puede mejorar la robustez de la [[Inversión|inversión]].
 
 *Trazabilidad: Foti Cap. 6, §6.4.1, pp. 289–292*
 
@@ -195,7 +204,7 @@ $$\mathbf{m} = (\mathbf{G}^T \mathbf{G})^{-1} \mathbf{G}^T \mathbf{d} \qquad (6.
 
 #### 6.4.2.1 SVD y la inversa generalizada de Moore-Penrose
 
-El problema de inversión lineal se formula como **G·m = d**, donde **G** es una matriz N×M. Cuando el sistema no es cuadrado (N ≠ M) o no es de rango completo, la solución clásica (Ec. 6.6) puede no existir o no ser única. La solución general se obtiene mediante la **[[Singular Value Decomposition|descomposición en valores singulares (SVD)]]**.
+El problema de [[Inversión|inversión]] lineal se formula como **G·m = d**, donde **G** es una matriz N×M. Cuando el sistema no es cuadrado (N ≠ M) o no es de rango completo, la solución clásica (Ec. 6.6) puede no existir o no ser única. La solución general se obtiene mediante la **[[Singular Value Decomposition|descomposición en valores singulares (SVD)]]**.
 
 **Intuición física de la SVD:** cualquier matriz G puede descomponerse en tres factores que tienen interpretación geométrica clara: dos rotaciones (Q₁ y Q₂) y un escalado (Σ). Los valores singulares de Σ miden qué tan bien cada dirección del espacio de datos está conectada con el espacio de parámetros del modelo. Valores singulares grandes → buena conexión, estable. Valores singulares pequeños → conexión débil, inestable.
 
@@ -215,7 +224,7 @@ donde q es el rango de **G**. Esta inversa generalizada funciona para cualquier 
 
 > **Figura 6.8** (p. 295): Ilustración del problema mixto-determinado en geofísica. Las capas superficiales son recorridas por múltiples rayos sísmicos (sobredeterminadas), mientras que las capas profundas no son alcanzadas por ningún rayo (subdeterminadas, zona "dark"). El modelo correcto debe respetar la profundidad de investigación máxima.
 
-**Implicación práctica:** al diseñar un experimento MASW o SASW, conviene asegurarse de que el rango de frecuencias muestreado corresponda a profundidades de investigación realistas, de modo que el problema resulte sobredeterminado y la solución de mínimos cuadrados sea única y estable.
+**Implicación práctica:** al diseñar un experimento [[MASW Method|MASW]] o [[SASW Method|SASW]], conviene asegurarse de que el rango de frecuencias muestreado corresponda a profundidades de investigación realistas, de modo que el problema resulte sobredeterminado y la solución de mínimos cuadrados sea única y estable.
 
 #### 6.4.2.2 Número de condición e inestabilidad
 
@@ -233,7 +242,7 @@ Importante: la ill-posedness es una propiedad intrínseca de la matriz **G** (es
 
 *Trazabilidad: Foti Cap. 6, §6.4.2.1–6.4.2.2, pp. 293–298*
 
-#### 6.4.2.3 Regularización de Tikhonov
+#### 6.4.2.3 Regularización de [[Tikhonov Regularization|Tikhonov]]
 
 La **[[Tikhonov Regularization|regularización de Tikhonov]]** es la técnica más sistemática para mitigar la ill-posedness. La idea central es modificar el problema de minimización añadiendo un término de penalización que controla la complejidad de la solución:
 
@@ -267,7 +276,7 @@ La regularización de orden superior es especialmente apropiada en geofísica po
 #### 6.4.2.4 Otros métodos de regularización
 
 - **Constraints de bounds:** se impone que los parámetros permanezcan en rangos físicamente admisibles (por ejemplo, Ds ≥ 0). Se resuelven con multiplicadores de Lagrange o mínimos cuadrados con restricciones.
-- **[[Total Variation Regularization|Variación total]] (*total variation*):** usa la norma L₁ en lugar de L₂ para la penalización del gradiente. A diferencia de Tikhonov, no penaliza las discontinuidades abruptas, lo que lo hace adecuado para sitios con interfaces geológicas bien definidas entre capas de propiedades muy diferentes.
+- **[[Total Variation Regularization|Variación total]] (*total variation*):** usa la norma L₁ en lugar de L₂ para la penalización del gradiente. A diferencia de [[Tikhonov Regularization|Tikhonov]], no penaliza las discontinuidades abruptas, lo que lo hace adecuado para sitios con interfaces geológicas bien definidas entre capas de propiedades muy diferentes.
 
 #### 6.4.2.5 Resolución y matrices de resolución
 
@@ -294,7 +303,7 @@ Cuanto menor el spread, más cerca está Rm de la identidad y mejor resueltos lo
 
 ### 6.4.3 Problema inverso no lineal
 
-La inversión de la curva de [[Dispersion Relation|dispersión]] de Rayleigh (Ec. 6.2) es intrínsecamente **no lineal**: la relación entre el perfil de Vs y la curva de dispersión no puede escribirse como una multiplicación matricial simple. Esto complica enormemente el problema.
+La [[Inversión|inversión]] de la curva de [[Dispersion Relation|dispersión]] de Rayleigh (Ec. 6.2) es intrínsecamente **no lineal**: la relación entre el perfil de Vs y la [[Dispersion Curve|curva de dispersión]] no puede escribirse como una multiplicación matricial simple. Esto complica enormemente el problema.
 
 #### 6.4.3.1 Linealización por transformación de variables
 
@@ -316,7 +325,7 @@ Cuando la linearización no es posible o introduce sesgos inaceptables, se recur
 
 $$\mathbf{G}(\mathbf{m}) \approx \mathbf{G}(\mathbf{m}_0) + \mathbf{J}(\mathbf{m})_{\mathbf{m}_0} \cdot (\mathbf{m} - \mathbf{m}_0) \qquad (6.29)$$
 
-donde **J** es la **matriz Jacobiana** (gradiente del operador G respecto a los parámetros del modelo). Truncando a primer orden, el problema no lineal se convierte localmente en lineal y puede resolverse con los métodos de la sección 6.4.2. Iterando este proceso:
+donde **J** es la **matriz [[Jacobian Matrix|Jacobiano]]** (gradiente del operador G respecto a los parámetros del modelo). Truncando a primer orden, el problema no lineal se convierte localmente en lineal y puede resolverse con los métodos de la sección 6.4.2. Iterando este proceso:
 
 $$\mathbf{m}_{k+1} = (\mathbf{J}_k^T \mathbf{J}_k)^{-1} \mathbf{J}_k^T \cdot \left\{ \mathbf{J}_k \cdot \mathbf{m}_k + [\mathbf{d} - \mathbf{G}(\mathbf{m}_k)] \right\} \qquad (6.32)$$
 
@@ -326,37 +335,41 @@ Esta es la base del método de **[[Gauss-Newton Method|Gauss-Newton]]** y sus va
 
 > **Figura 6.10** (p. 307): Comparación del error de predicción E(m) como función del parámetro del modelo para (a) problema no lineal (superficie con múltiples mínimos) y (b) problema lineal (paraboloide con mínimo único). El problema no lineal requiere encontrar el mínimo global entre múltiples mínimos locales.
 
-> **Figura 6.11** (p. 308): Cuatro casos típicos de complejidad creciente del espacio de soluciones en inversión no lineal: (a) mínimo único bien definido, (b) dos mínimos globales igualmente válidos, (c) múltiples mínimos periódicos (no unicidad severa), (d) "fondo plano" — rango continuo de soluciones (ill-conditioning extremo).
+> **Figura 6.11** (p. 308): Cuatro casos típicos de complejidad creciente del espacio de soluciones en [[Inversión|inversión]] no lineal: (a) mínimo único bien definido, (b) dos mínimos globales igualmente válidos, (c) múltiples mínimos periódicos ([[Non-uniqueness|no-unicidad]] severa), (d) "fondo plano" — rango continuo de soluciones (ill-conditioning extremo).
 
 **Métodos de búsqueda global (GS):** diseñados para evitar los mínimos locales explorando el espacio completo de soluciones. Incluyen:
 - **Estrategia multistart:** lanzar múltiples búsquedas LS desde modelos iniciales aleatorios y quedarse con la mejor solución.
-- **Algoritmos genéticos:** mimetizan procesos evolutivos (selección, cruzamiento, mutación) para explorar simultáneamente el espacio de soluciones.
-- **Simulated annealing:** permite aceptar soluciones peores temporalmente (con cierta probabilidad) para escapar de mínimos locales.
-- **Monte Carlo:** exploración estadística exhaustiva del espacio de parámetros.
+- **[[Genetic Algorithm|Algoritmos genéticos]]:** mimetizan procesos evolutivos (selección, cruzamiento, mutación) para explorar simultáneamente el espacio de soluciones.
+- **[[Simulated Annealing|Simulated annealing]]:** permite aceptar soluciones peores temporalmente (con cierta probabilidad) para escapar de mínimos locales.
+- **[[Monte Carlo Methods|Monte Carlo]]:** exploración estadística exhaustiva del espacio de parámetros.
 
 Los métodos GS son más robustos que los LS pero computacionalmente mucho más costosos. Son especialmente importantes para perfiles inversamente dispersivos.
 
-#### 6.4.3.3 Jacobiano analítico vs numérico
+> [!EXAMPLE] Evidencia empírica: Paper 037 (Bergamo et al. 2011) — [[Inversión|inversión]] Monte Carlo multimodal en sitios con basamento superficial
+> **Paper 037 (Bergamo, Comina, Foti & Maraschini 2011, *Soil Dyn. Earthq. Eng.* 31(3):530–534)** aplica [[Monte Carlo Methods|inversión Monte Carlo]] multimodal para caracterizar sitios de la red acelerométrica italiana (Liguria y Sicilia) con basamento poco profundo (5–20 m). El método genera 10⁶–10⁷ perfiles Vs aleatorios, evalúa el [[Forward Problem|forward problem]] para todos los modos disponibles sin asignación modal a priori, y selecciona los modelos compatibles con las [[Dispersion Curve|curvas de dispersión]] experimentales. Los resultados demuestran que la [[Inversión|inversión]] multimodal Global Search maneja correctamente las **[[Non-uniqueness|inversiones de velocidad]]** — situaciones donde una capa lenta subyace a una capa rígida — que la [[Inversión|inversión]] de [[Surface Wave Modes|modo fundamental]] solo no puede resolver. Los perfiles Vs son validados mediante razones espectrales H/V en los mismos sitios, confirmando la profundidad del basamento estimada. El estudio es una demostración directa de las ventajas de los métodos GS frente a LS en presencia de [[Non-uniqueness|no-unicidad]].
+> — Research Database, entrada 037; Bergamo et al. (2011), *Soil Dyn. Earthq. Eng.* 31(3):530–534. DOI: 10.1016/j.soildyn.2010.10.006.
 
-Todos los métodos LS iterativos requieren calcular el **Jacobiano** J(m) en cada iteración. Existen dos aproximaciones:
+#### 6.4.3.3 [[Jacobian Matrix|Jacobiano]] analítico vs numérico
 
-- **Jacobiano numérico:** se calcula perturbando cada parámetro y evaluando G(m + δm) – G(m). Es general pero computacionalmente costoso (requiere nl + 1 evaluaciones del problema directo por iteración) y numéricamente inestable.
-- **Jacobiano analítico:** derivadas exactas de G(Vs) respecto a Vs calculadas mediante fórmulas explícitas. Para la velocidad de fase de Rayleigh VR, existen expresiones analíticas exactas (Ec. 6.33) derivadas de los [[Variational Principles|principios variacionales de Love y Rayleigh]].
+Todos los métodos LS iterativos requieren calcular el **[[Jacobian Matrix|Jacobiano]]** J(m) en cada iteración. Existen dos aproximaciones:
 
-La ventaja clave del Jacobiano analítico en ondas superficiales es que puede calcularse con los mismos eigenfunciones del problema directo (sin perturbaciones adicionales), lo que lo hace eficiente y estable.
+- **[[Jacobian Matrix|Jacobiano]] numérico:** se calcula perturbando cada parámetro y evaluando G(m + δm) – G(m). Es general pero computacionalmente costoso (requiere nl + 1 evaluaciones del [[Forward Problem|problema directo]] por iteración) y numéricamente inestable.
+- **[[Jacobian Matrix|Jacobiano]] analítico:** derivadas exactas de G(Vs) respecto a Vs calculadas mediante fórmulas explícitas. Para la [[Phase Velocity|velocidad de fase]] de Rayleigh VR, existen expresiones analíticas exactas (Ec. 6.33) derivadas de los [[Variational Principles|principios variacionales de Love y Rayleigh]].
 
-**Observación importante sobre Vp:** la velocidad de fase de Rayleigh es relativamente insensible a cambios en Vp (o equivalentemente en la razón de Poisson). Esto produce un "fondo plano" en la función de error (Figura 6.11d) cuando se intenta invertir Vp. Por eso, en la práctica, Vp (o la razón de Poisson) se asume conocida a priori y solo se invierte Vs.
+La ventaja clave del [[Jacobian Matrix|Jacobiano]] analítico en ondas superficiales es que puede calcularse con los mismos eigenfunciones del [[Forward Problem|problema directo]] (sin perturbaciones adicionales), lo que lo hace eficiente y estable.
 
-#### 6.4.3.4 Algoritmo de Occam — inversión conjunta de dispersión y atenuación
+**Observación importante sobre Vp:** la [[Phase Velocity|velocidad de fase]] de Rayleigh es relativamente insensible a cambios en Vp (o equivalentemente en la razón de Poisson). Esto produce un "fondo plano" en la función de error (Figura 6.11d) cuando se intenta invertir Vp. Por eso, en la práctica, Vp (o la razón de Poisson) se asume conocida a priori y solo se invierte Vs.
 
-El **[[Occam Algorithm|algoritmo de Occam]]** (Constable et al. 1987, adaptado por Lai 2005) es el método más completo presentado en el capítulo: realiza la **inversión conjunta** de la curva de dispersión y la curva de atenuación simultáneamente, usando la teoría de variables complejas para tratar ambas curvas como una sola función compleja.
+#### 6.4.3.4 Algoritmo de [[Occam Algorithm|Occam]] — [[Joint Inversion|inversión conjunta]] de dispersión y atenuación
 
-**Motivación física:** en medios viscoelásticos, la [[Phase Velocity|velocidad de fase]] y la atenuación no son independientes — están relacionadas por la dispersión material ([[Kramers-Kronig Relations|relaciones de Kramers-Krönig]]). Invertirlas por separado (inversión desacoplada) introduce errores sistemáticos porque:
+El **[[Occam Algorithm|algoritmo de Occam]]** (Constable et al. 1987, adaptado por Lai 2005) es el método más completo presentado en el capítulo: realiza la **[[Joint Inversion|inversión conjunta]]** de la [[Dispersion Curve|curva de dispersión]] y la curva de atenuación simultáneamente, usando la teoría de variables complejas para tratar ambas curvas como una sola función compleja.
+
+**Motivación física:** en medios [[Viscoelastic Media|viscoelásticos]], la [[Phase Velocity|velocidad de fase]] y la atenuación no son independientes — están relacionadas por la dispersión material ([[Kramers-Kronig Relations|relaciones de Kramers-Krönig]]). Invertirlas por separado ([[Inversión|inversión]] desacoplada) introduce errores sistemáticos porque:
 1. Los parámetros Vs y Ds se obtienen de dos inversiones independientes, y la incertidumbre de la primera se propaga a la segunda.
-2. La inversión acoplada usa una restricción interna (las ecuaciones de Cauchy-Riemann) que mejora el condicionamiento del problema.
+2. La [[Inversión|inversión]] acoplada usa una restricción interna (las ecuaciones de Cauchy-Riemann) que mejora el condicionamiento del problema.
 
 **Formulación (Ec. 6.34–6.35):**
-El problema directo se escribe en términos de la velocidad de onda de corte **compleja**:
+El [[Forward Problem|problema directo]] se escribe en términos de la velocidad de onda de corte **compleja**:
 $$\mathbf{G}^*(V_s^*) = V_R^* \qquad (6.34)$$
 
 donde $V_s^* = V_s(1 + iD_s)$ encapsula simultáneamente la velocidad de corte real y la razón de amortiguamiento en un solo parámetro complejo.
@@ -369,45 +382,55 @@ El parámetro μ es el multiplicador de Lagrange (parámetro de suavizado) ajust
 
 Una vez convergido, se recuperan Vs y Ds de la parte real e imaginaria de $V_s^*$ (Ec. 6.45).
 
-> **Figura 6.12** (p. 318): Ajuste entre curvas sintéticas de dispersión (superior) y atenuación (inferior) de Rayleigh y las curvas teóricas obtenidas con el algoritmo de Occam, convergiendo en 3 iteraciones.
+> **Figura 6.12** (p. 318): Ajuste entre curvas sintéticas de dispersión (superior) y atenuación (inferior) de Rayleigh y las curvas teóricas obtenidas con el algoritmo de [[Occam Algorithm|Occam]], convergiendo en 3 iteraciones.
 
-> **Figura 6.13** (p. 319): Perfiles Vs y Ds obtenidos de la inversión conjunta con Occam para el medio de la Tabla 6.1 (4 capas + semiespacio). Los perfiles recuperados coinciden bien con los perfiles reales.
+> **Figura 6.13** (p. 319): Perfiles Vs y Ds obtenidos de la [[Joint Inversion|inversión conjunta]] con [[Occam Algorithm|Occam]] para el medio de la Tabla 6.1 (4 capas + semiespacio). Los perfiles recuperados coinciden bien con los perfiles reales.
 
-**Tabla 6.1** (p. 319): Parámetros del medio sintético usado para la validación del algoritmo de Occam: 4 capas (espesores 5, 10, 10 m + semiespacio), Vp entre 400–1000 m/s, Vs entre 200–500 m/s, Ds entre 0.020–0.035, ρ = 1.7–1.8 Mg/m³. El medio es **normalmente dispersivo**.
+**Tabla 6.1** (p. 319): Parámetros del medio sintético usado para la validación del algoritmo de [[Occam Algorithm|Occam]]: 4 capas (espesores 5, 10, 10 m + semiespacio), Vp entre 400–1000 m/s, Vs entre 200–500 m/s, Ds entre 0.020–0.035, ρ = 1.7–1.8 Mg/m³. El medio es **normalmente dispersivo**.
 
 *Trazabilidad: Foti Cap. 6, §6.4.3, pp. 303–320*
 
 ---
 
-### 6.4.4 Información a priori en la inversión
+### 6.4.4 Información a priori en la [[Inversión|inversión]]
 
-La información a priori es la herramienta más efectiva para mitigar la no unicidad del problema inverso de ondas superficiales. En la práctica, los ensayos de ondas superficiales suelen ejecutarse en conjunto con otras técnicas geotécnicas y geofísicas que proporcionan información complementaria.
+La información a priori es la herramienta más efectiva para mitigar la [[Non-uniqueness|no-unicidad]] del problema inverso de ondas superficiales. En la práctica, los ensayos de ondas superficiales suelen ejecutarse en conjunto con otras técnicas geotécnicas y geofísicas que proporcionan información complementaria.
 
 #### Registros de pozo (boreholes)
 
-Si se dispone de información estratigráfica de pozos cercanos, los **espesores de capa** pueden fijarse como parámetros conocidos en la inversión, reduciendo significativamente el número de incógnitas. Esto mejora el condicionamiento del problema y produce perfiles de Vs más confiables. Si no hay datos de pozo, una regla práctica es asumir espesores de capa que aumenten con la profundidad, para reflejar la disminución intrínseca de la resolución con la profundidad en los métodos no invasivos.
+Si se dispone de información estratigráfica de pozos cercanos, los **espesores de capa** pueden fijarse como parámetros conocidos en la [[Inversión|inversión]], reduciendo significativamente el número de incógnitas. Esto mejora el condicionamiento del problema y produce perfiles de Vs más confiables. Si no hay datos de pozo, una regla práctica es asumir espesores de capa que aumenten con la profundidad, para reflejar la disminución intrínseca de la resolución con la profundidad en los métodos no invasivos.
 
 #### Refracción sísmica de ondas P
 
-Las configuraciones de adquisición MASW y las de [[Seismic Refraction|refracción sísmica]] de ondas P son compatibles (misma geometría fuente-receptor), por lo que es fácil realizar ambas campañas simultáneamente. La refracción P proporciona:
-- **Profundidad al lecho rocoso** (bedrock): puede usarse como cota fija en el modelo de inversión.
-- **Posición del nivel freático**: afecta la [[Phase Velocity|velocidad de Vp]] y la razón de Poisson, que es muy diferente en suelos saturados y secos. Aunque la curva de dispersión de Rayleigh no es muy sensible a Vp, si la posición del nivel freático no se conoce y se asume incorrectamente, los resultados de la inversión pueden estar sesgados.
+Las configuraciones de adquisición [[MASW Method|MASW]] y las de [[Seismic Refraction|refracción sísmica]] de ondas P son compatibles (misma geometría fuente-receptor), por lo que es fácil realizar ambas campañas simultáneamente. La refracción P proporciona:
+- **Profundidad al lecho rocoso** (bedrock): puede usarse como cota fija en el modelo de [[Inversión|inversión]].
+- **Posición del nivel freático**: afecta la [[Phase Velocity|velocidad de Vp]] y la razón de Poisson, que es muy diferente en suelos saturados y secos. Aunque la [[Dispersion Curve|curva de dispersión]] de Rayleigh no es muy sensible a Vp, si la posición del nivel freático no se conoce y se asume incorrectamente, los resultados de la [[Inversión|inversión]] pueden estar sesgados.
 
-> **Figura 6.14** (p. 322): Inversión de datos de ondas superficiales con restricciones de la refracción P. (a) Curvas de dispersión teórica y experimental. (b) Perfiles Vs de ondas superficiales (SWM) y Vp de refracción, mostrando coherencia entre ambos métodos.
+> **Figura 6.14** (p. 322): Inversión de datos de ondas superficiales con restricciones de la refracción P. (a) [[Dispersion Curve|Curvas de dispersión]] teórica y experimental. (b) Perfiles Vs de ondas superficiales (SWM) y Vp de refracción, mostrando coherencia entre ambos métodos.
 
-#### Inversión conjunta de datos geofísicos
+#### [[Joint Inversion|Inversión conjunta]] de datos geofísicos
 
-Los métodos de sondeo eléctrico vertical (VES) y de ondas superficiales comparten estructuras de modelización muy similares (modelo 1D en capas), lo que permite una **inversión conjunta** que determina simultáneamente la resistividad eléctrica, Vs y los espesores de capa. La inversión conjunta produce un problema mejor condicionado que las dos inversiones independientes: con nl capas, la inversión conjunta determina 3nl incógnitas (Vs, resistividad, espesor), mientras que cada inversión individual determina solo 2nl – 1. La solución del problema conjunto es matemáticamente más bien-condicionado.
+Los métodos de sondeo eléctrico vertical (VES) y de ondas superficiales comparten estructuras de modelización muy similares (modelo 1D en capas), lo que permite una **[[Joint Inversion|inversión conjunta]]** que determina simultáneamente la resistividad eléctrica, Vs y los espesores de capa. La [[Joint Inversion|inversión conjunta]] produce un problema mejor condicionado que las dos inversiones independientes: con nl capas, la [[Joint Inversion|inversión conjunta]] determina 3nl incógnitas (Vs, resistividad, espesor), mientras que cada [[Inversión|inversión]] individual determina solo 2nl – 1. La solución del problema conjunto es matemáticamente más bien-condicionado.
 
 *Trazabilidad: Foti Cap. 6, §6.4.4, pp. 320–323*
 
+> [!EXAMPLE] Evidencia empírica: Paper 025 (Xia et al. 2003) — inversión multimodal: mayor resolución en profundidad y detección de inversiones de velocidad
+> **Paper 025 (Xia, Miller, Park & Tian 2003, *J. Appl. Geophys.* Vol.52(1):45–57, 448 citas)** extiende el algoritmo LS iterativo de Xia et al. (1999) para incorporar simultáneamente el [[Surface Wave Modes|modo fundamental]] y [[Surface Wave Modes|modos superiores]] de [[Rayleigh Waves|ondas de Rayleigh]] en la función de desajuste. Con datos sintéticos y de campo (Kansas), el estudio demuestra que la [[Inversión|inversión]] multimodal: (1) mejora la resolución del perfil $V_S(z)$ en profundidad — los [[Surface Wave Modes|modos superiores]] poseen [[Sensitivity Kernel|kernels de sensibilidad]] distribuidos a mayor profundidad que el [[Surface Wave Modes|modo fundamental]]; (2) detecta correctamente las **[[Non-uniqueness|inversiones de velocidad]]** (capas blandas bajo capas rígidas) que la [[Inversión|inversión]] de [[Surface Wave Modes|modo fundamental]] solo no puede resolver; (3) reduce la [[Non-uniqueness|no-unicidad]] del problema inverso al imponer restricciones adicionales mediante los perfiles de velocidad de múltiples modos. El trabajo confirma empíricamente que la información a priori modal —cuando está disponible— es la herramienta más efectiva para estabilizar la [[Inversión|inversión]] en perfiles inversamente dispersivos, complementando las restricciones geológicas de §6.4.4.
+> — Research Database, entrada 025; Xia et al. (2003), *J. Appl. Geophys.* Vol.52(1):45–57. DOI: 10.1016/S0926-9851(02)00239-2.
+
 ---
 
-## 6.5 Incertidumbre en la inversión
+## 6.5 Incertidumbre en la [[Inversión|inversión]]
 
-La incertidumbre es un aspecto fundamental de cualquier proceso de medición e inversión. En ondas superficiales, hay dos fuentes principales de incertidumbre que se propagan de forma acumulada:
-1. **Incertidumbre de los datos:** errores en la medición de la curva de dispersión y atenuación.
-2. **Incertidumbre del modelo:** cómo esos errores se proyectan en el perfil de Vs y Ds resultante.
+> Fuente: Foti et al. (2018), §6.5, pp. 320–340.
+
+La incertidumbre es un aspecto fundamental de cualquier proceso de medición e [[Inversión|inversión]] geofísica. En métodos de [[Surface Waves|ondas superficiales]], la cadena adquisición → procesamiento → [[Inversión|inversión]] acumula incertidumbres en cada paso, y el resultado final — el perfil $V_S(z)$ — debe interpretarse siempre con su intervalo de confianza asociado. Ignorar la incertidumbre lleva a una falsa precisión en el perfil invertido, lo que puede traducirse en decisiones de diseño incorrectas.
+
+Hay **dos fuentes principales de incertidumbre** que se propagan de forma acumulada a lo largo de la cadena de procesamiento:
+1. **Incertidumbre de los datos (epistémica):** errores en la medición de la [[Dispersion Curve|curva de dispersión]] y [[Attenuation|atenuación]] — debidos al ruido ambiental, la resolución finita del espectrograma f-k, el [[Picking|picking]] manual o automático de la curva, y la variabilidad entre repeticiones del ensayo. Esta incertidumbre se caracteriza estadísticamente como la variabilidad de las velocidades de fase estimadas en múltiples tiros o en bandas de frecuencia.
+2. **Incertidumbre del modelo (aleatoria):** cómo los errores de los datos se proyectan en el perfil de $V_S$ y $D_S$ resultante — propagación de errores a través del operador inverso. Este tipo de incertidumbre depende fuertemente de la [[Sensitivity Kernel|sensibilidad]] del modelo a los parámetros en cada capa y de la [[Non-uniqueness|no-unicidad]] inherente al problema inverso.
+
+La sección 6.5 desarrolla el marco matemático para cuantificar ambas fuentes y su interacción, desde el caso lineal con errores gaussianos hasta los enfoques Monte Carlo para problemas no lineales.
 
 ### 6.5.1 Problemas lineales con errores gaussianos
 
@@ -421,7 +444,7 @@ $$\begin{cases} E(\mathbf{m}) = \mathbf{G}^{-g} E(\mathbf{d}) \\ \text{Cov}(\mat
 
 > **Figura 6.16** (p. 327): Gráfica de χ² vs frecuencia para el conjunto de datos. Todos los puntos caen bajo el umbral χ²₀.₀₅, confirmando que la hipótesis de gaussianidad es válida en todo el rango de frecuencias de interés.
 
-**Problemas no lineales:** si la inversión es no lineal, los errores gaussianos de los datos se mapean en distribuciones no gaussianas de los parámetros del modelo, complicando el análisis. La aproximación práctica más usada es el método **[[First-Order Second-Moment Method|FOSM (First-Order Second-Moment)]]**, que usa el Jacobiano en el punto de convergencia para linealizar la relación datos-parámetros:
+**Problemas no lineales:** si la [[Inversión|inversión]] es no lineal, los errores gaussianos de los datos se mapean en distribuciones no gaussianas de los parámetros del modelo, complicando el análisis. La aproximación práctica más usada es el método **[[First-Order Second-Moment Method|FOSM (First-Order Second-Moment)]]**, que usa el [[Jacobian Matrix|Jacobiano]] en el punto de convergencia para linealizar la relación datos-parámetros:
 
 $$\text{Cov}[\mathbf{m}] \approx \left[ (\mathbf{J}^T \text{Cov}[\mathbf{d}]^{-1} \mathbf{J})^{-1} \mathbf{J}^T \text{Cov}[\mathbf{d}]^{-1} \right]_{\text{last}} \cdot \text{Cov}[\mathbf{d}] \cdot [\ldots]^T \qquad (6.51)$$
 
@@ -433,24 +456,24 @@ Esta aproximación es adecuada si la no linealidad no es severa en torno a la so
 
 ### 6.5.2 Incertidumbre en las mediciones de ondas superficiales
 
-#### Curva de dispersión experimental (SASW — dos estaciones)
+#### [[Dispersion Curve|Curva de dispersión]] experimental ([[SASW Method|SASW]] — dos estaciones)
 
-En el método de dos estaciones, la velocidad de fase se estima como:
+En el método de dos estaciones, la [[Phase Velocity|velocidad de fase]] se estima como:
 $$V_R(\omega) = \frac{\omega(x_2 - x_1)}{\arg[S_{12}(\omega)]} \qquad (6.52)$$
 
 donde $S_{12}(\omega)$ es el **[[Cross-Power Spectrum|espectro de potencia cruzado]]** de las señales de los dos receptores. La varianza de $V_R(\omega)$ puede calcularse propagando la varianza del argumento de $S_{12}$ usando FOSM (Ec. 6.54), y depende de la **[[Coherence Function|coherencia ordinaria]]** $\gamma_{12}^2(\omega)$ entre las dos señales: mayor coherencia → menor incertidumbre.
 
-#### Métodos multicanal (MASW)
+#### Métodos multicanal ([[MASW Method|MASW]])
 
-Con arrays de múltiples receptores, la curva de dispersión se obtiene como una regresión lineal de las fases de desplazamiento sobre las posiciones de los receptores. La incertidumbre de $V_R(\omega)$ se obtiene de la covarianza de la estimación del número de onda $k_R(\omega)$ (Ec. 6.47 con G dada por Ec. 6.57), que depende del número de receptores y sus separaciones.
+Con arrays de múltiples receptores, la [[Dispersion Curve|curva de dispersión]] se obtiene como una regresión lineal de las fases de desplazamiento sobre las posiciones de los receptores. La incertidumbre de $V_R(\omega)$ se obtiene de la covarianza de la estimación del [[Wavenumber|número de onda]] $k_R(\omega)$ (Ec. 6.47 con G dada por Ec. 6.57), que depende del número de receptores y sus separaciones.
 
 Para métodos basados en transformadas (f-k, τ-p), la propagación de incertidumbre es más difícil de calcular analíticamente, siendo preferible estimarla directamente a partir de la variabilidad estadística de los datos medidos mediante repeticiones del ensayo.
 
 #### Curva de atenuación y medición conjunta
 
-La incertidumbre de la curva de atenuación $\alpha_R(\omega)$ se propaga desde la varianza de las amplitudes del espectro de desplazamiento usando FOSM. En la medición conjunta de dispersión y atenuación mediante la función de transferencia $H(r,\omega)$, la varianza del número de onda complejo $k_R^*(\omega)$ encapsula simultáneamente la incertidumbre de $V_R$ y de $\alpha_R$ (Ec. 6.70–6.72).
+La incertidumbre de la curva de atenuación $\alpha_R(\omega)$ se propaga desde la varianza de las amplitudes del espectro de desplazamiento usando FOSM. En la medición conjunta de dispersión y atenuación mediante la función de transferencia $H(r,\omega)$, la varianza del [[Wavenumber|número de onda]] complejo $k_R^*(\omega)$ encapsula simultáneamente la incertidumbre de $V_R$ y de $\alpha_R$ (Ec. 6.70–6.72).
 
-> **Implicación práctica para geófonos y MASW:** la incertidumbre de la curva de dispersión disminuye al aumentar el número de receptores, la longitud del array y la coherencia de las señales. Posicionamiento incorrecto de los receptores, acoplamiento deficiente con el suelo y ruido ambiental no coherente son las principales fuentes de incertidumbre experimental. Estudios experimentales (O'Neill 2003) muestran que coeficientes de variación de 5–10% para las velocidades de fase de Rayleigh son típicos incluso en presencia de ruido significativo.
+> **Implicación práctica para geófonos y [[MASW Method|MASW]]:** la incertidumbre de la [[Dispersion Curve|curva de dispersión]] disminuye al aumentar el número de receptores, la longitud del array y la coherencia de las señales. Posicionamiento incorrecto de los receptores, acoplamiento deficiente con el suelo y ruido ambiental no coherente son las principales fuentes de incertidumbre experimental. Estudios experimentales (O'Neill 2003) muestran que coeficientes de variación de 5–10% para las velocidades de fase de Rayleigh son típicos incluso en presencia de ruido significativo.
 
 *Trazabilidad: Foti Cap. 6, §6.5.2, pp. 329–338*
 
@@ -458,20 +481,20 @@ La incertidumbre de la curva de atenuación $\alpha_R(\omega)$ se propaga desde 
 
 ### 6.5.3 Estimación de la varianza de los parámetros del modelo
 
-Una vez estimada la incertidumbre de los datos (curva de dispersión), el siguiente paso es proyectarla sobre los parámetros del modelo (perfil de Vs).
+Una vez estimada la incertidumbre de los datos ([[Dispersion Curve|curva de dispersión]]), el siguiente paso es proyectarla sobre los parámetros del modelo (perfil de Vs).
 
-Para la **inversión de la curva de dispersión** (no lineal), usando el Jacobiano J_Vs evaluado en la última iteración:
+Para la **[[Inversión|inversión]] de la [[Dispersion Curve|curva de dispersión]]** (no lineal), usando el [[Jacobian Matrix|Jacobiano]] J_Vs evaluado en la última iteración:
 $$\text{Cov}[\mathbf{V}_s] = [(\mathbf{J}_{V_s}^T \text{Cov}[\mathbf{V}_R]^{-1} \mathbf{J}_{V_s})^{-1} \mathbf{J}_{V_s}^T \text{Cov}[\mathbf{V}_R]^{-1}]_{\text{last}} \cdot \text{Cov}[\mathbf{V}_R] \cdot [\ldots]^T \qquad (6.75)$$
 
-Si se usa el **algoritmo de Occam**, la incertidumbre de Vs incluye además el efecto del parámetro de suavizado μ (Ec. 6.76), que amortigua la proyección de los errores de los datos sobre los parámetros del modelo.
+Si se usa el **algoritmo de [[Occam Algorithm|Occam]]**, la incertidumbre de Vs incluye además el efecto del parámetro de suavizado μ (Ec. 6.76), que amortigua la proyección de los errores de los datos sobre los parámetros del modelo.
 
-Para la **inversión de la curva de atenuación** (lineal), la propagación de la incertidumbre es directa mediante mínimos cuadrados estándar (Ec. 6.77).
+Para la **[[Inversión|inversión]] de la curva de atenuación** (lineal), la propagación de la incertidumbre es directa mediante mínimos cuadrados estándar (Ec. 6.77).
 
-> **Figura 6.17** (p. 341): Perfil de Vs con barras de error (desviación estándar) obtenido con el algoritmo de Occam aplicado a datos reales en Italia. Coeficientes de variación de 0.2–4%.
+> **Figura 6.17** (p. 341): Perfil de Vs con barras de error (desviación estándar) obtenido con el algoritmo de [[Occam Algorithm|Occam]] aplicado a datos reales en Italia. Coeficientes de variación de 0.2–4%.
 
-> **Figura 6.18** (p. 341): Curva de dispersión experimental con barras de error, y curva teórica final del algoritmo de Occam (iteración 9). La región de baja frecuencia (<11 Hz) tiene mayor incertidumbre (hasta 14%) que la región de alta frecuencia.
+> **Figura 6.18** (p. 341): [[Dispersion Curve|Curva de dispersión]] experimental con barras de error, y curva teórica final del algoritmo de [[Occam Algorithm|Occam]] (iteración 9). La región de baja frecuencia (<11 Hz) tiene mayor incertidumbre (hasta 14%) que la región de alta frecuencia.
 
-**Conclusión del capítulo sobre incertidumbre:** los métodos SASW y MASW son técnicas robustas con coeficientes de variación del orden del 5–10% incluso con ruido ambiental significativo, lo que los hace aplicables en entornos urbanos. La incertidumbre aumenta con la profundidad, lo que refleja la disminución de la resolución intrínseca del método.
+**Conclusión del capítulo sobre incertidumbre:** los métodos [[SASW Method|SASW]] y [[MASW Method|MASW]] son técnicas robustas con coeficientes de variación del orden del 5–10% incluso con ruido ambiental significativo, lo que los hace aplicables en entornos urbanos. La incertidumbre aumenta con la profundidad, lo que refleja la disminución de la resolución intrínseca del método.
 
 *Trazabilidad: Foti Cap. 6, §6.5.3, pp. 339–343*
 
@@ -490,9 +513,13 @@ Esta relación se visualiza mediante la **curva de trade-off** (Figura 6.20): no
 
 > **Figura 6.21** (p. 347): Comparación de perfiles Vs con barras de incertidumbre obtenidos con modelos de (a) 5 capas y (b) 10 capas. El modelo de 10 capas tiene mayor incertidumbre, especialmente en capas superficiales.
 
-**Consecuencia práctica:** al realizar inversiones MASW, es preferible usar el menor número de capas que sea consistente con la geología conocida del sitio. La regla práctica es usar espesores de capa que aumenten con la profundidad (siguiendo la disminución de la resolución con la profundidad), y validar los resultados comparando con boreholes o refracción sísmica cuando estén disponibles.
+**Consecuencia práctica:** al realizar inversiones [[MASW Method|MASW]], es preferible usar el menor número de capas que sea consistente con la geología conocida del sitio. La regla práctica es usar espesores de capa que aumenten con la profundidad (siguiendo la disminución de la resolución con la profundidad), y validar los resultados comparando con boreholes o refracción sísmica cuando estén disponibles.
 
 *Trazabilidad: Foti Cap. 6, §6.5.4, pp. 344–347*
+
+> [!EXAMPLE] Evidencia empírica: Paper 042 (Wathelet, Jongmans & Ohrnberger 2004) — algoritmo de vecindad para inversión global y cuantificación de incertidumbre
+> **Paper 042 (Wathelet, Jongmans & Ohrnberger 2004, *Near Surface Geophysics* 2(4):211–221)** introduce el **[[Neighbourhood Algorithm|algoritmo de vecindad (NA)]]** como método de búsqueda global para la [[Inversión|inversión]] de curvas de dispersión, implementado en lo que hoy se conoce como Geopsy/Dinver. Aplicado a datos sintéticos y a un sitio real en Bruselas (Bélgica, ~115 m de arenas y arcillas sobre basamento Paleozoico), el NA explora el espacio completo de modelos $V_S(z)$ y devuelve: (1) el modelo de mejor ajuste (*misfit* mínimo); (2) la distribución posterior de todos los modelos aceptables, directamente comparable con la Figura 6.20 de trade-off resolución/varianza. La validación con pozo en Bruselas muestra que el intervalo de confianza del NA contiene el perfil de borehole, confirmando que el rango de soluciones es estadísticamente correcto. Los autores demuestran que datos activos y pasivos son **complementarios**: activos proveen alta resolución en las capas superficiales, pasivos aportan información más profunda — exactamente el esquema de adquisición multi-dataset del §6.4.4. Este trabajo es el fundamento algorítmico directo de la herramienta Dinver (Paper 014, Geopsy) y de la metodología de análisis de incertidumbre usada en Papers 013 y 022 (MASWaves).
+> — Research Database, entrada 042; Wathelet et al. (2004), *Near Surface Geophysics* 2:211–221. DOI: 10.3997/1873-0604.2004018.
 
 ---
 
@@ -504,8 +531,8 @@ Esta relación se visualiza mediante la **curva de trade-off** (Figura 6.20): no
 | 6.2 Forward Modeling | ✅ sintetizado |
 | 6.3 Métodos empíricos (SSRM) | ✅ sintetizado |
 | 6.4.1 Medidas de bondad de ajuste | ✅ sintetizado |
-| 6.4.2 Problema inverso lineal (SVD, Tikhonov) | ✅ sintetizado |
-| 6.4.3 Problema inverso no lineal (LS/GS, Occam) | ✅ sintetizado |
+| 6.4.2 Problema inverso lineal (SVD, [[Tikhonov Regularization|Tikhonov]]) | ✅ sintetizado |
+| 6.4.3 Problema inverso no lineal (LS/GS, [[Occam Algorithm|Occam]]) | ✅ sintetizado |
 | 6.4.4 Información a priori | ✅ sintetizado |
 | 6.5 Incertidumbre (mediciones, proyección, trade-off) | ✅ sintetizado |
 

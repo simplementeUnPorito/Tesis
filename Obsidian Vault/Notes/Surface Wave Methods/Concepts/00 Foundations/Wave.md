@@ -6,8 +6,10 @@ type: reference
 
 # Onda (Wave)
 
-> **Contexto:** Una onda es cualquier perturbación reconocible que se transfiere de una parte de un medio a otra con una velocidad de propagación identificable. En sismología, las ondas elásticas son perturbaciones del campo de desplazamiento del suelo que se propagan por el subsuelo transportando energía sísmica. Su clasificación (ondas de cuerpo P y S, ondas superficiales de Rayleigh y Love) y sus propiedades de dispersión son el fundamento de todos los métodos de caracterización geotécnica con ondas.
-> **Fuente:** Foti et al. (2014), Cap. 2.1.1, pp. 38–41.
+> [!CONCEPT] Definición
+> Una **onda** es cualquier perturbación reconocible que se transfiere a través de un medio con una velocidad de propagación identificable, transportando energía sin transporte neto de materia. En geofísica near-surface, las ondas elásticas — clasificadas como [[Body Waves]] ([[P-waves]], [[S-Waves]]) y [[Surface Waves]] ([[Rayleigh Waves]], [[Love Waves]]) — son el fundamento de todos los métodos de caracterización del subsuelo con [[Geophone|geófono]].
+>
+> — Foti et al. (2018), §2.1.1, pp. 38–41.
 
 ## Intuición física
 
@@ -36,10 +38,10 @@ Una señal arbitraria puede representarse como superposición de ondas armónica
 
 | Tipo | Deformación | Polarización | Velocidad |
 |---|---|---|---|
-| [[P-waves\|Onda P]] | Compresional (volumétrica) | Longitudinal (∥ propagación) | $V_P = \sqrt{(\lambda+2\mu)/\rho}$ |
-| [[S-Waves\|Onda S]] | Corte (deviatórica) | Transversal (⊥ propagación) | $V_S = \sqrt{\mu/\rho}$ |
-| [[Rayleigh Waves\|Onda Rayleigh]] | P + SV acopladas | Elipse retrógrada vertical | $c_R \approx 0.92\,V_S$ |
-| [[Love Waves\|Onda Love]] | SH guiada | Horizontal transversal | $V_{S1} < c_L < V_{S2}$ |
+| [[P-waves|Onda P]] | Compresional (volumétrica) | Longitudinal (∥ propagación) | $V_P = \sqrt{(\lambda+2\mu)/\rho}$ |
+| [[S-Waves|Onda S]] | Corte (deviatórica) | Transversal (⊥ propagación) | $V_S = \sqrt{\mu/\rho}$ |
+| [[Rayleigh Waves|Onda Rayleigh]] | P + SV acopladas | Elipse retrógrada vertical | $c_R \approx 0.92\,V_S$ |
+| [[Love Waves|Onda Love]] | SH guiada | Horizontal transversal | $V_{S1} < c_L < V_{S2}$ |
 
 ### Por confinamiento espacial
 
@@ -48,27 +50,35 @@ Una señal arbitraria puede representarse como superposición de ondas armónica
 
 ### Por dispersividad
 
-- **No dispersivas**: velocidad de fase constante ($\omega = ck$); el paquete de ondas no se deforma. Ejemplo: ondas en semiespacio homogéneo.
-- **Dispersivas**: velocidad de fase dependiente de la frecuencia ($c_p = \omega/k$ variable); el paquete se deforma. Ejemplo: ondas de Rayleigh en suelo estratificado. Ver [[Wave Dispersion]].
+- **No dispersivas**: [[Phase Velocity|velocidad de fase]] constante ($\omega = ck$); el paquete de ondas no se deforma. Ejemplo: ondas en semiespacio homogéneo.
+- **Dispersivas**: [[Phase Velocity|velocidad de fase]] dependiente de la frecuencia ($c_p = \omega/k$ variable); el paquete se deforma. Ejemplo: ondas de Rayleigh en suelo estratificado. Ver [[Wave Dispersion]].
 
-## Por qué las ondas superficiales dominan los registros sísmicos
+## Por qué las [[Surface Waves|ondas superficiales]] dominan los registros sísmicos
 
 Para una fuente puntual en la superficie (ver [[Lamb's Problem]]):
-- Las ondas de cuerpo decaen como $1/r$ (frente esférico: energía ∝ $r^2$).
-- Las ondas superficiales decaen como $1/\sqrt{r}$ (frente cilíndrico: energía ∝ $r$).
+- Las [[Body Waves|ondas de cuerpo]] decaen como $1/r$ (frente esférico: energía ∝ $r^2$).
+- Las [[Surface Waves|ondas superficiales]] decaen como $1/\sqrt{r}$ (frente cilíndrico: energía ∝ $r$).
 
-A distancias mayores que unas pocas longitudes de onda, las ondas superficiales dominan el registro. Esta propiedad es la que hace práctico el método MASW: el ground-roll de ondas Rayleigh es la señal predominante en los sismogramas superficiales.
+A distancias mayores que unas pocas longitudes de onda, las [[Surface Waves|ondas superficiales]] dominan el registro. Esta propiedad es la que hace práctico el método [[MASW Method|MASW]]: el [[Ground Roll|ground-roll]] de [[Rayleigh Waves|ondas Rayleigh]] es la señal predominante en los sismogramas superficiales.
 
-## Instrumentación: qué miden los geófonos
+## Instrumentación: qué miden los [[Geophone|geófono]]
 
-Los geófonos estándar (verticales) miden la **velocidad de partícula** del suelo en la dirección vertical, $\dot{u}_z(x, t)$. Son sensibles a:
+Los [[Geophone|geófono]] estándar (verticales) miden la **velocidad de partícula** del suelo en la dirección vertical, $\dot{u}_z(x, t)$. Son sensibles a:
 - Ondas de Rayleigh (componente vertical de la elipse).
 - Ondas P (componente vertical al llegar en incidencia oblicua).
 - Ruido sísmico ambiental de origen diverso.
 
-Los geófonos horizontales son necesarios para registrar ondas Love (movimiento transversal horizontal) y la componente horizontal de Rayleigh.
+Los [[Geophone|geófono]] horizontales son necesarios para registrar [[Love Waves|ondas Love]] (movimiento transversal horizontal) y la componente horizontal de Rayleigh.
+
+> [!EXAMPLE] Evidencia empírica: Park et al. (1999) — dominancia de Rayleigh en registros [[MASW Method|MASW]]
+> **Paper 001 (Park, Miller & Xia 1999)** documenta que en registros sísmicos superficiales con fuente activa (martillo), el **[[Ground Roll|ground-roll]]** de [[Rayleigh Waves]] domina el sismograma a distancias > 5–10 m de la fuente, concentrando > 67% de la energía sísmica total. Esta propiedad — consecuencia directa del decaimiento diferencial $r^{-0.5}$ vs $r^{-2}$ — es la que hace práctico el [[MASW Method]]: la señal útil (Rayleigh) domina sobre el ruido (body waves) sin necesidad de filtrado agresivo.
+>
+> — Research Database, entrada 001 (core).
 
 ## Referencias
 
-- Foti et al. (2014), Cap. 2.1.1, pp. 38–41 — definición de onda y representación armónica.
-- Foti et al. (2014), Cap. 2.1.3, pp. 43–50 — clasificación P, S y superficiales.
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.1, pp. 38–41 |
+| Foti et al. (2018), *Surface Wave Methods* | §2.1.3, pp. 43–50 |
+| Park, Miller & Xia (1999), *Geophysics* 64(3) | Paper 001 |

@@ -1,8 +1,17 @@
-# Ondas de Scholte
+---
+name: Scholte Waves
+description: [[Surface Waves|Ondas superficiales]] en la interfaz sólido-líquido (fondo marino); análogo marino de las ondas de Rayleigh; sensibles a VS del subfondo; velocidad siempre menor que la de Rayleigh del sólido equivalente
+type: reference
+---
 
-> **Fuente principal:** Sebastiano Foti, Chapter 8, Sección 8.2 · pp. 403–412
+# Ondas de Scholte (Scholte Waves)
 
-Son ondas superficiales que se propagan en la **interfaz sólido-líquido** (fondo marino), de forma análoga a las [[Rayleigh Waves|ondas de Rayleigh]] en la interfaz sólido-aire. Fueron descritas por Scholte (1947) como los **modos normales reales** del sistema de capas para el caso *soft bottom* [12, 13].
+> [!CONCEPT] Definición
+> Las **ondas de Scholte** son [[Surface Waves|ondas superficiales]] que se propagan en la **interfaz sólido-líquido** (fondo marino), análogas a las [[Rayleigh Waves|ondas de Rayleigh]] en la interfaz sólido-aire. Existen cuando $V_{S,\text{sólido}} < V_{P,\text{agua}} \approx 1500$ m/s (condición *soft bottom*), que se cumple casi universalmente en sedimentos no consolidados. Su velocidad es siempre menor que la de Rayleigh del sólido equivalente y su inversión permite estimar el perfil $V_S$ del subfondo marino de forma no invasiva.
+>
+> — Foti et al. (2018), Cap. 8, §8.2, pp. 403–412; Scholte (1947).
+
+Son [[Surface Waves|ondas superficiales]] que se propagan en la **interfaz sólido-líquido** (fondo marino), de forma análoga a las [[Rayleigh Waves|ondas de Rayleigh]] en la interfaz sólido-aire. Fueron descritas por Scholte (1947) como los **modos normales reales** del sistema de capas para el caso *soft bottom* [12, 13].
 
 ## Condición de existencia (*soft bottom*)
 
@@ -23,13 +32,13 @@ En sedimentos saturados, la **velocidad de onda P está dominada por la compresi
 ## Características físicas
 
 - **Movimiento de partícula:** elíptico retrógrado, análogo al de las ondas de Rayleigh. La energía se concentra en la interfaz sólido-líquido.
-- **Penetración:** ≈ una longitud de onda en el sólido, ≈ media longitud de onda en el líquido (para dos semiespacios en contacto).
+- **Penetración:** ≈ una [[Wavelength|longitud de onda]] en el sólido, ≈ media [[Wavelength|longitud de onda]] en el líquido (para dos semiespacios en contacto).
 - **Dispersión:** modales y dispersivas, como las Rayleigh. El **modo fundamental no tiene frecuencia de corte** (existe para cualquier frecuencia). Los modos superiores sí tienen frecuencia de corte.
 - **Velocidad:** siempre menor que la velocidad de Rayleigh del sólido equivalente (sin columna de agua). A frecuencia → 0, la velocidad de Scholte tiende a la velocidad de Rayleigh del semiespacio. A frecuencia → ∞, tiende a la velocidad de onda de Stoneley en la interfaz sólido-líquido.
 
 ## Efecto de la capa de agua sobre la dispersión
 
-Incluso una **capa de agua muy delgada** (0.5–3 m) modifica la curva de dispersión de Scholte con respecto a la de Rayleigh (sin agua). Este efecto es no trivial:
+Incluso una **capa de agua muy delgada** (0.5–3 m) modifica la [[Dispersion Curve|curva de dispersión]] de Scholte con respecto a la de Rayleigh (sin agua). Este efecto es no trivial:
 
 - Para Hw = 0.5 m ya existe una diferencia apreciable.
 - Para Hw = 3 m la diferencia puede alcanzar **hasta ~18%** en el rango de 10–20 Hz.
@@ -63,32 +72,39 @@ En el mismo sistema agua-sedimento coexisten dos tipos de ondas aprovechables:
 | Visibilidad en registros | Tren de baja velocidad, a veces débil | Dominante, llega primero |
 | Separación en registro | Requiere filtro pasa-bajo | Directamente visible |
 
-La **inversión conjunta** de ondas de Scholte (Vs) y P-guiadas (Vp) permite estimar ambos perfiles con espesores compartidos, aprovechando la complementariedad de la información.
+La **[[Joint Inversion|inversión conjunta]]** de ondas de Scholte (Vs) y P-guiadas (Vp) permite estimar ambos perfiles con espesores compartidos, aprovechando la complementariedad de la información.
 
 ## Flujo de trabajo en contexto marino
 
 1. Adquirir registros de fondo marino (hidrófonos o OBS).
 2. Identificar el tren de ondas de Scholte (baja velocidad) separado del frente de ondas P-guiadas (alta velocidad).
 3. Aplicar filtro pasa-bajo si las ondas de Scholte son débiles frente a las P-guiadas.
-4. Extraer la curva de dispersión de Scholte (análisis f-k o τ-p).
+4. Extraer la [[Dispersion Curve|curva de dispersión]] de Scholte (análisis f-k o τ-p).
 5. Invertir incluyendo la capa de agua (velocidad y espesor) como parámetros del modelo.
-6. Si se dispone de datos de P-guiadas: inversión conjunta Scholte + P-guiadas.
+6. Si se dispone de datos de P-guiadas: [[Joint Inversion|inversión conjunta]] Scholte + P-guiadas.
 
 ## Aplicación en la orilla (*shoreline*)
 
-Un arreglo híbrido con geófonos en tierra e hidrófonos en el fondo permite registrar simultáneamente:
+Un arreglo híbrido con [[Geophone|geófono]] en tierra e hidrófonos en el fondo permite registrar simultáneamente:
 - **Ondas de Rayleigh** en la parte terrestre.
 - **Ondas de Scholte** en la parte submarina.
 
-La inversión conjunta de ambos conjuntos de datos permite una **caracterización continua** a lo largo de la línea costera, sin discontinuidad en la transición tierra-mar.
+La [[Joint Inversion|inversión conjunta]] de ambos conjuntos de datos permite una **caracterización continua** a lo largo de la línea costera, sin discontinuidad en la transición tierra-mar.
 
 ## Relaciones
 
 - [[Rayleigh Waves]] — análogo terrestre; Scholte = Rayleigh en interfaz sólido-líquido
-- [[Dispersion Curve]] — curva de dispersión de Scholte afectada por la capa de agua
+- [[Dispersion Curve]] — [[Dispersion Curve|curva de dispersión]] de Scholte afectada por la capa de agua
 - [[Phase Velocity]] — velocidad siempre menor que la de Rayleigh para el mismo sólido
+
+> [!EXAMPLE] Evidencia empírica: Foti et al. (2018) — efecto de la capa de agua en la [[Dispersion Curve|curva de dispersión]] de Scholte
+> Foti et al. (2018, §8.2) documentan cuantitativamente que **incluso una capa de agua de 0.5 m ya modifica la [[Dispersion Curve|curva de dispersión]] de Scholte** respecto a la de Rayleigh sin agua. Para una capa de 3 m de agua, la diferencia en [[Phase Velocity|velocidad de fase]] puede alcanzar **~18% en el rango 10–20 Hz**. Esto demuestra que analizar datos de Scholte con un modelo de Rayleigh (ignorando la capa de agua) produce una subestimación sistemática de $V_S$, y que es imprescindible incluir el espesor y la velocidad del agua como parámetros del modelo de inversión — incluso en aguas muy someras.
+>
+> — Foti et al. (2018), Cap. 8, §8.2, Figs. 8.10b y 8.12, pp. 406–407.
 
 ## Fuentes
 
-- Scholte, J.G.J. (1947). The range of existence of Rayleigh and Stoneley waves. *Geophys. J. Int.*, 5(s5), 120–126.
-- PDF: Sebastiano Foti Chapter 8 (sección 8.2 — Scholte waves, guided P-waves, marine example, pp. 403–412)
+| Fuente | Sección / Página |
+|--------|-----------------|
+| Foti et al. (2018), *Surface Wave Methods* | Cap. 8, §8.2, pp. 403–412 |
+| Scholte, J.G.J. (1947), *Geophys. J. Int.* | 5(s5), 120–126 — descripción original |
