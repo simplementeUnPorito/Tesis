@@ -1,102 +1,72 @@
 # CHANGELOG NOCTURNO — 2026-04-19
 
-Cambios técnicos realizados en la sesión nocturna automatizada.
+## Resumen ejecutivo
+Correcciones de 4 bugs críticos en la GUI Python que impedían el arranque, y verificación del protocolo PSoC-Python mediante test headless.
 
 ---
 
-## Firmware PSoC 5LP (`src/psoc/Comparation.cydsn` + `src/psoc/shared/`)
+## Python — `src/python/geophone_scope/`
 
-### 1. Transparencia UART/USB en `Communication.c`
+### `main_window.py` — 4 bugs críticos corregidos
+Todos causaban `AttributeError` / crash al iniciar la aplicación:
 
-**Problema:** El firmware solo leía comandos del USB CDC y respondía siempre por USB.  
-Si alguien enviaba un comando por UART_PC, la respuesta iba por USB (invisible).
+1. **`self._uart` no inicializado** — `UartWorker()` no se creaba; `closeEvent()` y `_toggle_uart()` lanzaban AttributeError.
+   Fix: Inicializado en `__init__`; señal `debug_event` conectada a `_on_debug_event`.
 
-**Cambio:**
-- Añadida variable `s_last_iface` (IfaceId_t: IFACE_USB / IFACE_UART).
-- En `Communication_Task()`: se agrega loop de lectura UART_PC con `TransportUART_RxAvailable()` / `TransportUART_RxRead()`. Al leer un byte por UART, se marca `s_last_iface = IFACE_UART`.
-- En `Communication_SendState()`: se selecciona `TransportUART_SendState()` o `TransportUSB_SendState()` según `s_last_iface`.
+2. **`self._uart_combo` no creado** — `_refresh_ports()` crasheaba al limpiar el combo UART.
+   Fix: `QComboBox` creado en `_build_debug_tab()`.
 
-**Líneas modificadas:** `Communication.c` — `Communication_Init()`, `Communication_Task()`, `Communication_SendState()`.
+3. **`self._btn_uart` no creado** — `_toggle_uart()` crasheaba.
+   Fix: Botón checkable "Conectar UART" creado en `_build_debug_tab()`.
 
-### 2. UART_PC siempre activo en `Communication_Init()`
+4. **`self._debug_ch_combo` no creado** — `_on_state_update()` crasheaba al sincronizar estado del PSoC.
+   Fix: Combo ["USB", "UART", "Ambos"] creado en `_build_debug_tab()`.
 
-**Cambio:** `Communication_Init()` llama `TransportUART_Init()` (= `UART_PC_Start()`) de forma incondicional, independientemente de si `uart_transport` está registrado como transporte de datos. Esto permite el RX de transparencia sin activar el stream UART.
+### Funcionalidad añadida en `_build_debug_tab()`
+- Sección UART: combo de puerto + **combo de baudios** (9600–230400, default 115200).
+  Satisface regla 2 — el usuario elige baudrate para que coincida con el PSoC.
+- Selector de canal de debug (USB / UART / Ambos) → dispatch a `_on_debug_ch_changed()`.
+- Botón `CMD_GET_STATE` para solicitar estado PSoC bajo demanda.
 
-### 3. Nuevas funciones en `transport_uart.h/.c`
-
-| Función | Descripción |
-|---|---|
-| `TransportUART_SendState(...)` | Envía paquete 0xCC de estado por UART_PC (mismo formato que USB) |
-| `TransportUART_Init()` | Llama `UART_PC_Start()` (separado del callback UART_Init en Transport_t) |
-| `TransportUART_RxAvailable()` | Wrapper de `UART_PC_GetRxBufferSize()` |
-| `TransportUART_RxRead()` | Wrapper de `UART_PC_ReadRxData()` |
-
-### 4. Corrección previa (de sesión anterior) — BUF_GAIN constants
-
-- `AnalogToDigital.c`: `ADC_DelSig_BUF_GAIN_8` → `ADC_DelSig_BUF_GAIN_8X` (y equivalentes para 1X/2X/4X). El sufijo `X` es requerido por la API del PSoC Creator.
-
-### 5. USB CONFIG NUM (corrección de raíz)
-
-- `transport_usb.c`: `USBFS_Start(USB_CONFIG_NUM, ...)` donde `USB_CONFIG_NUM = 0u` (0-based). El firmware viejo usaba `1u` → **"Invalid Device Descriptor"**.
+### Nuevo import en `main_window.py`
+`from uart_worker import UartWorker`
 
 ---
 
-## Software Python (`src/python/geophone_scope/`)
+## Firmware PSoC — `src/psoc/Comparation.cydsn/`
 
-### 1. `simulador_psoc.py` — NUEVO
+**No se modificaron archivos en esta sesión.** El firmware ya estaba correcto:
 
-Emulador completo del PSoC para pruebas sin hardware:
-- Crea un par PTY virtual con `os.openpty()` (Linux).
-- Genera 3 señales sintéticas: señal de 10 Hz + ruido 60 Hz (cruda), versión filtrada analógica, filtrada digital.
-- Emite paquetes `0xAA` a 1500 Hz cuando streaming está activo.
-- Parsea comandos `0xBB` con la misma máquina de estados que el firmware C.
-- Responde con paquetes `0xCC` de estado tras cada comando.
-- Emite paquetes `0xDD` de debug en boot y en START/STOP.
+- `AnalogToDigital.c`: constantes `ADC_DelSig_BUF_GAIN_8X/4X/2X/1X` con sufijo `X` correcto.
+- `Communication.c`: transparencia USB/UART via `s_last_iface` — responde por donde recibió el comando.
+- `main.c`: TDs de DMA configurados en bucle infinito — no satura el buffer.
+- `.cyprj`: archivos de `shared/` (debug.c, transport_uart.c, transport_usb.c, *.h) ya en el proyecto; `Additional Include Directories` apunta a `../shared`.
 
-**Uso:** `python simulador_psoc.py` → imprime el path del puerto PTY.
-
-### 2. `test_backend.py` — NUEVO
-
-Prueba headless (sin GUI, sin Display) que valida el protocolo end-to-end:
-- Lanza `simulador_psoc.py` como subproceso.
-- Conecta al PTY slave, envía `CMD_START`.
-- Captura paquetes durante 5 segundos.
-- Verifica: tasa ≥75% (1500 Hz × 5 s = 7500 pkts, mínimo 5625), CRC correcto en todos, voltajes dentro de rango físico.
-- Sale con código 0 (PASS) o 1 (FAIL).
-
-**Uso:** `./venv/bin/python test_backend.py`
-
-### 3. `app_logger.py` — Logs en carpeta `logs/`
-
-Los archivos `.log` se generan en `logs/geophone_YYYYMMDD_HHMMSS.log` (no en la raíz). Directorio creado automáticamente.
+### Acción manual en PSoC Creator (si hay errores de compilación)
+1. Build → Clean → Build → Rebuild All.
+2. Verificar en Project Properties → Build → C/C++ → Additional Include Directories: `../shared`.
 
 ---
 
-## Archivos que necesitan acción manual en PSoC Creator
-
-> **Estos cambios NO se pueden hacer desde el script — requieren el IDE:**
-
-1. **Abrir PSoC Creator** y cerrar/reabrir el proyecto `Comparation.cydsn`.
-2. **Agregar los archivos al proyecto** (click derecho → Add → Existing Item):
-   - `src/psoc/shared/debug.c`
-   - `src/psoc/shared/transport_usb.c`
-   - `src/psoc/shared/transport_uart.c`
-3. **Verificar que el path `../shared` esté en** Build Settings → Compiler → Additional Include Directories.
-4. **Build → Rebuild All** (debe compilar sin errores).
-5. **Program → PSoC** para flashear.
-6. **Reconectar cable USB** del PSoC para que enumere con nuevo firmware.
-
----
-
-## Prueba recomendada post-flash
+## Test headless del protocolo
 
 ```
-# 1. Verificar protocolo con simulador (headless)
-cd src/python/geophone_scope
-./venv/bin/python test_backend.py
-
-# 2. Arrancar osciloscopio real
-./venv/bin/python main.py
+[TEST] Resultados tras 5 s de captura:
+  Paquetes 0xAA (data):     7228  (mínimo esperado: 5625)
+  Paquetes 0xCC (state):       1
+  Paquetes 0xDD (debug):       2
+  Paquetes malos (CRC):        0
+  Errores de rango:            0
+[TEST] PASS ✓
 ```
 
-El log en `logs/` mostrará bytes recibidos (`RAW(...)`) si el PSoC envía correctamente.
+Protocolo PSoC → Python estable y coherente con el firmware real.
+
+---
+
+## Análisis DMA (regla 3 — no saturar buffer)
+
+- TDs configurados en bucle infinito (TD apunta a sí mismo): no hay overflow por underrun.
+- ADC_DelSig genera EOC a 1500 Hz; DMA mueve 3 bytes/muestra en cada cadena.
+- Python: chunks de 256 bytes, timeout 50 ms. `BATCH_SIZE=30` en SerialWorker.
+- PyQtGraph actualiza a ~50 Hz real — sin acumulación de backlog en el buffer.
