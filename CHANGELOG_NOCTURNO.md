@@ -1,7 +1,10 @@
-# CHANGELOG NOCTURNO — 2026-04-19
+# CHANGELOG NOCTURNO — 2026-04-19 (actualizado)
 
-## Resumen ejecutivo
-Correcciones de 4 bugs críticos en la GUI Python que impedían el arranque, y verificación del protocolo PSoC-Python mediante test headless.
+## Resumen Ejecutivo
+
+Sistema de comparación de filtros TIA/Opa en PSoC 5LP con osciloscopio Python.
+**Estado hardware:** PSoC requiere compilar y reflashear (ver ACCIONES MANUALES).
+**Estado backend Python:** PASS ✓ (test_backend.py — 7277 paquetes en 5s, 0 CRC errors).
 
 ---
 
