@@ -125,8 +125,6 @@ latencyLabels = gobjects(3,1);
 globalBatch  = gobjects(MAX_NODES,1);
 efSaveName = []; lblSaveSt = [];
 taLog      = [];
-% Maestro test (tab Maestro y onTestMaestro comparten estos)
-btnTestMaestro = []; lblMaestroInd = []; lblMaestroTxt = [];
 % Checkboxes de visibilidad de plots (creados después de buildPlots)
 cbVis = gobjects(MAX_NODES,1);
 
@@ -250,55 +248,28 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
 
     function buildMaestroTab(tab)
         W = TG_W - 12;
-        % Test
-        pT = uipanel(tab,'Title','Test Maestro','Position',[4 816 W 78]);
-        btnTestMaestro = uibutton(pT,'Text','Iniciar Test','Position',[4 24 110 28], ...
-            'ButtonPushedFcn',@onTestMaestro,'Enable','off');
-        lblMaestroInd  = uilabel(pT,'Text','●','Position',[122 24 22 28], ...
-            'FontColor',[0.7 0.7 0.7],'FontSize',16);
-        lblMaestroTxt  = uilabel(pT,'Text','Sin test','Position',[148 24 W-150 28]);
+        % El maestro es solo gateway: ya NO muestrea ningún sensor (el martillo
+        % es un esclavo normal). Sin gráfico ni controles de acelerómetro.
+        uilabel(tab,'Text', ...
+            ['Maestro = gateway. No muestrea sensores; el martillo es un' newline ...
+             'esclavo normal. Aquí solo el log de debug del maestro (Serial1).'], ...
+            'Position',[4 856 W 36],'FontSize',9);
 
-        % FIR martillo
-        pF = uipanel(tab,'Title','Filtro FIR — Martillo','Position',[4 736 W 76]);
-        uilabel(pF,'Text','Cmd:','Position',[4 36 34 20]);
-        efFirM = uieditfield(pF,'text','Position',[40 36 170 22],'Value',S.node(1).filtCmd);
-        uibutton(pF,'Text','Aplicar','Position',[214 36 72 22], ...
-            'ButtonPushedFcn',@(~,~)applyFir(1,efFirM.Value));
-        cbDCM = uicheckbox(pF,'Text','Quitar DC','Position',[4 10 82 20], ...
-            'Value',S.node(1).dcRemove, ...
-            'ValueChangedFcn',@(cb,~)setDcRemove(1,cb.Value));
-        uibutton(pF,'Text','Quitar filtro','Position',[90 10 84 22], ...
-            'ButtonPushedFcn',@(~,~)removeFir(1));
-        lblFiltM = uilabel(pF,'Text',firStatusText(1),'Position',[180 10 W-185 20]);
-        S.node(1).efFir    = efFirM;
-        S.node(1).cbDC     = cbDCM;
-        S.node(1).lblFiltSt= lblFiltM;
-
-        % Stats maestro
-        pS = uipanel(tab,'Title','Estadísticas','Position',[4 656 W 76]);
-        S.node(1).lblStats   = uilabel(pS,'Text','Mts: 0  Bat: 0','Position',[4 36 W-12 20]);
-        S.node(1).lblLastVal = uilabel(pS,'Text','Último: --', 'Position',[4 10 W-12 20]);
-
-        % Punta de la maza
-        PUNTAS = {'gris','roja','marron','negra','MEZCLADO'};
-        pPt = uipanel(tab,'Title','Punta de la maza','Position',[4 578 W 74]);
-        uilabel(pPt,'Text','Tipo:','Position',[4 30 38 20]);
-        uidropdown(pPt,'Position',[46 30 W-54 22], ...
-            'Items',PUNTAS,'Value',S.hammerTip, ...
-            'ValueChangedFcn',@(dd,~)set_hammerTip(dd.Value));
-
-        % Cancelador 50 Hz — Maestro
-        pN = uipanel(tab,'Title','Cancelador 50 Hz','Position',[4 498 W 76]);
-        uicheckbox(pN,'Text','Activar','Position',[4 34 80 22], ...
-            'Value',S.node(1).notchEnabled, ...
-            'ValueChangedFcn',@(cb,~)onNotchToggle(1,cb.Value));
-        uilabel(pN,'Text','µ:','Position',[4 8 20 20]);
-        uieditfield(pN,'numeric','Position',[26 8 60 22], ...
-            'Value',S.node(1).notchMu, ...
-            'ValueChangedFcn',@(ef,~)onNotchMu(1,ef.Value));
-        uilabel(pN,'Text','Arm:','Position',[92 8 34 20]);
-        uispinner(pN,'Position',[128 8 W-132 22],'Value',S.node(1).notchHarm, ...
-            'Limits',[1 5],'ValueChangedFcn',@(sp,~)onNotchHarm(1,sp.Value));
+        % Debug COM Maestro (Serial1 del maestro, NO el USB binario de datos)
+        pDbg = uipanel(tab,'Title','Debug COM Maestro (Serial1, opcional)', ...
+            'Position',[4 4 W 846]);
+        uilabel(pDbg,'Text','Puerto serial:','Position',[4 802 80 20]);
+        mstDd = uidropdown(pDbg,'Position',[88 800 W-160 22], ...
+            'Items',listSerialPorts());
+        uibutton(pDbg,'Text','↺','Position',[W-68 800 64 22], ...
+            'ButtonPushedFcn',@(~,~) set(mstDd,'Items',listSerialPorts()));
+        mstBtnC = uibutton(pDbg,'Text','Conectar', 'Position',[4  774 90   22]);
+        mstBtnD = uibutton(pDbg,'Text','Desconectar','Position',[98 774 W-102 22],'Enable','off');
+        mstBtnC.ButtonPushedFcn = @(~,~) connectDbg(true,  1, mstDd, mstBtnC, mstBtnD);
+        mstBtnD.ButtonPushedFcn = @(~,~) disconnectDbg(true, 1, mstBtnC, mstBtnD);
+        mstTa = uitextarea(pDbg,'Position',[4 4 W-8 766], ...
+            'Editable','off','FontName','Courier New','FontSize',8);
+        S.node(1).dbgTa = mstTa;
     end
 
     function buildSlaveTab(ch, tab)
@@ -372,14 +343,15 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
         lblSalud    = uilabel(pD,'Text','●','Position',[140 46 22 26], ...
             'FontColor',[0.7 0.7 0.7],'FontSize',16);
         lblSaludTxt = uilabel(pD,'Text','Sin test','Position',[164 46 W-168 26]);
-        uilabel(pD,'Text','TX Mode:','Position',[4 14 58 20]);
-        ddTX = uidropdown(pD,'Position',[66 14 W-70 22],'Items',TX_MODE_ITEMS, ...
-            'Value',txModeName(S.node(ch).tx_mode), ...
-            'ValueChangedFcn',@(dd,~)sendTxMode(ch,dd.Value));
+        % "Ver": captura única de N lotes de este nodo (calibrar VDAC en vivo)
+        btnVer = uibutton(pD,'Text','Ver','Position',[4 10 80 24], ...
+            'ButtonPushedFcn',@(~,~)onVerNodo(ch));
+        uilabel(pD,'Text','captura única (calibra VDAC en vivo)', ...
+            'Position',[90 12 W-94 20],'FontSize',8);
         S.node(ch).btnTest     = btnTest;
         S.node(ch).lblSalud    = lblSalud;
         S.node(ch).lblSaludTxt = lblSaludTxt;
-        S.node(ch).ddTX        = ddTX;
+        S.node(ch).btnVer      = btnVer;
 
         % Stats
         pSt = uipanel(tab,'Title','Estadísticas','Position',[4 402 W 82]);
@@ -453,7 +425,7 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
             'ButtonPushedFcn',@onStreamOn,'Enable','off');
         uilabel(pSt,'Text','Batches:','Position',[4 66 66 18]);
         spnRecN = uispinner(pSt,'Position',[70 64 60 22], ...
-            'Value',80,'Limits',[1 255],'Step',1,'RoundFractionalValues',true, ...
+            'Value',80,'Limits',[1 65535],'Step',1,'RoundFractionalValues',true, ...
             'ValueChangedFcn',@(~,~)updateBatchInfoLabel());
         lblBatchInfo = uilabel(pSt,'Text','80 bat → 2400 mts ≈ 2.4 s', ...
             'Position',[136 64 W-140 22],'FontSize',8);
@@ -585,7 +557,7 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
         end
         for ch = 1:MAX_NODES
             if isLiveHandle(globalBatch(ch))
-                show = (ch == 1) || (ch <= 1 + S.nSlaves);
+                show = (ch >= 2) && (ch <= 1 + S.nSlaves);
                 globalBatch(ch).Visible = ternary(show, 'on', 'off');
             end
         end
@@ -594,9 +566,8 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
     function applyPlotVisibility()
         % Ocultar plots y checkboxes de esclavos inactivos
         for ch = 1:MAX_NODES
-            % ch=1 = Maestro siempre visible
-            % ch=2..nSlaves+1 = esclavos activos
-            active = (ch == 1) || (ch <= 1 + S.nSlaves);
+            % ch=1 = Maestro: gateway, sin gráfico. ch=2..nSlaves+1 = esclavos.
+            active = (ch >= 2) && (ch <= 1 + S.nSlaves);
             if isLiveHandle(cbVis(ch))
                 wasActive = strcmp(cbVis(ch).Visible,'on');
                 if active && ~wasActive
@@ -614,7 +585,7 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
     function updatePlotLayout()
         visibleChannels = [];
         for ch = 1:MAX_NODES
-            active = (ch == 1) || (ch <= 1 + S.nSlaves);
+            active = (ch >= 2) && (ch <= 1 + S.nSlaves);
             if active && S.node(ch).visible
                 visibleChannels(end+1) = ch; %#ok<AGROW>
             end
@@ -689,7 +660,6 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
         btnDisconn.Enable = 'on';
         btnArm.Enable     = 'on';
         btnStreamOn.Enable= 'on';
-        btnTestMaestro.Enable = 'on';
         for ch = 2:1+S.nSlaves
             if isfield(S.node(ch),'btnTest') && ~isempty(S.node(ch).btnTest)
                 S.node(ch).btnTest.Enable = 'on';
@@ -733,7 +703,6 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
         btnArm.Text       = 'Descubrir';
         btnStreamOn.Enable= 'off';
         btnStreamOn.Text  = '▶ Iniciar';
-        btnTestMaestro.Enable= 'off';
         S.armPending = false; S.armTimer = [];
         for ch = 2:MAX_NODES
             if isfield(S.node(ch),'btnTest') && ~isempty(S.node(ch).btnTest)
@@ -745,7 +714,7 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
         S.dumpStarted     = false;
         S.multiStartActive = false;
         S.prevMasterState = -1;
-        S.nBatches        = max(1, min(255, round(spnRecN.Value)));
+        S.nBatches        = max(1, min(65535, round(spnRecN.Value)));
         if ~isempty(S.autoStopTimer) && isvalid(S.autoStopTimer)
             try, stop(S.autoStopTimer); delete(S.autoStopTimer); catch, end
         end
@@ -767,7 +736,7 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
         if S.nSlaves == 0, logH('Configura el nº de esclavos primero'); return; end
         % Descubrir: sólo ARM en modo streaming (n=0) para que los esclavos
         % queden disponibles para tests. No hay medición de drift aquí.
-        psocCmd(hex2dec('AE'), 0);
+        psocCmd16(hex2dec('AE'), 0);
         psocCmd(hex2dec('A2'), S.nSlaves);
         S.armPending = true;
         lblSyncSt.Text = 'Estado: DISCOVERING...';
@@ -822,7 +791,7 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
         if isempty(S.port) || ~isvalid(S.port), return; end
         S.driftMeasuring = true;
         % Activar stream brevemente para recibir muestras
-        psocCmd(hex2dec('AE'), 0);
+        psocCmd16(hex2dec('AE'), 0);
         psocCmd(hex2dec('A1'), 1);
         S.streaming = true;
         % Marcar tiempo y limpiar flags de primera muestra
@@ -832,7 +801,7 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
             S.node(chD).tFirst   = 0;
         end
         setDriftDebugSlaves(true);
-        psocCmd(hex2dec('A3'), 0);
+        psocCmd16(hex2dec('A3'), 0);
         waitBudget = hotWaitBudgetS();
         lblSyncSt.Text = sprintf('Estado: HOT_WAIT drift (max %.1f s)', waitBudget);
         logM('driftMeasure START');
@@ -905,7 +874,7 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
 
     function updateBatchInfoLabel()
         if ~isLiveHandle(spnRecN) || ~isLiveHandle(lblBatchInfo), return; end
-        n = max(1, min(255, round(spnRecN.Value)));
+        n = max(1, min(65535, round(spnRecN.Value)));
         S.nBatches = n;
         dur = n * 30 / FS;
         lblBatchInfo.Text = sprintf('%d bat → %d mts ≈ %.1f s', n, n*30, dur);
@@ -919,12 +888,13 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
     end
 
     function onStreamOn(~,~)
+        logM(sprintf('BTN Iniciar streaming=%d nBatches=%d', S.streaming, round(spnRecN.Value)));
         if S.streaming
             onStreamOff();
             return;
         end
         if S.nSlaves == 0, logH('Configura el nº de esclavos primero'); return; end
-        n = max(1, min(255, round(spnRecN.Value)));
+        n = max(1, min(65535, round(spnRecN.Value)));
         S.nBatches = n;
         updateBatchInfoLabel();
         % Limpiar todos los buffers para que cada grabación empiece desde cero
@@ -954,12 +924,12 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
         end
         % El maestro manda PRESTART, confirma HOT_WAIT en cada esclavo y luego START.
         if S.streamDebug
-            psocCmd(hex2dec('AE'), S.nBatches);   % fijar n_batches ANTES de A7: maestro y esclavos ven g_rec_n_batches>0
+            psocCmd16(hex2dec('AE'), S.nBatches);   % fijar n_batches ANTES de A7: maestro y esclavos ven g_rec_n_batches>0
             setStreamDebugSignal(true);            % A7 con g_rec_n_batches>0 → maestro queda ARMED, esclavos ARMED (no SAMPLING)
-            psocCmd(hex2dec('A3'), S.nBatches);
+            psocCmd16(hex2dec('A3'), S.nBatches);
         else
             psocCmd(hex2dec('A1'), 1);    % A1(1) → master stream live ADC real
-            psocCmd(hex2dec('A3'), S.nBatches);
+            psocCmd16(hex2dec('A3'), S.nBatches);
         end
         S.streaming = true;
         S.recordingActive = true;
@@ -1203,37 +1173,6 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
 %%  Callbacks — Test
 %% ════════════════════════════════════════════════════════════════════════
 
-    function onTestMaestro(~,~)
-        % 0xA7 param=1: firmware pone g_streaming=true, g_state=RUNNING
-        % y envía stub sinusoidal del martillo → datos en plot Maestro
-        psocCmd(hex2dec('A7'), 1);
-        S.streaming = true;
-        lblMaestroInd.FontColor = [0.8 0.6 0.0];
-        lblMaestroTxt.Text = 'Probando...';
-        logM('testMaestro START debug ON');
-        init0 = S.node(1).batchCount;
-        tmrT  = timer('StartDelay',1,'ExecutionMode','singleShot','TimerFcn',@ck);
-        start(tmrT);
-        function ck(~,~)
-            try, psocCmd(hex2dec('A7'), 0); catch, end
-            try, timerRX([],[]); catch, end
-            S.streaming = false;
-            g  = S.node(1).batchCount - init0;
-            ok = g >= 3;
-            if ok
-                lblMaestroInd.FontColor = [0.0 0.7 0.0];
-                lblMaestroTxt.Text = sprintf('OK (%d muestras)',g);
-                logH(sprintf('Test maestro: OK (%d muestras)',g));
-            else
-                lblMaestroInd.FontColor = [0.8 0.1 0.1];
-                lblMaestroTxt.Text = sprintf('FAIL (%d muestras)',g);
-                logH(sprintf('Test maestro: FAIL (%d muestras)',g));
-            end
-            logM(sprintf('testMaestro END batches=%d ok=%d',g,ok));
-            try, delete(tmrT); catch, end
-        end
-    end
-
     function runStartLatencyProbe(ch)
         if isempty(S.port) || ~isvalid(S.port), return; end
         clearStartLatency(ch);
@@ -1261,7 +1200,7 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
         % Poner esclavos en modo streaming (AE=0) para que los batches de debug
         % se transmitan en lugar de almacenarse en RAM. El siguiente Inicio
         % reenvia n_batches en A3 y el maestro lo aplica en PRESTART.
-        psocCmd(hex2dec('AE'), 0);
+        psocCmd16(hex2dec('AE'), 0);
         % Limpiar todos los buffers para que el test empiece sin datos rancios
         for chCl = 1:MAX_NODES
             S.node(chCl).notchBuf  = [];
@@ -1324,6 +1263,39 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
             logM(sprintf('testEsclavo ch=%d batches=%d ok=%d',ch-1,g,ok));
             try, delete(tmrS); catch, end
         end
+    end
+
+    function onVerNodo(ch)
+        % "Ver": disparo único. El PSoC del nodo muestrea N lotes y los envía
+        % solo (sin esperar el START broadcast). Pseudo-tiempo-real para calibrar
+        % VDAC observando un único nodo.
+        if ch < 2 || ch > MAX_NODES, return; end
+        if isempty(S.port) || ~isvalid(S.port)
+            logH('Ver: conecta el maestro primero'); return;
+        end
+        if S.recordingActive
+            logH('Ver: grabación activa — espera a que termine'); return;
+        end
+        n = max(1, min(65535, round(spnRecN.Value)));
+        % Fijar N en el maestro (lo usa para MsgView). El esclavo objetivo entra
+        % en modo "sin store" (envío en vivo) en su handler de CMD_VIEW.
+        psocCmd16(hex2dec('AE'), n);
+        % Limpiar buffer del nodo y hacerlo visible para verlo en vivo
+        S.node(ch).notchBuf   = [];
+        S.node(ch).filtBuf    = [];
+        S.node(ch).batchCount = 0;
+        S.node(ch).visible    = true;
+        if isLiveHandle(cbVis(ch)), cbVis(ch).Value = true; end
+        if isLiveHandle(S.node(ch).hRaw)
+            set(S.node(ch).hRaw,  'XData', NaN, 'YData', NaN);
+            set(S.node(ch).hFilt, 'XData', NaN, 'YData', NaN);
+        end
+        S.streaming = true;
+        % Disparo dirigido: sub_cmd 0xB2 = Ver
+        enviarDirigido(ch, hex2dec('B2'), 1);
+        S.renderDirty(ch) = true;
+        logH(sprintf('Ver nodo Esclavo %d: captura única N=%d lotes', ch-1, n));
+        logM(sprintf('VER ch=%d n=%d', ch-1, n));
     end
 
 %% ════════════════════════════════════════════════════════════════════════
@@ -1464,7 +1436,6 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
 
     function setDcRemove(ch, val), S.node(ch).dcRemove = val; end
 
-    function set_hammerTip(val), S.hammerTip = val; end
 
     function sendTxMode(ch, modeName)
         mode = txModeCode(modeName);
@@ -2083,7 +2054,7 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
             muestras.node(ch).name             = nodeDisplayName(ch);
             muestras.node(ch).default_name     = NODE_NAMES{ch};
             muestras.node(ch).slave_id         = S.node(ch).slave_id;
-            muestras.node(ch).is_active        = (ch == 1) || (ch <= 1 + S.nSlaves);
+            muestras.node(ch).is_active        = (ch >= 2) && (ch <= 1 + S.nSlaves);
             muestras.node(ch).raw_samples      = S.node(ch).notchBuf;
             muestras.node(ch).filt_samples     = S.node(ch).filtBuf;
             muestras.node(ch).pga_code         = S.node(ch).pga_code;
@@ -2221,6 +2192,21 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
         end
     end
 
+    function psocCmd16(cmd, value)
+        % Comando "set N" de 16 bits: [0xAB][cmd][n_lo][n_hi][cmd^n_lo^n_hi]
+        if isempty(S.port)||~isvalid(S.port), return; end
+        v   = uint16(max(0, min(65535, round(value))));
+        nlo = uint8(bitand(v,255));
+        nhi = uint8(bitshift(v,-8));
+        cs  = bitxor(bitxor(uint8(cmd),nlo),nhi);
+        try
+            write(S.port,uint8([CMD_HEADER,cmd,nlo,nhi,cs]),'uint8');
+            logM(sprintf('TX std16 cmd=0x%02X N=%d',cmd,v));
+        catch ME
+            logM(['TX err: ' ME.message]);
+        end
+    end
+
     function enviarDirigido(ch, sub_cmd, param)
         if isempty(S.port)||~isvalid(S.port), return; end
         ni=uint8(ch-1); sc=uint8(sub_cmd); p=uint8(param);
@@ -2257,7 +2243,11 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
         S.node(ch).dbgBuf  = '';
         btnC.Enable = 'off';
         btnD.Enable = 'on';
-        logH(sprintf('Debug COM esclavo %d conectado: %s', ch-1, portName));
+        if isMaster
+            logH(sprintf('Debug COM Maestro conectado: %s', portName));
+        else
+            logH(sprintf('Debug COM esclavo %d conectado: %s', ch-1, portName));
+        end
         if isempty(tmr) || ~isvalid(tmr)
             tmr = timer('ExecutionMode','fixedRate','Period',0.05, ...
                 'TimerFcn',@timerRX,'BusyMode','drop');
@@ -2278,14 +2268,18 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
         S.node(ch).dbgBuf  = '';
         btnC.Enable = 'on';
         btnD.Enable = 'off';
-        logH(sprintf('Debug COM esclavo %d desconectado', ch-1));
+        if isMaster
+            logH('Debug COM Maestro desconectado');
+        else
+            logH(sprintf('Debug COM esclavo %d desconectado', ch-1));
+        end
     end
 
     function pollAllDbg()
         for dCh = 1:MAX_NODES
             if ~isempty(S.node(dCh).dbgPort) && isvalid(S.node(dCh).dbgPort)
                 S.node(dCh).dbgBuf = drainDbgPort(S.node(dCh).dbgPort, ...
-                    S.node(dCh).dbgBuf, false, dCh, S.node(dCh).dbgTa);
+                    S.node(dCh).dbgBuf, (dCh == 1), dCh, S.node(dCh).dbgTa);
             end
         end
     end
@@ -2311,7 +2305,9 @@ applyPlotVisibility();  % ocultar plots de esclavos inactivos al arrancar
                         prefix = sprintf('S%d', ch-1);
                     end
                     msg = sprintf('[%s][%s] %s', ts, prefix, line);
-                    if isNoisyHumanLogLine(line)
+                    % Línea máquina (#M,...) o ruido humano → log máquina (todos
+                    % los datos). Resto → Log tab humano, ordenado por timestamp.
+                    if startsWith(string(line),'#M,') || isNoisyHumanLogLine(line)
                         logM(sprintf('DBG %s %s', prefix, line));
                     else
                         logH(msg);

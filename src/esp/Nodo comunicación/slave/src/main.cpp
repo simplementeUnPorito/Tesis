@@ -1,7 +1,7 @@
 /*
  * ESP Esclavo — Geofono node
  *
- * Lee muestras del PSoC via SPI y las envía al maestro via ESP-NOW.
+ * Lee muestras del PSoC via UART (raw) y las envía al maestro via ESP-NOW.
  *
  * Configurar en platformio.ini:
  *   build_flags = -DNODE_ID=1        (1 o 2 según el nodo físico)
@@ -17,9 +17,10 @@
  */
 
 #include <Arduino.h>
-#include "psoc_spi.h"
+#include "psoc_uart.h"
 #include "espnow_transport.h"
 #include "sync_protocol.h"
+#include "debug_log.h"
 #include "../../scope_measurement.h"
 
 /* ── Configuración ────────────────────────────────────────────────────────── */
@@ -55,17 +56,7 @@
 #ifndef DEBUG_HW_START_US
   #define DEBUG_HW_START_US SCOPE_START_PULSE_US
 #endif
-#ifndef DEBUG_COM
-  #define DEBUG_COM 1
-#endif
-
-#if DEBUG_COM
-  #define SLAVE_LOG_PRINTLN(...) Serial.println(__VA_ARGS__)
-  #define SLAVE_LOG_PRINTF(...)  Serial.printf(__VA_ARGS__)
-#else
-  #define SLAVE_LOG_PRINTLN(...) do {} while (0)
-  #define SLAVE_LOG_PRINTF(...)  do {} while (0)
-#endif
+/* Logging (humano + máquina) en debug_log.h, gateado por DBG_ENABLE. */
 
 /* MAC del ESP maestro — cambiar según el hardware */
 static const uint8_t MASTER_MAC[6] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
@@ -86,12 +77,10 @@ static volatile uint64_t   g_t_start_us  = 0;
 static volatile bool       g_debug_mode  = false;
 static          uint32_t   g_debug_count = 0;
 static volatile uint32_t   g_debug_last_us = 0;
-static volatile bool       g_debugHwActive = false;
-static volatile uint32_t   g_debugHwFallUs = 0;
+/* g_debugHwActive / g_debugHwFallUs viven en scope_pulse.h */
 static          uint8_t    g_pga_code    = 0;
 static          uint8_t    g_pgavdac     = 0;
 static          uint8_t    g_vdac_byte   = 128;
-static          uint8_t    g_tx_filtered = 0;
 
 /* ── Store-and-forward ───────────────────────────────────────────────────── */
 static uint16_t    g_rec_n_batches = 0;          /* 0 = modo streaming clásico */
@@ -99,71 +88,17 @@ static SampleBytes *g_store_buf    = nullptr;    /* n_batches × 30 SampleBytes 
 static uint32_t   *g_store_ts_us   = nullptr;    /* timestamp relativo por batch */
 static uint16_t    g_store_fill    = 0;
 
+/* ── Modo "Ver" (disparo único, streaming en vivo de un nodo) ────────────── */
+static volatile uint16_t g_view_remaining   = 0; /* lotes en vivo restantes (0=off) */
+static volatile bool     g_view_armPending  = false;
+static volatile uint32_t g_view_armDueUs    = 0; /* cuándo levantar el flanco */
+
 /* ── Objetos ─────────────────────────────────────────────────────────────── */
-static PsocSPI        psoc;
+static PsocUART       psoc;
 static EspNowTransport transport;
 
-static inline uint8_t samplePulseActiveLevel()
-{
-    return (SAMPLE_PULSE_IDLE == LOW) ? HIGH : LOW;
-}
-
-static inline uint8_t debugHwActiveLevel()
-{
-    return (DEBUG_HW_START_IDLE == LOW) ? HIGH : LOW;
-}
-
-static void samplePulseBegin()
-{
-#if SAMPLE_PULSE_PIN >= 0
-    pinMode(SAMPLE_PULSE_PIN, OUTPUT);
-    digitalWrite(SAMPLE_PULSE_PIN, SAMPLE_PULSE_IDLE);
-#endif
-}
-
-static void debugHardwareBegin()
-{
-#if DEBUG_HARDWARE && DEBUG_HW_START_PIN >= 0
-    pinMode(DEBUG_HW_START_PIN, OUTPUT);
-    digitalWrite(DEBUG_HW_START_PIN, DEBUG_HW_START_IDLE);
-#endif
-}
-
-static inline void samplePulse()
-{
-#if SAMPLE_PULSE_PIN >= 0
-    digitalWrite(SAMPLE_PULSE_PIN, samplePulseActiveLevel());
-#if SAMPLE_PULSE_US > 0
-    delayMicroseconds(SAMPLE_PULSE_US);
-#endif
-    digitalWrite(SAMPLE_PULSE_PIN, SAMPLE_PULSE_IDLE);
-#endif
-}
-
-static inline void debugHardwareStartPulse()
-{
-#if DEBUG_HARDWARE && DEBUG_HW_START_PIN >= 0
-    digitalWrite(DEBUG_HW_START_PIN, debugHwActiveLevel());
-#if DEBUG_HW_START_US > 0
-    g_debugHwFallUs = (uint32_t)micros() + (uint32_t)DEBUG_HW_START_US;
-    g_debugHwActive = true;
-#else
-    digitalWrite(DEBUG_HW_START_PIN, DEBUG_HW_START_IDLE);
-    g_debugHwActive = false;
-#endif
-#endif
-}
-
-static inline void debugHardwareService()
-{
-#if DEBUG_HARDWARE && DEBUG_HW_START_PIN >= 0
-    if (g_debugHwActive &&
-        (int32_t)((uint32_t)micros() - g_debugHwFallUs) >= 0) {
-        digitalWrite(DEBUG_HW_START_PIN, DEBUG_HW_START_IDLE);
-        g_debugHwActive = false;
-    }
-#endif
-}
+/* Helpers de pulsos GPIO de osciloscopio (módulo aparte). */
+#include "scope_pulse.h"
 
 static void pulseSampleCount(uint8_t n)
 {
@@ -178,7 +113,7 @@ void IRAM_ATTR onSyncEdge()
     int level = digitalRead(SYNC_IN_PIN);
     if (level == HIGH && g_state == HOT_WAIT) {
         digitalWrite(SYNC_TO_PSOC_PIN, HIGH);
-        debugHardwareStartPulse();   /* pulso inmediato: camino HW más rápido que ESP-NOW */
+        debugEspHardwareStartPulse();   /* pulso inmediato: camino HW más rápido que ESP-NOW */
         uint32_t nowUs = (uint32_t)micros();
         g_t_start_us    = (uint64_t)nowUs;
         g_store_fill    = 0;
@@ -220,13 +155,18 @@ static void enterHotWait(uint16_t n_batches)
 {
     allocStore(n_batches);
     digitalWrite(SYNC_TO_PSOC_PIN, LOW);
-    g_t_start_us    = 0;
-    g_store_fill    = 0;
-    g_debug_count   = 0;
-    g_debug_last_us = (uint32_t)micros();
+    g_t_start_us     = 0;
+    g_store_fill     = 0;
+    g_view_remaining = 0;
+    g_debug_count    = 0;
+    g_debug_last_us  = (uint32_t)micros();
     g_state = HOT_WAIT;
+    /* Armar el PSoC por UART: set N y pre-start (queda esperando flanco SYNC). */
+    psoc.setN(n_batches);
+    psoc.preStart();
     SLAVE_LOG_PRINTF("[SLAVE] HOT_WAIT n=%u ready=%u\n",
                      n_batches, (unsigned)storeReadyForHotWait());
+    LOGM("HOTWAIT", "n=%u,ready=%u", n_batches, (unsigned)storeReadyForHotWait());
 }
 
 static void sendHotWaitAck()
@@ -240,7 +180,7 @@ static void sendHotWaitAck()
                      ok, (unsigned)g_state, g_rec_n_batches);
 }
 
-static void setDebugMode(bool enable)
+static void debugEspSetRamp(bool enable)
 {
     g_debug_mode = enable;
     g_debug_count = 0;
@@ -268,17 +208,17 @@ static void handleSetConfig(const MsgSetConfig *cfg)
 
     uint8_t ok = 1;
     switch (cfg->sub_cmd) {
-        case 0xA6:
+        case 0xA6:                       /* PGA */
             g_pga_code = cfg->param;
+            psoc.setPga(cfg->param);
             break;
-        case 0xA8:
-            g_tx_filtered = cfg->param ? 1 : 0;
-            break;
-        case 0xA9:
+        case 0xA9:                       /* PGAvdac */
             g_pgavdac = cfg->param;
+            psoc.setPgavdac(cfg->param);
             break;
-        case 0xAA:
+        case 0xAA:                       /* VDAC (calibración) */
             g_vdac_byte = cfg->param;
+            psoc.setVdac(cfg->param);
             break;
         default:
             ok = 0;
@@ -287,13 +227,14 @@ static void handleSetConfig(const MsgSetConfig *cfg)
     sendCfgAck(cfg->sub_cmd, ok);
     SLAVE_LOG_PRINTF("[SLAVE] cfg sub=0x%02X p=%u ok=%u\n",
                      cfg->sub_cmd, cfg->param, ok);
+    LOGM("CFG", "sub=0x%02X,p=%u,ok=%u", cfg->sub_cmd, cfg->param, ok);
 }
 
 static void handleDebugNode(const MsgDebugNode *dbg)
 {
     if (dbg->node_id != NODE_ID) return;
     bool enable = (dbg->enable != 0);
-    setDebugMode(enable);
+    debugEspSetRamp(enable);
     sendCfgAck(0xA7, 1);
     SLAVE_LOG_PRINTF("[SLAVE] debug_node=%d\n", (int)g_debug_mode);
 }
@@ -307,6 +248,7 @@ static void onDataRecv(const uint8_t *mac, const uint8_t *data, int len)
     (void)mac;
     if (len < 1) return;
     uint8_t cmd = data[0];
+    LOGM("RX", "cmd=0x%02X,len=%d,state=%d", cmd, len, (int)g_state);
 
     if (cmd == CMD_ARM &&
         (g_state == WAIT_ARM || g_state == ARMED || g_state == HOT_WAIT || g_state == STOPPED)) {
@@ -327,7 +269,7 @@ static void onDataRecv(const uint8_t *mac, const uint8_t *data, int len)
     }
     else if (cmd == CMD_SCOPE_START && len >= (int)sizeof(MsgScopeStart)) {
         if (g_state == HOT_WAIT && storeReadyForHotWait()) {
-            debugHardwareStartPulse();
+            debugEspHardwareStartPulse();
             digitalWrite(SYNC_TO_PSOC_PIN, LOW);
             SLAVE_LOG_PRINTLN("[SLAVE] SCOPE_START");
         } else {
@@ -363,7 +305,7 @@ static void onDataRecv(const uint8_t *mac, const uint8_t *data, int len)
                              (int)g_state, (unsigned)storeReadyForHotWait());
             return;
         }
-        debugHardwareStartPulse();   /* START real por ESP-NOW */
+        debugEspHardwareStartPulse();   /* START real por ESP-NOW */
         digitalWrite(SYNC_TO_PSOC_PIN, HIGH);
         /* START por software: usar como fallback si no hay cable GPIO */
         g_t_start_us    = msg->t_start_us;
@@ -382,7 +324,7 @@ static void onDataRecv(const uint8_t *mac, const uint8_t *data, int len)
     else if (cmd == CMD_DEBUG && len >= (int)sizeof(MsgDebug)) {
         const MsgDebug *d = (const MsgDebug *)data;
         bool enable = (d->enable != 0);
-        setDebugMode(enable);
+        debugEspSetRamp(enable);
         MsgArmAck ack = { CMD_ARM_ACK, NODE_ID, (uint8_t)(g_debug_mode ? 0xDD : 0x00) };
         espnowSend(MASTER_MAC, (const uint8_t *)&ack, sizeof(ack));
         SLAVE_LOG_PRINTF("[SLAVE] debug=%d\n", (int)g_debug_mode);
@@ -392,6 +334,33 @@ static void onDataRecv(const uint8_t *mac, const uint8_t *data, int len)
     }
     else if (cmd == CMD_DEBUG_NODE && len >= (int)sizeof(MsgDebugNode)) {
         handleDebugNode((const MsgDebugNode *)data);
+    }
+    else if (cmd == CMD_VIEW && len >= (int)sizeof(MsgView)) {
+        /* "Ver": disparo único, streaming en vivo de un solo nodo.
+         * El arranque del PSoC es SIEMPRE por flanco: armamos por UART y
+         * levantamos el pin SYNC_TO_PSOC (igual que un START normal). */
+        const MsgView *msg = (const MsgView *)data;
+        if (msg->node_id != NODE_ID) return;
+        allocStore(0);                 /* sin store-and-forward → envío en vivo */
+        g_view_remaining = msg->n;
+        g_store_fill     = 0;
+        psoc.setN(msg->n);
+        psoc.preStart();               /* arma el PSoC (espera flanco) */
+        /* Levantar el flanco unos ms después, para dar tiempo a que el PSoC
+         * procese el pre-start por UART antes de recibir el flanco. */
+        g_view_armPending = true;
+        g_view_armDueUs   = (uint32_t)micros() + 3000u;
+        sendCfgAck(CMD_VIEW, 1);
+        SLAVE_LOG_PRINTF("[SLAVE] VIEW n=%u\n", msg->n);
+        LOGM("VIEW", "n=%u", msg->n);
+    }
+    else if (cmd == CMD_DEBUG_PSOC && len >= (int)sizeof(MsgDebugPsoc)) {
+        const MsgDebugPsoc *msg = (const MsgDebugPsoc *)data;
+        if (msg->node_id != NODE_ID) return;
+        psoc.debugRamp(msg->enable != 0);
+        sendCfgAck(CMD_DEBUG_PSOC, 1);
+        SLAVE_LOG_PRINTF("[SLAVE] DEBUG_PSOC=%u\n", msg->enable);
+        LOGM("DBGPSOC", "en=%u", msg->enable);
     }
     else if (cmd == CMD_SET_RECLEN && len >= (int)sizeof(MsgSetRecLen)) {
         const MsgSetRecLen *msg = (const MsgSetRecLen *)data;
@@ -451,9 +420,21 @@ static void onBatch(const PsocBatch &batch)
     if (g_state != SAMPLING) return;
     pulseSampleCount(batch.n_samples);
 
-    /* Debug y real: el routing depende del modo store, no del origen del dato.
-       Si g_store_buf está allocado → acumula (también en debug).
-       Si no hay store buffer → transmite en tiempo real (streaming / TestEsclavo). */
+    /* "Ver": disparo único en vivo. Tiene prioridad sobre el store para no
+       depender del orden de llegada de SET_RECLEN vs CMD_VIEW. */
+    if (g_view_remaining > 0) {
+        transport.sendBatch(batch, g_t_start_us, NODE_ID);
+        LOGM("BATCH", "seq=%u,view=1", batch.seq);
+        if (--g_view_remaining == 0) {
+            digitalWrite(SYNC_TO_PSOC_PIN, LOW);   /* baja el flanco → para */
+            g_state = STOPPED;
+            SLAVE_LOG_PRINTF("[SLAVE] VIEW done\n");
+            LOGM("VIEWDONE", "");
+        }
+        return;
+    }
+
+    /* Routing normal: si g_store_buf está allocado → acumula; si no → en vivo. */
     if (g_store_buf && g_store_fill < g_rec_n_batches) {
         /* Store-and-forward: acumular en RAM, sin RF */
         SampleBytes *dst = &g_store_buf[(size_t)g_store_fill * SPI_BATCH_SAMPLES];
@@ -478,8 +459,9 @@ static void onBatch(const PsocBatch &batch)
             SLAVE_LOG_PRINTF("[SLAVE] FULL -> STOPPED (%u batches)\n", g_store_fill);
         }
     } else if (!g_store_buf) {
-        /* Modo clásico sin store: enviar en tiempo real */
+        /* Sin store: enviar en tiempo real (streaming clásico) */
         transport.sendBatch(batch, g_t_start_us, NODE_ID);
+        LOGM("BATCH", "seq=%u,live=1", batch.seq);
     }
 }
 
@@ -487,12 +469,10 @@ static void onBatch(const PsocBatch &batch)
 
 void setup()
 {
-#if DEBUG_COM
-    Serial.begin(115200);
-#endif
+    dbgLogBegin(115200);   /* Serial USB del esclavo = canal de log (humano+máquina) */
     SLAVE_LOG_PRINTF("[SLAVE %d] boot\n", NODE_ID);
     samplePulseBegin();
-    debugHardwareBegin();
+    debugEspHardwareBegin();
     SLAVE_LOG_PRINTF("[SCOPE] sample pulse pin=%d idle=%d us=%d\n",
                      SAMPLE_PULSE_PIN, SAMPLE_PULSE_IDLE, SAMPLE_PULSE_US);
     SLAVE_LOG_PRINTF("[SCOPE] debugHardware=%d start pin=%d idle=%d us=%d\n",
@@ -529,40 +509,50 @@ void setup()
     digitalWrite(SYNC_TO_PSOC_PIN, LOW);
     attachInterrupt(digitalPinToInterrupt(SYNC_IN_PIN), onSyncEdge, CHANGE);
 
-    /* SPI → PSoC */
+    /* UART → PSoC */
     psoc.begin(onBatch);
 
     SLAVE_LOG_PRINTF("[SLAVE %d] listo, esperando ARM\n", NODE_ID);
+    LOGM("BOOT", "node=%d", NODE_ID);
 }
 
 /* ── Loop ────────────────────────────────────────────────────────────────── */
 
 void loop()
 {
-    debugHardwareService();
+    debugEspHardwareService();
 
-    /* Poll PSoC o generar debug ramp */
-    if (g_state == SAMPLING) {
-        if (g_debug_mode) {
-            /* Generar batch falso a 29412 µs (30 muestras @ 1020 Hz) */
-            uint32_t nowUs = (uint32_t)micros();
-            if ((uint32_t)(nowUs - g_debug_last_us) >= 29412) {
-                g_debug_last_us += 29412;
-                PsocBatch fake = {};
-                fake.seq         = (uint16_t)(g_debug_count / SPI_BATCH_SAMPLES);
-                fake.n_samples   = SPI_BATCH_SAMPLES;
-                fake.timestamp_us= (uint64_t)micros() - g_t_start_us;
-                for (int i = 0; i < SPI_BATCH_SAMPLES; i++) {
-                    fake.samples[i].post_digital = (int32_t)(g_debug_count & 0xFFFFFF);
-                    fake.samples[i].gain_byte = g_pga_code;
-                    fake.samples[i].sample_flags = g_tx_filtered;
-                    g_debug_count++;
-                }
-                onBatch(fake);
+    /* "Ver": levantar el flanco hacia el PSoC tras el pequeño retardo de arme. */
+    if (g_view_armPending &&
+        (int32_t)((uint32_t)micros() - g_view_armDueUs) >= 0) {
+        g_view_armPending = false;
+        g_t_start_us = (uint64_t)micros();
+        debugEspHardwareStartPulse();
+        digitalWrite(SYNC_TO_PSOC_PIN, HIGH);   /* flanco de subida → arranca */
+        g_state = SAMPLING;
+        SLAVE_LOG_PRINTF("[SLAVE] VIEW flanco arriba\n");
+    }
+
+    /* Drenar siempre la UART del PSoC (onBatch ignora si no está SAMPLING). */
+    if (g_state == SAMPLING && g_debug_mode) {
+        /* debug ESP: generar batch falso a 29412 µs (30 muestras @ 1020 Hz) */
+        uint32_t nowUs = (uint32_t)micros();
+        if ((uint32_t)(nowUs - g_debug_last_us) >= 29412) {
+            g_debug_last_us += 29412;
+            PsocBatch fake = {};
+            fake.seq         = (uint16_t)(g_debug_count / SPI_BATCH_SAMPLES);
+            fake.n_samples   = SPI_BATCH_SAMPLES;
+            fake.timestamp_us= (uint64_t)micros() - g_t_start_us;
+            for (int i = 0; i < SPI_BATCH_SAMPLES; i++) {
+                fake.samples[i].post_digital = (int32_t)(g_debug_count & 0xFFFFFF);
+                fake.samples[i].gain_byte = g_pga_code;
+                fake.samples[i].sample_flags = 0;
+                g_debug_count++;
             }
-        } else {
-            psoc.poll();
+            onBatch(fake);
         }
+    } else {
+        psoc.poll();
     }
 
     /* Volver a esperar ARM después de STOP.
