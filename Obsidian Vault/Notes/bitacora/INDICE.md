@@ -3,8 +3,8 @@
 
 > **Autor:** Elías David Álvarez  
 > **Repo:** [simplementeUnPorito/Tesis](https://github.com/simplementeUnPorito/Tesis)  
-> **Período:** Febrero – Mayo 2026  
-> **Total de commits:** 197 | **Días de trabajo activo:** 31
+> **Período:** Febrero – Junio 2026  
+> **Total de commits:** ~200 | **Días de trabajo activo:** 33
 
 ---
 
@@ -55,7 +55,7 @@ Este índice agrupa todas las entradas de la bitácora por etapa del proyecto.
 
 ---
 
-## Etapa 4 — Sistema Inalámbrico ESP-NOW (May 17–31, 2026)
+## Etapa 4 — Sistema Inalámbrico ESP-NOW (May–Jun 2026)
 
 | Fecha | Archivo | Descripción |
 |-------|---------|-------------|
@@ -68,6 +68,15 @@ Este índice agrupa todas las entradas de la bitácora por etapa del proyecto.
 | 2026-05-28 | [[2026-05-28]] | Debug y ajustes post-éxito |
 | 2026-05-29 | [[2026-05-29]] | Más ajustes y estabilización |
 | 2026-05-31 | [[2026-05-31]] | Refactor final: UART PSoC↔ESP, PR #2 mergeado |
+
+---
+
+## Etapa 5 — Producción y Debug Fino (Jun 2026)
+
+| Fecha | Archivo | Descripción |
+|-------|---------|-------------|
+| 2026-06-03 | [[2026-06-03]] | Beacon fix 10Hz, VER store-and-forward, PSoC probe, UART 115200 → "Locura funciona super bien" |
+| 2026-06-04 | [[2026-06-04]] | Workspace Martillo_ESP.cydsn — nodo PSoC+ESP para martillo de impacto |
 
 ---
 
