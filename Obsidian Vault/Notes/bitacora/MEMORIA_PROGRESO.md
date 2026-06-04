@@ -8,10 +8,10 @@ metadata:
 # Estado del Loop de Bitácora
 
 ## Último día procesado
-`2026-04-15`
+`2026-04-17`
 
 ## Próximo día a procesar
-`2026-04-17`
+`2026-04-18`
 
 ## Lista completa de días (31 días únicos, 197 commits)
 
@@ -30,7 +30,7 @@ metadata:
 | 11 | 2026-04-11 | ~80 (INVESTIGADOR loop) | ✅ HECHO |
 | 12 | 2026-04-12 | ~25 (INVESTIGADOR cont.) | ✅ HECHO |
 | 13 | 2026-04-15 | 1 | ✅ HECHO |
-| 14 | 2026-04-17 | 4 | ⏳ PENDIENTE |
+| 14 | 2026-04-17 | 4 | ✅ HECHO |
 | 15 | 2026-04-18 | 1 | ⏳ PENDIENTE |
 | 16 | 2026-04-19 | ~15 (Auto-mejora loop) | ⏳ PENDIENTE |
 | 17 | 2026-04-22 | 1 | ⏳ PENDIENTE |
