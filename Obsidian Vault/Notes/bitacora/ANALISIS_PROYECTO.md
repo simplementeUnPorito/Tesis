@@ -1,6 +1,6 @@
 # Análisis del Proyecto — Tesis MASW Geofóno SM-24
 
-*Generado automáticamente por el loop de bitácora — 4 de junio de 2026*
+*Actualizado: 4 de junio de 2026 — incluye entradas Jun-03 y Jun-04*
 
 ---
 
@@ -8,7 +8,7 @@
 
 ```mermaid
 timeline
-    title Evolución del Proyecto — Feb 2026 → May 2026
+    title Evolución del Proyecto — Feb 2026 → Jun 2026
     
     section Fundación
         Feb 25 : Commit inicial
@@ -57,6 +57,14 @@ timeline
         May 28 : AcondicionamientoMartillo
         May 29 : Primer build martillo OK
         May 31 : Refactor UART, PR #2 merge
+    
+    section Sistema en Producción
+        Jun 03 : Beacon fix 10Hz → 1Hz
+                : VER store-and-forward
+                : PSoC probe/ping/pong
+                : UART 460800 → 115200
+        Jun 04 : Martillo_ESP.cydsn — nodo martillo
+                : Integración PSoC martillo + ESP
 ```
 
 ---
@@ -66,9 +74,9 @@ timeline
 ```mermaid
 xychart-beta
     title "Commits por Día (excluyendo loop INVESTIGADOR)"
-    x-axis ["25-Feb", "03-Mar", "11-Mar", "13-Mar", "17-Mar", "18-Mar", "19-Mar", "20-Mar", "23-Mar", "10-Apr", "15-Apr", "17-Apr", "18-Apr", "19-Apr", "22-Apr", "27-Apr", "29-Apr", "30-Apr", "05-May", "10-May", "17-May", "18-May", "20-May", "24-May", "25-May", "26-May", "28-May", "29-May", "31-May"]
+    x-axis ["25-Feb", "03-Mar", "11-Mar", "13-Mar", "17-Mar", "18-Mar", "19-Mar", "20-Mar", "23-Mar", "10-Apr", "15-Apr", "17-Apr", "18-Apr", "19-Apr", "22-Apr", "27-Apr", "29-Apr", "30-Apr", "05-May", "10-May", "17-May", "18-May", "20-May", "24-May", "25-May", "26-May", "28-May", "29-May", "31-May", "03-Jun", "04-Jun"]
     y-axis "Commits" 0 --> 20
-    bar [1, 7, 1, 2, 6, 1, 2, 1, 1, 1, 1, 4, 1, 15, 1, 1, 1, 2, 1, 3, 2, 1, 3, 3, 4, 2, 1, 1, 4]
+    bar [1, 7, 1, 2, 6, 1, 2, 1, 1, 1, 1, 4, 1, 15, 1, 1, 1, 2, 1, 3, 2, 1, 3, 3, 4, 2, 1, 1, 4, 2, 1]
 ```
 
 ---
@@ -94,7 +102,7 @@ graph TB
     end
     
     subgraph "Comunicación"
-        UART[UART 460800 baud<br/>Frame 95 bytes]
+        UART[UART 115200 baud<br/>Frame 95 bytes]
         SPI_old[SPI 4MHz — obsoleto<br/>Frame 306 bytes]
         ESPNOW[ESP-NOW<br/>MsgData 165 bytes]
         TCP[WiFi TCP<br/>Puerto 5005]
@@ -121,7 +129,7 @@ graph TB
     end
     
     SM24 --> PGApn
-    Martillo --> AcondMartillo[AcondicionamientoMartillo<br/>PSoC separado]
+    Martillo --> MartilloESP[Martillo_ESP.cydsn<br/>PSoC+ESP dedicado]
     PGApn --> OPAbp
     PGApn --> OPAadder
     OPAbp --> OPAadder
@@ -248,6 +256,10 @@ gantt
     Primera transmisión exitosa   :milestone, 2026-05-26, 1d
     Martillo PSoC               :done, 2026-05-28, 2026-05-31
     Refactor UART + PR merge      :done, 2026-05-31, 2026-06-01
+    
+    section Junio — Producción
+    Beacon fix + VER debug        :done, 2026-06-03, 2026-06-04
+    Martillo_ESP.cydsn             :active, 2026-06-04, 2026-06-05
 ```
 
 ---
@@ -256,11 +268,11 @@ gantt
 
 | Métrica | Valor |
 |---------|-------|
-| **Período** | 25 Feb → 31 May 2026 (95 días) |
-| **Total commits** | ~197 (incluyendo loop INVESTIGADOR) |
-| **Días con trabajo** | 31 únicos |
-| **Commits técnicos** | ~110 (excluyendo INVESTIGADOR) |
-| **Proyectos PSoC** | 6 (`DiferencialConRrefs*`, `DiferencialToSingleEnded`, `DiferencialToSingleEnded_ESP`, `AcondicionamientoMartillo`) |
+| **Período** | 25 Feb → 4 Jun 2026 (100 días) |
+| **Total commits** | ~200 (incluyendo loop INVESTIGADOR) |
+| **Días con trabajo** | 33 únicos |
+| **Commits técnicos** | ~113 (excluyendo INVESTIGADOR) |
+| **Proyectos PSoC** | 7 (`DiferencialConRrefs*`, `DiferencialToSingleEnded`, `DiferencialToSingleEnded_ESP`, `AcondicionamientoMartillo`, `AcondicionamientoAnalogico`, `Martillo_ESP`) |
 | **Scripts Python** | 7 (`calculoCompensador*`, `graficar_compensador_csv.py`, `analisis_espectral.py`) |
 | **Scripts MATLAB** | ~12 (`geophone_scope*`, `analisis_*`, `filtroFir.m`, `compensador*.m`) |
 | **Conceptos Zettelkasten** | ~160 |
@@ -269,6 +281,8 @@ gantt
 | **Bytes por frame (final)** | 95 (de 306 en SPI) |
 | **Pico de actividad** | 11 Abril (89 commits INVESTIGADOR) |
 | **Commit más épico** | "Parece que funciona la putaaaa" (26 Mayo) |
+| **Bug más difícil** | Beacon WiFi a 10Hz creaba spikes en geófono (3 Jun) |
+| **UART baud rate final** | 115200 bps (460800 no era divisible exacto en cristal 24MHz) |
 
 ---
 
@@ -304,11 +318,19 @@ El sistema ESP32 inalámbrico nace el 24 de mayo de código generado por Claude,
 
 La última semana de mayo es la semana en que el proyecto pasa de "señal ruidosa en un scope MATLAB" a "sistema distribuido inalámbrico de adquisición multi-canal". El commit final del mes — el merge de PR #2 — sella la arquitectura que irá al banco de pruebas en campo.
 
+### Fase 6: Producción — La Depuración Fina (Junio 2026)
+
+El 3 de junio llega el bug que ningún dataset de simulación hubiera revelado: el AP WiFi del ESP32 maestro emite beacons a 100ms (10Hz). Esa frecuencia de RF genera spikes de 10Hz en la señal del geófono — justo en la banda de interés para ondas Rayleigh (5-40Hz). La solución (`beacon_interval = 1000 TU = 1024ms`, y `60000 TU` durante la captura) solo puede encontrarse con el sistema montado, el geófono conectado, y MATLAB mostrando datos reales.
+
+El mismo día: UART baud rate reducido de 460800 a 115200 porque 460800 no es divisible exacto del cristal de 24MHz del PSoC; MAC del maestro configurable vía `platformio.ini`; canal WiFi explícito en el esclavo; protocolo PSoC extendido con PING/PONG y CFG_ACK. "Locura parece que ya funciona super bien" a las 23:52.
+
+El 4 de junio a las 00:10: un commit de workspace PSoC Creator revela que `Martillo_ESP.cydsn` está abierto. Un nuevo nodo — el martillo instrumentado con su propio PSoC y ESP32 — está en desarrollo. El "Ayuda" de este commit no es derrota: es el reconocimiento de que el sistema de geófonos ya funciona y que el siguiente problema ya tiene nombre.
+
 ---
 
-## Próximos Pasos Identificados (al 31 de Mayo)
+## Próximos Pasos Identificados (al 4 de Junio)
 
-1. **AcondicionamientoMartillo**: La ISR `getADCdata` está vacía. El firmware de lectura del martillo de impacto debe completarse para detectar onset del golpe, medir fuerza, y transmitir al ESP esclavo del martillo.
+1. **Martillo_ESP.cydsn**: En desarrollo activo al 4 de junio. El firmware PSoC del nodo martillo — cadena analógica SAR ADC + detección onset + comunicación ESP — está siendo construido desde el inicio.
 
 2. **Validación en campo**: Las mediciones con martillo real en suelo real son el próximo paso experimental. `analisis_modelo.m` ya está listo para el procesamiento.
 
@@ -320,4 +342,4 @@ La última semana de mayo es la semana en que el proyecto pasa de "señal ruidos
 
 ---
 
-*Bitácora completa: 33 entradas, Mayo de 2026. Generada con Claude Code (claude-sonnet-4-6).*
+*Bitácora completa: 33 entradas, Feb–Jun 2026. Generada con Claude Code (claude-sonnet-4-6).*
