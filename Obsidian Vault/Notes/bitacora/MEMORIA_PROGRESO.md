@@ -11,7 +11,7 @@ metadata:
 `2026-05-31`
 
 ## Próximo día a procesar
-`2026-06-03`
+`TODOS COMPLETADOS — crear ANALISIS_PROYECTO.md`
 
 ## Lista completa de días (31 días únicos, 197 commits)
 
@@ -48,8 +48,8 @@ metadata:
 | 29 | 2026-05-28 | 1 | ✅ HECHO |
 | 30 | 2026-05-29 | 1 | ✅ HECHO |
 | 31 | 2026-05-31 | 4 | ✅ HECHO |
-| 32 | 2026-06-03 | 2 | ⏳ PENDIENTE |
-| 33 | 2026-06-04 | 1 | ⏳ PENDIENTE |
+| 32 | 2026-06-03 | 2 | ❌ N/A (no existen commits de tesis en esta fecha) |
+| 33 | 2026-06-04 | 1 | ❌ N/A (no existen commits de tesis en esta fecha) |
 
 ## Instrucciones para el loop
 
