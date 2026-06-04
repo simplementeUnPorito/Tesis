@@ -11,7 +11,7 @@ metadata:
 `2026-06-04`
 
 ## Próximo día a procesar
-`TODOS COMPLETADOS — bitácora al día (incluyendo Jun-03 y Jun-04 con commits reales)`
+`TODOS COMPLETADOS — bitácora al día (incluyendo Jun-03 y Jun-04 con firmware unificado GEO/HAMMER)`
 
 ## Lista completa de días (33 días únicos, 200 commits)
 
