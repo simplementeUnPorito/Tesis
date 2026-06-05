@@ -8,10 +8,10 @@ metadata:
 # Estado del Loop de Bitácora
 
 ## Último día procesado
-`2026-06-04`
+`2026-06-05`
 
 ## Próximo día a procesar
-`TODOS COMPLETADOS — bitácora al día (incluyendo Jun-03 y Jun-04 con firmware unificado GEO/HAMMER)`
+`TODOS COMPLETADOS — bitácora al día (incluyendo Jun-05 con rebuild PSoC y fix stretch layout GUI)`
 
 ## Lista completa de días (33 días únicos, 200 commits)
 
@@ -50,6 +50,7 @@ metadata:
 | 31 | 2026-05-31 | 4 | ✅ HECHO |
 | 32 | 2026-06-03 | 2 | ✅ HECHO |
 | 33 | 2026-06-04 | 1 | ✅ HECHO |
+| 34 | 2026-06-05 | 2 | ✅ HECHO |
 
 ## Instrucciones para el loop
 
