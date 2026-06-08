@@ -8,10 +8,10 @@ metadata:
 # Estado del Loop de Bitácora
 
 ## Último día procesado
-`2026-06-07`
+`2026-06-08`
 
 ## Próximo día a procesar
-`TODOS COMPLETADOS — bitácora al día (incluyendo Jun-07 con FS_REPORT protocol, least-squares notch, PSoC symbols)`
+`TODOS COMPLETADOS — bitácora al día (incluyendo Jun-08 con Web UI embebida, WebSocket relay, SPA LittleFS)`
 
 ## Lista completa de días (33 días únicos, 200 commits)
 
@@ -52,6 +52,7 @@ metadata:
 | 33 | 2026-06-04 | 1 | ✅ HECHO |
 | 34 | 2026-06-05 | 2 | ✅ HECHO |
 | 35 | 2026-06-07 | 2 | ✅ HECHO |
+| 36 | 2026-06-08 | 2 | ✅ HECHO |
 
 ## Instrucciones para el loop
 
