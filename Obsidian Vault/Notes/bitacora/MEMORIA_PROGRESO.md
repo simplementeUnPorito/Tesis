@@ -8,10 +8,10 @@ metadata:
 # Estado del Loop de Bitácora
 
 ## Último día procesado
-`2026-06-05`
+`2026-06-10`
 
 ## Próximo día a procesar
-`TODOS COMPLETADOS — bitácora al día (incluyendo Jun-05 con rebuild PSoC y fix stretch layout GUI)`
+`TODOS COMPLETADOS — bitácora al día (incluyendo Jun-10 con handoff jitter sincronización PSoC/ESP para MASW)`
 
 ## Lista completa de días (33 días únicos, 200 commits)
 
@@ -51,6 +51,9 @@ metadata:
 | 32 | 2026-06-03 | 2 | ✅ HECHO |
 | 33 | 2026-06-04 | 1 | ✅ HECHO |
 | 34 | 2026-06-05 | 2 | ✅ HECHO |
+| 35 | 2026-06-07 | 2 | ✅ HECHO |
+| 36 | 2026-06-08 | 2 | ✅ HECHO |
+| 37 | 2026-06-10 | 1 | ✅ HECHO |
 
 ## Instrucciones para el loop
 
