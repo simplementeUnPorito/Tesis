@@ -8,10 +8,10 @@ metadata:
 # Estado del Loop de Bitácora
 
 ## Último día procesado
-`2026-06-15`
+`2026-06-16`
 
 ## Próximo día a procesar
-`TODOS COMPLETADOS — bitácora al día (incluyendo Jun-15 con reescritura completa de calibración: ventana deslizante, anti-saturación, fase realcheck, headers por VDAC, botón físico, diagramas FSM)`
+`TODOS COMPLETADOS — bitácora al día (incluyendo Jun-16 con workspace state del PSoC Creator post-calibración: revisión de arquitectura modular, foco en psoc_hw, psoc_adc, calibration.h)`
 
 ## Lista completa de días (33 días únicos, 200 commits)
 
@@ -57,6 +57,7 @@ metadata:
 | 38 | 2026-06-09 | 1 | ✅ HECHO |
 | 39 | 2026-06-14 | 1 | ✅ HECHO |
 | 40 | 2026-06-15 | 3 | ✅ HECHO |
+| 41 | 2026-06-16 | 2 | ✅ HECHO |
 
 ## Instrucciones para el loop
 
