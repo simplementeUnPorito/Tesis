@@ -1,0 +1,129 @@
+ACTÚA COMO EXPERTO EN SISTEMAS EMBEBIDOS (PSOC 5LP) Y PYTHON.
+
+CONTEXTO DEL PROYECTO:
+Estamos comparando dos circuitos de filtrado para un geófono:
+1. Filtro 1er Orden: TIA_p/n (Componentes internos PSoC).
+2. Filtro 2do Orden: Opa_p/n (Componentes externos).
+
+
+"IMPORTANTE: Antes de empezar, lee historial.txt. Ahí está la conversación previa con el arquitecto del sistema donde se definieron los errores de permisos, la estructura de los filtros (TIA y Opa) y la necesidad de transparencia USB/UART."
+
+
+ESTADO ACTUAL: CRÍTICO (No funciona, no se ven señales en el osciloscopio Python).
+
+TAREAS TÉCNICAS REQUERIDAS:
+1. FIRMWARE (PSoC 5LP - src/psoc/Comparation.cydsn):
+   - Configurar USBFS y UART de forma transparente. El sistema debe detectar por dónde recibe comandos y enviar los datos por esa vía.
+   - Si se usa UART, permitir al usuario que elija con un panel desplegable los Baudios a utilizar, ya que estos deben coincidir con los programados en el PSoC.
+   - Implementar la lógica de MuxIn (Geófono vs VDAC) y MuxOut (Filtro 1 vs Filtro 2).
+   - Asegurar que el DMA esté moviendo correctamente los datos del ADC_DelSig y ADC_SAR a los buffers de transmisión.
+   - Las 3 señales a transmitir simultáneamente son: Entrada Cruda, Post-Filtro Analógico y Post-Filtro Digital.
+   - Implementar la recepción de secuencias para el VDAC (VDAC_p y su inverso VDAC_n).
+
+2. SOFTWARE (Python - src/python):
+   - Arreglar la comunicación serial/USB. 
+   - Crear/Corregir la interfaz de "Osciloscopio" (usando matplotlib o pyqtgraph) que grafique las 3 señales en tiempo real.
+   - Añadir botones para: Seleccionar entrada (Sensor/VDAC), Seleccionar Filtro (1/2) y Conectar/Desconectar.
+   - Implementar el filtrado digital en Python sobre cualquiera de las 3 señales para pruebas comparativas.
+
+REGLAS DE ORO:
+- Lee toda la documentación técnica en las carpetas y los archivos .c y .h existentes.
+- El objetivo es que MAÑANA esto funcione perfecto. 
+- Haz un loop interno de corrección: Escribe código -> Verifica coherencia -> Mejora.
+- Si encuentras un error de hardware en el esquemático (basado en el código generado), intenta compensarlo por software si es posible.
+- Guarda cada avance en un .log para tu posterior ciclo.
+- Utiliza el maximo esfuerzo que si fuese necesario.
+
+PROMPT ORIGINAL DE REFERENCIA:
+Bueno amigo, te explico lo que vamos a hacer ahora, en la carpeta
+C:\Github\Tesis\src\psoc\Comparation.cydsn tenes mi proyecto de psoc creator, ahi
+ podes ver el hardware que generé para utilizar en el proyecto y sus
+funciones asocidadas en
+C:\Github\Tesis\src\psoc\Comparation.cydsn\Generated_Source\PSoC5, de todos modos
+ te paso screenshots para que veas el esquematico: [Image #3] [Image #4].
+Mi idea es la siguiente, quiero que generes un banco de pruebas donde pueda
+ probar 2 circuitos analogicos de filtro diferencial candidatos para el
+acondicionamiento de un geofono de bobina movil. Uno de ellos es un filtro
+de primer orden hecho primordialmente con componentes del psoc y bien
+matcheados y otro con componentes externos pero de segundo orden. El filtro
+ de primer orden esta conformado por TIA_p y TIA_n, y el de segundo orden
+Opa_p y Opa_n. Para poder probar ambos, primero puse un Multiplexor
+analogico llamado MuxIn que permite seleccionar entre los pines del Geofono
+ o VDACIn_p y VDACIn_n (p es positive y n negative, esto aplica a todo) el
+cual cumple el objetivo de que podamos probar tanto con el microfono como
+con señales de pruebas generadas por el psoc. Las salidas de ambos
+circuitos analogicos pasan por el MuxOut que permite seleccionar cual de
+estas va al ADC_DelSig. Este a su vez cada muestra que genera levanta eoc
+que va a DMA_DelSig_Filter con el objetivo que pases al filtro digital
+Filter y se le aplique un filtro notch, el DMA_DelSig_Fiter activa al
+terminar DMA_DelSig_RAM que debe mandar a una variable el valor del
+ADC_DelSig para guardar la copia sin filtrar. El Filter cuando termina
+activa DMA_Filter para que pases a RAM y este al terminar de pasar activa
+irs_DMA_Filter. Además de todo hay un ADC_SAR que va al Geofono en formato
+diferencial que activa el DMA_SAR para pasar a ram y al terminar esto pasa
+por isr_SAR. El objetivo es que generes las librerias y el software
+necesario para hacer lo siguiente: Usando USBFS comunicarme con la PC de
+manera comoda, para ello luego generaremos codigo de matlab con o python en
+ la carpeta C:\Github\Tesis\src\matlab o C:\Github\Tesis\src\python. El
+programa debe dejarme elegir entre si voy a usar el sensor o los VDAC para
+obtener la señal de entrada, haciendo uso del MuxIn. Tambien debe dejarme
+elegir cual salida se digitaliza, Ya sea el filtro 1, con los TIA, o filtro
+ 2, con los Opa. Sea cual sea la entrada y salida que se elija debe pasar
+de manera constante en tiempo real la entrada cruda, la entrada post filtro
+ analogico seleccionado y la post filter digital. Debe haber un boton para
+abrir esta comunicacion y cerrarla. Para el caso de los VDAC debe dejarme
+pasarle una secuencia de valores por usb para que genere estos de manera
+repetitiva. El VDAC_n debe generar el Inverso del VDAC_p. En el caso que
+usemos la entrada del Geofono debes muestrearle con el SAR, en caso
+contrario ya sabes que muestra fue aplicada con los VDACs. El programa de
+python/matlab debe dejarme tambien aplicarle un filtro digital a cualquiera
+ de los 3 datos recibidos para hacer pruebas de que tanto mejoraria. Haceme
+ una ronda de preguntas y analicemos juntos que podemos hacer para que
+salga esto elijamos lo que haya que elegir, añadamos el hardware que haga
+falta elijamos entre python y matlab. Yo en lo personal suelo elegir matlab
+ pero si vos haces mejor que en python banco quiero terminar rapido nomás
+este programa es para pruebas y comparaciones entre circuitos. Quiero que
+mi pantalla haga la labor de osciloscopio eso es todo. Lee las carpetas y
+analizame que vamos a hacer
+
+--- ESTRATEGIA DE PRUEBA OBLIGATORIA (SIMULADOR PSOC) ---
+Como no tienes acceso físico al hardware PSoC ni al puerto USB real, DEBES probar el código del osciloscopio en Python antes de terminar. 
+Para ello, realiza lo siguiente:
+1. Crea un archivo llamado `simulador_psoc.py`.
+2. Este script debe usar puertos serie virtuales (por ejemplo, con `os.openpty` o `pty` en Linux) o un socket local para simular la conexión USB/UART.
+3. El simulador debe generar y enviar datos falsos continuos emulando exactamente el formato, protocolo y baudrate que usaría el PSoC real (enviando las 3 señales: cruda, filtrada analógica y filtrada digital).
+4. Haz que el osciloscopio principal se conecte a este puerto virtual.
+5. Ejecuta ambos scripts en segundo plano para verificar que el osciloscopio recibe, decodifica y grafica los datos correctamente sin saturar el buffer ni crashear.
+6. Si la simulación falla, corrige el código del osciloscopio o del protocolo hasta que la comunicación simulada sea fluida y estable.
+
+--- ADVERTENCIA SOBRE ENTORNO HEADLESS (SIN PANTALLA) ---
+El servidor donde estás ejecutando las pruebas NO tiene interfaz gráfica (es un entorno headless). 
+Si intentas ejecutar el osciloscopio de Python con librerías gráficas (Tkinter, PyQt, Matplotlib, etc.), fallará por falta de 'Display'.
+Para superar esto durante tus pruebas locales:
+1. Modifica temporalmente el osciloscopio o crea un script de test ('test_backend.py') que importe solo la lógica de lectura serial y decodificación, SIN renderizar la GUI.
+2. Verifica únicamente que los paquetes de datos del 'simulador_psoc.py' se reciben, se desencriptan y se separan correctamente en las 3 señales esperadas. No intentes abrir ventanas gráficas.
+
+--- REPORTE FINAL Y SINCRONIZACIÓN ---
+1. ASEGURA LA TRAMA: El código C del PSoC y el código Python deben usar exactamente la misma estructura de trama (bytes de inicio, longitud, checksum/CRC, bytes de fin). Si modificas uno, modifica el otro.
+2. DEPENDENCIAS: Si añades alguna librería nueva a Python (ej. pyserial, numpy), actualiza o crea un archivo 'requirements.txt'.
+3. REPORTE DE CAMBIOS: Antes de hacer tu push final, crea un archivo llamado 'CHANGELOG_NOCTURNO.md'. Documenta de forma técnica y concisa qué registros/DMAs modificaste en el PSoC y cómo resolviste el parseo de datos en Python.
+
+--- ENTORNO VIRTUAL DE PYTHON ---
+El servidor tiene un entorno virtual en la carpeta 'src/python/geophone_scope/'. 
+Para instalar dependencias o ejecutar tus scripts de prueba (como el simulador o el backend), DEBES usar el ejecutable del entorno virtual. 
+Ejemplo: Usa './src/python/geophone_scope/venv/bin/pip install paquete' o './src/python/geophone_scope/venv/bin/python test_backend.py'.
+NO intentes instalar paquetes a nivel global con sudo pip.
+
+--- REGLA DE ORO DE PSOC (EVITAR CÓDIGO AUTOGENERADO) ---
+Bajo ninguna circunstancia debes modificar los archivos que se encuentran dentro de la carpeta 'Generated_Source' del proyecto PSoC. 
+PSoC Creator sobrescribirá esos archivos al compilar. 
+Tus cambios DEBEN hacerse únicamente en 'main.c' y en los archivos .c/.h de usuario que estén en la raíz del proyecto (.cydsn). Si necesitas cambiar la configuración de un periférico, indícalo claramente en el CHANGELOG_NOCTURNO.md para que yo lo modifique gráficamente en el IDE mañana.
+
+--- MODO BUCLE INFINITO DE PRUEBAS ---
+Tu objetivo esta noche es iterar sin parar.
+1. Ejecuta el simulador.
+2. Si falla o hay errores de decodificación en Python, CORRIGE el código (main.c o main.py).
+3. Vuelve a probar. 
+4. Si la prueba es exitosa, haz un commit detallado de esa mejora específica.
+5. NO TE DETENGAS. Busca optimizar los buffers, los filtros digitales y la latencia.
+6. TE LO REPITO: ESTÁ ESTRICTAMENTE PROHIBIDO TOCAR LA CARPETA 'codegentemp'. Si lo haces, destruirás el proyecto.
