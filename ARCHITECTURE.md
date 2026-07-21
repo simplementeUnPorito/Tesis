@@ -21,9 +21,17 @@ data/raw ──> software/python ──> data/processed
 - `software/python` contiene sus propios submódulos `ADsurf` y `maswavespy`.
 - `modelado/matlab` contiene su propio submódulo `MASW-Matlab-code`.
 - `docs` puede enlazar a todos los sectores, pero ningún componente necesita `docs` para compilar.
-- `investigacion/sources` es una biblioteca local ignorada. Las notas sí se versionan; los PDF de terceros no.
-- `data` versiona estructura y catálogo, nunca los binarios de medición.
+- `investigacion/sources` versiona punteros LFS a la biblioteca privada; los
+  bytes bibliográficos viven en el folderstore.
+- `data` versiona mediante LFS las mediciones y resultados, con deduplicación
+  por SHA-256; el repositorio Git conserva punteros, catálogo y estructura.
+- `software/python/third-party/geopsy`, los datasets `.mat` y los paquetes
+  documentales grandes siguen el mismo esquema de almacenamiento externo.
 
 ## Versionado integrado
 
 Un commit de `Tesis` es una línea base reproducible: registra un SHA concreto para cada submódulo. El desarrollo ocurre dentro del repositorio dueño del cambio; el superproyecto se actualiza únicamente cuando una combinación de revisiones debe probarse o entregarse como conjunto.
+
+La ruta física del folderstore no forma parte de los punteros. Cada repositorio
+incluye un configurador que traduce `GITHUB_LFS_ROOT` a su carpeta independiente
+en `repositories/<nombre>`.

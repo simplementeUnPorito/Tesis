@@ -18,24 +18,41 @@ Cada sector se puede clonar, probar y versionar por separado. `Tesis` solo expre
 
 ## Clonar el sistema completo
 
+Los repositorios de datos, investigación, Python, MATLAB y documentación usan
+un folderstore externo. Evite que Git intente descargar esos objetos desde
+GitHub durante el primer clon:
+
 ```powershell
+$env:GIT_LFS_SKIP_SMUDGE = '1'
 git clone --recurse-submodules https://github.com/simplementeUnPorito/Tesis.git
+Remove-Item Env:GIT_LFS_SKIP_SMUDGE
 cd Tesis
 .\scripts\bootstrap.ps1
 ```
+
+`bootstrap.ps1` configura automáticamente los submódulos para
+`C:\Users\elias\OneDrive\Github-LFS`. Si el almacén se movió, defina antes
+`GITHUB_LFS_ROOT` con su nueva ubicación. El script deja los archivos grandes
+como punteros; para materializar todos —incluidos aproximadamente 30 GiB
+lógicos de datos— use `bootstrap.ps1 -HydrateLfs`.
 
 Si el repositorio ya estaba clonado:
 
 ```powershell
 git pull
 git submodule sync --recursive
-git submodule update --init --recursive
+.\scripts\bootstrap.ps1
 ```
 
 ## Trabajar en una parte aislada
 
 Entre en el submódulo correspondiente y cree allí su rama y commit. Luego vuelva a `Tesis` y actualice el puntero del submódulo en un commit separado. Esto evita que un cambio de Python quede mezclado con firmware o documentación.
 
-Los datos locales viven en `data/raw/` y `data/processed/`; Git ignora ambos directorios. La aplicación Python también acepta `TESIS_DATA_ROOT` para usar un almacén situado fuera de este árbol.
+Las mediciones de `data/raw/` y los resultados de `data/processed/` están
+indexados mediante Git LFS y viven físicamente en el folderstore. La aplicación
+Python también acepta `TESIS_DATA_ROOT` para trabajar con otro árbol de datos.
+
+El índice maestro de objetos, manifiestos y procedimiento para mover el drive
+está en `C:\Users\elias\OneDrive\Github-LFS\INDEX.md`.
 
 Consulte [ARCHITECTURE.md](./ARCHITECTURE.md) para las fronteras y dependencias entre sectores.
