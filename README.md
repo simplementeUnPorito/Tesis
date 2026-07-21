@@ -24,7 +24,7 @@ GitHub durante el primer clon:
 
 ```powershell
 $env:GIT_LFS_SKIP_SMUDGE = '1'
-git clone --recurse-submodules https://github.com/simplementeUnPorito/Tesis.git
+git clone --recurse-submodules --shallow-submodules https://github.com/simplementeUnPorito/Tesis.git
 Remove-Item Env:GIT_LFS_SKIP_SMUDGE
 cd Tesis
 .\scripts\bootstrap.ps1
