@@ -24,14 +24,9 @@ try {
     $safeSession = $SessionId -replace '"', '\"'
     $safePrompt = $Prompt -replace '"', '\"'
 
-    $argString = "--model fable --resume "$safeSession" "$safePrompt""
+    $argString = '--model fable --resume "{0}" "{1}"' -f $safeSession, $safePrompt
 
-    $proc = Start-Process 
-        -FilePath $claude 
-        -ArgumentList $argString 
-        -PassThru 
-        -RedirectStandardOutput $OutLog 
-        -RedirectStandardError $ErrLog
+    $proc = Start-Process -FilePath $claude -ArgumentList $argString -PassThru -RedirectStandardOutput $OutLog -RedirectStandardError $ErrLog
 
     Add-Content -Path $StatusLog -Value ("[{0}] Claude iniciado. PID: {1}" -f (Get-Date), $proc.Id)
 
