@@ -1,177 +1,193 @@
-# Plan: modo ENLACE del maestro + sink de datos automático
+# Plan: modo ENLACE del maestro + server de datos
 
-Estado: **planificación**, sin implementar. Sirve como resumen de lo discutido
-para retomar en otra sesión, cuando haya hardware disponible para probar.
+Estado: **firmware implementado y compilando, sin probar en hardware**. El lado
+server está en diseño. Este documento reemplaza la versión anterior del plan,
+que asumía que el maestro subía los datos por sí mismo (ver "Decisiones que
+cambiaron", al final).
 
 ## Motivación
 
-Hoy el flujo de campo es: el maestro ESP32 levanta un AP local (`GeoNetwork`,
-`192.168.4.1`) sin salida a internet, el operador se conecta con el celular o
-la notebook, revisa la captura en la SPA, y al final descarga un ZIP armado
-100% en el navegador (`data/js/zip_store.js` + `export.js` en
-`firmware/esp32/Nodo comunicación/master/data/`). Ese ZIP se descomprime a
+El flujo de campo histórico es: el maestro ESP32 levanta un AP local
+(`GeoNetwork`, `192.168.4.1`) sin salida a internet, el operador se conecta con
+el celular, revisa la captura en la SPA, y al final descarga un ZIP armado 100%
+en el navegador (`data/js/zip_store.js` + `export.js`). Ese ZIP se descomprime a
 mano en una carpeta que después lee `review_field_data.py`.
 
-Problema: mientras el celular está conectado al AP del maestro, Android le
-corta (o desprioriza) los datos móviles, porque asume que una red WiFi debe
-tener salida a internet. Esto bloquea cualquier idea de subir datos en vivo o
-dejar mediciones corriendo solas de noche con sync automático.
+Dos problemas:
 
-Objetivo final: que el maestro pueda, sin intervención manual, mandar los
-datos de una sesión de mediciones a un servidor propio (la PC del usuario) vía
-una VPN, y de ahí a una carpeta de Google Drive — sin eliminar la ruta manual
-del ZIP, que sigue existiendo como hoy.
+1. Mientras el celular está conectado al AP del maestro, Android le corta (o
+   desprioriza) los datos móviles, porque asume que una red WiFi debe tener
+   salida a internet. Eso bloquea cualquier sync automático.
+2. El maestro no persiste nada: los datos se espejan en vivo por WebSocket y el
+   navegador los acumula en `data_store.js`. **Si no hay un navegador escuchando
+   en el momento de la captura, el dato no existe en ningún lado.**
 
-## Decisión de arquitectura para el enlace de red: multiplexación temporal
+## Arquitectura acordada
 
-Se evaluaron tres opciones para que el maestro tenga salida a internet sin
-romper el ESP-NOW con los esclavos:
+```
+PSoC ──interfaz física──> ESP slave ──ESP-NOW ch1──> ESP master (AP + SPA)
+                                                            │ interfaz web
+                                                            ▼
+                                          Cliente adquisidor (celular/tablet/PC)
+                                                            │ túnel (Tailscale)
+                                                            ▼
+                                                    Server de datos (docker)
+                                                            │ interfaz web
+                                                            ▼
+                                                     Cliente analista
+```
 
-1. **Celular como hotspot, maestro como STA** — resuelve el problema de
-   Android, pero dado que el AP y la STA del ESP32 comparten la misma radio
-   y el mismo canal (en `WIFI_AP_STA` el AP queda forzado al canal de la
-   STA), esto por sí solo no permite mantener el AP en canal 1 para ESP-NOW
-   mientras la STA está asociada al hotspot en otro canal.
-2. **Maestro repetidor con NAT** (AP + STA concurrentes, mismo canal,
-   `esp_netif_napt_enable`) — técnicamente posible y sin ventanas muertas,
-   pero requiere que la red upstream esté fijada a canal 1 (viable con un
-   router de casa, configurando el canal a mano). **Se descarta como
-   solución principal**: en campo el escenario típico es una zona aislada,
-   sin ningún router disponible, solo el celular del operador — y los
-   celulares no dejan fijar el canal del hotspot. Además reintroduce
-   interferencia RF durante la captura, algo que el firmware ya evita a
-   propósito (`AP_KEEP_BEACON_DURING_CAPTURE`, pausa de beacon).
-3. **Multiplexación temporal (elegida)** — el maestro nunca está en las dos
-   redes a la vez; alterna entre dos fases:
-   - **`CAPTURA`**: modo actual sin cambios — `WIFI_AP_STA`, AP propio en
-     canal 1, ESP-NOW activo con los esclavos, SPA local disponible.
-   - **`ENLACE`**: el maestro se desconecta de ese rol y se asocia como STA
-     a lo que haya disponible con salida a internet (el hotspot del
-     celular en campo, el WiFi de casa de noche), sin depender de ningún
-     canal fijo del otro lado.
+Cada eslabón hace una sola cosa:
 
-   Esto es seguro porque el protocolo con los esclavos es **maestro-iniciado**
-   (los esclavos esperan pasivos una consulta, no hacen polling ni
-   retransmiten solos) y los esclavos **no escanean canales**: tienen
-   hardcodeado `esp_wifi_set_channel(1, ...)` en
-   `slave/src/main.cpp:3062`, así que apenas el maestro vuelve a subir su AP
-   en canal 1, el ESP-NOW retoma sin ninguna negociación. La única regla
-   dura de diseño es **no cambiar de fase a mitad de una captura**.
+- **ESP master**: captura, encola y sirve. **Nunca sale a internet.**
+- **Cliente adquisidor**: el único que atraviesa el túnel. Puede ser el celular
+  del operador o un equipo fijo dejado junto al maestro (tablet, mini PC) para
+  las sesiones desatendidas — si el maestro tiene internet cerca es porque hay
+  un cliente cerca.
+- **Server de datos**: un solo contenedor Docker, por portabilidad. Recibe,
+  almacena, procesa y sirve la interfaz web del analista.
+- **Cliente analista**: solo un navegador contra el túnel. Sin instalar nada,
+  sin descargar datasets, sin mover carpetas.
+
+### Por qué el maestro no atraviesa el túnel
+
+El ESP32 no puede correr Tailscale (es un binario Go para sistemas operativos
+completos). Para que hablara con el server habría que exponerlo público con
+Tailscale Funnel + token, con TLS en el firmware. El cliente adquisidor, en
+cambio, ya corre Tailscale nativo. Sacar esa responsabilidad del ESP:
+
+- elimina TLS, tokens y URLs del firmware (**Flash 82.2% → 69.8%**);
+- deja al server escuchando **solo en la tailnet**, sin nada expuesto a internet.
+
+## Fase CAPTURA / fase ENLACE (multiplexación temporal)
+
+El maestro nunca está en las dos redes a la vez:
+
+- **`CAPTURA`**: modo histórico sin cambios — `WIFI_AP_STA`, AP propio en canal
+  1, ESP-NOW con los esclavos, SPA local.
+- **`ENLACE`**: baja el AP, apaga ESP-NOW y se asocia como STA al hotspot del
+  cliente (o a un router). Ahí **sigue sirviendo la SPA** y además expone la
+  cola. El celular conserva sus datos móviles y al mismo tiempo alcanza al
+  maestro por IP.
 
 ```mermaid
 stateDiagram-v2
     [*] --> CAPTURA
-    CAPTURA --> ENLACE: fin de captura / trigger de subida
-    ENLACE --> CAPTURA: subida terminada (o sin red disponible)
-    CAPTURA --> CAPTURA: ESP-NOW con esclavos, canal 1, SPA local
-    ENLACE --> ENLACE: STA a red con internet, POST del sink
+    CAPTURA --> ENLACE: fin del dump (auto) o comando 0xC0
+    ENLACE --> CAPTURA: cliente confirmó / idle 3 min / tope 5 min
+    CAPTURA --> CAPTURA: ESP-NOW canal 1, SPA local, encola el dump
+    ENLACE --> ENLACE: STA en la red del cliente, sirve /enlace/*
 ```
 
-### Validación hecha hasta ahora
+Es seguro porque el protocolo con los esclavos es **maestro-iniciado** (los
+esclavos esperan pasivos, no hacen polling ni retransmiten solos) y **no
+escanean canales**: tienen hardcodeado `esp_wifi_set_channel(1, ...)` en
+`slave/src/main.cpp:3062`. Apenas el AP vuelve a canal 1, ESP-NOW retoma sin
+negociación. La regla dura es **no cambiar de fase a mitad de una captura**:
+`requestEnlace()` solo acepta desde `IDLE`/`ARMED`.
 
-Se armó y se envió al usuario un sketch standalone descartable (no toca el
-firmware real) que conecta un ESP32 como STA al hotspot del celular y sirve
-`"OK"` en `/`, para confirmar en la práctica que el celular mantiene datos
-móviles mientras el ESP está asociado a su hotspot. **Pendiente: correr esta
-prueba en campo/con hardware y confirmar resultado antes de tocar
-`main.cpp` del maestro.**
+## Estado: firmware (implementado)
 
-## Fase 1 — Firmware del maestro (`firmware/esp32/Nodo comunicación/master`)
+`src/firmware/esp32/Nodo comunicación/master/`
 
-- Agregar el estado `ENLACE` a la máquina de estados existente en
-  `src/main.cpp`.
-- Definir qué dispara la transición `CAPTURA → ENLACE`: ¿después de cada
-  captura individual, cada N capturas, o por temporizador? (a decidir)
-- **Buffering pendiente de diseñar**: hoy el maestro no persiste mediciones
-  localmente (LittleFS solo aloja la SPA; los datos se espejan en vivo por
-  WebSocket al navegador y el navegador los acumula en `data_store.js`). Sin
-  navegador conectado de noche, el maestro mismo tiene que retener los datos
-  en RAM hasta la fase `ENLACE`. Hay que confirmar cuánta RAM/PSRAM libre
-  hay en la placa real y si alcanza para varias capturas, o si conviene
-  subir después de cada captura individual en vez de acumular toda la
-  noche.
-- Definir el protocolo del envío en `ENLACE` (ver Fase 2): ¿reusar el
-  protocolo binario 0x56 que ya se usa con MATLAB (`matlab_transport.h`), o
-  uno nuevo simplificado para HTTP POST?
-- Mantener sin cambios: SPA local, ruta de exportación manual del ZIP,
-  ESP-NOW, protocolo con MATLAB.
+- **`src/link_mode.h`** (nuevo): config persistida, cola en LittleFS, runner de
+  la fase ENLACE.
+- **`src/main.cpp`**: estado `ENLACE`, tee del dump hacia la cola,
+  `radioTearDownCapture()` / `radioBringUpCapture()`, comando `0xC0`
+  (`param=1` subir ahora; `param=0` + `value` prende/apaga el auto).
+- **`src/web_server.h`**: endpoints `/enlace/*`.
 
-## Fase 2 — Servidor sink en `software/python`
+### La cola resuelve el buffering
 
-- Nuevo servicio (ubicación sugerida: junto a `geophone_scope/`, ya tiene
-  `protocol.py` para parsear el protocolo binario existente) que escucha
-  peticiones del maestro durante `ENLACE` y escribe los datos a disco.
-- **Decisión pendiente**: ¿quién arma la estructura de carpetas
-  (`maestro/`, `<tipo>_<pcb_id>/raw_f32le.bin`, `filt_f32le.bin`, CSVs,
-  `captures/NNN_.../metadata.json`, `combined/*.csv`) que hoy arma
-  `export.js`/`zip_store.js` en el navegador? Recomendación: que la arme el
-  servidor Python (reusando/replicando lógica en vez de duplicarla en
-  C++ dentro del firmware, que ya está bastante cargado). El maestro manda
-  los paquetes "en crudo" y el sink hace el trabajo de estructurarlos.
-- El sink escribe en el mismo layout de carpetas que ya consume
-  `discover_dataset` (`field_review_data.py:184`), para que
-  `review_field_data.py` no necesite ningún cambio de lógica.
+Durante `DUMPING`, cada lote se escribe además a `/q/NNNN.geoq` en LittleFS. El
+dato deja de depender de que haya un navegador conectado: el cliente puede
+llegar **después** de la captura y llevarse la sesión entera.
 
-## Fase 3 — Transporte / VPN (Tailscale)
+Presupuesto: la partición son 1.4 MB y la SPA ocupa ~296 KB. El módulo reserva
+96 KB libres (para no dejar sin servir a la SPA) y verifica antes de abrir que
+la sesión entre. Si no entra, no encola y la captura sigue normal hacia el WS.
 
-Punto que hay que resolver con cuidado, no es tan directo como "conectar el
-ESP a la VPN":
+Formato `.geoq`: cabecera + tabla de nodos + lotes crudos (3 bytes por muestra,
+tal como llegan por ESP-NOW). La tabla lleva rol GEO/HAMMER, fs real del PSoC,
+largo por nodo y MAC — es lo que le permite al server armar el `metadata.json`
+sin que haya habido un navegador. Especificación completa en el encabezado de
+`link_mode.h`.
 
-- **El ESP32 no puede correr el cliente de Tailscale** (es un binario Go
-  pensado para sistemas operativos completos, no para un microcontrolador).
-  Para que un dispositivo hable con una IP de Tailscale (rango `100.x.y.z`)
-  tiene que ser miembro del tailnet — y el ESP32 no puede serlo.
-- **Recomendación**: usar **Tailscale Funnel** (o `tailscale serve`) del
-  lado de la PC. Funnel expone el servicio del sink por HTTPS público
-  normal (con TLS válido, sin abrir puertos en el router, sin IP fija). El
-  maestro entonces hace un POST HTTPS común a esa URL pública — no necesita
-  ningún cliente VPN ni certificados propios. "La VPN" queda como la forma
-  en que vos protegés/administrás el acceso a tu PC, no como algo que el
-  firmware tiene que implementar.
-- Alternativa descartada por frágil: correr un subnet router de Tailscale
-  en el celular para meter la red del hotspot al tailnet — depende de la
-  red de cada operador en cada salida de campo, no escala.
-- A confirmar: si tu PC no está siempre prendida/con Tailscale corriendo,
-  las subidas nocturnas fallarían — decidir si el sink vive en tu PC o en
-  algo que esté siempre encendido (ej. una Raspberry Pi, un VPS chico).
+### Endpoints
 
-## Fase 4 — Entrega a Google Drive
+| Endpoint | Uso |
+|---|---|
+| `GET /enlace/status` | fase, IP, cola pendiente, espacio libre, último error |
+| `POST /enlace/config` | `ssid`, `pass`, `site`, `distance_mm`, `auto` |
+| `GET /enlace/queue` | lista `<nombre> <bytes>` por línea |
+| `GET /enlace/file?name=` | descarga un `.geoq` |
+| `POST /enlace/ack?name=` | el cliente confirma que ya está en el server → borra |
+| `POST /enlace/done` | volver a CAPTURA sin esperar el idle |
 
-- **Recomendación simple**: que el servidor Python escriba directo en la
-  carpeta local que sincroniza *Google Drive para escritorio* (Drive for
-  desktop). Sin API de Drive, sin OAuth, sin tokens — Drive sincroniza solo
-  lo que aparece en esa carpeta.
-- Alternativa (API de Drive): más robusta si el sink corriera en una
-  máquina sin Drive Desktop montado (ej. un servidor headless), pero suma
-  credenciales y mantenimiento. Solo si hace falta.
+El borrado va contra **ACK explícito**, no contra la descarga: la cola es la
+copia buena hasta que alguien diga que el dato ya está a salvo en el server.
 
-## Fase 5 — `review_field_data.py`
+## Pendiente: server de datos
 
-- No requiere cambios de lógica. Ya descubre datasets con `discover_dataset`
-  a partir de cualquier `--raw-root` con esa estructura de carpetas
-  (`review_field_data.py:184` en `field_review_data.py`).
-- Alcanza con apuntar `--raw-root` a la carpeta que deja el sink (o la
-  carpeta sincronizada de Drive), o cambiar el default
-  (`DEFAULT_RAW_ROOT`, hoy `data/raw/Canchita`) si se quiere que sea el
-  nuevo default.
+Decidido: **un solo contenedor Docker**, corriendo por ahora en la PC del
+usuario con Tailscale. Diseñado para que dé igual dónde corra (volumen externo,
+config por variables de entorno), así mudarlo después es mover un volumen.
+
+Orden de trabajo acordado: **primero Python, después dockerizar** — dockerizar
+algo que ya anda es media hora.
+
+Alcance del contenedor:
+
+1. **Ingesta**: recibe los `.geoq` del cliente adquisidor y los decodifica.
+2. **Almacenamiento**: escribe el layout que ya consume `discover_dataset`
+   (`field_review_data.py:184`), para no reescribir la lógica de descubrimiento.
+3. **Procesamiento**: MASW e inversión. Tarda minutos, así que va por **jobs en
+   background**, no request/response.
+4. **Interfaz web del analista**: reemplaza a `field_review_app.py` (PyQt5,
+   ~6000 líneas). La app de escritorio se retira cuando la web llegue a paridad,
+   no antes.
+
+Puntos abiertos:
+
+- El `.geoq` todavía no transporta la config de ADC por nodo, así que la
+  conversión cuentas→volts asume ±2.5 V (`ADC_CONFIGS[0]`, 131072/2.5 cuentas
+  por volt, igual que la SPA por defecto). Si se usa otro rango hay que agregar
+  el campo a la tabla de nodos.
+- El maestro no tiene RTC: el `.geoq` viaja con `epoch_s = 0` y la marca de
+  tiempo real la pone quien lo recibe.
+- `filt_f32le.bin` lo calcula hoy el navegador (FIR sobre la captura completa).
+  El server tendrá que hacerlo, o el dataset queda solo con `raw`
+  (`_discover_channels` acepta cualquiera de los dos).
 
 ## Qué NO cambia
 
-- La ruta manual de exportar el ZIP desde la SPA sigue existiendo tal cual
-  — el sink es un canal adicional, no un reemplazo.
-- El protocolo maestro↔esclavos (ESP-NOW) y maestro↔MATLAB (USB) no se
-  tocan.
+- La ruta manual de exportar el ZIP desde la SPA sigue existiendo tal cual.
+- El protocolo maestro↔esclavos (ESP-NOW) y maestro↔MATLAB (USB) no se tocan.
+- El layout de carpetas de los datasets, que es la fuente de verdad.
 
-## Preguntas abiertas para la próxima sesión (con hardware)
+## Cómo probarlo en hardware
 
-1. ¿Confirma la prueba de campo que el celular mantiene datos móviles con
-   el ESP asociado a su hotspot?
-2. ¿Cuánta RAM/PSRAM libre hay en la placa real del maestro para bufferear
-   capturas durante `CAPTURA` antes de la fase `ENLACE`?
-3. ¿Trigger de `ENLACE`: por captura, cada N capturas, o por temporizador?
-4. ¿Protocolo del POST maestro→sink: reusar el binario 0x56 existente o uno
-   nuevo?
-5. ¿Tailscale Funnel accesible de forma estable desde la red donde esté tu
-   PC (o conviene un servidor siempre encendido en vez de tu PC)?
-6. ¿Sink escribe directo a la carpeta de Drive Desktop, o hace falta la API
-   de Drive?
+1. `pio run -t upload` y `pio run -t uploadfs` en `master/`.
+2. Configurar el enlace (desde la SPA, sobre el AP):
+   `POST /enlace/config` con `ssid`, `pass` del hotspot, `site` y `distance_mm`.
+3. Capturar normal. Al terminar el dump, `GET /enlace/status` debe mostrar
+   `queue_files=1`.
+4. Disparar ENLACE (comando `0xC0` con `param=1`, o `auto=1` para que se
+   dispare solo al terminar cada dump).
+5. Con el celular en su propio hotspot: `GET /enlace/status` contra la IP nueva
+   del ESP, bajar de `/enlace/queue` y `/enlace/file`, y confirmar con
+   `/enlace/ack`.
+6. Verificar que al volver a CAPTURA el ESP-NOW retoma: los esclavos deben
+   responder sin reset.
+
+## Decisiones que cambiaron respecto del plan original
+
+- **El maestro ya no sube nada.** Se descartó Tailscale Funnel + POST desde el
+  ESP: el cliente adquisidor atraviesa el túnel.
+- **Se descartó Google Drive como destino.** Con el server conservando los datos
+  y el analista entrando por web, Drive queda como backup opcional, no como
+  parte del camino del dato.
+- **`review_field_data.py` deja de ser el destino final.** Sigue funcionando
+  sobre el volumen, pero la interfaz que se va a usar es la web del contenedor.
+- Se mantiene lo validado: la multiplexación temporal, el canal 1 fijo de los
+  esclavos y la regla de no cambiar de fase a mitad de captura.
