@@ -4,14 +4,20 @@ Este repositorio es el **superproyecto** de la tesis. Ya no contiene firmware, a
 
 ## Mapa del proyecto
 
+`src/` se organiza por **propósito**, no por lenguaje: da igual si algo es
+MATLAB o Python, importa si es firmware, una interfaz contra el hardware o un
+cálculo que se corre unas pocas veces.
+
 | Sector | Ruta | Repositorio | Responsabilidad |
 |---|---|---|---|
-| Firmware | `firmware/psoc` | [Tesis-firmware-psoc](https://github.com/simplementeUnPorito/Tesis-firmware-psoc) | adquisición, acondicionamiento y calibración PSoC 5LP |
-| Firmware | `firmware/esp32` | [Tesis-firmware-esp32](https://github.com/simplementeUnPorito/Tesis-firmware-esp32) | maestro, esclavos, ESP-NOW y UI web |
-| Software | `software/python` | [Tesis-software-python](https://github.com/simplementeUnPorito/Tesis-software-python) | GUI, revisión de campo y análisis MASW |
-| Modelado | `modelado/matlab` | [Tesis-modelado-matlab](https://github.com/simplementeUnPorito/Tesis-modelado-matlab) | MATLAB, Simulink y modelos de la cadena analógica |
+| Firmware | `src/firmware/psoc` | [Tesis-firmware-psoc](https://github.com/simplementeUnPorito/Tesis-firmware-psoc) | adquisición, acondicionamiento y calibración PSoC 5LP |
+| Firmware | `src/firmware/esp32` | [Tesis-firmware-esp32](https://github.com/simplementeUnPorito/Tesis-firmware-esp32) | maestro, esclavos, ESP-NOW y UI web |
+| Interfaces | `src/interfaces/python` | [Tesis-interfaces-python](https://github.com/simplementeUnPorito/Tesis-interfaces-python) | Geophone Scope: GUI, revisión de campo y MASW |
+| Interfaces | `src/interfaces/matlab` | [Tesis-interfaces-matlab](https://github.com/simplementeUnPorito/Tesis-interfaces-matlab) | scope/GUI del nodo ESP y del circuito analógico |
+| Cálculos y modelados | `src/calculos_modelados/matlab` | [Tesis-calculos-matlab](https://github.com/simplementeUnPorito/Tesis-calculos-matlab) | Simulink, modelo SM-24 y análisis de la cadena analógica |
+| Cálculos y modelados | `src/calculos_modelados/python` | [Tesis-calculos-python](https://github.com/simplementeUnPorito/Tesis-calculos-python) | compensador, MFB-LPF y MASW offline |
 | Documentación | `docs` | [Tesis-documentacion](https://github.com/simplementeUnPorito/Tesis-documentacion) | entregables, diagramas, planes y handoffs |
-| Investigación | `investigacion` | [Tesis-investigacion](https://github.com/simplementeUnPorito/Tesis-investigacion) | vault de Obsidian, bitácora y notas académicas |
+| Investigación | `docs/investigacion` | [Tesis-investigacion](https://github.com/simplementeUnPorito/Tesis-investigacion) | vault de Obsidian, bitácora y notas académicas (submódulo *de* `docs`) |
 | Datos | `data` | [Tesis-datos](https://github.com/simplementeUnPorito/Tesis-datos) | catálogo y estructura local de mediciones |
 
 Cada sector se puede clonar, probar y versionar por separado. `Tesis` solo expresa qué revisión de cada sector forma una configuración integrada.

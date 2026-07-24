@@ -33,10 +33,11 @@ try {
     }
 
     $lfsRepos = @(
-        'software/python',
-        'modelado/matlab',
+        'src/interfaces/python',
+        'src/interfaces/matlab',
+        'src/calculos_modelados/matlab',
         'docs',
-        'investigacion',
+        'docs/investigacion',
         'data'
     )
 

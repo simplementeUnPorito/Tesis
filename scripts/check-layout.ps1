@@ -4,12 +4,13 @@ param()
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
 $expected = @(
-    'firmware/psoc',
-    'firmware/esp32',
-    'software/python',
-    'modelado/matlab',
+    'src/firmware/psoc',
+    'src/firmware/esp32',
+    'src/interfaces/python',
+    'src/interfaces/matlab',
+    'src/calculos_modelados/matlab',
+    'src/calculos_modelados/python',
     'docs',
-    'investigacion',
     'data'
 )
 
