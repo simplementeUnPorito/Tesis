@@ -100,8 +100,9 @@ LIMIT_CLOCK = re.compile(
 # "resets 11pm"), así que el tope tiene que dar lugar a eso. Lo que acota el daño
 # de un parseo malo no es este número sino SLEEP_CHUNK_S: nunca se duerme más de
 # eso de una vez, y al despertar se vuelve a preguntar.
-MAX_LIMIT_WAIT_S = 25 * 3600
-SLEEP_CHUNK_S = 6 * 3600
+MAX_LIMIT_WAIT_S = 8 * 3600      # las ventanas de límite son de horas, no de un día
+SLEEP_CHUNK_S = 2 * 3600         # al despertar se vuelve a leer el mensaje real
+GRACE_BACKOFF_S = [600, 1200, 1800]   # cuando el reseteo anunciado ya pasó
 FATAL_AUTH = re.compile(
     r"(invalid api key|authentication_error|not logged in|please run /login"
     r"|credit balance is too low)", re.I)
@@ -637,10 +638,18 @@ def parse_reset_ts(blob: str) -> tuple[float, str] | None:
         hour, minute = int(m.group(4)), int(m.group(5))
     if not (0 <= hour <= 23 and 0 <= minute <= 59):
         return None
+    # La hora viene sin fecha, así que hay que elegir el día: se toma la
+    # ocurrencia MÁS CERCANA (ayer, hoy o mañana), no "la próxima".
+    #
+    # Por qué importa: a las 04:21:32 la CLI repitió "resets 04:20", una hora que
+    # acababa de pasar. Interpretarla como "mañana" mandó al loop a dormir 6 h de
+    # más con la cuota ya disponible. Las ventanas de límite son de horas, no de
+    # un día: una hora anunciada que quedó atrás significa que YA reseteó, y el
+    # caller lo trata como gracia corta en vez de espera larga.
     now_local = datetime.now()
-    target = now_local.replace(hour=hour, minute=minute, second=0, microsecond=0)
-    if target <= now_local:
-        target += timedelta(days=1)
+    base = now_local.replace(hour=hour, minute=minute, second=0, microsecond=0)
+    target = min((base - timedelta(days=1), base, base + timedelta(days=1)),
+                 key=lambda t: abs((t - now_local).total_seconds()))
     ts = target.timestamp()
     if ts - time.time() > MAX_LIMIT_WAIT_S:
         return None
@@ -722,8 +731,14 @@ def run_claude(prompt_path: Path, model: str, phase: str, item: Item,
                     f"{artifact.name}; lo tomo como hecho y sigo")
                 return {"ok": True, "fatal": False, "text": "(entregable ya escrito)"}
             reset = parse_reset_ts(blob)
-            if reset:
+            if reset and reset[0] > time.time() + 60:
                 sleep_until(reset[0] + 90, reset[1])
+            elif reset:
+                # La hora anunciada ya pasó: la cuota tendría que estar disponible.
+                # Gracia corta y reintento, en vez de una espera larga al vacío.
+                grace = GRACE_BACKOFF_S[min(limit_hits, len(GRACE_BACKOFF_S) - 1)]
+                sleep_until(time.time() + grace,
+                            f"{reset[1]} ya pasó; gracia de {grace // 60} min")
             else:
                 wait = LIMIT_BACKOFF_S[min(limit_hits, len(LIMIT_BACKOFF_S) - 1)]
                 sleep_until(time.time() + wait,
