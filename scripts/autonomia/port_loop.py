@@ -84,8 +84,20 @@ LIMIT_BACKOFF_S = [900, 1800, 3600]
 # ── Detección de límites de uso ───────────────────────────────────────────────
 LIMIT_EPOCH = re.compile(r"limit reached\|(\d{9,13})", re.I)
 LIMIT_GENERIC = re.compile(
-    r"(usage limit|rate.?limit|rate_limit|\b429\b|too many requests|overloaded"
-    r"|quota|limit will reset|upgrade to increase)", re.I)
+    r"(usage limit|session limit|rate.?limit|rate_limit|\b429\b|too many requests"
+    r"|overloaded|quota|limit will reset|resets? \d|upgrade to increase)", re.I)
+# "You've hit your session limit · resets 3:00am" / "resets at 3pm (America/Asuncion)".
+# Esperar hasta esa hora es mucho mejor que un backoff a ciegas: con backoff se
+# despierta cada 15 min a chocarse con la misma pared.
+LIMIT_CLOCK = re.compile(
+    r"resets?\s*(?:at\s*)?(\d{1,2})(?::(\d{2}))?\s*([ap])\.?m\.?"
+    r"|resets?\s*(?:at\s*)?(\d{1,2}):(\d{2})", re.I)
+# Una hora de reloj puede estar hasta 24 h adelante (mensaje a las 00:20 que dice
+# "resets 11pm"), así que el tope tiene que dar lugar a eso. Lo que acota el daño
+# de un parseo malo no es este número sino SLEEP_CHUNK_S: nunca se duerme más de
+# eso de una vez, y al despertar se vuelve a preguntar.
+MAX_LIMIT_WAIT_S = 25 * 3600
+SLEEP_CHUNK_S = 6 * 3600
 FATAL_AUTH = re.compile(
     r"(invalid api key|authentication_error|not logged in|please run /login"
     r"|credit balance is too low)", re.I)
@@ -233,6 +245,47 @@ def log(msg: str) -> None:
     STATE_DIR.mkdir(parents=True, exist_ok=True)
     with LOG_FILE.open("a", encoding="utf-8") as fh:
         fh.write(line + "\n")
+
+
+LOCK_FILE = STATE_DIR / "loop.lock"
+
+
+def acquire_lock() -> bool:
+    """Un solo loop a la vez.
+
+    Pasó de verdad: dos procesos arrancaron en el mismo segundo y quedaron los
+    dos implementando el MISMO ítem, editando los mismos archivos. Un candado con
+    el PID lo evita; si el PID guardado ya no existe, el candado está huérfano y
+    se toma.
+    """
+    STATE_DIR.mkdir(parents=True, exist_ok=True)
+    if LOCK_FILE.is_file():
+        try:
+            old = int(LOCK_FILE.read_text(encoding="utf-8").split()[0])
+        except (ValueError, IndexError):
+            old = -1
+        if old > 0 and pid_alive(old):
+            print(f"ya hay un loop corriendo (pid {old}). Si estás seguro de que "
+                  f"no, borrá {LOCK_FILE}", file=sys.stderr)
+            return False
+        log(f"candado huérfano de pid {old}; lo tomo")
+    LOCK_FILE.write_text(f"{os.getpid()} {now()}\n", encoding="utf-8")
+    return True
+
+
+def pid_alive(pid: int) -> bool:
+    done = subprocess.run(["tasklist", "/FI", f"PID eq {pid}", "/NH"],
+                          capture_output=True, text=True)
+    return str(pid) in (done.stdout or "")
+
+
+def release_lock() -> None:
+    if LOCK_FILE.is_file():
+        try:
+            if int(LOCK_FILE.read_text(encoding="utf-8").split()[0]) == os.getpid():
+                LOCK_FILE.unlink()
+        except (ValueError, IndexError, OSError):
+            pass
 
 
 def load_state() -> dict:
@@ -409,20 +462,74 @@ def clean_env() -> dict:
     return env
 
 
+def parse_reset_ts(blob: str) -> tuple[float, str] | None:
+    """Saca de qué hora habla el mensaje de límite. Devuelve (timestamp, motivo).
+
+    Dos formatos, en orden de confiabilidad: el epoch que a veces trae la CLI, y
+    la hora de reloj del mensaje de sesión ("resets 3:00am"). La hora de reloj se
+    interpreta en la zona local de la máquina y, si ya pasó, se toma la próxima
+    vuelta del reloj.
+    """
+    m = LIMIT_EPOCH.search(blob)
+    if m:
+        epoch = float(m.group(1))
+        if epoch > 1e12:
+            epoch /= 1000
+        if 0 < epoch - time.time() <= MAX_LIMIT_WAIT_S:
+            return epoch, "epoch informado por la CLI"
+
+    m = LIMIT_CLOCK.search(blob)
+    if not m:
+        return None
+    if m.group(1):
+        hour, minute, half = int(m.group(1)), int(m.group(2) or 0), m.group(3).lower()
+        if half == "p" and hour != 12:
+            hour += 12
+        if half == "a" and hour == 12:
+            hour = 0
+    else:
+        hour, minute = int(m.group(4)), int(m.group(5))
+    if not (0 <= hour <= 23 and 0 <= minute <= 59):
+        return None
+    now_local = datetime.now()
+    target = now_local.replace(hour=hour, minute=minute, second=0, microsecond=0)
+    if target <= now_local:
+        target += timedelta(days=1)
+    ts = target.timestamp()
+    if ts - time.time() > MAX_LIMIT_WAIT_S:
+        return None
+    return ts, f"reseteo anunciado a las {target.strftime('%H:%M')}"
+
+
 def sleep_until(ts: float, why: str) -> None:
+    """Duerme hasta ``ts``, en tramos, publicando el latido en status.json.
+
+    Nunca duerme más de SLEEP_CHUNK_S de una sola vez: si la hora parseada
+    estuviera mal, al despertar se reintenta y se vuelve a leer el mensaje real
+    en vez de quedarse dormido un día entero.
+    """
+    ts = min(ts, time.time() + SLEEP_CHUNK_S)
+    hora = datetime.fromtimestamp(ts)
+    log(f"límite de uso: espero hasta {hora.strftime('%d/%m %H:%M')} "
+        f"({(ts - time.time()) / 60:.0f} min) — {why}")
     while True:
         left = ts - time.time()
         if left <= 0:
+            log("límite: despierto y reintento la misma fase")
             return
-        set_status(state="waiting_limit", wait_until=datetime.fromtimestamp(ts).isoformat(
-            timespec="seconds"), wait_reason=why)
-        log(f"límite de uso: espero {left / 60:.0f} min ({why})")
+        set_status(state="waiting_limit",
+                   wait_until=hora.isoformat(timespec="seconds"), wait_reason=why)
         time.sleep(min(left, 300))
 
 
 def run_claude(prompt_path: Path, model: str, phase: str, item: Item,
-               attempt: int, state: dict) -> dict:
-    """Lanza una fase. Reintenta indefinidamente si el bloqueo es por límite."""
+               attempt: int, state: dict, artifact: Path | None = None) -> dict:
+    """Lanza una fase. Reintenta indefinidamente si el bloqueo es por límite.
+
+    ``artifact`` es el entregable de la fase (el .md de spec o de review). Si el
+    proceso muere por límite pero el archivo ya está escrito, la fase se da por
+    hecha: rehacerla sería pagar dos veces el mismo trabajo.
+    """
     RAW_OUT.mkdir(parents=True, exist_ok=True)
     cmd = [CLAUDE, "-p", f"Leé {prompt_path} y hacé exactamente lo que dice.",
            "--model", model, "--dangerously-skip-permissions",
@@ -464,22 +571,31 @@ def run_claude(prompt_path: Path, model: str, phase: str, item: Item,
 
         blob = f"{out}\n{err}"
         is_error = bool(payload.get("is_error")) or rc != 0
+        # La CLI marca el límite de forma estructurada; es más confiable que el
+        # texto. Caso real medido: api_error_status=429 con
+        # result="You've hit your session limit · resets 11:20pm (America/Asuncion)".
+        es_limite = payload.get("api_error_status") == 429 or bool(LIMIT_GENERIC.search(blob))
 
         if FATAL_AUTH.search(blob):
             log("FATAL: problema de autenticación/crédito. El loop para; "
                 "hace falta un humano.")
             return {"ok": False, "fatal": True, "text": blob[-2000:]}
 
-        if is_error and LIMIT_GENERIC.search(blob):
-            m = LIMIT_EPOCH.search(blob)
-            if m:
-                epoch = int(m.group(1))
-                if epoch > 1e12:
-                    epoch /= 1000
-                sleep_until(epoch + 90, "reset informado por la CLI")
+        if is_error and es_limite:
+            # Un límite NO es un intento fallido: no gasta intento ni escala de
+            # modelo. Pero si la fase ya había dejado su entregable antes de
+            # chocarse con el límite, se acepta en vez de pagarla de nuevo.
+            if artifact is not None and artifact.is_file() and artifact.stat().st_size > 0:
+                log(f"[{item.iid}/{phase}] llegó el límite DESPUÉS de escribir "
+                    f"{artifact.name}; lo tomo como hecho y sigo")
+                return {"ok": True, "fatal": False, "text": "(entregable ya escrito)"}
+            reset = parse_reset_ts(blob)
+            if reset:
+                sleep_until(reset[0] + 90, reset[1])
             else:
                 wait = LIMIT_BACKOFF_S[min(limit_hits, len(LIMIT_BACKOFF_S) - 1)]
-                sleep_until(time.time() + wait, f"backoff {wait // 60} min")
+                sleep_until(time.time() + wait,
+                            f"backoff {wait // 60} min (el mensaje no dijo la hora)")
             limit_hits += 1
             continue                       # misma fase, sin gastar un intento
 
@@ -582,7 +698,7 @@ def do_item(item: Item, state: dict) -> bool:
         entry["phase"] = "spec"
         save_state(state)
         res = run_claude(write_prompt(item, "spec", MODEL_ADVISOR, 1),
-                         MODEL_ADVISOR, "spec", item, 1, state)
+                         MODEL_ADVISOR, "spec", item, 1, state, artifact=spec_path)
         if res.get("fatal"):
             return False
         verdict = first_line_verdict(spec_path)
@@ -591,7 +707,7 @@ def do_item(item: Item, state: dict) -> bool:
         if verdict == "MISSING":
             log(f"[{item.iid}] el advisor no escribió el spec; reintento con {MODEL_HEAVY}")
             res = run_claude(write_prompt(item, "spec", MODEL_HEAVY, 2),
-                             MODEL_HEAVY, "spec", item, 2, state)
+                             MODEL_HEAVY, "spec", item, 2, state, artifact=spec_path)
             if res.get("fatal") or not spec_path.is_file():
                 entry["status"] = "blocked"
                 save_state(state)
@@ -636,7 +752,8 @@ def do_item(item: Item, state: dict) -> bool:
         if review_path.is_file():
             review_path.unlink()
         res = run_claude(write_prompt(item, "review", MODEL_ADVISOR, attempt),
-                         MODEL_ADVISOR, "review", item, attempt, state)
+                         MODEL_ADVISOR, "review", item, attempt, state,
+                         artifact=review_path)
         if res.get("fatal"):
             return False
         verdict = first_line_verdict(review_path)
@@ -763,6 +880,16 @@ def main() -> int:
         set_status(state="done", item=None, phase=None)
         return 0
 
+    if not acquire_lock():
+        return 3
+
+    try:
+        return run_all(todo, state)
+    finally:
+        release_lock()
+
+
+def run_all(todo: list[Item], state: dict) -> int:
     log(f"=== arranca el loop; pendientes: {[i.iid for i in todo]} ===")
     set_status(state="running")
     for item in todo:
