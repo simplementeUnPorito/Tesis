@@ -129,6 +129,83 @@ buscando funciones que no están.
 
 No elegí ninguna: cambiar el alcance del §3.2 no me corresponde.
 
+---
+
+## 2026-07-25 — escribiendo el spec de `capturas_signal` (§3.1, parte 1)
+
+### 8. El sandbox del gate escribe en el archivo de picks REAL
+
+`frd._procesados_dir_for` (`field_review_data.py:63-69`) resuelve la carpeta de
+salida por **`raw_root.name`**, no por la ruta completa. El sandbox del gate crea
+su raw en `<tmp>\raw` (`server/smoke_test.py:597-599`), así que `name == "raw"`,
+igual que `data\raw`. Consecuencia:
+
+`default_annotations_path(<tmp>\raw)` == `default_annotations_path(data\raw)` ==
+`C:\Github\Tesis\data\processed\raw\field_review_annotations.json`
+
+Hoy no hizo daño porque `reviewed_count == 0` y el ZIP que ingesta el gate no
+tiene par hammer+geo (sin shots, `Pipeline._process` no llama a
+`save_annotations`). **Pero el día que tengas picks validados a mano, un check de
+sandbox que ingeste una captura completa te los borra todos, sin aviso.** Es lo
+que el §0.3 del plan ("nada se borra solo") prohíbe explícitamente.
+
+**Por qué me frenó**: no bloquea el ítem §3.1-parte-1 (lo escribí de sólo
+lectura, y los fixtures del gate se escriben directo en el raw temporal en vez de
+pasar por `/ingest`). **Sí bloquea al ítem de `POST /api/pick`**, que escribe
+anotaciones por diseño.
+
+**Opciones que veo**:
+
+1. Pasarle `TESIS_DATA_ROOT=<tmp>` en el `env` del `subprocess.Popen` de
+   `start_server` (`smoke_test.py:516`) **sólo en modo sandbox**.
+   `frd._discover_data_root` (`field_review_data.py:30-42`) ya respeta esa
+   variable, así que todo `data/processed` del sandbox cae en el temporal y el
+   modo `read` sigue viendo las anotaciones reales. Es lo que yo haría: una línea
+   y no toca la capa de datos.
+2. Que `_procesados_dir_for` use algo único por dataset (hash de la ruta
+   absoluta, o la ruta completa espejada). Es más correcto de fondo —dos datasets
+   llamados `raw` en distintos discos hoy comparten anotaciones **también en la
+   app PyQt**— pero cambia dónde vive todo lo ya generado y habría que migrar
+   `data/processed/*`. No lo decido yo.
+3. Hacer una copia de seguridad del JSON de picks antes de cada corrida del gate.
+   Es un parche, no un arreglo.
+
+### 9. `catalog.pickable` y `discover_dataset` no coinciden (186 vs 194)
+
+Medido hoy contra `data\raw`: el catálogo marca **186** capturas `pickable` en
+`Canchiga`, y `discover_dataset` encuentra **194** disparos en esa misma carpeta.
+Al revés también pasa: las 9 capturas de `Canchita` son `pickable: true` y
+**ninguna** tiene `shot_id` (quedaron afuera por el dedup por firma de señal).
+
+La causa es que hay **dos detecciones de rol distintas**:
+
+- `catalog.py:104` lee sólo `node["role"]`;
+- `frd._node_role` (`field_review_data.py:1754`) mira además
+  `type`/`hw_type`/`name`/`data_dir`/`raw_file`.
+
+**Por qué me frenó**: para este ítem lo esquivé (la web habilita el dibujo por
+`pick.shot_id`, no por `pickable`, y está escrito en el spec). Pero significa que
+la columna "Estado" de la tabla de Capturas **le miente al usuario en 8
+capturas**: dice "sin martillo" en capturas que sí tienen martillo.
+
+**Opciones que veo**:
+
+1. Que `catalog.py` importe y use `frd._node_role`. Es una función privada de
+   `frd`, y el §0 del plan dice no relajar ese contrato… pero acá no lo relaja:
+   lo unifica. Es lo que yo haría.
+2. Copiar la lógica de roles en `catalog.py`. Queda una tercera copia que se va a
+   desincronizar: en contra del §0.4 del plan.
+3. Exponer `node_role()` público en `field_review_data.py` y que los dos lo usen.
+   Es lo más limpio, pero toca `geophone_scope`, que es código compartido con la
+   app PyQt, y eso no lo decido yo.
+
+Aparte, `/api/dataset` **no dice por qué** una captura no tiene `shot_id`
+(¿sin martillo? ¿duplicada?). La web hoy lo explica con un texto genérico. Si
+querés que diga "duplicada de X", hay que exponer `duplicate_of`
+(`FieldShot.duplicate_of`, `field_review_data.py:105`) en el contrato de
+`/api/dataset` — es un agregado, no rompe `refactor.contrato_dataset`, pero es
+alcance nuevo.
+
 #### RESUELTA (2026-07-25, respondida por Elías)
 
 La premisa de la duda era equivocada: **las cuatro funciones existen**. Los nombres
