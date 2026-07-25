@@ -822,23 +822,37 @@ def do_item(item: Item, state: dict) -> bool:
     feedback = ""
     while entry["attempts"] < MAX_ATTEMPTS:
         check_stop()
-        entry["attempts"] += 1
-        attempt = entry["attempts"]
+        attempt = entry["attempts"] + 1
         model = model_for_attempt(attempt, forced_fable)
-        if model == MODEL_HEAVY:
-            log(f"[{item.iid}] ESCALADO A FABLE (intento {attempt})")
-        entry["phase"], entry["model"], entry["status"] = "impl", model, "running"
-        save_state(state)
 
-        res = run_claude(write_prompt(item, "impl", model, attempt, feedback),
-                         model, "impl", item, attempt, state)
-        if res.get("fatal"):
-            return False
-
+        # Retomar sin repetir: si el gate YA está verde para este ítem, el trabajo
+        # está hecho y lo que falta es revisarlo. Pasa cuando una corrida anterior
+        # se cortó (límite, terminal cerrada, kill) después de implementar. Un ítem
+        # sin empezar nunca puede caer acá: --require exige checks propios, que
+        # todavía no existen, así que el gate da rojo.
         gate_ok, gate_tail = run_gate(item)
-        log(f"[{item.iid}] gate {'VERDE' if gate_ok else 'ROJO'} tras intento {attempt}")
-        entry["history"].append({"phase": "impl", "model": model, "attempt": attempt,
-                                 "gate_ok": gate_ok, "at": now()})
+        if gate_ok and not feedback:
+            log(f"[{item.iid}] el gate ya está VERDE: salteo impl y paso a review")
+            entry["history"].append({"phase": "impl", "model": "(reusado)",
+                                     "attempt": attempt, "gate_ok": True,
+                                     "nota": "trabajo previo encontrado verde",
+                                     "at": now()})
+        else:
+            entry["attempts"] = attempt
+            if model == MODEL_HEAVY:
+                log(f"[{item.iid}] ESCALADO A FABLE (intento {attempt})")
+            entry["phase"], entry["model"], entry["status"] = "impl", model, "running"
+            save_state(state)
+
+            res = run_claude(write_prompt(item, "impl", model, attempt, feedback),
+                             model, "impl", item, attempt, state)
+            if res.get("fatal"):
+                return False
+
+            gate_ok, gate_tail = run_gate(item)
+            log(f"[{item.iid}] gate {'VERDE' if gate_ok else 'ROJO'} tras intento {attempt}")
+            entry["history"].append({"phase": "impl", "model": model, "attempt": attempt,
+                                     "gate_ok": gate_ok, "at": now()})
         save_state(state)
 
         if not gate_ok:
