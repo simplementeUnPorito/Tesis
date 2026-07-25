@@ -68,6 +68,8 @@ PROMPTS = STATE_DIR / "prompts"
 SPECS = STATE_DIR / "specs"
 REVIEWS = STATE_DIR / "reviews"
 GATE_OUT = STATE_DIR / "gate"
+GATE_LOGS = GATE_OUT          # el gate escribe sus logs acá (ver smoke_test.LOG_DIR)
+STREAMS = STATE_DIR / "streams"
 RAW_OUT = STATE_DIR / "raw"
 # En el repo raíz a propósito, NO en docs/: docs es un submódulo y commitear el
 # gitlink desde acá dejaría el puntero mirando un commit que no tiene el archivo.
@@ -233,6 +235,19 @@ REGLAS DURAS (valen para todas las fases; romper una es peor que no avanzar):
 8. Si algo no se puede resolver sin decidir algo que no te corresponde, NO lo
    inventes: anotalo en {DUDAS} (creá el archivo si no existe, con una entrada
    por duda: qué, por qué te frenó, y qué opciones ves) y seguí con el resto.
+9. **NUNCA matar procesos por nombre.** Ni `Get-Process python | Stop-Process`,
+   ni `taskkill /IM python.exe`, ni equivalentes. El loop que te lanzó ES un
+   proceso python: matarlos a todos te suicida y lo suicida. Pasó de verdad y
+   cortó una revisión a mitad de camino. Si necesitás matar algo, matá el PID
+   exacto que vos arrancaste, y sólo ése.
+10. No adivines por qué falló un check: el gate deja logs con marca de tiempo en
+   {GATE_LOGS} — uno por corrida (cada request con su código y su duración) y uno
+   por servidor levantado (su stdout completo). Leelos. El propio gate imprime
+   las rutas al terminar.
+11. Si mutás código para comprobar que un check puede fallar (es una buena
+   práctica y se agradece): hacé backup, mutá, corré el gate, y RESTAURÁ. Antes
+   de terminar, demostrá con `git status --porcelain` que no quedó ninguna
+   mutación colgada.
 """
 
 
@@ -514,7 +529,8 @@ def describe_event(ev: dict) -> list[str]:
     return out
 
 
-def stream_claude(cmd: list[str], timeout_s: float) -> tuple[dict, str, int]:
+def stream_claude(cmd: list[str], timeout_s: float,
+                  pretty_path: Path | None = None) -> tuple[dict, str, int]:
     """Corre la CLI mostrando lo que hace, y devuelve (payload final, log, rc).
 
     Lee ``--output-format stream-json`` línea por línea desde un hilo aparte: así
@@ -538,12 +554,26 @@ def stream_claude(cmd: list[str], timeout_s: float) -> tuple[dict, str, int]:
     raw: list[str] = []
     deadline = time.time() + timeout_s
     last_event = time.time()
+    pretty_fh = None
+    if pretty_path is not None:
+        pretty_path.parent.mkdir(parents=True, exist_ok=True)
+        pretty_fh = pretty_path.open("w", encoding="utf-8", errors="replace")
+
+    def emit(text: str) -> None:
+        """A la terminal y al archivo: la terminal se cierra, el archivo queda."""
+        print(text, flush=True)
+        if pretty_fh:
+            pretty_fh.write(f"{time.strftime('%H:%M:%S')} {text}\n")
+            pretty_fh.flush()
     while True:
         try:
             line = q.get(timeout=15)
         except queue.Empty:
             if time.time() > deadline:
                 proc.kill()
+                emit(f"    ! TIMEOUT tras {timeout_s / 60:.0f} min; mato el agente")
+                if pretty_fh:
+                    pretty_fh.close()
                 return payload, "\n".join(raw) + f"\nTIMEOUT tras {timeout_s}s", 124
             quiet = time.time() - last_event
             if quiet >= SILENCE_WARN_S:
@@ -558,13 +588,15 @@ def stream_claude(cmd: list[str], timeout_s: float) -> tuple[dict, str, int]:
             ev = json.loads(line)
         except json.JSONDecodeError:
             if line.strip():
-                print(f"    | {line[:200]}", flush=True)
+                emit(f"    | {line[:200]}")
             continue
         if ev.get("type") == "result":
             payload = ev
         for pretty in describe_event(ev):
-            print(pretty, flush=True)
+            emit(pretty)
     proc.wait()
+    if pretty_fh:
+        pretty_fh.close()
     return payload, "\n".join(raw), proc.returncode
 
 
@@ -656,12 +688,13 @@ def run_claude(prompt_path: Path, model: str, phase: str, item: Item,
                    prompt=str(prompt_path))
         log(f"[{item.iid}/{phase}] intento {attempt} con {model}")
         started = time.time()
-        payload, out, rc = stream_claude(cmd, PHASE_TIMEOUT_S[phase])
-        err = ""
-
         stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        (RAW_OUT / f"{item.iid}.{phase}.{attempt}.{stamp}.jsonl").write_text(
-            out or "", encoding="utf-8")
+        base = f"{item.iid}.{phase}.{attempt}.{stamp}"
+        pretty_path = STREAMS / f"{base}.log"
+        log(f"    (registro de esta fase: {pretty_path})")
+        payload, out, rc = stream_claude(cmd, PHASE_TIMEOUT_S[phase], pretty_path)
+        err = ""
+        (RAW_OUT / f"{base}.jsonl").write_text(out or "", encoding="utf-8")
 
         cost = float(payload.get("total_cost_usd") or 0.0)
         state["cost_usd"] = round(state.get("cost_usd", 0.0) + cost, 4)
