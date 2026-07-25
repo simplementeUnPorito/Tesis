@@ -92,3 +92,39 @@ El gate verifica HTTP y datos reales, no percepción. Nada de esto está cubiert
   en sandbox, que es lo más cerca que llega sin un humano;
 - que la web responda bien con 200+ capturas en el waterfall (§3.4, fuera de
   alcance de esta corrida).
+
+---
+
+## 2026-07-25 — escribiendo el spec de `tabs_tema` (§2)
+
+### 7. Los nombres de función del PORT_PLAN §3.2 no existen
+
+El plan dice filtrar con `signal_proc.py`: `dcRemove`, `filtFilt`,
+`harmonicNotch`, `hilbertEnvelope`. **Ninguno de esos cuatro existe en el repo**
+(son nombres estilo MATLAB; el código Python es snake_case). Lo que hay:
+
+- `geophone_scope/signal_proc.py:367` `dc_remove`, `:235` `harmonic_notch`,
+  `:37` `fir_filter` — el camino del **scope en vivo**.
+- `geophone_scope/field_review_data.py:906` `apply_bandpass_filter` y `:873`
+  `design_bandpass_filter` (Butterworth SOS + `sosfiltfilt`, fase cero) — el
+  camino que **realmente usa el tab Filtros de la app PyQt**
+  (`field_review_app.py:1970`).
+- `hilbertEnvelope` no tiene equivalente: no encontré ningún cálculo de envolvente
+  de Hilbert en `field_review_*`.
+
+**Por qué me frenó**: para §2 no bloquea nada (sólo escribí placeholders, y ahí
+cité los nombres reales). Bloquea al ítem §3.2 `Filtros`, que va a arrancar
+buscando funciones que no están.
+
+**Opciones que veo**:
+
+1. Corregir §3.2 del plan para que diga `frd.apply_bandpass_filter` — es lo que
+   da paridad con la app, que es el criterio del §6 del plan. Es lo que yo haría.
+2. Portar además el DC/notch de `signal_proc` como opciones extra del tab web.
+   Es funcionalidad que la app de review **no** tiene, así que sería
+   funcionalidad nueva, no porteo — y el plan dice explícitamente que esto es una
+   mudanza.
+3. Si `hilbertEnvelope` era un pedido real y no un recuerdo de otra herramienta,
+   hay que decidir si entra como feature nueva. No lo asumí.
+
+No elegí ninguna: cambiar el alcance del §3.2 no me corresponde.
