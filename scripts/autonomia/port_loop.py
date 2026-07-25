@@ -42,10 +42,12 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import queue
 import re
 import shutil
 import subprocess
 import sys
+import threading
 import time
 from dataclasses import dataclass, asdict
 from datetime import datetime, timedelta, timezone
@@ -248,6 +250,22 @@ def log(msg: str) -> None:
 
 
 LOCK_FILE = STATE_DIR / "loop.lock"
+STOP_FLAG = STATE_DIR / "stop.flag"
+
+
+class StopRequested(Exception):
+    """Freno pedido desde afuera (``--stop``), entre fases."""
+
+
+def check_stop() -> None:
+    """Frena en un punto seguro, no a mitad de un agente.
+
+    Matar el proceso mientras un ``claude -p`` está editando archivos deja el
+    árbol a medias; en cambio esto se consulta ENTRE fases, cuando todo lo hecho
+    ya está en disco y el estado quedó guardado.
+    """
+    if STOP_FLAG.is_file():
+        raise StopRequested()
 
 
 def acquire_lock() -> bool:
@@ -454,6 +472,102 @@ Tarea:
 
 
 # ── Ejecución de claude con espera por límites ────────────────────────────────
+SILENCE_WARN_S = 180        # cada cuánto avisar que sigue vivo sin novedades
+
+
+def describe_event(ev: dict) -> list[str]:
+    """Traduce un evento de stream-json a una o más líneas legibles.
+
+    Sin esto la terminal queda muda hasta que la fase termina y no hay forma de
+    distinguir "pensando" de "trabado", que es justo lo que hay que poder ver.
+    """
+    out: list[str] = []
+    kind = ev.get("type")
+    if kind == "system" and ev.get("subtype") == "init":
+        out.append(f"    · sesión {str(ev.get('session_id'))[:8]} modelo={ev.get('model')}")
+    elif kind == "assistant":
+        for block in (ev.get("message") or {}).get("content") or []:
+            btype = block.get("type")
+            if btype == "text":
+                txt = " ".join((block.get("text") or "").split())
+                if txt:
+                    out.append(f"    · {txt[:160]}")
+            elif btype == "tool_use":
+                name = block.get("name")
+                inp = block.get("input") or {}
+                arg = (inp.get("file_path") or inp.get("path") or inp.get("command")
+                       or inp.get("pattern") or inp.get("prompt") or "")
+                arg = " ".join(str(arg).split())
+                if str(arg).startswith(str(REPO)):
+                    arg = str(arg)[len(str(REPO)) + 1:]
+                out.append(f"    · {name} {arg[:120]}")
+            elif btype == "thinking":
+                out.append("    · (pensando)")
+    elif kind == "user":
+        for block in (ev.get("message") or {}).get("content") or []:
+            if block.get("type") == "tool_result" and block.get("is_error"):
+                body = block.get("content")
+                if isinstance(body, list):
+                    body = " ".join(str(b.get("text", "")) for b in body
+                                    if isinstance(b, dict))
+                out.append(f"    ! error de herramienta: {' '.join(str(body).split())[:140]}")
+    return out
+
+
+def stream_claude(cmd: list[str], timeout_s: float) -> tuple[dict, str, int]:
+    """Corre la CLI mostrando lo que hace, y devuelve (payload final, log, rc).
+
+    Lee ``--output-format stream-json`` línea por línea desde un hilo aparte: así
+    el bucle principal puede vigilar el deadline y avisar cuando pasa mucho
+    tiempo sin eventos, en vez de quedarse bloqueado en un readline.
+    """
+    proc = subprocess.Popen(cmd, cwd=str(REPO), env=clean_env(),
+                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                            text=True, encoding="utf-8", errors="replace", bufsize=1)
+    q: queue.Queue[str | None] = queue.Queue()
+
+    def reader() -> None:
+        assert proc.stdout is not None
+        for line in proc.stdout:
+            q.put(line.rstrip("\n"))
+        q.put(None)
+
+    threading.Thread(target=reader, daemon=True).start()
+
+    payload: dict = {}
+    raw: list[str] = []
+    deadline = time.time() + timeout_s
+    last_event = time.time()
+    while True:
+        try:
+            line = q.get(timeout=15)
+        except queue.Empty:
+            if time.time() > deadline:
+                proc.kill()
+                return payload, "\n".join(raw) + f"\nTIMEOUT tras {timeout_s}s", 124
+            quiet = time.time() - last_event
+            if quiet >= SILENCE_WARN_S:
+                log(f"    … sigue trabajando ({quiet / 60:.0f} min sin eventos)")
+                last_event = time.time()
+            continue
+        if line is None:
+            break
+        raw.append(line)
+        last_event = time.time()
+        try:
+            ev = json.loads(line)
+        except json.JSONDecodeError:
+            if line.strip():
+                print(f"    | {line[:200]}", flush=True)
+            continue
+        if ev.get("type") == "result":
+            payload = ev
+        for pretty in describe_event(ev):
+            print(pretty, flush=True)
+    proc.wait()
+    return payload, "\n".join(raw), proc.returncode
+
+
 def clean_env() -> dict:
     env = dict(os.environ)
     # Sin esto la CLI hija puede creerse anidada en esta sesión.
@@ -531,9 +645,10 @@ def run_claude(prompt_path: Path, model: str, phase: str, item: Item,
     hecha: rehacerla sería pagar dos veces el mismo trabajo.
     """
     RAW_OUT.mkdir(parents=True, exist_ok=True)
+    # stream-json (exige --verbose con -p) para poder mostrar cada acción en vivo.
     cmd = [CLAUDE, "-p", f"Leé {prompt_path} y hacé exactamente lo que dice.",
            "--model", model, "--dangerously-skip-permissions",
-           "--output-format", "json", "--add-dir", str(REPO)]
+           "--output-format", "stream-json", "--verbose", "--add-dir", str(REPO)]
     limit_hits = 0
     while True:
         set_status(state="running", item=item.iid, phase=phase, model=model,
@@ -541,29 +656,13 @@ def run_claude(prompt_path: Path, model: str, phase: str, item: Item,
                    prompt=str(prompt_path))
         log(f"[{item.iid}/{phase}] intento {attempt} con {model}")
         started = time.time()
-        try:
-            done = subprocess.run(cmd, cwd=str(REPO), env=clean_env(),
-                                  capture_output=True, text=True,
-                                  timeout=PHASE_TIMEOUT_S[phase])
-            out, err, rc = done.stdout, done.stderr, done.returncode
-        except subprocess.TimeoutExpired as exc:
-            out = exc.stdout or ""
-            err = f"TIMEOUT tras {PHASE_TIMEOUT_S[phase]}s"
-            rc = 124
-        if isinstance(out, bytes):
-            out = out.decode("utf-8", "replace")
-        if isinstance(err, bytes):
-            err = err.decode("utf-8", "replace")
+        payload, out, rc = stream_claude(cmd, PHASE_TIMEOUT_S[phase])
+        err = ""
 
         stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        (RAW_OUT / f"{item.iid}.{phase}.{attempt}.{stamp}.json").write_text(
-            (out or "") + ("\n--- stderr ---\n" + err if err else ""), encoding="utf-8")
+        (RAW_OUT / f"{item.iid}.{phase}.{attempt}.{stamp}.jsonl").write_text(
+            out or "", encoding="utf-8")
 
-        payload: dict = {}
-        try:
-            payload = json.loads(out)
-        except (json.JSONDecodeError, TypeError):
-            pass
         cost = float(payload.get("total_cost_usd") or 0.0)
         state["cost_usd"] = round(state.get("cost_usd", 0.0) + cost, 4)
         save_state(state)
@@ -722,6 +821,7 @@ def do_item(item: Item, state: dict) -> bool:
     # ── impl + review, con escalado ───────────────────────────────────────────
     feedback = ""
     while entry["attempts"] < MAX_ATTEMPTS:
+        check_stop()
         entry["attempts"] += 1
         attempt = entry["attempts"]
         model = model_for_attempt(attempt, forced_fable)
@@ -746,6 +846,7 @@ def do_item(item: Item, state: dict) -> bool:
                         "\n\nArreglá lo que falla sin debilitar los checks.")
             continue
 
+        check_stop()
         entry["phase"] = "review"
         save_state(state)
         review_path = REVIEWS / f"{item.iid}.md"
@@ -833,10 +934,30 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--reset-item", help="volver un ítem a pending y borrar su spec")
     ap.add_argument("--only-item", help="correr sólo este ítem")
+    ap.add_argument("--stop", action="store_true",
+                    help="pedir freno: el loop para al terminar la fase en curso")
+    ap.add_argument("--resume", action="store_true", help="quitar el freno")
     args = ap.parse_args()
+
+    if args.stop:
+        STATE_DIR.mkdir(parents=True, exist_ok=True)
+        STOP_FLAG.write_text(now(), encoding="utf-8")
+        print("freno pedido: el loop para al terminar la fase en curso "
+              "(no se mata ningún agente a mitad de camino)")
+        return 0
+    if args.resume:
+        if STOP_FLAG.is_file():
+            STOP_FLAG.unlink()
+        print("freno quitado")
+        return 0
 
     if args.status:
         return print_status()
+
+    if STOP_FLAG.is_file():
+        print(f"hay un freno puesto ({STOP_FLAG}); sacalo con --resume",
+              file=sys.stderr)
+        return 3
 
     state = load_state()
 
@@ -893,7 +1014,13 @@ def run_all(todo: list[Item], state: dict) -> int:
     log(f"=== arranca el loop; pendientes: {[i.iid for i in todo]} ===")
     set_status(state="running")
     for item in todo:
-        ok = do_item(item, state)
+        try:
+            check_stop()
+            ok = do_item(item, state)
+        except StopRequested:
+            log("=== FRENO pedido: paro acá, con lo hecho guardado en disco ===")
+            set_status(state="stopped", item=item.iid)
+            return 0
         if not ok:
             log(f"=== el loop PARA en [{item.iid}] — hace falta un humano ===")
             set_status(state="blocked", item=item.iid)
