@@ -128,3 +128,29 @@ buscando funciones que no están.
    hay que decidir si entra como feature nueva. No lo asumí.
 
 No elegí ninguna: cambiar el alcance del §3.2 no me corresponde.
+
+#### RESUELTA (2026-07-25, respondida por Elías)
+
+La premisa de la duda era equivocada: **las cuatro funciones existen**. Los nombres
+están en camelCase porque vienen del **SPA del maestro**, que las tiene
+implementadas en JavaScript (`master/data/js/signal_proc.js` las exporta todas:
+`dcRemove:224`, `filtFilt:195`, `harmonicNotch`, `hilbertEnvelope:284`). También
+hay versiones en Python y en MATLAB. O sea: no hay nada que inventar ni ningún
+alcance que cambiar, y `hilbertEnvelope` tampoco es una feature nueva.
+
+Qué hace cada una, ya escrito en el §3.2 del PORT_PLAN (que es lo que leen todas
+las fases del loop, a diferencia de este archivo, que sólo se escribe):
+
+- `dcRemove`: quita la continua.
+- `filtFilt`: pasabanda Butterworth de **fase cero** — no corre los tiempos de
+  arribo, que es justo lo que no se puede romper para el picking.
+- `harmonicNotch`: cancela ruido de línea estimando **por RMS** las senoidales en
+  los armónicos de la frecuencia de línea y restándolas. El maestro es donde está
+  mejor explicado (`app.js:1298`, LS de armónicos sobre la ventana completa).
+- `hilbertEnvelope`: envolvente por transformada de Hilbert.
+
+Más el orden de la cadena, que no estaba escrito en ninguna parte del plan y sí
+importa: **FIR → DC → notch**, con el notch último y sobre la ventana completa.
+
+La instrucción para el loop quedó como "buscá la implementación que te convenga y
+llamala, no la reescribas", sin atarlo a un nombre ni a un archivo.
