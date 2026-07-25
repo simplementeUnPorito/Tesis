@@ -63,7 +63,26 @@ Es el ítem `refactor` del loop (PORT_PLAN §1). Si el loop quedó bloqueado ah�
 esta es la razón por la que nada más avanzó: el loop **para** en el primer ítem
 bloqueado en vez de arrastrar un refactor torcido a los siguientes.
 
-### 5. Cosas que el loop no puede validar y vos sí
+### 5. Cómo leer el log si el loop pasó la noche esperando
+
+La primera corrida se chocó con el límite de sesión a los 4 minutos
+(`api_error_status=429`, *"You've hit your session limit · resets 11:20pm"*), ya
+con el spec del refactor escrito y **$1.71 gastados**. El loop ahora:
+
+- espera hasta la hora que anuncia el mensaje (no un backoff a ciegas), en tramos
+  de 6 h como máximo para poder re-leer el mensaje real al despertar;
+- no cuenta el límite como intento fallido ni escala de modelo por eso;
+- si la fase ya había dejado su entregable antes del corte, la da por hecha en vez
+  de pagarla de nuevo (fue exactamente lo que pasó con ese spec).
+
+Así que en el log es **normal** ver horas de `límite de uso: espero hasta …`
+seguidas de la misma fase retomando. No es un cuelgue.
+
+**Cota real de esta corrida**: el techo no es el plan, es la cuota. El ítem
+`refactor` solo costó $1.71 sólo en escribir su spec con Opus. Si el lunes ves
+pocos ítems hechos, mirá `costo` en `--status` antes de sospechar del loop.
+
+### 6. Cosas que el loop no puede validar y vos sí
 
 El gate verifica HTTP y datos reales, no percepción. Nada de esto está cubierto:
 
