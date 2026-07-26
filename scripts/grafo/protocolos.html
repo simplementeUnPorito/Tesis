@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tesis — Grafo de arquitectura</title>
+<style>
+:root{
+  --bg:#ffffff; --bg2:#f4f5f7; --fg:#16181d; --fg2:#5c6370; --line:#d8dbe0;
+  --psoc:#d9622b; --esclavo:#1f7fc4; --maestro:#5f4fd6; --web:#00937a; --python:#c93f74;
+  --matlabif:#b07800; --calculos:#6b7a8c;
+  --edge:#9aa0aa; --proto:#c0392b; --panel:#ffffffee;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0f1115; --bg2:#171a20; --fg:#e6e8ec; --fg2:#9099a6; --line:#2a2f38;
+    --psoc:#f0894a; --esclavo:#4fb0ec; --maestro:#8f80ff; --web:#2ac9a8; --python:#ef6b9c;
+    --matlabif:#e0b13c; --calculos:#93a2b3;
+    --edge:#4a515c; --proto:#ff6b5a; --panel:#171a20ee;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1115; --bg2:#171a20; --fg:#e6e8ec; --fg2:#9099a6; --line:#2a2f38;
+  --psoc:#f0894a; --esclavo:#4fb0ec; --maestro:#8f80ff; --web:#2ac9a8; --python:#ef6b9c;
+  --matlabif:#e0b13c; --calculos:#93a2b3;
+  --edge:#4a515c; --proto:#ff6b5a; --panel:#171a20ee;
+}
+:root[data-theme="light"]{
+  --bg:#ffffff; --bg2:#f4f5f7; --fg:#16181d; --fg2:#5c6370; --line:#d8dbe0;
+  --psoc:#d9622b; --esclavo:#1f7fc4; --maestro:#5f4fd6; --web:#00937a; --python:#c93f74;
+  --matlabif:#b07800; --calculos:#6b7a8c;
+  --edge:#9aa0aa; --proto:#c0392b; --panel:#ffffffee;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  background:var(--bg); color:var(--fg);
+  font:14px/1.45 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  display:flex; flex-direction:column; overflow:hidden;
+}
+header{
+  padding:10px 16px; border-bottom:1px solid var(--line); background:var(--bg2);
+  display:flex; flex-wrap:wrap; gap:14px; align-items:center;
+}
+h1{font-size:15px;margin:0;font-weight:650;letter-spacing:-.01em}
+.sub{color:var(--fg2);font-size:12px}
+main{flex:1;display:flex;min-height:0}
+#stage{flex:1;position:relative;min-width:0}
+svg{width:100%;height:100%;display:block;cursor:grab}
+svg.drag{cursor:grabbing}
+aside{
+  width:330px;border-left:1px solid var(--line);background:var(--bg2);
+  padding:14px;overflow-y:auto;flex-shrink:0;
+}
+@media (max-width:860px){ aside{display:none} }
+.ctl{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+button,input[type=search]{
+  font:inherit;font-size:12px;color:var(--fg);background:var(--bg);
+  border:1px solid var(--line);border-radius:6px;padding:4px 9px;cursor:pointer;
+}
+input[type=search]{cursor:text;min-width:140px}
+button:hover{border-color:var(--fg2)}
+button.off{opacity:.38}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:5px;vertical-align:-1px}
+h2{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg2);margin:0 0 8px;font-weight:600}
+aside section{margin-bottom:20px}
+.big{font-size:19px;font-weight:650;letter-spacing:-.02em}
+table{width:100%;border-collapse:collapse;font-size:12px}
+td{padding:2px 0;vertical-align:top}
+td.n{text-align:right;color:var(--fg2);font-variant-numeric:tabular-nums;padding-left:8px;white-space:nowrap}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
+.note{font-size:11.5px;color:var(--fg2);line-height:1.5;margin:0 0 8px}
+.legend{font-size:11.5px;color:var(--fg2);display:flex;flex-direction:column;gap:5px}
+.legend i{display:inline-block;width:26px;height:0;border-top:2px solid var(--edge);vertical-align:3px;margin-right:7px}
+.legend i.p{border-top:2px dashed var(--proto);}
+.node circle{cursor:pointer;stroke-width:1.5}
+.node text{font-size:9.5px;fill:var(--fg);pointer-events:none;paint-order:stroke;stroke:var(--bg);stroke-width:3px;stroke-linejoin:round}
+.dim{opacity:.07}
+.edge{fill:none;stroke:var(--edge)}
+.edge.hot{stroke:var(--fg);opacity:.95}
+.pedge{fill:none;stroke:var(--proto);stroke-dasharray:7 5;stroke-width:2.2;opacity:.85}
+.pedge.hot{stroke-width:3.4;opacity:1}
+.plabel{font-size:9px;fill:var(--proto);text-anchor:middle;pointer-events:none;
+  paint-order:stroke;stroke:var(--bg);stroke-width:3.5px;stroke-linejoin:round;font-weight:600}
+#tip{
+  position:absolute;pointer-events:none;background:var(--panel);border:1px solid var(--line);
+  border-radius:8px;padding:7px 10px;font-size:12px;max-width:290px;opacity:0;
+  transition:opacity .1s;backdrop-filter:blur(6px);
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Tesis — grafo de arquitectura</h1>
+    <div class="sub">rama <code>cambios-red</code> · 111 archivos propios · llamadas medidas + protocolos de cable</div>
+  </div>
+  <div class="ctl" style="margin-left:auto">
+    <input type="search" id="q" placeholder="buscar archivo…" autocomplete="off">
+    <button id="tProto">protocolos</button>
+    <button id="theme">◐</button>
+    <button id="reheat">reordenar</button>
+  </div>
+</header>
+
+<main>
+  <div id="stage">
+    <svg id="svg">
+      <defs>
+        <marker id="ar" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M0,1 L7,4 L0,7 z" fill="var(--edge)"></path>
+        </marker>
+      </defs>
+      <g id="view">
+        <g id="edges"></g><g id="pedges"></g><g id="plabels"></g><g id="nodes"></g>
+      </g>
+    </svg>
+    <div id="tip"></div>
+  </div>
+
+  <aside>
+    <section>
+      <h2>Sectores</h2>
+      <div class="ctl" id="filters"></div>
+    </section>
+
+    <section>
+      <h2>Tipos de arista</h2>
+      <div class="legend">
+        <div><i></i><b>Llamada</b> — medida en el grafo (CALLS)</div>
+        <div><i class="p"></i><b>Protocolo</b> — enlace de cable entre binarios</div>
+      </div>
+    </section>
+
+    <section id="detail">
+      <h2>Detalle</h2>
+      <p class="note">Pasá el mouse o hacé clic en un nodo. Arrastrá para reacomodar; rueda para zoom.</p>
+    </section>
+
+    <section>
+      <h2>Las dos capas</h2>
+      <p class="note">
+        <b>Llamadas (sólidas):</b> extraídas del índice. Sólo existen <i>dentro</i> de cada binario — un <code>.c</code> del PSoC no puede llamar a un <code>.js</code> del navegador.
+      </p>
+      <p class="note">
+        <b>Protocolos (punteadas):</b> los enlaces PSoC↔ESP↔web que ningún grafo de llamadas puede ver, porque cruzan procesos y medios físicos. Derivados leyendo el código, no inferidos:
+      </p>
+      <table>
+        <tr><td>UART + SYNC</td><td class="n"><code>psoc_uart.cpp</code></td></tr>
+        <tr><td>ESP-NOW</td><td class="n"><code>espnow_transport.h</code></td></tr>
+        <tr><td>WebSocket <code>/ws</code></td><td class="n"><code>web_relay.h</code></td></tr>
+        <tr><td>HTTP <code>/enlace/*</code></td><td class="n"><code>web_server.h</code></td></tr>
+        <tr><td>Transporte MATLAB</td><td class="n"><code>matlab_transport.h</code></td></tr>
+      </table>
+      <p class="note" style="margin-top:8px">
+        <code>sync_protocol.h</code> existe <b>idéntico en los dos firmwares</b> (maestro y esclavo): es el contrato de sincronización versionado por duplicado, no compartido por include.
+      </p>
+    </section>
+
+    <section>
+      <h2>Lectura del grafo</h2>
+      <p class="note">
+        Tamaño del nodo = llamadas internas del archivo. Grosor de arista = llamadas medidas entre archivos.
+      </p>
+      <p class="note">
+        <b>Núcleo oculto:</b> <code>geophone_scope/field_review_data.py</code> — 11 módulos del servidor HTTP dependen de él (alignment 24, averages 16, filters 12, grouping 6, captures 5, overlays 5, signal_view 5, catalog 3, picks 3, dataset 3, datacache 1). El servidor web depende de un módulo que vive del lado del scope PyQt.
+      </p>
+      <p class="note">
+        <b><code>calculos_modelados</code> es un archipiélago:</b> 21 scripts, casi ningún vínculo entre ellos y ninguno con el resto del repo (fan-in 0, fan-out 0). Se comunican por archivos en <code>data/</code>, no por código. Las únicas dos aristas internas son <code>analizar_sweeps → cancelar_armonicos</code> y <code>Subsystem.c → rt_nonfinite.c</code> (código generado por Simulink).
+      </p>
+      <p class="note">
+        <b>MATLAB de interfaz</b> (<code>src/interfaces/matlab</code>) son dos copias del mismo <code>marcar_secuencia.m</code>, una por banco de pruebas.
+      </p>
+    </section>
+
+    <section>
+      <h2>Qué quedó afuera</h2>
+      <p class="note">
+        <b>Generated_Source/PSoC5</b>: código de PSoC Creator. Domina el grafo crudo (<code>main.c</code> le hace 40 llamadas a <code>CyBootAsmGnu.s</code>, 20 a cada <code>Timer_*.c</code>) pero no es diseño propio.
+      </p>
+      <p class="note">
+        <b>Falsos positivos entre lenguajes:</b> el resolvedor cruza símbolos homónimos (<code>main</code>, <code>setup</code>) y genera aristas imposibles — <code>calibration.c → fix_dispersion_layer.py</code>, <code>slave/main.cpp → masw_adsurf.py</code>, <code>masw_analysis.py → enlace.js</code>. Descartadas.
+      </p>
+    </section>
+
+    <section>
+      <h2>Métricas del índice</h2>
+      <table>
+        <tr><td>Nodos / aristas</td><td class="n">280.036 / 321.832</td></tr>
+        <tr><td>C · Python · JS · C++</td><td class="n">800 · 79 · 12 · 5</td></tr>
+        <tr><td>Funciones / métodos</td><td class="n">5.841 / 856</td></tr>
+        <tr><td>Rutas HTTP (Python)</td><td class="n">42</td></tr>
+        <tr><td>Endpoints (maestro)</td><td class="n">13 + portal</td></tr>
+        <tr><td>Aristas CALLS</td><td class="n">9.986</td></tr>
+      </table>
+    </section>
+  </aside>
+</main>
+
+<script>
+const SECTORS = {
+  psoc:     {label:'PSoC 5LP (C)',        color:'var(--psoc)'},
+  esclavo:  {label:'ESP32 esclavo (C++)', color:'var(--esclavo)'},
+  maestro:  {label:'ESP32 maestro (C++)', color:'var(--maestro)'},
+  web:      {label:'UI web (JS)',         color:'var(--web)'},
+  python:   {label:'Python (PyQt + API)', color:'var(--python)'},
+  matlabif: {label:'MATLAB interfaz',     color:'var(--matlabif)'},
+  calculos: {label:'Cálculos y modelado', color:'var(--calculos)'},
+};
+
+// [id, etiqueta, sector, llamadas internas medidas, ruta]
+const N = [
+  // ---- PSoC ----
+  ['psoc/main.c','main.c','psoc',262,'…cydsn/main.c'],
+  ['psoc/calibration.c','calibration.c','psoc',114,'…cydsn/calibration.c'],
+  ['psoc/psoc_hw.c','psoc_hw.c','psoc',28,'…cydsn/psoc_hw.c'],
+  ['psoc/psoc_adc.c','psoc_adc.c','psoc',2,'…cydsn/psoc_adc.c'],
+  ['psoc/psoc_nv.c','psoc_nv.c','psoc',5,'…cydsn/psoc_nv.c'],
+  ['psoc/psoc_debug.c','psoc_debug.c','psoc',3,'…cydsn/psoc_debug.c'],
+  ['psoc/crc.c','crc.c','psoc',0,'…cydsn/crc.c'],
+  ['psoc/filter_coeffs.c','filter_coeffs.c','psoc',0,'…cydsn/filter_coeffs.c'],
+  ['psoc/calibration_tables.h','calibration_tables.h','psoc',0,'…cydsn/calibration_tables.h'],
+  ['psoc/ff.c','fatfs/ff.c','psoc',312,'…cydsn/fatfs/ff.c'],
+  ['psoc/fatfs_diskio.c','fatfs_diskio.c','psoc',3,'…cydsn/fatfs/fatfs_diskio.c'],
+  ['psoc/ffunicode.c','ffunicode.c','psoc',0,'…cydsn/fatfs/ffunicode.c'],
+  // ---- ESP32 esclavo ----
+  ['sl/main.cpp','slave/main.cpp','esclavo',189,'…/slave/src/main.cpp'],
+  ['sl/psoc_uart.cpp','psoc_uart.cpp','esclavo',0,'…/slave/src/psoc_uart.cpp'],
+  ['sl/espnow_transport.h','espnow_transport.h','esclavo',0,'…/slave/src/espnow_transport.h'],
+  ['sl/sync_protocol.h','sync_protocol.h','esclavo',0,'…/slave/src/sync_protocol.h'],
+  ['sl/sd_storage.cpp','sd_storage.cpp','esclavo',0,'…/slave/src/sd_storage.cpp'],
+  ['sl/scope_pulse.h','scope_pulse.h','esclavo',2,'…/slave/src/scope_pulse.h'],
+  ['sl/espnow_compat.h','espnow_compat.h','esclavo',1,'…/slave/src/espnow_compat.h'],
+  ['sl/debug_log.h','debug_log.h','esclavo',0,'…/slave/src/debug_log.h'],
+  ['sl/sd_max_test','sd_max_regression_test.py','esclavo',12,'…/slave/sd_max_regression_test.py'],
+  ['sl/usb_test','usb_regression_test.py','esclavo',10,'…/slave/usb_regression_test.py'],
+  ['sl/reset_test','psoc_reset_recovery_test.py','esclavo',6,'…/slave/psoc_reset_recovery_test.py'],
+  ['sl/adc_decim_test','adc_decim_transitions_test.py','esclavo',5,'…/slave/adc_decim_transitions_test.py'],
+  // ---- ESP32 maestro ----
+  ['ma/main.cpp','master/main.cpp','maestro',106,'…/master/src/main.cpp'],
+  ['ma/link_mode.h','link_mode.h','maestro',25,'…/master/src/link_mode.h'],
+  ['ma/web_relay.h','web_relay.h','maestro',23,'…/master/src/web_relay.h'],
+  ['ma/web_server.h','web_server.h','maestro',2,'…/master/src/web_server.h'],
+  ['ma/espnow_rx.h','espnow_rx.h','maestro',0,'…/master/src/espnow_rx.h'],
+  ['ma/sync_protocol.h','sync_protocol.h','maestro',0,'…/master/src/sync_protocol.h'],
+  ['ma/matlab_transport.h','matlab_transport.h','maestro',0,'…/master/src/matlab_transport.h'],
+  ['ma/scope_pulse.h','scope_pulse.h','maestro',2,'…/master/src/scope_pulse.h'],
+  ['ma/link_rssi.h','link_rssi.h','maestro',2,'…/master/src/link_rssi.h'],
+  ['ma/ws_fault','ws_fault_test.py','maestro',29,'…/master/ws_fault_test.py'],
+  ['ma/ws_capture','ws_capture_test.py','maestro',18,'…/master/ws_capture_test.py'],
+  ['ma/ws_cmd','ws_cmd_test.py','maestro',8,'…/master/ws_cmd_test.py'],
+  ['ma/ws_probe','ws_probe.py','maestro',3,'…/master/ws_probe.py'],
+  ['ma/ws_fast_probe','ws_fast_probe.py','maestro',2,'…/master/ws_fast_probe.py'],
+  ['ma/sniffer','usb_packet_sniffer.py','maestro',6,'…/master/usb_packet_sniffer.py'],
+  ['ma/reconnect','reconnect_geonetwork.py','maestro',4,'…/master/reconnect_geonetwork.py'],
+  ['ma/start_flow','start_flow_regression_test.py','maestro',4,'…/master/start_flow_regression_test.py'],
+  ['ma/sim_hammer','simulate_hammer_dummy.py','maestro',0,'…/Nodo comunicación/simulate_hammer_dummy.py'],
+  // ---- UI web ----
+  ['w/app.js','app.js','web',461,'…/master/data/js/app.js'],
+  ['w/export.js','export.js','web',87,'…/master/data/js/export.js'],
+  ['w/signal_proc.js','signal_proc.js','web',24,'…/master/data/js/signal_proc.js'],
+  ['w/enlace.js','enlace.js','web',17,'…/master/data/js/enlace.js'],
+  ['w/spectrum.js','spectrum.js','web',11,'…/master/data/js/spectrum.js'],
+  ['w/ws_client.js','ws_client.js','web',0,'…/master/data/js/ws_client.js'],
+  ['w/config.js','config.js','web',0,'…/master/data/js/config.js'],
+  ['w/zip_store.js','zip_store.js','web',5,'…/master/data/js/zip_store.js'],
+  ['w/slave_panel.js','slave_panel.js','web',3,'…/master/data/js/slave_panel.js'],
+  ['w/protocol.js','protocol.js','web',3,'…/master/data/js/protocol.js'],
+  ['w/plot.js','plot.js','web',2,'…/master/data/js/plot.js'],
+  ['w/data_store.js','data_store.js','web',0,'…/master/data/js/data_store.js'],
+  // ---- Python: geophone_scope ----
+  ['p/field_review_data','field_review_data.py','python',110,'…/geophone_scope/field_review_data.py'],
+  ['p/review_field_data','review_field_data.py','python',2,'…/geophone_scope/review_field_data.py'],
+  ['p/masw_backends','masw_backends.py','python',18,'…/geophone_scope/masw_backends.py'],
+  ['p/masw_inversion','masw_inversion.py','python',5,'…/geophone_scope/masw_inversion.py'],
+  ['p/masw_adsurf','masw_adsurf.py','python',3,'…/geophone_scope/masw_adsurf.py'],
+  ['p/masw_multimodal','masw_multimodal.py','python',2,'…/geophone_scope/masw_multimodal.py'],
+  ['p/masw_dispersion','masw_dispersion.py','python',1,'…/geophone_scope/masw_dispersion.py'],
+  ['p/masw_demo','masw_demo.py','python',2,'…/geophone_scope/masw_demo.py'],
+  ['p/signal_proc','signal_proc.py','python',13,'…/geophone_scope/signal_proc.py'],
+  ['p/zip_to_mat','zip_to_mat.py','python',6,'…/geophone_scope/zip_to_mat.py'],
+  ['p/protocol','protocol.py','python',1,'…/geophone_scope/protocol.py'],
+  ['p/gs_main','main.py','python',1,'…/geophone_scope/main.py'],
+  ['p/field_review_app','field_review_app.py','python',1,'…/geophone_scope/field_review_app.py'],
+  ['p/geoq','sink/geoq.py','python',1,'…/python/sink/geoq.py'],
+  // ---- Python: server ----
+  ['s/campaigns','campaigns.py','python',18,'…/python/server/campaigns.py'],
+  ['s/smoke_test','smoke_test.py','python',21,'…/python/server/smoke_test.py'],
+  ['s/alignment','alignment.py','python',10,'…/python/server/alignment.py'],
+  ['s/signal_view','signal_view.py','python',9,'…/python/server/signal_view.py'],
+  ['s/captures','captures.py','python',6,'…/python/server/captures.py'],
+  ['s/filters','filters.py','python',6,'…/python/server/filters.py'],
+  ['s/catalog','catalog.py','python',5,'…/python/server/catalog.py'],
+  ['s/averages','averages.py','python',3,'…/python/server/averages.py'],
+  ['s/grouping','grouping.py','python',3,'…/python/server/grouping.py'],
+  ['s/overlays','overlays.py','python',3,'…/python/server/overlays.py'],
+  ['s/picks','picks.py','python',0,'…/python/server/picks.py'],
+  ['s/datacache','datacache.py','python',1,'…/python/server/datacache.py'],
+  ['s/pipeline','pipeline.py','python',0,'…/python/server/pipeline.py'],
+  ['s/api','api.py','python',1,'…/python/server/api.py'],
+  ['s/app','app.py','python',0,'…/python/server/app.py'],
+  ['r/dataset','routers/dataset.py','python',4,'…/server/routers/dataset.py'],
+  ['r/picks','routers/picks.py','python',3,'…/server/routers/picks.py'],
+  ['r/filters','routers/filters.py','python',3,'…/server/routers/filters.py'],
+  ['r/alignment','routers/alignment.py','python',2,'…/server/routers/alignment.py'],
+  ['r/grouping','routers/grouping.py','python',2,'…/server/routers/grouping.py'],
+  ['r/averages','routers/averages.py','python',2,'…/server/routers/averages.py'],
+  ['r/ingest','routers/ingest.py','python',0,'…/server/routers/ingest.py'],
+  // ---- MATLAB de interfaz ----
+  ['mi/esp','InterfazESP/marcar_secuencia.m','matlabif',2,'src/interfaces/matlab/InterfazESP/marcar_secuencia.m'],
+  ['mi/circ','InterfazCircuito/marcar_secuencia.m','matlabif',2,'src/interfaces/matlab/InterfazCircuitoAnalogicoSimple/marcar_secuencia.m'],
+  ['mi/init','init_project.m','matlabif',0,'src/interfaces/matlab/init_project.m'],
+  // ---- Cálculos y modelado (MATLAB) ----
+  ['c/sweeps','analizar_sweeps_circuito.m','calculos',98,'…/matlab/AnalisisCircuito/analizar_sweeps_circuito.m'],
+  ['c/barridos','analizar_barridos_cadena_analogica.m','calculos',32,'…/matlab/CalculosRapidos/analizar_barridos_cadena_analogica.m'],
+  ['c/sidebyside','graficar_geo_adc_sidebyside.m','calculos',7,'…/matlab/AnalisisCircuito/graficar_geo_adc_sidebyside.m'],
+  ['c/geovsadc','graficar_geofono_vs_geo_adc.m','calculos',7,'…/matlab/AnalisisCircuito/graficar_geofono_vs_geo_adc.m'],
+  ['c/vericalib','verificar_calibracion_potenciometro.m','calculos',5,'…/matlab/AnalisisCircuito/verificar_calibracion_potenciometro.m'],
+  ['c/armonicos','cancelar_armonicos_linea_ls.m','calculos',2,'…/matlab/AnalisisCircuito/cancelar_armonicos_linea_ls.m'],
+  ['c/removeline','removeLineNoise_SpectrumEstimation.m','calculos',0,'…/matlab/CalculosRapidos/removeLineNoise_SpectrumEstimation.m'],
+  ['c/subsystem','Subsystem.c (Simulink)','calculos',5,'…/matlab/Simulaciones Controladores/Desacople/Subsystem_grt_rtw/Subsystem.c'],
+  ['c/rtnonfinite','rt_nonfinite.c','calculos',0,'…/Subsystem_grt_rtw/rt_nonfinite.c'],
+  // ---- Cálculos y modelado (Python) ----
+  ['c/compOptimo','calculoCompensadorOptimo.py','calculos',33,'…/python/Calculos rapidos/calculoCompensadorOptimo.py'],
+  ['c/compSimplon','CalculoCompensadorSimplon.py','calculos',25,'…/python/Calculos rapidos/CalculoCompensadorSimplon.py'],
+  ['c/comp','calculoCompensador.py','calculos',20,'…/python/Calculos rapidos/calculoCompensador.py'],
+  ['c/compSimple','calculoCompensadorSimple.py','calculos',15,'…/python/Calculos rapidos/calculoCompensadorSimple.py'],
+  ['c/compGPU','calculoCompensadorGPU.py','calculos',11,'…/python/Calculos rapidos/calculoCompensadorGPU.py'],
+  ['c/compFull','calculoCompensadorFull.py','calculos',6,'…/python/Calculos rapidos/calculoCompensadorFull.py'],
+  ['c/mfb','calculoMFB_LPF.py','calculos',5,'…/python/Calculos rapidos/calculoMFB_LPF.py'],
+  ['c/graficarcsv','graficar_compensador_csv.py','calculos',7,'…/python/Calculos rapidos/graficar_compensador_csv.py'],
+  ['c/masw_analysis','masw_analysis.py','calculos',9,'…/calculos_modelados/python/masw_analysis.py'],
+  ['c/fixdisp','fix_dispersion_layer.py','calculos',6,'…/python/Ordenar Obsidian/fix_dispersion_layer.py'],
+  ['c/fillwave','fill_wave_foundations.py','calculos',2,'…/python/Ordenar Obsidian/fill_wave_foundations.py'],
+  ['c/reorder','reorder_concepts.py','calculos',0,'…/python/Ordenar Obsidian/reorder_concepts.py'],
+];
+
+// llamadas medidas: [origen, destino, cantidad]
+const L = [
+  ['psoc/main.c','psoc/psoc_adc.c',23],['psoc/main.c','psoc/ff.c',23],
+  ['psoc/main.c','psoc/calibration.c',17],['psoc/main.c','psoc/psoc_hw.c',12],
+  ['psoc/main.c','psoc/psoc_debug.c',4],['psoc/main.c','psoc/filter_coeffs.c',3],
+  ['psoc/main.c','psoc/psoc_nv.c',2],
+  ['psoc/calibration.c','psoc/main.c',9],['psoc/calibration.c','psoc/psoc_adc.c',8],
+  ['psoc/calibration.c','psoc/filter_coeffs.c',3],['psoc/calibration.c','psoc/psoc_hw.c',1],
+  ['psoc/psoc_nv.c','psoc/psoc_hw.c',2],['psoc/psoc_nv.c','psoc/crc.c',2],
+  ['psoc/ff.c','psoc/fatfs_diskio.c',17],['psoc/ff.c','psoc/ffunicode.c',9],
+  ['psoc/fatfs_diskio.c','psoc/psoc_hw.c',6],
+  ['sl/main.cpp','sl/scope_pulse.h',4],['sl/main.cpp','sl/espnow_compat.h',1],
+  ['sl/main.cpp','sl/debug_log.h',1],['sl/adc_decim_test','sl/usb_test',1],
+  ['ma/main.cpp','ma/link_mode.h',10],['ma/main.cpp','ma/scope_pulse.h',7],
+  ['ma/main.cpp','ma/web_relay.h',7],['ma/main.cpp','ma/link_rssi.h',2],
+  ['ma/main.cpp','ma/web_server.h',1],
+  ['ma/web_server.h','ma/link_mode.h',11],['ma/web_server.h','ma/web_relay.h',3],
+  ['ma/link_rssi.h','ma/web_relay.h',1],['ma/ws_fault','ma/ws_capture',7],
+  ['ma/reconnect','ma/sniffer',1],['ma/sim_hammer','ma/sniffer',1],
+  ['w/app.js','w/signal_proc.js',8],['w/app.js','w/protocol.js',3],
+  ['w/app.js','w/export.js',2],['w/app.js','w/data_store.js',1],['w/app.js','w/enlace.js',1],
+  ['w/export.js','w/data_store.js',1],['w/export.js','w/zip_store.js',1],
+  ['w/plot.js','w/signal_proc.js',1],
+  ['s/alignment','p/field_review_data',24],['s/averages','p/field_review_data',16],
+  ['s/filters','p/field_review_data',12],['s/grouping','p/field_review_data',6],
+  ['s/captures','p/field_review_data',5],['s/overlays','p/field_review_data',5],
+  ['s/signal_view','p/field_review_data',5],['s/catalog','p/field_review_data',3],
+  ['s/picks','p/field_review_data',3],['r/dataset','p/field_review_data',3],
+  ['s/datacache','p/field_review_data',1],['p/review_field_data','p/field_review_data',17],
+  ['r/dataset','s/campaigns',6],['s/captures','s/campaigns',9],
+  ['r/picks','s/campaigns',2],['r/grouping','s/campaigns',2],
+  ['r/alignment','s/campaigns',2],['r/filters','s/campaigns',2],
+  ['r/averages','s/campaigns',2],['r/alignment','s/alignment',2],
+  ['s/signal_view','s/catalog',1],['s/pipeline','s/datacache',1],['s/pipeline','s/captures',1],
+  ['s/smoke_test','p/review_field_data',1],['s/app','p/review_field_data',1],
+  ['p/masw_backends','p/masw_multimodal',5],['p/masw_backends','p/masw_adsurf',3],
+  ['p/masw_backends','p/masw_inversion',1],
+  ['p/masw_demo','p/review_field_data',1],['p/zip_to_mat','p/review_field_data',1],
+  ['p/gs_main','p/review_field_data',1],['p/signal_proc','p/geoq',1],
+  // cálculos: las únicas dos aristas internas que existen
+  ['c/sweeps','c/armonicos',1],['c/subsystem','c/rtnonfinite',1],
+];
+
+// protocolos de cable: [a, b, etiqueta, detalle]
+const P = [
+  ['psoc/main.c','sl/psoc_uart.cpp','UART + SYNC','Comandos de configuración y captura sobre UART, más la línea SYNC de disparo. El PSoC atiende el stream en main.c; el esclavo lo emite desde psoc_uart.cpp.'],
+  ['sl/espnow_transport.h','ma/espnow_rx.h','ESP-NOW','Enlace de radio entre nodos. El esclavo transmite paquetes de muestras; el maestro los recibe en espnow_rx.h.'],
+  ['sl/sync_protocol.h','ma/sync_protocol.h','contrato duplicado','El mismo header existe en los dos firmwares. Define el protocolo de sincronización, versionado por copia — si cambia uno hay que cambiar el otro a mano.'],
+  ['ma/web_relay.h','w/ws_client.js','WebSocket /ws','El maestro publica el stream en tiempo real; ws_client.js se conecta desde el navegador.'],
+  ['ma/web_server.h','w/enlace.js','HTTP /enlace/*','scan · status · queue · file · ack · now · done · config. enlace.js hace fetch contra estos endpoints.'],
+  ['ma/web_server.h','w/app.js','HTTP / + /health','El maestro sirve la SPA y responde el health-check.'],
+  ['ma/web_relay.h','ma/ws_capture','WebSocket /ws','Los ws_*.py se conectan al mismo relay que el navegador, para pruebas de captura y de falla.'],
+  ['ma/matlab_transport.h','mi/esp','transporte MATLAB','El maestro expone un canal para los scripts de MATLAB del banco de pruebas.'],
+];
+
+/* ---------- modelo ---------- */
+const nodes = N.map(([id,label,sector,self,path])=>({id,label,sector,self,path,x:0,y:0,vx:0,vy:0}));
+const byId = new Map(nodes.map(n=>[n.id,n]));
+const links = L.map(([s,t,n])=>({s:byId.get(s),t:byId.get(t),n})).filter(l=>l.s&&l.t);
+const protos = P.map(([s,t,label,info])=>({s:byId.get(s),t:byId.get(t),label,info})).filter(l=>l.s&&l.t);
+nodes.forEach(n=>{n.in=0;n.out=0;n.proto=[]});
+links.forEach(l=>{l.t.in+=l.n; l.s.out+=l.n;});
+protos.forEach(p=>{p.s.proto.push(p); p.t.proto.push(p);});
+
+const R = n => 4.5 + Math.sqrt(n.self)*1.15 + Math.sqrt(n.in)*0.5;
+
+const secList = Object.keys(SECTORS);
+nodes.forEach(n=>{
+  const si = secList.indexOf(n.sector);
+  const a = (si/secList.length)*Math.PI*2;
+  const r = 260 + Math.random()*100;
+  n.x = Math.cos(a)*r + (Math.random()-.5)*80;
+  n.y = Math.sin(a)*r + (Math.random()-.5)*80;
+});
+
+/* ---------- render ---------- */
+const svg=document.getElementById('svg'), view=document.getElementById('view');
+const gE=document.getElementById('edges'), gP=document.getElementById('pedges');
+const gPL=document.getElementById('plabels'), gN=document.getElementById('nodes');
+const tip=document.getElementById('tip'), stage=document.getElementById('stage');
+const NS='http://www.w3.org/2000/svg';
+
+const edgeEls = links.map(l=>{
+  const e=document.createElementNS(NS,'line');
+  e.setAttribute('class','edge');
+  e.setAttribute('stroke-width', Math.min(4,.6+Math.log2(l.n+1)*.7));
+  e.setAttribute('stroke-opacity',.45);
+  e.setAttribute('marker-end','url(#ar)');
+  gE.appendChild(e); return e;
+});
+const protoEls = protos.map(p=>{
+  const e=document.createElementNS(NS,'line');
+  e.setAttribute('class','pedge');
+  gP.appendChild(e);
+  const t=document.createElementNS(NS,'text');
+  t.setAttribute('class','plabel'); t.textContent=p.label;
+  gPL.appendChild(t);
+  e.addEventListener('pointerenter',()=>protoTip(p,e));
+  e.addEventListener('pointerleave',()=>{tip.style.opacity=0});
+  p.labelEl=t; return e;
+});
+
+nodes.forEach(n=>{
+  const g=document.createElementNS(NS,'g'); g.setAttribute('class','node');
+  const c=document.createElementNS(NS,'circle');
+  c.setAttribute('r',R(n));
+  c.setAttribute('fill',SECTORS[n.sector].color);
+  c.setAttribute('fill-opacity',.82);
+  c.setAttribute('stroke',SECTORS[n.sector].color);
+  if(n.proto.length){ c.setAttribute('stroke','var(--proto)'); c.setAttribute('stroke-width',2.2); }
+  const t=document.createElementNS(NS,'text');
+  t.setAttribute('text-anchor','middle'); t.setAttribute('dy',-R(n)-4);
+  t.textContent=n.label;
+  g.append(c,t); gN.appendChild(g);
+  n.el=g;
+  g.addEventListener('pointerenter',()=>hover(n));
+  g.addEventListener('pointerleave',()=>{tip.style.opacity=0; if(!pinned) unhighlight();});
+  g.addEventListener('pointerdown',e=>startDrag(e,n));
+  g.addEventListener('click',e=>{e.stopPropagation(); pinned=pinned===n?null:n; if(pinned){hover(n);detail(n);} else unhighlight();});
+});
+
+/* ---------- simulación ---------- */
+let alpha=1, showProto=true;
+function tick(){
+  const sec={}; secList.forEach(s=>sec[s]={x:0,y:0,n:0});
+  nodes.forEach(n=>{const s=sec[n.sector]; s.x+=n.x; s.y+=n.y; s.n++;});
+  secList.forEach(s=>{ if(sec[s].n){ sec[s].x/=sec[s].n; sec[s].y/=sec[s].n; } });
+
+  for(let i=0;i<nodes.length;i++){
+    const a=nodes[i];
+    for(let j=i+1;j<nodes.length;j++){
+      const b=nodes[j];
+      let dx=b.x-a.x, dy=b.y-a.y, d2=dx*dx+dy*dy;
+      if(d2<1) d2=1;
+      const d=Math.sqrt(d2);
+      const rep=(a.sector===b.sector?1300:2800)/d2;
+      const fx=dx/d*rep, fy=dy/d*rep;
+      a.vx-=fx; a.vy-=fy; b.vx+=fx; b.vy+=fy;
+    }
+  }
+  links.forEach(l=>{
+    const dx=l.t.x-l.s.x, dy=l.t.y-l.s.y, d=Math.max(1,Math.hypot(dx,dy));
+    const rest=60+R(l.s)+R(l.t);
+    const k=0.012*Math.min(3,.6+Math.log2(l.n+1)*.5);
+    const f=(d-rest)*k, fx=dx/d*f, fy=dy/d*f;
+    l.s.vx+=fx; l.s.vy+=fy; l.t.vx-=fx; l.t.vy-=fy;
+  });
+  // los protocolos también tiran: acercan los sectores que conversan
+  protos.forEach(p=>{
+    const dx=p.t.x-p.s.x, dy=p.t.y-p.s.y, d=Math.max(1,Math.hypot(dx,dy));
+    const f=(d-190)*0.010, fx=dx/d*f, fy=dy/d*f;
+    p.s.vx+=fx; p.s.vy+=fy; p.t.vx-=fx; p.t.vy-=fy;
+  });
+  nodes.forEach(n=>{
+    const s=sec[n.sector];
+    n.vx+=(s.x-n.x)*0.02; n.vy+=(s.y-n.y)*0.02;
+    n.vx+=-n.x*0.0015;    n.vy+=-n.y*0.0015;
+    if(n.fixed){ n.vx=0; n.vy=0; return; }
+    n.vx*=0.82; n.vy*=0.82;
+    n.x+=n.vx*alpha; n.y+=n.vy*alpha;
+  });
+  alpha=Math.max(0.06,alpha*0.997);
+  draw();
+  requestAnimationFrame(tick);
+}
+function draw(){
+  links.forEach((l,i)=>{
+    const e=edgeEls[i], dx=l.t.x-l.s.x, dy=l.t.y-l.s.y;
+    const d=Math.max(1,Math.hypot(dx,dy)), off=R(l.t)+5;
+    e.setAttribute('x1',l.s.x); e.setAttribute('y1',l.s.y);
+    e.setAttribute('x2',l.t.x-dx/d*off); e.setAttribute('y2',l.t.y-dy/d*off);
+  });
+  protos.forEach((p,i)=>{
+    const e=protoEls[i];
+    e.setAttribute('x1',p.s.x); e.setAttribute('y1',p.s.y);
+    e.setAttribute('x2',p.t.x); e.setAttribute('y2',p.t.y);
+    p.labelEl.setAttribute('x',(p.s.x+p.t.x)/2);
+    p.labelEl.setAttribute('y',(p.s.y+p.t.y)/2-4);
+  });
+  nodes.forEach(n=> n.el.setAttribute('transform',`translate(${n.x},${n.y})`));
+}
+
+/* ---------- interacción ---------- */
+let pinned=null;
+function neighbours(n){
+  const s=new Set([n]);
+  links.forEach(l=>{ if(l.s===n) s.add(l.t); if(l.t===n) s.add(l.s); });
+  protos.forEach(p=>{ if(p.s===n) s.add(p.t); if(p.t===n) s.add(p.s); });
+  return s;
+}
+function hover(n){
+  const keep=neighbours(n);
+  nodes.forEach(m=> m.el.classList.toggle('dim', !keep.has(m)));
+  links.forEach((l,i)=>{
+    const on=l.s===n||l.t===n;
+    edgeEls[i].classList.toggle('hot',on); edgeEls[i].classList.toggle('dim',!on);
+  });
+  protos.forEach((p,i)=>{
+    const on=p.s===n||p.t===n;
+    protoEls[i].classList.toggle('hot',on); protoEls[i].classList.toggle('dim',!on);
+  });
+  const pl = n.proto.length? `<br><span style="color:var(--proto)">◇ ${n.proto.map(p=>p.label).join(' · ')}</span>`:'';
+  tip.innerHTML=`<b>${n.label}</b><br><span style="color:var(--fg2)"><code>${n.path}</code></span>`
+    + `<br>${n.self} internas · ${n.in} entrantes · ${n.out} salientes${pl}`;
+  place(n.el);
+  if(!pinned) detail(n);
+}
+function protoTip(p,el){
+  tip.innerHTML=`<b style="color:var(--proto)">${p.label}</b><br>`
+    + `<span style="color:var(--fg2)">${p.s.label} ↔ ${p.t.label}</span><br>${p.info}`;
+  place(el);
+}
+function place(el){
+  const r=stage.getBoundingClientRect(), p=el.getBoundingClientRect();
+  tip.style.left=Math.min(r.width-300,Math.max(4,p.left-r.left+16))+'px';
+  tip.style.top=Math.max(4,p.top-r.top-10)+'px';
+  tip.style.opacity=1;
+}
+function unhighlight(){
+  nodes.forEach(m=>m.el.classList.remove('dim'));
+  edgeEls.forEach(e=>e.classList.remove('hot','dim'));
+  protoEls.forEach(e=>e.classList.remove('hot','dim'));
+}
+function detail(n){
+  const out=links.filter(l=>l.s===n).sort((a,b)=>b.n-a.n);
+  const inc=links.filter(l=>l.t===n).sort((a,b)=>b.n-a.n);
+  const row=(l,k)=>`<tr><td>${k==='o'?l.t.label:l.s.label}</td><td class="n">${l.n}</td></tr>`;
+  const pr=n.proto.map(p=>`<tr><td>${p.s===n?p.t.label:p.s.label}</td><td class="n" style="color:var(--proto)">${p.label}</td></tr>`).join('');
+  document.getElementById('detail').innerHTML=`<h2>Detalle</h2>
+    <div class="big">${n.label}</div>
+    <p class="note"><code>${n.path}</code></p>
+    <p class="note"><span class="dot" style="background:${SECTORS[n.sector].color}"></span>${SECTORS[n.sector].label}<br>
+    ${n.self} llamadas internas · ${n.in} entrantes · ${n.out} salientes</p>
+    ${pr?`<h2 style="margin-top:12px;color:var(--proto)">Protocolo</h2><table>${pr}</table>`:''}
+    ${out.length?`<h2 style="margin-top:12px">Llama a</h2><table>${out.map(l=>row(l,'o')).join('')}</table>`:''}
+    ${inc.length?`<h2 style="margin-top:12px">Lo llaman</h2><table>${inc.map(l=>row(l,'i')).join('')}</table>`:''}
+    ${!out.length&&!inc.length&&!pr?`<p class="note">Sin vínculos medidos — script autónomo.</p>`:''}`;
+}
+
+/* drag / pan / zoom */
+let dragging=null,dragOff=[0,0],tx=0,ty=0,scale=1,panning=false,panStart=[0,0,0,0];
+function startDrag(e,n){
+  e.stopPropagation(); dragging=n; n.fixed=true; alpha=Math.max(alpha,.6);
+  const p=toLocal(e); dragOff=[n.x-p.x,n.y-p.y]; svg.setPointerCapture(e.pointerId);
+}
+svg.addEventListener('pointermove',e=>{
+  if(dragging){ const p=toLocal(e); dragging.x=p.x+dragOff[0]; dragging.y=p.y+dragOff[1]; return; }
+  if(panning){ tx=panStart[0]+(e.clientX-panStart[2]); ty=panStart[1]+(e.clientY-panStart[3]); applyView(); }
+});
+svg.addEventListener('pointerup',()=>{
+  if(dragging){ dragging.fixed=false; dragging=null; }
+  panning=false; svg.classList.remove('drag');
+});
+function applyView(){ view.setAttribute('transform',`translate(${tx},${ty}) scale(${scale})`); }
+function toLocal(e){
+  const r=svg.getBoundingClientRect();
+  return {x:(e.clientX-r.left-tx)/scale, y:(e.clientY-r.top-ty)/scale};
+}
+svg.addEventListener('pointerdown',e=>{
+  if(e.target.closest('.node')) return;
+  panning=true; panStart=[tx,ty,e.clientX,e.clientY]; svg.classList.add('drag');
+  pinned=null; unhighlight();
+});
+svg.addEventListener('wheel',e=>{
+  e.preventDefault();
+  const r=svg.getBoundingClientRect(), mx=e.clientX-r.left, my=e.clientY-r.top;
+  const k=Math.exp(-e.deltaY*0.0016), ns=Math.min(4,Math.max(.2,scale*k));
+  tx=mx-(mx-tx)*(ns/scale); ty=my-(my-ty)*(ns/scale); scale=ns; applyView();
+},{passive:false});
+function center(){
+  const r=svg.getBoundingClientRect();
+  tx=r.width/2; ty=r.height/2; scale=r.width<1000?.6:.78; applyView();
+}
+
+/* filtros */
+const active=new Set(secList), fbox=document.getElementById('filters');
+let query='';
+secList.forEach(s=>{
+  const b=document.createElement('button');
+  b.innerHTML=`<span class="dot" style="background:${SECTORS[s].color}"></span>${SECTORS[s].label}`;
+  b.onclick=()=>{ active.has(s)?active.delete(s):active.add(s); b.classList.toggle('off'); applyFilter(); };
+  fbox.appendChild(b);
+});
+function visible(n){
+  return active.has(n.sector) && (!query || n.label.toLowerCase().includes(query) || n.path.toLowerCase().includes(query));
+}
+function applyFilter(){
+  nodes.forEach(n=> n.el.style.display = visible(n)?'':'none');
+  links.forEach((l,i)=> edgeEls[i].style.display=(visible(l.s)&&visible(l.t))?'':'none');
+  protos.forEach((p,i)=>{
+    const on = showProto && visible(p.s) && visible(p.t);
+    protoEls[i].style.display=on?'':'none';
+    p.labelEl.style.display=on?'':'none';
+  });
+}
+document.getElementById('q').addEventListener('input',e=>{ query=e.target.value.trim().toLowerCase(); applyFilter(); });
+document.getElementById('tProto').onclick=e=>{ showProto=!showProto; e.currentTarget.classList.toggle('off'); applyFilter(); };
+document.getElementById('reheat').onclick=()=>{
+  alpha=1; nodes.forEach(n=>{ n.vx+=(Math.random()-.5)*40; n.vy+=(Math.random()-.5)*40; });
+};
+document.getElementById('theme').onclick=()=>{
+  const cur=document.documentElement.getAttribute('data-theme');
+  const dark=cur? cur==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.setAttribute('data-theme', dark?'light':'dark');
+};
+
+addEventListener('resize',center);
+center(); applyFilter(); tick();
+</script>
+</body>
+</html>
