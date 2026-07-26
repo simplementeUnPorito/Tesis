@@ -434,7 +434,8 @@ sueltos y se veía como una sierra.
 3. **Promedios — sólo la anotación del arribo.** El panel de la app tiene más
    cosas alrededor (comparar grupos, disparar el export). Acá está el promedio
    por distancia, el hammer promedio, marcar el arribo con click y validar.
-4. **Waterfall §3.4 y MASW §3.5**: sin empezar.
+4. ~~**Waterfall §3.4 y MASW §3.5**: sin empezar.~~ Waterfall quedó portado y
+   MASW tiene la imagen de dispersión — ver la #17.
 
 **Nota sobre el rendimiento de Enfase**: `/api/alignment` promedia todas las
 carpetas del label leyendo sus señales enteras. En `Canchita` cada label tiene
@@ -454,3 +455,69 @@ Pipeline lo invalida al ingestar o borrar, y se calienta en un hilo al arrancar.
 Las **anotaciones no se cachean nunca** — son baratas y son lo que la app PyQt
 puede tocar por detrás. Medido después: `/api/captures` 334 ms, `/api/signal`
 18 ms, `/api/overlays` 83 ms. El polling de la tabla pasó de 3 s a 8 s.
+
+### 17. Sesión 2026-07-26 (tarde): sierra, zoom con mouse, Waterfall y MASW
+
+**La "forma de sierra" era el orden de los extremos, no el decimado.** Cada
+bucket min/max se dibujaba siempre `max → min`, sin mirar cuál de los dos
+ocurrió antes en el tiempo. Sobre cualquier traza suave eso convierte cada
+subida real en una bajada, y el salto a la columna siguiente cierra el diente:
+un serrucho parejo que no está en la señal. `decimate_minmax` ahora devuelve
+también `rising` (si el mínimo del bucket vino antes que el máximo) y
+`drawMinMax` emite los dos puntos en ese orden. Verificado: sobre una senoide,
+`rising` coincide con el signo de la pendiente real en el 100 % de los buckets.
+
+**Segundo síntoma, misma zona: escalones al acercarse.** El servidor decimaba
+la señal **entera** a un bucket por píxel, así que al hacer zoom esos buckets se
+repartían entre menos tiempo y cada uno pasaba a ocupar varios píxeles. pyqtgraph
+no tiene el problema porque redibuja desde los datos completos. Ahora
+`maxPointsFor` pide tantos buckets como haría falta para que la **ventana
+visible** tenga uno por píxel, y se re-pide (con freno de 180 ms y sólo si hace
+falta 1.5× más detalle del que ya hay) al cambiar el encuadre.
+
+**Zoom y paneo con mouse**: `attachViewControls` en `plot.js`, el equivalente al
+ViewBox que pyqtgraph le da de fábrica a cada PlotWidget. Rueda = zoom sobre el
+cursor; shift+rueda = sólo vertical; alt/ctrl+rueda = sólo horizontal; arrastre
+= mover; doble click = reencuadrar. El estado son rangos en unidades de dato, no
+un factor, así que sobrevive a que la traza cambie de escala. El teclado (↑/↓,
+q/e y el nuevo `0`) usa el mismo estado, así mouse y teclas no se pelean.
+Enganchado en Capturas, Filtros (original y filtrada comparten vista), Enfase,
+Promedios, Waterfall y MASW. Donde el botón izquierdo ya tiene dueño —arrastrar
+el trigger, marcar zona, poner el arribo— ahí se panea con el del medio o el
+derecho.
+
+**Waterfall §3.4: portado.** `server/waterfall.py` + `routers/waterfall.py` +
+`static/js/tabs/waterfall.js`. Recorte de tiempo, trazas tildables, «Amplitud
+real», filtro f-k (Off/Directo/Inverso), «Invertir traza», cursor con
+tiempo/distancia, y el arribo dibujado sólo si está validado (igual que la app).
+Los ajustes de vista se guardan en el **mismo** `masw_state.json` que la app: al
+abrir la web apareció el recorte −0.05 a 2.5 s que ya estaba guardado desde PyQt.
+
+**Bug encontrado y arreglado de paso: Promedios ignoraba los grupos.**
+`build_averages` llamaba a `compute_average_groups` con el dataset completo. La
+app filtra antes con `_filtered_dataset_for_group` + `_project_disabled_for_group`
+(:284 y :227), porque cada grupo es un tendido distinto y sus distancias no se
+promedian con las de otro aunque coincidan en metros. Ahora está en
+`server/groups.py` y lo usan Promedios, Waterfall y MASW. Con eso, Canchita da
+Grupo 1 = 21 promedios y Grupo 2 = 14, no 21 mezclados.
+
+**MASW §3.5: sólo la etapa 1.** `server/masw.py` calcula la imagen de dispersión
+con `masw_dispersion.phase_shift_dispersion_image` —el mismo módulo que la app—
+sobre lo que el waterfall tenga a la vista (`matrix_for_masw`, calcado de
+`_emit_masw` :3974). Viaja como PNG de 8 bits en base64 (la grilla son ~95 000
+floats; en JSON serían ~½ MB por recálculo) y el color se aplica en el navegador
+con la rampa de `_dispersion_colormap` (:4824). Medido: 21 receptores, imagen
+252×376, 115 KB, ~11 s.
+
+#### Lo que sigue faltando (§3.5 y lo de la #16)
+
+1. **Picking de la curva de dispersión**: las regiones-polígono editables que
+   dan N curvas por modo. Es lo próximo de MASW.
+2. **Inversión y Perfil Vs**: los backends de `masw_backends.py` /
+   `masw_inversion.py` (evodcinv+disba, ADsurf) tardan **minutos**. No pueden ir
+   dentro de un request: hay que correrlos como trabajos del `Pipeline`, con
+   estado y progreso, igual que el preprocesado de las capturas. Es el diseño
+   que hay que decidir antes de escribir el código.
+3. Sigue pendiente todo lo de la #16: auto-enfase de dos etapas /
+   `auto_align_polarity`, offsets por señal editables, y el panel de Borrado
+   (§4) con flags y subgrupos.
