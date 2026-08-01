@@ -16,11 +16,16 @@ cálculo que se corre unas pocas veces.
 | Interfaces | `src/interfaces/matlab` | [Tesis-interfaces-matlab](https://github.com/simplementeUnPorito/Tesis-interfaces-matlab) | scope/GUI del nodo ESP y del circuito analógico |
 | Cálculos y modelados | `src/calculos_modelados/matlab` | [Tesis-calculos-matlab](https://github.com/simplementeUnPorito/Tesis-calculos-matlab) | Simulink, modelo SM-24 y análisis de la cadena analógica |
 | Cálculos y modelados | `src/calculos_modelados/python` | [Tesis-calculos-python](https://github.com/simplementeUnPorito/Tesis-calculos-python) | compensador, MFB-LPF y MASW offline |
+| PCBs | `PCBs` | [Tesis-PCBs](https://github.com/simplementeUnPorito/Tesis-PCBs) | esquemáticos, placa, símbolos y diseño programático en KiCad/JitX |
 | Documentación | `docs` | [Tesis-documentacion](https://github.com/simplementeUnPorito/Tesis-documentacion) | entregables, diagramas, planes y handoffs |
 | Investigación | `docs/investigacion` | [Tesis-investigacion](https://github.com/simplementeUnPorito/Tesis-investigacion) | vault de Obsidian, bitácora y notas académicas (submódulo *de* `docs`) |
 | Datos | `data` | [Tesis-datos](https://github.com/simplementeUnPorito/Tesis-datos) | catálogo y estructura local de mediciones |
 
 Cada sector se puede clonar, probar y versionar por separado. `Tesis` solo expresa qué revisión de cada sector forma una configuración integrada.
+
+`Assets/` conserva entradas fuente compartidas (CAD, planillas y material de
+referencia). Los artefactos reproducibles se escriben en `outputs/`, que queda
+fuera de Git junto con `tmp/`.
 
 ## Clonar el sistema completo
 
@@ -53,6 +58,11 @@ git submodule sync --recursive
 ## Trabajar en una parte aislada
 
 Entre en el submódulo correspondiente y cree allí su rama y commit. Luego vuelva a `Tesis` y actualice el puntero del submódulo en un commit separado. Esto evita que un cambio de Python quede mezclado con firmware o documentación.
+
+Como red de seguridad local, `scripts/auto-commit-submodules.ps1` puede crear
+un commit cuando un submódulo lleva 24 horas sin commits y conserva cambios.
+La instalación de la tarea de Windows se documenta en
+[`scripts/AUTO_COMMIT_SUBMODULES.md`](./scripts/AUTO_COMMIT_SUBMODULES.md).
 
 Las mediciones de `data/raw/` y los resultados de `data/processed/` están
 indexados mediante Git LFS y viven físicamente en el folderstore. La aplicación

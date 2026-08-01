@@ -6,7 +6,7 @@ function archivos = generar_plano_herrero()
 % conjunto de parametros utilizado por el modelo Simscape Multibody.
 
 [p, perfil] = martinete_parametros();
-outputDirectory = fullfile(fileparts(mfilename("fullpath")), "generated");
+outputDirectory = martinete_output_dir();
 if ~isfolder(outputDirectory)
     mkdir(outputDirectory);
 end

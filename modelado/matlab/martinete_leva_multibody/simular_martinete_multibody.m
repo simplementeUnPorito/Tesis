@@ -182,7 +182,7 @@ title(layout, sprintf( ...
     "%s — %d vueltas a %.0f rpm, suelo compactable", ...
     resumen.product, p.simRevolutions, p.simulationRpm));
 
-generatedDir = fullfile(fileparts(mfilename("fullpath")), "generated");
+generatedDir = martinete_output_dir();
 if ~isfolder(generatedDir)
     mkdir(generatedDir);
 end

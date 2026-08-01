@@ -10,6 +10,7 @@ $expected = @(
     'src/interfaces/matlab',
     'src/calculos_modelados/matlab',
     'src/calculos_modelados/python',
+    'PCBs',
     'docs',
     'data'
 )

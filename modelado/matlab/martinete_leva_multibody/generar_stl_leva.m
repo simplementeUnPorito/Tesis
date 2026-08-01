@@ -4,8 +4,8 @@ function stlPath = generar_stl_leva(perfil, p, stlPath)
 arguments
     perfil (1, 1) struct
     p (1, 1) struct
-    stlPath (1, 1) string = fullfile(fileparts(mfilename("fullpath")), ...
-        "generated", "leva_balistica_12lb.stl")
+    stlPath (1, 1) string = fullfile(martinete_output_dir(), ...
+        "leva_balistica_12lb.stl")
 end
 
 outputDir = fileparts(stlPath);

@@ -13,6 +13,8 @@ PSoC 5LP ──UART/SYNC──> ESP32 esclavo ──ESP-NOW──> ESP32 maestro
 
 data/raw ──> software/python ──> data/processed
      └─────> modelado/matlab
+
+firmware + interfaces ──> PCBs/KiCad y PCBs/JitX
 ```
 
 ## Reglas de dependencia
@@ -20,6 +22,8 @@ data/raw ──> software/python ──> data/processed
 - `firmware/psoc` y `firmware/esp32` se coordinan por el protocolo UART y las señales de sincronización; ninguno incluye fuentes del otro.
 - `software/python` contiene sus propios submódulos `ADsurf` y `maswavespy`.
 - `modelado/matlab` contiene su propio submódulo `MASW-Matlab-code`.
+- `PCBs` posee los diseños electrónicos de KiCad y JitX; sus renders y caches
+  locales no se comparten con los repositorios de firmware.
 - `docs` puede enlazar a todos los sectores, pero ningún componente necesita `docs` para compilar.
 - `investigacion/sources` versiona punteros LFS a la biblioteca privada; los
   bytes bibliográficos viven en el folderstore.

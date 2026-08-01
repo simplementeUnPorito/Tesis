@@ -2,7 +2,7 @@ function [p, perfil, referencias] = preparar_martinete()
 %PREPARAR_MARTINETE Carga datos, genera geometria y valida referencias.
 
 [p, perfil] = martinete_parametros();
-generatedDir = fullfile(fileparts(mfilename("fullpath")), "generated");
+generatedDir = martinete_output_dir();
 p.camStlPath = generar_stl_leva(perfil, p, ...
     fullfile(generatedDir, "leva_balistica_12lb.stl"));
 

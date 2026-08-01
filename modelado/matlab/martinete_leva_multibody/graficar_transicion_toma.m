@@ -71,7 +71,7 @@ title(layout, sprintf( ...
     rad2deg(p.pickupBlendAngle), ...
     rad2deg(p.pickupJoinRiseAngle)));
 
-generatedDir = fullfile(fileparts(mfilename("fullpath")), "generated");
+generatedDir = martinete_output_dir();
 if ~isfolder(generatedDir)
     mkdir(generatedDir);
 end

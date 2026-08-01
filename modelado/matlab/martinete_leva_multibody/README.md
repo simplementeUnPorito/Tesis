@@ -13,18 +13,20 @@ graficar_transicion_toma();
 generar_plano_herrero();
 ```
 
-La simulación nominal geofísica ejecuta 8 vueltas a 25 rpm. Genera:
+La simulación nominal geofísica ejecuta 8 vueltas a 25 rpm. Los resultados se
+guardan bajo `outputs/modelado/martinete_leva_multibody/`, una carpeta local
+ignorada por Git. Genera:
 
-- `generated/leva_balistica_12lb.stl`
-- `generated/resultados_multivuelta_piso.png`
-- `generated/transicion_toma_C2.png`
-- `generated/resumen_multivuelta.mat`
-- `generated/plano_herrero_martinete_A3.pdf`
-- `generated/plano_herrero_martinete_A3.png`
-- `generated/plano_herrero_martinete_A3.svg`
-- `generated/perfil_leva_1a1_mm.dxf`
-- `generated/perfil_leva_1a1_mm.csv`
-- `generated/lista_cotas_herrero.csv`
+- `leva_balistica_12lb.stl`
+- `resultados_multivuelta_piso.png`
+- `transicion_toma_C2.png`
+- `resumen_multivuelta.mat`
+- `plano_herrero_martinete_A3.pdf`
+- `plano_herrero_martinete_A3.png`
+- `plano_herrero_martinete_A3.svg`
+- `perfil_leva_1a1_mm.dxf`
+- `perfil_leva_1a1_mm.csv`
+- `lista_cotas_herrero.csv`
 
 La lámina para el herrero contiene las vistas frontal y lateral, centros,
 longitudes, ángulo de la palanca, espesores y separación axial. El DXF y el
