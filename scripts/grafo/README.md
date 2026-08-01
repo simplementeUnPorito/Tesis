@@ -47,10 +47,10 @@ Copy-Item (Get-ChildItem "$env:TEMP\cbm" -Recurse -Filter *.exe | Select-Object 
 
 ## Frescura del índice
 
-**Todas las funciones verifican que el grafo refleje el estado actual del repo
-antes de responder.** El mecanismo, en `_grafoEnsure`:
+**Las funciones verifican la frescura del grafo como máximo una vez al día.**
+El mecanismo, en `_grafoEnsure`:
 
-1. Si se chequeó hace menos de `$GrafoSyncThrottleMin` minutos (default 10), no
+1. Si se chequeó hace menos de `$GrafoSyncThrottleMin` minutos (default 1440), no
    hace nada — evita re-indexar en cada comando.
 2. Si no, corre `detect_changes` (barato).
 3. Si hay archivos cambiados y `$GrafoAutoSync` está en `$true` (default),
@@ -63,7 +63,7 @@ del dot-source):
 
 ```powershell
 $GrafoAutoSync        = $true        # re-indexar solo, o solo avisar
-$GrafoSyncThrottleMin = 10           # minutos entre chequeos
+$GrafoSyncThrottleMin = 1440         # minutos entre chequeos (una vez al día)
 $GrafoIndexMode       = 'moderate'   # full | moderate | fast
 $GrafoPort            = 9749
 ```

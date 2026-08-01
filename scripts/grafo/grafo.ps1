@@ -7,7 +7,7 @@
 
     Ver scripts\grafo\README.md para la documentacion completa.
 
-    Todas las funciones verifican que el indice este al dia antes de responder
+    Las funciones verifican la frescura del indice como maximo una vez al dia
     (ver _grafoEnsure). Con -NoSync se saltea la verificacion.
 #>
 
@@ -25,7 +25,8 @@ $GrafoExe     = "$env:LOCALAPPDATA\Programs\codebase-memory-mcp\codebase-memory-
 # Re-indexar solo si detect_changes encuentra cambios. $false = solo avisar.
 $GrafoAutoSync = $true
 # No volver a chequear frescura si ya se chequeo hace menos de N minutos.
-$GrafoSyncThrottleMin = 10
+# El chequeo diario evita invocar codebase-memory en cada uso del grafo.
+$GrafoSyncThrottleMin = 1440
 # Modo de indexado: full | moderate | fast
 $GrafoIndexMode = 'moderate'
 
