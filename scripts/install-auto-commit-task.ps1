@@ -10,18 +10,18 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$workerScript = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot `
-    "auto-commit-submodules.ps1")).Path
+$launcherScript = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot `
+    "run-auto-commit-hidden.vbs")).Path
 $repositoryRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot "..")).Path
 
-$powerShell = Get-Command pwsh.exe -ErrorAction SilentlyContinue
-if ($null -eq $powerShell) {
-    $powerShell = Get-Command powershell.exe -ErrorAction Stop
-}
-
-$actionArguments = '-NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "{0}" -HoursWithoutCommit {1}' -f `
-    $workerScript, $HoursWithoutCommit
-$action = New-ScheduledTaskAction -Execute $powerShell.Source `
+# La tarea corre en la sesion interactiva porque LogonType S4U (sesion 0, sin
+# ventana) exige permisos de administrador. El envoltorio .vbs lanza pwsh con la
+# ventana oculta, espera y propaga su codigo de salida, de modo que la tarea
+# nunca muestra una consola pero conserva historial, limite de tiempo y control
+# de instancias.
+$wscript = Get-Command wscript.exe -ErrorAction Stop
+$actionArguments = '//B //Nologo "{0}" {1}' -f $launcherScript, $HoursWithoutCommit
+$action = New-ScheduledTaskAction -Execute $wscript.Source `
     -Argument $actionArguments -WorkingDirectory $repositoryRoot
 
 # La comprobacion es frecuente, pero solo actua cuando pasaron 24 horas sin
@@ -45,4 +45,4 @@ Register-ScheduledTask -TaskName $TaskName -InputObject $task -Force | Out-Null
 Write-Output "Tarea instalada: $TaskName"
 Write-Output "Revision: cada $CheckEveryHours hora(s)"
 Write-Output "Umbral: $HoursWithoutCommit horas sin commit"
-Write-Output "Script: $workerScript"
+Write-Output "Lanzador: $launcherScript (ventana oculta)"

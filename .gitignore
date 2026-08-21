@@ -25,3 +25,15 @@ Thumbs.db
 Desktop.ini
 *.swp
 *.tmp
+
+# Autosave de Simulink (archivo temporal del editor)
+*.slx.autosave
+
+# Archivo historico de proyectos PSoC: 619 MB / 20.000 archivos, casi todo
+# artefactos de compilacion de PSoC Creator. No entra al superproyecto; si se
+# quiere versionar hay que decidir destino (LFS o submodulo propio).
+psoc-historicos/
+
+# Bytecode de Python
+__pycache__/
+*.pyc
