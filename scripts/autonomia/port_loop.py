@@ -4,8 +4,9 @@
 Idea central: **el "clear" sale gratis con procesos separados.** Cada fase lanza
 un ``claude -p`` nuevo, que arranca con contexto virgen, hace UNA cosa, deja el
 resultado en disco y muere. El loop no depende de que ningún modelo recuerde
-nada: todo el estado vive en ``state/port_state.json`` y en los .md de spec y
-review. Se puede matar y relanzar en cualquier momento sin perder el hilo.
+nada: todo el estado vive en
+``outputs/autonomia/port_loop/port_state.json`` y en los .md de spec y review.
+Se puede matar y relanzar en cualquier momento sin perder el hilo.
 
 Fases por ítem (tres procesos, tres contextos limpios)
 -----------------------------------------------------
@@ -20,8 +21,9 @@ intento 1 sonnet -> intento 2 sonnet + feedback del review -> intento 3 **fable*
 También se salta directo a Fable si el advisor o el reviewer escriben
 ``NEEDS_FABLE`` (o sea: alguien con más contexto dijo "esto necesita más
 cabeza"). Cada escalado queda logueado; si el intento con Fable falla, el ítem
-queda ``blocked``, se anota en DUDAS_LUNES.md y el loop **para**: arrastrar un
-refactor torcido a los ítems siguientes es peor que no avanzar.
+queda ``blocked``, se anota en ``docs/proyecto/DUDAS_LUNES.md`` y el loop
+**para**: arrastrar un refactor torcido a los ítems siguientes es peor que no
+avanzar.
 
 Límites de uso
 --------------
@@ -53,6 +55,10 @@ from dataclasses import dataclass, asdict
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+SHARED = Path(__file__).resolve().parents[1] / "shared"
+sys.path.insert(0, str(SHARED))
+from rutas import dir_salida
+
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
 PY_ROOT = REPO / "src" / "interfaces" / "python"
@@ -60,7 +66,7 @@ SERVER = PY_ROOT / "server"
 PLAN = SERVER / "PORT_PLAN.md"
 GATE = SERVER / "smoke_test.py"
 
-STATE_DIR = HERE / "state"
+STATE_DIR = dir_salida("autonomia", "port_loop")
 STATE_FILE = STATE_DIR / "port_state.json"
 STATUS_FILE = STATE_DIR / "status.json"
 LOG_FILE = STATE_DIR / "loop.log"
@@ -71,9 +77,7 @@ GATE_OUT = STATE_DIR / "gate"
 GATE_LOGS = GATE_OUT          # el gate escribe sus logs acá (ver smoke_test.LOG_DIR)
 STREAMS = STATE_DIR / "streams"
 RAW_OUT = STATE_DIR / "raw"
-# En el repo raíz a propósito, NO en docs/: docs es un submódulo y commitear el
-# gitlink desde acá dejaría el puntero mirando un commit que no tiene el archivo.
-DUDAS = REPO / "DUDAS_LUNES.md"
+DUDAS = REPO / "docs" / "proyecto" / "DUDAS_LUNES.md"
 
 CLAUDE = shutil.which("claude") or "claude"
 
@@ -790,7 +794,7 @@ def commit_item(item: Item, summary: str) -> str:
     if rc != 0 and "nothing to commit" not in out:
         return f"commit del submódulo falló: {out[-300:]}"
     sub_sha = git(["rev-parse", "--short", "HEAD"], PY_ROOT)[1].strip()
-    git(["add", "src/interfaces/python", "scripts/autonomia", "DUDAS_LUNES.md"], REPO)
+    git(["add", "src/interfaces/python", "scripts/autonomia", "docs"], REPO)
     git(["commit", "-m", f"port: {item.title} (submódulo {sub_sha})"], REPO)
     return f"commiteado en {branch} ({sub_sha})"
 

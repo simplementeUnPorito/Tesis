@@ -29,6 +29,10 @@ Desktop.ini
 # Autosave de Simulink (archivo temporal del editor)
 *.slx.autosave
 
+# Caches que pueden quedar en la ubicacion anterior al mover modelado MATLAB.
+/modelado/**/*.slxc
+/modelado/**/slprj/
+
 # Archivo historico de proyectos PSoC: 619 MB / 20.000 archivos, casi todo
 # artefactos de compilacion de PSoC Creator. No entra al superproyecto; si se
 # quiere versionar hay que decidir destino (LFS o submodulo propio).

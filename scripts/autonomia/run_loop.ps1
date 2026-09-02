@@ -36,7 +36,7 @@ Write-Host ""
 if ($code -eq 0) {
     Write-Host "=== el loop termino bien (alcance completo o freno pedido) ===" -ForegroundColor Green
 } elseif ($code -eq 1) {
-    Write-Host "=== el loop PARO bloqueado: leer C:\Github\Tesis\DUDAS_LUNES.md ===" -ForegroundColor Yellow
+    Write-Host "=== el loop PARO bloqueado: leer C:\Github\Tesis\docs\proyecto\DUDAS_LUNES.md ===" -ForegroundColor Yellow
 } elseif ($code -eq 3) {
     Write-Host "=== no arranco: ya hay otro loop corriendo, o hay un freno puesto ===" -ForegroundColor Yellow
 } else {

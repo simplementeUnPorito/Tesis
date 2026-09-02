@@ -32,19 +32,25 @@ Contenido gestionado directamente por el superproyecto:
 | Ruta | Estado y función |
 |---|---|
 | `scripts/` | bootstrap, auditoría, automatización y utilidades de integración |
-| `Assets/` | CAD, STL, planillas y entradas mecánicas compartidas |
+| `src/mecanica/` | CAD, STL, planillas y entradas mecánicas compartidas |
 | `esp-web-historicos/` | siete snapshots congelados de la UI, no firmware activo |
-| `modelado/matlab/martinete_leva_multibody/` | modelo de martinete aún directo; candidato a migrar a `src/calculos_modelados/matlab` |
-| `ARCHITECTURE.md` y `MIGRATION.md` | arquitectura vigente e historia de la modularización |
-| `DUDAS_LUNES.md` y `PLAN_CONECTIVIDAD_MASTER.md` | notas de trabajo; no son especificaciones normativas |
+| `src/modelado_matlab/martinete_leva_multibody/` | modelo MATLAB del martinete gestionado por el superproyecto |
+| `docs/proyecto/` | arquitectura, migración, planes y notas del proyecto |
+| `docs/auditorias/` | auditorías e inventarios documentales versionados |
 
-Los artefactos reproducibles se escriben en `outputs/`, que queda fuera de Git
-junto con `tmp/`.
+## Dónde va cada cosa
+
+Todo resultado interno o intermedio —figuras de trabajo, MAT, CSV de resultados,
+logs, cachés y exports de simulación— va en `outputs/`, fuera de Git. `docs/`
+contiene únicamente entregables versionados: informes, PDF finales y figuras que
+forman parte de la tesis. Los generadores Python y MATLAB deben usar
+`scripts/shared/rutas.py` o `scripts/shared/dir_salida.m`; nunca deben escribir
+al lado del código fuente.
 
 ## Dónde empezar
 
-- [Arquitectura integrada](./ARCHITECTURE.md)
-- [Inventario y auditoría documental del 2 de septiembre](./REPOSITORY_AUDIT_2026-09-02.md)
+- [Arquitectura integrada](./docs/proyecto/ARCHITECTURE.md)
+- [Inventario y auditoría documental del 2 de septiembre](./docs/auditorias/REPOSITORY_AUDIT_2026-09-02.md)
 - [Firmware ESP32](./src/firmware/esp32/README.md)
 - [Firmware PSoC](./src/firmware/psoc/README.md)
 - [Software de campo en Python](./src/interfaces/python/README.md)
@@ -95,4 +101,4 @@ Python también acepta `TESIS_DATA_ROOT` para trabajar con otro árbol de datos.
 El índice maestro de objetos, manifiestos y procedimiento para mover el drive
 está en `C:\Users\elias\OneDrive\Github-LFS\INDEX.md`.
 
-Consulte [ARCHITECTURE.md](./ARCHITECTURE.md) para las fronteras y dependencias entre sectores.
+Consulte [ARCHITECTURE.md](./docs/proyecto/ARCHITECTURE.md) para las fronteras y dependencias entre sectores.

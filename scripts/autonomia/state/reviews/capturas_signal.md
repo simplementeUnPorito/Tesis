@@ -88,7 +88,7 @@ mínimo).
 
 ### Dudas anotadas
 
-`DUDAS_LUNES.md` tiene las dos que correspondían (§8.1 `_procesados_dir_for`
+`docs/proyecto/DUDAS_LUNES.md` tiene las dos que correspondían (§8.1 `_procesados_dir_for`
 compartido por `raw_root.name`, y `catalog.pickable` 186 vs 194 disparos), con
 opciones y sin decidir por el usuario.
 

@@ -63,7 +63,7 @@ $legacyPatterns = @(
 )
 $legacyFiles = @(
     'README.md',
-    'ARCHITECTURE.md',
+    'docs/proyecto/ARCHITECTURE.md',
     'docs/README.md',
     'docs/investigacion/README.md',
     'PCBs/README.md',

@@ -328,7 +328,7 @@ que existe:
 - No hay ninguna `hilbertEnvelope`.
 
 Por eso los placeholders de §5 citan `frd.apply_bandpass_filter` y no los nombres
-del plan. Queda anotado en `DUDAS_LUNES.md` porque decidir si el plan se corrige
+del plan. Queda anotado en `docs/proyecto/DUDAS_LUNES.md` porque decidir si el plan se corrige
 o si además hay que portar el notch/DC de `signal_proc` no es una decisión del
 implementador de este ítem.
 

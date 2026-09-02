@@ -8,7 +8,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
-$memoryPath = Join-Path $repoRoot 'AUDIT_SESSION_MEMORY.md'
+$memoryPath = Join-Path $repoRoot 'docs/auditorias/AUDIT_SESSION_MEMORY.md'
 $stateDir = Join-Path $repoRoot 'tmp\audit-session'
 $reviewPath = Join-Path $stateDir 'claude-latest.md'
 $logPath = Join-Path $stateDir 'loop.log'

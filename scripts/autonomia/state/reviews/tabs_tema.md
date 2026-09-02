@@ -71,7 +71,7 @@ sola fórmula copiada. Y los nombres de función que citan los placeholders
 `masw_backends.py` también están. Un placeholder que promete una función
 inexistente es peor que uno vacío, y no es el caso. La duda del §3.2 con los
 nombres viejos del plan (`dcRemove`/`filtFilt`/`hilbertEnvelope`, que no existen)
-quedó escrita en `DUDAS_LUNES.md` #7 sin decidirla, que es lo correcto.
+quedó escrita en `docs/proyecto/DUDAS_LUNES.md` #7 sin decidirla, que es lo correcto.
 
 **Nada a medio portear que diga que anda**: `theme.js` mantiene el patrón de
 `master/data/js/app.js` (`localStorage` con try/catch, próximo estado calculado

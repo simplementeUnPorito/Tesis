@@ -357,7 +357,7 @@ declara 186 capturas `pickable` en `Canchiga` pero `discover_dataset` encuentra
 además `type`/`hw_type`/`name`/`data_dir`/`raw_file`. Y al revés: las 9 capturas
 de `Canchita` son `pickable: true` y **no** tienen `shot_id` (quedaron fuera por
 dedup). La única condición correcta para "esto se puede dibujar" es
-**`pick.shot_id` presente**. (Queda anotado en `DUDAS_LUNES.md`: unificar las dos
+**`pick.shot_id` presente**. (Queda anotado en `docs/proyecto/DUDAS_LUNES.md`: unificar las dos
 detecciones de rol no es decisión de este ítem.)
 
 Delegá el click en el contenedor de la tabla (`#dataset`) por `data-shot`, no con
@@ -582,7 +582,7 @@ sandbox `TESIS_DATA_ROOT=<tmp>` en el `env` del `subprocess.Popen`
 (`smoke_test.py:516`). `frd._discover_data_root` (`field_review_data.py:30-42`)
 respeta esa variable, así que **todo** `data/processed` del sandbox cae en el
 temporal. En modo `read` **no** se toca (ahí queremos ver las anotaciones
-reales). Queda anotado en `DUDAS_LUNES.md`.
+reales). Queda anotado en `docs/proyecto/DUDAS_LUNES.md`.
 
 ### 8.2 §5.1 — el proceso viejo no toma los cambios
 
