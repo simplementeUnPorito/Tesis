@@ -4,21 +4,26 @@ La modularización se realizó el 20 de julio de 2026 a partir de `codex/capture
 
 | Ruta anterior | Destino actual |
 |---|---|
-| `src/psoc` | `firmware/psoc` → `Tesis-firmware-psoc` |
-| `src/esp` | `firmware/esp32` → `Tesis-firmware-esp32` |
-| `src/python` | `software/python` → `Tesis-software-python` |
-| `src/matlab` | `modelado/matlab` → `Tesis-modelado-matlab` |
+| `src/psoc` | `src/firmware/psoc` → `Tesis-firmware-psoc` |
+| `src/esp` | `src/firmware/esp32` → `Tesis-firmware-esp32` |
+| `src/python` | se separó por propósito entre `src/interfaces/python` y `src/calculos_modelados/python` |
+| `src/matlab` | se separó por propósito entre `src/interfaces/matlab` y `src/calculos_modelados/matlab` |
 | `docs` | `docs` → `Tesis-documentacion` |
-| `Obsidian Vault` | `investigacion` → `Tesis-investigacion` |
+| `Obsidian Vault` | `docs/investigacion` → `Tesis-investigacion` |
 | `Crudos` | `data/raw` → `Tesis-datos` + folderstore LFS |
 | `procesados` | `data/processed` → `Tesis-datos` + folderstore LFS |
-| `third-party/ADsurf`, `third-party/maswavespy` | submódulos internos de `software/python` |
-| `third-party/MASW-Matlab-code` | submódulo interno de `modelado/matlab` |
-| `third-party/geopsy` | `software/python/third-party/geopsy` + folderstore LFS |
+| `third-party/ADsurf`, `third-party/maswavespy` | submódulos internos de `src/interfaces/python` |
+| `third-party/MASW-Matlab-code` | submódulo interno de `src/calculos_modelados/matlab` |
+| `third-party/geopsy` | `src/interfaces/python/third-party/geopsy` + folderstore LFS |
+
+La tabla expresa el destino **vigente**. La primera modularización del 20 de
+julio usó temporalmente nombres por tecnología (`software/python`,
+`modelado/matlab`); el 24 de julio se adoptó la organización actual por
+propósito (`interfaces` frente a `calculos_modelados`).
 
 ## Preservación y objetos grandes
 
-- Los PDF y fuentes bibliográficas se conservaron en `investigacion/sources`
+- Los PDF y fuentes bibliográficas se conservaron en `docs/investigacion/sources`
   mediante punteros LFS.
 - Las mediciones, resultados, Geopsy, datasets MATLAB y paquetes documentales
   grandes están inventariados en

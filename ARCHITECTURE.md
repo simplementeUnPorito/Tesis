@@ -5,31 +5,44 @@
 Cada repositorio posee una tecnología, sus instrucciones de ejecución, sus artefactos ignorados y sus dependencias externas. Las interfaces entre sectores son protocolos o formatos documentados; no se comparten árboles de fuentes mediante rutas internas.
 
 ```text
-PSoC 5LP ──UART/SYNC──> ESP32 esclavo ──ESP-NOW──> ESP32 maestro
-   │                                                    │
-   └── muestras binarias                               ├── UI web
-                                                        ├── Python/PyQt
-                                                        └── MATLAB
+                              comandos UART (GPIO26 -> P15[0])
+ESP32 esclavo  ------------------------------------------------->  PSoC 5LP
+      |                                                            |
+      | <------ I2C 0x42, muestras/estado/diagnostico --------------+
+      | ------ SYNC GPIO27 -> P0[4], inicio de captura ------------->|
+      |
+      +------ ESP-NOW ------> ESP32 maestro ------> UI web / USB
+                                                     |
+                                                     +--> interfaces Python/MATLAB
 
-data/raw ──> software/python ──> data/processed
-     └─────> modelado/matlab
+data/raw ------> src/interfaces/python ------> data/processed
+     +---------> src/calculos_modelados/python
+     +---------> src/calculos_modelados/matlab
 
-firmware + interfaces ──> PCBs/KiCad y PCBs/JitX
+firmware + interfaces + modelos ------> PCBs/KiCad y PCBs/JitX
 ```
+
+El enlace de la placa actual es asimétrico: el ESP manda comandos al PSoC por
+UART, mientras que el PSoC devuelve pings, diagnóstico y lotes por I2C como
+maestro. El inicio temporal de una adquisición no viaja por esos buses sino por
+la línea dedicada SYNC.
 
 ## Reglas de dependencia
 
-- `firmware/psoc` y `firmware/esp32` se coordinan por el protocolo UART y las señales de sincronización; ninguno incluye fuentes del otro.
-- `software/python` contiene sus propios submódulos `ADsurf` y `maswavespy`.
-- `modelado/matlab` contiene su propio submódulo `MASW-Matlab-code`.
+- `src/firmware/psoc` y `src/firmware/esp32` se coordinan por UART de bajada,
+  I2C de subida y SYNC; ninguno incluye fuentes del otro.
+- `src/interfaces/python` contiene sus propios submódulos `ADsurf` y
+  `maswavespy`, además de Geopsy almacenado mediante LFS.
+- `src/calculos_modelados/matlab` contiene el submódulo
+  `third-party/MASW-Matlab-code`.
 - `PCBs` posee los diseños electrónicos de KiCad y JitX; sus renders y caches
   locales no se comparten con los repositorios de firmware.
 - `docs` puede enlazar a todos los sectores, pero ningún componente necesita `docs` para compilar.
-- `investigacion/sources` versiona punteros LFS a la biblioteca privada; los
+- `docs/investigacion/sources` versiona punteros LFS a la biblioteca privada; los
   bytes bibliográficos viven en el folderstore.
 - `data` versiona mediante LFS las mediciones y resultados, con deduplicación
   por SHA-256; el repositorio Git conserva punteros, catálogo y estructura.
-- `software/python/third-party/geopsy`, los datasets `.mat` y los paquetes
+- `src/interfaces/python/third-party/geopsy`, los datasets `.mat` y los paquetes
   documentales grandes siguen el mismo esquema de almacenamiento externo.
 
 ## Versionado integrado
@@ -39,3 +52,12 @@ Un commit de `Tesis` es una línea base reproducible: registra un SHA concreto p
 La ruta física del folderstore no forma parte de los punteros. Cada repositorio
 incluye un configurador que traduce `GITHUB_LFS_ROOT` a su carpeta independiente
 en `repositories/<nombre>`.
+
+## Propiedad de los artefactos directos
+
+La separación por submódulos no está completa al cien por ciento. Los snapshots
+de `esp-web-historicos/` son deliberadamente inmutables; el modelo directo de
+`modelado/matlab/martinete_leva_multibody/` debe migrarse al repositorio de
+cálculos MATLAB cuando se retome ese frente. Hasta entonces, ambos pertenecen a
+la revisión integrada de la raíz y no deben confundirse con los entrypoints
+activos de firmware o modelado.

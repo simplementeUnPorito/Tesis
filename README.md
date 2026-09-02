@@ -1,6 +1,10 @@
 # Tesis — sistema integrado MASW
 
-Este repositorio es el **superproyecto** de la tesis. Ya no contiene firmware, aplicaciones, simulaciones, documentación ni mediciones directamente: fija versiones compatibles de repositorios independientes mediante submódulos Git.
+Este repositorio es el **superproyecto** de la tesis. El firmware, las
+interfaces, los cálculos, los PCB, los datos y la documentación principal viven
+en repositorios independientes fijados como submódulos Git. La raíz conserva
+además herramientas de integración, activos mecánicos compartidos, snapshots
+históricos de la web y algunos modelos que todavía no fueron extraídos.
 
 ## Mapa del proyecto
 
@@ -23,9 +27,29 @@ cálculo que se corre unas pocas veces.
 
 Cada sector se puede clonar, probar y versionar por separado. `Tesis` solo expresa qué revisión de cada sector forma una configuración integrada.
 
-`Assets/` conserva entradas fuente compartidas (CAD, planillas y material de
-referencia). Los artefactos reproducibles se escriben en `outputs/`, que queda
-fuera de Git junto con `tmp/`.
+Contenido gestionado directamente por el superproyecto:
+
+| Ruta | Estado y función |
+|---|---|
+| `scripts/` | bootstrap, auditoría, automatización y utilidades de integración |
+| `Assets/` | CAD, STL, planillas y entradas mecánicas compartidas |
+| `esp-web-historicos/` | siete snapshots congelados de la UI, no firmware activo |
+| `modelado/matlab/martinete_leva_multibody/` | modelo de martinete aún directo; candidato a migrar a `src/calculos_modelados/matlab` |
+| `ARCHITECTURE.md` y `MIGRATION.md` | arquitectura vigente e historia de la modularización |
+| `DUDAS_LUNES.md` y `PLAN_CONECTIVIDAD_MASTER.md` | notas de trabajo; no son especificaciones normativas |
+
+Los artefactos reproducibles se escriben en `outputs/`, que queda fuera de Git
+junto con `tmp/`.
+
+## Dónde empezar
+
+- [Arquitectura integrada](./ARCHITECTURE.md)
+- [Inventario y auditoría documental del 2 de septiembre](./REPOSITORY_AUDIT_2026-09-02.md)
+- [Firmware ESP32](./src/firmware/esp32/README.md)
+- [Firmware PSoC](./src/firmware/psoc/README.md)
+- [Software de campo en Python](./src/interfaces/python/README.md)
+- [Bitácora cronológica](./docs/investigacion/Notes/bitacora/INDICE.md)
+- [Puesta en marcha digital de la primera placa](./docs/investigacion/Notes/bitacora/2026-09-01.md)
 
 ## Clonar el sistema completo
 
