@@ -116,3 +116,24 @@ rápido.
 Pero **empeora** al subir el multiplicador (3,55 → 5,2 → 8,3 → 9,7 mV), que es
 al revés de lo que debería pasar. Eso me dice que la implementación o el modelo
 tienen algo mal y todavía no lo encontré. No lo tomes como resultado.
+
+## 9. Un supuesto mío que no pude verificar  · **conviene descartarlo antes de soldar**
+
+Di por sentado todo el tiempo que **el PSoC está ejecutando** su firmware, porque
+graba y verifica bien. Pero grabar y ejecutar no son lo mismo: el KitProg lo
+graba con el chip *detenido*.
+
+Lo que sí verifiqué por SWD: responde, y su JTAG ID es `2e 16 10 69`. Eso prueba
+que el chip está vivo y alimentado, **no** que esté corriendo tu código.
+
+No pude ir más lejos: `ppcli` no expone lectura de RAM ni estado del núcleo, y
+no hay pyocd ni openocd en la máquina.
+
+**Por qué importa:** si el PSoC no está ejecutando, poner los dos 4k7 no va a
+arreglar nada y vas a haber soldado al pedo. Se descarta en diez segundos
+mirando el **LED D1**, que el firmware maneja como indicador de estado: si
+titila o está encendido, está corriendo y el problema es sólo el bus. Si está
+apagado, el problema es otro y hay que mirar la alimentación del PSoC antes que
+los pull-ups.
+
+Es la única cosa que me quedó sin poder cerrar por software.
