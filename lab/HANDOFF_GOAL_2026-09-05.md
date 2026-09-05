@@ -185,9 +185,17 @@ utilizable.
       saturación. Hay que revisar si las otras también.
 
 ### Fase 2 — firmware
-- [ ] 2.1 τ automedido por el propio nodo. Estimador elegido: dos puntos a t y
-      2t, que da τ sin necesidad de conocer el valor final —
-      `e^(-t/τ) = r - 1` con `r = (y(2t)-y(0))/(y(t)-y(0))`.
+- [~] 2.1 τ automedido. **La aritmética ya está y verificada**
+      (`calibration_tau.h`, commit `560acf2`): −0,3 % a −0,9 % de error para τ
+      entre 16 y 60 s, y rechaza fuera de ahí en vez de inventar. El par es
+      etapa 1 → ch2 con t₁ = 45 s, elegido porque su transitorio es más grande
+      que su régimen. **Falta** secuenciar las tres muestras: se puede hacer
+      desde el ESP o la PC con `idac` + `dc` + esperas, no hace falta máquina de
+      estados en el PSoC.
+- [x] 2.9 **Ajuste en caliente sin regrabar** (`PSOC_CMD_CAL_PARAM` 0xB2 +
+      `calparam` en el ESP, commits `560acf2` y `f578e3a`). τ en unidades de
+      250 ms porque el frame lleva dos bytes. Con esto se barre el espacio de
+      parámetros sin un solo regrabado.
 - [x] 2.2 Espera de planta en **2 τ**, con τ en ms como `uint16` y ajustable en
       ejecución (`psoc_cal_set_tau_ms`). Commit `09f6462`.
 - [x] 2.3 ADDER: **la tabla queda descartada por medición**. Falta ajustar el
@@ -195,7 +203,10 @@ utilizable.
 - [x] 2.4 Optimizador conjunto en C, regularizado y verificado contra el modelo
       dentro del 1,2 %. Commit `10480e8`, archivo `calibration_conjunta.h`.
       **Falta integrarlo a la máquina de estados de la calibración.**
-- [ ] 2.5 Ki 1/16.
+- [ ] 2.5 Ki 1/16. **Ojo:** puede quedar sin objeto. El lazo PI con ganancias
+      fijas es lo que la medición del 2026-09-05 puso en duda; si la calibración
+      pasa a medir la pendiente en el punto, el Ki de un PI con ganancia fija
+      deja de ser el parámetro relevante.
 - [x] 2.6 Comandos `cal`, `snapshot`, `taps`, `quien` en el ESP. Commit
       `e3cb8a0`. Sacado el `upload_port` fijo del `platformio.ini`.
 - [ ] 2.7 Separación campo / laboratorio por archivos.
@@ -203,6 +214,11 @@ utilizable.
       en ±255 y a ×50 el tap ya está en el riel pasando los ~±66 códigos.
 
 ### Fase 3 — validación en placa
+- [x] **PGA ×50 CALIBRA.** Medido el 2026-09-05: con el ADDER en el código −176
+      el tap del LP queda en 939,4 mV, centrado, y el ADDER en 1010,4 mV.
+      Confirma el dato de campo de Elías y valida el emparejamiento LP↔ADDER.
+- [~] 3.0 **Máximo PGAout estable con PGA ×50** — corriendo,
+      `buscar_max_pgaout.py`. Es el objetivo principal.
 - [ ] 3.1 Calibrar, esperar diez minutos, mirar `GEO_LP`. Criterio: ≤ 20 mV.
 - [ ] 3.2 Barrido de combinaciones con calibración real.
 - [ ] 3.3 Registros largos de madrugada con la lomada.
