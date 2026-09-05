@@ -1,0 +1,167 @@
+{
+ "pga_code": 8,
+ "pares": null,
+ "filas": [
+  {
+   "pga_code": 8,
+   "pgaout_code": 0,
+   "pga_x": 50,
+   "pgaout_x": 1,
+   "dac": {
+    "0": 0,
+    "1": 0,
+    "2": -192,
+    "3": 21
+   },
+   "taps_mv": {
+    "0": 957.565,
+    "1": 1001.472,
+    "2": 1003.322,
+    "3": 999.794
+   },
+   "error_mv": {
+    "0": -42.434999999999945,
+    "1": 1.47199999999998,
+    "2": 3.3220000000000027,
+    "3": -0.20600000000001728
+   },
+   "error_lp_mv": -0.20600000000001728,
+   "error_peor_mv": 42.434999999999945,
+   "en_riel": [],
+   "cumple": true,
+   "t_s": 484.47957825660706,
+   "log": [
+    "    busqueda gruesa (espera 30 s por paso)",
+    "      etapa 0: 958.0 mV, a 156 mV del riel; NO se toca (el margen es para el LP)",
+    "      etapa 1: 1005.5 mV, a 117 mV del riel; NO se toca (el margen es para el LP)",
+    "      etapa 2 -> tap 3: extremos 1122.417 / 746.402 mV",
+    "      etapa 2 -> tap 3: codigo -192 deja el tap en 1013.1 mV",
+    "      ADDER en 998.4 mV tras centrar el LP: aceptable",
+    "    refinamiento (espera 59 s por paso)",
+    "      v0 tap 3 via etapa 3: 1012.0 -> 994.338 mV (pend -2003 uV/cod, paso +6, cod 6)",
+    "      v1 tap 3 via etapa 3: 993.7 -> 1000.251 mV (pend 431 uV/cod, paso +15, cod 21)",
+    "    verificacion: esperando 59 s",
+    "    taps [957.6, 1001.5, 1003.3, 999.8]  LP -0.20600000000001728  peor 42.434999999999945  CUMPLE"
+   ]
+  },
+  {
+   "pga_x": 50,
+   "pgaout_x": 2,
+   "resultado": "sin punto valido",
+   "cumple": false,
+   "t_s": 92.09662342071533,
+   "log": [
+    "    busqueda gruesa (espera 30 s por paso)",
+    "      etapa 0: 958.9 mV, a 156 mV del riel; NO se toca (el margen es para el LP)",
+    "      etapa 1: 1002.4 mV, a 120 mV del riel; NO se toca (el margen es para el LP)",
+    "      etapa 2 -> tap 3: extremos 746.421 / 746.402 mV",
+    "      etapa 2 -> tap 3: los dos extremos en el riel bajo; no hay autoridad",
+    "      el ADDER tampoco saca al LP del riel: no hay punto valido"
+   ]
+  },
+  {
+   "pga_x": 50,
+   "pgaout_x": 4,
+   "resultado": "sin punto valido",
+   "cumple": false,
+   "t_s": 92.10579109191895,
+   "log": [
+    "    busqueda gruesa (espera 30 s por paso)",
+    "      etapa 0: 958.6 mV, a 156 mV del riel; NO se toca (el margen es para el LP)",
+    "      etapa 1: 1004.9 mV, a 117 mV del riel; NO se toca (el margen es para el LP)",
+    "      etapa 2 -> tap 3: extremos 746.421 / 746.44 mV",
+    "      etapa 2 -> tap 3: los dos extremos en el riel bajo; no hay autoridad",
+    "      el ADDER tampoco saca al LP del riel: no hay punto valido"
+   ]
+  },
+  {
+   "pga_x": 50,
+   "pgaout_x": 8,
+   "resultado": "sin punto valido",
+   "cumple": false,
+   "t_s": 303.80213832855225,
+   "log": [
+    "    busqueda gruesa (espera 30 s por paso)",
+    "      etapa 0: 958.0 mV, a 156 mV del riel; NO se toca (el margen es para el LP)",
+    "      etapa 1: 1005.2 mV, a 117 mV del riel; NO se toca (el margen es para el LP)",
+    "      etapa 2 -> tap 3: extremos 1122.398 / 746.402 mV",
+    "      etapa 2 -> tap 3: codigo -244 deja el tap en 1122.4 mV",
+    "      el ADDER quedo en el riel (750.579) al centrar el LP: no hay punto donde los dos convivan"
+   ]
+  },
+  {
+   "pga_x": 50,
+   "pgaout_x": 16,
+   "resultado": "sin punto valido",
+   "cumple": false,
+   "t_s": 305.4200007915497,
+   "log": [
+    "    busqueda gruesa (espera 30 s por paso)",
+    "      etapa 0: 958.4 mV, a 156 mV del riel; NO se toca (el margen es para el LP)",
+    "      etapa 1: 999.2 mV, a 123 mV del riel; NO se toca (el margen es para el LP)",
+    "      etapa 2 -> tap 3: extremos 1122.379 / 746.345 mV",
+    "      etapa 2 -> tap 3: codigo -220 deja el tap en 746.4 mV",
+    "      el ADDER quedo en el riel (1121.635) al centrar el LP: no hay punto donde los dos convivan"
+   ]
+  },
+  {
+   "pga_x": 50,
+   "pgaout_x": 24,
+   "resultado": "sin punto valido",
+   "cumple": false,
+   "t_s": 92.11474752426147,
+   "log": [
+    "    busqueda gruesa (espera 30 s por paso)",
+    "      etapa 0: 957.8 mV, a 157 mV del riel; NO se toca (el margen es para el LP)",
+    "      etapa 1: 1000.6 mV, a 121 mV del riel; NO se toca (el margen es para el LP)",
+    "      etapa 2 -> tap 3: extremos 746.536 / 746.459 mV",
+    "      etapa 2 -> tap 3: los dos extremos en el riel bajo; no hay autoridad",
+    "      el ADDER tampoco saca al LP del riel: no hay punto valido"
+   ]
+  },
+  {
+   "pga_x": 50,
+   "pgaout_x": 32,
+   "resultado": "sin punto valido",
+   "cumple": false,
+   "t_s": 304.311292886734,
+   "log": [
+    "    busqueda gruesa (espera 30 s por paso)",
+    "      etapa 0: 958.0 mV, a 156 mV del riel; NO se toca (el margen es para el LP)",
+    "      etapa 1: 1004.9 mV, a 117 mV del riel; NO se toca (el margen es para el LP)",
+    "      etapa 2 -> tap 3: extremos 1122.341 / 746.383 mV",
+    "      el ADDER tampoco saca al LP del riel: no hay punto valido"
+   ]
+  },
+  {
+   "pga_x": 50,
+   "pgaout_x": 48,
+   "resultado": "sin punto valido",
+   "cumple": false,
+   "t_s": 306.9626865386963,
+   "log": [
+    "    busqueda gruesa (espera 30 s por paso)",
+    "      etapa 0: 957.5 mV, a 157 mV del riel; NO se toca (el margen es para el LP)",
+    "      etapa 1: 1002.1 mV, a 120 mV del riel; NO se toca (el margen es para el LP)",
+    "      etapa 2 -> tap 3: extremos 1122.398 / 746.345 mV",
+    "      etapa 2 -> tap 3: codigo -244 deja el tap en 1122.4 mV",
+    "      el ADDER quedo en el riel (750.656) al centrar el LP: no hay punto donde los dos convivan"
+   ]
+  },
+  {
+   "pga_x": 50,
+   "pgaout_x": 50,
+   "resultado": "sin punto valido",
+   "cumple": false,
+   "t_s": 93.72908186912537,
+   "log": [
+    "    busqueda gruesa (espera 30 s por paso)",
+    "      etapa 0: 956.9 mV, a 158 mV del riel; NO se toca (el margen es para el LP)",
+    "      etapa 1: 998.2 mV, a 124 mV del riel; NO se toca (el margen es para el LP)",
+    "      etapa 2 -> tap 3: extremos 746.479 / 746.326 mV",
+    "      etapa 2 -> tap 3: los dos extremos en el riel bajo; no hay autoridad",
+    "      el ADDER tampoco saca al LP del riel: no hay punto valido"
+   ]
+  }
+ ]
+}

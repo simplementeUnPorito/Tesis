@@ -12,41 +12,54 @@ sólo se ejecuta y se compara contra el antes.
 ## 1. Qué se cambia y por qué
 
 Los IDAC tienen 8 bits, o sea 255 pasos. Lo que la resistencia fija es **cuánto
-vale un paso**, y con 15 kΩ en las cuatro etapas el recorrido resultante es
-mucho mayor que la alimentación: los códigos sobrantes **no existen**, porque el
-tap ya está contra el riel.
+vale un paso**, y con eso el compromiso entre **alcance** y **resolución**: más
+resistencia es más alcance y menos finura, y al revés.
 
-Medido el 2026-09-05 con la escala verificada con tester (Vdda = 4,826 V):
+Medido el 2026-09-05, con la escala verificada con tester (Vdda = 4,826 V):
 
-| etapa | R hoy | paso real | recorrido | **códigos útiles** |
-|---|---:|---:|---:|---:|
-| ADDER | 15 k | 76,1 mV | ±19,4 V | **63 de 510** |
-| PGA (a ×50) | 15 k | 61,0 mV | ±15,5 V | **79 de 510** |
-| BP | 15 k | 20,0 mV | ±5,09 V | 242 de 510 |
-| LP | 15 k | 10,5 mV | ±2,67 V | 462 de 510 |
+| etapa | R hoy | paso real | alcance (±255) |
+|---|---:|---:|---:|
+| ADDER | 15 k | 76,1 mV | ±19,42 V |
+| PGA (a ×50) | 15 k | 61,0 mV | ±15,54 V |
+| BP | 15 k | 20,0 mV | ±5,09 V |
+| LP | 15 k | 10,5 mV | ±2,67 V |
 
-### Los valores propuestos
+**El alcance parece excesivo contra una alimentación de 4,83 V, y no lo es.** La
+corrección tiene que recorrer un offset que, sin corregir, pondría la salida
+muy fuera del riel; el tap está recortado durante ese recorrido pero los códigos
+que lo atraviesan hacen falta igual. Lo que decide el dimensionamiento es
+**cuánto hay que inyectar**, y eso está medido más abajo.
 
-| etapa | **R nueva** | paso nuevo | útiles | motivo |
-|---|---:|---:|---:|---|
-| **ADDER** | **2,0 kΩ** | 10,2 mV | **475** | es el actuador grueso del LP; hoy desperdicia el 88 % de su rango |
-| **PGA** | **2,2 kΩ** | 8,9 mV a ×50 | **510** | su paso escala con la ganancia y a ×50 es inusable |
-| **BP** | **6,8 kΩ** | 9,1 mV | **510** | es el actuador fino más barato (11:1 a favor) |
-| **LP** | **dejar 15 kΩ** | 10,5 mV | 462 | ya está bien dimensionado |
+### Los valores propuestos — CORREGIDOS
 
-Criterio: que ±255 códigos cubran ~±2,5 V, o sea media alimentación a cada lado.
-Todos son valores comerciales E24, 1 %.
+**Una versión anterior de este plan proponía bajar el ADDER a 2,0 kΩ y el PGA a
+2,2 kΩ. ERA UN ERROR: habría inutilizado la única configuración que funciona.**
+Elías lo detectó — la resistencia hay que elegirla por **cuánto hace falta
+compensar**, no por llenar el rango.
 
-**El LP no se toca.** Es el único donde el rango es resolución de señal y no
-sólo margen de continua — Elías: *"si perdemos rango en LP perdemos
-resolución"*.
+Cuánto se inyecta de verdad, sacado de los códigos que la calibración
+efectivamente aplicó en las corridas que cerraron:
 
-### Riesgo y cómo se acota
+| etapa | **máximo inyectado** | autoridad actual | margen |
+|---|---:|---:|---:|
+| **ADDER** | **−14,62 V** | ±19,42 V | 33 % |
+| **PGA (a ×50)** | **+14,30 V** | ±15,54 V | **9 %** |
+| LP | 0,29 V | ±2,67 V | 9× |
+| BP | 0,00 V | ±5,09 V | sin usar |
 
-El único riesgo real es quedarse **corto de autoridad** en alguna combinación
-extrema. Se acota con el orden de trabajo: se cambia **primero el ADDER solo**,
-se repite la batería, y recién si mejora se siguen los otros. Si algo empeora,
-se vuelve a 15 kΩ en esa etapa y se sabe exactamente cuál fue.
+| etapa | **R nueva** | motivo |
+|---|---|---|
+| **PGA** | **dejar 15 kΩ** | usa el 91 % de su autoridad: el más ajustado de los cuatro |
+| **ADDER** | **dejar 15 kΩ** | es el actuador grueso y necesita los 14,6 V de alcance |
+| **LP** | **1,8 kΩ** | es el fino: paso de 10,5 → **1,18 mV**, 9× más preciso |
+| **BP** | dejar 15 kΩ | no se usó en ninguna calibración que cerró |
+
+**El único cambio es el LP.** Su recorrido pasa de ±2,67 V a ±300 mV, que sigue
+cubriendo 4 escalones del ADDER: el par grueso+fino encadena sin huecos.
+
+No contradice el criterio de Elías de *"si perdemos rango en LP perdemos
+resolución"*: eso es sobre el rango de **señal**, que no cambia. Acá se achica el
+rango del **IDAC de corrección**, hoy 9 veces sobredimensionado.
 
 ---
 
@@ -76,32 +89,36 @@ lunes se compara contra estos números:
       lectura simultánea del banco. Verifica que la escala no cambió.
 - [ ] `git commit` de todo lo pendiente, para que el antes quede fijado.
 
-### Paso 1 — cambiar SÓLO el ADDER a 2,0 kΩ
+### Paso 1 — cambiar SÓLO el LP a 1,8 kΩ
 
-Es el que más gana (63 → 475 códigos útiles) y el que explica el modo de fallo
-dominante.
+Es el único cambio recomendado: al LP le sobra 9× de rango y le falta
+resolución. Es el actuador fino del par grueso+fino.
 
 - [ ] Cambiar la resistencia.
 - [ ] **Verificar el paso**: `medir_escalado_pgaout.py --pga 8 --outs 0`.
-      Esperado: el paso del ADDER sobre ch3 baja de 76,1 mV a **~10,2 mV**.
-      *Si no baja por ~7,5, algo salió mal — parar y revisar antes de seguir.*
+      Esperado: el paso del LP sobre ch3 baja de 10,5 mV a **~1,18 mV**.
+      *Si no baja por ~9, algo salió mal — parar y revisar antes de seguir.*
+- [ ] Comprobar que **sigue cubriendo un escalón del ADDER**: su recorrido tiene
+      que quedar en ~±300 mV contra los 76 mV del paso del ADDER. Si no lo
+      cubriera quedarían huecos que ningún código puede alcanzar.
 - [ ] `buscar_max_pgaout.py --pga 8 --outs 0,1,2,3,4,5,6,7,8`
-      **La pregunta que contesta: ¿sube el PGAout máximo de ×1?**
+      **Las preguntas: ¿sube el PGAout máximo de ×1? ¿baja el error del LP?**
 
-### Paso 2 — cambiar el PGA a 2,2 kΩ
+### Paso 2 — sólo si el paso 1 no alcanza
 
-- [ ] Cambiar y verificar el paso a ×50 (esperado ~8,9 mV/código).
-- [ ] Repetir `buscar_max_pgaout.py`.
-- [ ] `campana --rapido` para ver cuántas combinaciones dejan de arrancar
-      railadas. **Es el número de la tesis.**
+Antes de tocar cualquier otra resistencia, **medir cuánto se inyecta** en las
+combinaciones que sigan fallando. Y entonces:
 
-### Paso 3 — cambiar el BP a 6,8 kΩ
+- si alguna etapa usa **más del 80 %** de su autoridad → el problema es de
+  **alcance**, y hay que **SUBIR** esa resistencia, no bajarla;
+- si ninguna pasa del **50 %** → el problema es de **resolución**, y ahí sí se
+  puede bajar.
 
-- [ ] Cambiar y verificar.
-- [ ] `calibrar_permisivo.py --pga 8 --outs 0,1,2,3` — el método que usa el BP
-      como actuador fino. Es donde el cambio del BP debería lucirse.
+**No cambiar nada sin ese número.** Fue exactamente el error de la primera
+versión de este plan: se dimensionó por el riel en vez de por el trabajo, y las
+dos cuentas daban recomendaciones opuestas para la misma etapa.
 
-### Paso 4 — la batería completa
+### Paso 3 — la batería completa
 
 - [ ] `campana --rapido` sobre las 81 combinaciones (~90 min, desatendida).
 - [ ] `buscar_max_pgaout.py --pares` con reparto de ganancia, para la pregunta
@@ -114,7 +131,8 @@ dominante.
 
 | qué | umbral |
 |---|---|
-| Paso del ADDER sobre ch3 | baja a ~10 mV (verifica que la resistencia es la que se puso) |
+| Paso del LP sobre ch3 | baja a ~1,18 mV (verifica que la resistencia es la que se puso) |
+| Alcance del LP | queda en ~±300 mV, o sea 4 escalones del ADDER: sigue encadenando |
 | **PGAout máximo con PGA ×50** | **> ×1** ← el objetivo principal |
 | Combinaciones que arrancan railadas | baja de 10/12 |
 | Error del LP tras calibrar | no empeora respecto de 6,6 mV |

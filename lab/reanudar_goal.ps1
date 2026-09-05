@@ -2,9 +2,10 @@
     reanudar_goal.ps1 - Watchdog que mantiene viva la sesion de Claude Code que
     esta trabajando el goal del fin de semana del 2026-09-05.
 
-    QUE HACE. Corre cada 20 min desde el Programador de tareas de Windows. Si la
-    sesion esta trabajando, no hace nada. Si se murio -tipicamente porque se
-    acabo la cuota de tokens- la vuelve a levantar con el goal puesto. Cuando la
+    QUE HACE. Corre desde el Programador de tareas de Windows. Si la sesion esta
+    trabajando, no hace nada. Si se murio -tipicamente porque se acabo la cuota
+    de tokens- la vuelve a levantar con el goal puesto y con el REMOTE CONTROL
+    activo, para que Elias pueda seguirla desde el celular. Cuando la
     cuota todavia no se repuso, el intento falla en segundos y se reintenta a los
     20 min, asi que el costo de fallar es despreciable y no hace falta saber
     cuando es el reset.
@@ -123,22 +124,59 @@ REGLAS QUE NO SE NEGOCIAN:
 - Si algo te obliga a que Elias toque el hardware, PARA y dejale el pedido
   escrito en lab/PREGUNTAS_PARA_ELIAS.md (agregar al final, no pisar).
 
+El Remote Control queda activo con el nombre 'tesis-goal' para que Elias pueda
+mirar desde el celular. No lo apagues.
+
 No apagues la computadora. Commitea seguido explicando POR QUE.
 '@
 
 $stamp = Get-Date -Format 'yyyyMMdd_HHmmss'
 $log   = Join-Path $LogDir "goal_$stamp.log"
-Anotar "lanzando claude --resume $Sesion (log: $log)"
 
-Push-Location $Repo
+# ---------------------------------------------------------------------------
+# COMO SE LANZA, Y POR QUE ASI
+#
+# Elias pidio que la reanudacion deje el Remote Control activo para poder mirar
+# desde el celular. Eso obliga a dos cambios respecto de la version anterior:
+#
+# 1. `--remote-control` arranca una sesion INTERACTIVA, mientras que la version
+#    anterior usaba `-p`, que es el modo no interactivo. Son incompatibles: no se
+#    puede tener las dos cosas. Se elige interactiva, porque sin ella no hay
+#    Remote Control y Elias se queda sin ver nada.
+#
+# 2. Una sesion interactiva necesita una TERMINAL, y una tarea del Programador
+#    no le da ninguna. Por eso no se invoca claude directo sino que se abre una
+#    CONSOLA NUEVA con Start-Process: ahi si hay TTY. Como efecto util, la
+#    ventana queda visible en la maquina, asi que tambien se ve sin el celular.
+#
+# El goal viaja como prompt posicional, que en modo interactivo se manda como
+# primer mensaje. O sea que la sesion arranca sola y trabajando, no esperando.
+#
+# El nombre del Remote Control es fijo para que sea reconocible en la lista del
+# celular entre otras sesiones.
+$NombreRemoto = 'tesis-goal'
+
+Anotar "lanzando consola nueva: claude --resume $Sesion --remote-control $NombreRemoto"
+
+# El goal se guarda en un archivo y se pasa por -f para no pelearse con el
+# escapado de comillas y saltos de linea a traves de dos capas de shell.
+$goalFile = Join-Path $LogDir "goal_$stamp.txt"
+Set-Content -LiteralPath $goalFile -Value $goal -Encoding UTF8
+
+$inner = @"
+Set-Location '$Repo'
+`$g = Get-Content -Raw -LiteralPath '$goalFile'
+& '$Claude' --resume '$Sesion' --remote-control '$NombreRemoto' --dangerously-skip-permissions `$g
+"@
+$innerFile = Join-Path $LogDir "lanzar_$stamp.ps1"
+Set-Content -LiteralPath $innerFile -Value $inner -Encoding UTF8
+
 try {
-    & $Claude --resume $Sesion --dangerously-skip-permissions -p $goal *>&1 |
-        Tee-Object -FilePath $log
-    Anotar ("claude termino con exit={0}" -f $LASTEXITCODE)
+    Start-Process -FilePath 'powershell.exe' `
+        -ArgumentList '-NoProfile', '-ExecutionPolicy', 'Bypass', '-NoExit', '-File', $innerFile `
+        -WorkingDirectory $Repo
+    Anotar "consola lanzada (script: $innerFile)"
 }
 catch {
-    Anotar ("claude fallo: {0}" -f $_.Exception.Message)
-}
-finally {
-    Pop-Location
+    Anotar ("no se pudo lanzar la consola: {0}" -f $_.Exception.Message)
 }

@@ -1,0 +1,50 @@
+{
+ "pga_code": 8,
+ "pares": null,
+ "filas": [
+  {
+   "pga_code": 8,
+   "pgaout_code": 0,
+   "pga_x": 50,
+   "pgaout_x": 1,
+   "dac": {
+    "0": 14,
+    "1": 0,
+    "2": -176,
+    "3": 0
+   },
+   "taps_mv": {
+    "0": 997.924,
+    "1": 998.344,
+    "2": 763.988,
+    "3": 1122.016
+   },
+   "error_mv": {
+    "0": -2.076000000000022,
+    "1": -1.655999999999949,
+    "2": -236.01199999999994,
+    "3": 122.01600000000008
+   },
+   "error_lp_mv": 122.01600000000008,
+   "error_peor_mv": 236.01199999999994,
+   "en_riel": [
+    2,
+    3
+   ],
+   "cumple": false,
+   "t_s": 432.68682408332825,
+   "log": [
+    "    busqueda gruesa (espera 30 s por paso)",
+    "      etapa 0: 959.4 mV, a 155 mV del riel; NO se toca (el margen es para el LP)",
+    "      etapa 1: 1005.2 mV, a 117 mV del riel; NO se toca (el margen es para el LP)",
+    "      etapa 2 -> tap 3: extremos 1122.493 / 746.421 mV",
+    "      etapa 2 -> tap 3: codigo -176 deja el tap en 939.4 mV",
+    "      ADDER en 1010.4 mV tras centrar el LP: aceptable",
+    "    refinamiento (espera 59 s por paso)",
+    "      v0 tap 0 via etapa 0: 958.0 -> 997.142 mV (pend 3054 uV/cod, paso +14, cod 14)",
+    "    verificacion: esperando 59 s",
+    "    taps [997.9, 998.3, 764.0, 1122.0]  LP 122.01600000000008  peor 236.01199999999994  NO CUMPLE"
+   ]
+  }
+ ]
+}
