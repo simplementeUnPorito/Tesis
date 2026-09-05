@@ -8,6 +8,55 @@ Mantener este archivo al día es parte del trabajo, no un extra.
 
 ---
 
+## GOAL NO CONSEGUIDO — HAY QUE VERIFICAR EL ORIGEN DE COORDENADAS PRIMERO
+
+**Estado al 2026-09-05 por la tarde: en pausa por una duda de fondo que Elias
+detecto y que invalida el criterio con el que se midio todo el dia.**
+
+**Que pasa.** Todo el trabajo del dia informa el error del LP como desvio
+respecto de **1000 mV**. Ese numero NO es el objetivo del firmware: es
+simplemente lo que el banco lee cuando la cadena esta en reposo. El objetivo
+real de GEO es **CERO**:
+
+    CAL_TARGET_GEO_PGA_MV = CAL_TARGET_GEO_BP_MV =
+    CAL_TARGET_GEO_SUM_MV = CAL_TARGET_GEO_LP_MV = 0
+
+Los 1000/1024/3500 mV son de **HAMMER**, no de GEO. Elias lo marco y tiene razon.
+
+**Por que no se resuelve leyendo el codigo.** Se reviso: la calibracion y el
+comando `dc` del banco usan el MISMO AMux (`psoc_amux_select_exclusive`), el
+MISMO ADC (`ADC_GetResult32` + `psoc_adc_counts_right_aligned`) y la MISMA
+conversion (`counts x rango / 131072`, sin offset). Y `cal_pi_compare_counts`
+para GEO devuelve el valor tal cual. O sea que las cuentas son la misma
+magnitud, y sin embargo el objetivo es 0 y el banco lee ~52.429 cuentas (1 V).
+
+**Las dos posibilidades:**
+
+1. El banco tiene un offset o una escala equivocada, y "1000 mV en el banco" ES
+   el cero del firmware. Entonces todos los numeros del dia valen tal cual.
+2. Hay de verdad ~1 V de desbalance en los taps. **Esto NO es absurdo**, como
+   penso primero esta sesion: Elias lo corrigio. Con `polarity_reg` el recorrido
+   del IDAC es +-255 x 1875 uV = **+-478 mV en la referencia**, y por la ganancia
+   referencia->tap del ADDER (3823/1875 = 2,04) eso da **+-975 mV en ch3**. O sea
+   que hay autoridad para mover casi un volt.
+
+**LA PRUEBA QUE LO DECIDE, y hay que hacerla ANTES de seguir midiendo:**
+
+- comparar `snapshot` (0xB8, el reporte por etapa del propio PSoC) contra `dc`
+  del banco sobre el mismo canal. Son dos caminos de codigo distintos: si
+  coinciden, el banco esta bien y el volt es real;
+- correr `cal` del firmware y leer los taps despues. Si el firmware converge y
+  el banco lee ~0 mV, el objetivo es 0 de verdad y el reposo de 1000 mV era
+  simplemente "sin calibrar".
+
+**Que queda en pie pase lo que pase**, porque no depende del origen: los rieles
+(750 y 1122 en unidades del banco), la excursion de 372 mV, la asimetria del
+recorrido, y **todas las pendientes en uV/codigo** —que son diferencias y por lo
+tanto inmunes a un offset—. Lo que queda en duda es **donde hay que dejar cada
+tap**, o sea el criterio de aceptacion.
+
+---
+
 ## El objetivo, en una línea
 
 Dejar la autocalibración de la cadena analógica **medida, ajustada y fiable**
@@ -135,6 +184,69 @@ si los de PGAout alto son peores, manda B.
 **Red de seguridad:** PGAout x1 reproduce la placa que Elias ya probo en campo y
 que funciona. El peor resultado posible de esta busqueda sigue siendo un nodo
 utilizable.
+
+## APARTADO DE TESIS: justificar que la autocalibracion vale su complejidad
+
+Pedido de Elias del 2026-09-05: *"probá cada combinación de ganancia con todos
+los IDACs a 0, o sea sólo con el voltaje de base, para medir qué tan útil es el
+sistema de autocalibración [...] principalmente buscamos medir su utilidad y
+justificar su complejidad. Si no se cumple esto no vale la pena y necesito que
+lo justifiques en mi tesis."*
+
+**El argumento mas fuerte ya esta medido**, y es mejor de lo que uno esperaria:
+
+| PGA x PGAout | sin calibrar (IDACs en 0) | calibrado |
+|---|---|---|
+| x50 x1 | ch2 = 1121,8 mV y ch3 = 746,6 mV: **los dos CONTRA EL RIEL** | LP a **-0,21 mV** |
+| x1 x1 | ch3 = 984,6 mV, 15,4 mV fuera | ~2 mV |
+
+O sea que **sin autocalibracion la configuracion de x50 no existe**: la cadena
+esta railada y no captura nada. La autocalibracion no es un refinamiento que
+mejora un numero, es **lo que hace que esa configuracion sea posible**. Y x50 es
+justamente la que Elias valido en campo por dar mejor senal.
+
+De las 12 combinaciones medidas en reposo, **10 arrancan contra el riel**.
+
+### Mediciones que faltan para cerrar el apartado
+
+- **EXP4a — reposo en toda la grilla.** Con los cuatro IDAC en 0 y espera de
+  planta correcta, clasificar cada combinacion en: railada (nodo inutil), en
+  rango pero fuera de objetivo, o dentro de especificacion. La metrica que
+  importa es **cuantas combinaciones son utilizables sin calibrar contra cuantas
+  con calibrar**. Parte ya esta (`campana_*.json`, 12 combinaciones con 60 s de
+  espera).
+- **EXP4b — excursion util perdida.** El offset se come margen de excursion, y
+  eso son bits del ADC que se pierden. Cuantificar la amplitud de senal que
+  entra antes de recortar, con y sin calibrar. Es el argumento en terminos de
+  rango dinamico, que es el que un tribunal entiende sin discutir.
+- **EXP4c — deriva del punto calibrado.** Es el que justifica que la calibracion
+  sea **automatica y no un ajuste de fabrica**: si el punto deriva con el tiempo
+  o la temperatura, un trim fijo no sirve. Dejar el nodo calibrado y medir los
+  cuatro taps cada pocos minutos durante horas. **Va de madrugada**, que es
+  cuando la casa esta quieta, y de paso la temperatura baja de ~19 a ~11 C esa
+  noche, o sea que la excursion termica viene de regalo.
+- **EXP4d — la calibracion no empeora el ruido.** Comprobar que el piso de ruido
+  con los IDAC calibrados es el mismo que con los IDAC en 0. Es barato y cierra
+  la objecion obvia de "si, corrige el offset, pero a que costo".
+
+## IDEAS DE ELIAS ANOTADAS PARA EL FINAL (baja prioridad, dichas por el)
+
+- **Cambiar la resolucion / configuracion del ADC entre mediciones.** El
+  componente expone cuatro rangos (+-2,5 / +-0,512 / +-1,024 / +-0,625 V) a la
+  misma Fs. La idea es usar el ancho para lo grueso -barridos, busqueda de
+  saturacion, donde el tap se mueve cientos de mV- y uno angosto para la
+  verificacion final del residuo, donde da hasta 5x mas resolucion sobre el
+  mismo dato. Elias: *"valora la posibilidad de cambiar la resolucion del ADC
+  entre mediciones si ayuda a mejorar [...] esto ponelo para las ultimas
+  pruebas, es lo menos importante pero anotalo"*.
+
+  **Trampa conocida:** cambiar de configuracion exige que el DelSig se
+  reasiente, y no esperar eso ya produjo lecturas basura el 2026-09-05 -tres
+  rangos pedidos uno tras otro dieron cuentas fisicamente imposibles-. Hay que
+  medir cuanto tarda ese reasentamiento antes de usarlo en serio.
+
+  **Requisito previo:** que el tap este dentro del rango angosto. El autotest ya
+  avisa (D5) cuando no lo esta, y hoy salta justamente por eso.
 
 ## Herramientas que hay que tener presentes
 
