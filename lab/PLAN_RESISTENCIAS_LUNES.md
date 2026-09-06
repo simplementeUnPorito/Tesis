@@ -93,7 +93,25 @@ el clamp asimétrico, sólo que sin margen de sobra.
 
 ---
 
-## 2. La línea de base — YA ESTÁ MEDIDA, no hay que repetirla
+## 2. La línea de base — REMEDIDA el 2026-09-06
+
+> **Los números de la tabla de abajo son los viejos y quedaron sin efecto.** Se
+> midieron con espera fija de 60 s, y esa espera no alcanza para volver de la
+> saturación: la misma configuración daba resultados opuestos según de dónde
+> viniera la cadena. Se rehizo todo con detección de asentamiento
+> (`MEDICIONES_2026-09-05.md` §23). Lo vigente es:
+>
+> | | valor |
+> |---|---|
+> | Combinaciones que arrancan railadas | **12 de 14** |
+> | Las dos que no | ×1 ×1 (peor tap 128 mV) y ×2 ×1 (426 mV) |
+> | Paso del ADDER sobre ch3 | **61,4 mV reales por código** (§26) |
+> | Código del ADDER que centra la cadena | **−191** (§26) |
+> | El nodo se calibra solo | **sí**, LP a 34 mV de Vref en 579 s (§27) |
+>
+> Y no hace falta repetirlo a mano: `python -m lunes.t2_sin_calibrar` lo rehace
+> entero, y `python -m lunes.t3_cal_firmware` verifica lo último.
+
 
 Todo esto está en `docs/MEDICIONES_2026-09-05.md` y en `lab/planta/*.json`. El
 lunes se compara contra estos números:
