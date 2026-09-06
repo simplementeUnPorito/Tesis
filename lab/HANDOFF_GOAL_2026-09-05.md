@@ -8,6 +8,56 @@ Mantener este archivo al día es parte del trabajo, no un extra.
 
 ---
 
+## OBJETIVO CONSEGUIDO — 2026-09-06, 09:52: EL NODO SE CALIBRA SOLO
+
+Arrancando con los cuatro IDAC en cero, que es como queda un nodo recien
+encendido en el campo, y sin PC: solo el comando `cal`.
+
+| tap | antes | despues |
+|---|---:|---:|
+| ch0 PGA | -814 mV | -844 mV |
+| ch1 BP | +111 mV | **-42 mV** |
+| ch2 ADDER | **+2372 mV, contra el riel** | **-16 mV** |
+| ch3 LP | **-5044 mV, zona ciega** | **-34 mV** |
+
+*(mV reales respecto de Vref)*
+
+**El tap que se captura paso de no ser observable a quedar a 34 mV de Vref.**
+Tardo 579 s, que es lo que pide un tau de 29,5 s y se paga una vez al desplegar.
+
+ch0 se queda donde estaba porque es el offset de entrada amplificado x50, que ya
+se habia aceptado explicitamente: no es riel, le sobra 1,5 V hasta masa.
+
+**Lo unico que falta, y es chico:** el firmware informa `ok=0` pese a dejar el LP
+a 34 mV. El lazo llego; lo que no alcanzo fue el presupuesto de pasos del LP para
+acumular las tres muestras seguidas dentro de la banda muerta que su criterio de
+cierre exige. Es un numero de tabla.
+
+### Los ensayos del lunes YA ESTAN ARMADOS
+
+    cd src/interfaces/python
+    python -m lunes.correr_lunes antes       # ~10 min, ANTES del soldador
+    python -m lunes.correr_lunes despues     # ~25 min, despues de cada cambio
+    python -m lunes.correr_lunes completo    # ~1 h, la bateria entera
+
+Cinco ensayos en `src/interfaces/python/lunes/`, con todas las trampas del fin de
+semana metidas como guardas: se pide el ADC explicitamente, cada `set_idac` se
+reintenta y se verifica, se espera a que la cadena deje de moverse en vez de un
+tiempo fijo, y no se convierten a milivolts las lecturas de la zona ciega.
+
+| ensayo | que contesta |
+|---|---|
+| T0 | la huella de la placa: reposo y las 16 pendientes actuador x tap |
+| T1 | la curva COMPLETA de un actuador, +-255, no hasta el clamp del firmware |
+| T4 | si el fino cubre un escalon del grueso, o quedan huecos. No toca la placa |
+| T3 | **el criterio de aceptacion: ¿se calibra solo?** |
+| T2 | cuantas ganancias arrancan railadas: el numero que va a la tesis |
+
+El protocolo paso a paso, con los criterios de parada junto al comando que los
+mide, esta en `lab/PLAN_RESISTENCIAS_LUNES.md` §3.
+
+---
+
 ## ESTADO AL 2026-09-05, 23:00 — el firmware unificado y el lazo arreglado
 
 Lo de abajo (desde "GOAL NO CONSEGUIDO") es el historial del dia y quedo
@@ -453,9 +503,13 @@ De las 12 combinaciones medidas en reposo, **10 arrancan contra el riel**.
       en ±255 y a ×50 el tap ya está en el riel pasando los ~±66 códigos.
 
 ### Fase 3 — validación en placa
-- [x] **PGA ×50 CALIBRA.** Medido el 2026-09-05: con el ADDER en el código −176
-      el tap del LP queda en 939,4 mV, centrado, y el ADDER en 1010,4 mV.
-      Confirma el dato de campo de Elías y valida el emparejamiento LP↔ADDER.
+- [x] **PGA ×50 CALIBRA.** ~~Con el ADDER en −176 el LP queda en 939,4 mV,
+      centrado.~~ **CORREGIDO el 2026-09-06: 939,4 de banco NO es el centro.**
+      Ese número venía de creer que el centro estaba en ~936, que era la
+      consecuencia de una escala equivocada (ver MEDICIONES §13). El centro es
+      **1001,5 de banco = Vref**, y el código que lo alcanza es **−191**, no
+      −176; −176 apenas devuelve el tap a la ventana observable, en 948,3.
+      La curva completa está en MEDICIONES §26.
 - [~] 3.0 **Máximo PGAout estable con PGA ×50** — corriendo,
       `buscar_max_pgaout.py`. Es el objetivo principal.
 - [ ] 3.1 Calibrar, esperar diez minutos, mirar `GEO_LP`. Criterio: ≤ 20 mV.
