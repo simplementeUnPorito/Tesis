@@ -8,6 +8,19 @@ Mantener este archivo al día es parte del trabajo, no un extra.
 
 ---
 
+## EL INFORME DE LA SEMANA, EN PDF
+
+**`docs/informe_semana_2026-09-06/informe.pdf`** --- nueve paginas con todo: lo
+que funciona, los numeros vigentes, las cinco figuras, el error de metodo que
+mas costo, y **una seccion entera con donde esta cada cosa en el repo** para
+poder ir a buscarla.
+
+Para regenerarlo: `cd docs\informe_semana_2026-09-06` y `.\compilar.ps1`.
+Regenera las figuras desde los JSON crudos y compila; no hay ningun numero que
+no salga de un archivo de datos.
+
+---
+
 ## OBJETIVO CONSEGUIDO — 2026-09-06, 09:52: EL NODO SE CALIBRA SOLO
 
 Arrancando con los cuatro IDAC en cero, que es como queda un nodo recien
