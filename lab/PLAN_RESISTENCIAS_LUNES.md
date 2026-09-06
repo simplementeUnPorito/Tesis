@@ -61,6 +61,36 @@ No contradice el criterio de Elías de *"si perdemos rango en LP perdemos
 resolución"*: eso es sobre el rango de **señal**, que no cambia. Acá se achica el
 rango del **IDAC de corrección**, hoy 9 veces sobredimensionado.
 
+### AGREGADO 2026-09-06: el ADDER gasta el 75 % de su recorrido en llegar
+
+El barrido completo del ADDER en lazo abierto (MEDICIONES §26) mide algo que
+antes no se sabía y que cambia la conversación:
+
+| tramo del IDAC del ADDER | qué hace |
+|---|---|
+| 0 … −135 (≈ 53 % del recorrido) | **nada**: el LP está saturado y no transmite |
+| −176 … −240 (≈ 25 %) | la zona útil; Vref cae en **−191** |
+| −240 … −255 | contra el riel |
+
+O sea que **el 75 % del recorrido del actuador se gasta en llegar al punto de
+operación**, y sólo queda una cuarta parte para corregir. Y el margen hacia
+arriba desde Vref son ~15 códigos.
+
+**Esto NO es un argumento para cambiar la resistencia del ADDER.** Al revés: su
+alcance en volts es justo lo que hace falta, y achicarlo lo rompería. Lo que
+dice el número es otra cosa: **el cero de su referencia está corrido**. Hacen
+falta 191 códigos × 1875 µV = **358 mV** para llegar a donde debería estar el
+reposo.
+
+Si ese offset se compensara en el hardware —moviendo el cero de la referencia
+del ADDER, no su resistencia en serie—, el código 0 sería el centro y quedarían
+los ±255 completos para corregir, que es lo que un sistema de calibración quiere.
+
+**Para el lunes, con el esquemático a la vista:** ver de dónde sale el cero de la
+referencia del ADDER y si esos 358 mV se pueden mover ahí. Es independiente del
+cambio del LP y no interfiere con él; si no se puede, el firmware ya funciona con
+el clamp asimétrico, sólo que sin margen de sobra.
+
 ---
 
 ## 2. La línea de base — YA ESTÁ MEDIDA, no hay que repetirla
