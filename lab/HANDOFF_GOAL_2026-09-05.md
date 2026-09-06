@@ -40,6 +40,34 @@ lazo de ganancia negativa. Realimentacion positiva.
 sin poder escribir los IDAC del PGA y del BP, en silencio. Las cuatro etapas
 volvieron a la tabla; el campo `en_secuencia` dice cuales se calibran.
 
+### 5. Y el hallazgo de diseno: el ADDER no puede rescatar un LP saturado
+
+Reconstrui la trayectoria del lazo paso a paso. Arrancando con la cadena contra
+el riel de abajo, **42 pasos del ADDER movieron su propio tap 1,5 V y el del LP
+cero**; el primer movimiento del LP lo saco de un salto. Cuando el LP esta
+saturado, su propia saturacion corta el camino: lo unico que lo mueve es su
+propia referencia, que actua adentro de la etapa.
+
+Eso **corrige la seccion 10** -"el LP no se centra con su propio IDAC sino desde
+el ADDER"-, que salio de medir en un punto donde el LP no estaba saturado. Ahi
+sigue valiendo; no vale para el rescate, que es el caso que la calibracion tiene
+que resolver en campo.
+
+La secuencia correcta es **LP (rescate), ADDER (grueso), LP (fino)**, y se
+implementa poniendo el LP primero en la tabla y GEO en dos pasadas. Compilado y
+listo para probar; **falta grabarlo y correr `cal`** (el banco esta ocupado con
+la remedicion de la seccion 15).
+
+### Estado del lazo, medido
+
+| corrida | resultado |
+|---|---|
+| antes de todo | contestaba ok=0 a los 59,7 s sin esperar nunca |
+| con las esperas arregladas | 149 s, pero se iba al riel (realimentacion positiva) |
+| con la curva del LP arreglada | 433 s, saca al LP del riel y le recorre 2,7 V |
+| con 12 pasos para el ADDER | 648 s; el ADDER no logra nada, el LP hace todo |
+| con la secuencia LP-ADDER-LP | **sin probar todavia** |
+
 ### Lo que hay que releer con desconfianza
 
 **Las mediciones del dia se tomaron con el instrumento que tenia el lector de
@@ -61,8 +89,10 @@ Esta escrito el reemplazo: `sin_calibrar.py`, con deteccion de asentamiento
 1. **Verificar que el lazo ya converja** (corriendo al cierre de esta nota).
 2. **Rehacer la seccion 15** con `sin_calibrar.py`. Es lo mas importante que
    queda: sin eso el argumento de la tesis se apoya en una medida no reproducible.
-3. **EXP4c, la deriva nocturna** (`deriva_noche.py`): la otra mitad del
-   argumento, la que justifica que la calibracion sea AUTOMATICA y no de fabrica.
+3. **EXP4c, la deriva.** OJO: la ventana de la madrugada del 2026-09-06 SE
+   PERDIO -la sesion quedo inactiva desde las 23:27 y el registro no llego a
+   arrancar-. No es fatal: la rampa termica de la manana (de ~11 a ~19 C) sirve
+   igual que la de la noche, y el experimento es el mismo. `deriva_noche.py`.
 4. EXP4b (rango dinamico perdido) y EXP4d (que calibrar no empeora el ruido).
 5. Lunes: cambiar SOLO la resistencia del LP a 1,8 k y repetir la bateria
    (`lab/PLAN_RESISTENCIAS_LUNES.md`).
