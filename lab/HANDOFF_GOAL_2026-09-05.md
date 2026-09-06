@@ -40,23 +40,48 @@ lazo de ganancia negativa. Realimentacion positiva.
 sin poder escribir los IDAC del PGA y del BP, en silencio. Las cuatro etapas
 volvieron a la tabla; el campo `en_secuencia` dice cuales se calibran.
 
-### 5. Y el hallazgo de diseno: el ADDER no puede rescatar un LP saturado
+### 5. EL HALLAZGO PRINCIPAL: el firmware se quedaba 63 codigos corto
 
-Reconstrui la trayectoria del lazo paso a paso. Arrancando con la cadena contra
-el riel de abajo, **42 pasos del ADDER movieron su propio tap 1,5 V y el del LP
-cero**; el primer movimiento del LP lo saco de un salto. Cuando el LP esta
-saturado, su propia saturacion corta el camino: lo unico que lo mueve es su
-propia referencia, que actua adentro de la etapa.
+**Con el ADDER (IDAC 2) en -191 y los otros tres IDAC en CERO, la cadena entera
+queda centrada a PGA x50:**
 
-Eso **corrige la seccion 10** -"el LP no se centra con su propio IDAC sino desde
-el ADDER"-, que salio de medir en un punto donde el LP no estaba saturado. Ahi
-sigue valiendo; no vale para el rescate, que es el caso que la calibracion tiene
-que resolver en campo.
+    ch1 = 1001,9    ch2 = 1001,1    ch3 = 1001,8   de banco
+    o sea ch3 = 2,419 V, que es Vref (2,415) con 4 mV de error
 
-La secuencia correcta es **LP (rescate), ADDER (grueso), LP (fino)**, y se
-implementa poniendo el LP primero en la tabla y GEO en dos pasadas. Compilado y
-listo para probar; **falta grabarlo y correr `cal`** (el banco esta ocupado con
-la remedicion de la seccion 15).
+Un solo actuador, sin tocar nada mas. El firmware no podia llegar ahi porque su
+clamp para el ADDER era +-128 codigos.
+
+**La curva completa**, medida en lazo abierto el 2026-09-06 (mV de banco en ch3):
+
+    IDAC2   0 .. -128    748,0    plano, zona ciega  <- aca cortaba el firmware
+    IDAC2      -144      765,6    primer movimiento
+    IDAC2      -160      874,1
+    IDAC2      -176      948,3    ya observable
+    IDAC2      -191     1001,8    Vref
+
+El LP esta saturado y NO responde nada hasta que la contribucion del ADDER cruza
+un umbral cerca de -135 codigos. El firmware se quedaba en el ultimo punto plano,
+un paso antes del acantilado.
+
+**Me equivoque dos veces antes de llegar a esto**, y el error fue de metodo:
+barri el ADDER hasta -128 y lei el resultado como una propiedad del circuito,
+cuando -128 era el limite de mi propio instrumento. Lo destapo un dato viejo
+-el JSON de la busqueda de PGAout guardaba que el procedimiento que SI centra la
+cadena usa -191-. Las secciones 21 y 24 de MEDICIONES quedan corregidas por la
+25; se dejan escritas porque el recorrido importa.
+
+**Arreglado en el firmware:**
+- el clamp deja de ser simetrico: `dac_max_change` y `dac_max_change_neg`. Ya
+  estaba anotado como pendiente en la propia tabla, con la nota de que se perdia
+  el tramo -178..-128 "que si es util". Era justo el que hacia falta;
+- al ADDER se le abre todo el recorrido negativo, porque la PC usa -191;
+- **rescate en lazo abierto**: el PI ahora pregunta si la lectura significa algo
+  antes de realimentar sobre ella. Fuera de la ventana observable no realimenta:
+  empuja a ciegas en la direccion conocida, espera 1 tau y vuelve a mirar;
+- presupuesto del ADDER dimensionado: 7 pasos de rescate + 7 de lazo.
+
+**Compilado. FALTA GRABARLO Y CORRER `cal`** — es la prueba que cierra el fin de
+semana, y el banco esta ocupado terminando el barrido.
 
 ### Estado del lazo, medido
 
@@ -65,8 +90,8 @@ la remedicion de la seccion 15).
 | antes de todo | contestaba ok=0 a los 59,7 s sin esperar nunca |
 | con las esperas arregladas | 149 s, pero se iba al riel (realimentacion positiva) |
 | con la curva del LP arreglada | 433 s, saca al LP del riel y le recorre 2,7 V |
-| con 12 pasos para el ADDER | 648 s; el ADDER no logra nada, el LP hace todo |
-| con la secuencia LP-ADDER-LP | **sin probar todavia** |
+| con 12 pasos para el ADDER | 648 s; se queda contra su propio clamp |
+| con el clamp asimetrico + rescate | **sin probar todavia** |
 
 ### Lo que hay que releer con desconfianza
 
