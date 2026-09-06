@@ -188,6 +188,26 @@ resolución. Es el actuador fino del par grueso+fino.
       nodo se calibra solo a ×50? Reconstruye además la trayectoria del lazo,
       que es lo que convierte un "no anduvo" en un diagnóstico.
 
+### La cuenta hecha de antemano: el cambio del LP es seguro por cobertura
+
+Antes de soldar conviene saber si el par grueso+fino va a seguir encadenando.
+Con los números medidos —el ADDER da **61,4 mV reales por código** sobre ch3
+(§26) y el LP a 15 kΩ da **10,46 mV**—:
+
+| resistencia del LP | paso | recorrido | cubre |
+|---|---:|---:|---:|
+| 15 kΩ (hoy) | 10,46 mV | 5,33 V | **87 pasos del ADDER** |
+| **1,8 kΩ** | **1,26 mV** | **0,64 V** | **10,4 pasos** |
+
+Sigue cubriendo con un orden de magnitud de margen, así que **por el lado de los
+huecos el cambio es seguro**. Lo que gana es lo que se busca: el paso del fino
+baja de 10,5 a 1,3 mV reales, o sea **8,3× más resolución** en el ajuste final.
+
+*(Es una cuenta sobre el papel: supone que el recorrido del LP es usable entero,
+y a ×50 con la cadena railada no lo es. `t4_encadenado` lo mide de verdad,
+usando el recorrido que el LP logra **en la ventana observable**, que es el que
+cuenta. Si T4 y esta tabla no coinciden, la que vale es T4.)*
+
 ### Paso 2 — sólo si el paso 1 no alcanza
 
 Antes de tocar cualquier otra resistencia, **medir cuánto se inyecta**. Eso ya
