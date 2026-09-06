@@ -109,12 +109,38 @@ lunes se compara contra estos números:
 
 ---
 
-## 3. Protocolo del lunes, en orden
+## 3. Protocolo del lunes, en orden — LOS ENSAYOS YA ESTÁN ARMADOS
 
-### Paso 0 — antes de desoldar (30 min)
+Todo lo de abajo son comandos que existen y corren. Viven en
+`src/interfaces/python/lunes/`, escriben JSON con fecha en `lab/lunes/`, y
+llevan metidas como guardas todas las trampas que costaron un ensayo arruinado
+el fin de semana: la configuración del ADC se pide explícitamente, cada
+`set_idac` se reintenta y se verifica, se espera a que la cadena deje de moverse
+en vez de un tiempo fijo, y no se convierten a milivoltios las lecturas de la
+zona ciega.
 
-- [ ] `python -m testbench run --port COM8` → guardar el JSON. Es la foto del
-      estado sano antes de tocar nada.
+```
+cd src/interfaces/python
+python -m lunes.correr_lunes antes       # ~10 min, ANTES de tocar el soldador
+python -m lunes.correr_lunes despues     # ~25 min, después de cada cambio
+python -m lunes.correr_lunes completo    # ~1 h, la batería entera, al final
+```
+
+Y cualquier ensayo suelto:
+
+```
+python -m lunes.t0_linea_base            # la huella de la placa
+python -m lunes.t1_autoridad 2           # la curva completa del ADDER
+python -m lunes.t1_autoridad 3           # la del LP
+python -m lunes.t2_sin_calibrar          # las 17 combinaciones de ganancia
+python -m lunes.t3_cal_firmware          # ¿se calibra solo?
+```
+
+### Paso 0 — antes de desoldar (~10 min)
+
+- [ ] **`python -m lunes.correr_lunes antes`.** Corre T0, que registra el punto
+      de reposo y las dieciséis pendientes (cada actuador sobre cada tap). Ésa
+      es la huella con la que se compara todo lo de después.
 - [ ] Con el tester: **Vdda, Vref, LPo (P0[1]) y PGAgain (P2[7])**, anotando la
       lectura simultánea del banco. Verifica que la escala no cambió.
 - [ ] `git commit` de todo lo pendiente, para que el antes quede fijado.
@@ -125,37 +151,53 @@ Es el único cambio recomendado: al LP le sobra 9× de rango y le falta
 resolución. Es el actuador fino del par grueso+fino.
 
 - [ ] Cambiar la resistencia.
-- [ ] **Verificar el paso**: `medir_escalado_pgaout.py --pga 8 --outs 0`.
-      Esperado: el paso del LP sobre ch3 baja de 10,5 mV a **~1,18 mV**.
-      *Si no baja por ~9, algo salió mal — parar y revisar antes de seguir.*
-- [ ] Comprobar que **sigue cubriendo un escalón del ADDER**: su recorrido tiene
-      que quedar en ~±300 mV contra los 76 mV del paso del ADDER. Si no lo
-      cubriera quedarían huecos que ningún código puede alcanzar.
-- [ ] `buscar_max_pgaout.py --pga 8 --outs 0,1,2,3,4,5,6,7,8`
-      **Las preguntas: ¿sube el PGAout máximo de ×1? ¿baja el error del LP?**
+- [ ] **`python -m lunes.correr_lunes despues`.** Corre T0 otra vez y las curvas
+      completas del ADDER y del LP.
+
+      **La pregunta que contesta T0**: ¿la pendiente del LP bajó por el mismo
+      factor que la resistencia, de ~10,5 mV a **~1,18 mV** por código? *Si no
+      bajó por ~9, el problema es el soldado — parar acá.* Y de las otras quince
+      pendientes, **ninguna** debería haber cambiado; si cambió alguna, también
+      hay que parar.
+
+      **La pregunta que contesta T1**: ¿el recorrido del LP sigue cubriendo un
+      escalón del ADDER? Su recorrido tiene que quedar en ~±300 mV contra los
+      76 mV del paso del ADDER; si no lo cubriera quedarían huecos que ningún
+      código puede alcanzar. T1 lo dice directamente en la línea "RECORRIDO
+      ÚTIL".
+
+- [ ] **`python -m lunes.t3_cal_firmware`.** Es el criterio de aceptación: ¿el
+      nodo se calibra solo a ×50? Reconstruye además la trayectoria del lazo,
+      que es lo que convierte un "no anduvo" en un diagnóstico.
 
 ### Paso 2 — sólo si el paso 1 no alcanza
 
-Antes de tocar cualquier otra resistencia, **medir cuánto se inyecta** en las
-combinaciones que sigan fallando. Y entonces:
+Antes de tocar cualquier otra resistencia, **medir cuánto se inyecta**. Eso ya
+lo da T1: su línea "PUNTO DE VREF" dice con qué código queda centrada la cadena,
+y de ahí sale directo el porcentaje del recorrido que se gasta. Entonces:
 
-- si alguna etapa usa **más del 80 %** de su autoridad → el problema es de
+- si la etapa usa **más del 80 %** de su recorrido → el problema es de
   **alcance**, y hay que **SUBIR** esa resistencia, no bajarla;
-- si ninguna pasa del **50 %** → el problema es de **resolución**, y ahí sí se
-  puede bajar.
+- si no pasa del **50 %** → el problema es de **resolución**, y ahí sí se puede
+  bajar;
+- si gasta más del 40 % **sólo en llegar** al punto de operación → no es la
+  resistencia en serie: es el **cero de la referencia**, que está corrido. T1
+  avisa solo en ese caso y da los milivoltios que hay que mover.
 
 **No cambiar nada sin ese número.** Fue exactamente el error de la primera
 versión de este plan: se dimensionó por el riel en vez de por el trabajo, y las
 dos cuentas daban recomendaciones opuestas para la misma etapa.
 
-### Paso 3 — la batería completa
+### Paso 3 — la batería completa (~1 h, desatendida)
 
-- [ ] `campana --rapido` sobre las 81 combinaciones (~90 min, desatendida).
+- [ ] **`python -m lunes.correr_lunes completo`.** Agrega T2, las diecisiete
+      combinaciones de ganancia sin calibrar, con los tres controles de
+      reproducibilidad. Es el número que va a la tesis: hoy son **12 de 14**
+      combinaciones que arrancan con una etapa contra el riel.
 - [ ] `buscar_max_pgaout.py --pares` con reparto de ganancia, para la pregunta
-      de si conviene concentrar o repartir.
-- [ ] `python -m testbench run` final y comparación contra el paso 0.
-
----
+      de si conviene concentrar o repartir. *(Éste todavía no está dentro de la
+      batería: usa el criterio viejo de espera fija y conviene migrarlo antes de
+      confiar en su resultado.)*
 
 ## 4. Criterios de aceptación
 
