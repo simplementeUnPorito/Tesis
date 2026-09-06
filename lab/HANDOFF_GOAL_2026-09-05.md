@@ -8,6 +8,78 @@ Mantener este archivo al día es parte del trabajo, no un extra.
 
 ---
 
+## ESTADO AL 2026-09-05, 23:00 — el firmware unificado y el lazo arreglado
+
+Lo de abajo (desde "GOAL NO CONSEGUIDO") es el historial del dia y quedo
+resuelto; se conserva porque documenta como se llego aca. Esto es lo vigente.
+
+### Lo que se hizo esta noche
+
+**1. Un solo firmware.** El proyecto de autotest era una copia entera del de
+campo: 28 fuentes duplicadas, 21 identicas mantenidas a mano y 7 divergidas.
+Ahora cada fuente compartida existe UNA vez y el test la incluye. `program_psoc.ps1`
+verifica la sincronia y SE NIEGA A GRABAR si alguien vuelve a copiar un archivo.
+
+**2. Tres defectos del firmware DE CAMPO, encontrados al unificar y al medir.**
+Los tres son la misma confusion: se uso el tiempo del ADC (30 ms) donde hacia
+falta el de la cadena (tau = 29,5 s).
+
+  - la espera de planta vivia en una rama `#else` que no compila, o sea que el
+    nodo nunca esperaba a que la cadena se asentara;
+  - las esperas estan declaradas en muestras del ADC pero los contadores cuentan
+    iteraciones del lazo, que con el lector directo son 78 veces mas largas;
+  - despues de mover la referencia el lazo remedia a los 30 ms, antes de que la
+    planta conteste, concluye que no paso nada y vuelve a mover: hasta el riel.
+
+**3. Un defecto mio, de la mejora de dos actuadores.** La correccion por la no
+linealidad del LP se activaba con `adc_channel == 3`. Al hacer que el ADDER
+mire el canal 3, el ADDER quedo usando la curva del LP: ganancia positiva en un
+lazo de ganancia negativa. Realimentacion positiva.
+
+**4. Otro defecto mio.** Recortar la tabla de etapas a dos dejo al instrumento
+sin poder escribir los IDAC del PGA y del BP, en silencio. Las cuatro etapas
+volvieron a la tabla; el campo `en_secuencia` dice cuales se calibran.
+
+### Lo que hay que releer con desconfianza
+
+**Las mediciones del dia se tomaron con el instrumento que tenia el lector de
+ADC defectuoso** (el que puede devolver un cero inventado si la ISR le come el
+flag). No las invalida —las series se toman con el ADC libre corriendo, que es
+el uso correcto del polling— pero explica lecturas sueltas raras sobre ch3.
+
+**La seccion 15 de MEDICIONES (10 de 12 combinaciones arrancan railadas) hay que
+rehacerla**, y es la que justifica la autocalibracion en la tesis. Razon: la
+misma configuracion medida dos veces dio resultados opuestos, y la diferencia
+era DE DONDE VENIA la cadena. Volver de la saturacion tarda mucho mas que 2 tau
+(71 s de constante mas absorcion dielectrica del electrolitico de 680 uF). Si
+las 12 se midieron seguidas, cada una heredaba el estado de la anterior.
+Esta escrito el reemplazo: `sin_calibrar.py`, con deteccion de asentamiento
+(`src/interfaces/python/asentamiento.py`), orden alternado y tres controles.
+
+### Lo que sigue, en orden
+
+1. **Verificar que el lazo ya converja** (corriendo al cierre de esta nota).
+2. **Rehacer la seccion 15** con `sin_calibrar.py`. Es lo mas importante que
+   queda: sin eso el argumento de la tesis se apoya en una medida no reproducible.
+3. **EXP4c, la deriva nocturna** (`deriva_noche.py`): la otra mitad del
+   argumento, la que justifica que la calibracion sea AUTOMATICA y no de fabrica.
+4. EXP4b (rango dinamico perdido) y EXP4d (que calibrar no empeora el ruido).
+5. Lunes: cambiar SOLO la resistencia del LP a 1,8 k y repetir la bateria
+   (`lab/PLAN_RESISTENCIAS_LUNES.md`).
+
+### Numeros vigentes
+
+| | |
+|---|---|
+| Escala del banco | 1 mV de banco = 19,9157 mV reales; banco 1001,5 = Vref = 2,415 V |
+| Rieles (los cuatro taps) | banco 880,4 y 1122,7 |
+| tau de la planta | 29,5 s (tres caminos independientes) |
+| Maximo PGAout estable con PGA x50 | **x1** |
+| Duracion de una calibracion honesta | ~412 s (2 etapas x (2 tau + hasta 5 pasos de 1 tau)) |
+| Ganancias del lazo sobre ch3 | ADDER -2039, LP +280 |
+
+---
+
 ## GOAL NO CONSEGUIDO — HAY QUE VERIFICAR EL ORIGEN DE COORDENADAS PRIMERO
 
 **Estado al 2026-09-05 por la tarde: en pausa por una duda de fondo que Elias

@@ -158,13 +158,23 @@ Para no mezclarlo con la sesión del lunes:
   18 bits: sobre los 4,83 V útiles entran ~12.700 cuentas, o sea ~13,6 bits. Se
   pierden 4,4 bits en algún lado. Es probablemente la misma causa que lo
   anterior.
-- **Por qué la calibración del firmware aborta en 60 s** con `ok=0`, cuando con
-  2 τ debería tardar ~240 s.
+- ~~**Por qué la calibración del firmware aborta en 60 s**~~ **RESUELTO la noche
+  del 2026-09-05.** Eran cuatro cosas, todas en el firmware que va al campo: la
+  espera de planta vivía en una rama de preprocesador que no compila; las
+  esperas se cuentan en iteraciones del lazo pero están declaradas en muestras
+  del ADC, que son 78 veces más cortas; el lazo no esperaba nada después de
+  mover la referencia, así que medía el pasado y se iba al riel; y la curva no
+  lineal del LP se le aplicaba también al ADDER, invirtiéndole el signo. Ver
+  `docs/MEDICIONES_2026-09-05.md` §17 a §19.
+- ~~**Unificar los dos proyectos de PSoC**~~ **HECHO la noche del 2026-09-05.**
+  Cada fuente compartida existe una sola vez; `program_psoc.ps1` se niega a
+  grabar si alguien vuelve a copiar un archivo.
 - **La deriva térmica** (EXP4c), que es la otra mitad del argumento de la tesis:
   justifica que la calibración sea automática y no un trim de fábrica.
-- **Unificar los dos proyectos de PSoC**: hoy la calibración está duplicada y
-  divergida en 370 líneas, y eso ya causó que el autotest tuviera una versión
-  vieja.
+- **Rehacer §15** (las 12 combinaciones sin calibrar). La misma configuración
+  medida dos veces dio resultados opuestos según de dónde viniera la cadena:
+  volver de la saturación tarda mucho más que 2 τ. El reemplazo ya está escrito
+  (`sin_calibrar.py` + `src/interfaces/python/asentamiento.py`).
 
 ---
 
