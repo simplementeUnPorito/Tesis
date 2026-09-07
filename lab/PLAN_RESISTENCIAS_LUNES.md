@@ -1,5 +1,13 @@
 # Plan para el cambio de resistencias — sesión del lunes
 
+> **RESULTADO DEL 2026-09-07:** se cambió únicamente R14/Vref_LP a **3,9 kΩ**.
+> La medición dio **2,692 mV reales/código** y el LP cubre **20,85 pasos del
+> ADDER**, por lo que el cambio queda aceptado para PGA ×50 / PGAout ×1.
+> PGAout ×2 continuó saturado y la autocalibración con la nueva escala quedó
+> pendiente de actualizar/compilar el firmware. Este resultado medido reemplaza
+> la propuesta previa de 1,8 kΩ. Informe completo:
+> `lab/INFORME_R14_3K9_2026-09-07.md`.
+
 Elías: *"el lunes vamos a hacer todo cambiando las resistencias, dejalo bien
 planteado"*.
 
