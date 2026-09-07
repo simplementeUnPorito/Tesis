@@ -573,3 +573,21 @@ El maestro está desenchufado. Cuando se conecte, correrle `quien`: si contesta
     informó `0,000 mV` y se guardó como válido. **Sin corregir.** Un cero
     silencioso es la peor forma de fallar porque un ajuste posterior lo toma
     como dato bueno.
+
+---
+
+## Cierre agregado el 2026-09-07
+
+EXP4c/EXP4d se detuvo a pedido de Elías a las 08:01, antes de salir: 1.257
+instantes y 22,055 h. No quedó ningún `exp_deriva.py`, vigilante ni sesión Claude
+en segundo plano. El informe actualizado y la auditoría completa están en
+`lab/INFORME_CIERRE_2026-09-07.md`.
+
+La conclusión de 7,1 h era prematura. Con la ventana completa, el LP recorre
+245 mV y el resumen descriptivo es una tendencia de +7,7 mV/h con 24 mV RMS de
+vagabundeo superpuesto. El proxy exterior de Open-Meteo correlaciona `r=-0,86`,
+pero no es un sensor del banco y no prueba causalidad térmica.
+
+Auditoría de calidad: 58 nulos de 5.028 taps (1,15 %) y 2 bloques de ruido
+ausentes de 252. El contador histórico decía cero porque no incluía respuestas
+vacías; `exp_deriva.py` ya quedó corregido para futuras corridas.
