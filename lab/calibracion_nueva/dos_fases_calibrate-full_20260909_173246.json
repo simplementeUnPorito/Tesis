@@ -1,0 +1,295 @@
+{
+  "algorithm": "two-phase closed loop; no seeds",
+  "started_at": "2026-09-09T17:33:24",
+  "codes": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "events": [
+    {
+      "at": "2026-09-09T17:32:52.802",
+      "kind": "run_start",
+      "message": "Corrida 1/5 desde cero",
+      "run": 1,
+      "repeat": 5
+    },
+    {
+      "at": "2026-09-09T17:33:04.984",
+      "kind": "write_retry",
+      "message": "reintento IDAC0=-1",
+      "stage": 0,
+      "code": -1,
+      "attempt": 1
+    },
+    {
+      "at": "2026-09-09T17:33:08.692",
+      "kind": "probe",
+      "message": "IDAC0->ch0: pendiente +61.91 mV/c\u00f3digo",
+      "stage": 0,
+      "channel": 0,
+      "origin": 0,
+      "delta": 1,
+      "slope_bank_uv_per_code": 3108.5,
+      "slope_real_mv_per_code": 61.90795345,
+      "points": {
+        "0": {
+          "elapsed_s": 7.087674499984132,
+          "phase": "IDAC0 base",
+          "stage": 0,
+          "code": 0,
+          "channel": 0,
+          "mean_bank_uv": 951576,
+          "error_bank_uv": -49924,
+          "error_real_mv": -994.2714068,
+          "pp_bank_uv": 3948,
+          "valid": true
+        },
+        "1": {
+          "elapsed_s": 8.789323699980741,
+          "phase": "IDAC0 probe",
+          "stage": 0,
+          "code": 1,
+          "channel": 0,
+          "mean_bank_uv": 954627,
+          "error_bank_uv": -46873,
+          "error_real_mv": -933.5086061000001,
+          "pp_bank_uv": 3166,
+          "valid": true
+        },
+        "-1": {
+          "elapsed_s": 14.134699499991257,
+          "phase": "IDAC0 probe",
+          "stage": 0,
+          "code": -1,
+          "channel": 0,
+          "mean_bank_uv": 948410,
+          "error_bank_uv": -53090,
+          "error_real_mv": -1057.324513,
+          "pp_bank_uv": 4844,
+          "valid": true
+        }
+      }
+    },
+    {
+      "at": "2026-09-09T17:33:09.340",
+      "kind": "newton",
+      "message": "IDAC0 Newton 0->16",
+      "stage": 0,
+      "channel": 0,
+      "slope_bank_uv_per_code": 3108.5,
+      "raw_target": 15.77223741354351,
+      "target": 16
+    },
+    {
+      "at": "2026-09-09T17:33:16.397",
+      "kind": "pi",
+      "message": "IDAC0 PI 16->17",
+      "stage": 0,
+      "channel": 0,
+      "error_real_mv": -176.4331863,
+      "correction": 1
+    },
+    {
+      "at": "2026-09-09T17:33:18.599",
+      "kind": "pi",
+      "message": "IDAC0 PI 17->18",
+      "stage": 0,
+      "channel": 0,
+      "error_real_mv": -128.1973609,
+      "correction": 1
+    },
+    {
+      "at": "2026-09-09T17:33:20.802",
+      "kind": "pi",
+      "message": "IDAC0 PI 18->19",
+      "stage": 0,
+      "channel": 0,
+      "error_real_mv": -81.0967304,
+      "correction": 1
+    }
+  ],
+  "measurements": [
+    {
+      "elapsed_s": 7.087674499984132,
+      "phase": "IDAC0 base",
+      "stage": 0,
+      "code": 0,
+      "channel": 0,
+      "mean_bank_uv": 951576,
+      "error_bank_uv": -49924,
+      "error_real_mv": -994.2714068,
+      "pp_bank_uv": 3948,
+      "valid": true
+    },
+    {
+      "elapsed_s": 8.789323699980741,
+      "phase": "IDAC0 probe",
+      "stage": 0,
+      "code": 1,
+      "channel": 0,
+      "mean_bank_uv": 954627,
+      "error_bank_uv": -46873,
+      "error_real_mv": -933.5086061000001,
+      "pp_bank_uv": 3166,
+      "valid": true
+    },
+    {
+      "elapsed_s": 10.490258399979211,
+      "phase": "IDAC0 restore",
+      "stage": 0,
+      "code": 0,
+      "channel": 0,
+      "mean_bank_uv": 952682,
+      "error_bank_uv": -48818,
+      "error_real_mv": -972.2446426,
+      "pp_bank_uv": 2975,
+      "valid": true
+    },
+    {
+      "elapsed_s": 14.134699499991257,
+      "phase": "IDAC0 probe",
+      "stage": 0,
+      "code": -1,
+      "channel": 0,
+      "mean_bank_uv": 948410,
+      "error_bank_uv": -53090,
+      "error_real_mv": -1057.324513,
+      "pp_bank_uv": 4844,
+      "valid": true
+    },
+    {
+      "elapsed_s": 15.837028199981432,
+      "phase": "IDAC0 restore",
+      "stage": 0,
+      "code": 0,
+      "channel": 0,
+      "mean_bank_uv": 951652,
+      "error_bank_uv": -49848,
+      "error_real_mv": -992.7578136000001,
+      "pp_bank_uv": 4043,
+      "valid": true
+    },
+    {
+      "elapsed_s": 16.537339000002248,
+      "phase": "IDAC0 inicio",
+      "stage": 0,
+      "code": 0,
+      "channel": 0,
+      "mean_bank_uv": 952472,
+      "error_bank_uv": -49028,
+      "error_real_mv": -976.4269396000001,
+      "pp_bank_uv": 3986,
+      "valid": true
+    },
+    {
+      "elapsed_s": 17.58835789997829,
+      "phase": "IDAC0 rampa Newton",
+      "stage": 0,
+      "code": 4,
+      "channel": 0,
+      "mean_bank_uv": 962924,
+      "error_bank_uv": -38576,
+      "error_real_mv": -768.2680432000001,
+      "pp_bank_uv": 3147,
+      "valid": true
+    },
+    {
+      "elapsed_s": 18.637320399982855,
+      "phase": "IDAC0 rampa Newton",
+      "stage": 0,
+      "code": 8,
+      "channel": 0,
+      "mean_bank_uv": 972499,
+      "error_bank_uv": -29001,
+      "error_real_mv": -577.5752157000001,
+      "pp_bank_uv": 2403,
+      "valid": true
+    },
+    {
+      "elapsed_s": 19.689440099988133,
+      "phase": "IDAC0 rampa Newton",
+      "stage": 0,
+      "code": 12,
+      "channel": 0,
+      "mean_bank_uv": 982494,
+      "error_bank_uv": -19006,
+      "error_real_mv": -378.5177942,
+      "pp_bank_uv": 2918,
+      "valid": true
+    },
+    {
+      "elapsed_s": 20.745180999976583,
+      "phase": "IDAC0 rampa Newton",
+      "stage": 0,
+      "code": 16,
+      "channel": 0,
+      "mean_bank_uv": 992527,
+      "error_bank_uv": -8973,
+      "error_real_mv": -178.7035761,
+      "pp_bank_uv": 4062,
+      "valid": true
+    },
+    {
+      "elapsed_s": 21.391632699989714,
+      "phase": "IDAC0 post Newton",
+      "stage": 0,
+      "code": 16,
+      "channel": 0,
+      "mean_bank_uv": 993175,
+      "error_bank_uv": -8325,
+      "error_real_mv": -165.7982025,
+      "pp_bank_uv": 2307,
+      "valid": true
+    },
+    {
+      "elapsed_s": 23.540245899988804,
+      "phase": "IDAC0 PI",
+      "stage": 0,
+      "code": 16,
+      "channel": 0,
+      "mean_bank_uv": 992641,
+      "error_bank_uv": -8859,
+      "error_real_mv": -176.4331863,
+      "pp_bank_uv": 2803,
+      "valid": true
+    },
+    {
+      "elapsed_s": 25.743143300001975,
+      "phase": "IDAC0 PI",
+      "stage": 0,
+      "code": 17,
+      "channel": 0,
+      "mean_bank_uv": 995063,
+      "error_bank_uv": -6437,
+      "error_real_mv": -128.1973609,
+      "pp_bank_uv": 3795,
+      "valid": true
+    },
+    {
+      "elapsed_s": 27.945935700001428,
+      "phase": "IDAC0 PI",
+      "stage": 0,
+      "code": 18,
+      "channel": 0,
+      "mean_bank_uv": 997428,
+      "error_bank_uv": -4072,
+      "error_real_mv": -81.0967304,
+      "pp_bank_uv": 4272,
+      "valid": true
+    },
+    {
+      "elapsed_s": 30.149627699982375,
+      "phase": "IDAC0 PI",
+      "stage": 0,
+      "code": 19,
+      "channel": 0,
+      "mean_bank_uv": 1000385,
+      "error_bank_uv": -1115,
+      "error_real_mv": -22.206005500000003,
+      "pp_bank_uv": 4081,
+      "valid": true
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "algorithm": "two-phase closed loop; no seeds",
+  "started_at": "2026-09-09T10:19:07",
+  "codes": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "events": [
+    {
+      "at": "2026-09-09T10:19:03.572",
+      "kind": "probe",
+      "message": "IDAC0->ch0: pendiente +60.97 mV/c\u00f3digo",
+      "stage": 0,
+      "channel": 0,
+      "origin": 0,
+      "delta": 1,
+      "slope_bank_uv_per_code": 3061.5,
+      "slope_real_mv_per_code": 60.971915550000006,
+      "points": {
+        "0": {
+          "elapsed_s": 7.090065500000492,
+          "phase": "IDAC0 base",
+          "stage": 0,
+          "code": 0,
+          "channel": 0,
+          "mean_bank_uv": 948638,
+          "error_bank_uv": -52862,
+          "error_real_mv": -1052.7837334,
+          "pp_bank_uv": 2346,
+          "valid": true
+        },
+        "1": {
+          "elapsed_s": 8.790679900004761,
+          "phase": "IDAC0 probe",
+          "stage": 0,
+          "code": 1,
+          "channel": 0,
+          "mean_bank_uv": 951881,
+          "error_bank_uv": -49619,
+          "error_real_mv": -988.1971183,
+          "pp_bank_uv": 2632,
+          "valid": true
+        },
+        "-1": {
+          "elapsed_s": 12.189785700000357,
+          "phase": "IDAC0 probe",
+          "stage": 0,
+          "code": -1,
+          "channel": 0,
+          "mean_bank_uv": 945758,
+          "error_bank_uv": -55742,
+          "error_real_mv": -1110.1409494,
+          "pp_bank_uv": 2746,
+          "valid": true
+        }
+      }
+    },
+    {
+      "at": "2026-09-09T10:19:04.221",
+      "kind": "newton",
+      "message": "IDAC0 Newton 0->17",
+      "stage": 0,
+      "channel": 0,
+      "slope_bank_uv_per_code": 3061.5,
+      "raw_target": 17.123305569165442,
+      "target": 17
+    },
+    {
+      "at": "2026-09-09T10:19:06.963",
+      "kind": "error",
+      "message": "ABORT: RuntimeError: sin ACK IDAC0=8"
+    }
+  ],
+  "measurements": [
+    {
+      "elapsed_s": 7.090065500000492,
+      "phase": "IDAC0 base",
+      "stage": 0,
+      "code": 0,
+      "channel": 0,
+      "mean_bank_uv": 948638,
+      "error_bank_uv": -52862,
+      "error_real_mv": -1052.7837334,
+      "pp_bank_uv": 2346,
+      "valid": true
+    },
+    {
+      "elapsed_s": 8.790679900004761,
+      "phase": "IDAC0 probe",
+      "stage": 0,
+      "code": 1,
+      "channel": 0,
+      "mean_bank_uv": 951881,
+      "error_bank_uv": -49619,
+      "error_real_mv": -988.1971183,
+      "pp_bank_uv": 2632,
+      "valid": true
+    },
+    {
+      "elapsed_s": 10.491437299991958,
+      "phase": "IDAC0 restore",
+      "stage": 0,
+      "code": 0,
+      "channel": 0,
+      "mean_bank_uv": 949707,
+      "error_bank_uv": -51793,
+      "error_real_mv": -1031.4938501000001,
+      "pp_bank_uv": 2784,
+      "valid": true
+    },
+    {
+      "elapsed_s": 12.189785700000357,
+      "phase": "IDAC0 probe",
+      "stage": 0,
+      "code": -1,
+      "channel": 0,
+      "mean_bank_uv": 945758,
+      "error_bank_uv": -55742,
+      "error_real_mv": -1110.1409494,
+      "pp_bank_uv": 2746,
+      "valid": true
+    },
+    {
+      "elapsed_s": 13.890976900001988,
+      "phase": "IDAC0 restore",
+      "stage": 0,
+      "code": 0,
+      "channel": 0,
+      "mean_bank_uv": 949058,
+      "error_bank_uv": -52442,
+      "error_real_mv": -1044.4191394000002,
+      "pp_bank_uv": 2841,
+      "valid": true
+    },
+    {
+      "elapsed_s": 14.591421999997692,
+      "phase": "IDAC0 inicio",
+      "stage": 0,
+      "code": 0,
+      "channel": 0,
+      "mean_bank_uv": 949077,
+      "error_bank_uv": -52423,
+      "error_real_mv": -1044.0407411,
+      "pp_bank_uv": 3242,
+      "valid": true
+    },
+    {
+      "elapsed_s": 15.643369199999142,
+      "phase": "IDAC0 rampa Newton",
+      "stage": 0,
+      "code": 4,
+      "channel": 0,
+      "mean_bank_uv": 960998,
+      "error_bank_uv": -40502,
+      "error_real_mv": -806.6256814,
+      "pp_bank_uv": 2040,
+      "valid": true
+    }
+  ]
+}

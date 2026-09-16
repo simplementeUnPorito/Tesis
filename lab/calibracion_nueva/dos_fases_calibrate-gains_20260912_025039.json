@@ -1,0 +1,5759 @@
+{
+  "algorithm": "GEO margen + fase2 por ganancia",
+  "codes": [
+    12,
+    -47,
+    -160,
+    0
+  ],
+  "current_gain": 4,
+  "puntaje": -2961.1459388000003,
+  "events": [
+    {
+      "at": "2026-09-12T02:50:45.923",
+      "kind": "run_start",
+      "message": "Corrida 1/1"
+    },
+    {
+      "at": "2026-09-12T02:50:57.252",
+      "kind": "stable",
+      "message": "ch1 estable por observaci\u00f3n",
+      "elapsed_s": 9.656043299997691
+    },
+    {
+      "at": "2026-09-12T02:51:08.963",
+      "kind": "abba",
+      "message": "IDAC0->ch0: ABBA +59.970 mV/c\u00f3digo",
+      "result": {
+        "stage": 0,
+        "channel": 0,
+        "origin": 0,
+        "deltas": [
+          2,
+          4
+        ],
+        "method": "ABBA",
+        "slope_bank_uv_per_code": 3011.1875,
+        "slope_real_mv_per_code": 59.96990689375001,
+        "records": [
+          {
+            "delta": 2,
+            "label": "A1",
+            "point": {
+              "elapsed_s": 15.083003100007772,
+              "phase": "ABBA A1 IDAC0",
+              "stage": 0,
+              "code": 0,
+              "channel": 0,
+              "mean_bank_uv": 943851,
+              "error_bank_uv": -57649,
+              "error_real_mv": -1148.1201893,
+              "pp_bank_uv": 16765,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 2,
+            "label": "B1",
+            "point": {
+              "elapsed_s": 16.85343039999134,
+              "phase": "ABBA B1 IDAC0",
+              "stage": 0,
+              "code": 2,
+              "channel": 0,
+              "mean_bank_uv": 949630,
+              "error_bank_uv": -51870,
+              "error_real_mv": -1033.0273590000002,
+              "pp_bank_uv": 13294,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 2,
+            "label": "B2",
+            "point": {
+              "elapsed_s": 17.124742699990747,
+              "phase": "ABBA B2 IDAC0",
+              "stage": 0,
+              "code": 2,
+              "channel": 0,
+              "mean_bank_uv": 950317,
+              "error_bank_uv": -51183,
+              "error_real_mv": -1019.3452731000001,
+              "pp_bank_uv": 12969,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 2,
+            "label": "A2",
+            "point": {
+              "elapsed_s": 18.89730270000291,
+              "phase": "ABBA A2 IDAC0",
+              "stage": 0,
+              "code": 0,
+              "channel": 0,
+              "mean_bank_uv": 944385,
+              "error_bank_uv": -57115,
+              "error_real_mv": -1137.4852055000001,
+              "pp_bank_uv": 14514,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 4,
+            "label": "A1",
+            "point": {
+              "elapsed_s": 19.170825800014427,
+              "phase": "ABBA A1 IDAC0",
+              "stage": 0,
+              "code": 0,
+              "channel": 0,
+              "mean_bank_uv": 942192,
+              "error_bank_uv": -59308,
+              "error_real_mv": -1181.1603356,
+              "pp_bank_uv": 14629,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 4,
+            "label": "B1",
+            "point": {
+              "elapsed_s": 20.943012200004887,
+              "phase": "ABBA B1 IDAC0",
+              "stage": 0,
+              "code": 4,
+              "channel": 0,
+              "mean_bank_uv": 955924,
+              "error_bank_uv": -45576,
+              "error_real_mv": -907.6779432000001,
+              "pp_bank_uv": 12016,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 4,
+            "label": "B2",
+            "point": {
+              "elapsed_s": 21.21448260001489,
+              "phase": "ABBA B2 IDAC0",
+              "stage": 0,
+              "code": 4,
+              "channel": 0,
+              "mean_bank_uv": 955448,
+              "error_bank_uv": -46052,
+              "error_real_mv": -917.1578164,
+              "pp_bank_uv": 14324,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 4,
+            "label": "A2",
+            "point": {
+              "elapsed_s": 22.985490799997933,
+              "phase": "ABBA A2 IDAC0",
+              "stage": 0,
+              "code": 0,
+              "channel": 0,
+              "mean_bank_uv": 944423,
+              "error_bank_uv": -57077,
+              "error_real_mv": -1136.7284089000002,
+              "pp_bank_uv": 13694,
+              "valid": true,
+              "clavado": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-09-12T02:52:45.898",
+      "kind": "tau",
+      "message": "Tau BP medido: 36.2 s",
+      "metrics": {
+        "tau_s": 36.2,
+        "amplitude_bank_uv": 3981.501680573811,
+        "amplitude_real_mv": 79.29439301980386,
+        "final_bank_uv": 986754.2349602531,
+        "r2": 0.8000820887821674,
+        "noise_bank_uv": 420.24307251875075,
+        "samples": 30
+      }
+    },
+    {
+      "at": "2026-09-12T02:54:08.959",
+      "kind": "stable",
+      "message": "ch1 estable por observaci\u00f3n",
+      "elapsed_s": 10.438853700004984
+    },
+    {
+      "at": "2026-09-12T02:56:03.032",
+      "kind": "abba",
+      "message": "IDAC1->ch1: ABBA +2.216 mV/c\u00f3digo",
+      "result": {
+        "stage": 1,
+        "channel": 1,
+        "origin": 0,
+        "deltas": [
+          24
+        ],
+        "method": "ABBA",
+        "slope_bank_uv_per_code": 143.2028819927616,
+        "slope_real_mv_per_code": 2.851985636903242,
+        "records": [
+          {
+            "delta": 24,
+            "label": "A1",
+            "point": {
+              "elapsed_s": 207.63404309999896,
+              "phase": "ABBA A1 IDAC1",
+              "stage": 1,
+              "code": 0,
+              "channel": 1,
+              "mean_bank_uv": 985660,
+              "error_bank_uv": -15840,
+              "error_real_mv": -315.464688,
+              "pp_bank_uv": 2765,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 24,
+            "label": "B1",
+            "point": {
+              "elapsed_s": 262.20755300001474,
+              "phase": "ABBA B1 IDAC1",
+              "stage": 1,
+              "code": 24,
+              "channel": 1,
+              "mean_bank_uv": 988960,
+              "error_bank_uv": -12540,
+              "error_real_mv": -249.74287800000002,
+              "pp_bank_uv": 4348,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 24,
+            "label": "B2",
+            "point": {
+              "elapsed_s": 262.47982129998854,
+              "phase": "ABBA B2 IDAC1",
+              "stage": 1,
+              "code": 24,
+              "channel": 1,
+              "mean_bank_uv": 988368,
+              "error_bank_uv": -13132,
+              "error_real_mv": -261.5329724,
+              "pp_bank_uv": 4215,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 24,
+            "label": "A2",
+            "point": {
+              "elapsed_s": 317.053682400001,
+              "phase": "ABBA A2 IDAC1",
+              "stage": 1,
+              "code": 0,
+              "channel": 1,
+              "mean_bank_uv": 986328,
+              "error_bank_uv": -15172,
+              "error_real_mv": -302.16100040000003,
+              "pp_bank_uv": 4215,
+              "valid": true,
+              "clavado": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-09-12T02:56:03.035",
+      "kind": "pendiente_idac1_corregida",
+      "message": "IDAC1->ch1: +2.216 mV/c\u00f3digo medidos tras 1.5 tau; corregidos a +2.852 por la fracci\u00f3n asentada (0.777) con tau=36.2 s",
+      "medida": 2.2156216250000003,
+      "corregida": 2.851985636903242,
+      "tau_s": 36.2
+    },
+    {
+      "at": "2026-09-12T02:56:03.038",
+      "kind": "phase1_slopes",
+      "message": "Pendientes fase 1: ch0/IDAC0=+59.970, ch1/IDAC1=+2.852, ch2/IDAC0=-238.116, ch2/IDAC1=-10.295 mV/c\u00f3digo",
+      "result": {
+        "abba_idac0_ch0": {
+          "stage": 0,
+          "channel": 0,
+          "origin": 0,
+          "deltas": [
+            2,
+            4
+          ],
+          "method": "ABBA",
+          "slope_bank_uv_per_code": 3011.1875,
+          "slope_real_mv_per_code": 59.96990689375001,
+          "records": [
+            {
+              "delta": 2,
+              "label": "A1",
+              "point": {
+                "elapsed_s": 15.083003100007772,
+                "phase": "ABBA A1 IDAC0",
+                "stage": 0,
+                "code": 0,
+                "channel": 0,
+                "mean_bank_uv": 943851,
+                "error_bank_uv": -57649,
+                "error_real_mv": -1148.1201893,
+                "pp_bank_uv": 16765,
+                "valid": true,
+                "clavado": false
+              }
+            },
+            {
+              "delta": 2,
+              "label": "B1",
+              "point": {
+                "elapsed_s": 16.85343039999134,
+                "phase": "ABBA B1 IDAC0",
+                "stage": 0,
+                "code": 2,
+                "channel": 0,
+                "mean_bank_uv": 949630,
+                "error_bank_uv": -51870,
+                "error_real_mv": -1033.0273590000002,
+                "pp_bank_uv": 13294,
+                "valid": true,
+                "clavado": false
+              }
+            },
+            {
+              "delta": 2,
+              "label": "B2",
+              "point": {
+                "elapsed_s": 17.124742699990747,
+                "phase": "ABBA B2 IDAC0",
+                "stage": 0,
+                "code": 2,
+                "channel": 0,
+                "mean_bank_uv": 950317,
+                "error_bank_uv": -51183,
+                "error_real_mv": -1019.3452731000001,
+                "pp_bank_uv": 12969,
+                "valid": true,
+                "clavado": false
+              }
+            },
+            {
+              "delta": 2,
+              "label": "A2",
+              "point": {
+                "elapsed_s": 18.89730270000291,
+                "phase": "ABBA A2 IDAC0",
+                "stage": 0,
+                "code": 0,
+                "channel": 0,
+                "mean_bank_uv": 944385,
+                "error_bank_uv": -57115,
+                "error_real_mv": -1137.4852055000001,
+                "pp_bank_uv": 14514,
+                "valid": true,
+                "clavado": false
+              }
+            },
+            {
+              "delta": 4,
+              "label": "A1",
+              "point": {
+                "elapsed_s": 19.170825800014427,
+                "phase": "ABBA A1 IDAC0",
+                "stage": 0,
+                "code": 0,
+                "channel": 0,
+                "mean_bank_uv": 942192,
+                "error_bank_uv": -59308,
+                "error_real_mv": -1181.1603356,
+                "pp_bank_uv": 14629,
+                "valid": true,
+                "clavado": false
+              }
+            },
+            {
+              "delta": 4,
+              "label": "B1",
+              "point": {
+                "elapsed_s": 20.943012200004887,
+                "phase": "ABBA B1 IDAC0",
+                "stage": 0,
+                "code": 4,
+                "channel": 0,
+                "mean_bank_uv": 955924,
+                "error_bank_uv": -45576,
+                "error_real_mv": -907.6779432000001,
+                "pp_bank_uv": 12016,
+                "valid": true,
+                "clavado": false
+              }
+            },
+            {
+              "delta": 4,
+              "label": "B2",
+              "point": {
+                "elapsed_s": 21.21448260001489,
+                "phase": "ABBA B2 IDAC0",
+                "stage": 0,
+                "code": 4,
+                "channel": 0,
+                "mean_bank_uv": 955448,
+                "error_bank_uv": -46052,
+                "error_real_mv": -917.1578164,
+                "pp_bank_uv": 14324,
+                "valid": true,
+                "clavado": false
+              }
+            },
+            {
+              "delta": 4,
+              "label": "A2",
+              "point": {
+                "elapsed_s": 22.985490799997933,
+                "phase": "ABBA A2 IDAC0",
+                "stage": 0,
+                "code": 0,
+                "channel": 0,
+                "mean_bank_uv": 944423,
+                "error_bank_uv": -57077,
+                "error_real_mv": -1136.7284089000002,
+                "pp_bank_uv": 13694,
+                "valid": true,
+                "clavado": false
+              }
+            }
+          ]
+        },
+        "abba_idac1_ch1": {
+          "stage": 1,
+          "channel": 1,
+          "origin": 0,
+          "deltas": [
+            24
+          ],
+          "method": "ABBA",
+          "slope_bank_uv_per_code": 143.2028819927616,
+          "slope_real_mv_per_code": 2.851985636903242,
+          "records": [
+            {
+              "delta": 24,
+              "label": "A1",
+              "point": {
+                "elapsed_s": 207.63404309999896,
+                "phase": "ABBA A1 IDAC1",
+                "stage": 1,
+                "code": 0,
+                "channel": 1,
+                "mean_bank_uv": 985660,
+                "error_bank_uv": -15840,
+                "error_real_mv": -315.464688,
+                "pp_bank_uv": 2765,
+                "valid": true,
+                "clavado": false
+              }
+            },
+            {
+              "delta": 24,
+              "label": "B1",
+              "point": {
+                "elapsed_s": 262.20755300001474,
+                "phase": "ABBA B1 IDAC1",
+                "stage": 1,
+                "code": 24,
+                "channel": 1,
+                "mean_bank_uv": 988960,
+                "error_bank_uv": -12540,
+                "error_real_mv": -249.74287800000002,
+                "pp_bank_uv": 4348,
+                "valid": true,
+                "clavado": false
+              }
+            },
+            {
+              "delta": 24,
+              "label": "B2",
+              "point": {
+                "elapsed_s": 262.47982129998854,
+                "phase": "ABBA B2 IDAC1",
+                "stage": 1,
+                "code": 24,
+                "channel": 1,
+                "mean_bank_uv": 988368,
+                "error_bank_uv": -13132,
+                "error_real_mv": -261.5329724,
+                "pp_bank_uv": 4215,
+                "valid": true,
+                "clavado": false
+              }
+            },
+            {
+              "delta": 24,
+              "label": "A2",
+              "point": {
+                "elapsed_s": 317.053682400001,
+                "phase": "ABBA A2 IDAC1",
+                "stage": 1,
+                "code": 0,
+                "channel": 1,
+                "mean_bank_uv": 986328,
+                "error_bank_uv": -15172,
+                "error_real_mv": -302.16100040000003,
+                "pp_bank_uv": 4215,
+                "valid": true,
+                "clavado": false
+              }
+            }
+          ]
+        },
+        "modelo_real_mv_por_codigo": {
+          "ch0_idac0": 59.96990689375001,
+          "ch1_idac1": 2.851985636903242,
+          "ch2_idac0": -238.1158067840074,
+          "ch2_idac1": -10.294600561014375,
+          "fuentes": {
+            "ch0_idac0": "ABBA fase 1",
+            "ch1_idac1": "ABBA fase 1",
+            "ch2_idac0": "derivada: -27k/6,8k * ch0_idac0",
+            "ch2_idac1": "derivada: -27k/7,48k * ch1_idac1"
+          }
+        },
+        "uso_respaldo": false
+      }
+    },
+    {
+      "at": "2026-09-12T02:56:04.797",
+      "kind": "write_retry",
+      "message": "reintento IDAC0=4",
+      "attempt": 1
+    },
+    {
+      "at": "2026-09-12T02:57:41.777",
+      "kind": "tau",
+      "message": "Tau BP medido: 26.2 s",
+      "metrics": {
+        "tau_s": 26.2,
+        "amplitude_bank_uv": -10399.801658599412,
+        "amplitude_real_mv": -207.1193298921683,
+        "final_bank_uv": 985870.9384947667,
+        "r2": 0.9667596429657216,
+        "noise_bank_uv": 403.6104062087597,
+        "samples": 30
+      }
+    },
+    {
+      "at": "2026-09-12T02:58:42.699",
+      "kind": "stable",
+      "message": "ch1 estable por observaci\u00f3n",
+      "elapsed_s": 8.299835599988
+    },
+    {
+      "at": "2026-09-12T02:58:44.406",
+      "kind": "write_retry",
+      "message": "reintento IDAC0=12",
+      "attempt": 1
+    },
+    {
+      "at": "2026-09-12T02:59:45.687",
+      "kind": "stable",
+      "message": "ch1 estable por observaci\u00f3n",
+      "elapsed_s": 8.299809200019808
+    },
+    {
+      "at": "2026-09-12T02:59:48.960",
+      "kind": "phase1_pass",
+      "message": "Fase 1 PASS: IDAC0=12 IDAC1=-47",
+      "result": {
+        "pass": true,
+        "codes": [
+          12,
+          -47,
+          0,
+          0
+        ],
+        "idacs": {
+          "0": {
+            "moved": true,
+            "from": 0,
+            "to": 12,
+            "reason": "\u00f3ptimo restringido de fase 1",
+            "jumps": [
+              {
+                "attempt": 1,
+                "from": 0,
+                "to": 12
+              }
+            ]
+          },
+          "1": {
+            "moved": true,
+            "from": 0,
+            "to": -47,
+            "reason": "\u00f3ptimo restringido de fase 1",
+            "jumps": [
+              {
+                "attempt": 1,
+                "from": 0,
+                "to": -47
+              }
+            ]
+          },
+          "2": {
+            "moved": false,
+            "from": 0,
+            "to": 0,
+            "reason": "reservado para fase 2"
+          },
+          "3": {
+            "moved": false,
+            "from": 0,
+            "to": 0,
+            "reason": "reservado para fase 2"
+          }
+        },
+        "puntaje": -2961.1459388000003,
+        "initial": {
+          "0": {
+            "elapsed_s": 11.98228540000855,
+            "phase": "fase1 inicial",
+            "stage": 0,
+            "code": 0,
+            "channel": 0,
+            "mean_bank_uv": 943374,
+            "error_bank_uv": -58126,
+            "error_real_mv": -1157.6199782,
+            "pp_bank_uv": 14457,
+            "valid": true,
+            "clavado": false
+          },
+          "1": {
+            "elapsed_s": 12.634618200012483,
+            "phase": "fase1 inicial",
+            "stage": 1,
+            "code": 0,
+            "channel": 1,
+            "mean_bank_uv": 989704,
+            "error_bank_uv": -11796,
+            "error_real_mv": -234.92559720000003,
+            "pp_bank_uv": 4272,
+            "valid": true,
+            "clavado": false
+          },
+          "2": {
+            "elapsed_s": 13.287438100000145,
+            "phase": "fase1 inicial",
+            "stage": 2,
+            "code": 0,
+            "channel": 2,
+            "mean_bank_uv": 1102561,
+            "error_bank_uv": 101061,
+            "error_real_mv": 2012.7005577,
+            "pp_bank_uv": 667,
+            "valid": true,
+            "clavado": false
+          },
+          "3": {
+            "elapsed_s": 13.939331000001403,
+            "phase": "fase1 inicial",
+            "stage": 3,
+            "code": 0,
+            "channel": 3,
+            "mean_bank_uv": 1102142,
+            "error_bank_uv": 100642,
+            "error_real_mv": 2004.3558794000003,
+            "pp_bank_uv": 915,
+            "valid": true,
+            "clavado": false
+          },
+          "4": {
+            "elapsed_s": 14.592297600000165,
+            "phase": "fase1 inicial",
+            "stage": 3,
+            "code": 0,
+            "channel": 4,
+            "mean_bank_uv": 732135,
+            "error_bank_uv": -269365,
+            "error_real_mv": -5364.5925305,
+            "pp_bank_uv": 133,
+            "valid": false,
+            "clavado": true
+          }
+        },
+        "verified": {
+          "0": {
+            "elapsed_s": 540.418490400014,
+            "phase": "fase1 verificaci\u00f3n 1",
+            "stage": 0,
+            "code": 12,
+            "channel": 0,
+            "mean_bank_uv": 979061,
+            "error_bank_uv": -22439,
+            "error_real_mv": -446.8883923,
+            "pp_bank_uv": 10929,
+            "valid": true,
+            "clavado": false
+          },
+          "1": {
+            "elapsed_s": 541.0736526999972,
+            "phase": "fase1 verificaci\u00f3n 1",
+            "stage": 1,
+            "code": -47,
+            "channel": 1,
+            "mean_bank_uv": 977096,
+            "error_bank_uv": -24404,
+            "error_real_mv": -486.0227428,
+            "pp_bank_uv": 3890,
+            "valid": true,
+            "clavado": false
+          },
+          "2": {
+            "elapsed_s": 541.7258597000036,
+            "phase": "fase1 verificaci\u00f3n 1",
+            "stage": 2,
+            "code": 0,
+            "channel": 2,
+            "mean_bank_uv": 1028995,
+            "error_bank_uv": 27495,
+            "error_real_mv": 547.5821715000001,
+            "pp_bank_uv": 629,
+            "valid": true,
+            "clavado": false
+          },
+          "3": {
+            "elapsed_s": 542.3772188000148,
+            "phase": "fase1 verificaci\u00f3n 1",
+            "stage": 3,
+            "code": 0,
+            "channel": 3,
+            "mean_bank_uv": 1028194,
+            "error_bank_uv": 26694,
+            "error_real_mv": 531.6296958,
+            "pp_bank_uv": 934,
+            "valid": true,
+            "clavado": false
+          },
+          "4": {
+            "elapsed_s": 543.0340227000124,
+            "phase": "fase1 verificaci\u00f3n 1",
+            "stage": 3,
+            "code": 0,
+            "channel": 4,
+            "mean_bank_uv": 731792,
+            "error_bank_uv": -269708,
+            "error_real_mv": -5371.4236156,
+            "pp_bank_uv": 152,
+            "valid": false,
+            "clavado": true
+          }
+        },
+        "tau_s": 26.2,
+        "tau_metrics": {
+          "tau_s": 26.2,
+          "amplitude_bank_uv": -10399.801658599412,
+          "amplitude_real_mv": -207.1193298921683,
+          "final_bank_uv": 985870.9384947667,
+          "r2": 0.9667596429657216,
+          "noise_bank_uv": 403.6104062087597,
+          "samples": 30
+        },
+        "rail_rescue": null,
+        "optimization": {
+          "feasible": true,
+          "reason": "optimo factible",
+          "codes": [
+            12,
+            -47
+          ],
+          "ch2_error_predicho_real_mv": -360.84289734041295,
+          "idac2_previsto": 29,
+          "recurso_mas_gastado": 0.8156862745098039,
+          "margenes_predichos_real_mv": {
+            "ch0": 1829.8445581500002,
+            "ch1": 2000.2731609,
+            "minimo": 1829.8445581500002
+          },
+          "intervalos_factibles": {
+            "idac0": [
+              3,
+              30
+            ],
+            "idac1": [
+              -255,
+              255
+            ]
+          },
+          "margen_requerido_real_mv": 1250.0,
+          "mejores_margenes_alcanzables": {
+            "ch0": {
+              "code": 17,
+              "margen_real_mv": 2077.3568777500004
+            },
+            "ch1": {
+              "code": 25,
+              "margen_real_mv": 2204.269676
+            }
+          },
+          "modelo_real_mv_por_codigo": {
+            "ch0_idac0": 59.96990689375001,
+            "ch1_idac1": 2.851985636903242,
+            "ch2_idac0": -238.1158067840074,
+            "ch2_idac1": -10.294600561014375,
+            "fuentes": {
+              "ch0_idac0": "ABBA fase 1",
+              "ch1_idac1": "ABBA fase 1",
+              "ch2_idac0": "derivada: -27k/6,8k * ch0_idac0",
+              "ch2_idac1": "derivada: -27k/7,48k * ch1_idac1"
+            }
+          }
+        },
+        "optimizations": [
+          {
+            "feasible": true,
+            "reason": "optimo factible",
+            "codes": [
+              12,
+              -47
+            ],
+            "ch2_error_predicho_real_mv": -360.84289734041295,
+            "idac2_previsto": 29,
+            "recurso_mas_gastado": 0.8156862745098039,
+            "margenes_predichos_real_mv": {
+              "ch0": 1829.8445581500002,
+              "ch1": 2000.2731609,
+              "minimo": 1829.8445581500002
+            },
+            "intervalos_factibles": {
+              "idac0": [
+                3,
+                30
+              ],
+              "idac1": [
+                -255,
+                255
+              ]
+            },
+            "margen_requerido_real_mv": 1250.0,
+            "mejores_margenes_alcanzables": {
+              "ch0": {
+                "code": 17,
+                "margen_real_mv": 2077.3568777500004
+              },
+              "ch1": {
+                "code": 25,
+                "margen_real_mv": 2204.269676
+              }
+            },
+            "modelo_real_mv_por_codigo": {
+              "ch0_idac0": 59.96990689375001,
+              "ch1_idac1": 2.851985636903242,
+              "ch2_idac0": -238.1158067840074,
+              "ch2_idac1": -10.294600561014375,
+              "fuentes": {
+                "ch0_idac0": "ABBA fase 1",
+                "ch1_idac1": "ABBA fase 1",
+                "ch2_idac0": "derivada: -27k/6,8k * ch0_idac0",
+                "ch2_idac1": "derivada: -27k/7,48k * ch1_idac1"
+              }
+            }
+          }
+        ],
+        "slope_measurement": {
+          "abba_idac0_ch0": {
+            "stage": 0,
+            "channel": 0,
+            "origin": 0,
+            "deltas": [
+              2,
+              4
+            ],
+            "method": "ABBA",
+            "slope_bank_uv_per_code": 3011.1875,
+            "slope_real_mv_per_code": 59.96990689375001,
+            "records": [
+              {
+                "delta": 2,
+                "label": "A1",
+                "point": {
+                  "elapsed_s": 15.083003100007772,
+                  "phase": "ABBA A1 IDAC0",
+                  "stage": 0,
+                  "code": 0,
+                  "channel": 0,
+                  "mean_bank_uv": 943851,
+                  "error_bank_uv": -57649,
+                  "error_real_mv": -1148.1201893,
+                  "pp_bank_uv": 16765,
+                  "valid": true,
+                  "clavado": false
+                }
+              },
+              {
+                "delta": 2,
+                "label": "B1",
+                "point": {
+                  "elapsed_s": 16.85343039999134,
+                  "phase": "ABBA B1 IDAC0",
+                  "stage": 0,
+                  "code": 2,
+                  "channel": 0,
+                  "mean_bank_uv": 949630,
+                  "error_bank_uv": -51870,
+                  "error_real_mv": -1033.0273590000002,
+                  "pp_bank_uv": 13294,
+                  "valid": true,
+                  "clavado": false
+                }
+              },
+              {
+                "delta": 2,
+                "label": "B2",
+                "point": {
+                  "elapsed_s": 17.124742699990747,
+                  "phase": "ABBA B2 IDAC0",
+                  "stage": 0,
+                  "code": 2,
+                  "channel": 0,
+                  "mean_bank_uv": 950317,
+                  "error_bank_uv": -51183,
+                  "error_real_mv": -1019.3452731000001,
+                  "pp_bank_uv": 12969,
+                  "valid": true,
+                  "clavado": false
+                }
+              },
+              {
+                "delta": 2,
+                "label": "A2",
+                "point": {
+                  "elapsed_s": 18.89730270000291,
+                  "phase": "ABBA A2 IDAC0",
+                  "stage": 0,
+                  "code": 0,
+                  "channel": 0,
+                  "mean_bank_uv": 944385,
+                  "error_bank_uv": -57115,
+                  "error_real_mv": -1137.4852055000001,
+                  "pp_bank_uv": 14514,
+                  "valid": true,
+                  "clavado": false
+                }
+              },
+              {
+                "delta": 4,
+                "label": "A1",
+                "point": {
+                  "elapsed_s": 19.170825800014427,
+                  "phase": "ABBA A1 IDAC0",
+                  "stage": 0,
+                  "code": 0,
+                  "channel": 0,
+                  "mean_bank_uv": 942192,
+                  "error_bank_uv": -59308,
+                  "error_real_mv": -1181.1603356,
+                  "pp_bank_uv": 14629,
+                  "valid": true,
+                  "clavado": false
+                }
+              },
+              {
+                "delta": 4,
+                "label": "B1",
+                "point": {
+                  "elapsed_s": 20.943012200004887,
+                  "phase": "ABBA B1 IDAC0",
+                  "stage": 0,
+                  "code": 4,
+                  "channel": 0,
+                  "mean_bank_uv": 955924,
+                  "error_bank_uv": -45576,
+                  "error_real_mv": -907.6779432000001,
+                  "pp_bank_uv": 12016,
+                  "valid": true,
+                  "clavado": false
+                }
+              },
+              {
+                "delta": 4,
+                "label": "B2",
+                "point": {
+                  "elapsed_s": 21.21448260001489,
+                  "phase": "ABBA B2 IDAC0",
+                  "stage": 0,
+                  "code": 4,
+                  "channel": 0,
+                  "mean_bank_uv": 955448,
+                  "error_bank_uv": -46052,
+                  "error_real_mv": -917.1578164,
+                  "pp_bank_uv": 14324,
+                  "valid": true,
+                  "clavado": false
+                }
+              },
+              {
+                "delta": 4,
+                "label": "A2",
+                "point": {
+                  "elapsed_s": 22.985490799997933,
+                  "phase": "ABBA A2 IDAC0",
+                  "stage": 0,
+                  "code": 0,
+                  "channel": 0,
+                  "mean_bank_uv": 944423,
+                  "error_bank_uv": -57077,
+                  "error_real_mv": -1136.7284089000002,
+                  "pp_bank_uv": 13694,
+                  "valid": true,
+                  "clavado": false
+                }
+              }
+            ]
+          },
+          "abba_idac1_ch1": {
+            "stage": 1,
+            "channel": 1,
+            "origin": 0,
+            "deltas": [
+              24
+            ],
+            "method": "ABBA",
+            "slope_bank_uv_per_code": 143.2028819927616,
+            "slope_real_mv_per_code": 2.851985636903242,
+            "records": [
+              {
+                "delta": 24,
+                "label": "A1",
+                "point": {
+                  "elapsed_s": 207.63404309999896,
+                  "phase": "ABBA A1 IDAC1",
+                  "stage": 1,
+                  "code": 0,
+                  "channel": 1,
+                  "mean_bank_uv": 985660,
+                  "error_bank_uv": -15840,
+                  "error_real_mv": -315.464688,
+                  "pp_bank_uv": 2765,
+                  "valid": true,
+                  "clavado": false
+                }
+              },
+              {
+                "delta": 24,
+                "label": "B1",
+                "point": {
+                  "elapsed_s": 262.20755300001474,
+                  "phase": "ABBA B1 IDAC1",
+                  "stage": 1,
+                  "code": 24,
+                  "channel": 1,
+                  "mean_bank_uv": 988960,
+                  "error_bank_uv": -12540,
+                  "error_real_mv": -249.74287800000002,
+                  "pp_bank_uv": 4348,
+                  "valid": true,
+                  "clavado": false
+                }
+              },
+              {
+                "delta": 24,
+                "label": "B2",
+                "point": {
+                  "elapsed_s": 262.47982129998854,
+                  "phase": "ABBA B2 IDAC1",
+                  "stage": 1,
+                  "code": 24,
+                  "channel": 1,
+                  "mean_bank_uv": 988368,
+                  "error_bank_uv": -13132,
+                  "error_real_mv": -261.5329724,
+                  "pp_bank_uv": 4215,
+                  "valid": true,
+                  "clavado": false
+                }
+              },
+              {
+                "delta": 24,
+                "label": "A2",
+                "point": {
+                  "elapsed_s": 317.053682400001,
+                  "phase": "ABBA A2 IDAC1",
+                  "stage": 1,
+                  "code": 0,
+                  "channel": 1,
+                  "mean_bank_uv": 986328,
+                  "error_bank_uv": -15172,
+                  "error_real_mv": -302.16100040000003,
+                  "pp_bank_uv": 4215,
+                  "valid": true,
+                  "clavado": false
+                }
+              }
+            ]
+          },
+          "modelo_real_mv_por_codigo": {
+            "ch0_idac0": 59.96990689375001,
+            "ch1_idac1": 2.851985636903242,
+            "ch2_idac0": -238.1158067840074,
+            "ch2_idac1": -10.294600561014375,
+            "fuentes": {
+              "ch0_idac0": "ABBA fase 1",
+              "ch1_idac1": "ABBA fase 1",
+              "ch2_idac0": "derivada: -27k/6,8k * ch0_idac0",
+              "ch2_idac1": "derivada: -27k/7,48k * ch1_idac1"
+            }
+          },
+          "uso_respaldo": false
+        },
+        "modelo_final_real_mv_por_codigo": {
+          "ch0_idac0": 59.96990689375001,
+          "ch1_idac1": 2.851985636903242,
+          "ch2_idac0": -238.1158067840074,
+          "ch2_idac1": -10.294600561014375,
+          "fuentes": {
+            "ch0_idac0": "ABBA fase 1",
+            "ch1_idac1": "ABBA fase 1",
+            "ch2_idac0": "derivada: -27k/6,8k * ch0_idac0",
+            "ch2_idac1": "derivada: -27k/7,48k * ch1_idac1"
+          }
+        },
+        "recalculos_desde_salto": [],
+        "criteria": {
+          "ch0_margin": true,
+          "ch1_margin": true,
+          "ch2_not_stuck": true,
+          "ch2_idac2_reachable": true,
+          "idac2_needed": -44,
+          "margen_requerido_real_mv": 1250.0,
+          "margenes_verificados_real_mv": {
+            "ch0": 1856.0735350500001,
+            "ch1": 1887.0324907000002
+          },
+          "idac2_starts_near_zero": true,
+          "history_replaces_measurement": false
+        },
+        "reason": "ok"
+      }
+    },
+    {
+      "at": "2026-09-12T02:59:51.120",
+      "kind": "stable",
+      "message": "ch4 estable por observaci\u00f3n",
+      "elapsed_s": 1.4416474000026938
+    },
+    {
+      "at": "2026-09-12T02:59:53.060",
+      "kind": "stable",
+      "message": "ch4 estable por observaci\u00f3n",
+      "elapsed_s": 1.443006699992111
+    },
+    {
+      "at": "2026-09-12T02:59:53.285",
+      "kind": "idac2_recortado",
+      "message": "IDAC2=-192 excede la zona \u00fatil (\u00b1160); se escribe -160",
+      "pedido": -192,
+      "escrito": -160
+    },
+    {
+      "at": "2026-09-12T02:59:55.008",
+      "kind": "stable",
+      "message": "ch4 estable por observaci\u00f3n",
+      "elapsed_s": 1.4432571999786887
+    },
+    {
+      "at": "2026-09-12T02:59:55.232",
+      "kind": "idac2_recortado",
+      "message": "IDAC2=-224 excede la zona \u00fatil (\u00b1160); se escribe -160",
+      "pedido": -224,
+      "escrito": -160
+    },
+    {
+      "at": "2026-09-12T02:59:56.954",
+      "kind": "stable",
+      "message": "ch4 estable por observaci\u00f3n",
+      "elapsed_s": 1.4438510999898426
+    },
+    {
+      "at": "2026-09-12T02:59:57.179",
+      "kind": "idac2_recortado",
+      "message": "IDAC2=-240 excede la zona \u00fatil (\u00b1160); se escribe -160",
+      "pedido": -240,
+      "escrito": -160
+    },
+    {
+      "at": "2026-09-12T02:59:58.904",
+      "kind": "stable",
+      "message": "ch4 estable por observaci\u00f3n",
+      "elapsed_s": 1.4447186999896076
+    },
+    {
+      "at": "2026-09-12T02:59:59.130",
+      "kind": "idac2_recortado",
+      "message": "IDAC2=-248 excede la zona \u00fatil (\u00b1160); se escribe -160",
+      "pedido": -248,
+      "escrito": -160
+    },
+    {
+      "at": "2026-09-12T03:00:00.854",
+      "kind": "stable",
+      "message": "ch4 estable por observaci\u00f3n",
+      "elapsed_s": 1.4441824000095949
+    },
+    {
+      "at": "2026-09-12T03:00:01.079",
+      "kind": "idac2_recortado",
+      "message": "IDAC2=-252 excede la zona \u00fatil (\u00b1160); se escribe -160",
+      "pedido": -252,
+      "escrito": -160
+    },
+    {
+      "at": "2026-09-12T03:00:02.799",
+      "kind": "stable",
+      "message": "ch4 estable por observaci\u00f3n",
+      "elapsed_s": 1.4430680999939796
+    },
+    {
+      "at": "2026-09-12T03:00:03.024",
+      "kind": "idac2_recortado",
+      "message": "IDAC2=-254 excede la zona \u00fatil (\u00b1160); se escribe -160",
+      "pedido": -254,
+      "escrito": -160
+    },
+    {
+      "at": "2026-09-12T03:00:04.746",
+      "kind": "stable",
+      "message": "ch4 estable por observaci\u00f3n",
+      "elapsed_s": 1.4447520999819972
+    },
+    {
+      "at": "2026-09-12T03:00:04.972",
+      "kind": "idac2_recortado",
+      "message": "IDAC2=-255 excede la zona \u00fatil (\u00b1160); se escribe -160",
+      "pedido": -255,
+      "escrito": -160
+    },
+    {
+      "at": "2026-09-12T03:00:06.695",
+      "kind": "stable",
+      "message": "ch4 estable por observaci\u00f3n",
+      "elapsed_s": 1.4434721000143327
+    },
+    {
+      "at": "2026-09-12T03:00:07.141",
+      "kind": "consigna_busqueda",
+      "message": "busqueda de LPo legible: 9 pasos, sin exito",
+      "visitados": [
+        {
+          "idac2": 0,
+          "lpo_real_mv": -5371.802013900001,
+          "utilizable": false
+        },
+        {
+          "idac2": -128,
+          "lpo_real_mv": -5372.1804122,
+          "utilizable": false
+        },
+        {
+          "idac2": -192,
+          "lpo_real_mv": -5372.558810500001,
+          "utilizable": false
+        },
+        {
+          "idac2": -224,
+          "lpo_real_mv": -5372.9372088,
+          "utilizable": false
+        },
+        {
+          "idac2": -240,
+          "lpo_real_mv": -5373.6940054,
+          "utilizable": false
+        },
+        {
+          "idac2": -248,
+          "lpo_real_mv": -5372.9372088,
+          "utilizable": false
+        },
+        {
+          "idac2": -252,
+          "lpo_real_mv": -5373.3156071,
+          "utilizable": false
+        },
+        {
+          "idac2": -254,
+          "lpo_real_mv": -5372.558810500001,
+          "utilizable": false
+        },
+        {
+          "idac2": -255,
+          "lpo_real_mv": -5374.092319400001,
+          "utilizable": false
+        }
+      ]
+    },
+    {
+      "at": "2026-09-12T03:00:07.146",
+      "kind": "consigna_no_medible",
+      "message": "no se pudo medir la consigna de ch2 en x1: ch2 utilizable=False, LPo utilizable=False"
+    },
+    {
+      "at": "2026-09-12T03:00:09.256",
+      "kind": "stable",
+      "message": "ch3 estable por observaci\u00f3n",
+      "elapsed_s": 1.4411143999896012
+    },
+    {
+      "at": "2026-09-12T03:00:09.261",
+      "kind": "ganancia_conmutada_primero",
+      "message": "x4: PGAout conmutado ANTES de ajustar; ch2 se mueve con la ganancia y el punto hay que hacerlo aca",
+      "gain": 4,
+      "ganancia_previa": 1
+    },
+    {
+      "at": "2026-09-12T03:00:09.708",
+      "kind": "objetivo_ch2",
+      "message": "x4: offset LP -1050 mV (offset de PGAout medido); ch2 debe apuntar a -270.0 mV, no a cero",
+      "gain": 4,
+      "offset_lp_real_mv": -1050.0,
+      "fuente_offset": "offset de PGAout medido",
+      "centro_ch2_real_mv": -270.0,
+      "tolerancia_real_mv": 38
+    },
+    {
+      "at": "2026-09-12T03:00:16.276",
+      "kind": "fast_settle_timeout",
+      "message": "ch2: agot\u00f3 5 s; se verifica"
+    },
+    {
+      "at": "2026-09-12T03:00:16.601",
+      "kind": "ch2_rescate_idac2",
+      "message": "x4: ch2 clavado tras conmutar; biseccion con IDAC2 lo saco en 0",
+      "gain": 4,
+      "visitados": [
+        {
+          "codigo": 0,
+          "ch2_real_mv": 123.278183,
+          "clavado": false,
+          "valido": true
+        }
+      ]
+    },
+    {
+      "at": "2026-09-12T03:00:25.169",
+      "kind": "deriva_alta",
+      "message": "x4: ch2 deriva +73.88 mV/s (limite 0.50); se espera",
+      "gain": 4,
+      "canal": 2,
+      "pendiente": 73.88226807500001,
+      "limite": 0.5
+    },
+    {
+      "at": "2026-09-12T03:00:33.617",
+      "kind": "deriva_alta",
+      "message": "x4: ch2 deriva +55.27 mV/s (limite 0.50); se espera",
+      "gain": 4,
+      "canal": 2,
+      "pendiente": 55.26855696250003,
+      "limite": 0.5
+    },
+    {
+      "at": "2026-09-12T03:00:42.067",
+      "kind": "deriva_alta",
+      "message": "x4: ch2 deriva +41.40 mV/s (limite 0.50); se espera",
+      "gain": 4,
+      "canal": 2,
+      "pendiente": 41.404740300000014,
+      "limite": 0.5
+    },
+    {
+      "at": "2026-09-12T03:00:50.513",
+      "kind": "deriva_alta",
+      "message": "x4: ch2 deriva +30.96 mV/s (limite 0.50); se espera",
+      "gain": 4,
+      "canal": 2,
+      "pendiente": 30.958955650000036,
+      "limite": 0.5
+    },
+    {
+      "at": "2026-09-12T03:00:58.961",
+      "kind": "deriva_alta",
+      "message": "x4: ch2 deriva +10.35 mV/s (limite 0.50); se espera",
+      "gain": 4,
+      "canal": 2,
+      "pendiente": 10.351185075000018,
+      "limite": 0.5
+    },
+    {
+      "at": "2026-09-12T03:01:24.300",
+      "kind": "deriva_ok",
+      "message": "x4: ch2 deriva -0.05 mV/s en 3 lecturas seguidas y se corrio 1.1 mV en el tramo; se puede medir",
+      "gain": 4,
+      "canal": 2,
+      "pendiente": -0.04729978750000896,
+      "limite": 0.5,
+      "recorrido": 1.1351948999999877,
+      "intentos": 8
+    },
+    {
+      "at": "2026-09-12T03:01:38.784",
+      "kind": "abba",
+      "message": "IDAC2->ch2: ABBA -0.012 mV/c\u00f3digo",
+      "result": {
+        "stage": 2,
+        "channel": 2,
+        "origin": 0,
+        "deltas": [
+          8,
+          4
+        ],
+        "method": "ABBA",
+        "slope_bank_uv_per_code": -0.59375,
+        "slope_real_mv_per_code": -0.011824946875,
+        "records": [
+          {
+            "delta": 8,
+            "label": "A1",
+            "point": {
+              "elapsed_s": 640.374897200003,
+              "phase": "ABBA A1 IDAC2",
+              "stage": 2,
+              "code": 0,
+              "channel": 2,
+              "mean_bank_uv": 1095714,
+              "error_bank_uv": 94214,
+              "error_real_mv": 1876.3377598000002,
+              "pp_bank_uv": 114,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 8,
+            "label": "B1",
+            "point": {
+              "elapsed_s": 642.150209799991,
+              "phase": "ABBA B1 IDAC2",
+              "stage": 2,
+              "code": 8,
+              "channel": 2,
+              "mean_bank_uv": 1095752,
+              "error_bank_uv": 94252,
+              "error_real_mv": 1877.0945564,
+              "pp_bank_uv": 133,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 8,
+            "label": "B2",
+            "point": {
+              "elapsed_s": 643.9258339999942,
+              "phase": "ABBA B2 IDAC2",
+              "stage": 2,
+              "code": 8,
+              "channel": 2,
+              "mean_bank_uv": 1095771,
+              "error_bank_uv": 94271,
+              "error_real_mv": 1877.4729547000002,
+              "pp_bank_uv": 76,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 8,
+            "label": "A2",
+            "point": {
+              "elapsed_s": 645.7024083000142,
+              "phase": "ABBA A2 IDAC2",
+              "stage": 2,
+              "code": 0,
+              "channel": 2,
+              "mean_bank_uv": 1095790,
+              "error_bank_uv": 94290,
+              "error_real_mv": 1877.851353,
+              "pp_bank_uv": 286,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 4,
+            "label": "A1",
+            "point": {
+              "elapsed_s": 647.4772452999896,
+              "phase": "ABBA A1 IDAC2",
+              "stage": 2,
+              "code": 0,
+              "channel": 2,
+              "mean_bank_uv": 1095752,
+              "error_bank_uv": 94252,
+              "error_real_mv": 1877.0945564,
+              "pp_bank_uv": 152,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 4,
+            "label": "B1",
+            "point": {
+              "elapsed_s": 649.254110800015,
+              "phase": "ABBA B1 IDAC2",
+              "stage": 2,
+              "code": 4,
+              "channel": 2,
+              "mean_bank_uv": 1095771,
+              "error_bank_uv": 94271,
+              "error_real_mv": 1877.4729547000002,
+              "pp_bank_uv": 152,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 4,
+            "label": "B2",
+            "point": {
+              "elapsed_s": 651.0292581999965,
+              "phase": "ABBA B2 IDAC2",
+              "stage": 2,
+              "code": 4,
+              "channel": 2,
+              "mean_bank_uv": 1095752,
+              "error_bank_uv": 94252,
+              "error_real_mv": 1877.0945564,
+              "pp_bank_uv": 76,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 4,
+            "label": "A2",
+            "point": {
+              "elapsed_s": 652.8036291000026,
+              "phase": "ABBA A2 IDAC2",
+              "stage": 2,
+              "code": 0,
+              "channel": 2,
+              "mean_bank_uv": 1095790,
+              "error_bank_uv": 94290,
+              "error_real_mv": 1877.851353,
+              "pp_bank_uv": 114,
+              "valid": true,
+              "clavado": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-09-12T03:01:38.789",
+      "kind": "idac2_no_responde",
+      "message": "x4: el ABBA dio -0.012 mV/c\u00f3digo contra 18.8 nominales; ch2 no responde a su actuador, se rescata",
+      "gain": 4,
+      "pendiente": -0.011824946875
+    },
+    {
+      "at": "2026-09-12T03:01:57.505",
+      "kind": "write_retry",
+      "message": "reintento IDAC2=0",
+      "attempt": 1
+    },
+    {
+      "at": "2026-09-12T03:01:59.588",
+      "kind": "abba",
+      "message": "IDAC2->ch2: ABBA +0.035 mV/c\u00f3digo",
+      "result": {
+        "stage": 2,
+        "channel": 2,
+        "origin": 0,
+        "deltas": [
+          8,
+          4
+        ],
+        "method": "ABBA",
+        "slope_bank_uv_per_code": 1.78125,
+        "slope_real_mv_per_code": 0.035474840625,
+        "records": [
+          {
+            "delta": 8,
+            "label": "A1",
+            "point": {
+              "elapsed_s": 658.768596400012,
+              "phase": "ABBA A1 IDAC2",
+              "stage": 2,
+              "code": 0,
+              "channel": 2,
+              "mean_bank_uv": 1095771,
+              "error_bank_uv": 94271,
+              "error_real_mv": 1877.4729547000002,
+              "pp_bank_uv": 152,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 8,
+            "label": "B1",
+            "point": {
+              "elapsed_s": 660.994862099993,
+              "phase": "ABBA B1 IDAC2",
+              "stage": 2,
+              "code": 8,
+              "channel": 2,
+              "mean_bank_uv": 1095771,
+              "error_bank_uv": 94271,
+              "error_real_mv": 1877.4729547000002,
+              "pp_bank_uv": 114,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 8,
+            "label": "B2",
+            "point": {
+              "elapsed_s": 662.7718036000151,
+              "phase": "ABBA B2 IDAC2",
+              "stage": 2,
+              "code": 8,
+              "channel": 2,
+              "mean_bank_uv": 1095752,
+              "error_bank_uv": 94252,
+              "error_real_mv": 1877.0945564,
+              "pp_bank_uv": 114,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 8,
+            "label": "A2",
+            "point": {
+              "elapsed_s": 664.5465568999934,
+              "phase": "ABBA A2 IDAC2",
+              "stage": 2,
+              "code": 0,
+              "channel": 2,
+              "mean_bank_uv": 1095771,
+              "error_bank_uv": 94271,
+              "error_real_mv": 1877.4729547000002,
+              "pp_bank_uv": 76,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 4,
+            "label": "A1",
+            "point": {
+              "elapsed_s": 666.3237214999972,
+              "phase": "ABBA A1 IDAC2",
+              "stage": 2,
+              "code": 0,
+              "channel": 2,
+              "mean_bank_uv": 1095714,
+              "error_bank_uv": 94214,
+              "error_real_mv": 1876.3377598000002,
+              "pp_bank_uv": 114,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 4,
+            "label": "B1",
+            "point": {
+              "elapsed_s": 668.100079099997,
+              "phase": "ABBA B1 IDAC2",
+              "stage": 2,
+              "code": 4,
+              "channel": 2,
+              "mean_bank_uv": 1095771,
+              "error_bank_uv": 94271,
+              "error_real_mv": 1877.4729547000002,
+              "pp_bank_uv": 152,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 4,
+            "label": "B2",
+            "point": {
+              "elapsed_s": 669.8767763999931,
+              "phase": "ABBA B2 IDAC2",
+              "stage": 2,
+              "code": 4,
+              "channel": 2,
+              "mean_bank_uv": 1095752,
+              "error_bank_uv": 94252,
+              "error_real_mv": 1877.0945564,
+              "pp_bank_uv": 76,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "delta": 4,
+            "label": "A2",
+            "point": {
+              "elapsed_s": 673.6078340999957,
+              "phase": "ABBA A2 IDAC2",
+              "stage": 2,
+              "code": 0,
+              "channel": 2,
+              "mean_bank_uv": 1095771,
+              "error_bank_uv": 94271,
+              "error_real_mv": 1877.4729547000002,
+              "pp_bank_uv": 114,
+              "valid": true,
+              "clavado": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-09-12T03:01:59.593",
+      "kind": "abba_fallback",
+      "message": "x4: fallback IDAC2=5,1 mV/c\u00f3digo"
+    },
+    {
+      "at": "2026-09-12T03:01:59.599",
+      "kind": "pendiente_regimen",
+      "message": "x4: ABBA dio +18.78 mV/c\u00f3digo inmediatos; el lazo usa +12.34 de r\u00e9gimen",
+      "gain": 4,
+      "inmediata": 18.78,
+      "regimen": 12.343028270244368,
+      "fuente": "constante de respaldo"
+    },
+    {
+      "at": "2026-09-12T03:02:34.141",
+      "kind": "idac2_recortado",
+      "message": "IDAC2=-164 excede la zona \u00fatil (\u00b1160); se escribe -160",
+      "pedido": -164,
+      "escrito": -160
+    },
+    {
+      "at": "2026-09-12T03:02:35.923",
+      "kind": "idac2_recortado",
+      "message": "IDAC2=-164 excede la zona \u00fatil (\u00b1160); se escribe -160",
+      "pedido": -164,
+      "escrito": -160
+    },
+    {
+      "at": "2026-09-12T03:02:37.704",
+      "kind": "idac2_recortado",
+      "message": "IDAC2=-164 excede la zona \u00fatil (\u00b1160); se escribe -160",
+      "pedido": -164,
+      "escrito": -160
+    },
+    {
+      "at": "2026-09-12T03:02:39.486",
+      "kind": "idac2_recortado",
+      "message": "IDAC2=-164 excede la zona \u00fatil (\u00b1160); se escribe -160",
+      "pedido": -164,
+      "escrito": -160
+    },
+    {
+      "at": "2026-09-12T03:02:41.268",
+      "kind": "closed_loop",
+      "message": "IDAC2: +621.3 mV (ciclo_discreto_resuelto)",
+      "result": {
+        "stage": 2,
+        "channel": 2,
+        "code": -160,
+        "slope_bank_uv_per_code": 619.7637175818257,
+        "objective_abs_real_mv": 38.0,
+        "stop_reason": "ciclo_discreto_resuelto",
+        "iterations": 20,
+        "final": {
+          "elapsed_s": 715.3402156000084,
+          "phase": "IDAC2 mejor discreto",
+          "stage": 2,
+          "code": -164,
+          "channel": 2,
+          "mean_bank_uv": 1032695,
+          "error_bank_uv": 31195,
+          "error_real_mv": 621.2702615000001,
+          "pp_bank_uv": 495,
+          "valid": true,
+          "clavado": false
+        },
+        "history": [
+          {
+            "iteration": 1,
+            "from": 0,
+            "to": -96,
+            "raw_correction": -170.9040041482654,
+            "point": {
+              "elapsed_s": 675.674397499999,
+              "phase": "IDAC2 lazo",
+              "stage": 2,
+              "code": -96,
+              "channel": 2,
+              "mean_bank_uv": 1069221,
+              "error_bank_uv": 67721,
+              "error_real_mv": 1348.7111197000002,
+              "pp_bank_uv": 762,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "iteration": 2,
+            "from": -96,
+            "to": -100,
+            "raw_correction": -128.0650975669122,
+            "point": {
+              "elapsed_s": 677.4492765000032,
+              "phase": "IDAC2 lazo",
+              "stage": 2,
+              "code": -100,
+              "channel": 2,
+              "mean_bank_uv": 1066913,
+              "error_bank_uv": 65413,
+              "error_real_mv": 1302.7456841,
+              "pp_bank_uv": 896,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "iteration": 3,
+            "from": -100,
+            "to": -104,
+            "raw_correction": -124.34109770289096,
+            "point": {
+              "elapsed_s": 679.2243222999969,
+              "phase": "IDAC2 lazo",
+              "stage": 2,
+              "code": -104,
+              "channel": 2,
+              "mean_bank_uv": 1064987,
+              "error_bank_uv": 63487,
+              "error_real_mv": 1264.3880459,
+              "pp_bank_uv": 705,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "iteration": 4,
+            "from": -104,
+            "to": -108,
+            "raw_correction": -121.23346176783687,
+            "point": {
+              "elapsed_s": 681.0001560999954,
+              "phase": "IDAC2 lazo",
+              "stage": 2,
+              "code": -108,
+              "channel": 2,
+              "mean_bank_uv": 1062736,
+              "error_bank_uv": 61236,
+              "error_real_mv": 1219.5578052,
+              "pp_bank_uv": 953,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "iteration": 5,
+            "from": -108,
+            "to": -112,
+            "raw_correction": -117.60143243771913,
+            "point": {
+              "elapsed_s": 682.7772700999922,
+              "phase": "IDAC2 lazo",
+              "stage": 2,
+              "code": -112,
+              "channel": 2,
+              "mean_bank_uv": 1060428,
+              "error_bank_uv": 58928,
+              "error_real_mv": 1173.5923696,
+              "pp_bank_uv": 457,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "iteration": 6,
+            "from": -112,
+            "to": -116,
+            "raw_correction": -113.87743257369792,
+            "point": {
+              "elapsed_s": 684.5536549999961,
+              "phase": "IDAC2 lazo",
+              "stage": 2,
+              "code": -116,
+              "channel": 2,
+              "mean_bank_uv": 1058216,
+              "error_bank_uv": 56716,
+              "error_real_mv": 1129.5388412000002,
+              "pp_bank_uv": 610,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "iteration": 7,
+            "from": -116,
+            "to": -120,
+            "raw_correction": -110.30833045098781,
+            "point": {
+              "elapsed_s": 686.3270696999971,
+              "phase": "IDAC2 lazo",
+              "stage": 2,
+              "code": -120,
+              "channel": 2,
+              "mean_bank_uv": 1055927,
+              "error_bank_uv": 54427,
+              "error_real_mv": 1083.9518039000002,
+              "pp_bank_uv": 953,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "iteration": 8,
+            "from": -120,
+            "to": -124,
+            "raw_correction": -106.6149874316011,
+            "point": {
+              "elapsed_s": 688.103863700002,
+              "phase": "IDAC2 lazo",
+              "stage": 2,
+              "code": -124,
+              "channel": 2,
+              "mean_bank_uv": 1053581,
+              "error_bank_uv": 52081,
+              "error_real_mv": 1037.2295717000002,
+              "pp_bank_uv": 839,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "iteration": 9,
+            "from": -124,
+            "to": -128,
+            "raw_correction": -102.82967387831089,
+            "point": {
+              "elapsed_s": 689.8778405000048,
+              "phase": "IDAC2 lazo",
+              "stage": 2,
+              "code": -128,
+              "channel": 2,
+              "mean_bank_uv": 1051082,
+              "error_bank_uv": 49582,
+              "error_real_mv": 987.4602374000001,
+              "pp_bank_uv": 591,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "iteration": 10,
+            "from": -128,
+            "to": -132,
+            "raw_correction": -98.79749204980612,
+            "point": {
+              "elapsed_s": 691.6523524000077,
+              "phase": "IDAC2 lazo",
+              "stage": 2,
+              "code": -132,
+              "channel": 2,
+              "mean_bank_uv": 1048774,
+              "error_bank_uv": 47274,
+              "error_real_mv": 941.4948018,
+              "pp_bank_uv": 610,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "iteration": 11,
+            "from": -132,
+            "to": -136,
+            "raw_correction": -95.0734921857849,
+            "point": {
+              "elapsed_s": 693.4280921999889,
+              "phase": "IDAC2 lazo",
+              "stage": 2,
+              "code": -136,
+              "channel": 2,
+              "mean_bank_uv": 1046485,
+              "error_bank_uv": 44985,
+              "error_real_mv": 895.9077645000001,
+              "pp_bank_uv": 743,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "iteration": 12,
+            "from": -136,
+            "to": -140,
+            "raw_correction": -91.38014916639818,
+            "point": {
+              "elapsed_s": 695.2039938000089,
+              "phase": "IDAC2 lazo",
+              "stage": 2,
+              "code": -140,
+              "channel": 2,
+              "mean_bank_uv": 1044101,
+              "error_bank_uv": 42601,
+              "error_real_mv": 848.4287357000001,
+              "pp_bank_uv": 553,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "iteration": 13,
+            "from": -140,
+            "to": -144,
+            "raw_correction": -87.533521923839,
+            "point": {
+              "elapsed_s": 696.9802229999914,
+              "phase": "IDAC2 lazo",
+              "stage": 2,
+              "code": -144,
+              "channel": 2,
+              "mean_bank_uv": 1041774,
+              "error_bank_uv": 40274,
+              "error_real_mv": 802.0849018,
+              "pp_bank_uv": 591,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "iteration": 14,
+            "from": -144,
+            "to": -148,
+            "raw_correction": -83.7788652151833,
+            "point": {
+              "elapsed_s": 698.7560538999969,
+              "phase": "IDAC2 lazo",
+              "stage": 2,
+              "code": -148,
+              "channel": 2,
+              "mean_bank_uv": 1039428,
+              "error_bank_uv": 37928,
+              "error_real_mv": 755.3626696,
+              "pp_bank_uv": 362,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "iteration": 15,
+            "from": -148,
+            "to": -152,
+            "raw_correction": -79.99355166189312,
+            "point": {
+              "elapsed_s": 704.2119645999919,
+              "phase": "IDAC2 lazo",
+              "stage": 2,
+              "code": -152,
+              "channel": 2,
+              "mean_bank_uv": 1037292,
+              "error_bank_uv": 35792,
+              "error_real_mv": 712.8227344000001,
+              "pp_bank_uv": 877,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "iteration": 16,
+            "from": -152,
+            "to": -156,
+            "raw_correction": -76.54707691772097,
+            "point": {
+              "elapsed_s": 706.4358093999908,
+              "phase": "IDAC2 lazo",
+              "stage": 2,
+              "code": -156,
+              "channel": 2,
+              "mean_bank_uv": 1034755,
+              "error_bank_uv": 33255,
+              "error_real_mv": 662.2966035000001,
+              "pp_bank_uv": 762,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "iteration": 17,
+            "from": -156,
+            "to": -160,
+            "raw_correction": -72.45358139994723,
+            "point": {
+              "elapsed_s": 708.2127009000105,
+              "phase": "IDAC2 lazo",
+              "stage": 2,
+              "code": -160,
+              "channel": 2,
+              "mean_bank_uv": 1032581,
+              "error_bank_uv": 31081,
+              "error_real_mv": 618.9998717,
+              "pp_bank_uv": 514,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "iteration": 18,
+            "from": -160,
+            "to": -164,
+            "raw_correction": -68.94579296650609,
+            "point": {
+              "elapsed_s": 709.9948983000068,
+              "phase": "IDAC2 lazo",
+              "stage": 2,
+              "code": -164,
+              "channel": 2,
+              "mean_bank_uv": 1032466,
+              "error_bank_uv": 30966,
+              "error_real_mv": 616.7095662,
+              "pp_bank_uv": 686,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "iteration": 19,
+            "from": -160,
+            "to": -164,
+            "raw_correction": -68.7602383805605,
+            "point": {
+              "elapsed_s": 711.7759069000022,
+              "phase": "IDAC2 lazo",
+              "stage": 2,
+              "code": -164,
+              "channel": 2,
+              "mean_bank_uv": 1032562,
+              "error_bank_uv": 31062,
+              "error_real_mv": 618.6214734,
+              "pp_bank_uv": 553,
+              "valid": true,
+              "clavado": false
+            }
+          },
+          {
+            "iteration": 20,
+            "from": -160,
+            "to": -164,
+            "raw_correction": -68.91513612187161,
+            "point": {
+              "elapsed_s": 713.5578184000042,
+              "phase": "IDAC2 lazo",
+              "stage": 2,
+              "code": -164,
+              "channel": 2,
+              "mean_bank_uv": 1032600,
+              "error_bank_uv": 31100,
+              "error_real_mv": 619.37827,
+              "pp_bank_uv": 896,
+              "valid": true,
+              "clavado": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-09-12T03:02:50.610",
+      "kind": "deriva_alta",
+      "message": "x4: ch2 deriva +0.71 mV/s (limite 0.50); se espera",
+      "gain": 4,
+      "canal": 2,
+      "pendiente": 0.711986275000001,
+      "limite": 0.5
+    },
+    {
+      "at": "2026-09-12T03:03:15.957",
+      "kind": "deriva_ok",
+      "message": "x4: ch2 deriva +0.43 mV/s en 3 lecturas seguidas y se corrio 6.1 mV en el tramo; se puede medir",
+      "gain": 4,
+      "canal": 2,
+      "pendiente": 0.4256980874999954,
+      "limite": 0.5,
+      "recorrido": 6.074288499999966,
+      "intentos": 4
+    },
+    {
+      "at": "2026-09-12T03:03:16.186",
+      "kind": "apuntado_ch2_reintento",
+      "message": "x4: ch2 se corrio a +635 mV mientras se esperaba (+597 de la consigna, tolerancia 111); se reapunta",
+      "gain": 4,
+      "intento": 0,
+      "desvio": 596.9523474000001,
+      "tolerancia": 111.14999999999999
+    },
+    {
+      "at": "2026-09-12T03:03:16.466",
+      "kind": "salto_unico_ch2",
+      "message": "x4: ch2 en +634 mV, consigna +38; un salto de -48 c\u00f3digos con +12.34 mV/c\u00f3digo lleva IDAC2 a -160 (recortado a la zona \u00fatil \u00b1160)",
+      "gain": 4,
+      "desde": 633.8171525000001,
+      "objetivo": 38.0,
+      "delta": -48,
+      "codigo": -160,
+      "recortado": true
+    },
+    {
+      "at": "2026-09-12T03:03:42.038",
+      "kind": "deriva_ok",
+      "message": "x4: ch2 deriva +0.14 mV/s en 3 lecturas seguidas y se corrio 2.3 mV en el tramo; se puede medir",
+      "gain": 4,
+      "canal": 2,
+      "pendiente": 0.14438882499997874,
+      "limite": 0.5,
+      "recorrido": 2.2903054999999313,
+      "intentos": 3
+    },
+    {
+      "at": "2026-09-12T03:03:42.266",
+      "kind": "apuntado_ch2_reintento",
+      "message": "x4: ch2 se corrio a +636 mV mientras se esperaba (+598 de la consigna, tolerancia 111); se reapunta",
+      "gain": 4,
+      "intento": 1,
+      "desvio": 598.0875423000001,
+      "tolerancia": 111.14999999999999
+    },
+    {
+      "at": "2026-09-12T03:03:42.548",
+      "kind": "salto_unico_ch2",
+      "message": "x4: ch2 en +636 mV, consigna +38; un salto de -48 c\u00f3digos con +12.34 mV/c\u00f3digo lleva IDAC2 a -160 (recortado a la zona \u00fatil \u00b1160)",
+      "gain": 4,
+      "desde": 635.709144,
+      "objetivo": 38.0,
+      "delta": -48,
+      "codigo": -160,
+      "recortado": true
+    },
+    {
+      "at": "2026-09-12T03:04:08.121",
+      "kind": "deriva_ok",
+      "message": "x4: ch2 deriva +0.05 mV/s en 3 lecturas seguidas y se corrio 3.8 mV en el tramo; se puede medir",
+      "gain": 4,
+      "canal": 2,
+      "pendiente": 0.04729978749999475,
+      "limite": 0.5,
+      "recorrido": 3.803898699999877,
+      "intentos": 3
+    },
+    {
+      "at": "2026-09-12T03:04:08.352",
+      "kind": "apuntado_ch2_reintento",
+      "message": "x4: ch2 se corrio a +637 mV mientras se esperaba (+599 de la consigna, tolerancia 111); se reapunta",
+      "gain": 4,
+      "intento": 2,
+      "desvio": 598.8443389000001,
+      "tolerancia": 111.14999999999999
+    },
+    {
+      "at": "2026-09-12T03:04:08.641",
+      "kind": "salto_unico_ch2",
+      "message": "x4: ch2 en +634 mV, consigna +38; un salto de -48 c\u00f3digos con +12.34 mV/c\u00f3digo lleva IDAC2 a -160 (recortado a la zona \u00fatil \u00b1160)",
+      "gain": 4,
+      "desde": 633.8171525000001,
+      "objetivo": 38.0,
+      "delta": -48,
+      "codigo": -160,
+      "recortado": true
+    },
+    {
+      "at": "2026-09-12T03:04:34.198",
+      "kind": "deriva_ok",
+      "message": "x4: ch2 deriva -0.24 mV/s en 3 lecturas seguidas y se corrio 0.8 mV en el tramo; se puede medir",
+      "gain": 4,
+      "canal": 2,
+      "pendiente": -0.23649893750000217,
+      "limite": 0.5,
+      "recorrido": 0.7567966000000297,
+      "intentos": 3
+    },
+    {
+      "at": "2026-09-12T03:04:34.426",
+      "kind": "apuntado_ch2_reintento",
+      "message": "x4: ch2 se corrio a +637 mV mientras se esperaba (+599 de la consigna, tolerancia 111); se reapunta",
+      "gain": 4,
+      "intento": 3,
+      "desvio": 598.8443389000001,
+      "tolerancia": 111.14999999999999
+    },
+    {
+      "at": "2026-09-12T03:04:34.709",
+      "kind": "salto_unico_ch2",
+      "message": "x4: ch2 en +636 mV, consigna +38; un salto de -48 c\u00f3digos con +12.34 mV/c\u00f3digo lleva IDAC2 a -160 (recortado a la zona \u00fatil \u00b1160)",
+      "gain": 4,
+      "desde": 636.4659406000001,
+      "objetivo": 38.0,
+      "delta": -48,
+      "codigo": -160,
+      "recortado": true
+    },
+    {
+      "at": "2026-09-12T03:05:00.279",
+      "kind": "deriva_ok",
+      "message": "x4: ch2 deriva -0.43 mV/s en 3 lecturas seguidas y se corrio 4.2 mV en el tramo; se puede medir",
+      "gain": 4,
+      "canal": 2,
+      "pendiente": -0.42818754999998987,
+      "limite": 0.5,
+      "recorrido": 4.182296999999835,
+      "intentos": 3
+    },
+    {
+      "at": "2026-09-12T03:05:00.509",
+      "kind": "apuntado_ch2_reintento",
+      "message": "x4: ch2 se corrio a +636 mV mientras se esperaba (+598 de la consigna, tolerancia 111); se reapunta",
+      "gain": 4,
+      "intento": 4,
+      "desvio": 598.4659406000001,
+      "tolerancia": 111.14999999999999
+    },
+    {
+      "at": "2026-09-12T03:05:00.792",
+      "kind": "salto_unico_ch2",
+      "message": "x4: ch2 en +636 mV, consigna +38; un salto de -48 c\u00f3digos con +12.34 mV/c\u00f3digo lleva IDAC2 a -160 (recortado a la zona \u00fatil \u00b1160)",
+      "gain": 4,
+      "desde": 636.0875423000001,
+      "objetivo": 38.0,
+      "delta": -48,
+      "codigo": -160,
+      "recortado": true
+    },
+    {
+      "at": "2026-09-12T03:05:00.799",
+      "kind": "apuntado_ch2_no_firme",
+      "message": "x4: ch2 no se queda quieto en la consigna tras 5 intentos; se barre igual y se informa",
+      "gain": 4,
+      "historial": [
+        {
+          "intento": 0,
+          "ch2": 634.9523474000001,
+          "desvio": 596.9523474000001,
+          "deriva": 0.4256980874999954
+        },
+        {
+          "intento": 1,
+          "ch2": 636.0875423000001,
+          "desvio": 598.0875423000001,
+          "deriva": 0.14438882499997874
+        },
+        {
+          "intento": 2,
+          "ch2": 636.8443389000001,
+          "desvio": 598.8443389000001,
+          "deriva": 0.04729978749999475
+        },
+        {
+          "intento": 3,
+          "ch2": 636.8443389000001,
+          "desvio": 598.8443389000001,
+          "deriva": -0.23649893750000217
+        },
+        {
+          "intento": 4,
+          "ch2": 636.4659406000001,
+          "desvio": 598.4659406000001,
+          "deriva": -0.42818754999998987
+        }
+      ]
+    }
+  ],
+  "measurements": [
+    {
+      "elapsed_s": 1.6724314000166487,
+      "phase": "espera estabilidad",
+      "stage": 1,
+      "code": 0,
+      "channel": 1,
+      "mean_bank_uv": 990924,
+      "error_bank_uv": -10576,
+      "error_real_mv": -210.62844320000002,
+      "pp_bank_uv": 2193,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 4.890508999989834,
+      "phase": "espera estabilidad",
+      "stage": 1,
+      "code": 0,
+      "channel": 1,
+      "mean_bank_uv": 989818,
+      "error_bank_uv": -11682,
+      "error_real_mv": -232.65520740000002,
+      "pp_bank_uv": 2746,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 8.108929200010607,
+      "phase": "espera estabilidad",
+      "stage": 1,
+      "code": 0,
+      "channel": 1,
+      "mean_bank_uv": 989894,
+      "error_bank_uv": -11606,
+      "error_real_mv": -231.14161420000002,
+      "pp_bank_uv": 3681,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 11.328384399996139,
+      "phase": "espera estabilidad",
+      "stage": 1,
+      "code": 0,
+      "channel": 1,
+      "mean_bank_uv": 989704,
+      "error_bank_uv": -11796,
+      "error_real_mv": -234.92559720000003,
+      "pp_bank_uv": 3204,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 11.98228540000855,
+      "phase": "fase1 inicial",
+      "stage": 0,
+      "code": 0,
+      "channel": 0,
+      "mean_bank_uv": 943374,
+      "error_bank_uv": -58126,
+      "error_real_mv": -1157.6199782,
+      "pp_bank_uv": 14457,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 12.634618200012483,
+      "phase": "fase1 inicial",
+      "stage": 1,
+      "code": 0,
+      "channel": 1,
+      "mean_bank_uv": 989704,
+      "error_bank_uv": -11796,
+      "error_real_mv": -234.92559720000003,
+      "pp_bank_uv": 4272,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 13.287438100000145,
+      "phase": "fase1 inicial",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1102561,
+      "error_bank_uv": 101061,
+      "error_real_mv": 2012.7005577,
+      "pp_bank_uv": 667,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 13.939331000001403,
+      "phase": "fase1 inicial",
+      "stage": 3,
+      "code": 0,
+      "channel": 3,
+      "mean_bank_uv": 1102142,
+      "error_bank_uv": 100642,
+      "error_real_mv": 2004.3558794000003,
+      "pp_bank_uv": 915,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 14.592297600000165,
+      "phase": "fase1 inicial",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 732135,
+      "error_bank_uv": -269365,
+      "error_real_mv": -5364.5925305,
+      "pp_bank_uv": 133,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 14.811373600008665,
+      "phase": "ABBA precheck IDAC0",
+      "stage": 0,
+      "code": 0,
+      "channel": 0,
+      "mean_bank_uv": 943851,
+      "error_bank_uv": -57649,
+      "error_real_mv": -1148.1201893,
+      "pp_bank_uv": 14419,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 15.083003100007772,
+      "phase": "ABBA A1 IDAC0",
+      "stage": 0,
+      "code": 0,
+      "channel": 0,
+      "mean_bank_uv": 943851,
+      "error_bank_uv": -57649,
+      "error_real_mv": -1148.1201893,
+      "pp_bank_uv": 16765,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 16.85343039999134,
+      "phase": "ABBA B1 IDAC0",
+      "stage": 0,
+      "code": 2,
+      "channel": 0,
+      "mean_bank_uv": 949630,
+      "error_bank_uv": -51870,
+      "error_real_mv": -1033.0273590000002,
+      "pp_bank_uv": 13294,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 17.124742699990747,
+      "phase": "ABBA B2 IDAC0",
+      "stage": 0,
+      "code": 2,
+      "channel": 0,
+      "mean_bank_uv": 950317,
+      "error_bank_uv": -51183,
+      "error_real_mv": -1019.3452731000001,
+      "pp_bank_uv": 12969,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 18.89730270000291,
+      "phase": "ABBA A2 IDAC0",
+      "stage": 0,
+      "code": 0,
+      "channel": 0,
+      "mean_bank_uv": 944385,
+      "error_bank_uv": -57115,
+      "error_real_mv": -1137.4852055000001,
+      "pp_bank_uv": 14514,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 19.170825800014427,
+      "phase": "ABBA A1 IDAC0",
+      "stage": 0,
+      "code": 0,
+      "channel": 0,
+      "mean_bank_uv": 942192,
+      "error_bank_uv": -59308,
+      "error_real_mv": -1181.1603356,
+      "pp_bank_uv": 14629,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 20.943012200004887,
+      "phase": "ABBA B1 IDAC0",
+      "stage": 0,
+      "code": 4,
+      "channel": 0,
+      "mean_bank_uv": 955924,
+      "error_bank_uv": -45576,
+      "error_real_mv": -907.6779432000001,
+      "pp_bank_uv": 12016,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 21.21448260001489,
+      "phase": "ABBA B2 IDAC0",
+      "stage": 0,
+      "code": 4,
+      "channel": 0,
+      "mean_bank_uv": 955448,
+      "error_bank_uv": -46052,
+      "error_real_mv": -917.1578164,
+      "pp_bank_uv": 14324,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 22.985490799997933,
+      "phase": "ABBA A2 IDAC0",
+      "stage": 0,
+      "code": 0,
+      "channel": 0,
+      "mean_bank_uv": 944423,
+      "error_bank_uv": -57077,
+      "error_real_mv": -1136.7284089000002,
+      "pp_bank_uv": 13694,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 23.25941490000696,
+      "phase": "tau para IDAC1",
+      "stage": 1,
+      "code": 0,
+      "channel": 1,
+      "mean_bank_uv": 989894,
+      "error_bank_uv": -11606,
+      "error_real_mv": -231.14161420000002,
+      "pp_bank_uv": 3280,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 23.53126039999188,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 991096,
+      "error_bank_uv": -10404,
+      "error_real_mv": -207.20294280000002,
+      "pp_bank_uv": 2613,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 26.74991770001361,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 990085,
+      "error_bank_uv": -11415,
+      "error_real_mv": -227.33771550000003,
+      "pp_bank_uv": 4100,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 29.969299199990928,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 989398,
+      "error_bank_uv": -12102,
+      "error_real_mv": -241.01980140000003,
+      "pp_bank_uv": 4329,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 33.18707949999953,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 989780,
+      "error_bank_uv": -11720,
+      "error_real_mv": -233.41200400000002,
+      "pp_bank_uv": 4425,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 36.4071130999946,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 990600,
+      "error_bank_uv": -10900,
+      "error_real_mv": -217.08113,
+      "pp_bank_uv": 3356,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 39.6271745999984,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 989189,
+      "error_bank_uv": -12311,
+      "error_real_mv": -245.1821827,
+      "pp_bank_uv": 3433,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 42.84710539999651,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 988502,
+      "error_bank_uv": -12998,
+      "error_real_mv": -258.8642686,
+      "pp_bank_uv": 3566,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 46.06684939999832,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 989303,
+      "error_bank_uv": -12197,
+      "error_real_mv": -242.9117929,
+      "pp_bank_uv": 3643,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 49.28724410000723,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 988845,
+      "error_bank_uv": -12655,
+      "error_real_mv": -252.0331835,
+      "pp_bank_uv": 4043,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 52.50773219999974,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 989379,
+      "error_bank_uv": -12121,
+      "error_real_mv": -241.39819970000002,
+      "pp_bank_uv": 5168,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 55.72704040000099,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 988006,
+      "error_bank_uv": -13494,
+      "error_real_mv": -268.7424558,
+      "pp_bank_uv": 3242,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 58.94706520001637,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 987567,
+      "error_bank_uv": -13933,
+      "error_real_mv": -277.48544810000004,
+      "pp_bank_uv": 4158,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 62.165982600010466,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 988197,
+      "error_bank_uv": -13303,
+      "error_real_mv": -264.9385571,
+      "pp_bank_uv": 5187,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 65.38538950000657,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 988025,
+      "error_bank_uv": -13475,
+      "error_real_mv": -268.3640575,
+      "pp_bank_uv": 4215,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 68.60493470000802,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 987262,
+      "error_bank_uv": -14238,
+      "error_real_mv": -283.5597366,
+      "pp_bank_uv": 3585,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 71.82469179999316,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 987300,
+      "error_bank_uv": -14200,
+      "error_real_mv": -282.80294,
+      "pp_bank_uv": 3528,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 75.04476489999797,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 987281,
+      "error_bank_uv": -14219,
+      "error_real_mv": -283.1813383,
+      "pp_bank_uv": 4291,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 78.26494190000813,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 988750,
+      "error_bank_uv": -12750,
+      "error_real_mv": -253.92517500000002,
+      "pp_bank_uv": 4291,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 81.48486349999439,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 988483,
+      "error_bank_uv": -13017,
+      "error_real_mv": -259.2426669,
+      "pp_bank_uv": 4158,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 84.70522400000482,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 987129,
+      "error_bank_uv": -14371,
+      "error_real_mv": -286.2085247,
+      "pp_bank_uv": 4901,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 87.9252029999916,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 986824,
+      "error_bank_uv": -14676,
+      "error_real_mv": -292.2828132,
+      "pp_bank_uv": 2765,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 91.14448009998887,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 987529,
+      "error_bank_uv": -13971,
+      "error_real_mv": -278.2422447,
+      "pp_bank_uv": 3910,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 94.36294809999526,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 987567,
+      "error_bank_uv": -13933,
+      "error_real_mv": -277.48544810000004,
+      "pp_bank_uv": 3967,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 97.5822623000131,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 987777,
+      "error_bank_uv": -13723,
+      "error_real_mv": -273.30315110000004,
+      "pp_bank_uv": 3490,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 100.80202639999334,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 986938,
+      "error_bank_uv": -14562,
+      "error_real_mv": -290.01242340000005,
+      "pp_bank_uv": 3032,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 104.02179040000192,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 986766,
+      "error_bank_uv": -14734,
+      "error_real_mv": -293.43792379999996,
+      "pp_bank_uv": 2899,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 107.2422099999967,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 987663,
+      "error_bank_uv": -13837,
+      "error_real_mv": -275.5735409,
+      "pp_bank_uv": 3490,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 110.45767060000799,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 987491,
+      "error_bank_uv": -14009,
+      "error_real_mv": -278.99904130000004,
+      "pp_bank_uv": 4425,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 113.6775115999917,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 986804,
+      "error_bank_uv": -14696,
+      "error_real_mv": -292.6811272,
+      "pp_bank_uv": 5111,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 116.89715480001178,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 1,
+      "code": 8,
+      "channel": 1,
+      "mean_bank_uv": 986633,
+      "error_bank_uv": -14867,
+      "error_real_mv": -296.0867119,
+      "pp_bank_uv": 3681,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 192.5955002999981,
+      "phase": "espera estabilidad",
+      "stage": 1,
+      "code": 0,
+      "channel": 1,
+      "mean_bank_uv": 985755,
+      "error_bank_uv": -15745,
+      "error_real_mv": -313.5726965,
+      "pp_bank_uv": 3871,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 197.81510609999532,
+      "phase": "espera estabilidad",
+      "stage": 1,
+      "code": 0,
+      "channel": 1,
+      "mean_bank_uv": 985527,
+      "error_bank_uv": -15973,
+      "error_real_mv": -318.1134761,
+      "pp_bank_uv": 5035,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 203.03443610001705,
+      "phase": "espera estabilidad",
+      "stage": 1,
+      "code": 0,
+      "channel": 1,
+      "mean_bank_uv": 986022,
+      "error_bank_uv": -15478,
+      "error_real_mv": -308.2552046,
+      "pp_bank_uv": 3128,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 206.93021190000582,
+      "phase": "ABBA precheck IDAC1",
+      "stage": 1,
+      "code": 0,
+      "channel": 1,
+      "mean_bank_uv": 985984,
+      "error_bank_uv": -15516,
+      "error_real_mv": -309.0120012,
+      "pp_bank_uv": 2136,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 207.63404309999896,
+      "phase": "ABBA A1 IDAC1",
+      "stage": 1,
+      "code": 0,
+      "channel": 1,
+      "mean_bank_uv": 985660,
+      "error_bank_uv": -15840,
+      "error_real_mv": -315.464688,
+      "pp_bank_uv": 2765,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 262.20755300001474,
+      "phase": "ABBA B1 IDAC1",
+      "stage": 1,
+      "code": 24,
+      "channel": 1,
+      "mean_bank_uv": 988960,
+      "error_bank_uv": -12540,
+      "error_real_mv": -249.74287800000002,
+      "pp_bank_uv": 4348,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 262.47982129998854,
+      "phase": "ABBA B2 IDAC1",
+      "stage": 1,
+      "code": 24,
+      "channel": 1,
+      "mean_bank_uv": 988368,
+      "error_bank_uv": -13132,
+      "error_real_mv": -261.5329724,
+      "pp_bank_uv": 4215,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 317.053682400001,
+      "phase": "ABBA A2 IDAC1",
+      "stage": 1,
+      "code": 0,
+      "channel": 1,
+      "mean_bank_uv": 986328,
+      "error_bank_uv": -15172,
+      "error_real_mv": -302.16100040000003,
+      "pp_bank_uv": 4215,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 319.39712020001025,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 975685,
+      "error_bank_uv": -25815,
+      "error_real_mv": -514.1237955,
+      "pp_bank_uv": 3547,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 322.6175393000012,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 976085,
+      "error_bank_uv": -25415,
+      "error_real_mv": -506.15751550000004,
+      "pp_bank_uv": 2918,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 325.8363696000015,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 977725,
+      "error_bank_uv": -23775,
+      "error_real_mv": -473.4957675,
+      "pp_bank_uv": 4119,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 329.05679750000127,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 979690,
+      "error_bank_uv": -21810,
+      "error_real_mv": -434.361417,
+      "pp_bank_uv": 4329,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 332.2773689000169,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 979461,
+      "error_bank_uv": -22039,
+      "error_real_mv": -438.92211230000004,
+      "pp_bank_uv": 3051,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 335.49593219999224,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 979614,
+      "error_bank_uv": -21886,
+      "error_real_mv": -435.8750102,
+      "pp_bank_uv": 4634,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 338.7145451999968,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 980033,
+      "error_bank_uv": -21467,
+      "error_real_mv": -427.5303319,
+      "pp_bank_uv": 2384,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 341.9352072000038,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 981254,
+      "error_bank_uv": -20246,
+      "error_real_mv": -403.2132622,
+      "pp_bank_uv": 2613,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 345.15581650001695,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 983047,
+      "error_bank_uv": -18453,
+      "error_real_mv": -367.5044121,
+      "pp_bank_uv": 3757,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 348.3760251000058,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 982723,
+      "error_bank_uv": -18777,
+      "error_real_mv": -373.95709890000006,
+      "pp_bank_uv": 4405,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 351.59578709999914,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 982856,
+      "error_bank_uv": -18644,
+      "error_real_mv": -371.3083108,
+      "pp_bank_uv": 4501,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 354.81592130000354,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 983543,
+      "error_bank_uv": -17957,
+      "error_real_mv": -357.6262249,
+      "pp_bank_uv": 3204,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 358.0363844000094,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 983734,
+      "error_bank_uv": -17766,
+      "error_real_mv": -353.8223262,
+      "pp_bank_uv": 3414,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 361.2566927000007,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 984382,
+      "error_bank_uv": -17118,
+      "error_real_mv": -340.9169526,
+      "pp_bank_uv": 2784,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 364.47575929999584,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 983428,
+      "error_bank_uv": -18072,
+      "error_real_mv": -359.91653040000006,
+      "pp_bank_uv": 4386,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 367.6953547000012,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 983104,
+      "error_bank_uv": -18396,
+      "error_real_mv": -366.36921720000004,
+      "pp_bank_uv": 3147,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 370.9153104000143,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 984554,
+      "error_bank_uv": -16946,
+      "error_real_mv": -337.4914522,
+      "pp_bank_uv": 2651,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 374.1341105000174,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 984840,
+      "error_bank_uv": -16660,
+      "error_real_mv": -331.795562,
+      "pp_bank_uv": 4100,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 377.35352949998924,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 984382,
+      "error_bank_uv": -17118,
+      "error_real_mv": -340.9169526,
+      "pp_bank_uv": 5092,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 380.5744740999944,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 984096,
+      "error_bank_uv": -17404,
+      "error_real_mv": -346.61284280000007,
+      "pp_bank_uv": 4787,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 383.7941446999903,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 985164,
+      "error_bank_uv": -16336,
+      "error_real_mv": -325.34287520000004,
+      "pp_bank_uv": 5054,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 387.0143510999915,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 985565,
+      "error_bank_uv": -15935,
+      "error_real_mv": -317.35667950000004,
+      "pp_bank_uv": 4806,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 390.2339456999907,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 985088,
+      "error_bank_uv": -16412,
+      "error_real_mv": -326.85646840000004,
+      "pp_bank_uv": 4596,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 393.4533092000056,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 984859,
+      "error_bank_uv": -16641,
+      "error_real_mv": -331.41716370000006,
+      "pp_bank_uv": 5073,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 396.6734392000071,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 985374,
+      "error_bank_uv": -16126,
+      "error_real_mv": -321.1605782,
+      "pp_bank_uv": 4234,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 399.89432180000586,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 985469,
+      "error_bank_uv": -16031,
+      "error_real_mv": -319.26858670000007,
+      "pp_bank_uv": 3414,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 403.11471389999497,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 986213,
+      "error_bank_uv": -15287,
+      "error_real_mv": -304.4513059,
+      "pp_bank_uv": 3204,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 406.33462589999544,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 985832,
+      "error_bank_uv": -15668,
+      "error_real_mv": -312.0391876,
+      "pp_bank_uv": 2765,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 409.55600710000726,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 984992,
+      "error_bank_uv": -16508,
+      "error_real_mv": -328.7683756,
+      "pp_bank_uv": 3662,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 412.77581660001306,
+      "phase": "medici\u00f3n tau BP",
+      "stage": 0,
+      "code": 4,
+      "channel": 1,
+      "mean_bank_uv": 985660,
+      "error_bank_uv": -15840,
+      "error_real_mv": -315.464688,
+      "pp_bank_uv": 4272,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 468.4736372999905,
+      "phase": "espera estabilidad",
+      "stage": 0,
+      "code": 0,
+      "channel": 1,
+      "mean_bank_uv": 986957,
+      "error_bank_uv": -14543,
+      "error_real_mv": -289.63402510000003,
+      "pp_bank_uv": 3280,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 472.6234916000103,
+      "phase": "espera estabilidad",
+      "stage": 0,
+      "code": 0,
+      "channel": 1,
+      "mean_bank_uv": 987243,
+      "error_bank_uv": -14257,
+      "error_real_mv": -283.9381349,
+      "pp_bank_uv": 3089,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 476.77365310001187,
+      "phase": "espera estabilidad",
+      "stage": 0,
+      "code": 0,
+      "channel": 1,
+      "mean_bank_uv": 987472,
+      "error_bank_uv": -14028,
+      "error_real_mv": -279.37743960000006,
+      "pp_bank_uv": 3814,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 531.4617558000027,
+      "phase": "espera estabilidad",
+      "stage": 0,
+      "code": 12,
+      "channel": 1,
+      "mean_bank_uv": 974845,
+      "error_bank_uv": -26655,
+      "error_real_mv": -530.8529834999999,
+      "pp_bank_uv": 3757,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 535.6129314000136,
+      "phase": "espera estabilidad",
+      "stage": 0,
+      "code": 12,
+      "channel": 1,
+      "mean_bank_uv": 975971,
+      "error_bank_uv": -25529,
+      "error_real_mv": -508.4279053,
+      "pp_bank_uv": 3414,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 539.7613815999939,
+      "phase": "espera estabilidad",
+      "stage": 0,
+      "code": 12,
+      "channel": 1,
+      "mean_bank_uv": 977115,
+      "error_bank_uv": -24385,
+      "error_real_mv": -485.6443445,
+      "pp_bank_uv": 3452,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 540.418490400014,
+      "phase": "fase1 verificaci\u00f3n 1",
+      "stage": 0,
+      "code": 12,
+      "channel": 0,
+      "mean_bank_uv": 979061,
+      "error_bank_uv": -22439,
+      "error_real_mv": -446.8883923,
+      "pp_bank_uv": 10929,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 541.0736526999972,
+      "phase": "fase1 verificaci\u00f3n 1",
+      "stage": 1,
+      "code": -47,
+      "channel": 1,
+      "mean_bank_uv": 977096,
+      "error_bank_uv": -24404,
+      "error_real_mv": -486.0227428,
+      "pp_bank_uv": 3890,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 541.7258597000036,
+      "phase": "fase1 verificaci\u00f3n 1",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1028995,
+      "error_bank_uv": 27495,
+      "error_real_mv": 547.5821715000001,
+      "pp_bank_uv": 629,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 542.3772188000148,
+      "phase": "fase1 verificaci\u00f3n 1",
+      "stage": 3,
+      "code": 0,
+      "channel": 3,
+      "mean_bank_uv": 1028194,
+      "error_bank_uv": 26694,
+      "error_real_mv": 531.6296958,
+      "pp_bank_uv": 934,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 543.0340227000124,
+      "phase": "fase1 verificaci\u00f3n 1",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731792,
+      "error_bank_uv": -269708,
+      "error_real_mv": -5371.4236156,
+      "pp_bank_uv": 152,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 543.258408499998,
+      "phase": "consigna: ch2 en x1",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1027889,
+      "error_bank_uv": 26389,
+      "error_real_mv": 525.5554073000001,
+      "pp_bank_uv": 705,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 543.4794349000149,
+      "phase": "consigna: LPo en x1",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731811,
+      "error_bank_uv": -269689,
+      "error_real_mv": -5371.0452173,
+      "pp_bank_uv": 95,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 543.7521043000161,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731735,
+      "error_bank_uv": -269765,
+      "error_real_mv": -5372.558810500001,
+      "pp_bank_uv": 133,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 544.4724386000016,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731773,
+      "error_bank_uv": -269727,
+      "error_real_mv": -5371.802013900001,
+      "pp_bank_uv": 114,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 545.1937258999969,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731773,
+      "error_bank_uv": -269727,
+      "error_real_mv": -5371.802013900001,
+      "pp_bank_uv": 171,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 545.4175063000002,
+      "phase": "consigna: busqueda I2=0",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731773,
+      "error_bank_uv": -269727,
+      "error_real_mv": -5371.802013900001,
+      "pp_bank_uv": 190,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 545.6907294999983,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731754,
+      "error_bank_uv": -269746,
+      "error_real_mv": -5372.1804122,
+      "pp_bank_uv": 209,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 546.4120352000173,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731773,
+      "error_bank_uv": -269727,
+      "error_real_mv": -5371.802013900001,
+      "pp_bank_uv": 171,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 547.133597100008,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731716,
+      "error_bank_uv": -269784,
+      "error_real_mv": -5372.9372088,
+      "pp_bank_uv": 209,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 547.3586458000063,
+      "phase": "consigna: busqueda I2=-128",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731754,
+      "error_bank_uv": -269746,
+      "error_real_mv": -5372.1804122,
+      "pp_bank_uv": 209,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 547.6377508000005,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731811,
+      "error_bank_uv": -269689,
+      "error_real_mv": -5371.0452173,
+      "pp_bank_uv": 114,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 548.3596251000126,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731754,
+      "error_bank_uv": -269746,
+      "error_real_mv": -5372.1804122,
+      "pp_bank_uv": 152,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 549.0815276000067,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731735,
+      "error_bank_uv": -269765,
+      "error_real_mv": -5372.558810500001,
+      "pp_bank_uv": 209,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 549.3056379999907,
+      "phase": "consigna: busqueda I2=-192",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731735,
+      "error_bank_uv": -269765,
+      "error_real_mv": -5372.558810500001,
+      "pp_bank_uv": 190,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 549.5833648999978,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731773,
+      "error_bank_uv": -269727,
+      "error_real_mv": -5371.802013900001,
+      "pp_bank_uv": 133,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 550.3058250999893,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731735,
+      "error_bank_uv": -269765,
+      "error_real_mv": -5372.558810500001,
+      "pp_bank_uv": 171,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 551.0268065000128,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731735,
+      "error_bank_uv": -269765,
+      "error_real_mv": -5372.558810500001,
+      "pp_bank_uv": 133,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 551.2522543999949,
+      "phase": "consigna: busqueda I2=-224",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731716,
+      "error_bank_uv": -269784,
+      "error_real_mv": -5372.9372088,
+      "pp_bank_uv": 171,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 551.5328583999944,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731773,
+      "error_bank_uv": -269727,
+      "error_real_mv": -5371.802013900001,
+      "pp_bank_uv": 171,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 552.2549059000157,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731716,
+      "error_bank_uv": -269784,
+      "error_real_mv": -5372.9372088,
+      "pp_bank_uv": 209,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 552.9774594999908,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731658,
+      "error_bank_uv": -269842,
+      "error_real_mv": -5374.092319400001,
+      "pp_bank_uv": 209,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 553.2032618999947,
+      "phase": "consigna: busqueda I2=-240",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731678,
+      "error_bank_uv": -269822,
+      "error_real_mv": -5373.6940054,
+      "pp_bank_uv": 152,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 553.4829332999943,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731754,
+      "error_bank_uv": -269746,
+      "error_real_mv": -5372.1804122,
+      "pp_bank_uv": 190,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 554.2051258000138,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731716,
+      "error_bank_uv": -269784,
+      "error_real_mv": -5372.9372088,
+      "pp_bank_uv": 152,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 554.9272416000022,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731716,
+      "error_bank_uv": -269784,
+      "error_real_mv": -5372.9372088,
+      "pp_bank_uv": 114,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 555.1519601999898,
+      "phase": "consigna: busqueda I2=-248",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731716,
+      "error_bank_uv": -269784,
+      "error_real_mv": -5372.9372088,
+      "pp_bank_uv": 152,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 555.4295032999944,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731716,
+      "error_bank_uv": -269784,
+      "error_real_mv": -5372.9372088,
+      "pp_bank_uv": 171,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 556.1515980999975,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731678,
+      "error_bank_uv": -269822,
+      "error_real_mv": -5373.6940054,
+      "pp_bank_uv": 152,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 556.8728218000033,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731697,
+      "error_bank_uv": -269803,
+      "error_real_mv": -5373.3156071,
+      "pp_bank_uv": 228,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 557.097138400015,
+      "phase": "consigna: busqueda I2=-252",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731697,
+      "error_bank_uv": -269803,
+      "error_real_mv": -5373.3156071,
+      "pp_bank_uv": 152,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 557.3739545000135,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731716,
+      "error_bank_uv": -269784,
+      "error_real_mv": -5372.9372088,
+      "pp_bank_uv": 152,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 558.0959290000028,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731697,
+      "error_bank_uv": -269803,
+      "error_real_mv": -5373.3156071,
+      "pp_bank_uv": 190,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 558.817421499989,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731735,
+      "error_bank_uv": -269765,
+      "error_real_mv": -5372.558810500001,
+      "pp_bank_uv": 209,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 559.0452388999984,
+      "phase": "consigna: busqueda I2=-254",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731735,
+      "error_bank_uv": -269765,
+      "error_real_mv": -5372.558810500001,
+      "pp_bank_uv": 152,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 559.3245300000126,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731697,
+      "error_bank_uv": -269803,
+      "error_real_mv": -5373.3156071,
+      "pp_bank_uv": 133,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 560.0463386999909,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731697,
+      "error_bank_uv": -269803,
+      "error_real_mv": -5373.3156071,
+      "pp_bank_uv": 114,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 560.7677888000035,
+      "phase": "espera estabilidad",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731678,
+      "error_bank_uv": -269822,
+      "error_real_mv": -5373.6940054,
+      "pp_bank_uv": 171,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 560.994448100013,
+      "phase": "consigna: busqueda I2=-255",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 731658,
+      "error_bank_uv": -269842,
+      "error_real_mv": -5374.092319400001,
+      "pp_bank_uv": 171,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 561.2143172000069,
+      "phase": "consigna: ch2 tras busqueda",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 873203,
+      "error_bank_uv": -128297,
+      "error_real_mv": -2555.1245629000005,
+      "pp_bank_uv": 2689,
+      "valid": false,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 561.8884494999947,
+      "phase": "espera estabilidad",
+      "stage": 2,
+      "code": -160,
+      "channel": 3,
+      "mean_bank_uv": 745334,
+      "error_bank_uv": -256166,
+      "error_real_mv": -5101.7252062,
+      "pp_bank_uv": 133,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 562.6092097999936,
+      "phase": "espera estabilidad",
+      "stage": 2,
+      "code": -160,
+      "channel": 3,
+      "mean_bank_uv": 745391,
+      "error_bank_uv": -256109,
+      "error_real_mv": -5100.590011300001,
+      "pp_bank_uv": 133,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 563.3291641999967,
+      "phase": "espera estabilidad",
+      "stage": 2,
+      "code": -160,
+      "channel": 3,
+      "mean_bank_uv": 745334,
+      "error_bank_uv": -256166,
+      "error_real_mv": -5101.7252062,
+      "pp_bank_uv": 190,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 563.5599146999884,
+      "phase": "x4 ch2 para objetivo",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 865364,
+      "error_bank_uv": -136136,
+      "error_real_mv": -2711.2437352,
+      "pp_bank_uv": 2346,
+      "valid": false,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 563.781058099994,
+      "phase": "x4 LPo para objetivo",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 766277,
+      "error_bank_uv": -235223,
+      "error_real_mv": -4684.6307011,
+      "pp_bank_uv": 1125,
+      "valid": false,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 564.0067172000126,
+      "phase": "x4 pre-ABBA",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 860233,
+      "error_bank_uv": -141267,
+      "error_real_mv": -2813.4311919,
+      "pp_bank_uv": 1716,
+      "valid": false,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 564.2280432000116,
+      "phase": "x4 ch2 antes del ABBA",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 858078,
+      "error_bank_uv": -143422,
+      "error_real_mv": -2856.3495254,
+      "pp_bank_uv": 1811,
+      "valid": false,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 564.5020900999953,
+      "phase": "espera estabilidad",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 983772,
+      "error_bank_uv": -17728,
+      "error_real_mv": -353.0655296,
+      "pp_bank_uv": 4100,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 565.2247651999933,
+      "phase": "espera estabilidad",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 996665,
+      "error_bank_uv": -4835,
+      "error_real_mv": -96.2924095,
+      "pp_bank_uv": 782,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 565.9479330999893,
+      "phase": "espera estabilidad",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 997867,
+      "error_bank_uv": -3633,
+      "error_real_mv": -72.3537381,
+      "pp_bank_uv": 534,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 570.3486133000115,
+      "phase": "espera estabilidad",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1006698,
+      "error_bank_uv": 5198,
+      "error_real_mv": 103.5218086,
+      "pp_bank_uv": 743,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 570.5135857000132,
+      "phase": "fin espera r\u00e1pida",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1007175,
+      "error_bank_uv": 5675,
+      "error_real_mv": 113.0215975,
+      "pp_bank_uv": 705,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 570.6740903000173,
+      "phase": "x4 rescate ch2 I2=0",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1007690,
+      "error_bank_uv": 6190,
+      "error_real_mv": 123.278183,
+      "pp_bank_uv": 1029,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 570.8380735999963,
+      "phase": "deriva: sondeo",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1008129,
+      "error_bank_uv": 6629,
+      "error_real_mv": 132.0211753,
+      "pp_bank_uv": 553,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 571.0184257999936,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1008758,
+      "error_bank_uv": 7258,
+      "error_real_mv": 144.54815059999999,
+      "pp_bank_uv": 495,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 579.2411290000018,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1038436,
+      "error_bank_uv": 36936,
+      "error_real_mv": 735.6062952000001,
+      "pp_bank_uv": 858,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 579.4674154999957,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1039047,
+      "error_bank_uv": 37547,
+      "error_real_mv": 747.7747879,
+      "pp_bank_uv": 514,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 587.6901069000014,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1061248,
+      "error_bank_uv": 59748,
+      "error_real_mv": 1189.9232436000002,
+      "pp_bank_uv": 686,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 587.9170499999891,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1061744,
+      "error_bank_uv": 60244,
+      "error_real_mv": 1199.8014308,
+      "pp_bank_uv": 820,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 596.1397029999935,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1078376,
+      "error_bank_uv": 76876,
+      "error_real_mv": 1531.0393532,
+      "pp_bank_uv": 953,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 596.3654317999899,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1078796,
+      "error_bank_uv": 77296,
+      "error_real_mv": 1539.4039472,
+      "pp_bank_uv": 820,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 604.5860735999886,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1091232,
+      "error_bank_uv": 89732,
+      "error_real_mv": 1787.0755924000002,
+      "pp_bank_uv": 648,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 604.8122379000124,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1091499,
+      "error_bank_uv": 89999,
+      "error_real_mv": 1792.3930843,
+      "pp_bank_uv": 610,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 613.0331999000045,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1095657,
+      "error_bank_uv": 94157,
+      "error_real_mv": 1875.2025649000002,
+      "pp_bank_uv": 476,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 613.2595060000021,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1095676,
+      "error_bank_uv": 94176,
+      "error_real_mv": 1875.5809632,
+      "pp_bank_uv": 362,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 621.4815910999896,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1095771,
+      "error_bank_uv": 94271,
+      "error_real_mv": 1877.4729547000002,
+      "pp_bank_uv": 133,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 621.7037051999941,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1095790,
+      "error_bank_uv": 94290,
+      "error_real_mv": 1877.851353,
+      "pp_bank_uv": 95,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 629.9272971000173,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1095771,
+      "error_bank_uv": 94271,
+      "error_real_mv": 1877.4729547000002,
+      "pp_bank_uv": 133,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 630.1486753000063,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1095752,
+      "error_bank_uv": 94252,
+      "error_real_mv": 1877.0945564,
+      "pp_bank_uv": 114,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 638.372374300001,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1095733,
+      "error_bank_uv": 94233,
+      "error_real_mv": 1876.7161581,
+      "pp_bank_uv": 114,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 638.6000039000064,
+      "phase": "ABBA precheck IDAC2",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1095771,
+      "error_bank_uv": 94271,
+      "error_real_mv": 1877.4729547000002,
+      "pp_bank_uv": 95,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 640.374897200003,
+      "phase": "ABBA A1 IDAC2",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1095714,
+      "error_bank_uv": 94214,
+      "error_real_mv": 1876.3377598000002,
+      "pp_bank_uv": 114,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 642.150209799991,
+      "phase": "ABBA B1 IDAC2",
+      "stage": 2,
+      "code": 8,
+      "channel": 2,
+      "mean_bank_uv": 1095752,
+      "error_bank_uv": 94252,
+      "error_real_mv": 1877.0945564,
+      "pp_bank_uv": 133,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 643.9258339999942,
+      "phase": "ABBA B2 IDAC2",
+      "stage": 2,
+      "code": 8,
+      "channel": 2,
+      "mean_bank_uv": 1095771,
+      "error_bank_uv": 94271,
+      "error_real_mv": 1877.4729547000002,
+      "pp_bank_uv": 76,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 645.7024083000142,
+      "phase": "ABBA A2 IDAC2",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1095790,
+      "error_bank_uv": 94290,
+      "error_real_mv": 1877.851353,
+      "pp_bank_uv": 286,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 647.4772452999896,
+      "phase": "ABBA A1 IDAC2",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1095752,
+      "error_bank_uv": 94252,
+      "error_real_mv": 1877.0945564,
+      "pp_bank_uv": 152,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 649.254110800015,
+      "phase": "ABBA B1 IDAC2",
+      "stage": 2,
+      "code": 4,
+      "channel": 2,
+      "mean_bank_uv": 1095771,
+      "error_bank_uv": 94271,
+      "error_real_mv": 1877.4729547000002,
+      "pp_bank_uv": 152,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 651.0292581999965,
+      "phase": "ABBA B2 IDAC2",
+      "stage": 2,
+      "code": 4,
+      "channel": 2,
+      "mean_bank_uv": 1095752,
+      "error_bank_uv": 94252,
+      "error_real_mv": 1877.0945564,
+      "pp_bank_uv": 76,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 652.8036291000026,
+      "phase": "ABBA A2 IDAC2",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1095790,
+      "error_bank_uv": 94290,
+      "error_real_mv": 1877.851353,
+      "pp_bank_uv": 114,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 653.0876660000067,
+      "phase": "rescate ch2 inicio",
+      "stage": 0,
+      "code": 12,
+      "channel": 2,
+      "mean_bank_uv": 1095790,
+      "error_bank_uv": 94290,
+      "error_real_mv": 1877.851353,
+      "pp_bank_uv": 114,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 653.3105526000145,
+      "phase": "ABBA precheck IDAC2",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1095771,
+      "error_bank_uv": 94271,
+      "error_real_mv": 1877.4729547000002,
+      "pp_bank_uv": 114,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 658.768596400012,
+      "phase": "ABBA A1 IDAC2",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1095771,
+      "error_bank_uv": 94271,
+      "error_real_mv": 1877.4729547000002,
+      "pp_bank_uv": 152,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 660.994862099993,
+      "phase": "ABBA B1 IDAC2",
+      "stage": 2,
+      "code": 8,
+      "channel": 2,
+      "mean_bank_uv": 1095771,
+      "error_bank_uv": 94271,
+      "error_real_mv": 1877.4729547000002,
+      "pp_bank_uv": 114,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 662.7718036000151,
+      "phase": "ABBA B2 IDAC2",
+      "stage": 2,
+      "code": 8,
+      "channel": 2,
+      "mean_bank_uv": 1095752,
+      "error_bank_uv": 94252,
+      "error_real_mv": 1877.0945564,
+      "pp_bank_uv": 114,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 664.5465568999934,
+      "phase": "ABBA A2 IDAC2",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1095771,
+      "error_bank_uv": 94271,
+      "error_real_mv": 1877.4729547000002,
+      "pp_bank_uv": 76,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 666.3237214999972,
+      "phase": "ABBA A1 IDAC2",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1095714,
+      "error_bank_uv": 94214,
+      "error_real_mv": 1876.3377598000002,
+      "pp_bank_uv": 114,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 668.100079099997,
+      "phase": "ABBA B1 IDAC2",
+      "stage": 2,
+      "code": 4,
+      "channel": 2,
+      "mean_bank_uv": 1095771,
+      "error_bank_uv": 94271,
+      "error_real_mv": 1877.4729547000002,
+      "pp_bank_uv": 152,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 669.8767763999931,
+      "phase": "ABBA B2 IDAC2",
+      "stage": 2,
+      "code": 4,
+      "channel": 2,
+      "mean_bank_uv": 1095752,
+      "error_bank_uv": 94252,
+      "error_real_mv": 1877.0945564,
+      "pp_bank_uv": 76,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 673.6078340999957,
+      "phase": "ABBA A2 IDAC2",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1095771,
+      "error_bank_uv": 94271,
+      "error_real_mv": 1877.4729547000002,
+      "pp_bank_uv": 114,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 673.8980143000081,
+      "phase": "IDAC2 inicio",
+      "stage": 2,
+      "code": 0,
+      "channel": 2,
+      "mean_bank_uv": 1095771,
+      "error_bank_uv": 94271,
+      "error_real_mv": 1877.4729547000002,
+      "pp_bank_uv": 95,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 675.674397499999,
+      "phase": "IDAC2 lazo",
+      "stage": 2,
+      "code": -96,
+      "channel": 2,
+      "mean_bank_uv": 1069221,
+      "error_bank_uv": 67721,
+      "error_real_mv": 1348.7111197000002,
+      "pp_bank_uv": 762,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 677.4492765000032,
+      "phase": "IDAC2 lazo",
+      "stage": 2,
+      "code": -100,
+      "channel": 2,
+      "mean_bank_uv": 1066913,
+      "error_bank_uv": 65413,
+      "error_real_mv": 1302.7456841,
+      "pp_bank_uv": 896,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 679.2243222999969,
+      "phase": "IDAC2 lazo",
+      "stage": 2,
+      "code": -104,
+      "channel": 2,
+      "mean_bank_uv": 1064987,
+      "error_bank_uv": 63487,
+      "error_real_mv": 1264.3880459,
+      "pp_bank_uv": 705,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 681.0001560999954,
+      "phase": "IDAC2 lazo",
+      "stage": 2,
+      "code": -108,
+      "channel": 2,
+      "mean_bank_uv": 1062736,
+      "error_bank_uv": 61236,
+      "error_real_mv": 1219.5578052,
+      "pp_bank_uv": 953,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 682.7772700999922,
+      "phase": "IDAC2 lazo",
+      "stage": 2,
+      "code": -112,
+      "channel": 2,
+      "mean_bank_uv": 1060428,
+      "error_bank_uv": 58928,
+      "error_real_mv": 1173.5923696,
+      "pp_bank_uv": 457,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 684.5536549999961,
+      "phase": "IDAC2 lazo",
+      "stage": 2,
+      "code": -116,
+      "channel": 2,
+      "mean_bank_uv": 1058216,
+      "error_bank_uv": 56716,
+      "error_real_mv": 1129.5388412000002,
+      "pp_bank_uv": 610,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 686.3270696999971,
+      "phase": "IDAC2 lazo",
+      "stage": 2,
+      "code": -120,
+      "channel": 2,
+      "mean_bank_uv": 1055927,
+      "error_bank_uv": 54427,
+      "error_real_mv": 1083.9518039000002,
+      "pp_bank_uv": 953,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 688.103863700002,
+      "phase": "IDAC2 lazo",
+      "stage": 2,
+      "code": -124,
+      "channel": 2,
+      "mean_bank_uv": 1053581,
+      "error_bank_uv": 52081,
+      "error_real_mv": 1037.2295717000002,
+      "pp_bank_uv": 839,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 689.8778405000048,
+      "phase": "IDAC2 lazo",
+      "stage": 2,
+      "code": -128,
+      "channel": 2,
+      "mean_bank_uv": 1051082,
+      "error_bank_uv": 49582,
+      "error_real_mv": 987.4602374000001,
+      "pp_bank_uv": 591,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 691.6523524000077,
+      "phase": "IDAC2 lazo",
+      "stage": 2,
+      "code": -132,
+      "channel": 2,
+      "mean_bank_uv": 1048774,
+      "error_bank_uv": 47274,
+      "error_real_mv": 941.4948018,
+      "pp_bank_uv": 610,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 693.4280921999889,
+      "phase": "IDAC2 lazo",
+      "stage": 2,
+      "code": -136,
+      "channel": 2,
+      "mean_bank_uv": 1046485,
+      "error_bank_uv": 44985,
+      "error_real_mv": 895.9077645000001,
+      "pp_bank_uv": 743,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 695.2039938000089,
+      "phase": "IDAC2 lazo",
+      "stage": 2,
+      "code": -140,
+      "channel": 2,
+      "mean_bank_uv": 1044101,
+      "error_bank_uv": 42601,
+      "error_real_mv": 848.4287357000001,
+      "pp_bank_uv": 553,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 696.9802229999914,
+      "phase": "IDAC2 lazo",
+      "stage": 2,
+      "code": -144,
+      "channel": 2,
+      "mean_bank_uv": 1041774,
+      "error_bank_uv": 40274,
+      "error_real_mv": 802.0849018,
+      "pp_bank_uv": 591,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 698.7560538999969,
+      "phase": "IDAC2 lazo",
+      "stage": 2,
+      "code": -148,
+      "channel": 2,
+      "mean_bank_uv": 1039428,
+      "error_bank_uv": 37928,
+      "error_real_mv": 755.3626696,
+      "pp_bank_uv": 362,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 704.2119645999919,
+      "phase": "IDAC2 lazo",
+      "stage": 2,
+      "code": -152,
+      "channel": 2,
+      "mean_bank_uv": 1037292,
+      "error_bank_uv": 35792,
+      "error_real_mv": 712.8227344000001,
+      "pp_bank_uv": 877,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 706.4358093999908,
+      "phase": "IDAC2 lazo",
+      "stage": 2,
+      "code": -156,
+      "channel": 2,
+      "mean_bank_uv": 1034755,
+      "error_bank_uv": 33255,
+      "error_real_mv": 662.2966035000001,
+      "pp_bank_uv": 762,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 708.2127009000105,
+      "phase": "IDAC2 lazo",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1032581,
+      "error_bank_uv": 31081,
+      "error_real_mv": 618.9998717,
+      "pp_bank_uv": 514,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 709.9948983000068,
+      "phase": "IDAC2 lazo",
+      "stage": 2,
+      "code": -164,
+      "channel": 2,
+      "mean_bank_uv": 1032466,
+      "error_bank_uv": 30966,
+      "error_real_mv": 616.7095662,
+      "pp_bank_uv": 686,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 711.7759069000022,
+      "phase": "IDAC2 lazo",
+      "stage": 2,
+      "code": -164,
+      "channel": 2,
+      "mean_bank_uv": 1032562,
+      "error_bank_uv": 31062,
+      "error_real_mv": 618.6214734,
+      "pp_bank_uv": 553,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 713.5578184000042,
+      "phase": "IDAC2 lazo",
+      "stage": 2,
+      "code": -164,
+      "channel": 2,
+      "mean_bank_uv": 1032600,
+      "error_bank_uv": 31100,
+      "error_real_mv": 619.37827,
+      "pp_bank_uv": 896,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 715.3402156000084,
+      "phase": "IDAC2 mejor discreto",
+      "stage": 2,
+      "code": -164,
+      "channel": 2,
+      "mean_bank_uv": 1032695,
+      "error_bank_uv": 31195,
+      "error_real_mv": 621.2702615000001,
+      "pp_bank_uv": 495,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 715.5664895999944,
+      "phase": "x4 foto tras IDAC2",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1032638,
+      "error_bank_uv": 31138,
+      "error_real_mv": 620.1350666000001,
+      "pp_bank_uv": 724,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 715.7897795000172,
+      "phase": "x4 foto tras IDAC2",
+      "stage": 2,
+      "code": -160,
+      "channel": 3,
+      "mean_bank_uv": 1094341,
+      "error_bank_uv": 92841,
+      "error_real_mv": 1848.9935037,
+      "pp_bank_uv": 152,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 716.0127344999928,
+      "phase": "x4 foto tras IDAC2",
+      "stage": 3,
+      "code": 0,
+      "channel": 4,
+      "mean_bank_uv": 721321,
+      "error_bank_uv": -280179,
+      "error_real_mv": -5579.9609103,
+      "pp_bank_uv": 114,
+      "valid": false,
+      "clavado": true
+    },
+    {
+      "elapsed_s": 716.235962900013,
+      "phase": "deriva: sondeo",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1032581,
+      "error_bank_uv": 31081,
+      "error_real_mv": 618.9998717,
+      "pp_bank_uv": 991,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 716.4583087000065,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1032543,
+      "error_bank_uv": 31043,
+      "error_real_mv": 618.2430751,
+      "pp_bank_uv": 591,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 724.6809933999903,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1032829,
+      "error_bank_uv": 31329,
+      "error_real_mv": 623.9389653000001,
+      "pp_bank_uv": 610,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 724.9104769999976,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1032924,
+      "error_bank_uv": 31424,
+      "error_real_mv": 625.8309568000001,
+      "pp_bank_uv": 553,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 733.1342506000074,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033096,
+      "error_bank_uv": 31596,
+      "error_real_mv": 629.2564572000001,
+      "pp_bank_uv": 610,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 733.3571334000153,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033077,
+      "error_bank_uv": 31577,
+      "error_real_mv": 628.8780589,
+      "pp_bank_uv": 572,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 741.5802862000128,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033172,
+      "error_bank_uv": 31672,
+      "error_real_mv": 630.7700504000001,
+      "pp_bank_uv": 801,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 741.8040711999929,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033058,
+      "error_bank_uv": 31558,
+      "error_real_mv": 628.4996606000001,
+      "pp_bank_uv": 877,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 750.0281971000077,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033229,
+      "error_bank_uv": 31729,
+      "error_real_mv": 631.9052453,
+      "pp_bank_uv": 629,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 750.2567564999918,
+      "phase": "x4 ch2 tras esperar",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033382,
+      "error_bank_uv": 31882,
+      "error_real_mv": 634.9523474000001,
+      "pp_bank_uv": 762,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 750.4846047000028,
+      "phase": "x4 ch2 antes del salto",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033325,
+      "error_bank_uv": 31825,
+      "error_real_mv": 633.8171525000001,
+      "pp_bank_uv": 572,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 750.7667683000036,
+      "phase": "deriva: sondeo",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033287,
+      "error_bank_uv": 31787,
+      "error_real_mv": 633.0603559000001,
+      "pp_bank_uv": 743,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 750.9891496000055,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033420,
+      "error_bank_uv": 31920,
+      "error_real_mv": 635.709144,
+      "pp_bank_uv": 762,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 759.2118964999972,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033306,
+      "error_bank_uv": 31806,
+      "error_real_mv": 633.4387542000001,
+      "pp_bank_uv": 782,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 759.4363702000119,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033363,
+      "error_bank_uv": 31863,
+      "error_real_mv": 634.5739491,
+      "pp_bank_uv": 705,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 767.6606821000169,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033325,
+      "error_bank_uv": 31825,
+      "error_real_mv": 633.8171525000001,
+      "pp_bank_uv": 953,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 767.8845238999929,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033477,
+      "error_bank_uv": 31977,
+      "error_real_mv": 636.8443389000001,
+      "pp_bank_uv": 629,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 776.1089612999931,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033535,
+      "error_bank_uv": 32035,
+      "error_real_mv": 637.9994495,
+      "pp_bank_uv": 858,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 776.3374217000091,
+      "phase": "x4 ch2 tras esperar",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033439,
+      "error_bank_uv": 31939,
+      "error_real_mv": 636.0875423000001,
+      "pp_bank_uv": 553,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 776.5661083000014,
+      "phase": "x4 ch2 antes del salto",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033420,
+      "error_bank_uv": 31920,
+      "error_real_mv": 635.709144,
+      "pp_bank_uv": 686,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 776.8490305000159,
+      "phase": "deriva: sondeo",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033496,
+      "error_bank_uv": 31996,
+      "error_real_mv": 637.2227372000001,
+      "pp_bank_uv": 801,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 777.0725960000127,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033382,
+      "error_bank_uv": 31882,
+      "error_real_mv": 634.9523474000001,
+      "pp_bank_uv": 762,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 785.2959304999968,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033477,
+      "error_bank_uv": 31977,
+      "error_real_mv": 636.8443389000001,
+      "pp_bank_uv": 724,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 785.5181206999987,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033382,
+      "error_bank_uv": 31882,
+      "error_real_mv": 634.9523474000001,
+      "pp_bank_uv": 705,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 793.7417653000157,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033306,
+      "error_bank_uv": 31806,
+      "error_real_mv": 633.4387542000001,
+      "pp_bank_uv": 667,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 793.9634879000077,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033554,
+      "error_bank_uv": 32054,
+      "error_real_mv": 638.3778478,
+      "pp_bank_uv": 724,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 802.1912420000008,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033573,
+      "error_bank_uv": 32073,
+      "error_real_mv": 638.7562461,
+      "pp_bank_uv": 534,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 802.4228216999909,
+      "phase": "x4 ch2 tras esperar",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033477,
+      "error_bank_uv": 31977,
+      "error_real_mv": 636.8443389000001,
+      "pp_bank_uv": 667,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 802.6568541000015,
+      "phase": "x4 ch2 antes del salto",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033325,
+      "error_bank_uv": 31825,
+      "error_real_mv": 633.8171525000001,
+      "pp_bank_uv": 801,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 802.9425415000005,
+      "phase": "deriva: sondeo",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033554,
+      "error_bank_uv": 32054,
+      "error_real_mv": 638.3778478,
+      "pp_bank_uv": 534,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 803.1651945000049,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033573,
+      "error_bank_uv": 32073,
+      "error_real_mv": 638.7562461,
+      "pp_bank_uv": 591,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 811.3880205000169,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033515,
+      "error_bank_uv": 32015,
+      "error_real_mv": 637.6011355,
+      "pp_bank_uv": 724,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 811.6115320000099,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033515,
+      "error_bank_uv": 32015,
+      "error_real_mv": 637.6011355,
+      "pp_bank_uv": 610,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 819.8347242000164,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033611,
+      "error_bank_uv": 32111,
+      "error_real_mv": 639.5130427,
+      "pp_bank_uv": 572,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 820.0445791000093,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033630,
+      "error_bank_uv": 32130,
+      "error_real_mv": 639.891441,
+      "pp_bank_uv": 705,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 828.2682400000049,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033535,
+      "error_bank_uv": 32035,
+      "error_real_mv": 637.9994495,
+      "pp_bank_uv": 648,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 828.4965852000169,
+      "phase": "x4 ch2 tras esperar",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033477,
+      "error_bank_uv": 31977,
+      "error_real_mv": 636.8443389000001,
+      "pp_bank_uv": 724,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 828.7258885999909,
+      "phase": "x4 ch2 antes del salto",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033458,
+      "error_bank_uv": 31958,
+      "error_real_mv": 636.4659406000001,
+      "pp_bank_uv": 915,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 829.0089919000166,
+      "phase": "deriva: sondeo",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033611,
+      "error_bank_uv": 32111,
+      "error_real_mv": 639.5130427,
+      "pp_bank_uv": 782,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 829.2306864999991,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033649,
+      "error_bank_uv": 32149,
+      "error_real_mv": 640.2698393,
+      "pp_bank_uv": 858,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 837.4547317000106,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033515,
+      "error_bank_uv": 32015,
+      "error_real_mv": 637.6011355,
+      "pp_bank_uv": 591,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 837.6760966000147,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033554,
+      "error_bank_uv": 32054,
+      "error_real_mv": 638.3778478,
+      "pp_bank_uv": 648,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 845.9021302000037,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033420,
+      "error_bank_uv": 31920,
+      "error_real_mv": 635.709144,
+      "pp_bank_uv": 648,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 846.1256310000026,
+      "phase": "deriva: primera",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033611,
+      "error_bank_uv": 32111,
+      "error_real_mv": 639.5130427,
+      "pp_bank_uv": 610,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 854.3496880000166,
+      "phase": "deriva: segunda",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033439,
+      "error_bank_uv": 31939,
+      "error_real_mv": 636.0875423000001,
+      "pp_bank_uv": 572,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 854.5796062000154,
+      "phase": "x4 ch2 tras esperar",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033458,
+      "error_bank_uv": 31958,
+      "error_real_mv": 636.4659406000001,
+      "pp_bank_uv": 553,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 854.8093127000029,
+      "phase": "x4 ch2 antes del salto",
+      "stage": 2,
+      "code": -160,
+      "channel": 2,
+      "mean_bank_uv": 1033439,
+      "error_bank_uv": 31939,
+      "error_real_mv": 636.0875423000001,
+      "pp_bank_uv": 915,
+      "valid": true,
+      "clavado": false
+    },
+    {
+      "elapsed_s": 933.7337551999954,
+      "phase": "x4 barrido fino IDAC2=-160",
+      "stage": 2,
+      "code": -160,
+      "channel": 4,
+      "mean_bank_uv": 721263,
+      "error_bank_uv": -280237,
+      "error_real_mv": -5581.1160209,
+      "pp_bank_uv": 133,
+      "valid": false,
+      "clavado": true
+    }
+  ]
+}

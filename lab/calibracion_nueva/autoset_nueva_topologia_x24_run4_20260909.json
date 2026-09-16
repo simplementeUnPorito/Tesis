@@ -1,0 +1,2532 @@
+{
+  "algorithm": "closed-loop system identification; no seeds",
+  "started_at": "2026-09-09T00:27:50",
+  "limits": {
+    "codes": [
+      [
+        -255,
+        255
+      ],
+      [
+        -255,
+        255
+      ],
+      [
+        -255,
+        255
+      ],
+      [
+        -255,
+        255
+      ]
+    ],
+    "guards_uv": [
+      500000,
+      500000,
+      1000000,
+      1000000,
+      1000000
+    ],
+    "final_tolerance_uv": 20000
+  },
+  "results": [
+    {
+      "gain": 24,
+      "strategy": "sequential",
+      "pass": false,
+      "error": "RuntimeError: IDAC2 sin autoridad r\u00e1pida medible",
+      "codes": [
+        16,
+        0,
+        0,
+        0
+      ],
+      "events": [
+        {
+          "at": "2026-09-09T00:27:57",
+          "kind": "gain_start",
+          "message": "\nAutocalibrando x24 desde cero (sequential)"
+        },
+        {
+          "at": "2026-09-09T00:28:25",
+          "kind": "startup_stable",
+          "message": "  arranque estable: ch0 \u0394=0.6mV ch1 \u0394=1.3mV ch2 \u0394=2.9mV ch3 \u0394=3.0mV ch4 \u0394=0.0mV",
+          "elapsed_s": 27.560390600003302,
+          "stable_windows": 4,
+          "deltas_uv": {
+            "0": 630,
+            "1": 1335,
+            "2": 2899,
+            "3": 2975,
+            "4": 19
+          },
+          "thresholds_uv": [
+            5000,
+            2500,
+            5000,
+            8000,
+            8000
+          ],
+          "samples": [
+            {
+              "0": {
+                "mean_uv": 953674,
+                "error_uv": -46326,
+                "pp_uv": 2498
+              },
+              "1": {
+                "mean_uv": 999412,
+                "error_uv": -588,
+                "pp_uv": 2593
+              },
+              "2": {
+                "mean_uv": 1068782,
+                "error_uv": 68782,
+                "pp_uv": 400
+              },
+              "3": {
+                "mean_uv": 1068973,
+                "error_uv": 68973,
+                "pp_uv": 362
+              },
+              "4": {
+                "mean_uv": 732326,
+                "error_uv": -267674,
+                "pp_uv": 114
+              }
+            },
+            {
+              "0": {
+                "mean_uv": 953960,
+                "error_uv": -46040,
+                "pp_uv": 2861
+              },
+              "1": {
+                "mean_uv": 997505,
+                "error_uv": -2495,
+                "pp_uv": 3242
+              },
+              "2": {
+                "mean_uv": 1074733,
+                "error_uv": 74733,
+                "pp_uv": 667
+              },
+              "3": {
+                "mean_uv": 1074714,
+                "error_uv": 74714,
+                "pp_uv": 438
+              },
+              "4": {
+                "mean_uv": 732326,
+                "error_uv": -267674,
+                "pp_uv": 190
+              }
+            },
+            {
+              "0": {
+                "mean_uv": 953655,
+                "error_uv": -46345,
+                "pp_uv": 2803
+              },
+              "1": {
+                "mean_uv": 996093,
+                "error_uv": -3907,
+                "pp_uv": 3967
+              },
+              "2": {
+                "mean_uv": 1079559,
+                "error_uv": 79559,
+                "pp_uv": 801
+              },
+              "3": {
+                "mean_uv": 1079444,
+                "error_uv": 79444,
+                "pp_uv": 514
+              },
+              "4": {
+                "mean_uv": 732383,
+                "error_uv": -267617,
+                "pp_uv": 190
+              }
+            },
+            {
+              "0": {
+                "mean_uv": 953559,
+                "error_uv": -46441,
+                "pp_uv": 2956
+              },
+              "1": {
+                "mean_uv": 994796,
+                "error_uv": -5204,
+                "pp_uv": 2803
+              },
+              "2": {
+                "mean_uv": 1083793,
+                "error_uv": 83793,
+                "pp_uv": 629
+              },
+              "3": {
+                "mean_uv": 1083545,
+                "error_uv": 83545,
+                "pp_uv": 438
+              },
+              "4": {
+                "mean_uv": 732364,
+                "error_uv": -267636,
+                "pp_uv": 133
+              }
+            },
+            {
+              "0": {
+                "mean_uv": 953178,
+                "error_uv": -46822,
+                "pp_uv": 2613
+              },
+              "1": {
+                "mean_uv": 994167,
+                "error_uv": -5833,
+                "pp_uv": 3166
+              },
+              "2": {
+                "mean_uv": 1087398,
+                "error_uv": 87398,
+                "pp_uv": 724
+              },
+              "3": {
+                "mean_uv": 1087131,
+                "error_uv": 87131,
+                "pp_uv": 495
+              },
+              "4": {
+                "mean_uv": 732383,
+                "error_uv": -267617,
+                "pp_uv": 171
+              }
+            },
+            {
+              "0": {
+                "mean_uv": 952548,
+                "error_uv": -47452,
+                "pp_uv": 2937
+              },
+              "1": {
+                "mean_uv": 992832,
+                "error_uv": -7168,
+                "pp_uv": 3204
+              },
+              "2": {
+                "mean_uv": 1090297,
+                "error_uv": 90297,
+                "pp_uv": 381
+              },
+              "3": {
+                "mean_uv": 1090106,
+                "error_uv": 90106,
+                "pp_uv": 457
+              },
+              "4": {
+                "mean_uv": 732364,
+                "error_uv": -267636,
+                "pp_uv": 133
+              }
+            }
+          ]
+        },
+        {
+          "at": "2026-09-09T00:28:36",
+          "kind": "observation",
+          "message": "    estado neutro estable: PGAgain=-47.5mV BPo=-8.8mV OPA_SUMo=+94.3mV SUMo=+94.2mV LPo=-267.7mV",
+          "label": "estado neutro estable",
+          "observation": {
+            "errors_uv": {
+              "0": -47490,
+              "1": -8847,
+              "2": 94322,
+              "3": 94188,
+              "4": -267693
+            },
+            "pp_uv": {
+              "0": 2861,
+              "1": 2574,
+              "2": 476,
+              "3": 400,
+              "4": 190
+            },
+            "spread_uv": {
+              "0": 115,
+              "1": 1450,
+              "2": 3682,
+              "3": 3720,
+              "4": 95
+            },
+            "samples": [
+              {
+                "0": {
+                  "mean_uv": 952510,
+                  "error_uv": -47490,
+                  "pp_uv": 2861
+                },
+                "1": {
+                  "mean_uv": 991802,
+                  "error_uv": -8198,
+                  "pp_uv": 2574
+                },
+                "2": {
+                  "mean_uv": 1092414,
+                  "error_uv": 92414,
+                  "pp_uv": 381
+                },
+                "3": {
+                  "mean_uv": 1092166,
+                  "error_uv": 92166,
+                  "pp_uv": 362
+                },
+                "4": {
+                  "mean_uv": 732288,
+                  "error_uv": -267712,
+                  "pp_uv": 152
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 952491,
+                  "error_uv": -47509,
+                  "pp_uv": 3185
+                },
+                "1": {
+                  "mean_uv": 991153,
+                  "error_uv": -8847,
+                  "pp_uv": 2555
+                },
+                "2": {
+                  "mean_uv": 1094322,
+                  "error_uv": 94322,
+                  "pp_uv": 476
+                },
+                "3": {
+                  "mean_uv": 1094188,
+                  "error_uv": 94188,
+                  "pp_uv": 572
+                },
+                "4": {
+                  "mean_uv": 732383,
+                  "error_uv": -267617,
+                  "pp_uv": 209
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 952606,
+                  "error_uv": -47394,
+                  "pp_uv": 2727
+                },
+                "1": {
+                  "mean_uv": 990352,
+                  "error_uv": -9648,
+                  "pp_uv": 2613
+                },
+                "2": {
+                  "mean_uv": 1096096,
+                  "error_uv": 96096,
+                  "pp_uv": 629
+                },
+                "3": {
+                  "mean_uv": 1095886,
+                  "error_uv": 95886,
+                  "pp_uv": 400
+                },
+                "4": {
+                  "mean_uv": 732307,
+                  "error_uv": -267693,
+                  "pp_uv": 190
+                }
+              }
+            ]
+          },
+          "codes": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "at": "2026-09-09T00:28:47",
+          "kind": "observation",
+          "message": "    base para estimar tau: PGAgain=-47.3mV BPo=-10.5mV OPA_SUMo=+99.0mV SUMo=+98.9mV LPo=-267.7mV",
+          "label": "base para estimar tau",
+          "observation": {
+            "errors_uv": {
+              "0": -47280,
+              "1": -10468,
+              "2": 98957,
+              "3": 98861,
+              "4": -267655
+            },
+            "pp_uv": {
+              "0": 2117,
+              "1": 2593,
+              "2": 476,
+              "3": 572,
+              "4": 190
+            },
+            "spread_uv": {
+              "0": 573,
+              "1": 878,
+              "2": 2422,
+              "3": 2365,
+              "4": 38
+            },
+            "samples": [
+              {
+                "0": {
+                  "mean_uv": 952720,
+                  "error_uv": -47280,
+                  "pp_uv": 2689
+                },
+                "1": {
+                  "mean_uv": 990238,
+                  "error_uv": -9762,
+                  "pp_uv": 2593
+                },
+                "2": {
+                  "mean_uv": 1097660,
+                  "error_uv": 97660,
+                  "pp_uv": 648
+                },
+                "3": {
+                  "mean_uv": 1097469,
+                  "error_uv": 97469,
+                  "pp_uv": 572
+                },
+                "4": {
+                  "mean_uv": 732364,
+                  "error_uv": -267636,
+                  "pp_uv": 190
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 952548,
+                  "error_uv": -47452,
+                  "pp_uv": 2117
+                },
+                "1": {
+                  "mean_uv": 989532,
+                  "error_uv": -10468,
+                  "pp_uv": 2784
+                },
+                "2": {
+                  "mean_uv": 1098957,
+                  "error_uv": 98957,
+                  "pp_uv": 419
+                },
+                "3": {
+                  "mean_uv": 1098861,
+                  "error_uv": 98861,
+                  "pp_uv": 476
+                },
+                "4": {
+                  "mean_uv": 732345,
+                  "error_uv": -267655,
+                  "pp_uv": 228
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 953121,
+                  "error_uv": -46879,
+                  "pp_uv": 1831
+                },
+                "1": {
+                  "mean_uv": 989360,
+                  "error_uv": -10640,
+                  "pp_uv": 2574
+                },
+                "2": {
+                  "mean_uv": 1100082,
+                  "error_uv": 100082,
+                  "pp_uv": 476
+                },
+                "3": {
+                  "mean_uv": 1099834,
+                  "error_uv": 99834,
+                  "pp_uv": 648
+                },
+                "4": {
+                  "mean_uv": 732326,
+                  "error_uv": -267674,
+                  "pp_uv": 171
+                }
+              }
+            ]
+          },
+          "codes": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "at": "2026-09-09T00:30:18",
+          "kind": "tau_measurement",
+          "message": "  tau BP medido: 31.00 s",
+          "direction": 1,
+          "delta_code": 60,
+          "points": [
+            [
+              0.5830230999999912,
+              366
+            ],
+            [
+              5.583766799987643,
+              -435
+            ],
+            [
+              10.582439899997553,
+              -1484
+            ],
+            [
+              15.584287899997435,
+              -2743
+            ],
+            [
+              20.581848499990883,
+              -3449
+            ],
+            [
+              25.582850699996925,
+              -3735
+            ],
+            [
+              30.5856017999904,
+              -4307
+            ],
+            [
+              35.58457699998689,
+              -5261
+            ],
+            [
+              40.58316749999358,
+              -5719
+            ],
+            [
+              45.60176349998801,
+              -6367
+            ],
+            [
+              50.58229369999026,
+              -6939
+            ],
+            [
+              55.602064799997606,
+              -6768
+            ],
+            [
+              60.58350199999404,
+              -7283
+            ],
+            [
+              65.58430529999896,
+              -6806
+            ],
+            [
+              70.58529589998943,
+              -7416
+            ],
+            [
+              75.60188239999115,
+              -7569
+            ],
+            [
+              80.58600179999485,
+              -7245
+            ],
+            [
+              85.58389239999815,
+              -7092
+            ],
+            [
+              90.58408549999876,
+              -7187
+            ]
+          ],
+          "metrics": {
+            "tau_s": 31.0,
+            "amplitude_uv": 8820.75303179838,
+            "final_uv": -8099.428395574809,
+            "r2": 0.98385327579994,
+            "residual_rms_uv": 313.5842287620071,
+            "noise_uv": 878,
+            "samples": 19
+          },
+          "tau_s": 31.0
+        },
+        {
+          "at": "2026-09-09T00:30:18",
+          "kind": "tau_transient_authority",
+          "message": "  BP: tau v\u00e1lido; autoridad DC final no requerida",
+          "settled_effect_uv": 2368.5716044251913,
+          "apparent_dc_slope_uv_per_code": 39.47619340708652
+        },
+        {
+          "at": "2026-09-09T00:31:30",
+          "kind": "observation",
+          "message": "    tau aceptado; BP restaurado y asentado: PGAgain=-46.5mV BPo=-13.4mV OPA_SUMo=+106.9mV SUMo=+105.7mV LPo=-267.5mV",
+          "label": "tau aceptado; BP restaurado y asentado",
+          "observation": {
+            "errors_uv": {
+              "0": -46517,
+              "1": -13424,
+              "2": 106872,
+              "3": 105728,
+              "4": -267521
+            },
+            "pp_uv": {
+              "0": 1926,
+              "1": 1811,
+              "2": 514,
+              "3": 381,
+              "4": 114
+            },
+            "spread_uv": {
+              "0": 114,
+              "1": 191,
+              "2": 191,
+              "3": 57,
+              "4": 77
+            },
+            "samples": [
+              {
+                "0": {
+                  "mean_uv": 953369,
+                  "error_uv": -46631,
+                  "pp_uv": 1296
+                },
+                "1": {
+                  "mean_uv": 986576,
+                  "error_uv": -13424,
+                  "pp_uv": 1811
+                },
+                "2": {
+                  "mean_uv": 1106872,
+                  "error_uv": 106872,
+                  "pp_uv": 514
+                },
+                "3": {
+                  "mean_uv": 1105709,
+                  "error_uv": 105709,
+                  "pp_uv": 267
+                },
+                "4": {
+                  "mean_uv": 732440,
+                  "error_uv": -267560,
+                  "pp_uv": 114
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 953483,
+                  "error_uv": -46517,
+                  "pp_uv": 1926
+                },
+                "1": {
+                  "mean_uv": 986728,
+                  "error_uv": -13272,
+                  "pp_uv": 1773
+                },
+                "2": {
+                  "mean_uv": 1107025,
+                  "error_uv": 107025,
+                  "pp_uv": 267
+                },
+                "3": {
+                  "mean_uv": 1105766,
+                  "error_uv": 105766,
+                  "pp_uv": 381
+                },
+                "4": {
+                  "mean_uv": 732517,
+                  "error_uv": -267483,
+                  "pp_uv": 114
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 953483,
+                  "error_uv": -46517,
+                  "pp_uv": 1926
+                },
+                "1": {
+                  "mean_uv": 986537,
+                  "error_uv": -13463,
+                  "pp_uv": 2746
+                },
+                "2": {
+                  "mean_uv": 1106834,
+                  "error_uv": 106834,
+                  "pp_uv": 572
+                },
+                "3": {
+                  "mean_uv": 1105728,
+                  "error_uv": 105728,
+                  "pp_uv": 534
+                },
+                "4": {
+                  "mean_uv": 732479,
+                  "error_uv": -267521,
+                  "pp_uv": 171
+                }
+              }
+            ]
+          },
+          "codes": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "at": "2026-09-09T00:31:46",
+          "kind": "observation",
+          "message": "    IDAC0 ABBA low 1 (-8): PGAgain=-84.8mV BPo=+3.4mV OPA_SUMo=+107.3mV SUMo=+106.0mV LPo=-267.4mV",
+          "label": "IDAC0 ABBA low 1 (-8)",
+          "observation": {
+            "errors_uv": {
+              "0": -84816,
+              "1": 3398,
+              "2": 107311,
+              "3": 106014,
+              "4": -267350
+            },
+            "pp_uv": {
+              "0": 3776,
+              "1": 1888,
+              "2": 114,
+              "3": 114,
+              "4": 171
+            },
+            "spread_uv": {
+              "0": 1927,
+              "1": 4367,
+              "2": 38,
+              "3": 57,
+              "4": 38
+            },
+            "samples": [
+              {
+                "0": {
+                  "mean_uv": 916309,
+                  "error_uv": -83691,
+                  "pp_uv": 3852
+                },
+                "1": {
+                  "mean_uv": 1005458,
+                  "error_uv": 5458,
+                  "pp_uv": 1373
+                },
+                "2": {
+                  "mean_uv": 1107292,
+                  "error_uv": 107292,
+                  "pp_uv": 133
+                },
+                "3": {
+                  "mean_uv": 1106014,
+                  "error_uv": 106014,
+                  "pp_uv": 114
+                },
+                "4": {
+                  "mean_uv": 732650,
+                  "error_uv": -267350,
+                  "pp_uv": 247
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 915184,
+                  "error_uv": -84816,
+                  "pp_uv": 3490
+                },
+                "1": {
+                  "mean_uv": 1003398,
+                  "error_uv": 3398,
+                  "pp_uv": 2422
+                },
+                "2": {
+                  "mean_uv": 1107330,
+                  "error_uv": 107330,
+                  "pp_uv": 76
+                },
+                "3": {
+                  "mean_uv": 1106014,
+                  "error_uv": 106014,
+                  "pp_uv": 152
+                },
+                "4": {
+                  "mean_uv": 732650,
+                  "error_uv": -267350,
+                  "pp_uv": 171
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 914382,
+                  "error_uv": -85618,
+                  "pp_uv": 3776
+                },
+                "1": {
+                  "mean_uv": 1001091,
+                  "error_uv": 1091,
+                  "pp_uv": 1888
+                },
+                "2": {
+                  "mean_uv": 1107311,
+                  "error_uv": 107311,
+                  "pp_uv": 114
+                },
+                "3": {
+                  "mean_uv": 1105957,
+                  "error_uv": 105957,
+                  "pp_uv": 114
+                },
+                "4": {
+                  "mean_uv": 732688,
+                  "error_uv": -267312,
+                  "pp_uv": 152
+                }
+              }
+            ]
+          },
+          "codes": [
+            -8,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "at": "2026-09-09T00:32:04",
+          "kind": "observation",
+          "message": "    IDAC0 ABBA high 1 (8): PGAgain=-27.3mV BPo=-36.0mV OPA_SUMo=+106.7mV SUMo=+105.4mV LPo=-267.8mV",
+          "label": "IDAC0 ABBA high 1 (8)",
+          "observation": {
+            "errors_uv": {
+              "0": -27291,
+              "1": -35988,
+              "2": 106739,
+              "3": 105403,
+              "4": -267750
+            },
+            "pp_uv": {
+              "0": 2326,
+              "1": 3032,
+              "2": 534,
+              "3": 362,
+              "4": 171
+            },
+            "spread_uv": {
+              "0": 209,
+              "1": 6123,
+              "2": 5359,
+              "3": 5893,
+              "4": 38
+            },
+            "samples": [
+              {
+                "0": {
+                  "mean_uv": 972557,
+                  "error_uv": -27443,
+                  "pp_uv": 2117
+                },
+                "1": {
+                  "mean_uv": 960540,
+                  "error_uv": -39460,
+                  "pp_uv": 2841
+                },
+                "2": {
+                  "mean_uv": 1106929,
+                  "error_uv": 106929,
+                  "pp_uv": 114
+                },
+                "3": {
+                  "mean_uv": 1105632,
+                  "error_uv": 105632,
+                  "pp_uv": 114
+                },
+                "4": {
+                  "mean_uv": 732269,
+                  "error_uv": -267731,
+                  "pp_uv": 171
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 972766,
+                  "error_uv": -27234,
+                  "pp_uv": 2632
+                },
+                "1": {
+                  "mean_uv": 964012,
+                  "error_uv": -35988,
+                  "pp_uv": 3032
+                },
+                "2": {
+                  "mean_uv": 1106739,
+                  "error_uv": 106739,
+                  "pp_uv": 667
+                },
+                "3": {
+                  "mean_uv": 1105403,
+                  "error_uv": 105403,
+                  "pp_uv": 591
+                },
+                "4": {
+                  "mean_uv": 732231,
+                  "error_uv": -267769,
+                  "pp_uv": 247
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 972709,
+                  "error_uv": -27291,
+                  "pp_uv": 2326
+                },
+                "1": {
+                  "mean_uv": 966663,
+                  "error_uv": -33337,
+                  "pp_uv": 3204
+                },
+                "2": {
+                  "mean_uv": 1101570,
+                  "error_uv": 101570,
+                  "pp_uv": 534
+                },
+                "3": {
+                  "mean_uv": 1099739,
+                  "error_uv": 99739,
+                  "pp_uv": 362
+                },
+                "4": {
+                  "mean_uv": 732250,
+                  "error_uv": -267750,
+                  "pp_uv": 171
+                }
+              }
+            ]
+          },
+          "codes": [
+            8,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "at": "2026-09-09T00:32:17",
+          "kind": "observation",
+          "message": "    IDAC0 ABBA high 2 (8): PGAgain=-26.7mV BPo=-27.5mV OPA_SUMo=+83.2mV SUMo=+81.5mV LPo=-267.8mV",
+          "label": "IDAC0 ABBA high 2 (8)",
+          "observation": {
+            "errors_uv": {
+              "0": -26738,
+              "1": -27463,
+              "2": 83183,
+              "3": 81466,
+              "4": -267827
+            },
+            "pp_uv": {
+              "0": 1945,
+              "1": 2918,
+              "2": 610,
+              "3": 495,
+              "4": 152
+            },
+            "spread_uv": {
+              "0": 591,
+              "1": 4101,
+              "2": 13980,
+              "3": 13675,
+              "4": 57
+            },
+            "samples": [
+              {
+                "0": {
+                  "mean_uv": 972957,
+                  "error_uv": -27043,
+                  "pp_uv": 2403
+                },
+                "1": {
+                  "mean_uv": 970153,
+                  "error_uv": -29847,
+                  "pp_uv": 2136
+                },
+                "2": {
+                  "mean_uv": 1090354,
+                  "error_uv": 90354,
+                  "pp_uv": 610
+                },
+                "3": {
+                  "mean_uv": 1088504,
+                  "error_uv": 88504,
+                  "pp_uv": 495
+                },
+                "4": {
+                  "mean_uv": 732135,
+                  "error_uv": -267865,
+                  "pp_uv": 133
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 973262,
+                  "error_uv": -26738,
+                  "pp_uv": 1773
+                },
+                "1": {
+                  "mean_uv": 972537,
+                  "error_uv": -27463,
+                  "pp_uv": 3147
+                },
+                "2": {
+                  "mean_uv": 1083183,
+                  "error_uv": 83183,
+                  "pp_uv": 629
+                },
+                "3": {
+                  "mean_uv": 1081466,
+                  "error_uv": 81466,
+                  "pp_uv": 381
+                },
+                "4": {
+                  "mean_uv": 732192,
+                  "error_uv": -267808,
+                  "pp_uv": 190
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 973548,
+                  "error_uv": -26452,
+                  "pp_uv": 1945
+                },
+                "1": {
+                  "mean_uv": 974254,
+                  "error_uv": -25746,
+                  "pp_uv": 2918
+                },
+                "2": {
+                  "mean_uv": 1076374,
+                  "error_uv": 76374,
+                  "pp_uv": 610
+                },
+                "3": {
+                  "mean_uv": 1074829,
+                  "error_uv": 74829,
+                  "pp_uv": 629
+                },
+                "4": {
+                  "mean_uv": 732173,
+                  "error_uv": -267827,
+                  "pp_uv": 152
+                }
+              }
+            ]
+          },
+          "codes": [
+            8,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "at": "2026-09-09T00:32:38",
+          "kind": "observation",
+          "message": "    IDAC0 ABBA low 2 (-8): PGAgain=-82.6mV BPo=+7.2mV OPA_SUMo=+107.3mV SUMo=+106.0mV LPo=-267.4mV",
+          "label": "IDAC0 ABBA low 2 (-8)",
+          "observation": {
+            "errors_uv": {
+              "0": -82623,
+              "1": 7213,
+              "2": 107273,
+              "3": 106014,
+              "4": -267388
+            },
+            "pp_uv": {
+              "0": 4730,
+              "1": 3185,
+              "2": 247,
+              "3": 114,
+              "4": 133
+            },
+            "spread_uv": {
+              "0": 476,
+              "1": 4634,
+              "2": 401,
+              "3": 77,
+              "4": 19
+            },
+            "samples": [
+              {
+                "0": {
+                  "mean_uv": 917491,
+                  "error_uv": -82509,
+                  "pp_uv": 4730
+                },
+                "1": {
+                  "mean_uv": 1009387,
+                  "error_uv": 9387,
+                  "pp_uv": 3433
+                },
+                "2": {
+                  "mean_uv": 1106872,
+                  "error_uv": 106872,
+                  "pp_uv": 724
+                },
+                "3": {
+                  "mean_uv": 1105937,
+                  "error_uv": 105937,
+                  "pp_uv": 305
+                },
+                "4": {
+                  "mean_uv": 732612,
+                  "error_uv": -267388,
+                  "pp_uv": 114
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 917377,
+                  "error_uv": -82623,
+                  "pp_uv": 4215
+                },
+                "1": {
+                  "mean_uv": 1007213,
+                  "error_uv": 7213,
+                  "pp_uv": 3185
+                },
+                "2": {
+                  "mean_uv": 1107273,
+                  "error_uv": 107273,
+                  "pp_uv": 247
+                },
+                "3": {
+                  "mean_uv": 1106014,
+                  "error_uv": 106014,
+                  "pp_uv": 114
+                },
+                "4": {
+                  "mean_uv": 732612,
+                  "error_uv": -267388,
+                  "pp_uv": 133
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 917015,
+                  "error_uv": -82985,
+                  "pp_uv": 5149
+                },
+                "1": {
+                  "mean_uv": 1004753,
+                  "error_uv": 4753,
+                  "pp_uv": 2098
+                },
+                "2": {
+                  "mean_uv": 1107273,
+                  "error_uv": 107273,
+                  "pp_uv": 95
+                },
+                "3": {
+                  "mean_uv": 1106014,
+                  "error_uv": 106014,
+                  "pp_uv": 114
+                },
+                "4": {
+                  "mean_uv": 732631,
+                  "error_uv": -267369,
+                  "pp_uv": 133
+                }
+              }
+            ]
+          },
+          "codes": [
+            -8,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "at": "2026-09-09T00:32:54",
+          "kind": "observation",
+          "message": "    IDAC0 r\u00e1pido restaurado: PGAgain=-46.7mV BPo=-16.9mV OPA_SUMo=+107.1mV SUMo=+105.8mV LPo=-267.5mV",
+          "label": "IDAC0 r\u00e1pido restaurado",
+          "observation": {
+            "errors_uv": {
+              "0": -46689,
+              "1": -16915,
+              "2": 107082,
+              "3": 105804,
+              "4": -267521
+            },
+            "pp_uv": {
+              "0": 2231,
+              "1": 3032,
+              "2": 133,
+              "3": 133,
+              "4": 209
+            },
+            "spread_uv": {
+              "0": 76,
+              "1": 1449,
+              "2": 0,
+              "3": 57,
+              "4": 115
+            },
+            "samples": [
+              {
+                "0": {
+                  "mean_uv": 953235,
+                  "error_uv": -46765,
+                  "pp_uv": 2231
+                },
+                "1": {
+                  "mean_uv": 982494,
+                  "error_uv": -17506,
+                  "pp_uv": 2307
+                },
+                "2": {
+                  "mean_uv": 1107082,
+                  "error_uv": 107082,
+                  "pp_uv": 152
+                },
+                "3": {
+                  "mean_uv": 1105842,
+                  "error_uv": 105842,
+                  "pp_uv": 133
+                },
+                "4": {
+                  "mean_uv": 732479,
+                  "error_uv": -267521,
+                  "pp_uv": 133
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 953311,
+                  "error_uv": -46689,
+                  "pp_uv": 2212
+                },
+                "1": {
+                  "mean_uv": 983085,
+                  "error_uv": -16915,
+                  "pp_uv": 3032
+                },
+                "2": {
+                  "mean_uv": 1107082,
+                  "error_uv": 107082,
+                  "pp_uv": 114
+                },
+                "3": {
+                  "mean_uv": 1105804,
+                  "error_uv": 105804,
+                  "pp_uv": 209
+                },
+                "4": {
+                  "mean_uv": 732440,
+                  "error_uv": -267560,
+                  "pp_uv": 247
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 953311,
+                  "error_uv": -46689,
+                  "pp_uv": 2765
+                },
+                "1": {
+                  "mean_uv": 983943,
+                  "error_uv": -16057,
+                  "pp_uv": 3051
+                },
+                "2": {
+                  "mean_uv": 1107082,
+                  "error_uv": 107082,
+                  "pp_uv": 133
+                },
+                "3": {
+                  "mean_uv": 1105785,
+                  "error_uv": 105785,
+                  "pp_uv": 95
+                },
+                "4": {
+                  "mean_uv": 732555,
+                  "error_uv": -267445,
+                  "pp_uv": 209
+                }
+              }
+            ]
+          },
+          "codes": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "at": "2026-09-09T00:32:54",
+          "kind": "fast_identification",
+          "message": "    IDAC0->ch0: +3544.1uV/c\u00f3digo (fiable)",
+          "stage": 0,
+          "channel": 0,
+          "low": -8,
+          "high": 8,
+          "slope_uv_per_code": 3544.0625,
+          "effect_uv": 56705.0,
+          "forward_effect_uv": 57525.0,
+          "reverse_effect_uv": 55885.0,
+          "reliable_effect_uv": 55885.0,
+          "noise_uv": 1927,
+          "threshold_uv": 12000,
+          "same_sign": true,
+          "magnitude_ratio": 0.971490656236419,
+          "reliable": true
+        },
+        {
+          "at": "2026-09-09T00:32:54",
+          "kind": "fast_pi",
+          "message": "    PI r\u00e1pido IDAC0 0->8",
+          "cycle": 0,
+          "error_uv": -46689,
+          "slope_uv_per_code": 3544.0625
+        },
+        {
+          "at": "2026-09-09T00:33:16",
+          "kind": "observation",
+          "message": "    microajuste r\u00e1pido: PGAgain=-27.1mV BPo=-27.1mV OPA_SUMo=+81.9mV SUMo=+80.3mV LPo=-267.8mV",
+          "label": "microajuste r\u00e1pido",
+          "observation": {
+            "errors_uv": {
+              "0": -27138,
+              "1": -27119,
+              "2": 81924,
+              "3": 80341,
+              "4": -267808
+            },
+            "pp_uv": {
+              "0": 1201,
+              "1": 1773,
+              "2": 572,
+              "3": 400,
+              "4": 190
+            },
+            "spread_uv": {
+              "0": 458,
+              "1": 3643,
+              "2": 14095,
+              "3": 13638,
+              "4": 39
+            },
+            "samples": [
+              {
+                "0": {
+                  "mean_uv": 972652,
+                  "error_uv": -27348,
+                  "pp_uv": 1392
+                },
+                "1": {
+                  "mean_uv": 970935,
+                  "error_uv": -29065,
+                  "pp_uv": 1907
+                },
+                "2": {
+                  "mean_uv": 1089420,
+                  "error_uv": 89420,
+                  "pp_uv": 572
+                },
+                "3": {
+                  "mean_uv": 1087570,
+                  "error_uv": 87570,
+                  "pp_uv": 400
+                },
+                "4": {
+                  "mean_uv": 732212,
+                  "error_uv": -267788,
+                  "pp_uv": 171
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 973110,
+                  "error_uv": -26890,
+                  "pp_uv": 1201
+                },
+                "1": {
+                  "mean_uv": 972881,
+                  "error_uv": -27119,
+                  "pp_uv": 1354
+                },
+                "2": {
+                  "mean_uv": 1081924,
+                  "error_uv": 81924,
+                  "pp_uv": 1316
+                },
+                "3": {
+                  "mean_uv": 1080341,
+                  "error_uv": 80341,
+                  "pp_uv": 457
+                },
+                "4": {
+                  "mean_uv": 732173,
+                  "error_uv": -267827,
+                  "pp_uv": 190
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 972862,
+                  "error_uv": -27138,
+                  "pp_uv": 1182
+                },
+                "1": {
+                  "mean_uv": 974578,
+                  "error_uv": -25422,
+                  "pp_uv": 1773
+                },
+                "2": {
+                  "mean_uv": 1075325,
+                  "error_uv": 75325,
+                  "pp_uv": 572
+                },
+                "3": {
+                  "mean_uv": 1073932,
+                  "error_uv": 73932,
+                  "pp_uv": 362
+                },
+                "4": {
+                  "mean_uv": 732192,
+                  "error_uv": -267808,
+                  "pp_uv": 190
+                }
+              }
+            ]
+          },
+          "codes": [
+            8,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "at": "2026-09-09T00:33:16",
+          "kind": "fast_pi",
+          "message": "    PI r\u00e1pido IDAC0 8->13",
+          "cycle": 1,
+          "error_uv": -27138,
+          "slope_uv_per_code": 3544.0625
+        },
+        {
+          "at": "2026-09-09T00:33:32",
+          "kind": "observation",
+          "message": "    microajuste r\u00e1pido: PGAgain=-14.8mV BPo=-32.6mV OPA_SUMo=+45.2mV SUMo=+43.7mV LPo=-267.9mV",
+          "label": "microajuste r\u00e1pido",
+          "observation": {
+            "errors_uv": {
+              "0": -14760,
+              "1": -32631,
+              "2": 45188,
+              "3": 43739,
+              "4": -267922
+            },
+            "pp_uv": {
+              "0": 1373,
+              "1": 2021,
+              "2": 495,
+              "3": 514,
+              "4": 152
+            },
+            "spread_uv": {
+              "0": 114,
+              "1": 5665,
+              "2": 17986,
+              "3": 17605,
+              "4": 57
+            },
+            "samples": [
+              {
+                "0": {
+                  "mean_uv": 985126,
+                  "error_uv": -14874,
+                  "pp_uv": 1029
+                },
+                "1": {
+                  "mean_uv": 965080,
+                  "error_uv": -34920,
+                  "pp_uv": 2441
+                },
+                "2": {
+                  "mean_uv": 1054897,
+                  "error_uv": 54897,
+                  "pp_uv": 419
+                },
+                "3": {
+                  "mean_uv": 1053104,
+                  "error_uv": 53104,
+                  "pp_uv": 514
+                },
+                "4": {
+                  "mean_uv": 732078,
+                  "error_uv": -267922,
+                  "pp_uv": 133
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 985240,
+                  "error_uv": -14760,
+                  "pp_uv": 1697
+                },
+                "1": {
+                  "mean_uv": 967369,
+                  "error_uv": -32631,
+                  "pp_uv": 2021
+                },
+                "2": {
+                  "mean_uv": 1045188,
+                  "error_uv": 45188,
+                  "pp_uv": 553
+                },
+                "3": {
+                  "mean_uv": 1043739,
+                  "error_uv": 43739,
+                  "pp_uv": 629
+                },
+                "4": {
+                  "mean_uv": 732135,
+                  "error_uv": -267865,
+                  "pp_uv": 152
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 985240,
+                  "error_uv": -14760,
+                  "pp_uv": 1373
+                },
+                "1": {
+                  "mean_uv": 970745,
+                  "error_uv": -29255,
+                  "pp_uv": 1602
+                },
+                "2": {
+                  "mean_uv": 1036911,
+                  "error_uv": 36911,
+                  "pp_uv": 495
+                },
+                "3": {
+                  "mean_uv": 1035499,
+                  "error_uv": 35499,
+                  "pp_uv": 495
+                },
+                "4": {
+                  "mean_uv": 732078,
+                  "error_uv": -267922,
+                  "pp_uv": 171
+                }
+              }
+            ]
+          },
+          "codes": [
+            13,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "at": "2026-09-09T00:33:32",
+          "kind": "fast_pi",
+          "message": "    PI r\u00e1pido IDAC0 13->16",
+          "cycle": 2,
+          "error_uv": -14760,
+          "slope_uv_per_code": 3544.0625
+        },
+        {
+          "at": "2026-09-09T00:33:48",
+          "kind": "observation",
+          "message": "    microajuste r\u00e1pido: PGAgain=-6.9mV BPo=-30.7mV OPA_SUMo=+8.1mV SUMo=+6.6mV LPo=-200.1mV",
+          "label": "microajuste r\u00e1pido",
+          "observation": {
+            "errors_uv": {
+              "0": -6882,
+              "1": -30686,
+              "2": 8110,
+              "3": 6584,
+              "4": -200116
+            },
+            "pp_uv": {
+              "0": 1354,
+              "1": 2460,
+              "2": 591,
+              "3": 514,
+              "4": 2460
+            },
+            "spread_uv": {
+              "0": 763,
+              "1": 4787,
+              "2": 16079,
+              "3": 15831,
+              "4": 152034
+            },
+            "samples": [
+              {
+                "0": {
+                  "mean_uv": 993061,
+                  "error_uv": -6939,
+                  "pp_uv": 1182
+                },
+                "1": {
+                  "mean_uv": 967121,
+                  "error_uv": -32879,
+                  "pp_uv": 2956
+                },
+                "2": {
+                  "mean_uv": 1017074,
+                  "error_uv": 17074,
+                  "pp_uv": 591
+                },
+                "3": {
+                  "mean_uv": 1015548,
+                  "error_uv": 15548,
+                  "pp_uv": 514
+                },
+                "4": {
+                  "mean_uv": 731945,
+                  "error_uv": -268055,
+                  "pp_uv": 190
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 993118,
+                  "error_uv": -6882,
+                  "pp_uv": 1354
+                },
+                "1": {
+                  "mean_uv": 969314,
+                  "error_uv": -30686,
+                  "pp_uv": 1831
+                },
+                "2": {
+                  "mean_uv": 1008110,
+                  "error_uv": 8110,
+                  "pp_uv": 419
+                },
+                "3": {
+                  "mean_uv": 1006584,
+                  "error_uv": 6584,
+                  "pp_uv": 381
+                },
+                "4": {
+                  "mean_uv": 799884,
+                  "error_uv": -200116,
+                  "pp_uv": 2899
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 993824,
+                  "error_uv": -6176,
+                  "pp_uv": 1392
+                },
+                "1": {
+                  "mean_uv": 971908,
+                  "error_uv": -28092,
+                  "pp_uv": 2460
+                },
+                "2": {
+                  "mean_uv": 1000995,
+                  "error_uv": 995,
+                  "pp_uv": 610
+                },
+                "3": {
+                  "mean_uv": 999717,
+                  "error_uv": -283,
+                  "pp_uv": 534
+                },
+                "4": {
+                  "mean_uv": 883979,
+                  "error_uv": -116021,
+                  "pp_uv": 2460
+                }
+              }
+            ]
+          },
+          "codes": [
+            16,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "at": "2026-09-09T00:35:00",
+          "kind": "observation",
+          "message": "    cadena asentada 2tau despu\u00e9s de PGA: PGAgain=-6.3mV BPo=-16.1mV OPA_SUMo=-40.1mV SUMo=-40.3mV LPo=+106.6mV",
+          "label": "cadena asentada 2tau despu\u00e9s de PGA",
+          "observation": {
+            "errors_uv": {
+              "0": -6272,
+              "1": -16095,
+              "2": -40127,
+              "3": -40337,
+              "4": 106605
+            },
+            "pp_uv": {
+              "0": 1888,
+              "1": 2899,
+              "2": 686,
+              "3": 686,
+              "4": 114
+            },
+            "spread_uv": {
+              "0": 95,
+              "1": 1125,
+              "2": 2308,
+              "3": 2365,
+              "4": 57
+            },
+            "samples": [
+              {
+                "0": {
+                  "mean_uv": 993709,
+                  "error_uv": -6291,
+                  "pp_uv": 1487
+                },
+                "1": {
+                  "mean_uv": 983009,
+                  "error_uv": -16991,
+                  "pp_uv": 2899
+                },
+                "2": {
+                  "mean_uv": 960998,
+                  "error_uv": -39002,
+                  "pp_uv": 686
+                },
+                "3": {
+                  "mean_uv": 960979,
+                  "error_uv": -39021,
+                  "pp_uv": 686
+                },
+                "4": {
+                  "mean_uv": 1106605,
+                  "error_uv": 106605,
+                  "pp_uv": 76
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 993804,
+                  "error_uv": -6196,
+                  "pp_uv": 1888
+                },
+                "1": {
+                  "mean_uv": 983905,
+                  "error_uv": -16095,
+                  "pp_uv": 3185
+                },
+                "2": {
+                  "mean_uv": 959873,
+                  "error_uv": -40127,
+                  "pp_uv": 610
+                },
+                "3": {
+                  "mean_uv": 959663,
+                  "error_uv": -40337,
+                  "pp_uv": 782
+                },
+                "4": {
+                  "mean_uv": 1106567,
+                  "error_uv": 106567,
+                  "pp_uv": 114
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 993728,
+                  "error_uv": -6272,
+                  "pp_uv": 2059
+                },
+                "1": {
+                  "mean_uv": 984134,
+                  "error_uv": -15866,
+                  "pp_uv": 2517
+                },
+                "2": {
+                  "mean_uv": 958690,
+                  "error_uv": -41310,
+                  "pp_uv": 686
+                },
+                "3": {
+                  "mean_uv": 958614,
+                  "error_uv": -41386,
+                  "pp_uv": 648
+                },
+                "4": {
+                  "mean_uv": 1106624,
+                  "error_uv": 106624,
+                  "pp_uv": 114
+                }
+              }
+            ]
+          },
+          "codes": [
+            16,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "at": "2026-09-09T00:35:11",
+          "kind": "observation",
+          "message": "    BP asentado tras 2tau: PGAgain=-6.3mV BPo=-15.5mV OPA_SUMo=-42.2mV SUMo=-42.1mV LPo=+106.6mV",
+          "label": "BP asentado tras 2tau",
+          "observation": {
+            "errors_uv": {
+              "0": -6329,
+              "1": -15503,
+              "2": -42225,
+              "3": -42054,
+              "4": 106624
+            },
+            "pp_uv": {
+              "0": 1831,
+              "1": 2403,
+              "2": 476,
+              "3": 419,
+              "4": 95
+            },
+            "spread_uv": {
+              "0": 133,
+              "1": 96,
+              "2": 2098,
+              "3": 2079,
+              "4": 19
+            },
+            "samples": [
+              {
+                "0": {
+                  "mean_uv": 993766,
+                  "error_uv": -6234,
+                  "pp_uv": 1621
+                },
+                "1": {
+                  "mean_uv": 984420,
+                  "error_uv": -15580,
+                  "pp_uv": 2403
+                },
+                "2": {
+                  "mean_uv": 958652,
+                  "error_uv": -41348,
+                  "pp_uv": 457
+                },
+                "3": {
+                  "mean_uv": 958900,
+                  "error_uv": -41100,
+                  "pp_uv": 324
+                },
+                "4": {
+                  "mean_uv": 1106624,
+                  "error_uv": 106624,
+                  "pp_uv": 114
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 993633,
+                  "error_uv": -6367,
+                  "pp_uv": 2059
+                },
+                "1": {
+                  "mean_uv": 984516,
+                  "error_uv": -15484,
+                  "pp_uv": 2574
+                },
+                "2": {
+                  "mean_uv": 957775,
+                  "error_uv": -42225,
+                  "pp_uv": 610
+                },
+                "3": {
+                  "mean_uv": 957946,
+                  "error_uv": -42054,
+                  "pp_uv": 419
+                },
+                "4": {
+                  "mean_uv": 1106643,
+                  "error_uv": 106643,
+                  "pp_uv": 76
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 993671,
+                  "error_uv": -6329,
+                  "pp_uv": 1831
+                },
+                "1": {
+                  "mean_uv": 984497,
+                  "error_uv": -15503,
+                  "pp_uv": 1735
+                },
+                "2": {
+                  "mean_uv": 956554,
+                  "error_uv": -43446,
+                  "pp_uv": 476
+                },
+                "3": {
+                  "mean_uv": 956821,
+                  "error_uv": -43179,
+                  "pp_uv": 534
+                },
+                "4": {
+                  "mean_uv": 1106624,
+                  "error_uv": 106624,
+                  "pp_uv": 95
+                }
+              }
+            ]
+          },
+          "codes": [
+            16,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "at": "2026-09-09T00:35:33",
+          "kind": "observation",
+          "message": "    IDAC2 ABBA low 1 (-16): PGAgain=-7.5mV BPo=-14.2mV OPA_SUMo=-144.8mV SUMo=-162.0mV LPo=+106.6mV",
+          "label": "IDAC2 ABBA low 1 (-16)",
+          "observation": {
+            "errors_uv": {
+              "0": -7473,
+              "1": -14226,
+              "2": -144764,
+              "3": -162026,
+              "4": 106586
+            },
+            "pp_uv": {
+              "0": 1068,
+              "1": 2574,
+              "2": 3585,
+              "3": 5722,
+              "4": 114
+            },
+            "spread_uv": {
+              "0": 725,
+              "1": 458,
+              "2": 78735,
+              "3": 103664,
+              "4": 38
+            },
+            "samples": [
+              {
+                "0": {
+                  "mean_uv": 993099,
+                  "error_uv": -6901,
+                  "pp_uv": 1239
+                },
+                "1": {
+                  "mean_uv": 986137,
+                  "error_uv": -13863,
+                  "pp_uv": 2574
+                },
+                "2": {
+                  "mean_uv": 855236,
+                  "error_uv": -144764,
+                  "pp_uv": 3585
+                },
+                "3": {
+                  "mean_uv": 837974,
+                  "error_uv": -162026,
+                  "pp_uv": 10566
+                },
+                "4": {
+                  "mean_uv": 1106586,
+                  "error_uv": 106586,
+                  "pp_uv": 114
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 992527,
+                  "error_uv": -7473,
+                  "pp_uv": 1010
+                },
+                "1": {
+                  "mean_uv": 985774,
+                  "error_uv": -14226,
+                  "pp_uv": 3662
+                },
+                "2": {
+                  "mean_uv": 793590,
+                  "error_uv": -206410,
+                  "pp_uv": 2403
+                },
+                "3": {
+                  "mean_uv": 778522,
+                  "error_uv": -221478,
+                  "pp_uv": 1621
+                },
+                "4": {
+                  "mean_uv": 1106605,
+                  "error_uv": 106605,
+                  "pp_uv": 76
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 992374,
+                  "error_uv": -7626,
+                  "pp_uv": 1068
+                },
+                "1": {
+                  "mean_uv": 985679,
+                  "error_uv": -14321,
+                  "pp_uv": 2403
+                },
+                "2": {
+                  "mean_uv": 872325,
+                  "error_uv": -127675,
+                  "pp_uv": 3890
+                },
+                "3": {
+                  "mean_uv": 882186,
+                  "error_uv": -117814,
+                  "pp_uv": 5722
+                },
+                "4": {
+                  "mean_uv": 1106567,
+                  "error_uv": 106567,
+                  "pp_uv": 114
+                }
+              }
+            ]
+          },
+          "codes": [
+            16,
+            0,
+            -16,
+            0
+          ]
+        },
+        {
+          "at": "2026-09-09T00:35:49",
+          "kind": "observation",
+          "message": "    IDAC2 ABBA high 1 (16): PGAgain=-5.8mV BPo=-15.3mV OPA_SUMo=+106.7mV SUMo=+105.4mV LPo=-268.0mV",
+          "label": "IDAC2 ABBA high 1 (16)",
+          "observation": {
+            "errors_uv": {
+              "0": -5795,
+              "1": -15294,
+              "2": 106681,
+              "3": 105403,
+              "4": -267979
+            },
+            "pp_uv": {
+              "0": 1716,
+              "1": 2498,
+              "2": 114,
+              "3": 114,
+              "4": 171
+            },
+            "spread_uv": {
+              "0": 401,
+              "1": 1125,
+              "2": 115891,
+              "3": 68397,
+              "4": 134
+            },
+            "samples": [
+              {
+                "0": {
+                  "mean_uv": 994052,
+                  "error_uv": -5948,
+                  "pp_uv": 1716
+                },
+                "1": {
+                  "mean_uv": 984306,
+                  "error_uv": -15694,
+                  "pp_uv": 2498
+                },
+                "2": {
+                  "mean_uv": 1106681,
+                  "error_uv": 106681,
+                  "pp_uv": 95
+                },
+                "3": {
+                  "mean_uv": 1105403,
+                  "error_uv": 105403,
+                  "pp_uv": 114
+                },
+                "4": {
+                  "mean_uv": 732059,
+                  "error_uv": -267941,
+                  "pp_uv": 114
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 994453,
+                  "error_uv": -5547,
+                  "pp_uv": 2288
+                },
+                "1": {
+                  "mean_uv": 985431,
+                  "error_uv": -14569,
+                  "pp_uv": 5035
+                },
+                "2": {
+                  "mean_uv": 990886,
+                  "error_uv": -9114,
+                  "pp_uv": 3356
+                },
+                "3": {
+                  "mean_uv": 1037006,
+                  "error_uv": 37006,
+                  "pp_uv": 3318
+                },
+                "4": {
+                  "mean_uv": 731925,
+                  "error_uv": -268075,
+                  "pp_uv": 190
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 994205,
+                  "error_uv": -5795,
+                  "pp_uv": 1583
+                },
+                "1": {
+                  "mean_uv": 984706,
+                  "error_uv": -15294,
+                  "pp_uv": 2498
+                },
+                "2": {
+                  "mean_uv": 1106777,
+                  "error_uv": 106777,
+                  "pp_uv": 114
+                },
+                "3": {
+                  "mean_uv": 1105403,
+                  "error_uv": 105403,
+                  "pp_uv": 95
+                },
+                "4": {
+                  "mean_uv": 732021,
+                  "error_uv": -267979,
+                  "pp_uv": 171
+                }
+              }
+            ]
+          },
+          "codes": [
+            16,
+            0,
+            16,
+            0
+          ]
+        },
+        {
+          "at": "2026-09-09T00:36:01",
+          "kind": "observation",
+          "message": "    IDAC2 ABBA high 2 (16): PGAgain=-5.5mV BPo=-14.4mV OPA_SUMo=+106.7mV SUMo=+105.4mV LPo=-267.9mV",
+          "label": "IDAC2 ABBA high 2 (16)",
+          "observation": {
+            "errors_uv": {
+              "0": -5471,
+              "1": -14416,
+              "2": 106719,
+              "3": 105403,
+              "4": -267941
+            },
+            "pp_uv": {
+              "0": 1487,
+              "1": 2956,
+              "2": 114,
+              "3": 114,
+              "4": 228
+            },
+            "spread_uv": {
+              "0": 572,
+              "1": 648,
+              "2": 39,
+              "3": 38,
+              "4": 57
+            },
+            "samples": [
+              {
+                "0": {
+                  "mean_uv": 994262,
+                  "error_uv": -5738,
+                  "pp_uv": 1487
+                },
+                "1": {
+                  "mean_uv": 985069,
+                  "error_uv": -14931,
+                  "pp_uv": 2956
+                },
+                "2": {
+                  "mean_uv": 1106719,
+                  "error_uv": 106719,
+                  "pp_uv": 133
+                },
+                "3": {
+                  "mean_uv": 1105384,
+                  "error_uv": 105384,
+                  "pp_uv": 114
+                },
+                "4": {
+                  "mean_uv": 732040,
+                  "error_uv": -267960,
+                  "pp_uv": 190
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 994529,
+                  "error_uv": -5471,
+                  "pp_uv": 1487
+                },
+                "1": {
+                  "mean_uv": 985717,
+                  "error_uv": -14283,
+                  "pp_uv": 2269
+                },
+                "2": {
+                  "mean_uv": 1106739,
+                  "error_uv": 106739,
+                  "pp_uv": 95
+                },
+                "3": {
+                  "mean_uv": 1105403,
+                  "error_uv": 105403,
+                  "pp_uv": 95
+                },
+                "4": {
+                  "mean_uv": 732059,
+                  "error_uv": -267941,
+                  "pp_uv": 247
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 994834,
+                  "error_uv": -5166,
+                  "pp_uv": 1640
+                },
+                "1": {
+                  "mean_uv": 985584,
+                  "error_uv": -14416,
+                  "pp_uv": 3929
+                },
+                "2": {
+                  "mean_uv": 1106700,
+                  "error_uv": 106700,
+                  "pp_uv": 114
+                },
+                "3": {
+                  "mean_uv": 1105422,
+                  "error_uv": 105422,
+                  "pp_uv": 114
+                },
+                "4": {
+                  "mean_uv": 732097,
+                  "error_uv": -267903,
+                  "pp_uv": 228
+                }
+              }
+            ]
+          },
+          "codes": [
+            16,
+            0,
+            16,
+            0
+          ]
+        },
+        {
+          "at": "2026-09-09T00:36:17",
+          "kind": "observation",
+          "message": "    IDAC2 ABBA low 2 (-16): PGAgain=-6.8mV BPo=-12.4mV OPA_SUMo=-268.0mV SUMo=-262.1mV LPo=+106.6mV",
+          "label": "IDAC2 ABBA low 2 (-16)",
+          "observation": {
+            "errors_uv": {
+              "0": -6844,
+              "1": -12375,
+              "2": -268036,
+              "3": -262124,
+              "4": 106624
+            },
+            "pp_uv": {
+              "0": 1964,
+              "1": 2746,
+              "2": 152,
+              "3": 152,
+              "4": 114
+            },
+            "spread_uv": {
+              "0": 171,
+              "1": 267,
+              "2": 38,
+              "3": 39,
+              "4": 38
+            },
+            "samples": [
+              {
+                "0": {
+                  "mean_uv": 993061,
+                  "error_uv": -6939,
+                  "pp_uv": 1964
+                },
+                "1": {
+                  "mean_uv": 987415,
+                  "error_uv": -12585,
+                  "pp_uv": 2994
+                },
+                "2": {
+                  "mean_uv": 732002,
+                  "error_uv": -267998,
+                  "pp_uv": 152
+                },
+                "3": {
+                  "mean_uv": 737876,
+                  "error_uv": -262124,
+                  "pp_uv": 133
+                },
+                "4": {
+                  "mean_uv": 1106586,
+                  "error_uv": 106586,
+                  "pp_uv": 95
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 993156,
+                  "error_uv": -6844,
+                  "pp_uv": 1945
+                },
+                "1": {
+                  "mean_uv": 987625,
+                  "error_uv": -12375,
+                  "pp_uv": 2746
+                },
+                "2": {
+                  "mean_uv": 731964,
+                  "error_uv": -268036,
+                  "pp_uv": 209
+                },
+                "3": {
+                  "mean_uv": 737876,
+                  "error_uv": -262124,
+                  "pp_uv": 152
+                },
+                "4": {
+                  "mean_uv": 1106624,
+                  "error_uv": 106624,
+                  "pp_uv": 114
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 993232,
+                  "error_uv": -6768,
+                  "pp_uv": 2079
+                },
+                "1": {
+                  "mean_uv": 987682,
+                  "error_uv": -12318,
+                  "pp_uv": 2651
+                },
+                "2": {
+                  "mean_uv": 731964,
+                  "error_uv": -268036,
+                  "pp_uv": 133
+                },
+                "3": {
+                  "mean_uv": 737915,
+                  "error_uv": -262085,
+                  "pp_uv": 171
+                },
+                "4": {
+                  "mean_uv": 1106624,
+                  "error_uv": 106624,
+                  "pp_uv": 133
+                }
+              }
+            ]
+          },
+          "codes": [
+            16,
+            0,
+            -16,
+            0
+          ]
+        },
+        {
+          "at": "2026-09-09T00:36:33",
+          "kind": "observation",
+          "message": "    IDAC2 r\u00e1pido restaurado: PGAgain=-6.9mV BPo=-12.5mV OPA_SUMo=-268.1mV SUMo=-262.2mV LPo=+106.6mV",
+          "label": "IDAC2 r\u00e1pido restaurado",
+          "observation": {
+            "errors_uv": {
+              "0": -6939,
+              "1": -12490,
+              "2": -268055,
+              "3": -262181,
+              "4": 106586
+            },
+            "pp_uv": {
+              "0": 2403,
+              "1": 3032,
+              "2": 152,
+              "3": 171,
+              "4": 95
+            },
+            "spread_uv": {
+              "0": 134,
+              "1": 229,
+              "2": 96,
+              "3": 38,
+              "4": 19
+            },
+            "samples": [
+              {
+                "0": {
+                  "mean_uv": 993175,
+                  "error_uv": -6825,
+                  "pp_uv": 1983
+                },
+                "1": {
+                  "mean_uv": 987491,
+                  "error_uv": -12509,
+                  "pp_uv": 2880
+                },
+                "2": {
+                  "mean_uv": 732002,
+                  "error_uv": -267998,
+                  "pp_uv": 152
+                },
+                "3": {
+                  "mean_uv": 737800,
+                  "error_uv": -262200,
+                  "pp_uv": 171
+                },
+                "4": {
+                  "mean_uv": 1106586,
+                  "error_uv": 106586,
+                  "pp_uv": 95
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 993061,
+                  "error_uv": -6939,
+                  "pp_uv": 2403
+                },
+                "1": {
+                  "mean_uv": 987720,
+                  "error_uv": -12280,
+                  "pp_uv": 3681
+                },
+                "2": {
+                  "mean_uv": 731906,
+                  "error_uv": -268094,
+                  "pp_uv": 114
+                },
+                "3": {
+                  "mean_uv": 737819,
+                  "error_uv": -262181,
+                  "pp_uv": 171
+                },
+                "4": {
+                  "mean_uv": 1106586,
+                  "error_uv": 106586,
+                  "pp_uv": 95
+                }
+              },
+              {
+                "0": {
+                  "mean_uv": 993041,
+                  "error_uv": -6959,
+                  "pp_uv": 2517
+                },
+                "1": {
+                  "mean_uv": 987510,
+                  "error_uv": -12490,
+                  "pp_uv": 3032
+                },
+                "2": {
+                  "mean_uv": 731945,
+                  "error_uv": -268055,
+                  "pp_uv": 324
+                },
+                "3": {
+                  "mean_uv": 737838,
+                  "error_uv": -262162,
+                  "pp_uv": 152
+                },
+                "4": {
+                  "mean_uv": 1106567,
+                  "error_uv": 106567,
+                  "pp_uv": 133
+                }
+              }
+            ]
+          },
+          "codes": [
+            16,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "at": "2026-09-09T00:36:33",
+          "kind": "fast_identification",
+          "message": "    IDAC2->ch2: +9784.4uV/c\u00f3digo (rechazada)",
+          "stage": 2,
+          "channel": 2,
+          "low": -16,
+          "high": 16,
+          "slope_uv_per_code": 9784.375,
+          "effect_uv": 313100.0,
+          "forward_effect_uv": 251445.0,
+          "reverse_effect_uv": 374755.0,
+          "reliable_effect_uv": 0.0,
+          "noise_uv": 115891,
+          "threshold_uv": 695346.0,
+          "same_sign": true,
+          "magnitude_ratio": 0.6709583594615148,
+          "reliable": false
+        },
+        {
+          "at": "2026-09-09T00:36:33",
+          "kind": "gain_fail",
+          "message": "FAIL x24: IDAC2 sin autoridad r\u00e1pida medible"
+        }
+      ]
+    }
+  ],
+  "finished_at": "2026-09-09T00:36:34"
+}

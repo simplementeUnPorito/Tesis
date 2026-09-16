@@ -1,0 +1,763 @@
+{
+  "topology": "IDAC1 shared OPAbp+OPAsum; IDAC2 PGAout; IDAC3 LP",
+  "target_uv": 1000000,
+  "budgets_uv": {
+    "0": 500000,
+    "1": 500000,
+    "2": 1000000,
+    "3": 1000000
+  },
+  "pga_x": 50,
+  "current_pgaout_x": 50,
+  "current_codes": [
+    0,
+    -110,
+    4,
+    148
+  ],
+  "events": [
+    {
+      "t": "2026-09-07T23:39:17",
+      "message": "======================================================================"
+    },
+    {
+      "t": "2026-09-07T23:39:17",
+      "message": "PGA=x50; PGAout=x50",
+      "kind": "gain",
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T23:39:18",
+      "message": "    IDAC0: +0 -> +0 semilla segura",
+      "kind": "idac",
+      "stage": 0,
+      "old": 0,
+      "code": 0,
+      "reason": "semilla segura"
+    },
+    {
+      "t": "2026-09-07T23:39:18",
+      "message": "    IDAC1: -110 -> -110 semilla segura",
+      "kind": "idac",
+      "stage": 1,
+      "old": -110,
+      "code": -110,
+      "reason": "semilla segura"
+    },
+    {
+      "t": "2026-09-07T23:39:18",
+      "message": "    IDAC2: +250 -> +0 semilla segura",
+      "kind": "idac",
+      "stage": 2,
+      "old": 250,
+      "code": 0,
+      "reason": "semilla segura"
+    },
+    {
+      "t": "2026-09-07T23:39:18",
+      "message": "    IDAC3: -255 -> +0 semilla segura",
+      "kind": "idac",
+      "stage": 3,
+      "old": -255,
+      "code": 0,
+      "reason": "semilla segura"
+    },
+    {
+      "t": "2026-09-07T23:39:18",
+      "message": "    asentando 25.0 s: estado inicial x50"
+    },
+    {
+      "t": "2026-09-07T23:39:46",
+      "message": "    inicial: ch0   -15.20 mV  ch1    -9.82 mV  ch2    -0.38 mV  ch3    +4.96 mV  ch4  -149.36 mV",
+      "kind": "snapshot",
+      "label": "inicial",
+      "values_uv": {
+        "0": 984802,
+        "1": 990180,
+        "2": 999622,
+        "3": 1004962,
+        "4": 850639
+      },
+      "error_uv": {
+        "0": -15198,
+        "1": -9820,
+        "2": -378,
+        "3": 4962,
+        "4": -149361
+      },
+      "pp_uv": {
+        "0": 1220,
+        "1": 2384,
+        "2": 362,
+        "3": 25730,
+        "4": 100975
+      },
+      "codes": [
+        0,
+        -110,
+        0,
+        0
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T23:39:48",
+      "message": "    conjunto aguas arriba base 0: ch0   -14.74 mV  ch1    -9.91 mV  ch2    -0.09 mV",
+      "kind": "snapshot",
+      "label": "conjunto aguas arriba base 0",
+      "values_uv": {
+        "0": 985260,
+        "1": 990085,
+        "2": 999908
+      },
+      "error_uv": {
+        "0": -14740,
+        "1": -9915,
+        "2": -92
+      },
+      "pp_uv": {
+        "0": 1277,
+        "1": 5836,
+        "2": 572
+      },
+      "codes": [
+        0,
+        -110,
+        0,
+        0
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T23:39:48",
+      "message": "    conjunto aguas arriba: dentro de 20.0 mV"
+    },
+    {
+      "t": "2026-09-07T23:39:48",
+      "message": "    SUMo con PGAout x50 base 0: ch3   +15.07 mV",
+      "kind": "snapshot",
+      "label": "SUMo con PGAout x50 base 0",
+      "values_uv": {
+        "3": 1015071
+      },
+      "error_uv": {
+        "3": 15071
+      },
+      "pp_uv": {
+        "3": 27675
+      },
+      "codes": [
+        0,
+        -110,
+        0,
+        0
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T23:39:48",
+      "message": "    IDAC2: +0 -> +6 identificar SUMo con PGAout x50",
+      "kind": "idac",
+      "stage": 2,
+      "old": 0,
+      "code": 6,
+      "reason": "identificar SUMo con PGAout x50"
+    },
+    {
+      "t": "2026-09-07T23:39:48",
+      "message": "    asentando 2.0 s: pendiente SUMo con PGAout x50"
+    },
+    {
+      "t": "2026-09-07T23:39:51",
+      "message": "    SUMo con PGAout x50 prueba 0: ch3   +27.09 mV",
+      "kind": "snapshot",
+      "label": "SUMo con PGAout x50 prueba 0",
+      "values_uv": {
+        "3": 1027088
+      },
+      "error_uv": {
+        "3": 27088
+      },
+      "pp_uv": {
+        "3": 30555
+      },
+      "codes": [
+        0,
+        -110,
+        6,
+        0
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T23:39:51",
+      "message": "    SUMo con PGAout x50: pendiente +2002.8 uV/código",
+      "kind": "slope",
+      "stage": 2,
+      "channel": 3,
+      "slope_uv_per_code": 2002.8333333333333,
+      "gain": 50
+    },
+    {
+      "t": "2026-09-07T23:39:51",
+      "message": "    IDAC2: +6 -> -8 Newton SUMo con PGAout x50",
+      "kind": "idac",
+      "stage": 2,
+      "old": 6,
+      "code": -8,
+      "reason": "Newton SUMo con PGAout x50"
+    },
+    {
+      "t": "2026-09-07T23:39:51",
+      "message": "    asentando 2.0 s: aplicar SUMo con PGAout x50"
+    },
+    {
+      "t": "2026-09-07T23:39:54",
+      "message": "    SUMo con PGAout x50 base 1: ch3   +48.35 mV",
+      "kind": "snapshot",
+      "label": "SUMo con PGAout x50 base 1",
+      "values_uv": {
+        "3": 1048355
+      },
+      "error_uv": {
+        "3": 48355
+      },
+      "pp_uv": {
+        "3": 19626
+      },
+      "codes": [
+        0,
+        -110,
+        -8,
+        0
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T23:39:54",
+      "message": "    IDAC2: -8 -> -2 identificar SUMo con PGAout x50",
+      "kind": "idac",
+      "stage": 2,
+      "old": -8,
+      "code": -2,
+      "reason": "identificar SUMo con PGAout x50"
+    },
+    {
+      "t": "2026-09-07T23:39:54",
+      "message": "    asentando 2.0 s: pendiente SUMo con PGAout x50"
+    },
+    {
+      "t": "2026-09-07T23:39:56",
+      "message": "    SUMo con PGAout x50 prueba 1: ch3   +48.32 mV",
+      "kind": "snapshot",
+      "label": "SUMo con PGAout x50 prueba 1",
+      "values_uv": {
+        "3": 1048316
+      },
+      "error_uv": {
+        "3": 48316
+      },
+      "pp_uv": {
+        "3": 34065
+      },
+      "codes": [
+        0,
+        -110,
+        -2,
+        0
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T23:39:56",
+      "message": "    SUMo con PGAout x50: pendiente -6.5 uV/código",
+      "kind": "slope",
+      "stage": 2,
+      "channel": 3,
+      "slope_uv_per_code": -6.5,
+      "gain": 50
+    },
+    {
+      "t": "2026-09-07T23:39:56",
+      "message": "    IDAC2: -2 -> -8 SUMo con PGAout x50 sin autoridad",
+      "kind": "idac",
+      "stage": 2,
+      "old": -2,
+      "code": -8,
+      "reason": "SUMo con PGAout x50 sin autoridad"
+    },
+    {
+      "t": "2026-09-07T23:39:56",
+      "message": "    asentando 2.0 s: restaurar SUMo con PGAout x50"
+    },
+    {
+      "t": "2026-09-07T23:39:59",
+      "message": "    LPo fino base 0: ch4  -257.36 mV",
+      "kind": "snapshot",
+      "label": "LPo fino base 0",
+      "values_uv": {
+        "4": 742645
+      },
+      "error_uv": {
+        "4": -257355
+      },
+      "pp_uv": {
+        "4": 171
+      },
+      "codes": [
+        0,
+        -110,
+        -8,
+        0
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T23:39:59",
+      "message": "    IDAC3: +0 -> +32 identificar LPo fino",
+      "kind": "idac",
+      "stage": 3,
+      "old": 0,
+      "code": 32,
+      "reason": "identificar LPo fino"
+    },
+    {
+      "t": "2026-09-07T23:39:59",
+      "message": "    asentando 25.0 s: pendiente LPo fino"
+    },
+    {
+      "t": "2026-09-07T23:40:25",
+      "message": "    LPo fino prueba 0: ch4  -256.36 mV",
+      "kind": "snapshot",
+      "label": "LPo fino prueba 0",
+      "values_uv": {
+        "4": 743637
+      },
+      "error_uv": {
+        "4": -256363
+      },
+      "pp_uv": {
+        "4": 33607
+      },
+      "codes": [
+        0,
+        -110,
+        -8,
+        32
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T23:40:25",
+      "message": "    LPo fino: pendiente +31.0 uV/código",
+      "kind": "slope",
+      "stage": 3,
+      "channel": 4,
+      "slope_uv_per_code": 31.0,
+      "gain": 50
+    },
+    {
+      "t": "2026-09-07T23:40:25",
+      "message": "    IDAC3: +32 -> +255 Newton LPo fino",
+      "kind": "idac",
+      "stage": 3,
+      "old": 32,
+      "code": 255,
+      "reason": "Newton LPo fino"
+    },
+    {
+      "t": "2026-09-07T23:40:25",
+      "message": "    asentando 25.0 s: aplicar LPo fino"
+    },
+    {
+      "t": "2026-09-07T23:40:50",
+      "message": "    LPo fino base 1: ch4  -191.46 mV",
+      "kind": "snapshot",
+      "label": "LPo fino base 1",
+      "values_uv": {
+        "4": 808544
+      },
+      "error_uv": {
+        "4": -191456
+      },
+      "pp_uv": {
+        "4": 111522
+      },
+      "codes": [
+        0,
+        -110,
+        -8,
+        255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T23:40:50",
+      "message": "    IDAC3: +255 -> +223 identificar LPo fino",
+      "kind": "idac",
+      "stage": 3,
+      "old": 255,
+      "code": 223,
+      "reason": "identificar LPo fino"
+    },
+    {
+      "t": "2026-09-07T23:40:50",
+      "message": "    asentando 25.0 s: pendiente LPo fino"
+    },
+    {
+      "t": "2026-09-07T23:41:16",
+      "message": "    LPo fino prueba 1: ch4  -198.78 mV",
+      "kind": "snapshot",
+      "label": "LPo fino prueba 1",
+      "values_uv": {
+        "4": 801219
+      },
+      "error_uv": {
+        "4": -198781
+      },
+      "pp_uv": {
+        "4": 104255
+      },
+      "codes": [
+        0,
+        -110,
+        -8,
+        223
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T23:41:16",
+      "message": "    LPo fino: pendiente +228.9 uV/código",
+      "kind": "slope",
+      "stage": 3,
+      "channel": 4,
+      "slope_uv_per_code": 228.90625,
+      "gain": 50
+    },
+    {
+      "t": "2026-09-07T23:41:16",
+      "message": "    IDAC3: +223 -> +255 Newton LPo fino",
+      "kind": "idac",
+      "stage": 3,
+      "old": 223,
+      "code": 255,
+      "reason": "Newton LPo fino"
+    },
+    {
+      "t": "2026-09-07T23:41:16",
+      "message": "    asentando 25.0 s: aplicar LPo fino"
+    },
+    {
+      "t": "2026-09-07T23:41:42",
+      "message": "    LPo fino base 2: ch4  -253.88 mV",
+      "kind": "snapshot",
+      "label": "LPo fino base 2",
+      "values_uv": {
+        "4": 746116
+      },
+      "error_uv": {
+        "4": -253884
+      },
+      "pp_uv": {
+        "4": 80795
+      },
+      "codes": [
+        0,
+        -110,
+        -8,
+        255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T23:41:42",
+      "message": "    IDAC3: +255 -> +223 identificar LPo fino",
+      "kind": "idac",
+      "stage": 3,
+      "old": 255,
+      "code": 223,
+      "reason": "identificar LPo fino"
+    },
+    {
+      "t": "2026-09-07T23:41:42",
+      "message": "    asentando 25.0 s: pendiente LPo fino"
+    },
+    {
+      "t": "2026-09-07T23:42:07",
+      "message": "    LPo fino prueba 2: ch4  -177.61 mV",
+      "kind": "snapshot",
+      "label": "LPo fino prueba 2",
+      "values_uv": {
+        "4": 822391
+      },
+      "error_uv": {
+        "4": -177609
+      },
+      "pp_uv": {
+        "4": 130329
+      },
+      "codes": [
+        0,
+        -110,
+        -8,
+        223
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T23:42:07",
+      "message": "    LPo fino: pendiente -2383.6 uV/código",
+      "kind": "slope",
+      "stage": 3,
+      "channel": 4,
+      "slope_uv_per_code": -2383.59375,
+      "gain": 50
+    },
+    {
+      "t": "2026-09-07T23:42:07",
+      "message": "    IDAC3: +223 -> +148 Newton LPo fino",
+      "kind": "idac",
+      "stage": 3,
+      "old": 223,
+      "code": 148,
+      "reason": "Newton LPo fino"
+    },
+    {
+      "t": "2026-09-07T23:42:07",
+      "message": "    asentando 25.0 s: aplicar LPo fino"
+    },
+    {
+      "t": "2026-09-07T23:42:35",
+      "message": "    control previo a redistribución: ch0   -15.14 mV  ch1   -10.51 mV  ch2    -0.04 mV  ch3   +33.84 mV  ch4  -257.41 mV",
+      "kind": "snapshot",
+      "label": "control previo a redistribución",
+      "values_uv": {
+        "0": 984859,
+        "1": 989494,
+        "2": 999965,
+        "3": 1033840,
+        "4": 742588
+      },
+      "error_uv": {
+        "0": -15141,
+        "1": -10506,
+        "2": -35,
+        "3": 33840,
+        "4": -257412
+      },
+      "pp_uv": {
+        "0": 2269,
+        "1": 2880,
+        "2": 419,
+        "3": 23918,
+        "4": 209
+      },
+      "codes": [
+        0,
+        -110,
+        -8,
+        148
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T23:42:35",
+      "message": "    LPo fuera de 20 mV: habilito redistribución con IDAC2"
+    },
+    {
+      "t": "2026-09-07T23:42:36",
+      "message": "    LPo grueso desde PGAout x50 base 0: ch4  -257.36 mV",
+      "kind": "snapshot",
+      "label": "LPo grueso desde PGAout x50 base 0",
+      "values_uv": {
+        "4": 742645
+      },
+      "error_uv": {
+        "4": -257355
+      },
+      "pp_uv": {
+        "4": 190
+      },
+      "codes": [
+        0,
+        -110,
+        -8,
+        148
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T23:42:36",
+      "message": "    IDAC2: -8 -> +4 identificar LPo grueso desde PGAout x50",
+      "kind": "idac",
+      "stage": 2,
+      "old": -8,
+      "code": 4,
+      "reason": "identificar LPo grueso desde PGAout x50"
+    },
+    {
+      "t": "2026-09-07T23:42:36",
+      "message": "    asentando 25.0 s: pendiente LPo grueso desde PGAout x50"
+    },
+    {
+      "t": "2026-09-07T23:43:02",
+      "message": "    LPo grueso desde PGAout x50 prueba 0: ch4  -254.74 mV",
+      "kind": "snapshot",
+      "label": "LPo grueso desde PGAout x50 prueba 0",
+      "values_uv": {
+        "4": 745258
+      },
+      "error_uv": {
+        "4": -254742
+      },
+      "pp_uv": {
+        "4": 82244
+      },
+      "codes": [
+        0,
+        -110,
+        4,
+        148
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T23:43:02",
+      "message": "    LPo grueso desde PGAout x50: pendiente +217.8 uV/código",
+      "kind": "slope",
+      "stage": 2,
+      "channel": 4,
+      "slope_uv_per_code": 217.75,
+      "gain": 50
+    },
+    {
+      "t": "2026-09-07T23:43:02",
+      "message": "    IDAC2: +4 -> +247 Newton LPo grueso desde PGAout x50",
+      "kind": "idac",
+      "stage": 2,
+      "old": 4,
+      "code": 247,
+      "reason": "Newton LPo grueso desde PGAout x50"
+    },
+    {
+      "t": "2026-09-07T23:43:02",
+      "message": "    asentando 25.0 s: aplicar LPo grueso desde PGAout x50"
+    },
+    {
+      "t": "2026-09-07T23:43:27",
+      "message": "    LPo grueso desde PGAout x50 base 1: ch4  -106.06 mV",
+      "kind": "snapshot",
+      "label": "LPo grueso desde PGAout x50 base 1",
+      "values_uv": {
+        "4": 893936
+      },
+      "error_uv": {
+        "4": -106064
+      },
+      "pp_uv": {
+        "4": 99811
+      },
+      "codes": [
+        0,
+        -110,
+        247,
+        148
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T23:43:27",
+      "message": "    IDAC2: +247 -> +235 identificar LPo grueso desde PGAout x50",
+      "kind": "idac",
+      "stage": 2,
+      "old": 247,
+      "code": 235,
+      "reason": "identificar LPo grueso desde PGAout x50"
+    },
+    {
+      "t": "2026-09-07T23:43:27",
+      "message": "    asentando 25.0 s: pendiente LPo grueso desde PGAout x50"
+    },
+    {
+      "t": "2026-09-07T23:43:53",
+      "message": "    LPo grueso desde PGAout x50 prueba 1: ch4  -102.23 mV",
+      "kind": "snapshot",
+      "label": "LPo grueso desde PGAout x50 prueba 1",
+      "values_uv": {
+        "4": 897769
+      },
+      "error_uv": {
+        "4": -102231
+      },
+      "pp_uv": {
+        "4": 104789
+      },
+      "codes": [
+        0,
+        -110,
+        235,
+        148
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T23:43:53",
+      "message": "    LPo grueso desde PGAout x50: pendiente -319.4 uV/código",
+      "kind": "slope",
+      "stage": 2,
+      "channel": 4,
+      "slope_uv_per_code": -319.4166666666667,
+      "gain": 50
+    },
+    {
+      "t": "2026-09-07T23:43:53",
+      "message": "    IDAC2: +235 -> -8 Newton LPo grueso desde PGAout x50",
+      "kind": "idac",
+      "stage": 2,
+      "old": 235,
+      "code": -8,
+      "reason": "Newton LPo grueso desde PGAout x50"
+    },
+    {
+      "t": "2026-09-07T23:43:53",
+      "message": "    asentando 25.0 s: aplicar LPo grueso desde PGAout x50"
+    },
+    {
+      "t": "2026-09-07T23:44:19",
+      "message": "    LPo grueso desde PGAout x50 base 2: ch4  -255.09 mV",
+      "kind": "snapshot",
+      "label": "LPo grueso desde PGAout x50 base 2",
+      "values_uv": {
+        "4": 744915
+      },
+      "error_uv": {
+        "4": -255085
+      },
+      "pp_uv": {
+        "4": 66890
+      },
+      "codes": [
+        0,
+        -110,
+        -8,
+        148
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T23:44:19",
+      "message": "    IDAC2: -8 -> +4 identificar LPo grueso desde PGAout x50",
+      "kind": "idac",
+      "stage": 2,
+      "old": -8,
+      "code": 4,
+      "reason": "identificar LPo grueso desde PGAout x50"
+    },
+    {
+      "t": "2026-09-07T23:44:19",
+      "message": "    asentando 25.0 s: pendiente LPo grueso desde PGAout x50"
+    }
+  ],
+  "results": []
+}

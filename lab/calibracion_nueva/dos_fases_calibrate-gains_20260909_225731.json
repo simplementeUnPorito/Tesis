@@ -1,0 +1,553 @@
+{
+  "algorithm": "two-phase closed loop; no seeds",
+  "started_at": "2026-09-09T22:58:49",
+  "codes": [
+    19,
+    140,
+    254,
+    83
+  ],
+  "events": [
+    {
+      "at": "2026-09-09T22:57:37.776",
+      "kind": "gain_campaign_start",
+      "message": "Campa\u00f1a 1/1",
+      "run": 1
+    },
+    {
+      "at": "2026-09-09T22:58:40.973",
+      "kind": "phase1_fast_pass",
+      "message": "Fase 1 r\u00e1pida PASS: [19, 140]",
+      "result": {
+        "pass": true,
+        "codes": [
+          19,
+          140
+        ],
+        "pga": {
+          "elapsed_s": 62.97886699999981,
+          "phase": "fase1 historial IDAC0",
+          "stage": 0,
+          "code": 19,
+          "channel": 0,
+          "mean_bank_uv": 999736,
+          "error_bank_uv": -1764,
+          "error_real_mv": -35.131294800000006,
+          "pp_bank_uv": 2841,
+          "valid": true
+        },
+        "bp": {
+          "elapsed_s": 63.195859200000996,
+          "phase": "fase1 historial IDAC1",
+          "stage": 1,
+          "code": 140,
+          "channel": 1,
+          "mean_bank_uv": 985298,
+          "error_bank_uv": -16202,
+          "error_real_mv": -322.6741714,
+          "pp_bank_uv": 3147,
+          "valid": true
+        },
+        "elapsed_s": 63.1969852000002,
+        "source": "history + measured correction"
+      }
+    },
+    {
+      "at": "2026-09-09T22:58:45.762",
+      "kind": "gain_pass",
+      "message": "PGAout x1 PASS hist\u00f3rico en 4.8s: [19, 140, 254, 83]",
+      "result": {
+        "gain": 1,
+        "pass": true,
+        "codes": [
+          19,
+          140,
+          254,
+          83
+        ],
+        "final": {
+          "0": {
+            "elapsed_s": 65.40231219999987,
+            "phase": "x1 historial verificaci\u00f3n",
+            "stage": 0,
+            "code": 19,
+            "channel": 0,
+            "mean_bank_uv": 1000843,
+            "error_bank_uv": -657,
+            "error_real_mv": -13.0846149,
+            "pp_bank_uv": 2403,
+            "valid": true
+          },
+          "1": {
+            "elapsed_s": 66.05387700000028,
+            "phase": "x1 historial verificaci\u00f3n",
+            "stage": 1,
+            "code": 140,
+            "channel": 1,
+            "mean_bank_uv": 985240,
+            "error_bank_uv": -16260,
+            "error_real_mv": -323.82928200000003,
+            "pp_bank_uv": 3471,
+            "valid": true
+          },
+          "2": {
+            "elapsed_s": 66.70595560000038,
+            "phase": "x1 historial verificaci\u00f3n",
+            "stage": 2,
+            "code": 254,
+            "channel": 2,
+            "mean_bank_uv": 988349,
+            "error_bank_uv": -13151,
+            "error_real_mv": -261.9113707,
+            "pp_bank_uv": 495,
+            "valid": true
+          },
+          "3": {
+            "elapsed_s": 67.35194620000038,
+            "phase": "x1 historial verificaci\u00f3n",
+            "stage": 2,
+            "code": 254,
+            "channel": 3,
+            "mean_bank_uv": 987529,
+            "error_bank_uv": -13971,
+            "error_real_mv": -278.2422447,
+            "pp_bank_uv": 534,
+            "valid": true
+          },
+          "4": {
+            "elapsed_s": 67.98519140000099,
+            "phase": "x1 historial verificaci\u00f3n",
+            "stage": 3,
+            "code": 83,
+            "channel": 4,
+            "mean_bank_uv": 1106166,
+            "error_bank_uv": 104666,
+            "error_real_mv": 2084.4966562,
+            "pp_bank_uv": 114,
+            "valid": true
+          }
+        },
+        "all_taps_valid": true,
+        "elapsed_s": 4.788549899998543,
+        "source": "history verified; no search"
+      }
+    },
+    {
+      "at": "2026-09-09T22:58:45.764",
+      "kind": "gain_campaign_result",
+      "message": "Campa\u00f1a ganancias: 1/1 PASS",
+      "result": {
+        "pass": true,
+        "phase1": {
+          "pass": true,
+          "codes": [
+            19,
+            140
+          ],
+          "pga": {
+            "elapsed_s": 62.97886699999981,
+            "phase": "fase1 historial IDAC0",
+            "stage": 0,
+            "code": 19,
+            "channel": 0,
+            "mean_bank_uv": 999736,
+            "error_bank_uv": -1764,
+            "error_real_mv": -35.131294800000006,
+            "pp_bank_uv": 2841,
+            "valid": true
+          },
+          "bp": {
+            "elapsed_s": 63.195859200000996,
+            "phase": "fase1 historial IDAC1",
+            "stage": 1,
+            "code": 140,
+            "channel": 1,
+            "mean_bank_uv": 985298,
+            "error_bank_uv": -16202,
+            "error_real_mv": -322.6741714,
+            "pp_bank_uv": 3147,
+            "valid": true
+          },
+          "elapsed_s": 63.1969852000002,
+          "source": "history + measured correction"
+        },
+        "gains": [
+          {
+            "gain": 1,
+            "pass": true,
+            "codes": [
+              19,
+              140,
+              254,
+              83
+            ],
+            "final": {
+              "0": {
+                "elapsed_s": 65.40231219999987,
+                "phase": "x1 historial verificaci\u00f3n",
+                "stage": 0,
+                "code": 19,
+                "channel": 0,
+                "mean_bank_uv": 1000843,
+                "error_bank_uv": -657,
+                "error_real_mv": -13.0846149,
+                "pp_bank_uv": 2403,
+                "valid": true
+              },
+              "1": {
+                "elapsed_s": 66.05387700000028,
+                "phase": "x1 historial verificaci\u00f3n",
+                "stage": 1,
+                "code": 140,
+                "channel": 1,
+                "mean_bank_uv": 985240,
+                "error_bank_uv": -16260,
+                "error_real_mv": -323.82928200000003,
+                "pp_bank_uv": 3471,
+                "valid": true
+              },
+              "2": {
+                "elapsed_s": 66.70595560000038,
+                "phase": "x1 historial verificaci\u00f3n",
+                "stage": 2,
+                "code": 254,
+                "channel": 2,
+                "mean_bank_uv": 988349,
+                "error_bank_uv": -13151,
+                "error_real_mv": -261.9113707,
+                "pp_bank_uv": 495,
+                "valid": true
+              },
+              "3": {
+                "elapsed_s": 67.35194620000038,
+                "phase": "x1 historial verificaci\u00f3n",
+                "stage": 2,
+                "code": 254,
+                "channel": 3,
+                "mean_bank_uv": 987529,
+                "error_bank_uv": -13971,
+                "error_real_mv": -278.2422447,
+                "pp_bank_uv": 534,
+                "valid": true
+              },
+              "4": {
+                "elapsed_s": 67.98519140000099,
+                "phase": "x1 historial verificaci\u00f3n",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1106166,
+                "error_bank_uv": 104666,
+                "error_real_mv": 2084.4966562,
+                "pp_bank_uv": 114,
+                "valid": true
+              }
+            },
+            "all_taps_valid": true,
+            "elapsed_s": 4.788549899998543,
+            "source": "history verified; no search"
+          }
+        ],
+        "requested_gains": [
+          1
+        ],
+        "initial_elapsed_s": 63.19558759999927,
+        "total_elapsed_s": 67.98568879999948
+      }
+    },
+    {
+      "at": "2026-09-09T22:58:47.913",
+      "kind": "write_retry",
+      "message": "reintento IDAC0=19",
+      "stage": 0,
+      "code": 19,
+      "attempt": 1
+    },
+    {
+      "at": "2026-09-09T22:58:49.541",
+      "kind": "eeprom_saved",
+      "message": "EEPROM guardada con el punto x1 verificado",
+      "codes": [
+        19,
+        140,
+        254,
+        83
+      ]
+    },
+    {
+      "at": "2026-09-09T22:58:49.542",
+      "kind": "campaign_summary",
+      "message": "Campa\u00f1as ganancias: 1/1 PASS",
+      "runs": [
+        {
+          "run": 1,
+          "pass": true,
+          "result": {
+            "pass": true,
+            "phase1": {
+              "pass": true,
+              "codes": [
+                19,
+                140
+              ],
+              "pga": {
+                "elapsed_s": 62.97886699999981,
+                "phase": "fase1 historial IDAC0",
+                "stage": 0,
+                "code": 19,
+                "channel": 0,
+                "mean_bank_uv": 999736,
+                "error_bank_uv": -1764,
+                "error_real_mv": -35.131294800000006,
+                "pp_bank_uv": 2841,
+                "valid": true
+              },
+              "bp": {
+                "elapsed_s": 63.195859200000996,
+                "phase": "fase1 historial IDAC1",
+                "stage": 1,
+                "code": 140,
+                "channel": 1,
+                "mean_bank_uv": 985298,
+                "error_bank_uv": -16202,
+                "error_real_mv": -322.6741714,
+                "pp_bank_uv": 3147,
+                "valid": true
+              },
+              "elapsed_s": 63.1969852000002,
+              "source": "history + measured correction"
+            },
+            "gains": [
+              {
+                "gain": 1,
+                "pass": true,
+                "codes": [
+                  19,
+                  140,
+                  254,
+                  83
+                ],
+                "final": {
+                  "0": {
+                    "elapsed_s": 65.40231219999987,
+                    "phase": "x1 historial verificaci\u00f3n",
+                    "stage": 0,
+                    "code": 19,
+                    "channel": 0,
+                    "mean_bank_uv": 1000843,
+                    "error_bank_uv": -657,
+                    "error_real_mv": -13.0846149,
+                    "pp_bank_uv": 2403,
+                    "valid": true
+                  },
+                  "1": {
+                    "elapsed_s": 66.05387700000028,
+                    "phase": "x1 historial verificaci\u00f3n",
+                    "stage": 1,
+                    "code": 140,
+                    "channel": 1,
+                    "mean_bank_uv": 985240,
+                    "error_bank_uv": -16260,
+                    "error_real_mv": -323.82928200000003,
+                    "pp_bank_uv": 3471,
+                    "valid": true
+                  },
+                  "2": {
+                    "elapsed_s": 66.70595560000038,
+                    "phase": "x1 historial verificaci\u00f3n",
+                    "stage": 2,
+                    "code": 254,
+                    "channel": 2,
+                    "mean_bank_uv": 988349,
+                    "error_bank_uv": -13151,
+                    "error_real_mv": -261.9113707,
+                    "pp_bank_uv": 495,
+                    "valid": true
+                  },
+                  "3": {
+                    "elapsed_s": 67.35194620000038,
+                    "phase": "x1 historial verificaci\u00f3n",
+                    "stage": 2,
+                    "code": 254,
+                    "channel": 3,
+                    "mean_bank_uv": 987529,
+                    "error_bank_uv": -13971,
+                    "error_real_mv": -278.2422447,
+                    "pp_bank_uv": 534,
+                    "valid": true
+                  },
+                  "4": {
+                    "elapsed_s": 67.98519140000099,
+                    "phase": "x1 historial verificaci\u00f3n",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1106166,
+                    "error_bank_uv": 104666,
+                    "error_real_mv": 2084.4966562,
+                    "pp_bank_uv": 114,
+                    "valid": true
+                  }
+                },
+                "all_taps_valid": true,
+                "elapsed_s": 4.788549899998543,
+                "source": "history verified; no search"
+              }
+            ],
+            "requested_gains": [
+              1
+            ],
+            "initial_elapsed_s": 63.19558759999927,
+            "total_elapsed_s": 67.98568879999948
+          }
+        }
+      ]
+    }
+  ],
+  "measurements": [
+    {
+      "elapsed_s": 62.97886699999981,
+      "phase": "fase1 historial IDAC0",
+      "stage": 0,
+      "code": 19,
+      "channel": 0,
+      "mean_bank_uv": 999736,
+      "error_bank_uv": -1764,
+      "error_real_mv": -35.131294800000006,
+      "pp_bank_uv": 2841,
+      "valid": true
+    },
+    {
+      "elapsed_s": 63.195859200000996,
+      "phase": "fase1 historial IDAC1",
+      "stage": 1,
+      "code": 140,
+      "channel": 1,
+      "mean_bank_uv": 985298,
+      "error_bank_uv": -16202,
+      "error_real_mv": -322.6741714,
+      "pp_bank_uv": 3147,
+      "valid": true
+    },
+    {
+      "elapsed_s": 65.40231219999987,
+      "phase": "x1 historial verificaci\u00f3n",
+      "stage": 0,
+      "code": 19,
+      "channel": 0,
+      "mean_bank_uv": 1000843,
+      "error_bank_uv": -657,
+      "error_real_mv": -13.0846149,
+      "pp_bank_uv": 2403,
+      "valid": true
+    },
+    {
+      "elapsed_s": 66.05387700000028,
+      "phase": "x1 historial verificaci\u00f3n",
+      "stage": 1,
+      "code": 140,
+      "channel": 1,
+      "mean_bank_uv": 985240,
+      "error_bank_uv": -16260,
+      "error_real_mv": -323.82928200000003,
+      "pp_bank_uv": 3471,
+      "valid": true
+    },
+    {
+      "elapsed_s": 66.70595560000038,
+      "phase": "x1 historial verificaci\u00f3n",
+      "stage": 2,
+      "code": 254,
+      "channel": 2,
+      "mean_bank_uv": 988349,
+      "error_bank_uv": -13151,
+      "error_real_mv": -261.9113707,
+      "pp_bank_uv": 495,
+      "valid": true
+    },
+    {
+      "elapsed_s": 67.35194620000038,
+      "phase": "x1 historial verificaci\u00f3n",
+      "stage": 2,
+      "code": 254,
+      "channel": 3,
+      "mean_bank_uv": 987529,
+      "error_bank_uv": -13971,
+      "error_real_mv": -278.2422447,
+      "pp_bank_uv": 534,
+      "valid": true
+    },
+    {
+      "elapsed_s": 67.98519140000099,
+      "phase": "x1 historial verificaci\u00f3n",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1106166,
+      "error_bank_uv": 104666,
+      "error_real_mv": 2084.4966562,
+      "pp_bank_uv": 114,
+      "valid": true
+    },
+    {
+      "elapsed_s": 70.81898430000001,
+      "phase": "EEPROM verificaci\u00f3n x1",
+      "stage": 0,
+      "code": 19,
+      "channel": 0,
+      "mean_bank_uv": 1000576,
+      "error_bank_uv": -924,
+      "error_real_mv": -18.402106800000002,
+      "pp_bank_uv": 2593,
+      "valid": true
+    },
+    {
+      "elapsed_s": 71.03822070000024,
+      "phase": "EEPROM verificaci\u00f3n x1",
+      "stage": 1,
+      "code": 140,
+      "channel": 1,
+      "mean_bank_uv": 987033,
+      "error_bank_uv": -14467,
+      "error_real_mv": -288.1204319,
+      "pp_bank_uv": 3585,
+      "valid": true
+    },
+    {
+      "elapsed_s": 71.25578740000128,
+      "phase": "EEPROM verificaci\u00f3n x1",
+      "stage": 2,
+      "code": 254,
+      "channel": 2,
+      "mean_bank_uv": 982170,
+      "error_bank_uv": -19330,
+      "error_real_mv": -384.970481,
+      "pp_bank_uv": 820,
+      "valid": true
+    },
+    {
+      "elapsed_s": 71.47319000000061,
+      "phase": "EEPROM verificaci\u00f3n x1",
+      "stage": 3,
+      "code": 83,
+      "channel": 3,
+      "mean_bank_uv": 982227,
+      "error_bank_uv": -19273,
+      "error_real_mv": -383.8352861,
+      "pp_bank_uv": 610,
+      "valid": true
+    },
+    {
+      "elapsed_s": 71.69009150000056,
+      "phase": "EEPROM verificaci\u00f3n x1",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1106147,
+      "error_bank_uv": 104647,
+      "error_real_mv": 2084.1182579,
+      "pp_bank_uv": 114,
+      "valid": true
+    }
+  ]
+}

@@ -1,0 +1,949 @@
+{
+  "topology": "IDAC1 shared OPAbp+OPAsum; IDAC2 PGAout; IDAC3 LP",
+  "target_uv": 1000000,
+  "budgets_uv": {
+    "0": 500000,
+    "1": 500000,
+    "2": 1000000,
+    "3": 1000000
+  },
+  "pga_x": 50,
+  "current_pgaout_x": 50,
+  "current_codes": [
+    6,
+    -45,
+    255,
+    -127
+  ],
+  "events": [
+    {
+      "t": "2026-09-07T20:25:30",
+      "message": "======================================================================"
+    },
+    {
+      "t": "2026-09-07T20:25:31",
+      "message": "PGA=x50; PGAout=x50",
+      "kind": "gain",
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:25:31",
+      "message": "    asentando 10.0 s: estado inicial x50"
+    },
+    {
+      "t": "2026-09-07T20:25:44",
+      "message": "    inicial: ch0   -14.59 mV  ch1   -10.72 mV  ch2   +37.88 mV  ch3  -257.07 mV  ch4   +49.63 mV",
+      "kind": "snapshot",
+      "label": "inicial",
+      "values_uv": {
+        "0": 985412,
+        "1": 989284,
+        "2": 1037883,
+        "3": 742931,
+        "4": 1049633
+      },
+      "error_uv": {
+        "0": -14588,
+        "1": -10716,
+        "2": 37883,
+        "3": -257069,
+        "4": 49633
+      },
+      "pp_uv": {
+        "0": 1869,
+        "1": 2803,
+        "2": 23365,
+        "3": 114,
+        "4": 286
+      },
+      "codes": [
+        0,
+        -110,
+        250,
+        -255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:25:44",
+      "message": "    PGAgain base 0: ch0   -13.75 mV",
+      "kind": "snapshot",
+      "label": "PGAgain base 0",
+      "values_uv": {
+        "0": 986251
+      },
+      "error_uv": {
+        "0": -13749
+      },
+      "pp_uv": {
+        "0": 2346
+      },
+      "codes": [
+        0,
+        -110,
+        250,
+        -255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:25:44",
+      "message": "    IDAC0: +0 -> +3 identificar PGAgain",
+      "kind": "idac",
+      "stage": 0,
+      "old": 0,
+      "code": 3,
+      "reason": "identificar PGAgain"
+    },
+    {
+      "t": "2026-09-07T20:25:44",
+      "message": "    asentando 2.0 s: pendiente PGAgain"
+    },
+    {
+      "t": "2026-09-07T20:25:47",
+      "message": "    PGAgain prueba 0: ch0    -6.92 mV",
+      "kind": "snapshot",
+      "label": "PGAgain prueba 0",
+      "values_uv": {
+        "0": 993080
+      },
+      "error_uv": {
+        "0": -6920
+      },
+      "pp_uv": {
+        "0": 2136
+      },
+      "codes": [
+        3,
+        -110,
+        250,
+        -255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:25:47",
+      "message": "    PGAgain: pendiente +2276.3 uV/código",
+      "kind": "slope",
+      "stage": 0,
+      "channel": 0,
+      "slope_uv_per_code": 2276.3333333333335,
+      "gain": 50
+    },
+    {
+      "t": "2026-09-07T20:25:47",
+      "message": "    IDAC0: +3 -> +6 Newton PGAgain",
+      "kind": "idac",
+      "stage": 0,
+      "old": 3,
+      "code": 6,
+      "reason": "Newton PGAgain"
+    },
+    {
+      "t": "2026-09-07T20:25:47",
+      "message": "    asentando 2.0 s: aplicar PGAgain"
+    },
+    {
+      "t": "2026-09-07T20:25:50",
+      "message": "    PGAgain base 1: ch0    +0.35 mV",
+      "kind": "snapshot",
+      "label": "PGAgain base 1",
+      "values_uv": {
+        "0": 1000347
+      },
+      "error_uv": {
+        "0": 347
+      },
+      "pp_uv": {
+        "0": 2079
+      },
+      "codes": [
+        6,
+        -110,
+        250,
+        -255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:25:50",
+      "message": "    PGAgain: dentro de 3.0 mV"
+    },
+    {
+      "t": "2026-09-07T20:25:50",
+      "message": "    asentando 10.0 s: propagación de PGAgain hacia BP"
+    },
+    {
+      "t": "2026-09-07T20:26:01",
+      "message": "    BP/SUM compartida base 0: ch1   -21.30 mV  ch2  -251.16 mV",
+      "kind": "snapshot",
+      "label": "BP/SUM compartida base 0",
+      "values_uv": {
+        "1": 978698,
+        "2": 748844
+      },
+      "error_uv": {
+        "1": -21302,
+        "2": -251156
+      },
+      "pp_uv": {
+        "1": 3204,
+        "2": 286
+      },
+      "codes": [
+        6,
+        -110,
+        250,
+        -255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:26:01",
+      "message": "    IDAC1: -110 -> -104 identificar referencia compartida",
+      "kind": "idac",
+      "stage": 1,
+      "old": -110,
+      "code": -104,
+      "reason": "identificar referencia compartida"
+    },
+    {
+      "t": "2026-09-07T20:26:01",
+      "message": "    asentando 10.0 s: BP y OPA_SUMo"
+    },
+    {
+      "t": "2026-09-07T20:26:12",
+      "message": "    BP/SUM compartida prueba 0: ch1   -16.06 mV  ch2  -251.25 mV",
+      "kind": "snapshot",
+      "label": "BP/SUM compartida prueba 0",
+      "values_uv": {
+        "1": 983943,
+        "2": 748748
+      },
+      "error_uv": {
+        "1": -16057,
+        "2": -251252
+      },
+      "pp_uv": {
+        "1": 3700,
+        "2": 228
+      },
+      "codes": [
+        6,
+        -104,
+        250,
+        -255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:26:12",
+      "message": "    referencia compartida: ch1 +874.2 uV/código, ch2 -16.0 uV/código",
+      "kind": "shared_slope",
+      "slopes_uv_per_code": {
+        "1": 874.1666666666666,
+        "2": -16.0
+      },
+      "gain": 50
+    },
+    {
+      "t": "2026-09-07T20:26:12",
+      "message": "    IDAC1: -104 -> -87 mínimo conjunto BPo/OPA_SUMo",
+      "kind": "idac",
+      "stage": 1,
+      "old": -104,
+      "code": -87,
+      "reason": "mínimo conjunto BPo/OPA_SUMo"
+    },
+    {
+      "t": "2026-09-07T20:26:12",
+      "message": "    asentando 10.0 s: mínimo conjunto BPo/OPA_SUMo"
+    },
+    {
+      "t": "2026-09-07T20:26:23",
+      "message": "    BP/SUM compartida resultado 0: ch1   -11.46 mV  ch2  -251.19 mV",
+      "kind": "snapshot",
+      "label": "BP/SUM compartida resultado 0",
+      "values_uv": {
+        "1": 988540,
+        "2": 748805
+      },
+      "error_uv": {
+        "1": -11460,
+        "2": -251195
+      },
+      "pp_uv": {
+        "1": 3452,
+        "2": 190
+      },
+      "codes": [
+        6,
+        -87,
+        250,
+        -255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:26:25",
+      "message": "    BP/SUM compartida base 1: ch1   -11.35 mV  ch2  -251.21 mV",
+      "kind": "snapshot",
+      "label": "BP/SUM compartida base 1",
+      "values_uv": {
+        "1": 988655,
+        "2": 748786
+      },
+      "error_uv": {
+        "1": -11345,
+        "2": -251214
+      },
+      "pp_uv": {
+        "1": 3089,
+        "2": 152
+      },
+      "codes": [
+        6,
+        -87,
+        250,
+        -255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:26:25",
+      "message": "    IDAC1: -87 -> -81 identificar referencia compartida",
+      "kind": "idac",
+      "stage": 1,
+      "old": -87,
+      "code": -81,
+      "reason": "identificar referencia compartida"
+    },
+    {
+      "t": "2026-09-07T20:26:25",
+      "message": "    asentando 10.0 s: BP y OPA_SUMo"
+    },
+    {
+      "t": "2026-09-07T20:26:36",
+      "message": "    BP/SUM compartida prueba 1: ch1    -8.68 mV  ch2  -251.21 mV",
+      "kind": "snapshot",
+      "label": "BP/SUM compartida prueba 1",
+      "values_uv": {
+        "1": 991325,
+        "2": 748786
+      },
+      "error_uv": {
+        "1": -8675,
+        "2": -251214
+      },
+      "pp_uv": {
+        "1": 2994,
+        "2": 152
+      },
+      "codes": [
+        6,
+        -81,
+        250,
+        -255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:26:36",
+      "message": "    referencia compartida: ch1 +445.0 uV/código, ch2 +0.0 uV/código",
+      "kind": "shared_slope",
+      "slopes_uv_per_code": {
+        "1": 445.0,
+        "2": 0.0
+      },
+      "gain": 50
+    },
+    {
+      "t": "2026-09-07T20:26:36",
+      "message": "    IDAC1: -81 -> -62 mínimo conjunto BPo/OPA_SUMo",
+      "kind": "idac",
+      "stage": 1,
+      "old": -81,
+      "code": -62,
+      "reason": "mínimo conjunto BPo/OPA_SUMo"
+    },
+    {
+      "t": "2026-09-07T20:26:36",
+      "message": "    asentando 10.0 s: mínimo conjunto BPo/OPA_SUMo"
+    },
+    {
+      "t": "2026-09-07T20:26:47",
+      "message": "    BP/SUM compartida resultado 1: ch1    -4.40 mV  ch2  -251.21 mV",
+      "kind": "snapshot",
+      "label": "BP/SUM compartida resultado 1",
+      "values_uv": {
+        "1": 995597,
+        "2": 748786
+      },
+      "error_uv": {
+        "1": -4403,
+        "2": -251214
+      },
+      "pp_uv": {
+        "1": 3051,
+        "2": 133
+      },
+      "codes": [
+        6,
+        -62,
+        250,
+        -255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:26:48",
+      "message": "    BP/SUM compartida base 2: ch1    -5.34 mV  ch2  -251.18 mV",
+      "kind": "snapshot",
+      "label": "BP/SUM compartida base 2",
+      "values_uv": {
+        "1": 994663,
+        "2": 748825
+      },
+      "error_uv": {
+        "1": -5337,
+        "2": -251175
+      },
+      "pp_uv": {
+        "1": 2422,
+        "2": 152
+      },
+      "codes": [
+        6,
+        -62,
+        250,
+        -255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:26:48",
+      "message": "    IDAC1: -62 -> -56 identificar referencia compartida",
+      "kind": "idac",
+      "stage": 1,
+      "old": -62,
+      "code": -56,
+      "reason": "identificar referencia compartida"
+    },
+    {
+      "t": "2026-09-07T20:26:48",
+      "message": "    asentando 10.0 s: BP y OPA_SUMo"
+    },
+    {
+      "t": "2026-09-07T20:27:00",
+      "message": "    BP/SUM compartida prueba 2: ch1    -4.57 mV  ch2  -251.21 mV",
+      "kind": "snapshot",
+      "label": "BP/SUM compartida prueba 2",
+      "values_uv": {
+        "1": 995426,
+        "2": 748786
+      },
+      "error_uv": {
+        "1": -4574,
+        "2": -251214
+      },
+      "pp_uv": {
+        "1": 1678,
+        "2": 133
+      },
+      "codes": [
+        6,
+        -56,
+        250,
+        -255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:27:00",
+      "message": "    referencia compartida: ch1 +127.2 uV/código, ch2 -6.5 uV/código",
+      "kind": "shared_slope",
+      "slopes_uv_per_code": {
+        "1": 127.16666666666667,
+        "2": -6.5
+      },
+      "gain": 50
+    },
+    {
+      "t": "2026-09-07T20:27:00",
+      "message": "    IDAC1: -56 -> -45 mínimo conjunto BPo/OPA_SUMo",
+      "kind": "idac",
+      "stage": 1,
+      "old": -56,
+      "code": -45,
+      "reason": "mínimo conjunto BPo/OPA_SUMo"
+    },
+    {
+      "t": "2026-09-07T20:27:00",
+      "message": "    asentando 10.0 s: mínimo conjunto BPo/OPA_SUMo"
+    },
+    {
+      "t": "2026-09-07T20:27:11",
+      "message": "    BP/SUM compartida resultado 2: ch1    -2.02 mV  ch2  -251.25 mV",
+      "kind": "snapshot",
+      "label": "BP/SUM compartida resultado 2",
+      "values_uv": {
+        "1": 997982,
+        "2": 748748
+      },
+      "error_uv": {
+        "1": -2018,
+        "2": -251252
+      },
+      "pp_uv": {
+        "1": 2002,
+        "2": 171
+      },
+      "codes": [
+        6,
+        -45,
+        250,
+        -255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:27:11",
+      "message": "    SUMo con PGAout x50 base 0: ch3  +120.99 mV",
+      "kind": "snapshot",
+      "label": "SUMo con PGAout x50 base 0",
+      "values_uv": {
+        "3": 1120986
+      },
+      "error_uv": {
+        "3": 120986
+      },
+      "pp_uv": {
+        "3": 114
+      },
+      "codes": [
+        6,
+        -45,
+        250,
+        -255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:27:12",
+      "message": "    IDAC2: +250 -> +253 identificar SUMo con PGAout x50",
+      "kind": "idac",
+      "stage": 2,
+      "old": 250,
+      "code": 253,
+      "reason": "identificar SUMo con PGAout x50"
+    },
+    {
+      "t": "2026-09-07T20:27:12",
+      "message": "    asentando 2.0 s: pendiente SUMo con PGAout x50"
+    },
+    {
+      "t": "2026-09-07T20:27:14",
+      "message": "    SUMo con PGAout x50 prueba 0: ch3  +120.95 mV",
+      "kind": "snapshot",
+      "label": "SUMo con PGAout x50 prueba 0",
+      "values_uv": {
+        "3": 1120948
+      },
+      "error_uv": {
+        "3": 120948
+      },
+      "pp_uv": {
+        "3": 152
+      },
+      "codes": [
+        6,
+        -45,
+        253,
+        -255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:27:14",
+      "message": "    SUMo con PGAout x50: pendiente -12.7 uV/código",
+      "kind": "slope",
+      "stage": 2,
+      "channel": 3,
+      "slope_uv_per_code": -12.666666666666666,
+      "gain": 50
+    },
+    {
+      "t": "2026-09-07T20:27:14",
+      "message": "    IDAC2: +253 -> +255 Newton SUMo con PGAout x50",
+      "kind": "idac",
+      "stage": 2,
+      "old": 253,
+      "code": 255,
+      "reason": "Newton SUMo con PGAout x50"
+    },
+    {
+      "t": "2026-09-07T20:27:14",
+      "message": "    asentando 2.0 s: aplicar SUMo con PGAout x50"
+    },
+    {
+      "t": "2026-09-07T20:27:17",
+      "message": "    SUMo con PGAout x50 base 1: ch3  +120.99 mV",
+      "kind": "snapshot",
+      "label": "SUMo con PGAout x50 base 1",
+      "values_uv": {
+        "3": 1120986
+      },
+      "error_uv": {
+        "3": 120986
+      },
+      "pp_uv": {
+        "3": 133
+      },
+      "codes": [
+        6,
+        -45,
+        255,
+        -255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:27:17",
+      "message": "    IDAC2: +255 -> +252 identificar SUMo con PGAout x50",
+      "kind": "idac",
+      "stage": 2,
+      "old": 255,
+      "code": 252,
+      "reason": "identificar SUMo con PGAout x50"
+    },
+    {
+      "t": "2026-09-07T20:27:17",
+      "message": "    asentando 2.0 s: pendiente SUMo con PGAout x50"
+    },
+    {
+      "t": "2026-09-07T20:27:19",
+      "message": "    SUMo con PGAout x50 prueba 1: ch3  +120.97 mV",
+      "kind": "snapshot",
+      "label": "SUMo con PGAout x50 prueba 1",
+      "values_uv": {
+        "3": 1120967
+      },
+      "error_uv": {
+        "3": 120967
+      },
+      "pp_uv": {
+        "3": 114
+      },
+      "codes": [
+        6,
+        -45,
+        252,
+        -255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:27:19",
+      "message": "    SUMo con PGAout x50: pendiente +6.3 uV/código",
+      "kind": "slope",
+      "stage": 2,
+      "channel": 3,
+      "slope_uv_per_code": 6.333333333333333,
+      "gain": 50
+    },
+    {
+      "t": "2026-09-07T20:27:20",
+      "message": "    IDAC2: +252 -> +255 SUMo con PGAout x50 sin autoridad",
+      "kind": "idac",
+      "stage": 2,
+      "old": 252,
+      "code": 255,
+      "reason": "SUMo con PGAout x50 sin autoridad"
+    },
+    {
+      "t": "2026-09-07T20:27:20",
+      "message": "    asentando 2.0 s: restaurar SUMo con PGAout x50"
+    },
+    {
+      "t": "2026-09-07T20:27:22",
+      "message": "    LPo base 0: ch4   +51.18 mV",
+      "kind": "snapshot",
+      "label": "LPo base 0",
+      "values_uv": {
+        "4": 1051177
+      },
+      "error_uv": {
+        "4": 51177
+      },
+      "pp_uv": {
+        "4": 133
+      },
+      "codes": [
+        6,
+        -45,
+        255,
+        -255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:27:22",
+      "message": "    IDAC3: -255 -> -251 identificar LPo",
+      "kind": "idac",
+      "stage": 3,
+      "old": -255,
+      "code": -251,
+      "reason": "identificar LPo"
+    },
+    {
+      "t": "2026-09-07T20:27:22",
+      "message": "    asentando 2.0 s: pendiente LPo"
+    },
+    {
+      "t": "2026-09-07T20:27:25",
+      "message": "    LPo prueba 0: ch4   +50.85 mV",
+      "kind": "snapshot",
+      "label": "LPo prueba 0",
+      "values_uv": {
+        "4": 1050853
+      },
+      "error_uv": {
+        "4": 50853
+      },
+      "pp_uv": {
+        "4": 114
+      },
+      "codes": [
+        6,
+        -45,
+        255,
+        -251
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:27:25",
+      "message": "    LPo: pendiente -81.0 uV/código",
+      "kind": "slope",
+      "stage": 3,
+      "channel": 4,
+      "slope_uv_per_code": -81.0,
+      "gain": 50
+    },
+    {
+      "t": "2026-09-07T20:27:25",
+      "message": "    IDAC3: -251 -> -127 Newton LPo",
+      "kind": "idac",
+      "stage": 3,
+      "old": -251,
+      "code": -127,
+      "reason": "Newton LPo"
+    },
+    {
+      "t": "2026-09-07T20:27:25",
+      "message": "    asentando 2.0 s: aplicar LPo"
+    },
+    {
+      "t": "2026-09-07T20:27:27",
+      "message": "    LPo base 1: ch4   +50.81 mV",
+      "kind": "snapshot",
+      "label": "LPo base 1",
+      "values_uv": {
+        "4": 1050815
+      },
+      "error_uv": {
+        "4": 50815
+      },
+      "pp_uv": {
+        "4": 76
+      },
+      "codes": [
+        6,
+        -45,
+        255,
+        -127
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:27:28",
+      "message": "    IDAC3: -127 -> -123 identificar LPo",
+      "kind": "idac",
+      "stage": 3,
+      "old": -127,
+      "code": -123,
+      "reason": "identificar LPo"
+    },
+    {
+      "t": "2026-09-07T20:27:28",
+      "message": "    asentando 2.0 s: pendiente LPo"
+    },
+    {
+      "t": "2026-09-07T20:27:30",
+      "message": "    LPo prueba 1: ch4   +50.78 mV",
+      "kind": "snapshot",
+      "label": "LPo prueba 1",
+      "values_uv": {
+        "4": 1050777
+      },
+      "error_uv": {
+        "4": 50777
+      },
+      "pp_uv": {
+        "4": 114
+      },
+      "codes": [
+        6,
+        -45,
+        255,
+        -123
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:27:30",
+      "message": "    LPo: pendiente -9.5 uV/código",
+      "kind": "slope",
+      "stage": 3,
+      "channel": 4,
+      "slope_uv_per_code": -9.5,
+      "gain": 50
+    },
+    {
+      "t": "2026-09-07T20:27:30",
+      "message": "    IDAC3: -123 -> -127 LPo sin autoridad",
+      "kind": "idac",
+      "stage": 3,
+      "old": -123,
+      "code": -127,
+      "reason": "LPo sin autoridad"
+    },
+    {
+      "t": "2026-09-07T20:27:30",
+      "message": "    asentando 2.0 s: restaurar LPo"
+    },
+    {
+      "t": "2026-09-07T20:27:35",
+      "message": "    final fase local: ch0    +2.69 mV  ch1    -3.49 mV  ch2  -251.23 mV  ch3  +120.99 mV  ch4   +50.87 mV",
+      "kind": "snapshot",
+      "label": "final fase local",
+      "values_uv": {
+        "0": 1002693,
+        "1": 996513,
+        "2": 748767,
+        "3": 1120986,
+        "4": 1050872
+      },
+      "error_uv": {
+        "0": 2693,
+        "1": -3487,
+        "2": -251233,
+        "3": 120986,
+        "4": 50872
+      },
+      "pp_uv": {
+        "0": 2174,
+        "1": 3147,
+        "2": 114,
+        "3": 95,
+        "4": 152
+      },
+      "codes": [
+        6,
+        -45,
+        255,
+        -127
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:27:35",
+      "message": "RESULTADO x50: IDAC [6, -45, 255, -127]; LP +50.87 mV; requiere redistribución",
+      "kind": "result",
+      "result": {
+        "pga_x": 50,
+        "pgaout_x": 50,
+        "seed": [
+          0,
+          -110,
+          250,
+          -255
+        ],
+        "initial_uv": {
+          "0": 985412,
+          "1": 989284,
+          "2": 1037883,
+          "3": 742931,
+          "4": 1049633
+        },
+        "codes": [
+          6,
+          -45,
+          255,
+          -127
+        ],
+        "final_uv": {
+          "0": 1002693,
+          "1": 996513,
+          "2": 748767,
+          "3": 1120986,
+          "4": 1050872
+        },
+        "error_mv": {
+          "0": 2.693,
+          "1": -3.487,
+          "2": -251.233,
+          "3": 120.986,
+          "4": 50.872
+        },
+        "constraints_ok": true,
+        "problems": [],
+        "lp_abs_error_mv": 50.872,
+        "local_pass": false
+      }
+    }
+  ],
+  "results": [
+    {
+      "pga_x": 50,
+      "pgaout_x": 50,
+      "seed": [
+        0,
+        -110,
+        250,
+        -255
+      ],
+      "initial_uv": {
+        "0": 985412,
+        "1": 989284,
+        "2": 1037883,
+        "3": 742931,
+        "4": 1049633
+      },
+      "codes": [
+        6,
+        -45,
+        255,
+        -127
+      ],
+      "final_uv": {
+        "0": 1002693,
+        "1": 996513,
+        "2": 748767,
+        "3": 1120986,
+        "4": 1050872
+      },
+      "error_mv": {
+        "0": 2.693,
+        "1": -3.487,
+        "2": -251.233,
+        "3": 120.986,
+        "4": 50.872
+      },
+      "constraints_ok": true,
+      "problems": [],
+      "lp_abs_error_mv": 50.872,
+      "local_pass": false
+    }
+  ]
+}

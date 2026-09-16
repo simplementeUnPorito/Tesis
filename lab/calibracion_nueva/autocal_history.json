@@ -1,0 +1,251 @@
+{
+  "version": 2,
+  "phase1": {
+    "codes": [
+      54,
+      24
+    ],
+    "pga": 4,
+    "pgaout": 24,
+    "tau_s": 43.7,
+    "verified_at": "2026-09-15T17:48:05.325340",
+    "final": {
+      "0": {
+        "elapsed_s": 181.70496980000462,
+        "phase": "handoff nominal verificado",
+        "stage": 0,
+        "code": 54,
+        "channel": 0,
+        "mean_bank_uv": 994720,
+        "error_bank_uv": -6780,
+        "error_real_mv": -135.028446,
+        "pp_bank_uv": 324,
+        "valid": true,
+        "clavado": false
+      },
+      "1": {
+        "elapsed_s": 182.3596308000051,
+        "phase": "handoff nominal verificado",
+        "stage": 1,
+        "code": 24,
+        "channel": 1,
+        "mean_bank_uv": 985679,
+        "error_bank_uv": -15821,
+        "error_real_mv": -315.0862897,
+        "pp_bank_uv": 667,
+        "valid": true,
+        "clavado": false
+      },
+      "2": {
+        "elapsed_s": 183.01255950000632,
+        "phase": "handoff nominal verificado",
+        "stage": 2,
+        "code": 75,
+        "channel": 2,
+        "mean_bank_uv": 987014,
+        "error_bank_uv": -14486,
+        "error_real_mv": -288.49883020000004,
+        "pp_bank_uv": 133,
+        "valid": true,
+        "clavado": false
+      },
+      "3": {
+        "elapsed_s": 183.6668983000054,
+        "phase": "handoff nominal verificado",
+        "stage": 3,
+        "code": -87,
+        "channel": 3,
+        "mean_bank_uv": 1001892,
+        "error_bank_uv": 392,
+        "error_real_mv": 7.8069544,
+        "pp_bank_uv": 6446,
+        "valid": true,
+        "clavado": false
+      },
+      "4": {
+        "elapsed_s": 184.31904610000493,
+        "phase": "handoff nominal verificado",
+        "stage": 3,
+        "code": -87,
+        "channel": 4,
+        "mean_bank_uv": 731010,
+        "error_bank_uv": -270490,
+        "error_real_mv": -5386.997693,
+        "pp_bank_uv": 247,
+        "valid": false,
+        "clavado": true
+      }
+    },
+    "source": "aprendizaje y verificacion en ganancia nominal"
+  },
+  "gains": {
+    "1": {
+      "codes": [
+        9,
+        -36,
+        -202,
+        255
+      ],
+      "verified_at": "2026-09-10T20:40:56.220413",
+      "lp_error_real_mv": -581.737597,
+      "puntaje": 1814.6787526,
+      "final": {
+        "0": {
+          "elapsed_s": 344.1886588000052,
+          "phase": "x1 final",
+          "stage": 0,
+          "code": 9,
+          "channel": 0,
+          "mean_bank_uv": 975284,
+          "error_bank_uv": -26216,
+          "error_real_mv": -522.1099912000001,
+          "pp_bank_uv": 2002,
+          "valid": true,
+          "clavado": false
+        },
+        "1": {
+          "elapsed_s": 344.84148709999863,
+          "phase": "x1 final",
+          "stage": 1,
+          "code": -36,
+          "channel": 1,
+          "mean_bank_uv": 981693,
+          "error_bank_uv": -19807,
+          "error_real_mv": -394.4702699,
+          "pp_bank_uv": 3433,
+          "valid": true,
+          "clavado": false
+        },
+        "2": {
+          "elapsed_s": 345.4961103999958,
+          "phase": "x1 final",
+          "stage": 2,
+          "code": -202,
+          "channel": 2,
+          "mean_bank_uv": 991058,
+          "error_bank_uv": -10442,
+          "error_real_mv": -207.95973940000002,
+          "pp_bank_uv": 495,
+          "valid": true,
+          "clavado": false
+        },
+        "3": {
+          "elapsed_s": 346.14981430000626,
+          "phase": "x1 final",
+          "stage": 3,
+          "code": 255,
+          "channel": 3,
+          "mean_bank_uv": 990886,
+          "error_bank_uv": -10614,
+          "error_real_mv": -211.38523980000002,
+          "pp_bank_uv": 667,
+          "valid": true,
+          "clavado": false
+        },
+        "4": {
+          "elapsed_s": 346.804953800005,
+          "phase": "x1 final",
+          "stage": 3,
+          "code": 255,
+          "channel": 4,
+          "mean_bank_uv": 972290,
+          "error_bank_uv": -29210,
+          "error_real_mv": -581.737597,
+          "pp_bank_uv": 1544,
+          "valid": true,
+          "clavado": false
+        }
+      },
+      "source": "semilla verificada por ABBA y realimentaci\u00f3n"
+    },
+    "2": {
+      "codes": [
+        19,
+        140,
+        254,
+        83
+      ],
+      "verified_at": "2026-09-10T00:35:07.507733",
+      "lp_error_real_mv": 2084.1182579,
+      "source": "history reverified without search"
+    },
+    "4": {
+      "codes": [
+        19,
+        140,
+        254,
+        83
+      ],
+      "verified_at": "2026-09-10T00:35:12.431655",
+      "lp_error_real_mv": 2283.9324760000004,
+      "source": "history reverified without search"
+    },
+    "8": {
+      "codes": [
+        19,
+        140,
+        254,
+        83
+      ],
+      "verified_at": "2026-09-10T00:35:17.342399",
+      "lp_error_real_mv": 2178.3195189,
+      "source": "history reverified without search"
+    },
+    "16": {
+      "codes": [
+        19,
+        140,
+        254,
+        83
+      ],
+      "verified_at": "2026-09-10T00:35:26.279296",
+      "lp_error_real_mv": 2125.1445999000002,
+      "source": "history reverified without search"
+    },
+    "24": {
+      "codes": [
+        19,
+        140,
+        254,
+        83
+      ],
+      "verified_at": "2026-09-10T00:35:31.203100",
+      "lp_error_real_mv": 2139.2050841,
+      "source": "history reverified without search"
+    },
+    "32": {
+      "codes": [
+        19,
+        140,
+        254,
+        83
+      ],
+      "verified_at": "2026-09-10T00:35:36.130505",
+      "lp_error_real_mv": 2121.7390152000003,
+      "source": "history reverified without search"
+    },
+    "48": {
+      "codes": [
+        19,
+        140,
+        254,
+        83
+      ],
+      "verified_at": "2026-09-10T00:35:41.062112",
+      "lp_error_real_mv": 2141.0970756,
+      "source": "history reverified without search"
+    },
+    "50": {
+      "codes": [
+        19,
+        140,
+        254,
+        83
+      ],
+      "verified_at": "2026-09-10T00:35:50.097579",
+      "lp_error_real_mv": 2138.0698892,
+      "source": "history reverified without search"
+    }
+  },
+  "updated_at": "2026-09-15T17:48:05"
+}

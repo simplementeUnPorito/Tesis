@@ -1,0 +1,3910 @@
+{
+  "algorithm": "two-phase closed loop; no seeds",
+  "started_at": "2026-09-09T22:45:30",
+  "codes": [
+    19,
+    140,
+    254,
+    83
+  ],
+  "events": [
+    {
+      "at": "2026-09-09T22:44:25.052",
+      "kind": "phase1_fast_pass",
+      "message": "Fase 1 r\u00e1pida PASS: [19, 140]",
+      "result": {
+        "pass": true,
+        "codes": [
+          19,
+          140
+        ],
+        "pga": {
+          "elapsed_s": 61.77008120000028,
+          "phase": "fase1 historial IDAC0",
+          "stage": 0,
+          "code": 19,
+          "channel": 0,
+          "mean_bank_uv": 999984,
+          "error_bank_uv": -1516,
+          "error_real_mv": -30.192201200000003,
+          "pp_bank_uv": 2441,
+          "valid": true
+        },
+        "bp": {
+          "elapsed_s": 61.98934259999987,
+          "phase": "fase1 historial IDAC1",
+          "stage": 1,
+          "code": 140,
+          "channel": 1,
+          "mean_bank_uv": 984840,
+          "error_bank_uv": -16660,
+          "error_real_mv": -331.795562,
+          "pp_bank_uv": 3471,
+          "valid": true
+        },
+        "elapsed_s": 61.99047430000064,
+        "source": "history + measured correction"
+      }
+    },
+    {
+      "at": "2026-09-09T22:44:33.935",
+      "kind": "gain_pass",
+      "message": "PGAout x1 PASS hist\u00f3rico en 8.9s: [19, 140, 254, 83]",
+      "result": {
+        "gain": 1,
+        "pass": true,
+        "codes": [
+          19,
+          140,
+          254,
+          83
+        ],
+        "final": {
+          "0": {
+            "elapsed_s": 64.19187349999993,
+            "phase": "x1 historial verificaci\u00f3n",
+            "stage": 0,
+            "code": 19,
+            "channel": 0,
+            "mean_bank_uv": 1000881,
+            "error_bank_uv": -619,
+            "error_real_mv": -12.3278183,
+            "pp_bank_uv": 2746,
+            "valid": true
+          },
+          "1": {
+            "elapsed_s": 64.84245559999908,
+            "phase": "x1 historial verificaci\u00f3n",
+            "stage": 1,
+            "code": 140,
+            "channel": 1,
+            "mean_bank_uv": 984764,
+            "error_bank_uv": -16736,
+            "error_real_mv": -333.3091552,
+            "pp_bank_uv": 3433,
+            "valid": true
+          },
+          "2": {
+            "elapsed_s": 65.49654509999891,
+            "phase": "x1 historial verificaci\u00f3n",
+            "stage": 2,
+            "code": 254,
+            "channel": 2,
+            "mean_bank_uv": 989055,
+            "error_bank_uv": -12445,
+            "error_real_mv": -247.85088650000003,
+            "pp_bank_uv": 648,
+            "valid": true
+          },
+          "3": {
+            "elapsed_s": 69.76756039999964,
+            "phase": "x1 historial verificaci\u00f3n",
+            "stage": 2,
+            "code": 254,
+            "channel": 3,
+            "mean_bank_uv": 983085,
+            "error_bank_uv": -18415,
+            "error_real_mv": -366.7476155,
+            "pp_bank_uv": 686,
+            "valid": true
+          },
+          "4": {
+            "elapsed_s": 70.87313619999986,
+            "phase": "x1 historial verificaci\u00f3n",
+            "stage": 3,
+            "code": 83,
+            "channel": 4,
+            "mean_bank_uv": 1106204,
+            "error_bank_uv": 104704,
+            "error_real_mv": 2085.2534528,
+            "pp_bank_uv": 114,
+            "valid": true
+          }
+        },
+        "all_taps_valid": true,
+        "elapsed_s": 8.88285089999954,
+        "source": "history verified; no search"
+      }
+    },
+    {
+      "at": "2026-09-09T22:44:38.745",
+      "kind": "gain_pass",
+      "message": "PGAout x2 PASS hist\u00f3rico en 4.8s: [19, 140, 254, 83]",
+      "result": {
+        "gain": 2,
+        "pass": true,
+        "codes": [
+          19,
+          140,
+          254,
+          83
+        ],
+        "final": {
+          "0": {
+            "elapsed_s": 73.07660219999889,
+            "phase": "x2 historial verificaci\u00f3n",
+            "stage": 0,
+            "code": 19,
+            "channel": 0,
+            "mean_bank_uv": 1012306,
+            "error_bank_uv": 10806,
+            "error_real_mv": 215.20905420000003,
+            "pp_bank_uv": 2746,
+            "valid": true
+          },
+          "1": {
+            "elapsed_s": 73.73000069999944,
+            "phase": "x2 historial verificaci\u00f3n",
+            "stage": 1,
+            "code": 140,
+            "channel": 1,
+            "mean_bank_uv": 979747,
+            "error_bank_uv": -21753,
+            "error_real_mv": -433.22622210000003,
+            "pp_bank_uv": 4653,
+            "valid": true
+          },
+          "2": {
+            "elapsed_s": 74.38285519999954,
+            "phase": "x2 historial verificaci\u00f3n",
+            "stage": 2,
+            "code": 254,
+            "channel": 2,
+            "mean_bank_uv": 978469,
+            "error_bank_uv": -23031,
+            "error_real_mv": -458.6784867,
+            "pp_bank_uv": 934,
+            "valid": true
+          },
+          "3": {
+            "elapsed_s": 75.02912139999898,
+            "phase": "x2 historial verificaci\u00f3n",
+            "stage": 2,
+            "code": 254,
+            "channel": 3,
+            "mean_bank_uv": 964298,
+            "error_bank_uv": -37202,
+            "error_real_mv": -740.9038714000001,
+            "pp_bank_uv": 2174,
+            "valid": true
+          },
+          "4": {
+            "elapsed_s": 75.68231170000035,
+            "phase": "x2 historial verificaci\u00f3n",
+            "stage": 3,
+            "code": 83,
+            "channel": 4,
+            "mean_bank_uv": 1110973,
+            "error_bank_uv": 109473,
+            "error_real_mv": 2180.2314261,
+            "pp_bank_uv": 553,
+            "valid": true
+          }
+        },
+        "all_taps_valid": true,
+        "elapsed_s": 4.808210099999997,
+        "source": "history verified; no search"
+      }
+    },
+    {
+      "at": "2026-09-09T22:44:41.259",
+      "kind": "grid_rescued",
+      "message": "x4: malla rescat\u00f3 LPo en IDAC2=254, IDAC3=83",
+      "gain": 4,
+      "idac2": 254,
+      "idac3": 83,
+      "point": {
+        "elapsed_s": 78.19608479999988,
+        "phase": "x4 malla rescate",
+        "stage": 3,
+        "code": 83,
+        "channel": 4,
+        "mean_bank_uv": 1113758,
+        "error_bank_uv": 112258,
+        "error_real_mv": 2235.6966506000003,
+        "pp_bank_uv": 419,
+        "valid": true
+      }
+    },
+    {
+      "at": "2026-09-09T22:44:44.737",
+      "kind": "gain_pass",
+      "message": "PGAout x4 PASS en 6.0s: [19, 140, 254, 83]",
+      "result": {
+        "gain": 4,
+        "pass": true,
+        "codes": [
+          19,
+          140,
+          254,
+          83
+        ],
+        "sum": {
+          "method": "coarse 2D grid",
+          "points": [
+            {
+              "idac2": 254,
+              "idac3": 83,
+              "lp": {
+                "elapsed_s": 78.19608479999988,
+                "phase": "x4 malla rescate",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1113758,
+                "error_bank_uv": 112258,
+                "error_real_mv": 2235.6966506000003,
+                "pp_bank_uv": 419,
+                "valid": true
+              }
+            }
+          ]
+        },
+        "lp": {
+          "method": "first physically valid point",
+          "code": 83,
+          "point": {
+            "elapsed_s": 78.19608479999988,
+            "phase": "x4 malla rescate",
+            "stage": 3,
+            "code": 83,
+            "channel": 4,
+            "mean_bank_uv": 1113758,
+            "error_bank_uv": 112258,
+            "error_real_mv": 2235.6966506000003,
+            "pp_bank_uv": 419,
+            "valid": true
+          }
+        },
+        "joint_rescue": null,
+        "final": {
+          "0": {
+            "elapsed_s": 79.06932029999916,
+            "phase": "x4 verificaci\u00f3n robusta",
+            "stage": 0,
+            "code": 19,
+            "channel": 0,
+            "mean_bank_uv": 1034488,
+            "error_bank_uv": 32988,
+            "error_real_mv": 656.9791116,
+            "pp_bank_uv": 2841,
+            "valid": true
+          },
+          "1": {
+            "elapsed_s": 79.72300489999907,
+            "phase": "x4 verificaci\u00f3n robusta",
+            "stage": 1,
+            "code": 140,
+            "channel": 1,
+            "mean_bank_uv": 970287,
+            "error_bank_uv": -31213,
+            "error_real_mv": -621.6287441000001,
+            "pp_bank_uv": 6160,
+            "valid": true
+          },
+          "2": {
+            "elapsed_s": 80.37531399999898,
+            "phase": "x4 verificaci\u00f3n robusta",
+            "stage": 2,
+            "code": 254,
+            "channel": 2,
+            "mean_bank_uv": 964469,
+            "error_bank_uv": -37031,
+            "error_real_mv": -737.4982867000001,
+            "pp_bank_uv": 1373,
+            "valid": true
+          },
+          "3": {
+            "elapsed_s": 81.02816569999959,
+            "phase": "x4 verificaci\u00f3n robusta",
+            "stage": 2,
+            "code": 254,
+            "channel": 3,
+            "mean_bank_uv": 893077,
+            "error_bank_uv": -108423,
+            "error_real_mv": -2159.3199411,
+            "pp_bank_uv": 5664,
+            "valid": true
+          },
+          "4": {
+            "elapsed_s": 81.67406350000056,
+            "phase": "x4 verificaci\u00f3n robusta",
+            "stage": 3,
+            "code": 83,
+            "channel": 4,
+            "mean_bank_uv": 1118373,
+            "error_bank_uv": 116873,
+            "error_real_mv": 2327.6076061,
+            "pp_bank_uv": 514,
+            "valid": true
+          }
+        },
+        "all_taps_valid": true,
+        "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+        "elapsed_s": 5.991206300001068
+      }
+    },
+    {
+      "at": "2026-09-09T22:44:47.255",
+      "kind": "grid_rescued",
+      "message": "x8: malla rescat\u00f3 LPo en IDAC2=254, IDAC3=83",
+      "gain": 8,
+      "idac2": 254,
+      "idac3": 83,
+      "point": {
+        "elapsed_s": 84.19239689999995,
+        "phase": "x8 malla rescate",
+        "stage": 3,
+        "code": 83,
+        "channel": 4,
+        "mean_bank_uv": 1110973,
+        "error_bank_uv": 109473,
+        "error_real_mv": 2180.2314261,
+        "pp_bank_uv": 95,
+        "valid": true
+      }
+    },
+    {
+      "at": "2026-09-09T22:44:54.837",
+      "kind": "gain_pass",
+      "message": "PGAout x8 PASS en 10.1s: [19, 140, 254, 83]",
+      "result": {
+        "gain": 8,
+        "pass": true,
+        "codes": [
+          19,
+          140,
+          254,
+          83
+        ],
+        "sum": {
+          "method": "coarse 2D grid",
+          "points": [
+            {
+              "idac2": 254,
+              "idac3": 83,
+              "lp": {
+                "elapsed_s": 84.19239689999995,
+                "phase": "x8 malla rescate",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1110973,
+                "error_bank_uv": 109473,
+                "error_real_mv": 2180.2314261,
+                "pp_bank_uv": 95,
+                "valid": true
+              }
+            }
+          ]
+        },
+        "lp": {
+          "method": "first physically valid point",
+          "code": 83,
+          "point": {
+            "elapsed_s": 84.19239689999995,
+            "phase": "x8 malla rescate",
+            "stage": 3,
+            "code": 83,
+            "channel": 4,
+            "mean_bank_uv": 1110973,
+            "error_bank_uv": 109473,
+            "error_real_mv": 2180.2314261,
+            "pp_bank_uv": 95,
+            "valid": true
+          }
+        },
+        "joint_rescue": null,
+        "final": {
+          "0": {
+            "elapsed_s": 88.73381490000065,
+            "phase": "x8 verificaci\u00f3n robusta",
+            "stage": 0,
+            "code": 19,
+            "channel": 0,
+            "mean_bank_uv": 1021270,
+            "error_bank_uv": 19770,
+            "error_real_mv": 393.73338900000005,
+            "pp_bank_uv": 2670,
+            "valid": true
+          },
+          "1": {
+            "elapsed_s": 89.83367259999977,
+            "phase": "x8 verificaci\u00f3n robusta",
+            "stage": 1,
+            "code": 140,
+            "channel": 1,
+            "mean_bank_uv": 988273,
+            "error_bank_uv": -13227,
+            "error_real_mv": -263.4249639,
+            "pp_bank_uv": 3280,
+            "valid": true
+          },
+          "2": {
+            "elapsed_s": 90.48851579999973,
+            "phase": "x8 verificaci\u00f3n robusta",
+            "stage": 2,
+            "code": 254,
+            "channel": 2,
+            "mean_bank_uv": 908298,
+            "error_bank_uv": -93202,
+            "error_real_mv": -1856.1830714,
+            "pp_bank_uv": 1640,
+            "valid": true
+          },
+          "3": {
+            "elapsed_s": 91.13965800000005,
+            "phase": "x8 verificaci\u00f3n robusta",
+            "stage": 2,
+            "code": 254,
+            "channel": 3,
+            "mean_bank_uv": 741786,
+            "error_bank_uv": -259714,
+            "error_real_mv": -5172.386109800001,
+            "pp_bank_uv": 171,
+            "valid": false
+          },
+          "4": {
+            "elapsed_s": 91.77391239999997,
+            "phase": "x8 verificaci\u00f3n robusta",
+            "stage": 3,
+            "code": 83,
+            "channel": 4,
+            "mean_bank_uv": 1110935,
+            "error_bank_uv": 109435,
+            "error_real_mv": 2179.4746295000004,
+            "pp_bank_uv": 114,
+            "valid": true
+          }
+        },
+        "all_taps_valid": false,
+        "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+        "elapsed_s": 10.097568399998636
+      }
+    },
+    {
+      "at": "2026-09-09T22:44:57.359",
+      "kind": "grid_rescued",
+      "message": "x16: malla rescat\u00f3 LPo en IDAC2=254, IDAC3=83",
+      "gain": 16,
+      "idac2": 254,
+      "idac3": 83,
+      "point": {
+        "elapsed_s": 94.29664889999913,
+        "phase": "x16 malla rescate",
+        "stage": 3,
+        "code": 83,
+        "channel": 4,
+        "mean_bank_uv": 1108264,
+        "error_bank_uv": 106764,
+        "error_real_mv": 2126.2797948,
+        "pp_bank_uv": 133,
+        "valid": true
+      }
+    },
+    {
+      "at": "2026-09-09T22:45:00.846",
+      "kind": "gain_pass",
+      "message": "PGAout x16 PASS en 6.0s: [19, 140, 254, 83]",
+      "result": {
+        "gain": 16,
+        "pass": true,
+        "codes": [
+          19,
+          140,
+          254,
+          83
+        ],
+        "sum": {
+          "method": "coarse 2D grid",
+          "points": [
+            {
+              "idac2": 254,
+              "idac3": 83,
+              "lp": {
+                "elapsed_s": 94.29664889999913,
+                "phase": "x16 malla rescate",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1108264,
+                "error_bank_uv": 106764,
+                "error_real_mv": 2126.2797948,
+                "pp_bank_uv": 133,
+                "valid": true
+              }
+            }
+          ]
+        },
+        "lp": {
+          "method": "first physically valid point",
+          "code": 83,
+          "point": {
+            "elapsed_s": 94.29664889999913,
+            "phase": "x16 malla rescate",
+            "stage": 3,
+            "code": 83,
+            "channel": 4,
+            "mean_bank_uv": 1108264,
+            "error_bank_uv": 106764,
+            "error_real_mv": 2126.2797948,
+            "pp_bank_uv": 133,
+            "valid": true
+          }
+        },
+        "joint_rescue": null,
+        "final": {
+          "0": {
+            "elapsed_s": 95.1721882999991,
+            "phase": "x16 verificaci\u00f3n robusta",
+            "stage": 0,
+            "code": 19,
+            "channel": 0,
+            "mean_bank_uv": 1010761,
+            "error_bank_uv": 9261,
+            "error_real_mv": 184.4392977,
+            "pp_bank_uv": 2555,
+            "valid": true
+          },
+          "1": {
+            "elapsed_s": 95.82596170000033,
+            "phase": "x16 verificaci\u00f3n robusta",
+            "stage": 1,
+            "code": 140,
+            "channel": 1,
+            "mean_bank_uv": 995941,
+            "error_bank_uv": -5559,
+            "error_real_mv": -110.7113763,
+            "pp_bank_uv": 3299,
+            "valid": true
+          },
+          "2": {
+            "elapsed_s": 96.4754412000002,
+            "phase": "x16 verificaci\u00f3n robusta",
+            "stage": 2,
+            "code": 254,
+            "channel": 2,
+            "mean_bank_uv": 893154,
+            "error_bank_uv": -108346,
+            "error_real_mv": -2157.7864322,
+            "pp_bank_uv": 1678,
+            "valid": true
+          },
+          "3": {
+            "elapsed_s": 97.1275229999992,
+            "phase": "x16 verificaci\u00f3n robusta",
+            "stage": 2,
+            "code": 254,
+            "channel": 3,
+            "mean_bank_uv": 739116,
+            "error_bank_uv": -262384,
+            "error_real_mv": -5225.561028800001,
+            "pp_bank_uv": 209,
+            "valid": false
+          },
+          "4": {
+            "elapsed_s": 97.78220580000016,
+            "phase": "x16 verificaci\u00f3n robusta",
+            "stage": 3,
+            "code": 83,
+            "channel": 4,
+            "mean_bank_uv": 1108245,
+            "error_bank_uv": 106745,
+            "error_real_mv": 2125.9013965000004,
+            "pp_bank_uv": 133,
+            "valid": true
+          }
+        },
+        "all_taps_valid": false,
+        "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+        "elapsed_s": 6.0062472999998135
+      }
+    },
+    {
+      "at": "2026-09-09T22:45:03.363",
+      "kind": "grid_rescued",
+      "message": "x24: malla rescat\u00f3 LPo en IDAC2=254, IDAC3=83",
+      "gain": 24,
+      "idac2": 254,
+      "idac3": 83,
+      "point": {
+        "elapsed_s": 100.29936029999953,
+        "phase": "x24 malla rescate",
+        "stage": 3,
+        "code": 83,
+        "channel": 4,
+        "mean_bank_uv": 1108970,
+        "error_bank_uv": 107470,
+        "error_real_mv": 2140.340279,
+        "pp_bank_uv": 95,
+        "valid": true
+      }
+    },
+    {
+      "at": "2026-09-09T22:45:06.859",
+      "kind": "gain_pass",
+      "message": "PGAout x24 PASS en 6.0s: [19, 140, 254, 83]",
+      "result": {
+        "gain": 24,
+        "pass": true,
+        "codes": [
+          19,
+          140,
+          254,
+          83
+        ],
+        "sum": {
+          "method": "coarse 2D grid",
+          "points": [
+            {
+              "idac2": 254,
+              "idac3": 83,
+              "lp": {
+                "elapsed_s": 100.29936029999953,
+                "phase": "x24 malla rescate",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1108970,
+                "error_bank_uv": 107470,
+                "error_real_mv": 2140.340279,
+                "pp_bank_uv": 95,
+                "valid": true
+              }
+            }
+          ]
+        },
+        "lp": {
+          "method": "first physically valid point",
+          "code": 83,
+          "point": {
+            "elapsed_s": 100.29936029999953,
+            "phase": "x24 malla rescate",
+            "stage": 3,
+            "code": 83,
+            "channel": 4,
+            "mean_bank_uv": 1108970,
+            "error_bank_uv": 107470,
+            "error_real_mv": 2140.340279,
+            "pp_bank_uv": 95,
+            "valid": true
+          }
+        },
+        "joint_rescue": null,
+        "final": {
+          "0": {
+            "elapsed_s": 101.17490919999909,
+            "phase": "x24 verificaci\u00f3n robusta",
+            "stage": 0,
+            "code": 19,
+            "channel": 0,
+            "mean_bank_uv": 1014156,
+            "error_bank_uv": 12656,
+            "error_real_mv": 252.05309920000002,
+            "pp_bank_uv": 2269,
+            "valid": true
+          },
+          "1": {
+            "elapsed_s": 101.82929479999984,
+            "phase": "x24 verificaci\u00f3n robusta",
+            "stage": 1,
+            "code": 140,
+            "channel": 1,
+            "mean_bank_uv": 994720,
+            "error_bank_uv": -6780,
+            "error_real_mv": -135.028446,
+            "pp_bank_uv": 2803,
+            "valid": true
+          },
+          "2": {
+            "elapsed_s": 102.48441859999912,
+            "phase": "x24 verificaci\u00f3n robusta",
+            "stage": 2,
+            "code": 254,
+            "channel": 2,
+            "mean_bank_uv": 885543,
+            "error_bank_uv": -115957,
+            "error_real_mv": -2309.3648249000003,
+            "pp_bank_uv": 1964,
+            "valid": true
+          },
+          "3": {
+            "elapsed_s": 103.13948840000012,
+            "phase": "x24 verificaci\u00f3n robusta",
+            "stage": 2,
+            "code": 254,
+            "channel": 3,
+            "mean_bank_uv": 739917,
+            "error_bank_uv": -261583,
+            "error_real_mv": -5209.6085531,
+            "pp_bank_uv": 190,
+            "valid": false
+          },
+          "4": {
+            "elapsed_s": 103.7951121999995,
+            "phase": "x24 verificaci\u00f3n robusta",
+            "stage": 3,
+            "code": 83,
+            "channel": 4,
+            "mean_bank_uv": 1108970,
+            "error_bank_uv": 107470,
+            "error_real_mv": 2140.340279,
+            "pp_bank_uv": 114,
+            "valid": true
+          }
+        },
+        "all_taps_valid": false,
+        "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+        "elapsed_s": 6.010430500000439
+      }
+    },
+    {
+      "at": "2026-09-09T22:45:09.384",
+      "kind": "grid_rescued",
+      "message": "x32: malla rescat\u00f3 LPo en IDAC2=254, IDAC3=83",
+      "gain": 32,
+      "idac2": 254,
+      "idac3": 83,
+      "point": {
+        "elapsed_s": 106.32003470000018,
+        "phase": "x32 malla rescate",
+        "stage": 3,
+        "code": 83,
+        "channel": 4,
+        "mean_bank_uv": 1108055,
+        "error_bank_uv": 106555,
+        "error_real_mv": 2122.1174135,
+        "pp_bank_uv": 95,
+        "valid": true
+      }
+    },
+    {
+      "at": "2026-09-09T22:45:12.881",
+      "kind": "gain_pass",
+      "message": "PGAout x32 PASS en 6.0s: [19, 140, 254, 83]",
+      "result": {
+        "gain": 32,
+        "pass": true,
+        "codes": [
+          19,
+          140,
+          254,
+          83
+        ],
+        "sum": {
+          "method": "coarse 2D grid",
+          "points": [
+            {
+              "idac2": 254,
+              "idac3": 83,
+              "lp": {
+                "elapsed_s": 106.32003470000018,
+                "phase": "x32 malla rescate",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1108055,
+                "error_bank_uv": 106555,
+                "error_real_mv": 2122.1174135,
+                "pp_bank_uv": 95,
+                "valid": true
+              }
+            }
+          ]
+        },
+        "lp": {
+          "method": "first physically valid point",
+          "code": 83,
+          "point": {
+            "elapsed_s": 106.32003470000018,
+            "phase": "x32 malla rescate",
+            "stage": 3,
+            "code": 83,
+            "channel": 4,
+            "mean_bank_uv": 1108055,
+            "error_bank_uv": 106555,
+            "error_real_mv": 2122.1174135,
+            "pp_bank_uv": 95,
+            "valid": true
+          }
+        },
+        "joint_rescue": null,
+        "final": {
+          "0": {
+            "elapsed_s": 107.19780329999958,
+            "phase": "x32 verificaci\u00f3n robusta",
+            "stage": 0,
+            "code": 19,
+            "channel": 0,
+            "mean_bank_uv": 1010608,
+            "error_bank_uv": 9108,
+            "error_real_mv": 181.3921956,
+            "pp_bank_uv": 2117,
+            "valid": true
+          },
+          "1": {
+            "elapsed_s": 107.85183510000024,
+            "phase": "x32 verificaci\u00f3n robusta",
+            "stage": 1,
+            "code": 140,
+            "channel": 1,
+            "mean_bank_uv": 997505,
+            "error_bank_uv": -3995,
+            "error_real_mv": -79.5632215,
+            "pp_bank_uv": 3814,
+            "valid": true
+          },
+          "2": {
+            "elapsed_s": 108.50730300000032,
+            "phase": "x32 verificaci\u00f3n robusta",
+            "stage": 2,
+            "code": 254,
+            "channel": 2,
+            "mean_bank_uv": 879745,
+            "error_bank_uv": -121755,
+            "error_real_mv": -2424.8360534999997,
+            "pp_bank_uv": 2002,
+            "valid": false
+          },
+          "3": {
+            "elapsed_s": 109.16244720000032,
+            "phase": "x32 verificaci\u00f3n robusta",
+            "stage": 2,
+            "code": 254,
+            "channel": 3,
+            "mean_bank_uv": 739059,
+            "error_bank_uv": -262441,
+            "error_real_mv": -5226.6962237,
+            "pp_bank_uv": 228,
+            "valid": false
+          },
+          "4": {
+            "elapsed_s": 109.817275899999,
+            "phase": "x32 verificaci\u00f3n robusta",
+            "stage": 3,
+            "code": 83,
+            "channel": 4,
+            "mean_bank_uv": 1108093,
+            "error_bank_uv": 106593,
+            "error_real_mv": 2122.8742101000003,
+            "pp_bank_uv": 114,
+            "valid": true
+          }
+        },
+        "all_taps_valid": false,
+        "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+        "elapsed_s": 6.01952700000038
+      }
+    },
+    {
+      "at": "2026-09-09T22:45:15.407",
+      "kind": "grid_rescued",
+      "message": "x48: malla rescat\u00f3 LPo en IDAC2=254, IDAC3=83",
+      "gain": 48,
+      "idac2": 254,
+      "idac3": 83,
+      "point": {
+        "elapsed_s": 112.34277339999971,
+        "phase": "x48 malla rescate",
+        "stage": 3,
+        "code": 83,
+        "channel": 4,
+        "mean_bank_uv": 1109046,
+        "error_bank_uv": 107546,
+        "error_real_mv": 2141.8538722000003,
+        "pp_bank_uv": 95,
+        "valid": true
+      }
+    },
+    {
+      "at": "2026-09-09T22:45:18.888",
+      "kind": "gain_pass",
+      "message": "PGAout x48 PASS en 6.0s: [19, 140, 254, 83]",
+      "result": {
+        "gain": 48,
+        "pass": true,
+        "codes": [
+          19,
+          140,
+          254,
+          83
+        ],
+        "sum": {
+          "method": "coarse 2D grid",
+          "points": [
+            {
+              "idac2": 254,
+              "idac3": 83,
+              "lp": {
+                "elapsed_s": 112.34277339999971,
+                "phase": "x48 malla rescate",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1109046,
+                "error_bank_uv": 107546,
+                "error_real_mv": 2141.8538722000003,
+                "pp_bank_uv": 95,
+                "valid": true
+              }
+            }
+          ]
+        },
+        "lp": {
+          "method": "first physically valid point",
+          "code": 83,
+          "point": {
+            "elapsed_s": 112.34277339999971,
+            "phase": "x48 malla rescate",
+            "stage": 3,
+            "code": 83,
+            "channel": 4,
+            "mean_bank_uv": 1109046,
+            "error_bank_uv": 107546,
+            "error_real_mv": 2141.8538722000003,
+            "pp_bank_uv": 95,
+            "valid": true
+          }
+        },
+        "joint_rescue": null,
+        "final": {
+          "0": {
+            "elapsed_s": 113.22254669999893,
+            "phase": "x48 verificaci\u00f3n robusta",
+            "stage": 0,
+            "code": 19,
+            "channel": 0,
+            "mean_bank_uv": 1014156,
+            "error_bank_uv": 12656,
+            "error_real_mv": 252.05309920000002,
+            "pp_bank_uv": 2250,
+            "valid": true
+          },
+          "1": {
+            "elapsed_s": 113.87781340000038,
+            "phase": "x48 verificaci\u00f3n robusta",
+            "stage": 1,
+            "code": 140,
+            "channel": 1,
+            "mean_bank_uv": 995960,
+            "error_bank_uv": -5540,
+            "error_real_mv": -110.332978,
+            "pp_bank_uv": 4119,
+            "valid": true
+          },
+          "2": {
+            "elapsed_s": 114.53355179999926,
+            "phase": "x48 verificaci\u00f3n robusta",
+            "stage": 2,
+            "code": 254,
+            "channel": 2,
+            "mean_bank_uv": 875015,
+            "error_bank_uv": -126485,
+            "error_real_mv": -2519.0373145000003,
+            "pp_bank_uv": 1964,
+            "valid": false
+          },
+          "3": {
+            "elapsed_s": 115.18948839999939,
+            "phase": "x48 verificaci\u00f3n robusta",
+            "stage": 2,
+            "code": 254,
+            "channel": 3,
+            "mean_bank_uv": 739994,
+            "error_bank_uv": -261506,
+            "error_real_mv": -5208.075044200001,
+            "pp_bank_uv": 171,
+            "valid": false
+          },
+          "4": {
+            "elapsed_s": 115.82389329999933,
+            "phase": "x48 verificaci\u00f3n robusta",
+            "stage": 3,
+            "code": 83,
+            "channel": 4,
+            "mean_bank_uv": 1109066,
+            "error_bank_uv": 107566,
+            "error_real_mv": 2142.2521862000003,
+            "pp_bank_uv": 114,
+            "valid": true
+          }
+        },
+        "all_taps_valid": false,
+        "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+        "elapsed_s": 6.003419299999223
+      }
+    },
+    {
+      "at": "2026-09-09T22:45:22.950",
+      "kind": "grid_rescued",
+      "message": "x50: malla rescat\u00f3 LPo en IDAC2=254, IDAC3=83",
+      "gain": 50,
+      "idac2": 254,
+      "idac3": 83,
+      "point": {
+        "elapsed_s": 118.34947549999924,
+        "phase": "x50 malla rescate",
+        "stage": 3,
+        "code": 83,
+        "channel": 4,
+        "mean_bank_uv": 1108932,
+        "error_bank_uv": 107432,
+        "error_real_mv": 2139.5834824000003,
+        "pp_bank_uv": 95,
+        "valid": true
+      }
+    },
+    {
+      "at": "2026-09-09T22:45:30.491",
+      "kind": "gain_pass",
+      "message": "PGAout x50 PASS en 10.1s: [19, 140, 254, 83]",
+      "result": {
+        "gain": 50,
+        "pass": true,
+        "codes": [
+          19,
+          140,
+          254,
+          83
+        ],
+        "sum": {
+          "method": "coarse 2D grid",
+          "points": [
+            {
+              "idac2": 254,
+              "idac3": 83,
+              "lp": {
+                "elapsed_s": 118.34947549999924,
+                "phase": "x50 malla rescate",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1108932,
+                "error_bank_uv": 107432,
+                "error_real_mv": 2139.5834824000003,
+                "pp_bank_uv": 95,
+                "valid": true
+              }
+            }
+          ]
+        },
+        "lp": {
+          "method": "first physically valid point",
+          "code": 83,
+          "point": {
+            "elapsed_s": 118.34947549999924,
+            "phase": "x50 malla rescate",
+            "stage": 3,
+            "code": 83,
+            "channel": 4,
+            "mean_bank_uv": 1108932,
+            "error_bank_uv": 107432,
+            "error_real_mv": 2139.5834824000003,
+            "pp_bank_uv": 95,
+            "valid": true
+          }
+        },
+        "joint_rescue": null,
+        "final": {
+          "0": {
+            "elapsed_s": 119.22957119999955,
+            "phase": "x50 verificaci\u00f3n robusta",
+            "stage": 0,
+            "code": 19,
+            "channel": 0,
+            "mean_bank_uv": 1013622,
+            "error_bank_uv": 12122,
+            "error_real_mv": 241.4181154,
+            "pp_bank_uv": 1697,
+            "valid": true
+          },
+          "1": {
+            "elapsed_s": 119.88419959999919,
+            "phase": "x50 verificaci\u00f3n robusta",
+            "stage": 1,
+            "code": 140,
+            "channel": 1,
+            "mean_bank_uv": 997543,
+            "error_bank_uv": -3957,
+            "error_real_mv": -78.8064249,
+            "pp_bank_uv": 2269,
+            "valid": true
+          },
+          "2": {
+            "elapsed_s": 120.53840870000022,
+            "phase": "x50 verificaci\u00f3n robusta",
+            "stage": 2,
+            "code": 254,
+            "channel": 2,
+            "mean_bank_uv": 868740,
+            "error_bank_uv": -132760,
+            "error_real_mv": -2644.008332,
+            "pp_bank_uv": 1487,
+            "valid": false
+          },
+          "3": {
+            "elapsed_s": 124.76309199999923,
+            "phase": "x50 verificaci\u00f3n robusta",
+            "stage": 2,
+            "code": 254,
+            "channel": 3,
+            "mean_bank_uv": 739841,
+            "error_bank_uv": -261659,
+            "error_real_mv": -5211.1221463,
+            "pp_bank_uv": 171,
+            "valid": false
+          },
+          "4": {
+            "elapsed_s": 125.89023029999953,
+            "phase": "x50 verificaci\u00f3n robusta",
+            "stage": 3,
+            "code": 83,
+            "channel": 4,
+            "mean_bank_uv": 1108932,
+            "error_bank_uv": 107432,
+            "error_real_mv": 2139.5834824000003,
+            "pp_bank_uv": 95,
+            "valid": true
+          }
+        },
+        "all_taps_valid": false,
+        "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+        "elapsed_s": 10.063154400000712
+      }
+    },
+    {
+      "at": "2026-09-09T22:45:30.495",
+      "kind": "gain_campaign_result",
+      "message": "Campa\u00f1a ganancias: 9/9 PASS",
+      "result": {
+        "pass": true,
+        "phase1": {
+          "pass": true,
+          "codes": [
+            19,
+            140
+          ],
+          "pga": {
+            "elapsed_s": 61.77008120000028,
+            "phase": "fase1 historial IDAC0",
+            "stage": 0,
+            "code": 19,
+            "channel": 0,
+            "mean_bank_uv": 999984,
+            "error_bank_uv": -1516,
+            "error_real_mv": -30.192201200000003,
+            "pp_bank_uv": 2441,
+            "valid": true
+          },
+          "bp": {
+            "elapsed_s": 61.98934259999987,
+            "phase": "fase1 historial IDAC1",
+            "stage": 1,
+            "code": 140,
+            "channel": 1,
+            "mean_bank_uv": 984840,
+            "error_bank_uv": -16660,
+            "error_real_mv": -331.795562,
+            "pp_bank_uv": 3471,
+            "valid": true
+          },
+          "elapsed_s": 61.99047430000064,
+          "source": "history + measured correction"
+        },
+        "gains": [
+          {
+            "gain": 1,
+            "pass": true,
+            "codes": [
+              19,
+              140,
+              254,
+              83
+            ],
+            "final": {
+              "0": {
+                "elapsed_s": 64.19187349999993,
+                "phase": "x1 historial verificaci\u00f3n",
+                "stage": 0,
+                "code": 19,
+                "channel": 0,
+                "mean_bank_uv": 1000881,
+                "error_bank_uv": -619,
+                "error_real_mv": -12.3278183,
+                "pp_bank_uv": 2746,
+                "valid": true
+              },
+              "1": {
+                "elapsed_s": 64.84245559999908,
+                "phase": "x1 historial verificaci\u00f3n",
+                "stage": 1,
+                "code": 140,
+                "channel": 1,
+                "mean_bank_uv": 984764,
+                "error_bank_uv": -16736,
+                "error_real_mv": -333.3091552,
+                "pp_bank_uv": 3433,
+                "valid": true
+              },
+              "2": {
+                "elapsed_s": 65.49654509999891,
+                "phase": "x1 historial verificaci\u00f3n",
+                "stage": 2,
+                "code": 254,
+                "channel": 2,
+                "mean_bank_uv": 989055,
+                "error_bank_uv": -12445,
+                "error_real_mv": -247.85088650000003,
+                "pp_bank_uv": 648,
+                "valid": true
+              },
+              "3": {
+                "elapsed_s": 69.76756039999964,
+                "phase": "x1 historial verificaci\u00f3n",
+                "stage": 2,
+                "code": 254,
+                "channel": 3,
+                "mean_bank_uv": 983085,
+                "error_bank_uv": -18415,
+                "error_real_mv": -366.7476155,
+                "pp_bank_uv": 686,
+                "valid": true
+              },
+              "4": {
+                "elapsed_s": 70.87313619999986,
+                "phase": "x1 historial verificaci\u00f3n",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1106204,
+                "error_bank_uv": 104704,
+                "error_real_mv": 2085.2534528,
+                "pp_bank_uv": 114,
+                "valid": true
+              }
+            },
+            "all_taps_valid": true,
+            "elapsed_s": 8.88285089999954,
+            "source": "history verified; no search"
+          },
+          {
+            "gain": 2,
+            "pass": true,
+            "codes": [
+              19,
+              140,
+              254,
+              83
+            ],
+            "final": {
+              "0": {
+                "elapsed_s": 73.07660219999889,
+                "phase": "x2 historial verificaci\u00f3n",
+                "stage": 0,
+                "code": 19,
+                "channel": 0,
+                "mean_bank_uv": 1012306,
+                "error_bank_uv": 10806,
+                "error_real_mv": 215.20905420000003,
+                "pp_bank_uv": 2746,
+                "valid": true
+              },
+              "1": {
+                "elapsed_s": 73.73000069999944,
+                "phase": "x2 historial verificaci\u00f3n",
+                "stage": 1,
+                "code": 140,
+                "channel": 1,
+                "mean_bank_uv": 979747,
+                "error_bank_uv": -21753,
+                "error_real_mv": -433.22622210000003,
+                "pp_bank_uv": 4653,
+                "valid": true
+              },
+              "2": {
+                "elapsed_s": 74.38285519999954,
+                "phase": "x2 historial verificaci\u00f3n",
+                "stage": 2,
+                "code": 254,
+                "channel": 2,
+                "mean_bank_uv": 978469,
+                "error_bank_uv": -23031,
+                "error_real_mv": -458.6784867,
+                "pp_bank_uv": 934,
+                "valid": true
+              },
+              "3": {
+                "elapsed_s": 75.02912139999898,
+                "phase": "x2 historial verificaci\u00f3n",
+                "stage": 2,
+                "code": 254,
+                "channel": 3,
+                "mean_bank_uv": 964298,
+                "error_bank_uv": -37202,
+                "error_real_mv": -740.9038714000001,
+                "pp_bank_uv": 2174,
+                "valid": true
+              },
+              "4": {
+                "elapsed_s": 75.68231170000035,
+                "phase": "x2 historial verificaci\u00f3n",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1110973,
+                "error_bank_uv": 109473,
+                "error_real_mv": 2180.2314261,
+                "pp_bank_uv": 553,
+                "valid": true
+              }
+            },
+            "all_taps_valid": true,
+            "elapsed_s": 4.808210099999997,
+            "source": "history verified; no search"
+          },
+          {
+            "gain": 4,
+            "pass": true,
+            "codes": [
+              19,
+              140,
+              254,
+              83
+            ],
+            "sum": {
+              "method": "coarse 2D grid",
+              "points": [
+                {
+                  "idac2": 254,
+                  "idac3": 83,
+                  "lp": {
+                    "elapsed_s": 78.19608479999988,
+                    "phase": "x4 malla rescate",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1113758,
+                    "error_bank_uv": 112258,
+                    "error_real_mv": 2235.6966506000003,
+                    "pp_bank_uv": 419,
+                    "valid": true
+                  }
+                }
+              ]
+            },
+            "lp": {
+              "method": "first physically valid point",
+              "code": 83,
+              "point": {
+                "elapsed_s": 78.19608479999988,
+                "phase": "x4 malla rescate",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1113758,
+                "error_bank_uv": 112258,
+                "error_real_mv": 2235.6966506000003,
+                "pp_bank_uv": 419,
+                "valid": true
+              }
+            },
+            "joint_rescue": null,
+            "final": {
+              "0": {
+                "elapsed_s": 79.06932029999916,
+                "phase": "x4 verificaci\u00f3n robusta",
+                "stage": 0,
+                "code": 19,
+                "channel": 0,
+                "mean_bank_uv": 1034488,
+                "error_bank_uv": 32988,
+                "error_real_mv": 656.9791116,
+                "pp_bank_uv": 2841,
+                "valid": true
+              },
+              "1": {
+                "elapsed_s": 79.72300489999907,
+                "phase": "x4 verificaci\u00f3n robusta",
+                "stage": 1,
+                "code": 140,
+                "channel": 1,
+                "mean_bank_uv": 970287,
+                "error_bank_uv": -31213,
+                "error_real_mv": -621.6287441000001,
+                "pp_bank_uv": 6160,
+                "valid": true
+              },
+              "2": {
+                "elapsed_s": 80.37531399999898,
+                "phase": "x4 verificaci\u00f3n robusta",
+                "stage": 2,
+                "code": 254,
+                "channel": 2,
+                "mean_bank_uv": 964469,
+                "error_bank_uv": -37031,
+                "error_real_mv": -737.4982867000001,
+                "pp_bank_uv": 1373,
+                "valid": true
+              },
+              "3": {
+                "elapsed_s": 81.02816569999959,
+                "phase": "x4 verificaci\u00f3n robusta",
+                "stage": 2,
+                "code": 254,
+                "channel": 3,
+                "mean_bank_uv": 893077,
+                "error_bank_uv": -108423,
+                "error_real_mv": -2159.3199411,
+                "pp_bank_uv": 5664,
+                "valid": true
+              },
+              "4": {
+                "elapsed_s": 81.67406350000056,
+                "phase": "x4 verificaci\u00f3n robusta",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1118373,
+                "error_bank_uv": 116873,
+                "error_real_mv": 2327.6076061,
+                "pp_bank_uv": 514,
+                "valid": true
+              }
+            },
+            "all_taps_valid": true,
+            "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+            "elapsed_s": 5.991206300001068
+          },
+          {
+            "gain": 8,
+            "pass": true,
+            "codes": [
+              19,
+              140,
+              254,
+              83
+            ],
+            "sum": {
+              "method": "coarse 2D grid",
+              "points": [
+                {
+                  "idac2": 254,
+                  "idac3": 83,
+                  "lp": {
+                    "elapsed_s": 84.19239689999995,
+                    "phase": "x8 malla rescate",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1110973,
+                    "error_bank_uv": 109473,
+                    "error_real_mv": 2180.2314261,
+                    "pp_bank_uv": 95,
+                    "valid": true
+                  }
+                }
+              ]
+            },
+            "lp": {
+              "method": "first physically valid point",
+              "code": 83,
+              "point": {
+                "elapsed_s": 84.19239689999995,
+                "phase": "x8 malla rescate",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1110973,
+                "error_bank_uv": 109473,
+                "error_real_mv": 2180.2314261,
+                "pp_bank_uv": 95,
+                "valid": true
+              }
+            },
+            "joint_rescue": null,
+            "final": {
+              "0": {
+                "elapsed_s": 88.73381490000065,
+                "phase": "x8 verificaci\u00f3n robusta",
+                "stage": 0,
+                "code": 19,
+                "channel": 0,
+                "mean_bank_uv": 1021270,
+                "error_bank_uv": 19770,
+                "error_real_mv": 393.73338900000005,
+                "pp_bank_uv": 2670,
+                "valid": true
+              },
+              "1": {
+                "elapsed_s": 89.83367259999977,
+                "phase": "x8 verificaci\u00f3n robusta",
+                "stage": 1,
+                "code": 140,
+                "channel": 1,
+                "mean_bank_uv": 988273,
+                "error_bank_uv": -13227,
+                "error_real_mv": -263.4249639,
+                "pp_bank_uv": 3280,
+                "valid": true
+              },
+              "2": {
+                "elapsed_s": 90.48851579999973,
+                "phase": "x8 verificaci\u00f3n robusta",
+                "stage": 2,
+                "code": 254,
+                "channel": 2,
+                "mean_bank_uv": 908298,
+                "error_bank_uv": -93202,
+                "error_real_mv": -1856.1830714,
+                "pp_bank_uv": 1640,
+                "valid": true
+              },
+              "3": {
+                "elapsed_s": 91.13965800000005,
+                "phase": "x8 verificaci\u00f3n robusta",
+                "stage": 2,
+                "code": 254,
+                "channel": 3,
+                "mean_bank_uv": 741786,
+                "error_bank_uv": -259714,
+                "error_real_mv": -5172.386109800001,
+                "pp_bank_uv": 171,
+                "valid": false
+              },
+              "4": {
+                "elapsed_s": 91.77391239999997,
+                "phase": "x8 verificaci\u00f3n robusta",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1110935,
+                "error_bank_uv": 109435,
+                "error_real_mv": 2179.4746295000004,
+                "pp_bank_uv": 114,
+                "valid": true
+              }
+            },
+            "all_taps_valid": false,
+            "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+            "elapsed_s": 10.097568399998636
+          },
+          {
+            "gain": 16,
+            "pass": true,
+            "codes": [
+              19,
+              140,
+              254,
+              83
+            ],
+            "sum": {
+              "method": "coarse 2D grid",
+              "points": [
+                {
+                  "idac2": 254,
+                  "idac3": 83,
+                  "lp": {
+                    "elapsed_s": 94.29664889999913,
+                    "phase": "x16 malla rescate",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1108264,
+                    "error_bank_uv": 106764,
+                    "error_real_mv": 2126.2797948,
+                    "pp_bank_uv": 133,
+                    "valid": true
+                  }
+                }
+              ]
+            },
+            "lp": {
+              "method": "first physically valid point",
+              "code": 83,
+              "point": {
+                "elapsed_s": 94.29664889999913,
+                "phase": "x16 malla rescate",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1108264,
+                "error_bank_uv": 106764,
+                "error_real_mv": 2126.2797948,
+                "pp_bank_uv": 133,
+                "valid": true
+              }
+            },
+            "joint_rescue": null,
+            "final": {
+              "0": {
+                "elapsed_s": 95.1721882999991,
+                "phase": "x16 verificaci\u00f3n robusta",
+                "stage": 0,
+                "code": 19,
+                "channel": 0,
+                "mean_bank_uv": 1010761,
+                "error_bank_uv": 9261,
+                "error_real_mv": 184.4392977,
+                "pp_bank_uv": 2555,
+                "valid": true
+              },
+              "1": {
+                "elapsed_s": 95.82596170000033,
+                "phase": "x16 verificaci\u00f3n robusta",
+                "stage": 1,
+                "code": 140,
+                "channel": 1,
+                "mean_bank_uv": 995941,
+                "error_bank_uv": -5559,
+                "error_real_mv": -110.7113763,
+                "pp_bank_uv": 3299,
+                "valid": true
+              },
+              "2": {
+                "elapsed_s": 96.4754412000002,
+                "phase": "x16 verificaci\u00f3n robusta",
+                "stage": 2,
+                "code": 254,
+                "channel": 2,
+                "mean_bank_uv": 893154,
+                "error_bank_uv": -108346,
+                "error_real_mv": -2157.7864322,
+                "pp_bank_uv": 1678,
+                "valid": true
+              },
+              "3": {
+                "elapsed_s": 97.1275229999992,
+                "phase": "x16 verificaci\u00f3n robusta",
+                "stage": 2,
+                "code": 254,
+                "channel": 3,
+                "mean_bank_uv": 739116,
+                "error_bank_uv": -262384,
+                "error_real_mv": -5225.561028800001,
+                "pp_bank_uv": 209,
+                "valid": false
+              },
+              "4": {
+                "elapsed_s": 97.78220580000016,
+                "phase": "x16 verificaci\u00f3n robusta",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1108245,
+                "error_bank_uv": 106745,
+                "error_real_mv": 2125.9013965000004,
+                "pp_bank_uv": 133,
+                "valid": true
+              }
+            },
+            "all_taps_valid": false,
+            "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+            "elapsed_s": 6.0062472999998135
+          },
+          {
+            "gain": 24,
+            "pass": true,
+            "codes": [
+              19,
+              140,
+              254,
+              83
+            ],
+            "sum": {
+              "method": "coarse 2D grid",
+              "points": [
+                {
+                  "idac2": 254,
+                  "idac3": 83,
+                  "lp": {
+                    "elapsed_s": 100.29936029999953,
+                    "phase": "x24 malla rescate",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1108970,
+                    "error_bank_uv": 107470,
+                    "error_real_mv": 2140.340279,
+                    "pp_bank_uv": 95,
+                    "valid": true
+                  }
+                }
+              ]
+            },
+            "lp": {
+              "method": "first physically valid point",
+              "code": 83,
+              "point": {
+                "elapsed_s": 100.29936029999953,
+                "phase": "x24 malla rescate",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1108970,
+                "error_bank_uv": 107470,
+                "error_real_mv": 2140.340279,
+                "pp_bank_uv": 95,
+                "valid": true
+              }
+            },
+            "joint_rescue": null,
+            "final": {
+              "0": {
+                "elapsed_s": 101.17490919999909,
+                "phase": "x24 verificaci\u00f3n robusta",
+                "stage": 0,
+                "code": 19,
+                "channel": 0,
+                "mean_bank_uv": 1014156,
+                "error_bank_uv": 12656,
+                "error_real_mv": 252.05309920000002,
+                "pp_bank_uv": 2269,
+                "valid": true
+              },
+              "1": {
+                "elapsed_s": 101.82929479999984,
+                "phase": "x24 verificaci\u00f3n robusta",
+                "stage": 1,
+                "code": 140,
+                "channel": 1,
+                "mean_bank_uv": 994720,
+                "error_bank_uv": -6780,
+                "error_real_mv": -135.028446,
+                "pp_bank_uv": 2803,
+                "valid": true
+              },
+              "2": {
+                "elapsed_s": 102.48441859999912,
+                "phase": "x24 verificaci\u00f3n robusta",
+                "stage": 2,
+                "code": 254,
+                "channel": 2,
+                "mean_bank_uv": 885543,
+                "error_bank_uv": -115957,
+                "error_real_mv": -2309.3648249000003,
+                "pp_bank_uv": 1964,
+                "valid": true
+              },
+              "3": {
+                "elapsed_s": 103.13948840000012,
+                "phase": "x24 verificaci\u00f3n robusta",
+                "stage": 2,
+                "code": 254,
+                "channel": 3,
+                "mean_bank_uv": 739917,
+                "error_bank_uv": -261583,
+                "error_real_mv": -5209.6085531,
+                "pp_bank_uv": 190,
+                "valid": false
+              },
+              "4": {
+                "elapsed_s": 103.7951121999995,
+                "phase": "x24 verificaci\u00f3n robusta",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1108970,
+                "error_bank_uv": 107470,
+                "error_real_mv": 2140.340279,
+                "pp_bank_uv": 114,
+                "valid": true
+              }
+            },
+            "all_taps_valid": false,
+            "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+            "elapsed_s": 6.010430500000439
+          },
+          {
+            "gain": 32,
+            "pass": true,
+            "codes": [
+              19,
+              140,
+              254,
+              83
+            ],
+            "sum": {
+              "method": "coarse 2D grid",
+              "points": [
+                {
+                  "idac2": 254,
+                  "idac3": 83,
+                  "lp": {
+                    "elapsed_s": 106.32003470000018,
+                    "phase": "x32 malla rescate",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1108055,
+                    "error_bank_uv": 106555,
+                    "error_real_mv": 2122.1174135,
+                    "pp_bank_uv": 95,
+                    "valid": true
+                  }
+                }
+              ]
+            },
+            "lp": {
+              "method": "first physically valid point",
+              "code": 83,
+              "point": {
+                "elapsed_s": 106.32003470000018,
+                "phase": "x32 malla rescate",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1108055,
+                "error_bank_uv": 106555,
+                "error_real_mv": 2122.1174135,
+                "pp_bank_uv": 95,
+                "valid": true
+              }
+            },
+            "joint_rescue": null,
+            "final": {
+              "0": {
+                "elapsed_s": 107.19780329999958,
+                "phase": "x32 verificaci\u00f3n robusta",
+                "stage": 0,
+                "code": 19,
+                "channel": 0,
+                "mean_bank_uv": 1010608,
+                "error_bank_uv": 9108,
+                "error_real_mv": 181.3921956,
+                "pp_bank_uv": 2117,
+                "valid": true
+              },
+              "1": {
+                "elapsed_s": 107.85183510000024,
+                "phase": "x32 verificaci\u00f3n robusta",
+                "stage": 1,
+                "code": 140,
+                "channel": 1,
+                "mean_bank_uv": 997505,
+                "error_bank_uv": -3995,
+                "error_real_mv": -79.5632215,
+                "pp_bank_uv": 3814,
+                "valid": true
+              },
+              "2": {
+                "elapsed_s": 108.50730300000032,
+                "phase": "x32 verificaci\u00f3n robusta",
+                "stage": 2,
+                "code": 254,
+                "channel": 2,
+                "mean_bank_uv": 879745,
+                "error_bank_uv": -121755,
+                "error_real_mv": -2424.8360534999997,
+                "pp_bank_uv": 2002,
+                "valid": false
+              },
+              "3": {
+                "elapsed_s": 109.16244720000032,
+                "phase": "x32 verificaci\u00f3n robusta",
+                "stage": 2,
+                "code": 254,
+                "channel": 3,
+                "mean_bank_uv": 739059,
+                "error_bank_uv": -262441,
+                "error_real_mv": -5226.6962237,
+                "pp_bank_uv": 228,
+                "valid": false
+              },
+              "4": {
+                "elapsed_s": 109.817275899999,
+                "phase": "x32 verificaci\u00f3n robusta",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1108093,
+                "error_bank_uv": 106593,
+                "error_real_mv": 2122.8742101000003,
+                "pp_bank_uv": 114,
+                "valid": true
+              }
+            },
+            "all_taps_valid": false,
+            "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+            "elapsed_s": 6.01952700000038
+          },
+          {
+            "gain": 48,
+            "pass": true,
+            "codes": [
+              19,
+              140,
+              254,
+              83
+            ],
+            "sum": {
+              "method": "coarse 2D grid",
+              "points": [
+                {
+                  "idac2": 254,
+                  "idac3": 83,
+                  "lp": {
+                    "elapsed_s": 112.34277339999971,
+                    "phase": "x48 malla rescate",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1109046,
+                    "error_bank_uv": 107546,
+                    "error_real_mv": 2141.8538722000003,
+                    "pp_bank_uv": 95,
+                    "valid": true
+                  }
+                }
+              ]
+            },
+            "lp": {
+              "method": "first physically valid point",
+              "code": 83,
+              "point": {
+                "elapsed_s": 112.34277339999971,
+                "phase": "x48 malla rescate",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1109046,
+                "error_bank_uv": 107546,
+                "error_real_mv": 2141.8538722000003,
+                "pp_bank_uv": 95,
+                "valid": true
+              }
+            },
+            "joint_rescue": null,
+            "final": {
+              "0": {
+                "elapsed_s": 113.22254669999893,
+                "phase": "x48 verificaci\u00f3n robusta",
+                "stage": 0,
+                "code": 19,
+                "channel": 0,
+                "mean_bank_uv": 1014156,
+                "error_bank_uv": 12656,
+                "error_real_mv": 252.05309920000002,
+                "pp_bank_uv": 2250,
+                "valid": true
+              },
+              "1": {
+                "elapsed_s": 113.87781340000038,
+                "phase": "x48 verificaci\u00f3n robusta",
+                "stage": 1,
+                "code": 140,
+                "channel": 1,
+                "mean_bank_uv": 995960,
+                "error_bank_uv": -5540,
+                "error_real_mv": -110.332978,
+                "pp_bank_uv": 4119,
+                "valid": true
+              },
+              "2": {
+                "elapsed_s": 114.53355179999926,
+                "phase": "x48 verificaci\u00f3n robusta",
+                "stage": 2,
+                "code": 254,
+                "channel": 2,
+                "mean_bank_uv": 875015,
+                "error_bank_uv": -126485,
+                "error_real_mv": -2519.0373145000003,
+                "pp_bank_uv": 1964,
+                "valid": false
+              },
+              "3": {
+                "elapsed_s": 115.18948839999939,
+                "phase": "x48 verificaci\u00f3n robusta",
+                "stage": 2,
+                "code": 254,
+                "channel": 3,
+                "mean_bank_uv": 739994,
+                "error_bank_uv": -261506,
+                "error_real_mv": -5208.075044200001,
+                "pp_bank_uv": 171,
+                "valid": false
+              },
+              "4": {
+                "elapsed_s": 115.82389329999933,
+                "phase": "x48 verificaci\u00f3n robusta",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1109066,
+                "error_bank_uv": 107566,
+                "error_real_mv": 2142.2521862000003,
+                "pp_bank_uv": 114,
+                "valid": true
+              }
+            },
+            "all_taps_valid": false,
+            "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+            "elapsed_s": 6.003419299999223
+          },
+          {
+            "gain": 50,
+            "pass": true,
+            "codes": [
+              19,
+              140,
+              254,
+              83
+            ],
+            "sum": {
+              "method": "coarse 2D grid",
+              "points": [
+                {
+                  "idac2": 254,
+                  "idac3": 83,
+                  "lp": {
+                    "elapsed_s": 118.34947549999924,
+                    "phase": "x50 malla rescate",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1108932,
+                    "error_bank_uv": 107432,
+                    "error_real_mv": 2139.5834824000003,
+                    "pp_bank_uv": 95,
+                    "valid": true
+                  }
+                }
+              ]
+            },
+            "lp": {
+              "method": "first physically valid point",
+              "code": 83,
+              "point": {
+                "elapsed_s": 118.34947549999924,
+                "phase": "x50 malla rescate",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1108932,
+                "error_bank_uv": 107432,
+                "error_real_mv": 2139.5834824000003,
+                "pp_bank_uv": 95,
+                "valid": true
+              }
+            },
+            "joint_rescue": null,
+            "final": {
+              "0": {
+                "elapsed_s": 119.22957119999955,
+                "phase": "x50 verificaci\u00f3n robusta",
+                "stage": 0,
+                "code": 19,
+                "channel": 0,
+                "mean_bank_uv": 1013622,
+                "error_bank_uv": 12122,
+                "error_real_mv": 241.4181154,
+                "pp_bank_uv": 1697,
+                "valid": true
+              },
+              "1": {
+                "elapsed_s": 119.88419959999919,
+                "phase": "x50 verificaci\u00f3n robusta",
+                "stage": 1,
+                "code": 140,
+                "channel": 1,
+                "mean_bank_uv": 997543,
+                "error_bank_uv": -3957,
+                "error_real_mv": -78.8064249,
+                "pp_bank_uv": 2269,
+                "valid": true
+              },
+              "2": {
+                "elapsed_s": 120.53840870000022,
+                "phase": "x50 verificaci\u00f3n robusta",
+                "stage": 2,
+                "code": 254,
+                "channel": 2,
+                "mean_bank_uv": 868740,
+                "error_bank_uv": -132760,
+                "error_real_mv": -2644.008332,
+                "pp_bank_uv": 1487,
+                "valid": false
+              },
+              "3": {
+                "elapsed_s": 124.76309199999923,
+                "phase": "x50 verificaci\u00f3n robusta",
+                "stage": 2,
+                "code": 254,
+                "channel": 3,
+                "mean_bank_uv": 739841,
+                "error_bank_uv": -261659,
+                "error_real_mv": -5211.1221463,
+                "pp_bank_uv": 171,
+                "valid": false
+              },
+              "4": {
+                "elapsed_s": 125.89023029999953,
+                "phase": "x50 verificaci\u00f3n robusta",
+                "stage": 3,
+                "code": 83,
+                "channel": 4,
+                "mean_bank_uv": 1108932,
+                "error_bank_uv": 107432,
+                "error_real_mv": 2139.5834824000003,
+                "pp_bank_uv": 95,
+                "valid": true
+              }
+            },
+            "all_taps_valid": false,
+            "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+            "elapsed_s": 10.063154400000712
+          }
+        ],
+        "requested_gains": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          24,
+          32,
+          48,
+          50
+        ],
+        "initial_elapsed_s": 61.991001100001085,
+        "total_elapsed_s": 125.89681410000048
+      }
+    },
+    {
+      "at": "2026-09-09T22:45:30.498",
+      "kind": "campaign_summary",
+      "message": "Campa\u00f1a ganancias PASS",
+      "runs": [
+        {
+          "run": 1,
+          "pass": true,
+          "result": {
+            "pass": true,
+            "phase1": {
+              "pass": true,
+              "codes": [
+                19,
+                140
+              ],
+              "pga": {
+                "elapsed_s": 61.77008120000028,
+                "phase": "fase1 historial IDAC0",
+                "stage": 0,
+                "code": 19,
+                "channel": 0,
+                "mean_bank_uv": 999984,
+                "error_bank_uv": -1516,
+                "error_real_mv": -30.192201200000003,
+                "pp_bank_uv": 2441,
+                "valid": true
+              },
+              "bp": {
+                "elapsed_s": 61.98934259999987,
+                "phase": "fase1 historial IDAC1",
+                "stage": 1,
+                "code": 140,
+                "channel": 1,
+                "mean_bank_uv": 984840,
+                "error_bank_uv": -16660,
+                "error_real_mv": -331.795562,
+                "pp_bank_uv": 3471,
+                "valid": true
+              },
+              "elapsed_s": 61.99047430000064,
+              "source": "history + measured correction"
+            },
+            "gains": [
+              {
+                "gain": 1,
+                "pass": true,
+                "codes": [
+                  19,
+                  140,
+                  254,
+                  83
+                ],
+                "final": {
+                  "0": {
+                    "elapsed_s": 64.19187349999993,
+                    "phase": "x1 historial verificaci\u00f3n",
+                    "stage": 0,
+                    "code": 19,
+                    "channel": 0,
+                    "mean_bank_uv": 1000881,
+                    "error_bank_uv": -619,
+                    "error_real_mv": -12.3278183,
+                    "pp_bank_uv": 2746,
+                    "valid": true
+                  },
+                  "1": {
+                    "elapsed_s": 64.84245559999908,
+                    "phase": "x1 historial verificaci\u00f3n",
+                    "stage": 1,
+                    "code": 140,
+                    "channel": 1,
+                    "mean_bank_uv": 984764,
+                    "error_bank_uv": -16736,
+                    "error_real_mv": -333.3091552,
+                    "pp_bank_uv": 3433,
+                    "valid": true
+                  },
+                  "2": {
+                    "elapsed_s": 65.49654509999891,
+                    "phase": "x1 historial verificaci\u00f3n",
+                    "stage": 2,
+                    "code": 254,
+                    "channel": 2,
+                    "mean_bank_uv": 989055,
+                    "error_bank_uv": -12445,
+                    "error_real_mv": -247.85088650000003,
+                    "pp_bank_uv": 648,
+                    "valid": true
+                  },
+                  "3": {
+                    "elapsed_s": 69.76756039999964,
+                    "phase": "x1 historial verificaci\u00f3n",
+                    "stage": 2,
+                    "code": 254,
+                    "channel": 3,
+                    "mean_bank_uv": 983085,
+                    "error_bank_uv": -18415,
+                    "error_real_mv": -366.7476155,
+                    "pp_bank_uv": 686,
+                    "valid": true
+                  },
+                  "4": {
+                    "elapsed_s": 70.87313619999986,
+                    "phase": "x1 historial verificaci\u00f3n",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1106204,
+                    "error_bank_uv": 104704,
+                    "error_real_mv": 2085.2534528,
+                    "pp_bank_uv": 114,
+                    "valid": true
+                  }
+                },
+                "all_taps_valid": true,
+                "elapsed_s": 8.88285089999954,
+                "source": "history verified; no search"
+              },
+              {
+                "gain": 2,
+                "pass": true,
+                "codes": [
+                  19,
+                  140,
+                  254,
+                  83
+                ],
+                "final": {
+                  "0": {
+                    "elapsed_s": 73.07660219999889,
+                    "phase": "x2 historial verificaci\u00f3n",
+                    "stage": 0,
+                    "code": 19,
+                    "channel": 0,
+                    "mean_bank_uv": 1012306,
+                    "error_bank_uv": 10806,
+                    "error_real_mv": 215.20905420000003,
+                    "pp_bank_uv": 2746,
+                    "valid": true
+                  },
+                  "1": {
+                    "elapsed_s": 73.73000069999944,
+                    "phase": "x2 historial verificaci\u00f3n",
+                    "stage": 1,
+                    "code": 140,
+                    "channel": 1,
+                    "mean_bank_uv": 979747,
+                    "error_bank_uv": -21753,
+                    "error_real_mv": -433.22622210000003,
+                    "pp_bank_uv": 4653,
+                    "valid": true
+                  },
+                  "2": {
+                    "elapsed_s": 74.38285519999954,
+                    "phase": "x2 historial verificaci\u00f3n",
+                    "stage": 2,
+                    "code": 254,
+                    "channel": 2,
+                    "mean_bank_uv": 978469,
+                    "error_bank_uv": -23031,
+                    "error_real_mv": -458.6784867,
+                    "pp_bank_uv": 934,
+                    "valid": true
+                  },
+                  "3": {
+                    "elapsed_s": 75.02912139999898,
+                    "phase": "x2 historial verificaci\u00f3n",
+                    "stage": 2,
+                    "code": 254,
+                    "channel": 3,
+                    "mean_bank_uv": 964298,
+                    "error_bank_uv": -37202,
+                    "error_real_mv": -740.9038714000001,
+                    "pp_bank_uv": 2174,
+                    "valid": true
+                  },
+                  "4": {
+                    "elapsed_s": 75.68231170000035,
+                    "phase": "x2 historial verificaci\u00f3n",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1110973,
+                    "error_bank_uv": 109473,
+                    "error_real_mv": 2180.2314261,
+                    "pp_bank_uv": 553,
+                    "valid": true
+                  }
+                },
+                "all_taps_valid": true,
+                "elapsed_s": 4.808210099999997,
+                "source": "history verified; no search"
+              },
+              {
+                "gain": 4,
+                "pass": true,
+                "codes": [
+                  19,
+                  140,
+                  254,
+                  83
+                ],
+                "sum": {
+                  "method": "coarse 2D grid",
+                  "points": [
+                    {
+                      "idac2": 254,
+                      "idac3": 83,
+                      "lp": {
+                        "elapsed_s": 78.19608479999988,
+                        "phase": "x4 malla rescate",
+                        "stage": 3,
+                        "code": 83,
+                        "channel": 4,
+                        "mean_bank_uv": 1113758,
+                        "error_bank_uv": 112258,
+                        "error_real_mv": 2235.6966506000003,
+                        "pp_bank_uv": 419,
+                        "valid": true
+                      }
+                    }
+                  ]
+                },
+                "lp": {
+                  "method": "first physically valid point",
+                  "code": 83,
+                  "point": {
+                    "elapsed_s": 78.19608479999988,
+                    "phase": "x4 malla rescate",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1113758,
+                    "error_bank_uv": 112258,
+                    "error_real_mv": 2235.6966506000003,
+                    "pp_bank_uv": 419,
+                    "valid": true
+                  }
+                },
+                "joint_rescue": null,
+                "final": {
+                  "0": {
+                    "elapsed_s": 79.06932029999916,
+                    "phase": "x4 verificaci\u00f3n robusta",
+                    "stage": 0,
+                    "code": 19,
+                    "channel": 0,
+                    "mean_bank_uv": 1034488,
+                    "error_bank_uv": 32988,
+                    "error_real_mv": 656.9791116,
+                    "pp_bank_uv": 2841,
+                    "valid": true
+                  },
+                  "1": {
+                    "elapsed_s": 79.72300489999907,
+                    "phase": "x4 verificaci\u00f3n robusta",
+                    "stage": 1,
+                    "code": 140,
+                    "channel": 1,
+                    "mean_bank_uv": 970287,
+                    "error_bank_uv": -31213,
+                    "error_real_mv": -621.6287441000001,
+                    "pp_bank_uv": 6160,
+                    "valid": true
+                  },
+                  "2": {
+                    "elapsed_s": 80.37531399999898,
+                    "phase": "x4 verificaci\u00f3n robusta",
+                    "stage": 2,
+                    "code": 254,
+                    "channel": 2,
+                    "mean_bank_uv": 964469,
+                    "error_bank_uv": -37031,
+                    "error_real_mv": -737.4982867000001,
+                    "pp_bank_uv": 1373,
+                    "valid": true
+                  },
+                  "3": {
+                    "elapsed_s": 81.02816569999959,
+                    "phase": "x4 verificaci\u00f3n robusta",
+                    "stage": 2,
+                    "code": 254,
+                    "channel": 3,
+                    "mean_bank_uv": 893077,
+                    "error_bank_uv": -108423,
+                    "error_real_mv": -2159.3199411,
+                    "pp_bank_uv": 5664,
+                    "valid": true
+                  },
+                  "4": {
+                    "elapsed_s": 81.67406350000056,
+                    "phase": "x4 verificaci\u00f3n robusta",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1118373,
+                    "error_bank_uv": 116873,
+                    "error_real_mv": 2327.6076061,
+                    "pp_bank_uv": 514,
+                    "valid": true
+                  }
+                },
+                "all_taps_valid": true,
+                "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+                "elapsed_s": 5.991206300001068
+              },
+              {
+                "gain": 8,
+                "pass": true,
+                "codes": [
+                  19,
+                  140,
+                  254,
+                  83
+                ],
+                "sum": {
+                  "method": "coarse 2D grid",
+                  "points": [
+                    {
+                      "idac2": 254,
+                      "idac3": 83,
+                      "lp": {
+                        "elapsed_s": 84.19239689999995,
+                        "phase": "x8 malla rescate",
+                        "stage": 3,
+                        "code": 83,
+                        "channel": 4,
+                        "mean_bank_uv": 1110973,
+                        "error_bank_uv": 109473,
+                        "error_real_mv": 2180.2314261,
+                        "pp_bank_uv": 95,
+                        "valid": true
+                      }
+                    }
+                  ]
+                },
+                "lp": {
+                  "method": "first physically valid point",
+                  "code": 83,
+                  "point": {
+                    "elapsed_s": 84.19239689999995,
+                    "phase": "x8 malla rescate",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1110973,
+                    "error_bank_uv": 109473,
+                    "error_real_mv": 2180.2314261,
+                    "pp_bank_uv": 95,
+                    "valid": true
+                  }
+                },
+                "joint_rescue": null,
+                "final": {
+                  "0": {
+                    "elapsed_s": 88.73381490000065,
+                    "phase": "x8 verificaci\u00f3n robusta",
+                    "stage": 0,
+                    "code": 19,
+                    "channel": 0,
+                    "mean_bank_uv": 1021270,
+                    "error_bank_uv": 19770,
+                    "error_real_mv": 393.73338900000005,
+                    "pp_bank_uv": 2670,
+                    "valid": true
+                  },
+                  "1": {
+                    "elapsed_s": 89.83367259999977,
+                    "phase": "x8 verificaci\u00f3n robusta",
+                    "stage": 1,
+                    "code": 140,
+                    "channel": 1,
+                    "mean_bank_uv": 988273,
+                    "error_bank_uv": -13227,
+                    "error_real_mv": -263.4249639,
+                    "pp_bank_uv": 3280,
+                    "valid": true
+                  },
+                  "2": {
+                    "elapsed_s": 90.48851579999973,
+                    "phase": "x8 verificaci\u00f3n robusta",
+                    "stage": 2,
+                    "code": 254,
+                    "channel": 2,
+                    "mean_bank_uv": 908298,
+                    "error_bank_uv": -93202,
+                    "error_real_mv": -1856.1830714,
+                    "pp_bank_uv": 1640,
+                    "valid": true
+                  },
+                  "3": {
+                    "elapsed_s": 91.13965800000005,
+                    "phase": "x8 verificaci\u00f3n robusta",
+                    "stage": 2,
+                    "code": 254,
+                    "channel": 3,
+                    "mean_bank_uv": 741786,
+                    "error_bank_uv": -259714,
+                    "error_real_mv": -5172.386109800001,
+                    "pp_bank_uv": 171,
+                    "valid": false
+                  },
+                  "4": {
+                    "elapsed_s": 91.77391239999997,
+                    "phase": "x8 verificaci\u00f3n robusta",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1110935,
+                    "error_bank_uv": 109435,
+                    "error_real_mv": 2179.4746295000004,
+                    "pp_bank_uv": 114,
+                    "valid": true
+                  }
+                },
+                "all_taps_valid": false,
+                "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+                "elapsed_s": 10.097568399998636
+              },
+              {
+                "gain": 16,
+                "pass": true,
+                "codes": [
+                  19,
+                  140,
+                  254,
+                  83
+                ],
+                "sum": {
+                  "method": "coarse 2D grid",
+                  "points": [
+                    {
+                      "idac2": 254,
+                      "idac3": 83,
+                      "lp": {
+                        "elapsed_s": 94.29664889999913,
+                        "phase": "x16 malla rescate",
+                        "stage": 3,
+                        "code": 83,
+                        "channel": 4,
+                        "mean_bank_uv": 1108264,
+                        "error_bank_uv": 106764,
+                        "error_real_mv": 2126.2797948,
+                        "pp_bank_uv": 133,
+                        "valid": true
+                      }
+                    }
+                  ]
+                },
+                "lp": {
+                  "method": "first physically valid point",
+                  "code": 83,
+                  "point": {
+                    "elapsed_s": 94.29664889999913,
+                    "phase": "x16 malla rescate",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1108264,
+                    "error_bank_uv": 106764,
+                    "error_real_mv": 2126.2797948,
+                    "pp_bank_uv": 133,
+                    "valid": true
+                  }
+                },
+                "joint_rescue": null,
+                "final": {
+                  "0": {
+                    "elapsed_s": 95.1721882999991,
+                    "phase": "x16 verificaci\u00f3n robusta",
+                    "stage": 0,
+                    "code": 19,
+                    "channel": 0,
+                    "mean_bank_uv": 1010761,
+                    "error_bank_uv": 9261,
+                    "error_real_mv": 184.4392977,
+                    "pp_bank_uv": 2555,
+                    "valid": true
+                  },
+                  "1": {
+                    "elapsed_s": 95.82596170000033,
+                    "phase": "x16 verificaci\u00f3n robusta",
+                    "stage": 1,
+                    "code": 140,
+                    "channel": 1,
+                    "mean_bank_uv": 995941,
+                    "error_bank_uv": -5559,
+                    "error_real_mv": -110.7113763,
+                    "pp_bank_uv": 3299,
+                    "valid": true
+                  },
+                  "2": {
+                    "elapsed_s": 96.4754412000002,
+                    "phase": "x16 verificaci\u00f3n robusta",
+                    "stage": 2,
+                    "code": 254,
+                    "channel": 2,
+                    "mean_bank_uv": 893154,
+                    "error_bank_uv": -108346,
+                    "error_real_mv": -2157.7864322,
+                    "pp_bank_uv": 1678,
+                    "valid": true
+                  },
+                  "3": {
+                    "elapsed_s": 97.1275229999992,
+                    "phase": "x16 verificaci\u00f3n robusta",
+                    "stage": 2,
+                    "code": 254,
+                    "channel": 3,
+                    "mean_bank_uv": 739116,
+                    "error_bank_uv": -262384,
+                    "error_real_mv": -5225.561028800001,
+                    "pp_bank_uv": 209,
+                    "valid": false
+                  },
+                  "4": {
+                    "elapsed_s": 97.78220580000016,
+                    "phase": "x16 verificaci\u00f3n robusta",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1108245,
+                    "error_bank_uv": 106745,
+                    "error_real_mv": 2125.9013965000004,
+                    "pp_bank_uv": 133,
+                    "valid": true
+                  }
+                },
+                "all_taps_valid": false,
+                "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+                "elapsed_s": 6.0062472999998135
+              },
+              {
+                "gain": 24,
+                "pass": true,
+                "codes": [
+                  19,
+                  140,
+                  254,
+                  83
+                ],
+                "sum": {
+                  "method": "coarse 2D grid",
+                  "points": [
+                    {
+                      "idac2": 254,
+                      "idac3": 83,
+                      "lp": {
+                        "elapsed_s": 100.29936029999953,
+                        "phase": "x24 malla rescate",
+                        "stage": 3,
+                        "code": 83,
+                        "channel": 4,
+                        "mean_bank_uv": 1108970,
+                        "error_bank_uv": 107470,
+                        "error_real_mv": 2140.340279,
+                        "pp_bank_uv": 95,
+                        "valid": true
+                      }
+                    }
+                  ]
+                },
+                "lp": {
+                  "method": "first physically valid point",
+                  "code": 83,
+                  "point": {
+                    "elapsed_s": 100.29936029999953,
+                    "phase": "x24 malla rescate",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1108970,
+                    "error_bank_uv": 107470,
+                    "error_real_mv": 2140.340279,
+                    "pp_bank_uv": 95,
+                    "valid": true
+                  }
+                },
+                "joint_rescue": null,
+                "final": {
+                  "0": {
+                    "elapsed_s": 101.17490919999909,
+                    "phase": "x24 verificaci\u00f3n robusta",
+                    "stage": 0,
+                    "code": 19,
+                    "channel": 0,
+                    "mean_bank_uv": 1014156,
+                    "error_bank_uv": 12656,
+                    "error_real_mv": 252.05309920000002,
+                    "pp_bank_uv": 2269,
+                    "valid": true
+                  },
+                  "1": {
+                    "elapsed_s": 101.82929479999984,
+                    "phase": "x24 verificaci\u00f3n robusta",
+                    "stage": 1,
+                    "code": 140,
+                    "channel": 1,
+                    "mean_bank_uv": 994720,
+                    "error_bank_uv": -6780,
+                    "error_real_mv": -135.028446,
+                    "pp_bank_uv": 2803,
+                    "valid": true
+                  },
+                  "2": {
+                    "elapsed_s": 102.48441859999912,
+                    "phase": "x24 verificaci\u00f3n robusta",
+                    "stage": 2,
+                    "code": 254,
+                    "channel": 2,
+                    "mean_bank_uv": 885543,
+                    "error_bank_uv": -115957,
+                    "error_real_mv": -2309.3648249000003,
+                    "pp_bank_uv": 1964,
+                    "valid": true
+                  },
+                  "3": {
+                    "elapsed_s": 103.13948840000012,
+                    "phase": "x24 verificaci\u00f3n robusta",
+                    "stage": 2,
+                    "code": 254,
+                    "channel": 3,
+                    "mean_bank_uv": 739917,
+                    "error_bank_uv": -261583,
+                    "error_real_mv": -5209.6085531,
+                    "pp_bank_uv": 190,
+                    "valid": false
+                  },
+                  "4": {
+                    "elapsed_s": 103.7951121999995,
+                    "phase": "x24 verificaci\u00f3n robusta",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1108970,
+                    "error_bank_uv": 107470,
+                    "error_real_mv": 2140.340279,
+                    "pp_bank_uv": 114,
+                    "valid": true
+                  }
+                },
+                "all_taps_valid": false,
+                "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+                "elapsed_s": 6.010430500000439
+              },
+              {
+                "gain": 32,
+                "pass": true,
+                "codes": [
+                  19,
+                  140,
+                  254,
+                  83
+                ],
+                "sum": {
+                  "method": "coarse 2D grid",
+                  "points": [
+                    {
+                      "idac2": 254,
+                      "idac3": 83,
+                      "lp": {
+                        "elapsed_s": 106.32003470000018,
+                        "phase": "x32 malla rescate",
+                        "stage": 3,
+                        "code": 83,
+                        "channel": 4,
+                        "mean_bank_uv": 1108055,
+                        "error_bank_uv": 106555,
+                        "error_real_mv": 2122.1174135,
+                        "pp_bank_uv": 95,
+                        "valid": true
+                      }
+                    }
+                  ]
+                },
+                "lp": {
+                  "method": "first physically valid point",
+                  "code": 83,
+                  "point": {
+                    "elapsed_s": 106.32003470000018,
+                    "phase": "x32 malla rescate",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1108055,
+                    "error_bank_uv": 106555,
+                    "error_real_mv": 2122.1174135,
+                    "pp_bank_uv": 95,
+                    "valid": true
+                  }
+                },
+                "joint_rescue": null,
+                "final": {
+                  "0": {
+                    "elapsed_s": 107.19780329999958,
+                    "phase": "x32 verificaci\u00f3n robusta",
+                    "stage": 0,
+                    "code": 19,
+                    "channel": 0,
+                    "mean_bank_uv": 1010608,
+                    "error_bank_uv": 9108,
+                    "error_real_mv": 181.3921956,
+                    "pp_bank_uv": 2117,
+                    "valid": true
+                  },
+                  "1": {
+                    "elapsed_s": 107.85183510000024,
+                    "phase": "x32 verificaci\u00f3n robusta",
+                    "stage": 1,
+                    "code": 140,
+                    "channel": 1,
+                    "mean_bank_uv": 997505,
+                    "error_bank_uv": -3995,
+                    "error_real_mv": -79.5632215,
+                    "pp_bank_uv": 3814,
+                    "valid": true
+                  },
+                  "2": {
+                    "elapsed_s": 108.50730300000032,
+                    "phase": "x32 verificaci\u00f3n robusta",
+                    "stage": 2,
+                    "code": 254,
+                    "channel": 2,
+                    "mean_bank_uv": 879745,
+                    "error_bank_uv": -121755,
+                    "error_real_mv": -2424.8360534999997,
+                    "pp_bank_uv": 2002,
+                    "valid": false
+                  },
+                  "3": {
+                    "elapsed_s": 109.16244720000032,
+                    "phase": "x32 verificaci\u00f3n robusta",
+                    "stage": 2,
+                    "code": 254,
+                    "channel": 3,
+                    "mean_bank_uv": 739059,
+                    "error_bank_uv": -262441,
+                    "error_real_mv": -5226.6962237,
+                    "pp_bank_uv": 228,
+                    "valid": false
+                  },
+                  "4": {
+                    "elapsed_s": 109.817275899999,
+                    "phase": "x32 verificaci\u00f3n robusta",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1108093,
+                    "error_bank_uv": 106593,
+                    "error_real_mv": 2122.8742101000003,
+                    "pp_bank_uv": 114,
+                    "valid": true
+                  }
+                },
+                "all_taps_valid": false,
+                "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+                "elapsed_s": 6.01952700000038
+              },
+              {
+                "gain": 48,
+                "pass": true,
+                "codes": [
+                  19,
+                  140,
+                  254,
+                  83
+                ],
+                "sum": {
+                  "method": "coarse 2D grid",
+                  "points": [
+                    {
+                      "idac2": 254,
+                      "idac3": 83,
+                      "lp": {
+                        "elapsed_s": 112.34277339999971,
+                        "phase": "x48 malla rescate",
+                        "stage": 3,
+                        "code": 83,
+                        "channel": 4,
+                        "mean_bank_uv": 1109046,
+                        "error_bank_uv": 107546,
+                        "error_real_mv": 2141.8538722000003,
+                        "pp_bank_uv": 95,
+                        "valid": true
+                      }
+                    }
+                  ]
+                },
+                "lp": {
+                  "method": "first physically valid point",
+                  "code": 83,
+                  "point": {
+                    "elapsed_s": 112.34277339999971,
+                    "phase": "x48 malla rescate",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1109046,
+                    "error_bank_uv": 107546,
+                    "error_real_mv": 2141.8538722000003,
+                    "pp_bank_uv": 95,
+                    "valid": true
+                  }
+                },
+                "joint_rescue": null,
+                "final": {
+                  "0": {
+                    "elapsed_s": 113.22254669999893,
+                    "phase": "x48 verificaci\u00f3n robusta",
+                    "stage": 0,
+                    "code": 19,
+                    "channel": 0,
+                    "mean_bank_uv": 1014156,
+                    "error_bank_uv": 12656,
+                    "error_real_mv": 252.05309920000002,
+                    "pp_bank_uv": 2250,
+                    "valid": true
+                  },
+                  "1": {
+                    "elapsed_s": 113.87781340000038,
+                    "phase": "x48 verificaci\u00f3n robusta",
+                    "stage": 1,
+                    "code": 140,
+                    "channel": 1,
+                    "mean_bank_uv": 995960,
+                    "error_bank_uv": -5540,
+                    "error_real_mv": -110.332978,
+                    "pp_bank_uv": 4119,
+                    "valid": true
+                  },
+                  "2": {
+                    "elapsed_s": 114.53355179999926,
+                    "phase": "x48 verificaci\u00f3n robusta",
+                    "stage": 2,
+                    "code": 254,
+                    "channel": 2,
+                    "mean_bank_uv": 875015,
+                    "error_bank_uv": -126485,
+                    "error_real_mv": -2519.0373145000003,
+                    "pp_bank_uv": 1964,
+                    "valid": false
+                  },
+                  "3": {
+                    "elapsed_s": 115.18948839999939,
+                    "phase": "x48 verificaci\u00f3n robusta",
+                    "stage": 2,
+                    "code": 254,
+                    "channel": 3,
+                    "mean_bank_uv": 739994,
+                    "error_bank_uv": -261506,
+                    "error_real_mv": -5208.075044200001,
+                    "pp_bank_uv": 171,
+                    "valid": false
+                  },
+                  "4": {
+                    "elapsed_s": 115.82389329999933,
+                    "phase": "x48 verificaci\u00f3n robusta",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1109066,
+                    "error_bank_uv": 107566,
+                    "error_real_mv": 2142.2521862000003,
+                    "pp_bank_uv": 114,
+                    "valid": true
+                  }
+                },
+                "all_taps_valid": false,
+                "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+                "elapsed_s": 6.003419299999223
+              },
+              {
+                "gain": 50,
+                "pass": true,
+                "codes": [
+                  19,
+                  140,
+                  254,
+                  83
+                ],
+                "sum": {
+                  "method": "coarse 2D grid",
+                  "points": [
+                    {
+                      "idac2": 254,
+                      "idac3": 83,
+                      "lp": {
+                        "elapsed_s": 118.34947549999924,
+                        "phase": "x50 malla rescate",
+                        "stage": 3,
+                        "code": 83,
+                        "channel": 4,
+                        "mean_bank_uv": 1108932,
+                        "error_bank_uv": 107432,
+                        "error_real_mv": 2139.5834824000003,
+                        "pp_bank_uv": 95,
+                        "valid": true
+                      }
+                    }
+                  ]
+                },
+                "lp": {
+                  "method": "first physically valid point",
+                  "code": 83,
+                  "point": {
+                    "elapsed_s": 118.34947549999924,
+                    "phase": "x50 malla rescate",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1108932,
+                    "error_bank_uv": 107432,
+                    "error_real_mv": 2139.5834824000003,
+                    "pp_bank_uv": 95,
+                    "valid": true
+                  }
+                },
+                "joint_rescue": null,
+                "final": {
+                  "0": {
+                    "elapsed_s": 119.22957119999955,
+                    "phase": "x50 verificaci\u00f3n robusta",
+                    "stage": 0,
+                    "code": 19,
+                    "channel": 0,
+                    "mean_bank_uv": 1013622,
+                    "error_bank_uv": 12122,
+                    "error_real_mv": 241.4181154,
+                    "pp_bank_uv": 1697,
+                    "valid": true
+                  },
+                  "1": {
+                    "elapsed_s": 119.88419959999919,
+                    "phase": "x50 verificaci\u00f3n robusta",
+                    "stage": 1,
+                    "code": 140,
+                    "channel": 1,
+                    "mean_bank_uv": 997543,
+                    "error_bank_uv": -3957,
+                    "error_real_mv": -78.8064249,
+                    "pp_bank_uv": 2269,
+                    "valid": true
+                  },
+                  "2": {
+                    "elapsed_s": 120.53840870000022,
+                    "phase": "x50 verificaci\u00f3n robusta",
+                    "stage": 2,
+                    "code": 254,
+                    "channel": 2,
+                    "mean_bank_uv": 868740,
+                    "error_bank_uv": -132760,
+                    "error_real_mv": -2644.008332,
+                    "pp_bank_uv": 1487,
+                    "valid": false
+                  },
+                  "3": {
+                    "elapsed_s": 124.76309199999923,
+                    "phase": "x50 verificaci\u00f3n robusta",
+                    "stage": 2,
+                    "code": 254,
+                    "channel": 3,
+                    "mean_bank_uv": 739841,
+                    "error_bank_uv": -261659,
+                    "error_real_mv": -5211.1221463,
+                    "pp_bank_uv": 171,
+                    "valid": false
+                  },
+                  "4": {
+                    "elapsed_s": 125.89023029999953,
+                    "phase": "x50 verificaci\u00f3n robusta",
+                    "stage": 3,
+                    "code": 83,
+                    "channel": 4,
+                    "mean_bank_uv": 1108932,
+                    "error_bank_uv": 107432,
+                    "error_real_mv": 2139.5834824000003,
+                    "pp_bank_uv": 95,
+                    "valid": true
+                  }
+                },
+                "all_taps_valid": false,
+                "acceptance": "PGAgain, BPo and LPo valid; internal taps recorded",
+                "elapsed_s": 10.063154400000712
+              }
+            ],
+            "requested_gains": [
+              1,
+              2,
+              4,
+              8,
+              16,
+              24,
+              32,
+              48,
+              50
+            ],
+            "initial_elapsed_s": 61.991001100001085,
+            "total_elapsed_s": 125.89681410000048
+          }
+        }
+      ]
+    }
+  ],
+  "measurements": [
+    {
+      "elapsed_s": 61.77008120000028,
+      "phase": "fase1 historial IDAC0",
+      "stage": 0,
+      "code": 19,
+      "channel": 0,
+      "mean_bank_uv": 999984,
+      "error_bank_uv": -1516,
+      "error_real_mv": -30.192201200000003,
+      "pp_bank_uv": 2441,
+      "valid": true
+    },
+    {
+      "elapsed_s": 61.98934259999987,
+      "phase": "fase1 historial IDAC1",
+      "stage": 1,
+      "code": 140,
+      "channel": 1,
+      "mean_bank_uv": 984840,
+      "error_bank_uv": -16660,
+      "error_real_mv": -331.795562,
+      "pp_bank_uv": 3471,
+      "valid": true
+    },
+    {
+      "elapsed_s": 64.19187349999993,
+      "phase": "x1 historial verificaci\u00f3n",
+      "stage": 0,
+      "code": 19,
+      "channel": 0,
+      "mean_bank_uv": 1000881,
+      "error_bank_uv": -619,
+      "error_real_mv": -12.3278183,
+      "pp_bank_uv": 2746,
+      "valid": true
+    },
+    {
+      "elapsed_s": 64.84245559999908,
+      "phase": "x1 historial verificaci\u00f3n",
+      "stage": 1,
+      "code": 140,
+      "channel": 1,
+      "mean_bank_uv": 984764,
+      "error_bank_uv": -16736,
+      "error_real_mv": -333.3091552,
+      "pp_bank_uv": 3433,
+      "valid": true
+    },
+    {
+      "elapsed_s": 65.49654509999891,
+      "phase": "x1 historial verificaci\u00f3n",
+      "stage": 2,
+      "code": 254,
+      "channel": 2,
+      "mean_bank_uv": 989055,
+      "error_bank_uv": -12445,
+      "error_real_mv": -247.85088650000003,
+      "pp_bank_uv": 648,
+      "valid": true
+    },
+    {
+      "elapsed_s": 69.76756039999964,
+      "phase": "x1 historial verificaci\u00f3n",
+      "stage": 2,
+      "code": 254,
+      "channel": 3,
+      "mean_bank_uv": 983085,
+      "error_bank_uv": -18415,
+      "error_real_mv": -366.7476155,
+      "pp_bank_uv": 686,
+      "valid": true
+    },
+    {
+      "elapsed_s": 70.87313619999986,
+      "phase": "x1 historial verificaci\u00f3n",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1106204,
+      "error_bank_uv": 104704,
+      "error_real_mv": 2085.2534528,
+      "pp_bank_uv": 114,
+      "valid": true
+    },
+    {
+      "elapsed_s": 73.07660219999889,
+      "phase": "x2 historial verificaci\u00f3n",
+      "stage": 0,
+      "code": 19,
+      "channel": 0,
+      "mean_bank_uv": 1012306,
+      "error_bank_uv": 10806,
+      "error_real_mv": 215.20905420000003,
+      "pp_bank_uv": 2746,
+      "valid": true
+    },
+    {
+      "elapsed_s": 73.73000069999944,
+      "phase": "x2 historial verificaci\u00f3n",
+      "stage": 1,
+      "code": 140,
+      "channel": 1,
+      "mean_bank_uv": 979747,
+      "error_bank_uv": -21753,
+      "error_real_mv": -433.22622210000003,
+      "pp_bank_uv": 4653,
+      "valid": true
+    },
+    {
+      "elapsed_s": 74.38285519999954,
+      "phase": "x2 historial verificaci\u00f3n",
+      "stage": 2,
+      "code": 254,
+      "channel": 2,
+      "mean_bank_uv": 978469,
+      "error_bank_uv": -23031,
+      "error_real_mv": -458.6784867,
+      "pp_bank_uv": 934,
+      "valid": true
+    },
+    {
+      "elapsed_s": 75.02912139999898,
+      "phase": "x2 historial verificaci\u00f3n",
+      "stage": 2,
+      "code": 254,
+      "channel": 3,
+      "mean_bank_uv": 964298,
+      "error_bank_uv": -37202,
+      "error_real_mv": -740.9038714000001,
+      "pp_bank_uv": 2174,
+      "valid": true
+    },
+    {
+      "elapsed_s": 75.68231170000035,
+      "phase": "x2 historial verificaci\u00f3n",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1110973,
+      "error_bank_uv": 109473,
+      "error_real_mv": 2180.2314261,
+      "pp_bank_uv": 553,
+      "valid": true
+    },
+    {
+      "elapsed_s": 78.19608479999988,
+      "phase": "x4 malla rescate",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1113758,
+      "error_bank_uv": 112258,
+      "error_real_mv": 2235.6966506000003,
+      "pp_bank_uv": 419,
+      "valid": true
+    },
+    {
+      "elapsed_s": 78.41673619999892,
+      "phase": "x4 LPo post ajuste",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1113967,
+      "error_bank_uv": 112467,
+      "error_real_mv": 2239.8590319000004,
+      "pp_bank_uv": 514,
+      "valid": true
+    },
+    {
+      "elapsed_s": 79.06932029999916,
+      "phase": "x4 verificaci\u00f3n robusta",
+      "stage": 0,
+      "code": 19,
+      "channel": 0,
+      "mean_bank_uv": 1034488,
+      "error_bank_uv": 32988,
+      "error_real_mv": 656.9791116,
+      "pp_bank_uv": 2841,
+      "valid": true
+    },
+    {
+      "elapsed_s": 79.72300489999907,
+      "phase": "x4 verificaci\u00f3n robusta",
+      "stage": 1,
+      "code": 140,
+      "channel": 1,
+      "mean_bank_uv": 970287,
+      "error_bank_uv": -31213,
+      "error_real_mv": -621.6287441000001,
+      "pp_bank_uv": 6160,
+      "valid": true
+    },
+    {
+      "elapsed_s": 80.37531399999898,
+      "phase": "x4 verificaci\u00f3n robusta",
+      "stage": 2,
+      "code": 254,
+      "channel": 2,
+      "mean_bank_uv": 964469,
+      "error_bank_uv": -37031,
+      "error_real_mv": -737.4982867000001,
+      "pp_bank_uv": 1373,
+      "valid": true
+    },
+    {
+      "elapsed_s": 81.02816569999959,
+      "phase": "x4 verificaci\u00f3n robusta",
+      "stage": 2,
+      "code": 254,
+      "channel": 3,
+      "mean_bank_uv": 893077,
+      "error_bank_uv": -108423,
+      "error_real_mv": -2159.3199411,
+      "pp_bank_uv": 5664,
+      "valid": true
+    },
+    {
+      "elapsed_s": 81.67406350000056,
+      "phase": "x4 verificaci\u00f3n robusta",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1118373,
+      "error_bank_uv": 116873,
+      "error_real_mv": 2327.6076061,
+      "pp_bank_uv": 514,
+      "valid": true
+    },
+    {
+      "elapsed_s": 84.19239689999995,
+      "phase": "x8 malla rescate",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1110973,
+      "error_bank_uv": 109473,
+      "error_real_mv": 2180.2314261,
+      "pp_bank_uv": 95,
+      "valid": true
+    },
+    {
+      "elapsed_s": 84.41198540000005,
+      "phase": "x8 LPo post ajuste",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1110935,
+      "error_bank_uv": 109435,
+      "error_real_mv": 2179.4746295000004,
+      "pp_bank_uv": 114,
+      "valid": true
+    },
+    {
+      "elapsed_s": 88.73381490000065,
+      "phase": "x8 verificaci\u00f3n robusta",
+      "stage": 0,
+      "code": 19,
+      "channel": 0,
+      "mean_bank_uv": 1021270,
+      "error_bank_uv": 19770,
+      "error_real_mv": 393.73338900000005,
+      "pp_bank_uv": 2670,
+      "valid": true
+    },
+    {
+      "elapsed_s": 89.83367259999977,
+      "phase": "x8 verificaci\u00f3n robusta",
+      "stage": 1,
+      "code": 140,
+      "channel": 1,
+      "mean_bank_uv": 988273,
+      "error_bank_uv": -13227,
+      "error_real_mv": -263.4249639,
+      "pp_bank_uv": 3280,
+      "valid": true
+    },
+    {
+      "elapsed_s": 90.48851579999973,
+      "phase": "x8 verificaci\u00f3n robusta",
+      "stage": 2,
+      "code": 254,
+      "channel": 2,
+      "mean_bank_uv": 908298,
+      "error_bank_uv": -93202,
+      "error_real_mv": -1856.1830714,
+      "pp_bank_uv": 1640,
+      "valid": true
+    },
+    {
+      "elapsed_s": 91.13965800000005,
+      "phase": "x8 verificaci\u00f3n robusta",
+      "stage": 2,
+      "code": 254,
+      "channel": 3,
+      "mean_bank_uv": 741786,
+      "error_bank_uv": -259714,
+      "error_real_mv": -5172.386109800001,
+      "pp_bank_uv": 171,
+      "valid": false
+    },
+    {
+      "elapsed_s": 91.77391239999997,
+      "phase": "x8 verificaci\u00f3n robusta",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1110935,
+      "error_bank_uv": 109435,
+      "error_real_mv": 2179.4746295000004,
+      "pp_bank_uv": 114,
+      "valid": true
+    },
+    {
+      "elapsed_s": 94.29664889999913,
+      "phase": "x16 malla rescate",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1108264,
+      "error_bank_uv": 106764,
+      "error_real_mv": 2126.2797948,
+      "pp_bank_uv": 133,
+      "valid": true
+    },
+    {
+      "elapsed_s": 94.51705980000042,
+      "phase": "x16 LPo post ajuste",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1108207,
+      "error_bank_uv": 106707,
+      "error_real_mv": 2125.1445999000002,
+      "pp_bank_uv": 95,
+      "valid": true
+    },
+    {
+      "elapsed_s": 95.1721882999991,
+      "phase": "x16 verificaci\u00f3n robusta",
+      "stage": 0,
+      "code": 19,
+      "channel": 0,
+      "mean_bank_uv": 1010761,
+      "error_bank_uv": 9261,
+      "error_real_mv": 184.4392977,
+      "pp_bank_uv": 2555,
+      "valid": true
+    },
+    {
+      "elapsed_s": 95.82596170000033,
+      "phase": "x16 verificaci\u00f3n robusta",
+      "stage": 1,
+      "code": 140,
+      "channel": 1,
+      "mean_bank_uv": 995941,
+      "error_bank_uv": -5559,
+      "error_real_mv": -110.7113763,
+      "pp_bank_uv": 3299,
+      "valid": true
+    },
+    {
+      "elapsed_s": 96.4754412000002,
+      "phase": "x16 verificaci\u00f3n robusta",
+      "stage": 2,
+      "code": 254,
+      "channel": 2,
+      "mean_bank_uv": 893154,
+      "error_bank_uv": -108346,
+      "error_real_mv": -2157.7864322,
+      "pp_bank_uv": 1678,
+      "valid": true
+    },
+    {
+      "elapsed_s": 97.1275229999992,
+      "phase": "x16 verificaci\u00f3n robusta",
+      "stage": 2,
+      "code": 254,
+      "channel": 3,
+      "mean_bank_uv": 739116,
+      "error_bank_uv": -262384,
+      "error_real_mv": -5225.561028800001,
+      "pp_bank_uv": 209,
+      "valid": false
+    },
+    {
+      "elapsed_s": 97.78220580000016,
+      "phase": "x16 verificaci\u00f3n robusta",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1108245,
+      "error_bank_uv": 106745,
+      "error_real_mv": 2125.9013965000004,
+      "pp_bank_uv": 133,
+      "valid": true
+    },
+    {
+      "elapsed_s": 100.29936029999953,
+      "phase": "x24 malla rescate",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1108970,
+      "error_bank_uv": 107470,
+      "error_real_mv": 2140.340279,
+      "pp_bank_uv": 95,
+      "valid": true
+    },
+    {
+      "elapsed_s": 100.51885279999988,
+      "phase": "x24 LPo post ajuste",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1108970,
+      "error_bank_uv": 107470,
+      "error_real_mv": 2140.340279,
+      "pp_bank_uv": 95,
+      "valid": true
+    },
+    {
+      "elapsed_s": 101.17490919999909,
+      "phase": "x24 verificaci\u00f3n robusta",
+      "stage": 0,
+      "code": 19,
+      "channel": 0,
+      "mean_bank_uv": 1014156,
+      "error_bank_uv": 12656,
+      "error_real_mv": 252.05309920000002,
+      "pp_bank_uv": 2269,
+      "valid": true
+    },
+    {
+      "elapsed_s": 101.82929479999984,
+      "phase": "x24 verificaci\u00f3n robusta",
+      "stage": 1,
+      "code": 140,
+      "channel": 1,
+      "mean_bank_uv": 994720,
+      "error_bank_uv": -6780,
+      "error_real_mv": -135.028446,
+      "pp_bank_uv": 2803,
+      "valid": true
+    },
+    {
+      "elapsed_s": 102.48441859999912,
+      "phase": "x24 verificaci\u00f3n robusta",
+      "stage": 2,
+      "code": 254,
+      "channel": 2,
+      "mean_bank_uv": 885543,
+      "error_bank_uv": -115957,
+      "error_real_mv": -2309.3648249000003,
+      "pp_bank_uv": 1964,
+      "valid": true
+    },
+    {
+      "elapsed_s": 103.13948840000012,
+      "phase": "x24 verificaci\u00f3n robusta",
+      "stage": 2,
+      "code": 254,
+      "channel": 3,
+      "mean_bank_uv": 739917,
+      "error_bank_uv": -261583,
+      "error_real_mv": -5209.6085531,
+      "pp_bank_uv": 190,
+      "valid": false
+    },
+    {
+      "elapsed_s": 103.7951121999995,
+      "phase": "x24 verificaci\u00f3n robusta",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1108970,
+      "error_bank_uv": 107470,
+      "error_real_mv": 2140.340279,
+      "pp_bank_uv": 114,
+      "valid": true
+    },
+    {
+      "elapsed_s": 106.32003470000018,
+      "phase": "x32 malla rescate",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1108055,
+      "error_bank_uv": 106555,
+      "error_real_mv": 2122.1174135,
+      "pp_bank_uv": 95,
+      "valid": true
+    },
+    {
+      "elapsed_s": 106.54279560000032,
+      "phase": "x32 LPo post ajuste",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1108074,
+      "error_bank_uv": 106574,
+      "error_real_mv": 2122.4958118000004,
+      "pp_bank_uv": 114,
+      "valid": true
+    },
+    {
+      "elapsed_s": 107.19780329999958,
+      "phase": "x32 verificaci\u00f3n robusta",
+      "stage": 0,
+      "code": 19,
+      "channel": 0,
+      "mean_bank_uv": 1010608,
+      "error_bank_uv": 9108,
+      "error_real_mv": 181.3921956,
+      "pp_bank_uv": 2117,
+      "valid": true
+    },
+    {
+      "elapsed_s": 107.85183510000024,
+      "phase": "x32 verificaci\u00f3n robusta",
+      "stage": 1,
+      "code": 140,
+      "channel": 1,
+      "mean_bank_uv": 997505,
+      "error_bank_uv": -3995,
+      "error_real_mv": -79.5632215,
+      "pp_bank_uv": 3814,
+      "valid": true
+    },
+    {
+      "elapsed_s": 108.50730300000032,
+      "phase": "x32 verificaci\u00f3n robusta",
+      "stage": 2,
+      "code": 254,
+      "channel": 2,
+      "mean_bank_uv": 879745,
+      "error_bank_uv": -121755,
+      "error_real_mv": -2424.8360534999997,
+      "pp_bank_uv": 2002,
+      "valid": false
+    },
+    {
+      "elapsed_s": 109.16244720000032,
+      "phase": "x32 verificaci\u00f3n robusta",
+      "stage": 2,
+      "code": 254,
+      "channel": 3,
+      "mean_bank_uv": 739059,
+      "error_bank_uv": -262441,
+      "error_real_mv": -5226.6962237,
+      "pp_bank_uv": 228,
+      "valid": false
+    },
+    {
+      "elapsed_s": 109.817275899999,
+      "phase": "x32 verificaci\u00f3n robusta",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1108093,
+      "error_bank_uv": 106593,
+      "error_real_mv": 2122.8742101000003,
+      "pp_bank_uv": 114,
+      "valid": true
+    },
+    {
+      "elapsed_s": 112.34277339999971,
+      "phase": "x48 malla rescate",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1109046,
+      "error_bank_uv": 107546,
+      "error_real_mv": 2141.8538722000003,
+      "pp_bank_uv": 95,
+      "valid": true
+    },
+    {
+      "elapsed_s": 112.56672930000059,
+      "phase": "x48 LPo post ajuste",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1109085,
+      "error_bank_uv": 107585,
+      "error_real_mv": 2142.6305845,
+      "pp_bank_uv": 95,
+      "valid": true
+    },
+    {
+      "elapsed_s": 113.22254669999893,
+      "phase": "x48 verificaci\u00f3n robusta",
+      "stage": 0,
+      "code": 19,
+      "channel": 0,
+      "mean_bank_uv": 1014156,
+      "error_bank_uv": 12656,
+      "error_real_mv": 252.05309920000002,
+      "pp_bank_uv": 2250,
+      "valid": true
+    },
+    {
+      "elapsed_s": 113.87781340000038,
+      "phase": "x48 verificaci\u00f3n robusta",
+      "stage": 1,
+      "code": 140,
+      "channel": 1,
+      "mean_bank_uv": 995960,
+      "error_bank_uv": -5540,
+      "error_real_mv": -110.332978,
+      "pp_bank_uv": 4119,
+      "valid": true
+    },
+    {
+      "elapsed_s": 114.53355179999926,
+      "phase": "x48 verificaci\u00f3n robusta",
+      "stage": 2,
+      "code": 254,
+      "channel": 2,
+      "mean_bank_uv": 875015,
+      "error_bank_uv": -126485,
+      "error_real_mv": -2519.0373145000003,
+      "pp_bank_uv": 1964,
+      "valid": false
+    },
+    {
+      "elapsed_s": 115.18948839999939,
+      "phase": "x48 verificaci\u00f3n robusta",
+      "stage": 2,
+      "code": 254,
+      "channel": 3,
+      "mean_bank_uv": 739994,
+      "error_bank_uv": -261506,
+      "error_real_mv": -5208.075044200001,
+      "pp_bank_uv": 171,
+      "valid": false
+    },
+    {
+      "elapsed_s": 115.82389329999933,
+      "phase": "x48 verificaci\u00f3n robusta",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1109066,
+      "error_bank_uv": 107566,
+      "error_real_mv": 2142.2521862000003,
+      "pp_bank_uv": 114,
+      "valid": true
+    },
+    {
+      "elapsed_s": 118.34947549999924,
+      "phase": "x50 malla rescate",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1108932,
+      "error_bank_uv": 107432,
+      "error_real_mv": 2139.5834824000003,
+      "pp_bank_uv": 95,
+      "valid": true
+    },
+    {
+      "elapsed_s": 118.57327020000048,
+      "phase": "x50 LPo post ajuste",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1108894,
+      "error_bank_uv": 107394,
+      "error_real_mv": 2138.8266858,
+      "pp_bank_uv": 133,
+      "valid": true
+    },
+    {
+      "elapsed_s": 119.22957119999955,
+      "phase": "x50 verificaci\u00f3n robusta",
+      "stage": 0,
+      "code": 19,
+      "channel": 0,
+      "mean_bank_uv": 1013622,
+      "error_bank_uv": 12122,
+      "error_real_mv": 241.4181154,
+      "pp_bank_uv": 1697,
+      "valid": true
+    },
+    {
+      "elapsed_s": 119.88419959999919,
+      "phase": "x50 verificaci\u00f3n robusta",
+      "stage": 1,
+      "code": 140,
+      "channel": 1,
+      "mean_bank_uv": 997543,
+      "error_bank_uv": -3957,
+      "error_real_mv": -78.8064249,
+      "pp_bank_uv": 2269,
+      "valid": true
+    },
+    {
+      "elapsed_s": 120.53840870000022,
+      "phase": "x50 verificaci\u00f3n robusta",
+      "stage": 2,
+      "code": 254,
+      "channel": 2,
+      "mean_bank_uv": 868740,
+      "error_bank_uv": -132760,
+      "error_real_mv": -2644.008332,
+      "pp_bank_uv": 1487,
+      "valid": false
+    },
+    {
+      "elapsed_s": 124.76309199999923,
+      "phase": "x50 verificaci\u00f3n robusta",
+      "stage": 2,
+      "code": 254,
+      "channel": 3,
+      "mean_bank_uv": 739841,
+      "error_bank_uv": -261659,
+      "error_real_mv": -5211.1221463,
+      "pp_bank_uv": 171,
+      "valid": false
+    },
+    {
+      "elapsed_s": 125.89023029999953,
+      "phase": "x50 verificaci\u00f3n robusta",
+      "stage": 3,
+      "code": 83,
+      "channel": 4,
+      "mean_bank_uv": 1108932,
+      "error_bank_uv": 107432,
+      "error_real_mv": 2139.5834824000003,
+      "pp_bank_uv": 95,
+      "valid": true
+    }
+  ]
+}

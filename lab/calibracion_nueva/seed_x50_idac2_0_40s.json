@@ -1,0 +1,195 @@
+{
+  "topology": "IDAC1 shared OPAbp+OPAsum; IDAC2 PGAout; IDAC3 LP",
+  "target_uv": 1000000,
+  "budgets_uv": {
+    "0": 500000,
+    "1": 500000,
+    "2": 1000000,
+    "3": 1000000
+  },
+  "pga_x": 50,
+  "current_pgaout_x": 50,
+  "current_codes": [
+    0,
+    -110,
+    0,
+    -255
+  ],
+  "events": [
+    {
+      "t": "2026-09-07T20:45:51",
+      "message": "======================================================================"
+    },
+    {
+      "t": "2026-09-07T20:45:52",
+      "message": "PGA=x50; PGAout=x50",
+      "kind": "gain",
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:45:52",
+      "message": "    IDAC0: +0 -> +0 semilla segura",
+      "kind": "idac",
+      "stage": 0,
+      "old": 0,
+      "code": 0,
+      "reason": "semilla segura"
+    },
+    {
+      "t": "2026-09-07T20:45:52",
+      "message": "    IDAC1: -110 -> -110 semilla segura",
+      "kind": "idac",
+      "stage": 1,
+      "old": -110,
+      "code": -110,
+      "reason": "semilla segura"
+    },
+    {
+      "t": "2026-09-07T20:45:52",
+      "message": "    IDAC2: +0 -> +0 semilla segura",
+      "kind": "idac",
+      "stage": 2,
+      "old": 0,
+      "code": 0,
+      "reason": "semilla segura"
+    },
+    {
+      "t": "2026-09-07T20:45:52",
+      "message": "    IDAC3: -255 -> -255 semilla segura",
+      "kind": "idac",
+      "stage": 3,
+      "old": -255,
+      "code": -255,
+      "reason": "semilla segura"
+    },
+    {
+      "t": "2026-09-07T20:45:52",
+      "message": "    asentando 40.0 s: estado inicial x50"
+    },
+    {
+      "t": "2026-09-07T20:46:35",
+      "message": "    inicial: ch0   -14.68 mV  ch1    -9.36 mV  ch2    -0.17 mV  ch3    +1.66 mV  ch4  -257.30 mV",
+      "kind": "snapshot",
+      "label": "inicial",
+      "values_uv": {
+        "0": 985317,
+        "1": 990638,
+        "2": 999832,
+        "3": 1001663,
+        "4": 742702
+      },
+      "error_uv": {
+        "0": -14683,
+        "1": -9362,
+        "2": -168,
+        "3": 1663,
+        "4": -257298
+      },
+      "pp_uv": {
+        "0": 2613,
+        "1": 3414,
+        "2": 724,
+        "3": 27217,
+        "4": 209
+      },
+      "codes": [
+        0,
+        -110,
+        0,
+        -255
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T20:46:35",
+      "message": "OBSERVACIÓN x50: IDAC [0, -110, 0, -255]",
+      "kind": "result",
+      "result": {
+        "pga_x": 50,
+        "pgaout_x": 50,
+        "seed": [
+          0,
+          -110,
+          0,
+          -255
+        ],
+        "initial_uv": {
+          "0": 985317,
+          "1": 990638,
+          "2": 999832,
+          "3": 1001663,
+          "4": 742702
+        },
+        "codes": [
+          0,
+          -110,
+          0,
+          -255
+        ],
+        "final_uv": {
+          "0": 985317,
+          "1": 990638,
+          "2": 999832,
+          "3": 1001663,
+          "4": 742702
+        },
+        "error_mv": {
+          "0": -14.683,
+          "1": -9.362,
+          "2": -0.168,
+          "3": 1.663,
+          "4": -257.298
+        },
+        "constraints_ok": true,
+        "problems": [],
+        "lp_abs_error_mv": 257.298,
+        "local_pass": false,
+        "observe_only": true
+      }
+    }
+  ],
+  "results": [
+    {
+      "pga_x": 50,
+      "pgaout_x": 50,
+      "seed": [
+        0,
+        -110,
+        0,
+        -255
+      ],
+      "initial_uv": {
+        "0": 985317,
+        "1": 990638,
+        "2": 999832,
+        "3": 1001663,
+        "4": 742702
+      },
+      "codes": [
+        0,
+        -110,
+        0,
+        -255
+      ],
+      "final_uv": {
+        "0": 985317,
+        "1": 990638,
+        "2": 999832,
+        "3": 1001663,
+        "4": 742702
+      },
+      "error_mv": {
+        "0": -14.683,
+        "1": -9.362,
+        "2": -0.168,
+        "3": 1.663,
+        "4": -257.298
+      },
+      "constraints_ok": true,
+      "problems": [],
+      "lp_abs_error_mv": 257.298,
+      "local_pass": false,
+      "observe_only": true
+    }
+  ]
+}

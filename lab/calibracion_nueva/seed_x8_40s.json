@@ -1,0 +1,195 @@
+{
+  "topology": "IDAC1 shared OPAbp+OPAsum; IDAC2 PGAout; IDAC3 LP",
+  "target_uv": 1000000,
+  "budgets_uv": {
+    "0": 500000,
+    "1": 500000,
+    "2": 1000000,
+    "3": 1000000
+  },
+  "pga_x": 50,
+  "current_pgaout_x": 8,
+  "current_codes": [
+    0,
+    -110,
+    250,
+    -255
+  ],
+  "events": [
+    {
+      "t": "2026-09-07T20:43:57",
+      "message": "======================================================================"
+    },
+    {
+      "t": "2026-09-07T20:43:58",
+      "message": "PGA=x50; PGAout=x8",
+      "kind": "gain",
+      "pgaout_x": 8
+    },
+    {
+      "t": "2026-09-07T20:43:58",
+      "message": "    IDAC0: +0 -> +0 semilla segura",
+      "kind": "idac",
+      "stage": 0,
+      "old": 0,
+      "code": 0,
+      "reason": "semilla segura"
+    },
+    {
+      "t": "2026-09-07T20:43:58",
+      "message": "    IDAC1: -110 -> -110 semilla segura",
+      "kind": "idac",
+      "stage": 1,
+      "old": -110,
+      "code": -110,
+      "reason": "semilla segura"
+    },
+    {
+      "t": "2026-09-07T20:43:58",
+      "message": "    IDAC2: +250 -> +250 semilla segura",
+      "kind": "idac",
+      "stage": 2,
+      "old": 250,
+      "code": 250,
+      "reason": "semilla segura"
+    },
+    {
+      "t": "2026-09-07T20:43:58",
+      "message": "    IDAC3: -255 -> -255 semilla segura",
+      "kind": "idac",
+      "stage": 3,
+      "old": -255,
+      "code": -255,
+      "reason": "semilla segura"
+    },
+    {
+      "t": "2026-09-07T20:43:58",
+      "message": "    asentando 40.0 s: estado inicial x8"
+    },
+    {
+      "t": "2026-09-07T20:44:42",
+      "message": "    inicial: ch0   -14.84 mV  ch1   -10.20 mV  ch2    +1.17 mV  ch3    -2.55 mV  ch4  -140.09 mV",
+      "kind": "snapshot",
+      "label": "inicial",
+      "values_uv": {
+        "0": 985164,
+        "1": 989799,
+        "2": 1001167,
+        "3": 997447,
+        "4": 859909
+      },
+      "error_uv": {
+        "0": -14836,
+        "1": -10201,
+        "2": 1167,
+        "3": -2553,
+        "4": -140091
+      },
+      "pp_uv": {
+        "0": 2689,
+        "1": 3890,
+        "2": 705,
+        "3": 4253,
+        "4": 20580
+      },
+      "codes": [
+        0,
+        -110,
+        250,
+        -255
+      ],
+      "pgaout_x": 8
+    },
+    {
+      "t": "2026-09-07T20:44:42",
+      "message": "OBSERVACIÓN x8: IDAC [0, -110, 250, -255]",
+      "kind": "result",
+      "result": {
+        "pga_x": 50,
+        "pgaout_x": 8,
+        "seed": [
+          0,
+          -110,
+          250,
+          -255
+        ],
+        "initial_uv": {
+          "0": 985164,
+          "1": 989799,
+          "2": 1001167,
+          "3": 997447,
+          "4": 859909
+        },
+        "codes": [
+          0,
+          -110,
+          250,
+          -255
+        ],
+        "final_uv": {
+          "0": 985164,
+          "1": 989799,
+          "2": 1001167,
+          "3": 997447,
+          "4": 859909
+        },
+        "error_mv": {
+          "0": -14.836,
+          "1": -10.201,
+          "2": 1.167,
+          "3": -2.553,
+          "4": -140.091
+        },
+        "constraints_ok": true,
+        "problems": [],
+        "lp_abs_error_mv": 140.091,
+        "local_pass": false,
+        "observe_only": true
+      }
+    }
+  ],
+  "results": [
+    {
+      "pga_x": 50,
+      "pgaout_x": 8,
+      "seed": [
+        0,
+        -110,
+        250,
+        -255
+      ],
+      "initial_uv": {
+        "0": 985164,
+        "1": 989799,
+        "2": 1001167,
+        "3": 997447,
+        "4": 859909
+      },
+      "codes": [
+        0,
+        -110,
+        250,
+        -255
+      ],
+      "final_uv": {
+        "0": 985164,
+        "1": 989799,
+        "2": 1001167,
+        "3": 997447,
+        "4": 859909
+      },
+      "error_mv": {
+        "0": -14.836,
+        "1": -10.201,
+        "2": 1.167,
+        "3": -2.553,
+        "4": -140.091
+      },
+      "constraints_ok": true,
+      "problems": [],
+      "lp_abs_error_mv": 140.091,
+      "local_pass": false,
+      "observe_only": true
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "test": "local repeated ABBA at current safe point, PGAout x1",
+  "safe_codes": [
+    19,
+    140,
+    254,
+    83
+  ],
+  "cycles": 2,
+  "factor_physical_per_bank": 19.9157,
+  "results": {
+    "IDAC1": {
+      "low_code": 140,
+      "high_code": 188,
+      "delta_codes": 48,
+      "channels": {
+        "0": {
+          "tap": "PGAgain",
+          "slopes_bank_uv_per_code": [
+            12.708333333333334,
+            -12.729166666666666,
+            3.1875,
+            -0.3958333333333333
+          ],
+          "median_bank_uv_per_code": 1.3958333333333333,
+          "mean_bank_uv_per_code": 0.6927083333333336,
+          "stdev_bank_uv_per_code": 9.109485181342425,
+          "median_physical_mv_per_code": 0.02779899791666667
+        },
+        "1": {
+          "tap": "BPo",
+          "slopes_bank_uv_per_code": [
+            129.54166666666666,
+            111.27083333333333,
+            99.72916666666667,
+            108.47916666666667
+          ],
+          "median_bank_uv_per_code": 109.875,
+          "mean_bank_uv_per_code": 112.25520833333333,
+          "stdev_bank_uv_per_code": 10.850700972220253,
+          "median_physical_mv_per_code": 2.1882375375
+        },
+        "2": {
+          "tap": "OPA_SUMo",
+          "slopes_bank_uv_per_code": [
+            -898.0625,
+            -832.875,
+            -867.4375,
+            -844.7916666666666
+          ],
+          "median_bank_uv_per_code": -856.1145833333333,
+          "mean_bank_uv_per_code": -860.7916666666666,
+          "stdev_bank_uv_per_code": 24.842616588401746,
+          "median_physical_mv_per_code": -17.050121207291667
+        },
+        "3": {
+          "tap": "SUMo",
+          "slopes_bank_uv_per_code": [
+            -881.75,
+            -818.1666666666666,
+            -895.6666666666666,
+            -826.125
+          ],
+          "median_bank_uv_per_code": -853.9375,
+          "mean_bank_uv_per_code": -855.4270833333333,
+          "stdev_bank_uv_per_code": 33.7604455929116,
+          "median_physical_mv_per_code": -17.00676306875
+        },
+        "4": {
+          "tap": "LPo",
+          "slopes_bank_uv_per_code": [
+            -0.7916666666666666,
+            -0.7916666666666666,
+            0.0,
+            -0.3958333333333333
+          ],
+          "median_bank_uv_per_code": -0.59375,
+          "mean_bank_uv_per_code": -0.49479166666666663,
+          "stdev_bank_uv_per_code": 0.32820766154558645,
+          "median_physical_mv_per_code": -0.011824946875
+        }
+      }
+    }
+  },
+  "restored": "PGAout x1 and [19,140,254,83]"
+}

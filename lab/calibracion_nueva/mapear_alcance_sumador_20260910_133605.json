@@ -1,0 +1,2083 @@
+{
+  "script": "mapear_alcance_sumador.py",
+  "simular": false,
+  "pga": 50,
+  "pgaout": 1,
+  "csv": "C:\\Github\\Tesis\\lab\\calibracion_nueva\\mapear_alcance_sumador_20260910_133605.csv",
+  "estado": "completada",
+  "eventos": [
+    {
+      "t_s": 6.142,
+      "tipo": "inicio",
+      "mensaje": "campana iniciada"
+    },
+    {
+      "t_s": 69.73,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 0,
+      "idac1": 0,
+      "espera_s": 62.154,
+      "muestras": 11,
+      "ultima_diferencia_uv": 39.0,
+      "ultimo_umbral_uv": 2470.0
+    },
+    {
+      "t_s": 98.983,
+      "tipo": "idac0_congelado",
+      "mensaje": "centrado terminado; IDAC0 queda fijo",
+      "codigo": 19,
+      "pendiente_uv_por_codigo": 3233.0,
+      "error_final_uv": -467.0,
+      "correcciones_unitarias": 4
+    },
+    {
+      "t_s": 126.541,
+      "tipo": "abba_idac0",
+      "mensaje": "brazo ABBA de IDAC0 terminado",
+      "centro_idac0": 19,
+      "pendientes_por_delta": [
+        {
+          "delta": 2,
+          "pendiente_ch0_uv_por_codigo": 2496.25,
+          "pendiente_ch2_uv_por_codigo": -324.25,
+          "pendiente_ch0_mv_fisicos_por_codigo": 49.714566125000005,
+          "pendiente_ch2_mv_fisicos_por_codigo": -6.457665725000001,
+          "motivo_ch2_sin_dato": null
+        },
+        {
+          "delta": 4,
+          "pendiente_ch0_uv_por_codigo": 2493.875,
+          "pendiente_ch2_uv_por_codigo": -299.1875,
+          "pendiente_ch0_mv_fisicos_por_codigo": 49.6672663375,
+          "pendiente_ch2_mv_fisicos_por_codigo": -5.95852849375,
+          "motivo_ch2_sin_dato": null
+        }
+      ],
+      "pendiente_ch0_mediana_uv_por_codigo": 2495.0625,
+      "pendiente_ch2_mediana_uv_por_codigo": -311.71875,
+      "pendiente_ch0_mediana_mv_fisicos_por_codigo": 49.69091623125001,
+      "pendiente_ch2_mediana_mv_fisicos_por_codigo": -6.208097109375,
+      "ganancia_sumador_desde_seo": -0.12493424513413992
+    },
+    {
+      "t_s": 126.542,
+      "tipo": "pasada",
+      "mensaje": "comienza pasada 1"
+    },
+    {
+      "t_s": 126.649,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=-255; comienza espera lenta",
+      "pasada": 1,
+      "idac1": -255
+    },
+    {
+      "t_s": 190.186,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 1,
+      "idac1": -255,
+      "espera_s": 63.536,
+      "muestras": 10,
+      "ultima_diferencia_uv": 1373.0,
+      "ultimo_umbral_uv": 6084.0
+    },
+    {
+      "t_s": 235.14,
+      "tipo": "tramo_abba",
+      "mensaje": "ABBA alrededor de IDAC2=-64",
+      "pasada": 1,
+      "idac1": -255,
+      "centro_idac2": -64,
+      "centro_malla_original": -64
+    },
+    {
+      "t_s": 313.235,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=-192; comienza espera lenta",
+      "pasada": 1,
+      "idac1": -192
+    },
+    {
+      "t_s": 376.609,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 1,
+      "idac1": -192,
+      "espera_s": 63.374,
+      "muestras": 10,
+      "ultima_diferencia_uv": 96.0,
+      "ultimo_umbral_uv": 6942.5
+    },
+    {
+      "t_s": 422.216,
+      "tipo": "tramo_abba",
+      "mensaje": "ABBA alrededor de IDAC2=+64",
+      "pasada": 1,
+      "idac1": -192,
+      "centro_idac2": 64,
+      "centro_malla_original": 64
+    },
+    {
+      "t_s": 496.342,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=-128; comienza espera lenta",
+      "pasada": 1,
+      "idac1": -128
+    },
+    {
+      "t_s": 558.503,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 1,
+      "idac1": -128,
+      "espera_s": 62.161,
+      "muestras": 11,
+      "ultima_diferencia_uv": 324.0,
+      "ultimo_umbral_uv": 2288.5
+    },
+    {
+      "t_s": 602.858,
+      "tipo": "tramo_abba",
+      "mensaje": "ABBA alrededor de IDAC2=+128",
+      "pasada": 1,
+      "idac1": -128,
+      "centro_idac2": 128,
+      "centro_malla_original": 128
+    },
+    {
+      "t_s": 669.402,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=-64; comienza espera lenta",
+      "pasada": 1,
+      "idac1": -64
+    },
+    {
+      "t_s": 731.563,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 1,
+      "idac1": -64,
+      "espera_s": 62.16,
+      "muestras": 11,
+      "ultima_diferencia_uv": 229.0,
+      "ultimo_umbral_uv": 8296.5
+    },
+    {
+      "t_s": 779.991,
+      "tipo": "tramo_abba",
+      "mensaje": "ABBA alrededor de IDAC2=+247",
+      "pasada": 1,
+      "idac1": -64,
+      "centro_idac2": 247,
+      "centro_malla_original": 255
+    },
+    {
+      "t_s": 850.491,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+0; comienza espera lenta",
+      "pasada": 1,
+      "idac1": 0
+    },
+    {
+      "t_s": 912.65,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 1,
+      "idac1": 0,
+      "espera_s": 62.158,
+      "muestras": 11,
+      "ultima_diferencia_uv": 763.0,
+      "ultimo_umbral_uv": 4882.5
+    },
+    {
+      "t_s": 953.571,
+      "tipo": "tramo_abba",
+      "mensaje": "ABBA alrededor de IDAC2=+247",
+      "pasada": 1,
+      "idac1": 0,
+      "centro_idac2": 247,
+      "centro_malla_original": 255
+    },
+    {
+      "t_s": 1013.26,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+64; comienza espera lenta",
+      "pasada": 1,
+      "idac1": 64
+    },
+    {
+      "t_s": 1075.421,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 1,
+      "idac1": 64,
+      "espera_s": 62.161,
+      "muestras": 11,
+      "ultima_diferencia_uv": 591.0,
+      "ultimo_umbral_uv": 4005.0
+    },
+    {
+      "t_s": 1116.308,
+      "tipo": "tramo_abba",
+      "mensaje": "ABBA alrededor de IDAC2=+247",
+      "pasada": 1,
+      "idac1": 64,
+      "centro_idac2": 247,
+      "centro_malla_original": 255
+    },
+    {
+      "t_s": 1182.205,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+128; comienza espera lenta",
+      "pasada": 1,
+      "idac1": 128
+    },
+    {
+      "t_s": 1244.337,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 1,
+      "idac1": 128,
+      "espera_s": 62.131,
+      "muestras": 11,
+      "ultima_diferencia_uv": 439.0,
+      "ultimo_umbral_uv": 6456.0
+    },
+    {
+      "t_s": 1291.263,
+      "tipo": "tramo_abba",
+      "mensaje": "ABBA alrededor de IDAC2=+247",
+      "pasada": 1,
+      "idac1": 128,
+      "centro_idac2": 247,
+      "centro_malla_original": 255
+    },
+    {
+      "t_s": 1373.45,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+192; comienza espera lenta",
+      "pasada": 1,
+      "idac1": 192
+    },
+    {
+      "t_s": 1435.599,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 1,
+      "idac1": 192,
+      "espera_s": 62.148,
+      "muestras": 11,
+      "ultima_diferencia_uv": 553.0,
+      "ultimo_umbral_uv": 2956.0
+    },
+    {
+      "t_s": 1484.551,
+      "tipo": "tramo_abba",
+      "mensaje": "ABBA alrededor de IDAC2=+247",
+      "pasada": 1,
+      "idac1": 192,
+      "centro_idac2": 247,
+      "centro_malla_original": 255
+    },
+    {
+      "t_s": 1546.192,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+255; comienza espera lenta",
+      "pasada": 1,
+      "idac1": 255
+    },
+    {
+      "t_s": 1608.341,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 1,
+      "idac1": 255,
+      "espera_s": 62.148,
+      "muestras": 11,
+      "ultima_diferencia_uv": 305.0,
+      "ultimo_umbral_uv": 5578.5
+    },
+    {
+      "t_s": 1653.247,
+      "tipo": "tramo_abba_omitido",
+      "mensaje": "el punto de malla mas cercano a Vref estaba saturado",
+      "pasada": 1,
+      "idac1": 255,
+      "centro_idac2": 255
+    },
+    {
+      "t_s": 1653.354,
+      "tipo": "pasada",
+      "mensaje": "pasada 1 terminada; IDAC1 e IDAC2 en cero"
+    },
+    {
+      "t_s": 1653.354,
+      "tipo": "pasada",
+      "mensaje": "comienza pasada 2"
+    },
+    {
+      "t_s": 1653.461,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+255; comienza espera lenta",
+      "pasada": 2,
+      "idac1": 255
+    },
+    {
+      "t_s": 1716.885,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 2,
+      "idac1": 255,
+      "espera_s": 63.423,
+      "muestras": 10,
+      "ultima_diferencia_uv": 915.0,
+      "ultimo_umbral_uv": 5054.0
+    },
+    {
+      "t_s": 1763.827,
+      "tipo": "tramo_abba_omitido",
+      "mensaje": "el punto de malla mas cercano a Vref estaba saturado",
+      "pasada": 2,
+      "idac1": 255,
+      "centro_idac2": 255
+    },
+    {
+      "t_s": 1763.934,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+192; comienza espera lenta",
+      "pasada": 2,
+      "idac1": 192
+    },
+    {
+      "t_s": 1829.569,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 2,
+      "idac1": 192,
+      "espera_s": 65.634,
+      "muestras": 11,
+      "ultima_diferencia_uv": 553.0,
+      "ultimo_umbral_uv": 9059.5
+    },
+    {
+      "t_s": 1878.533,
+      "tipo": "tramo_abba",
+      "mensaje": "ABBA alrededor de IDAC2=+247",
+      "pasada": 2,
+      "idac1": 192,
+      "centro_idac2": 247,
+      "centro_malla_original": 255
+    },
+    {
+      "t_s": 1956.62,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+128; comienza espera lenta",
+      "pasada": 2,
+      "idac1": 128
+    },
+    {
+      "t_s": 2018.764,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 2,
+      "idac1": 128,
+      "espera_s": 62.143,
+      "muestras": 11,
+      "ultima_diferencia_uv": 420.0,
+      "ultimo_umbral_uv": 9737.0
+    },
+    {
+      "t_s": 2073.768,
+      "tipo": "tramo_abba",
+      "mensaje": "ABBA alrededor de IDAC2=+247",
+      "pasada": 2,
+      "idac1": 128,
+      "centro_idac2": 247,
+      "centro_malla_original": 255
+    },
+    {
+      "t_s": 2151.906,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+64; comienza espera lenta",
+      "pasada": 2,
+      "idac1": 64
+    },
+    {
+      "t_s": 2215.289,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 2,
+      "idac1": 64,
+      "espera_s": 63.382,
+      "muestras": 10,
+      "ultima_diferencia_uv": 400.0,
+      "ultimo_umbral_uv": 4940.0
+    },
+    {
+      "t_s": 2260.34,
+      "tipo": "tramo_abba",
+      "mensaje": "ABBA alrededor de IDAC2=+247",
+      "pasada": 2,
+      "idac1": 64,
+      "centro_idac2": 247,
+      "centro_malla_original": 255
+    },
+    {
+      "t_s": 2330.168,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+0; comienza espera lenta",
+      "pasada": 2,
+      "idac1": 0
+    },
+    {
+      "t_s": 2392.318,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 2,
+      "idac1": 0,
+      "espera_s": 62.149,
+      "muestras": 11,
+      "ultima_diferencia_uv": 19.0,
+      "ultimo_umbral_uv": 6971.0
+    },
+    {
+      "t_s": 2439.217,
+      "tipo": "tramo_abba",
+      "mensaje": "ABBA alrededor de IDAC2=+247",
+      "pasada": 2,
+      "idac1": 0,
+      "centro_idac2": 247,
+      "centro_malla_original": 255
+    },
+    {
+      "t_s": 2517.439,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=-64; comienza espera lenta",
+      "pasada": 2,
+      "idac1": -64
+    },
+    {
+      "t_s": 2579.588,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 2,
+      "idac1": -64,
+      "espera_s": 62.148,
+      "muestras": 11,
+      "ultima_diferencia_uv": 286.0,
+      "ultimo_umbral_uv": 2040.5
+    },
+    {
+      "t_s": 2624.599,
+      "tipo": "tramo_abba",
+      "mensaje": "ABBA alrededor de IDAC2=+247",
+      "pasada": 2,
+      "idac1": -64,
+      "centro_idac2": 247,
+      "centro_malla_original": 255
+    },
+    {
+      "t_s": 2698.332,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=-128; comienza espera lenta",
+      "pasada": 2,
+      "idac1": -128
+    },
+    {
+      "t_s": 2760.487,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 2,
+      "idac1": -128,
+      "espera_s": 62.154,
+      "muestras": 11,
+      "ultima_diferencia_uv": 172.0,
+      "ultimo_umbral_uv": 5846.0
+    },
+    {
+      "t_s": 2797.303,
+      "tipo": "tramo_abba",
+      "mensaje": "ABBA alrededor de IDAC2=+128",
+      "pasada": 2,
+      "idac1": -128,
+      "centro_idac2": 128,
+      "centro_malla_original": 128
+    },
+    {
+      "t_s": 2875.446,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=-192; comienza espera lenta",
+      "pasada": 2,
+      "idac1": -192
+    },
+    {
+      "t_s": 2937.604,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 2,
+      "idac1": -192,
+      "espera_s": 62.157,
+      "muestras": 11,
+      "ultima_diferencia_uv": 610.0,
+      "ultimo_umbral_uv": 4320.0
+    },
+    {
+      "t_s": 2982.639,
+      "tipo": "tramo_abba",
+      "mensaje": "ABBA alrededor de IDAC2=+64",
+      "pasada": 2,
+      "idac1": -192,
+      "centro_idac2": 64,
+      "centro_malla_original": 64
+    },
+    {
+      "t_s": 3052.42,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=-255; comienza espera lenta",
+      "pasada": 2,
+      "idac1": -255
+    },
+    {
+      "t_s": 3114.573,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 2,
+      "idac1": -255,
+      "espera_s": 62.152,
+      "muestras": 11,
+      "ultima_diferencia_uv": 629.0,
+      "ultimo_umbral_uv": 2431.5
+    },
+    {
+      "t_s": 3158.948,
+      "tipo": "tramo_abba",
+      "mensaje": "ABBA alrededor de IDAC2=-64",
+      "pasada": 2,
+      "idac1": -255,
+      "centro_idac2": -64,
+      "centro_malla_original": -64
+    },
+    {
+      "t_s": 3229.346,
+      "tipo": "pasada",
+      "mensaje": "pasada 2 terminada; IDAC1 e IDAC2 en cero"
+    },
+    {
+      "t_s": 3229.352,
+      "tipo": "resumen",
+      "mensaje": "campana completada"
+    }
+  ],
+  "resumen": {
+    "codigo_idac0_final": 19,
+    "abba_idac0": {
+      "centro_idac0": 19,
+      "pendientes_por_delta": [
+        {
+          "delta": 2,
+          "pendiente_ch0_uv_por_codigo": 2496.25,
+          "pendiente_ch2_uv_por_codigo": -324.25,
+          "pendiente_ch0_mv_fisicos_por_codigo": 49.714566125000005,
+          "pendiente_ch2_mv_fisicos_por_codigo": -6.457665725000001,
+          "motivo_ch2_sin_dato": null
+        },
+        {
+          "delta": 4,
+          "pendiente_ch0_uv_por_codigo": 2493.875,
+          "pendiente_ch2_uv_por_codigo": -299.1875,
+          "pendiente_ch0_mv_fisicos_por_codigo": 49.6672663375,
+          "pendiente_ch2_mv_fisicos_por_codigo": -5.95852849375,
+          "motivo_ch2_sin_dato": null
+        }
+      ],
+      "pendiente_ch0_mediana_uv_por_codigo": 2495.0625,
+      "pendiente_ch2_mediana_uv_por_codigo": -311.71875,
+      "pendiente_ch0_mediana_mv_fisicos_por_codigo": 49.69091623125001,
+      "pendiente_ch2_mediana_mv_fisicos_por_codigo": -6.208097109375,
+      "ganancia_sumador_desde_seo": -0.12493424513413992
+    },
+    "tabla_validez_celdas": [
+      {
+        "pasada": 1,
+        "idac1": -255,
+        "idac2": -255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -255,
+        "idac2": -128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -255,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -255,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -255,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -255,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -255,
+        "idac2": 255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -192,
+        "idac2": -255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -192,
+        "idac2": -128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -192,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -192,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -192,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -192,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -192,
+        "idac2": 255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -128,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": -128,
+        "idac2": -128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -128,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -128,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -128,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -128,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -128,
+        "idac2": 255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -64,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": -64,
+        "idac2": -128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": -64,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -64,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -64,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -64,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -64,
+        "idac2": 255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 0,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 0,
+        "idac2": -128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 0,
+        "idac2": -64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 0,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 0,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 0,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 0,
+        "idac2": 255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 64,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 64,
+        "idac2": -128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 64,
+        "idac2": -64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 64,
+        "idac2": 0,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 64,
+        "idac2": 64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 64,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 64,
+        "idac2": 255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 128,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 128,
+        "idac2": -128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 128,
+        "idac2": -64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 128,
+        "idac2": 0,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 128,
+        "idac2": 64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 128,
+        "idac2": 128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 128,
+        "idac2": 255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 192,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 192,
+        "idac2": -128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 192,
+        "idac2": -64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 192,
+        "idac2": 0,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 192,
+        "idac2": 64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 192,
+        "idac2": 128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 192,
+        "idac2": 255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 255,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 255,
+        "idac2": -128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 255,
+        "idac2": -64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 255,
+        "idac2": 0,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 255,
+        "idac2": 64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 255,
+        "idac2": 128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 255,
+        "idac2": 255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": -255,
+        "idac2": -255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -255,
+        "idac2": -128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -255,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -255,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -255,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -255,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -255,
+        "idac2": 255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -192,
+        "idac2": -255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -192,
+        "idac2": -128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -192,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -192,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -192,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -192,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -192,
+        "idac2": 255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -128,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": -128,
+        "idac2": -128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -128,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -128,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -128,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -128,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -128,
+        "idac2": 255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -64,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": -64,
+        "idac2": -128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": -64,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -64,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -64,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -64,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -64,
+        "idac2": 255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 0,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 0,
+        "idac2": -128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 0,
+        "idac2": -64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 0,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 0,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 0,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 0,
+        "idac2": 255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 64,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 64,
+        "idac2": -128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 64,
+        "idac2": -64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 64,
+        "idac2": 0,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 64,
+        "idac2": 64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 64,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 64,
+        "idac2": 255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 128,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 128,
+        "idac2": -128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 128,
+        "idac2": -64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 128,
+        "idac2": 0,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 128,
+        "idac2": 64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 128,
+        "idac2": 128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 128,
+        "idac2": 255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 192,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 192,
+        "idac2": -128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 192,
+        "idac2": -64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 192,
+        "idac2": 0,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 192,
+        "idac2": 64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 192,
+        "idac2": 128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 192,
+        "idac2": 255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 255,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 255,
+        "idac2": -128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 255,
+        "idac2": -64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 255,
+        "idac2": 0,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 255,
+        "idac2": 64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 255,
+        "idac2": 128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 255,
+        "idac2": 255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      }
+    ],
+    "pendiente_local_idac2_sobre_ch2": [
+      {
+        "pasada": 1,
+        "idac1": -255,
+        "pendientes_por_delta": [
+          {
+            "delta": 8,
+            "pendiente_uv_por_codigo": 243.1875,
+            "pendiente_mv_fisicos_por_codigo": 4.8432492937500005
+          },
+          {
+            "delta": 4,
+            "pendiente_uv_por_codigo": 253.875,
+            "pendiente_mv_fisicos_por_codigo": 5.056098337500001
+          },
+          {
+            "delta": 2,
+            "pendiente_uv_por_codigo": 150.25,
+            "pendiente_mv_fisicos_por_codigo": 2.9923339250000005
+          }
+        ],
+        "pendiente_mediana_uv_por_codigo": 243.1875,
+        "pendiente_mediana_mv_fisicos_por_codigo": 4.8432492937500005,
+        "signo": "positivo"
+      },
+      {
+        "pasada": 1,
+        "idac1": -192,
+        "pendientes_por_delta": [
+          {
+            "delta": 8,
+            "pendiente_uv_por_codigo": 257.5,
+            "pendiente_mv_fisicos_por_codigo": 5.128292750000001
+          },
+          {
+            "delta": 4,
+            "pendiente_uv_por_codigo": 176.4375,
+            "pendiente_mv_fisicos_por_codigo": 3.5138763187500004
+          },
+          {
+            "delta": 2,
+            "pendiente_uv_por_codigo": 126.5,
+            "pendiente_mv_fisicos_por_codigo": 2.51933605
+          }
+        ],
+        "pendiente_mediana_uv_por_codigo": 176.4375,
+        "pendiente_mediana_mv_fisicos_por_codigo": 3.5138763187500004,
+        "signo": "positivo"
+      },
+      {
+        "pasada": 1,
+        "idac1": -128,
+        "pendientes_por_delta": [
+          {
+            "delta": 8,
+            "pendiente_uv_por_codigo": 261.0625,
+            "pendiente_mv_fisicos_por_codigo": 5.199242431250001
+          },
+          {
+            "delta": 4,
+            "pendiente_uv_por_codigo": 205.0,
+            "pendiente_mv_fisicos_por_codigo": 4.0827185
+          },
+          {
+            "delta": 2,
+            "pendiente_uv_por_codigo": 219.25,
+            "pendiente_mv_fisicos_por_codigo": 4.366517225000001
+          }
+        ],
+        "pendiente_mediana_uv_por_codigo": 219.25,
+        "pendiente_mediana_mv_fisicos_por_codigo": 4.366517225000001,
+        "signo": "positivo"
+      },
+      {
+        "pasada": 1,
+        "idac1": -64,
+        "pendientes_por_delta": [
+          {
+            "delta": 8,
+            "pendiente_uv_por_codigo": 255.71875,
+            "pendiente_mv_fisicos_por_codigo": 5.092817909375
+          },
+          {
+            "delta": 4,
+            "pendiente_uv_por_codigo": 201.4375,
+            "pendiente_mv_fisicos_por_codigo": 4.01176881875
+          },
+          {
+            "delta": 2,
+            "pendiente_uv_por_codigo": 95.375,
+            "pendiente_mv_fisicos_por_codigo": 1.8994598875000002
+          }
+        ],
+        "pendiente_mediana_uv_por_codigo": 201.4375,
+        "pendiente_mediana_mv_fisicos_por_codigo": 4.01176881875,
+        "signo": "positivo"
+      },
+      {
+        "pasada": 1,
+        "idac1": 0,
+        "pendientes_por_delta": [
+          {
+            "delta": 8,
+            "pendiente_uv_por_codigo": 254.5,
+            "pendiente_mv_fisicos_por_codigo": 5.06854565
+          },
+          {
+            "delta": 4,
+            "pendiente_uv_por_codigo": 247.9375,
+            "pendiente_mv_fisicos_por_codigo": 4.937848868750001
+          },
+          {
+            "delta": 2,
+            "pendiente_uv_por_codigo": 331.375,
+            "pendiente_mv_fisicos_por_codigo": 6.5995650875
+          }
+        ],
+        "pendiente_mediana_uv_por_codigo": 254.5,
+        "pendiente_mediana_mv_fisicos_por_codigo": 5.06854565,
+        "signo": "positivo"
+      },
+      {
+        "pasada": 1,
+        "idac1": 64,
+        "pendientes_por_delta": [
+          {
+            "delta": 8,
+            "pendiente_uv_por_codigo": 268.21875,
+            "pendiente_mv_fisicos_por_codigo": 5.341764159375001
+          },
+          {
+            "delta": 4,
+            "pendiente_uv_por_codigo": 336.125,
+            "pendiente_mv_fisicos_por_codigo": 6.6941646625
+          },
+          {
+            "delta": 2,
+            "pendiente_uv_por_codigo": 276.625,
+            "pendiente_mv_fisicos_por_codigo": 5.5091805125
+          }
+        ],
+        "pendiente_mediana_uv_por_codigo": 276.625,
+        "pendiente_mediana_mv_fisicos_por_codigo": 5.5091805125,
+        "signo": "positivo"
+      },
+      {
+        "pasada": 1,
+        "idac1": 128,
+        "pendientes_por_delta": [
+          {
+            "delta": 8,
+            "pendiente_uv_por_codigo": 464.90625,
+            "pendiente_mv_fisicos_por_codigo": 9.258933403125
+          },
+          {
+            "delta": 4,
+            "pendiente_uv_por_codigo": 575.75,
+            "pendiente_mv_fisicos_por_codigo": 11.466464275
+          },
+          {
+            "delta": 2,
+            "pendiente_uv_por_codigo": 765.25,
+            "pendiente_mv_fisicos_por_codigo": 15.240489425000002
+          }
+        ],
+        "pendiente_mediana_uv_por_codigo": 575.75,
+        "pendiente_mediana_mv_fisicos_por_codigo": 11.466464275,
+        "signo": "positivo"
+      },
+      {
+        "pasada": 2,
+        "idac1": -255,
+        "pendientes_por_delta": [
+          {
+            "delta": 8,
+            "pendiente_uv_por_codigo": 287.875,
+            "pendiente_mv_fisicos_por_codigo": 5.7332321375
+          },
+          {
+            "delta": 4,
+            "pendiente_uv_por_codigo": 245.5625,
+            "pendiente_mv_fisicos_por_codigo": 4.8905490812500005
+          },
+          {
+            "delta": 2,
+            "pendiente_uv_por_codigo": 264.625,
+            "pendiente_mv_fisicos_por_codigo": 5.2701921125
+          }
+        ],
+        "pendiente_mediana_uv_por_codigo": 264.625,
+        "pendiente_mediana_mv_fisicos_por_codigo": 5.2701921125,
+        "signo": "positivo"
+      },
+      {
+        "pasada": 2,
+        "idac1": -192,
+        "pendientes_por_delta": [
+          {
+            "delta": 8,
+            "pendiente_uv_por_codigo": 295.65625,
+            "pendiente_mv_fisicos_por_codigo": 5.8882011781250005
+          },
+          {
+            "delta": 4,
+            "pendiente_uv_por_codigo": 206.25,
+            "pendiente_mv_fisicos_por_codigo": 4.107613124999999
+          },
+          {
+            "delta": 2,
+            "pendiente_uv_por_codigo": 257.375,
+            "pendiente_mv_fisicos_por_codigo": 5.1258032875
+          }
+        ],
+        "pendiente_mediana_uv_por_codigo": 257.375,
+        "pendiente_mediana_mv_fisicos_por_codigo": 5.1258032875,
+        "signo": "positivo"
+      },
+      {
+        "pasada": 2,
+        "idac1": -128,
+        "pendientes_por_delta": [
+          {
+            "delta": 8,
+            "pendiente_uv_por_codigo": 245.59375,
+            "pendiente_mv_fisicos_por_codigo": 4.891171446875001
+          },
+          {
+            "delta": 4,
+            "pendiente_uv_por_codigo": 290.875,
+            "pendiente_mv_fisicos_por_codigo": 5.792979237500001
+          },
+          {
+            "delta": 2,
+            "pendiente_uv_por_codigo": 360.0,
+            "pendiente_mv_fisicos_por_codigo": 7.169652
+          }
+        ],
+        "pendiente_mediana_uv_por_codigo": 290.875,
+        "pendiente_mediana_mv_fisicos_por_codigo": 5.792979237500001,
+        "signo": "positivo"
+      },
+      {
+        "pasada": 2,
+        "idac1": -64,
+        "pendientes_por_delta": [
+          {
+            "delta": 8,
+            "pendiente_uv_por_codigo": 258.125,
+            "pendiente_mv_fisicos_por_codigo": 5.1407400625
+          },
+          {
+            "delta": 4,
+            "pendiente_uv_por_codigo": 194.25,
+            "pendiente_mv_fisicos_por_codigo": 3.868624725
+          },
+          {
+            "delta": 2,
+            "pendiente_uv_por_codigo": 343.375,
+            "pendiente_mv_fisicos_por_codigo": 6.8385534875000005
+          }
+        ],
+        "pendiente_mediana_uv_por_codigo": 258.125,
+        "pendiente_mediana_mv_fisicos_por_codigo": 5.1407400625,
+        "signo": "positivo"
+      },
+      {
+        "pasada": 2,
+        "idac1": 0,
+        "pendientes_por_delta": [
+          {
+            "delta": 8,
+            "pendiente_uv_por_codigo": 243.1875,
+            "pendiente_mv_fisicos_por_codigo": 4.8432492937500005
+          },
+          {
+            "delta": 4,
+            "pendiente_uv_por_codigo": 183.625,
+            "pendiente_mv_fisicos_por_codigo": 3.6570204125
+          },
+          {
+            "delta": 2,
+            "pendiente_uv_por_codigo": 333.875,
+            "pendiente_mv_fisicos_por_codigo": 6.6493543375
+          }
+        ],
+        "pendiente_mediana_uv_por_codigo": 243.1875,
+        "pendiente_mediana_mv_fisicos_por_codigo": 4.8432492937500005,
+        "signo": "positivo"
+      },
+      {
+        "pasada": 2,
+        "idac1": 64,
+        "pendientes_por_delta": [
+          {
+            "delta": 8,
+            "pendiente_uv_por_codigo": 309.9375,
+            "pendiente_mv_fisicos_por_codigo": 6.1726222687500005
+          },
+          {
+            "delta": 4,
+            "pendiente_uv_por_codigo": 234.875,
+            "pendiente_mv_fisicos_por_codigo": 4.677700037500001
+          },
+          {
+            "delta": 2,
+            "pendiente_uv_por_codigo": 293.25,
+            "pendiente_mv_fisicos_por_codigo": 5.840279025000001
+          }
+        ],
+        "pendiente_mediana_uv_por_codigo": 293.25,
+        "pendiente_mediana_mv_fisicos_por_codigo": 5.840279025000001,
+        "signo": "positivo"
+      },
+      {
+        "pasada": 2,
+        "idac1": 128,
+        "pendientes_por_delta": [
+          {
+            "delta": 8,
+            "pendiente_uv_por_codigo": 534.65625,
+            "pendiente_mv_fisicos_por_codigo": 10.648053478125
+          },
+          {
+            "delta": 4,
+            "pendiente_uv_por_codigo": 712.8125,
+            "pendiente_mv_fisicos_por_codigo": 14.196159906250001
+          },
+          {
+            "delta": 2,
+            "pendiente_uv_por_codigo": 519.625,
+            "pendiente_mv_fisicos_por_codigo": 10.3486956125
+          }
+        ],
+        "pendiente_mediana_uv_por_codigo": 534.65625,
+        "pendiente_mediana_mv_fisicos_por_codigo": 10.648053478125,
+        "signo": "positivo"
+      }
+    ],
+    "ajuste_malla": {
+      "disponible": true,
+      "n": 51,
+      "A_uv_por_codigo_idac2": 245.15711582225944,
+      "B_uv_por_codigo_idac1": -369.7067404625587,
+      "C_uv_por_uv_ch0": 2.9219524004500537,
+      "K_uv": -2006176.2114344225,
+      "residuo_rms_uv": 2866.726332203193,
+      "ecuacion": "ch2_uv = A*idac2 + B*idac1 + C*ch0_uv + K_uv"
+    },
+    "filtro_region_lineal": {
+      "candidatas": 126,
+      "incluidas": 51,
+      "descartadas_total": 75,
+      "descartadas_por_motivo": {
+        "ch0_sin_lectura": 0,
+        "ch1_sin_lectura": 0,
+        "ch2_sin_lectura": 0,
+        "ch3_sin_lectura": 0,
+        "ch0_fuera_de_rango": 0,
+        "ch1_fuera_de_rango": 0,
+        "ch2_fuera_de_rango": 60,
+        "ch3_fuera_de_rango": 60,
+        "ch0_clavado": 0,
+        "ch1_clavado": 0,
+        "ch2_clavado": 20,
+        "ch3_clavado": 22,
+        "error_ch2_mayor_o_igual_1500_mv": 75
+      },
+      "nota": "los motivos pueden solaparse en una misma captura"
+    },
+    "ajuste_malla_sin_limitar": {
+      "disponible": true,
+      "n": 66,
+      "A_uv_por_codigo_idac2": 273.38688675452534,
+      "B_uv_por_codigo_idac1": -427.55105488255185,
+      "C_uv_por_uv_ch0": 6.288662099122738,
+      "K_uv": -5390609.841097888,
+      "residuo_rms_uv": 8545.405576092724,
+      "ecuacion": "ch2_uv = A*idac2 + B*idac1 + C*ch0_uv + K_uv"
+    },
+    "advertencia_ajuste_global": "El ajuste historico sobre todo el mapa dio un residuo de aproximadamente 103 mV y coeficientes casi a la mitad de los ABBA. No debe interpretarse como la ganancia local del sumador.",
+    "histeresis_por_celda": [
+      {
+        "idac1": -255,
+        "idac2": -255,
+        "ch2_pasada2_menos_pasada1_uv": -14038.0,
+        "ch3_pasada2_menos_pasada1_uv": -14057.0
+      },
+      {
+        "idac1": -255,
+        "idac2": -128,
+        "ch2_pasada2_menos_pasada1_uv": -8316.0,
+        "ch3_pasada2_menos_pasada1_uv": -8068.0
+      },
+      {
+        "idac1": -255,
+        "idac2": -64,
+        "ch2_pasada2_menos_pasada1_uv": -7134.0,
+        "ch3_pasada2_menos_pasada1_uv": -6980.0
+      },
+      {
+        "idac1": -255,
+        "idac2": 0,
+        "ch2_pasada2_menos_pasada1_uv": -6218.0,
+        "ch3_pasada2_menos_pasada1_uv": -5703.0
+      },
+      {
+        "idac1": -255,
+        "idac2": 64,
+        "ch2_pasada2_menos_pasada1_uv": -4997.0,
+        "ch3_pasada2_menos_pasada1_uv": -5150.0
+      },
+      {
+        "idac1": -255,
+        "idac2": 128,
+        "ch2_pasada2_menos_pasada1_uv": -4540.0,
+        "ch3_pasada2_menos_pasada1_uv": -4311.0
+      },
+      {
+        "idac1": -255,
+        "idac2": 255,
+        "ch2_pasada2_menos_pasada1_uv": -3948.0,
+        "ch3_pasada2_menos_pasada1_uv": -3681.0
+      },
+      {
+        "idac1": -192,
+        "idac2": -255,
+        "ch2_pasada2_menos_pasada1_uv": 3433.0,
+        "ch3_pasada2_menos_pasada1_uv": 3300.0
+      },
+      {
+        "idac1": -192,
+        "idac2": -128,
+        "ch2_pasada2_menos_pasada1_uv": 1297.0,
+        "ch3_pasada2_menos_pasada1_uv": 1373.0
+      },
+      {
+        "idac1": -192,
+        "idac2": -64,
+        "ch2_pasada2_menos_pasada1_uv": 839.0,
+        "ch3_pasada2_menos_pasada1_uv": 725.0
+      },
+      {
+        "idac1": -192,
+        "idac2": 0,
+        "ch2_pasada2_menos_pasada1_uv": 629.0,
+        "ch3_pasada2_menos_pasada1_uv": 515.0
+      },
+      {
+        "idac1": -192,
+        "idac2": 64,
+        "ch2_pasada2_menos_pasada1_uv": 495.0,
+        "ch3_pasada2_menos_pasada1_uv": 400.0
+      },
+      {
+        "idac1": -192,
+        "idac2": 128,
+        "ch2_pasada2_menos_pasada1_uv": 325.0,
+        "ch3_pasada2_menos_pasada1_uv": 363.0
+      },
+      {
+        "idac1": -192,
+        "idac2": 255,
+        "ch2_pasada2_menos_pasada1_uv": 229.0,
+        "ch3_pasada2_menos_pasada1_uv": 859.0
+      },
+      {
+        "idac1": -128,
+        "idac2": -128,
+        "ch2_pasada2_menos_pasada1_uv": 7821.0,
+        "ch3_pasada2_menos_pasada1_uv": 7611.0
+      },
+      {
+        "idac1": -128,
+        "idac2": -64,
+        "ch2_pasada2_menos_pasada1_uv": 4349.0,
+        "ch3_pasada2_menos_pasada1_uv": 4578.0
+      },
+      {
+        "idac1": -128,
+        "idac2": 0,
+        "ch2_pasada2_menos_pasada1_uv": 2384.0,
+        "ch3_pasada2_menos_pasada1_uv": 2403.0
+      },
+      {
+        "idac1": -128,
+        "idac2": 64,
+        "ch2_pasada2_menos_pasada1_uv": 1964.0,
+        "ch3_pasada2_menos_pasada1_uv": 2041.0
+      },
+      {
+        "idac1": -128,
+        "idac2": 128,
+        "ch2_pasada2_menos_pasada1_uv": 1259.0,
+        "ch3_pasada2_menos_pasada1_uv": 1221.0
+      },
+      {
+        "idac1": -128,
+        "idac2": 255,
+        "ch2_pasada2_menos_pasada1_uv": 1087.0,
+        "ch3_pasada2_menos_pasada1_uv": 1125.0
+      },
+      {
+        "idac1": -64,
+        "idac2": -64,
+        "ch2_pasada2_menos_pasada1_uv": 4006.0,
+        "ch3_pasada2_menos_pasada1_uv": 3777.0
+      },
+      {
+        "idac1": -64,
+        "idac2": 0,
+        "ch2_pasada2_menos_pasada1_uv": 3032.0,
+        "ch3_pasada2_menos_pasada1_uv": 3052.0
+      },
+      {
+        "idac1": -64,
+        "idac2": 64,
+        "ch2_pasada2_menos_pasada1_uv": 1316.0,
+        "ch3_pasada2_menos_pasada1_uv": 1373.0
+      },
+      {
+        "idac1": -64,
+        "idac2": 128,
+        "ch2_pasada2_menos_pasada1_uv": 839.0,
+        "ch3_pasada2_menos_pasada1_uv": 1069.0
+      },
+      {
+        "idac1": -64,
+        "idac2": 255,
+        "ch2_pasada2_menos_pasada1_uv": 1049.0,
+        "ch3_pasada2_menos_pasada1_uv": 1049.0
+      },
+      {
+        "idac1": 0,
+        "idac2": 0,
+        "ch2_pasada2_menos_pasada1_uv": 4539.0,
+        "ch3_pasada2_menos_pasada1_uv": 3509.0
+      },
+      {
+        "idac1": 0,
+        "idac2": 64,
+        "ch2_pasada2_menos_pasada1_uv": 2785.0,
+        "ch3_pasada2_menos_pasada1_uv": 2422.0
+      },
+      {
+        "idac1": 0,
+        "idac2": 128,
+        "ch2_pasada2_menos_pasada1_uv": 495.0,
+        "ch3_pasada2_menos_pasada1_uv": 381.0
+      },
+      {
+        "idac1": 0,
+        "idac2": 255,
+        "ch2_pasada2_menos_pasada1_uv": 515.0,
+        "ch3_pasada2_menos_pasada1_uv": 725.0
+      },
+      {
+        "idac1": 64,
+        "idac2": 128,
+        "ch2_pasada2_menos_pasada1_uv": 0.0,
+        "ch3_pasada2_menos_pasada1_uv": 96.0
+      },
+      {
+        "idac1": 64,
+        "idac2": 255,
+        "ch2_pasada2_menos_pasada1_uv": 38.0,
+        "ch3_pasada2_menos_pasada1_uv": -19.0
+      },
+      {
+        "idac1": 128,
+        "idac2": 255,
+        "ch2_pasada2_menos_pasada1_uv": -305.0,
+        "ch3_pasada2_menos_pasada1_uv": -248.0
+      },
+      {
+        "idac1": 192,
+        "idac2": 255,
+        "ch2_pasada2_menos_pasada1_uv": 3853.0,
+        "ch3_pasada2_menos_pasada1_uv": 3586.0
+      }
+    ],
+    "histeresis_resumen": {
+      "ch2": {
+        "n": 33,
+        "media_uv": -27.818181818181817,
+        "rms_uv": 4252.959753708783,
+        "max_abs_uv": 14038.0
+      },
+      "ch3": {
+        "n": 33,
+        "media_uv": -20.12121212121212,
+        "rms_uv": 4149.699536403116,
+        "max_abs_uv": 14057.0
+      }
+    },
+    "filas": 1696,
+    "filas_sin_lectura": 0,
+    "filas_saturadas": 466
+  }
+}

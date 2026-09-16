@@ -1,0 +1,331 @@
+{
+  "algorithm": "two-phase closed loop; no seeds",
+  "started_at": "2026-09-09T10:02:12",
+  "codes": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "events": [
+    {
+      "at": "2026-09-09T10:01:55.282",
+      "kind": "probe",
+      "message": "IDAC0->ch0: pendiente +76.17 mV/c\u00f3digo",
+      "stage": 0,
+      "channel": 0,
+      "origin": 0,
+      "delta": 1,
+      "slope_bank_uv_per_code": 3824.5,
+      "slope_real_mv_per_code": 76.16759465,
+      "points": {
+        "0": {
+          "elapsed_s": 7.077754600002663,
+          "phase": "IDAC0 base",
+          "stage": 0,
+          "code": 0,
+          "channel": 0,
+          "mean_bank_uv": 949077,
+          "error_bank_uv": -52423,
+          "error_real_mv": -1044.0407411,
+          "pp_bank_uv": 2365,
+          "valid": true
+        },
+        "1": {
+          "elapsed_s": 8.778786499984562,
+          "phase": "IDAC0 probe",
+          "stage": 0,
+          "code": 1,
+          "channel": 0,
+          "mean_bank_uv": 953121,
+          "error_bank_uv": -48379,
+          "error_real_mv": -963.5016503,
+          "pp_bank_uv": 2536,
+          "valid": true
+        },
+        "-1": {
+          "elapsed_s": 12.180342699983157,
+          "phase": "IDAC0 probe",
+          "stage": 0,
+          "code": -1,
+          "channel": 0,
+          "mean_bank_uv": 945472,
+          "error_bank_uv": -56028,
+          "error_real_mv": -1115.8368396,
+          "pp_bank_uv": 3471,
+          "valid": true
+        }
+      }
+    },
+    {
+      "at": "2026-09-09T10:02:10.810",
+      "kind": "probe",
+      "message": "IDAC1->ch1: pendiente +2.37 mV/c\u00f3digo",
+      "stage": 1,
+      "channel": 1,
+      "origin": 0,
+      "delta": 2,
+      "slope_bank_uv_per_code": 119.25,
+      "slope_real_mv_per_code": 2.3749472250000006,
+      "points": {
+        "0": {
+          "elapsed_s": 14.582260099996347,
+          "phase": "IDAC1 base",
+          "stage": 1,
+          "code": 0,
+          "channel": 1,
+          "mean_bank_uv": 987224,
+          "error_bank_uv": -14276,
+          "error_real_mv": -284.3165332,
+          "pp_bank_uv": 2593,
+          "valid": true
+        },
+        "2": {
+          "elapsed_s": 20.861272399983136,
+          "phase": "IDAC1 probe",
+          "stage": 1,
+          "code": 2,
+          "channel": 1,
+          "mean_bank_uv": 986595,
+          "error_bank_uv": -14905,
+          "error_real_mv": -296.8435085,
+          "pp_bank_uv": 2803,
+          "valid": true
+        },
+        "-2": {
+          "elapsed_s": 26.707581399998162,
+          "phase": "IDAC1 probe",
+          "stage": 1,
+          "code": -2,
+          "channel": 1,
+          "mean_bank_uv": 986118,
+          "error_bank_uv": -15382,
+          "error_real_mv": -306.34329740000004,
+          "pp_bank_uv": 3757,
+          "valid": true
+        }
+      }
+    },
+    {
+      "at": "2026-09-09T10:02:10.811",
+      "kind": "result",
+      "message": "Ensayo finalizado",
+      "result": {
+        "pga": {
+          "stage": 0,
+          "channel": 0,
+          "origin": 0,
+          "delta": 1,
+          "slope_bank_uv_per_code": 3824.5,
+          "slope_real_mv_per_code": 76.16759465,
+          "points": {
+            "0": {
+              "elapsed_s": 7.077754600002663,
+              "phase": "IDAC0 base",
+              "stage": 0,
+              "code": 0,
+              "channel": 0,
+              "mean_bank_uv": 949077,
+              "error_bank_uv": -52423,
+              "error_real_mv": -1044.0407411,
+              "pp_bank_uv": 2365,
+              "valid": true
+            },
+            "1": {
+              "elapsed_s": 8.778786499984562,
+              "phase": "IDAC0 probe",
+              "stage": 0,
+              "code": 1,
+              "channel": 0,
+              "mean_bank_uv": 953121,
+              "error_bank_uv": -48379,
+              "error_real_mv": -963.5016503,
+              "pp_bank_uv": 2536,
+              "valid": true
+            },
+            "-1": {
+              "elapsed_s": 12.180342699983157,
+              "phase": "IDAC0 probe",
+              "stage": 0,
+              "code": -1,
+              "channel": 0,
+              "mean_bank_uv": 945472,
+              "error_bank_uv": -56028,
+              "error_real_mv": -1115.8368396,
+              "pp_bank_uv": 3471,
+              "valid": true
+            }
+          }
+        },
+        "bp": {
+          "stage": 1,
+          "channel": 1,
+          "origin": 0,
+          "delta": 2,
+          "slope_bank_uv_per_code": 119.25,
+          "slope_real_mv_per_code": 2.3749472250000006,
+          "points": {
+            "0": {
+              "elapsed_s": 14.582260099996347,
+              "phase": "IDAC1 base",
+              "stage": 1,
+              "code": 0,
+              "channel": 1,
+              "mean_bank_uv": 987224,
+              "error_bank_uv": -14276,
+              "error_real_mv": -284.3165332,
+              "pp_bank_uv": 2593,
+              "valid": true
+            },
+            "2": {
+              "elapsed_s": 20.861272399983136,
+              "phase": "IDAC1 probe",
+              "stage": 1,
+              "code": 2,
+              "channel": 1,
+              "mean_bank_uv": 986595,
+              "error_bank_uv": -14905,
+              "error_real_mv": -296.8435085,
+              "pp_bank_uv": 2803,
+              "valid": true
+            },
+            "-2": {
+              "elapsed_s": 26.707581399998162,
+              "phase": "IDAC1 probe",
+              "stage": 1,
+              "code": -2,
+              "channel": 1,
+              "mean_bank_uv": 986118,
+              "error_bank_uv": -15382,
+              "error_real_mv": -306.34329740000004,
+              "pp_bank_uv": 3757,
+              "valid": true
+            }
+          }
+        }
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "elapsed_s": 7.077754600002663,
+      "phase": "IDAC0 base",
+      "stage": 0,
+      "code": 0,
+      "channel": 0,
+      "mean_bank_uv": 949077,
+      "error_bank_uv": -52423,
+      "error_real_mv": -1044.0407411,
+      "pp_bank_uv": 2365,
+      "valid": true
+    },
+    {
+      "elapsed_s": 8.778786499984562,
+      "phase": "IDAC0 probe",
+      "stage": 0,
+      "code": 1,
+      "channel": 0,
+      "mean_bank_uv": 953121,
+      "error_bank_uv": -48379,
+      "error_real_mv": -963.5016503,
+      "pp_bank_uv": 2536,
+      "valid": true
+    },
+    {
+      "elapsed_s": 10.480782200000249,
+      "phase": "IDAC0 restore",
+      "stage": 0,
+      "code": 0,
+      "channel": 0,
+      "mean_bank_uv": 949401,
+      "error_bank_uv": -52099,
+      "error_real_mv": -1037.5880543,
+      "pp_bank_uv": 2746,
+      "valid": true
+    },
+    {
+      "elapsed_s": 12.180342699983157,
+      "phase": "IDAC0 probe",
+      "stage": 0,
+      "code": -1,
+      "channel": 0,
+      "mean_bank_uv": 945472,
+      "error_bank_uv": -56028,
+      "error_real_mv": -1115.8368396,
+      "pp_bank_uv": 3471,
+      "valid": true
+    },
+    {
+      "elapsed_s": 13.880443600006402,
+      "phase": "IDAC0 restore",
+      "stage": 0,
+      "code": 0,
+      "channel": 0,
+      "mean_bank_uv": 949859,
+      "error_bank_uv": -51641,
+      "error_real_mv": -1028.4666637,
+      "pp_bank_uv": 2975,
+      "valid": true
+    },
+    {
+      "elapsed_s": 14.582260099996347,
+      "phase": "IDAC1 base",
+      "stage": 1,
+      "code": 0,
+      "channel": 1,
+      "mean_bank_uv": 987224,
+      "error_bank_uv": -14276,
+      "error_real_mv": -284.3165332,
+      "pp_bank_uv": 2593,
+      "valid": true
+    },
+    {
+      "elapsed_s": 20.861272399983136,
+      "phase": "IDAC1 probe",
+      "stage": 1,
+      "code": 2,
+      "channel": 1,
+      "mean_bank_uv": 986595,
+      "error_bank_uv": -14905,
+      "error_real_mv": -296.8435085,
+      "pp_bank_uv": 2803,
+      "valid": true
+    },
+    {
+      "elapsed_s": 24.00567869999213,
+      "phase": "IDAC1 restore",
+      "stage": 1,
+      "code": 0,
+      "channel": 1,
+      "mean_bank_uv": 986080,
+      "error_bank_uv": -15420,
+      "error_real_mv": -307.100094,
+      "pp_bank_uv": 2784,
+      "valid": true
+    },
+    {
+      "elapsed_s": 26.707581399998162,
+      "phase": "IDAC1 probe",
+      "stage": 1,
+      "code": -2,
+      "channel": 1,
+      "mean_bank_uv": 986118,
+      "error_bank_uv": -15382,
+      "error_real_mv": -306.34329740000004,
+      "pp_bank_uv": 3757,
+      "valid": true
+    },
+    {
+      "elapsed_s": 29.405743999988772,
+      "phase": "IDAC1 restore",
+      "stage": 1,
+      "code": 0,
+      "channel": 1,
+      "mean_bank_uv": 986671,
+      "error_bank_uv": -14829,
+      "error_real_mv": -295.3299153,
+      "pp_bank_uv": 2670,
+      "valid": true
+    }
+  ]
+}

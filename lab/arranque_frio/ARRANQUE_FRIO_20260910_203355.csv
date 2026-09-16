@@ -1,0 +1,90 @@
+﻿intento;inicio;fin;reset_programado;reset_realizado;reset_ok;reset_detalle;modo;idac0_sorteado;idac1_sorteado;preparacion_ok;espera_psoc_s;espera_random_s;duracion_calibracion_s;duracion_fase1_s;duracion_fase2_s;duracion_total_s;exit_code;exito;puntaje_mv;error;huerfanos_matados;ganancias_intento;evidencia_json;ganancias_json;taps_json;actuadores_json;stdout;stderr;x1_paso;x1_error_lpo_mv;x1_duracion_s;x2_paso;x2_error_lpo_mv;x2_duracion_s;x4_paso;x4_error_lpo_mv;x4_duracion_s;x8_paso;x8_error_lpo_mv;x8_duracion_s;x16_paso;x16_error_lpo_mv;x16_duracion_s;x24_paso;x24_error_lpo_mv;x24_duracion_s
+1;2026-09-10T20:33:55;2026-09-10T20:40:57;True;True;True;ToggleReset en KitProg (CMSIS-DAP/246475);aleatorio;-8;-99;True;6,356384800004889;60,00041589999455;354,481102699996;296,7457986999798;50,06597920000786;422,06813420000253;0;True;1564,6787526000012;;[];1;lab\arranque_frio\evidencia_20260910_203355_intento_0001.json;"{""1"":{""paso"":true,""error_lpo_mv"":-581.737597,""duracion_s"":50.06597920000786}}";"{""1"":{""0"":{""nombre"":""PGAgain"",""media_banco_uv"":975284.0,""pico_a_pico_banco_uv"":2002.0},""1"":{""nombre"":""BPo"",""media_banco_uv"":981693.0,""pico_a_pico_banco_uv"":3433.0},""2"":{""nombre"":""OPA_SUMo"",""media_banco_uv"":991058.0,""pico_a_pico_banco_uv"":495.0},""3"":{""nombre"":""SUMo"",""media_banco_uv"":990886.0,""pico_a_pico_banco_uv"":667.0},""4"":{""nombre"":""LPo"",""media_banco_uv"":972290.0,""pico_a_pico_banco_uv"":1544.0}}}";"{""0"":{""movimientos"":1,""motivos"":[""óptimo restringido de fase 1""]},""1"":{""movimientos"":1,""motivos"":[""óptimo restringido de fase 1""]},""2"":{""movimientos"":2,""motivos"":[""x1: lazo cerrado (objetivo)""]},""3"":{""movimientos"":0,""motivos"":[]}}";"Corrida 1/1
+ch1 estable por observaci�n
+IDAC0->ch0: ABBA +55.580 mV/c�digo
+IDAC1->ch1: ABBA +4.248 mV/c�digo
+Pendientes fase 1: ch0/IDAC0=+55.580, ch1/IDAC1=+4.248, ch2/IDAC0=-220.684, ch2/IDAC1=-15.335 mV/c�digo
+Tau BP no medible (excursion insuficiente); se usa la referencia de diseno 29.5 s
+Tau BP medido: 29.5 s
+ch1 estable por observaci�n
+ch1 estable por observaci�n
+Fase 1 PASS: IDAC0=9 IDAC1=-36
+x1: offset LP -1050 mV (respaldo (LPo o ch2 clavado)); ch2 debe apuntar a -115.8 mV, no a cero
+x1: historial s�lo como inicializaci�n
+IDAC2->ch2: ABBA +5.294 mV/c�digo
+IDAC2: -27.1 mV (objetivo)
+x1: offset LP remedido -2359 mV; ch2 pasa a apuntar a -260.1 mV (antes -115.8)
+IDAC2: -170.0 mV (objetivo)
+ch3 estable por observaci�n
+reintento IDAC3=247
+IDAC3->ch4: ABBA +1.614 mV/c�digo
+IDAC3: -589.0 mV (limite_actuador)
+x1 PASS; LPo logrado=-581.7 mV
+Campa�a: comprometidas 1/1; mejor esfuerzo 0/0
+Corridas: 1/1 PASS
+Evidencia: C:\Github\Tesis\lab\arranque_frio\evidencia_20260910_203355_intento_0001.json
+";;True;-581,737597;50,06597920000786;;;;;;;;;;;;;;;
+2;2026-09-10T20:40:57;2026-09-10T20:51:46;False;False;;salteado por cadencia;golpe;-220;0;True;6,2975900000019465;60,00039289999404;581,2283386000054;573,5574621999986;0,0;648,4651284000138;1;False;;;[];2;lab\arranque_frio\evidencia_20260910_203355_intento_0002.json;"{""2"":{""paso"":false,""error_lpo_mv"":null,""duracion_s"":null}}";"{""2"":{""0"":null,""1"":null,""2"":null,""3"":null,""4"":null}}";"{""0"":{""movimientos"":1,""motivos"":[""óptimo restringido de fase 1""]},""1"":{""movimientos"":1,""motivos"":[""óptimo restringido de fase 1""]},""2"":{""movimientos"":0,""motivos"":[]},""3"":{""movimientos"":0,""motivos"":[]}}";"Corrida 1/1
+ch1 estable por observaci�n
+IDAC0->ch0: ABBA +57.006 mV/c�digo
+reintento IDAC1=0
+IDAC1->ch1: ABBA +7.882 mV/c�digo
+Pendientes fase 1: ch0/IDAC0=+57.006, ch1/IDAC1=+7.882, ch2/IDAC0=-226.348, ch2/IDAC1=-28.450 mV/c�digo
+ch1 estable por observaci�n
+ch2 sali� del riel en 1 intento(s)
+Tau BP medido: 33.0 s
+ch1 estable por observaci�n
+ch1 estable por observaci�n
+Fase 1 PASS: IDAC0=12 IDAC1=3
+x2: offset LP -2720 mV (medido); ch2 debe apuntar a -149.9 mV, no a cero
+x2: historial s�lo como inicializaci�n
+IDAC2->ch2: ABBA +4.997 mV/c�digo
+IDAC2: -107.7 mV (objetivo)
+x2: IDAC3 83->145 antes de conmutar; LPo previsto -269 mV
+ch3 estable por observaci�n
+ch4 estable por observaci�n
+ch4 estable por observaci�n
+ch4 estable por observaci�n
+ch4 estable por observaci�n
+ch4 estable por observaci�n
+ch4 estable por observaci�n
+ch4 estable por observaci�n
+ch4 estable por observaci�n
+ch4 estable por observaci�n
+x2: LPo clavado; rescate por biseccion NO encontro punto vivo en 9 pasos
+Campa�a: comprometidas 0/1; mejor esfuerzo 0/0
+Corridas: 0/1 PASS
+Evidencia: C:\Github\Tesis\lab\arranque_frio\evidencia_20260910_203355_intento_0002.json
+";;;;;False;;;;;;;;;;;;;;
+3;2026-09-10T20:51:46;2026-09-10T21:01:29;False;False;;salteado por cadencia;aleatorio;-9;-186;True;6,295229899988044;60,000337600009516;516,7221950999956;507,10707670000556;0,0;583,9252836000087;1;False;;;[];4;lab\arranque_frio\evidencia_20260910_203355_intento_0003.json;"{""4"":{""paso"":false,""error_lpo_mv"":null,""duracion_s"":null}}";"{""4"":{""0"":null,""1"":null,""2"":null,""3"":null,""4"":null}}";"{""0"":{""movimientos"":1,""motivos"":[""óptimo restringido de fase 1""]},""1"":{""movimientos"":1,""motivos"":[""óptimo restringido de fase 1""]},""2"":{""movimientos"":0,""motivos"":[]},""3"":{""movimientos"":0,""motivos"":[]}}";"Corrida 1/1
+ch1 estable por observaci�n
+IDAC0->ch0: ABBA +54.106 mV/c�digo
+IDAC1->ch1: ABBA +0.951 mV/c�digo
+Pendientes fase 1: ch0/IDAC0=+54.106, ch1/IDAC1=+0.951, ch2/IDAC0=-214.833, ch2/IDAC1=-3.433 mV/c�digo
+ch1 estable por observaci�n
+ch2 sali� del riel en 1 intento(s)
+Tau BP medido: 32.3 s
+ch1 estable por observaci�n
+ch1 estable por observaci�n
+Fase 1 PASS: IDAC0=12 IDAC1=23
+x4: offset LP -2705 mV (medido); ch2 debe apuntar a -74.5 mV, no a cero
+x4: historial s�lo como inicializaci�n
+IDAC2->ch2: ABBA +5.353 mV/c�digo
+IDAC2: -56.4 mV (objetivo)
+x4: IDAC3 83->110 antes de conmutar; LPo previsto -118 mV
+ch3 estable por observaci�n
+ch4 estable por observaci�n
+ch4 estable por observaci�n
+ch4 estable por observaci�n
+ch4 estable por observaci�n
+ch4 estable por observaci�n
+ch4 estable por observaci�n
+ch4 estable por observaci�n
+ch4 estable por observaci�n
+ch4 estable por observaci�n
+x4: LPo clavado; rescate por biseccion NO encontro punto vivo en 9 pasos
+Campa�a: comprometidas 0/1; mejor esfuerzo 0/0
+Corridas: 0/1 PASS
+reintento IDAC3=0
+Evidencia: C:\Github\Tesis\lab\arranque_frio\evidencia_20260910_203355_intento_0003.json
+";;;;;;;;False;;;;;;;;;;;

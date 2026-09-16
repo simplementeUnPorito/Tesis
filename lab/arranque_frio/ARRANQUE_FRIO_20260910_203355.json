@@ -1,0 +1,421 @@
+{
+  "tipo": "campaña de arranque en frío lógico",
+  "estado": "en curso",
+  "motivo_fin": null,
+  "actualizado": "2026-09-10T21:01:29",
+  "configuracion": {
+    "simular": false,
+    "intentos": 60,
+    "reset_cada": 4,
+    "espera_random_s": 60.0,
+    "modo": "mixto",
+    "max_h": 6.0,
+    "abortar_tras": 12,
+    "timeout_psoc_s": 300.0,
+    "timeout_calibracion_s": 1800.0,
+    "gains": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      24
+    ],
+    "port": "COM8",
+    "ppcli_dir": "C:\\Program Files (x86)\\Cypress\\Programmer",
+    "kitprog": "KitProg (CMSIS-DAP/246475)",
+    "semilla": null
+  },
+  "advertencia": "ToggleReset reinicia el chip pero no corta alimentación; el capacitor de 680 uF conserva carga. No es un ciclo real ni prueba la rampa de fuente.",
+  "resumen": {
+    "intentos_completados": 3,
+    "exitos": 1,
+    "tasa_exito": 0.3333333333333333,
+    "wilson_95": [
+      0.06149194472039621,
+      0.7923403991979522
+    ],
+    "por_ganancia": {
+      "1": {
+        "exitos": 1,
+        "total": 3,
+        "tasa": 0.3333333333333333,
+        "wilson_95": [
+          0.06149194472039621,
+          0.7923403991979522
+        ]
+      },
+      "2": {
+        "exitos": 0,
+        "total": 3,
+        "tasa": 0.0,
+        "wilson_95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "4": {
+        "exitos": 0,
+        "total": 3,
+        "tasa": 0.0,
+        "wilson_95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "8": {
+        "exitos": 0,
+        "total": 3,
+        "tasa": 0.0,
+        "wilson_95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "16": {
+        "exitos": 0,
+        "total": 3,
+        "tasa": 0.0,
+        "wilson_95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      },
+      "24": {
+        "exitos": 0,
+        "total": 3,
+        "tasa": 0.0,
+        "wilson_95": [
+          5.551115123125783e-17,
+          0.5614970317550454
+        ]
+      }
+    },
+    "tiempos": {
+      "total": {
+        "n": 3,
+        "media": 551.486182066675,
+        "desvio": 116.63241927919283,
+        "p95": 642.0111439200133,
+        "maximo": 648.4651284000138,
+        "mediana": 583.9252836000087,
+        "q1": 502.9967089000056,
+        "q3": 616.1952060000112,
+        "ric": 113.19849710000562,
+        "minimo": 422.06813420000253
+      },
+      "calibracion": {
+        "n": 3,
+        "media": 484.14387879999896,
+        "desvio": 116.8314481070084,
+        "p95": 574.7777242500044,
+        "maximo": 581.2283386000054,
+        "mediana": 516.7221950999956,
+        "q1": 435.6016488999958,
+        "q3": 548.9752668500005,
+        "ric": 113.3736179500047,
+        "minimo": 354.481102699996
+      },
+      "fase1": {
+        "n": 3,
+        "media": 459.13677919999463,
+        "desvio": 144.50618098922817,
+        "p95": 566.9124236499993,
+        "maximo": 573.5574621999986,
+        "mediana": 507.10707670000556,
+        "q1": 401.9264376999927,
+        "q3": 540.3322694500021,
+        "ric": 138.40583175000938,
+        "minimo": 296.7457986999798
+      },
+      "fase2": {
+        "n": 3,
+        "media": 16.688659733335953,
+        "desvio": 28.905606568366743,
+        "p95": 45.05938128000707,
+        "maximo": 50.06597920000786,
+        "mediana": 0.0,
+        "q1": 0.0,
+        "q3": 25.03298960000393,
+        "ric": 25.03298960000393,
+        "minimo": 0.0
+      }
+    }
+  },
+  "intentos": [
+    {
+      "intento": 1,
+      "inicio": "2026-09-10T20:33:55",
+      "fin": "2026-09-10T20:40:57",
+      "reset_programado": true,
+      "reset_realizado": true,
+      "reset_ok": true,
+      "reset_detalle": "ToggleReset en KitProg (CMSIS-DAP/246475)",
+      "modo": "aleatorio",
+      "idac0_sorteado": -8,
+      "idac1_sorteado": -99,
+      "preparacion_ok": true,
+      "espera_psoc_s": 6.356384800004889,
+      "espera_random_s": 60.00041589999455,
+      "duracion_calibracion_s": 354.481102699996,
+      "duracion_fase1_s": 296.7457986999798,
+      "duracion_fase2_s": 50.06597920000786,
+      "duracion_total_s": 422.06813420000253,
+      "exit_code": 0,
+      "exito": true,
+      "puntaje_mv": 1564.6787526000012,
+      "error": "",
+      "huerfanos_matados": [],
+      "evidencia_json": "lab\\arranque_frio\\evidencia_20260910_203355_intento_0001.json",
+      "ganancias_json": {
+        "1": {
+          "paso": true,
+          "error_lpo_mv": -581.737597,
+          "duracion_s": 50.06597920000786
+        }
+      },
+      "taps_json": {
+        "1": {
+          "0": {
+            "nombre": "PGAgain",
+            "media_banco_uv": 975284.0,
+            "pico_a_pico_banco_uv": 2002.0
+          },
+          "1": {
+            "nombre": "BPo",
+            "media_banco_uv": 981693.0,
+            "pico_a_pico_banco_uv": 3433.0
+          },
+          "2": {
+            "nombre": "OPA_SUMo",
+            "media_banco_uv": 991058.0,
+            "pico_a_pico_banco_uv": 495.0
+          },
+          "3": {
+            "nombre": "SUMo",
+            "media_banco_uv": 990886.0,
+            "pico_a_pico_banco_uv": 667.0
+          },
+          "4": {
+            "nombre": "LPo",
+            "media_banco_uv": 972290.0,
+            "pico_a_pico_banco_uv": 1544.0
+          }
+        }
+      },
+      "actuadores_json": {
+        "0": {
+          "movimientos": 1,
+          "motivos": [
+            "óptimo restringido de fase 1"
+          ]
+        },
+        "1": {
+          "movimientos": 1,
+          "motivos": [
+            "óptimo restringido de fase 1"
+          ]
+        },
+        "2": {
+          "movimientos": 2,
+          "motivos": [
+            "x1: lazo cerrado (objetivo)"
+          ]
+        },
+        "3": {
+          "movimientos": 0,
+          "motivos": []
+        }
+      },
+      "stdout": "Corrida 1/1\nch1 estable por observaci�n\nIDAC0->ch0: ABBA +55.580 mV/c�digo\nIDAC1->ch1: ABBA +4.248 mV/c�digo\nPendientes fase 1: ch0/IDAC0=+55.580, ch1/IDAC1=+4.248, ch2/IDAC0=-220.684, ch2/IDAC1=-15.335 mV/c�digo\nTau BP no medible (excursion insuficiente); se usa la referencia de diseno 29.5 s\nTau BP medido: 29.5 s\nch1 estable por observaci�n\nch1 estable por observaci�n\nFase 1 PASS: IDAC0=9 IDAC1=-36\nx1: offset LP -1050 mV (respaldo (LPo o ch2 clavado)); ch2 debe apuntar a -115.8 mV, no a cero\nx1: historial s�lo como inicializaci�n\nIDAC2->ch2: ABBA +5.294 mV/c�digo\nIDAC2: -27.1 mV (objetivo)\nx1: offset LP remedido -2359 mV; ch2 pasa a apuntar a -260.1 mV (antes -115.8)\nIDAC2: -170.0 mV (objetivo)\nch3 estable por observaci�n\nreintento IDAC3=247\nIDAC3->ch4: ABBA +1.614 mV/c�digo\nIDAC3: -589.0 mV (limite_actuador)\nx1 PASS; LPo logrado=-581.7 mV\nCampa�a: comprometidas 1/1; mejor esfuerzo 0/0\nCorridas: 1/1 PASS\nEvidencia: C:\\Github\\Tesis\\lab\\arranque_frio\\evidencia_20260910_203355_intento_0001.json\n",
+      "stderr": "",
+      "ganancias_intento": "1",
+      "x1_paso": true,
+      "x1_error_lpo_mv": -581.737597,
+      "x1_duracion_s": 50.06597920000786,
+      "x2_paso": null,
+      "x2_error_lpo_mv": null,
+      "x2_duracion_s": null,
+      "x4_paso": null,
+      "x4_error_lpo_mv": null,
+      "x4_duracion_s": null,
+      "x8_paso": null,
+      "x8_error_lpo_mv": null,
+      "x8_duracion_s": null,
+      "x16_paso": null,
+      "x16_error_lpo_mv": null,
+      "x16_duracion_s": null,
+      "x24_paso": null,
+      "x24_error_lpo_mv": null,
+      "x24_duracion_s": null
+    },
+    {
+      "intento": 2,
+      "inicio": "2026-09-10T20:40:57",
+      "fin": "2026-09-10T20:51:46",
+      "reset_programado": false,
+      "reset_realizado": false,
+      "reset_ok": null,
+      "reset_detalle": "salteado por cadencia",
+      "modo": "golpe",
+      "idac0_sorteado": -220,
+      "idac1_sorteado": 0,
+      "preparacion_ok": true,
+      "espera_psoc_s": 6.2975900000019465,
+      "espera_random_s": 60.00039289999404,
+      "duracion_calibracion_s": 581.2283386000054,
+      "duracion_fase1_s": 573.5574621999986,
+      "duracion_fase2_s": 0.0,
+      "duracion_total_s": 648.4651284000138,
+      "exit_code": 1,
+      "exito": false,
+      "puntaje_mv": null,
+      "error": "",
+      "huerfanos_matados": [],
+      "evidencia_json": "lab\\arranque_frio\\evidencia_20260910_203355_intento_0002.json",
+      "ganancias_json": {
+        "2": {
+          "paso": false,
+          "error_lpo_mv": null,
+          "duracion_s": null
+        }
+      },
+      "taps_json": {
+        "2": {
+          "0": null,
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null
+        }
+      },
+      "actuadores_json": {
+        "0": {
+          "movimientos": 1,
+          "motivos": [
+            "óptimo restringido de fase 1"
+          ]
+        },
+        "1": {
+          "movimientos": 1,
+          "motivos": [
+            "óptimo restringido de fase 1"
+          ]
+        },
+        "2": {
+          "movimientos": 0,
+          "motivos": []
+        },
+        "3": {
+          "movimientos": 0,
+          "motivos": []
+        }
+      },
+      "stdout": "Corrida 1/1\nch1 estable por observaci�n\nIDAC0->ch0: ABBA +57.006 mV/c�digo\nreintento IDAC1=0\nIDAC1->ch1: ABBA +7.882 mV/c�digo\nPendientes fase 1: ch0/IDAC0=+57.006, ch1/IDAC1=+7.882, ch2/IDAC0=-226.348, ch2/IDAC1=-28.450 mV/c�digo\nch1 estable por observaci�n\nch2 sali� del riel en 1 intento(s)\nTau BP medido: 33.0 s\nch1 estable por observaci�n\nch1 estable por observaci�n\nFase 1 PASS: IDAC0=12 IDAC1=3\nx2: offset LP -2720 mV (medido); ch2 debe apuntar a -149.9 mV, no a cero\nx2: historial s�lo como inicializaci�n\nIDAC2->ch2: ABBA +4.997 mV/c�digo\nIDAC2: -107.7 mV (objetivo)\nx2: IDAC3 83->145 antes de conmutar; LPo previsto -269 mV\nch3 estable por observaci�n\nch4 estable por observaci�n\nch4 estable por observaci�n\nch4 estable por observaci�n\nch4 estable por observaci�n\nch4 estable por observaci�n\nch4 estable por observaci�n\nch4 estable por observaci�n\nch4 estable por observaci�n\nch4 estable por observaci�n\nx2: LPo clavado; rescate por biseccion NO encontro punto vivo en 9 pasos\nCampa�a: comprometidas 0/1; mejor esfuerzo 0/0\nCorridas: 0/1 PASS\nEvidencia: C:\\Github\\Tesis\\lab\\arranque_frio\\evidencia_20260910_203355_intento_0002.json\n",
+      "stderr": "",
+      "ganancias_intento": "2",
+      "x1_paso": null,
+      "x1_error_lpo_mv": null,
+      "x1_duracion_s": null,
+      "x2_paso": false,
+      "x2_error_lpo_mv": null,
+      "x2_duracion_s": null,
+      "x4_paso": null,
+      "x4_error_lpo_mv": null,
+      "x4_duracion_s": null,
+      "x8_paso": null,
+      "x8_error_lpo_mv": null,
+      "x8_duracion_s": null,
+      "x16_paso": null,
+      "x16_error_lpo_mv": null,
+      "x16_duracion_s": null,
+      "x24_paso": null,
+      "x24_error_lpo_mv": null,
+      "x24_duracion_s": null
+    },
+    {
+      "intento": 3,
+      "inicio": "2026-09-10T20:51:46",
+      "fin": "2026-09-10T21:01:29",
+      "reset_programado": false,
+      "reset_realizado": false,
+      "reset_ok": null,
+      "reset_detalle": "salteado por cadencia",
+      "modo": "aleatorio",
+      "idac0_sorteado": -9,
+      "idac1_sorteado": -186,
+      "preparacion_ok": true,
+      "espera_psoc_s": 6.295229899988044,
+      "espera_random_s": 60.000337600009516,
+      "duracion_calibracion_s": 516.7221950999956,
+      "duracion_fase1_s": 507.10707670000556,
+      "duracion_fase2_s": 0.0,
+      "duracion_total_s": 583.9252836000087,
+      "exit_code": 1,
+      "exito": false,
+      "puntaje_mv": null,
+      "error": "",
+      "huerfanos_matados": [],
+      "evidencia_json": "lab\\arranque_frio\\evidencia_20260910_203355_intento_0003.json",
+      "ganancias_json": {
+        "4": {
+          "paso": false,
+          "error_lpo_mv": null,
+          "duracion_s": null
+        }
+      },
+      "taps_json": {
+        "4": {
+          "0": null,
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null
+        }
+      },
+      "actuadores_json": {
+        "0": {
+          "movimientos": 1,
+          "motivos": [
+            "óptimo restringido de fase 1"
+          ]
+        },
+        "1": {
+          "movimientos": 1,
+          "motivos": [
+            "óptimo restringido de fase 1"
+          ]
+        },
+        "2": {
+          "movimientos": 0,
+          "motivos": []
+        },
+        "3": {
+          "movimientos": 0,
+          "motivos": []
+        }
+      },
+      "stdout": "Corrida 1/1\nch1 estable por observaci�n\nIDAC0->ch0: ABBA +54.106 mV/c�digo\nIDAC1->ch1: ABBA +0.951 mV/c�digo\nPendientes fase 1: ch0/IDAC0=+54.106, ch1/IDAC1=+0.951, ch2/IDAC0=-214.833, ch2/IDAC1=-3.433 mV/c�digo\nch1 estable por observaci�n\nch2 sali� del riel en 1 intento(s)\nTau BP medido: 32.3 s\nch1 estable por observaci�n\nch1 estable por observaci�n\nFase 1 PASS: IDAC0=12 IDAC1=23\nx4: offset LP -2705 mV (medido); ch2 debe apuntar a -74.5 mV, no a cero\nx4: historial s�lo como inicializaci�n\nIDAC2->ch2: ABBA +5.353 mV/c�digo\nIDAC2: -56.4 mV (objetivo)\nx4: IDAC3 83->110 antes de conmutar; LPo previsto -118 mV\nch3 estable por observaci�n\nch4 estable por observaci�n\nch4 estable por observaci�n\nch4 estable por observaci�n\nch4 estable por observaci�n\nch4 estable por observaci�n\nch4 estable por observaci�n\nch4 estable por observaci�n\nch4 estable por observaci�n\nch4 estable por observaci�n\nx4: LPo clavado; rescate por biseccion NO encontro punto vivo en 9 pasos\nCampa�a: comprometidas 0/1; mejor esfuerzo 0/0\nCorridas: 0/1 PASS\nreintento IDAC3=0\nEvidencia: C:\\Github\\Tesis\\lab\\arranque_frio\\evidencia_20260910_203355_intento_0003.json\n",
+      "stderr": "",
+      "ganancias_intento": "4",
+      "x1_paso": null,
+      "x1_error_lpo_mv": null,
+      "x1_duracion_s": null,
+      "x2_paso": null,
+      "x2_error_lpo_mv": null,
+      "x2_duracion_s": null,
+      "x4_paso": false,
+      "x4_error_lpo_mv": null,
+      "x4_duracion_s": null,
+      "x8_paso": null,
+      "x8_error_lpo_mv": null,
+      "x8_duracion_s": null,
+      "x16_paso": null,
+      "x16_error_lpo_mv": null,
+      "x16_duracion_s": null,
+      "x24_paso": null,
+      "x24_error_lpo_mv": null,
+      "x24_duracion_s": null
+    }
+  ]
+}

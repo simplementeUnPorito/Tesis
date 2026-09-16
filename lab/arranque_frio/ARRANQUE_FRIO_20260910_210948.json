@@ -1,0 +1,90 @@
+{
+  "tipo": "campaña de arranque en frío lógico",
+  "estado": "en curso",
+  "motivo_fin": null,
+  "actualizado": "2026-09-10T21:09:48",
+  "configuracion": {
+    "simular": false,
+    "intentos": 60,
+    "reset_cada": 4,
+    "espera_random_s": 60.0,
+    "modo": "mixto",
+    "max_h": 8.0,
+    "abortar_tras": 15,
+    "timeout_psoc_s": 300.0,
+    "timeout_calibracion_s": 1800.0,
+    "gains": [
+      1
+    ],
+    "port": "COM8",
+    "ppcli_dir": "C:\\Program Files (x86)\\Cypress\\Programmer",
+    "kitprog": "KitProg (CMSIS-DAP/246475)",
+    "semilla": null
+  },
+  "advertencia": "ToggleReset reinicia el chip pero no corta alimentación; el capacitor de 680 uF conserva carga. No es un ciclo real ni prueba la rampa de fuente.",
+  "resumen": {
+    "intentos_completados": 0,
+    "exitos": 0,
+    "tasa_exito": null,
+    "wilson_95": null,
+    "por_ganancia": {
+      "1": {
+        "exitos": 0,
+        "total": 0,
+        "tasa": null,
+        "wilson_95": null
+      }
+    },
+    "tiempos": {
+      "total": {
+        "n": 0,
+        "media": null,
+        "desvio": null,
+        "p95": null,
+        "maximo": null,
+        "mediana": null,
+        "q1": null,
+        "q3": null,
+        "ric": null,
+        "minimo": null
+      },
+      "calibracion": {
+        "n": 0,
+        "media": null,
+        "desvio": null,
+        "p95": null,
+        "maximo": null,
+        "mediana": null,
+        "q1": null,
+        "q3": null,
+        "ric": null,
+        "minimo": null
+      },
+      "fase1": {
+        "n": 0,
+        "media": null,
+        "desvio": null,
+        "p95": null,
+        "maximo": null,
+        "mediana": null,
+        "q1": null,
+        "q3": null,
+        "ric": null,
+        "minimo": null
+      },
+      "fase2": {
+        "n": 0,
+        "media": null,
+        "desvio": null,
+        "p95": null,
+        "maximo": null,
+        "mediana": null,
+        "q1": null,
+        "q3": null,
+        "ric": null,
+        "minimo": null
+      }
+    }
+  },
+  "intentos": []
+}

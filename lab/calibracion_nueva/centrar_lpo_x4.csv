@@ -1,0 +1,38 @@
+linea
+"1) Adelanto a lazo abierto, PGA x50 PGAout x4"
+   IDAC0=+10 IDAC1=-53
+   esperando 102 s el transitorio del pasabanda
+   ch0 =   -1555.1 mV
+   ch1 =    -538.8 mV
+   ch2 =   +1883.9 mV
+   ch4 =   -5566.4 mV   fuera de ventana
+"
+2) Se busca el PAR (IDAC1, IDAC2) que mete SUMo adentro"
+   IDAC1=-113
+   ch2 quieto en +1883.5 mV
+      IDAC2=-255 -> ch3   +1854.2 mV   candidato
+   ch3 quieto en +1854.9 mV
+      confirmado: ch3   +1854.8 mV   DENTRO
+   IDAC1=-113 con IDAC2=-255 deja ch3 en +1854.8 mV
+"
+4) IDAC3 hace los ultimos milivolts sobre LPo"
+    IDAC3=-255 -> ch4   -5568.6 mV   fuera de ventana
+    IDAC3=+255 -> ch4   -5569.7 mV   fuera de ventana
+"   los dos extremos del mismo signo: los +-1,7 V de IDAC3 no alcanzan para tapar lo que dejo el paso de IDAC2."
+   IDAC3=-255 deja LPo en -5568.6 mV
+"
+   se congela todo y se espera 60 s"
+   LPo -5569.3 -> +2295.2 mV: se corrio +7864.5 mV
+"
+6) Estado final de los cinco taps"
+   ch0 =    +274.7 mV
+   ch1 =   -1795.7 mV
+   ch2 =   -1326.5 mV
+   ch3 =   -5046.3 mV   FUERA DE VENTANA
+   ch4 =   +2300.0 mV   FUERA DE VENTANA
+"
+=== RESULTADO ==="
+PGAout x4: no llega
+LPo final +2300.0 mV contra una tolerancia de 25
+Corrimiento en el minuto de reposo: +7864.5 mV
+IDAC0=+10 IDAC1=-113 IDAC2=-255 IDAC3=-255

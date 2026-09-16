@@ -1,0 +1,71 @@
+linea
+1) Perfil geo-01 del 2026-09-13: se saltea la caracterizacion
+"Perfil de geo-01, medido el 2026-09-13 (0 dias)
+  tau del pasabanda: 44.0 s
+  Vdda: 4826 mV
+  IDAC0->ch0@x1: +1.166 mV/codigo
+  IDAC0->ch0@x50: +59.460 mV/codigo
+  IDAC0->ch1@x1: -0.133 mV/codigo
+  IDAC0->ch2@x1: -4.277 mV/codigo
+  IDAC0->ch2@x50: -236.090 mV/codigo
+  IDAC0->ch3@x1: -4.186 mV/codigo
+  IDAC1->ch0@x1: +0.004 mV/codigo
+  IDAC1->ch1@x1: +2.154 mV/codigo
+  IDAC1->ch1@x50: +2.900 mV/codigo
+  IDAC1->ch2@x1: -7.833 mV/codigo
+  IDAC1->ch2@x50: -10.480 mV/codigo
+  IDAC1->ch3@x1: -7.650 mV/codigo
+  IDAC2->ch0@x1: +0.095 mV/codigo
+  IDAC2->ch1@x1: -0.087 mV/codigo
+  IDAC2->ch2@x1: +12.596 mV/codigo
+  IDAC2->ch3@x1: +12.490 mV/codigo
+  IDAC3->ch0@x1: -0.008 mV/codigo
+  IDAC3->ch1@x1: -0.011 mV/codigo
+  IDAC3->ch2@x1: +0.000 mV/codigo
+  IDAC3->ch3@x1: +0.030 mV/codigo
+  IDAC3->ch4@x1: +6.684 mV/codigo
+  punto x1: IDAC +0 +164 -95 +255
+  punto x2: IDAC +0 +164 -95 +0
+  punto x4: IDAC +0 +164 -95 +0
+  punto x8: IDAC +0 +0 +0 +0
+  punto x16: IDAC +0 +33 +0 +0
+  punto x24: IDAC +0 +0 +0 +0
+  punto pga1_x1: IDAC +11 -111 -95 +85
+  notas: Pendientes = media de 25 corridas del 2026-09-13 a PGA x50; dispersion 5 % en las de IDAC0 y 12 % en las de IDAC1, contra una tolerancia del lazo de 9x. NO caducan: son del cobre. Lo que SI caduca es el punto de trabajo, que a x50 se corre mas que la ventana del sumador en decenas de minutos. Matriz de acople medida a PGA x1 el mismo dia: IDAC2->ch2 = +12,60, IDAC1->ch1 = +2,15, y la fila de IDAC3 sobre los taps de arriba es CERO (no hay acople por el nodo Vref, como habia supuesto)."
+   IDAC +0 +164 -95 +0 desde el perfil
+   esperando 132 s el transitorio del pasabanda
+   ch0 =   -1158.6 mV
+   ch1 =     +17.3 mV
+   ch2 =     -74.9 mV
+   ch4 =   -2051.6 mV
+"
+2) Se busca el PAR (IDAC1, IDAC2) que mete SUMo adentro"
+   IDAC1=+164
+      IDAC2=-95 NO fue aceptado por el firmware
+   ch2 quieto en +8.8 mV
+      IDAC2= -95 -> ch3      +7.0 mV   candidato
+   ch3 quieto en +20.0 mV
+      confirmado: ch3     +20.2 mV   DENTRO
+   IDAC1=+164 con IDAC2=-95 deja ch3 en +20.2 mV
+"
+4) IDAC3 hace los ultimos milivolts sobre LPo"
+    IDAC3=-255 -> ch4   -5375.2 mV   fuera de ventana
+    IDAC3=+255 -> ch4    -129.8 mV
+"   los dos extremos del mismo signo: los +-1,7 V de IDAC3 no alcanzan para tapar lo que dejo el paso de IDAC2."
+   IDAC3=+255 deja LPo en -129.8 mV
+"
+6) Estado final de los cinco taps"
+   ch0 =   -1153.1 mV
+   ch1 =     -29.0 mV
+   ch2 =     +15.1 mV
+   ch3 =     +14.0 mV
+   ch4 =    -104.7 mV
+"
+=== RESULTADO ==="
+PGAout x1: CALIBRA
+LPo final -104.7 mV contra una tolerancia de 200
+Corrimiento en el minuto de reposo: +nan mV
+ATENCION: 1 escrituras de IDAC no fueron aceptadas por el firmware. Nada de lo medido en esta corrida significa lo que parece.
+   IDAC2=-95 NO fue aceptado por el firmware
+IDAC0=+0 IDAC1=+164 IDAC2=-95 IDAC3=+255
+Perfil guardado en C:\Github\Tesis\src\interfaces\python\datos\perfiles\geo-01.json

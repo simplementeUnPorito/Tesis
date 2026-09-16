@@ -1,0 +1,112 @@
+{
+  "script": "mapear_alcance_sumador.py",
+  "simular": false,
+  "pga": 50,
+  "pgaout": 1,
+  "csv": "C:\\Github\\Tesis\\lab\\calibracion_nueva\\mapear_alcance_sumador_20260910_122631.csv",
+  "estado": "malla",
+  "eventos": [
+    {
+      "t_s": 6.141,
+      "tipo": "inicio",
+      "mensaje": "campana iniciada"
+    },
+    {
+      "t_s": 119.231,
+      "tipo": "idac0_congelado",
+      "mensaje": "centrado terminado; IDAC0 queda fijo",
+      "codigo": 19,
+      "pendiente_uv_por_codigo": 3338.0,
+      "error_final_uv": -886.0,
+      "correcciones_unitarias": 4
+    },
+    {
+      "t_s": 119.232,
+      "tipo": "pasada",
+      "mensaje": "comienza pasada 1"
+    },
+    {
+      "t_s": 119.339,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=-255; comienza espera lenta",
+      "pasada": 1,
+      "idac1": -255
+    },
+    {
+      "t_s": 262.606,
+      "tipo": "tramo_fino",
+      "mensaje": "tramo fino alrededor de IDAC2=-64",
+      "pasada": 1,
+      "idac1": -255,
+      "centro_idac2": -64
+    },
+    {
+      "t_s": 306.456,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=-192; comienza espera lenta",
+      "pasada": 1,
+      "idac1": -192
+    },
+    {
+      "t_s": 447.339,
+      "tipo": "tramo_fino",
+      "mensaje": "tramo fino alrededor de IDAC2=+0",
+      "pasada": 1,
+      "idac1": -192,
+      "centro_idac2": 0
+    },
+    {
+      "t_s": 491.207,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=-128; comienza espera lenta",
+      "pasada": 1,
+      "idac1": -128
+    },
+    {
+      "t_s": 628.15,
+      "tipo": "tramo_fino",
+      "mensaje": "tramo fino alrededor de IDAC2=+128",
+      "pasada": 1,
+      "idac1": -128,
+      "centro_idac2": 128
+    },
+    {
+      "t_s": 674.226,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=-64; comienza espera lenta",
+      "pasada": 1,
+      "idac1": -64
+    },
+    {
+      "t_s": 817.301,
+      "tipo": "tramo_fino",
+      "mensaje": "tramo fino alrededor de IDAC2=+255",
+      "pasada": 1,
+      "idac1": -64,
+      "centro_idac2": 255
+    },
+    {
+      "t_s": 840.686,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+0; comienza espera lenta",
+      "pasada": 1,
+      "idac1": 0
+    },
+    {
+      "t_s": 975.631,
+      "tipo": "tramo_fino",
+      "mensaje": "tramo fino alrededor de IDAC2=+255",
+      "pasada": 1,
+      "idac1": 0,
+      "centro_idac2": 255
+    },
+    {
+      "t_s": 999.025,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+64; comienza espera lenta",
+      "pasada": 1,
+      "idac1": 64
+    }
+  ],
+  "resumen": null
+}

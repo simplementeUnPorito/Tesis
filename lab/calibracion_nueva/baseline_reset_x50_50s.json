@@ -1,0 +1,195 @@
+{
+  "topology": "IDAC1 shared OPAbp+OPAsum; IDAC2 PGAout; IDAC3 LP",
+  "target_uv": 1000000,
+  "budgets_uv": {
+    "0": 500000,
+    "1": 500000,
+    "2": 1000000,
+    "3": 1000000
+  },
+  "pga_x": 50,
+  "current_pgaout_x": 50,
+  "current_codes": [
+    0,
+    -110,
+    0,
+    0
+  ],
+  "events": [
+    {
+      "t": "2026-09-07T23:59:08",
+      "message": "======================================================================"
+    },
+    {
+      "t": "2026-09-07T23:59:09",
+      "message": "PGA=x50; PGAout=x50",
+      "kind": "gain",
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-07T23:59:09",
+      "message": "    IDAC0: +0 -> +0 semilla segura",
+      "kind": "idac",
+      "stage": 0,
+      "old": 0,
+      "code": 0,
+      "reason": "semilla segura"
+    },
+    {
+      "t": "2026-09-07T23:59:09",
+      "message": "    IDAC1: -110 -> -110 semilla segura",
+      "kind": "idac",
+      "stage": 1,
+      "old": -110,
+      "code": -110,
+      "reason": "semilla segura"
+    },
+    {
+      "t": "2026-09-07T23:59:09",
+      "message": "    IDAC2: +0 -> +0 semilla segura",
+      "kind": "idac",
+      "stage": 2,
+      "old": 0,
+      "code": 0,
+      "reason": "semilla segura"
+    },
+    {
+      "t": "2026-09-07T23:59:09",
+      "message": "    IDAC3: +0 -> +0 semilla segura",
+      "kind": "idac",
+      "stage": 3,
+      "old": 0,
+      "code": 0,
+      "reason": "semilla segura"
+    },
+    {
+      "t": "2026-09-07T23:59:09",
+      "message": "    asentando 50.0 s: estado inicial x50"
+    },
+    {
+      "t": "2026-09-08T00:00:02",
+      "message": "    inicial: ch0   -14.23 mV  ch1    -9.74 mV  ch2    -0.07 mV  ch3   +22.28 mV  ch4  -257.34 mV",
+      "kind": "snapshot",
+      "label": "inicial",
+      "values_uv": {
+        "0": 985774,
+        "1": 990257,
+        "2": 999927,
+        "3": 1022281,
+        "4": 742664
+      },
+      "error_uv": {
+        "0": -14226,
+        "1": -9743,
+        "2": -73,
+        "3": 22281,
+        "4": -257336
+      },
+      "pp_uv": {
+        "0": 1964,
+        "1": 2899,
+        "2": 476,
+        "3": 22354,
+        "4": 209
+      },
+      "codes": [
+        0,
+        -110,
+        0,
+        0
+      ],
+      "pgaout_x": 50
+    },
+    {
+      "t": "2026-09-08T00:00:02",
+      "message": "OBSERVACIÓN x50: IDAC [0, -110, 0, 0]",
+      "kind": "result",
+      "result": {
+        "pga_x": 50,
+        "pgaout_x": 50,
+        "seed": [
+          0,
+          -110,
+          0,
+          0
+        ],
+        "initial_uv": {
+          "0": 985774,
+          "1": 990257,
+          "2": 999927,
+          "3": 1022281,
+          "4": 742664
+        },
+        "codes": [
+          0,
+          -110,
+          0,
+          0
+        ],
+        "final_uv": {
+          "0": 985774,
+          "1": 990257,
+          "2": 999927,
+          "3": 1022281,
+          "4": 742664
+        },
+        "error_mv": {
+          "0": -14.226,
+          "1": -9.743,
+          "2": -0.073,
+          "3": 22.281,
+          "4": -257.336
+        },
+        "constraints_ok": true,
+        "problems": [],
+        "lp_abs_error_mv": 257.336,
+        "local_pass": false,
+        "observe_only": true
+      }
+    }
+  ],
+  "results": [
+    {
+      "pga_x": 50,
+      "pgaout_x": 50,
+      "seed": [
+        0,
+        -110,
+        0,
+        0
+      ],
+      "initial_uv": {
+        "0": 985774,
+        "1": 990257,
+        "2": 999927,
+        "3": 1022281,
+        "4": 742664
+      },
+      "codes": [
+        0,
+        -110,
+        0,
+        0
+      ],
+      "final_uv": {
+        "0": 985774,
+        "1": 990257,
+        "2": 999927,
+        "3": 1022281,
+        "4": 742664
+      },
+      "error_mv": {
+        "0": -14.226,
+        "1": -9.743,
+        "2": -0.073,
+        "3": 22.281,
+        "4": -257.336
+      },
+      "constraints_ok": true,
+      "problems": [],
+      "lp_abs_error_mv": 257.336,
+      "local_pass": false,
+      "observe_only": true
+    }
+  ]
+}

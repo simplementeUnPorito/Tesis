@@ -1,0 +1,1749 @@
+{
+  "script": "mapear_alcance_sumador.py",
+  "simular": true,
+  "pga": 50,
+  "pgaout": 1,
+  "csv": "C:\\Github\\Tesis\\lab\\calibracion_nueva\\simulacion\\mapear_alcance_sumador_20260910_132130.csv",
+  "estado": "completada",
+  "eventos": [
+    {
+      "t_s": 0.0,
+      "tipo": "inicio",
+      "mensaje": "campana iniciada"
+    },
+    {
+      "t_s": 64.32,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 0,
+      "idac1": 0,
+      "espera_s": 64.32,
+      "muestras": 12,
+      "ultima_diferencia_uv": 24.0,
+      "ultimo_umbral_uv": 129.5
+    },
+    {
+      "t_s": 87.92,
+      "tipo": "idac0_congelado",
+      "mensaje": "centrado terminado; IDAC0 queda fijo",
+      "codigo": 24,
+      "pendiente_uv_por_codigo": 25.5,
+      "error_final_uv": 761.0,
+      "correcciones_unitarias": 6
+    },
+    {
+      "t_s": 105.68,
+      "tipo": "abba_idac0",
+      "mensaje": "brazo ABBA de IDAC0 terminado",
+      "centro_idac0": 24,
+      "pendientes_por_delta": [
+        {
+          "delta": 2,
+          "pendiente_ch0_uv_por_codigo": 69.125,
+          "pendiente_ch2_uv_por_codigo": -488.125,
+          "pendiente_ch0_mv_fisicos_por_codigo": 1.3766727625000001,
+          "pendiente_ch2_mv_fisicos_por_codigo": -9.7213510625,
+          "motivo_ch2_sin_dato": null
+        },
+        {
+          "delta": 4,
+          "pendiente_ch0_uv_por_codigo": 63.625,
+          "pendiente_ch2_uv_por_codigo": -474.5,
+          "pendiente_ch0_mv_fisicos_por_codigo": 1.2671364125,
+          "pendiente_ch2_mv_fisicos_por_codigo": -9.44999965,
+          "motivo_ch2_sin_dato": null
+        }
+      ],
+      "pendiente_ch0_mediana_uv_por_codigo": 66.375,
+      "pendiente_ch2_mediana_uv_por_codigo": -481.3125,
+      "pendiente_ch0_mediana_mv_fisicos_por_codigo": 1.3219045875000002,
+      "pendiente_ch2_mediana_mv_fisicos_por_codigo": -9.58567535625,
+      "ganancia_sumador_desde_seo": -7.251412429378531
+    },
+    {
+      "t_s": 105.68,
+      "tipo": "pasada",
+      "mensaje": "comienza pasada 1"
+    },
+    {
+      "t_s": 105.68,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=-255; comienza espera lenta",
+      "pasada": 1,
+      "idac1": -255
+    },
+    {
+      "t_s": 170.0,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 1,
+      "idac1": -255,
+      "espera_s": 64.32,
+      "muestras": 12,
+      "ultima_diferencia_uv": 33.0,
+      "ultimo_umbral_uv": 127.0
+    },
+    {
+      "t_s": 194.9,
+      "tipo": "tramo_abba_omitido",
+      "mensaje": "se solicito --sin-fino",
+      "pasada": 1,
+      "idac1": -255
+    },
+    {
+      "t_s": 194.9,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=-192; comienza espera lenta",
+      "pasada": 1,
+      "idac1": -192
+    },
+    {
+      "t_s": 259.22,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 1,
+      "idac1": -192,
+      "espera_s": 64.32,
+      "muestras": 12,
+      "ultima_diferencia_uv": 106.0,
+      "ultimo_umbral_uv": 127.0
+    },
+    {
+      "t_s": 284.12,
+      "tipo": "tramo_abba_omitido",
+      "mensaje": "se solicito --sin-fino",
+      "pasada": 1,
+      "idac1": -192
+    },
+    {
+      "t_s": 284.12,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=-128; comienza espera lenta",
+      "pasada": 1,
+      "idac1": -128
+    },
+    {
+      "t_s": 348.44,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 1,
+      "idac1": -128,
+      "espera_s": 64.32,
+      "muestras": 12,
+      "ultima_diferencia_uv": 30.0,
+      "ultimo_umbral_uv": 127.0
+    },
+    {
+      "t_s": 373.34,
+      "tipo": "tramo_abba_omitido",
+      "mensaje": "se solicito --sin-fino",
+      "pasada": 1,
+      "idac1": -128
+    },
+    {
+      "t_s": 373.34,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=-64; comienza espera lenta",
+      "pasada": 1,
+      "idac1": -64
+    },
+    {
+      "t_s": 437.66,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 1,
+      "idac1": -64,
+      "espera_s": 64.32,
+      "muestras": 12,
+      "ultima_diferencia_uv": 18.0,
+      "ultimo_umbral_uv": 139.5
+    },
+    {
+      "t_s": 462.56,
+      "tipo": "tramo_abba_omitido",
+      "mensaje": "se solicito --sin-fino",
+      "pasada": 1,
+      "idac1": -64
+    },
+    {
+      "t_s": 462.56,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+0; comienza espera lenta",
+      "pasada": 1,
+      "idac1": 0
+    },
+    {
+      "t_s": 526.88,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 1,
+      "idac1": 0,
+      "espera_s": 64.32,
+      "muestras": 12,
+      "ultima_diferencia_uv": 28.0,
+      "ultimo_umbral_uv": 136.0
+    },
+    {
+      "t_s": 551.78,
+      "tipo": "tramo_abba_omitido",
+      "mensaje": "se solicito --sin-fino",
+      "pasada": 1,
+      "idac1": 0
+    },
+    {
+      "t_s": 551.78,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+64; comienza espera lenta",
+      "pasada": 1,
+      "idac1": 64
+    },
+    {
+      "t_s": 616.1,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 1,
+      "idac1": 64,
+      "espera_s": 64.32,
+      "muestras": 12,
+      "ultima_diferencia_uv": 58.0,
+      "ultimo_umbral_uv": 131.5
+    },
+    {
+      "t_s": 641.0,
+      "tipo": "tramo_abba_omitido",
+      "mensaje": "se solicito --sin-fino",
+      "pasada": 1,
+      "idac1": 64
+    },
+    {
+      "t_s": 641.0,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+128; comienza espera lenta",
+      "pasada": 1,
+      "idac1": 128
+    },
+    {
+      "t_s": 705.32,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 1,
+      "idac1": 128,
+      "espera_s": 64.32,
+      "muestras": 12,
+      "ultima_diferencia_uv": 40.0,
+      "ultimo_umbral_uv": 122.0
+    },
+    {
+      "t_s": 730.22,
+      "tipo": "tramo_abba_omitido",
+      "mensaje": "se solicito --sin-fino",
+      "pasada": 1,
+      "idac1": 128
+    },
+    {
+      "t_s": 730.22,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+192; comienza espera lenta",
+      "pasada": 1,
+      "idac1": 192
+    },
+    {
+      "t_s": 794.54,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 1,
+      "idac1": 192,
+      "espera_s": 64.32,
+      "muestras": 12,
+      "ultima_diferencia_uv": 47.0,
+      "ultimo_umbral_uv": 132.5
+    },
+    {
+      "t_s": 819.44,
+      "tipo": "tramo_abba_omitido",
+      "mensaje": "se solicito --sin-fino",
+      "pasada": 1,
+      "idac1": 192
+    },
+    {
+      "t_s": 819.44,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+255; comienza espera lenta",
+      "pasada": 1,
+      "idac1": 255
+    },
+    {
+      "t_s": 883.76,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 1,
+      "idac1": 255,
+      "espera_s": 64.32,
+      "muestras": 12,
+      "ultima_diferencia_uv": 5.0,
+      "ultimo_umbral_uv": 132.5
+    },
+    {
+      "t_s": 908.66,
+      "tipo": "tramo_abba_omitido",
+      "mensaje": "se solicito --sin-fino",
+      "pasada": 1,
+      "idac1": 255
+    },
+    {
+      "t_s": 908.66,
+      "tipo": "pasada",
+      "mensaje": "pasada 1 terminada; IDAC1 e IDAC2 en cero"
+    },
+    {
+      "t_s": 908.66,
+      "tipo": "pasada",
+      "mensaje": "comienza pasada 2"
+    },
+    {
+      "t_s": 908.66,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+255; comienza espera lenta",
+      "pasada": 2,
+      "idac1": 255
+    },
+    {
+      "t_s": 972.98,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 2,
+      "idac1": 255,
+      "espera_s": 64.32,
+      "muestras": 12,
+      "ultima_diferencia_uv": 57.0,
+      "ultimo_umbral_uv": 128.5
+    },
+    {
+      "t_s": 997.88,
+      "tipo": "tramo_abba_omitido",
+      "mensaje": "se solicito --sin-fino",
+      "pasada": 2,
+      "idac1": 255
+    },
+    {
+      "t_s": 997.88,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+192; comienza espera lenta",
+      "pasada": 2,
+      "idac1": 192
+    },
+    {
+      "t_s": 1062.2,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 2,
+      "idac1": 192,
+      "espera_s": 64.32,
+      "muestras": 12,
+      "ultima_diferencia_uv": 25.0,
+      "ultimo_umbral_uv": 133.5
+    },
+    {
+      "t_s": 1087.1,
+      "tipo": "tramo_abba_omitido",
+      "mensaje": "se solicito --sin-fino",
+      "pasada": 2,
+      "idac1": 192
+    },
+    {
+      "t_s": 1087.1,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+128; comienza espera lenta",
+      "pasada": 2,
+      "idac1": 128
+    },
+    {
+      "t_s": 1151.42,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 2,
+      "idac1": 128,
+      "espera_s": 64.32,
+      "muestras": 12,
+      "ultima_diferencia_uv": 56.0,
+      "ultimo_umbral_uv": 139.5
+    },
+    {
+      "t_s": 1176.32,
+      "tipo": "tramo_abba_omitido",
+      "mensaje": "se solicito --sin-fino",
+      "pasada": 2,
+      "idac1": 128
+    },
+    {
+      "t_s": 1176.32,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+64; comienza espera lenta",
+      "pasada": 2,
+      "idac1": 64
+    },
+    {
+      "t_s": 1240.64,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 2,
+      "idac1": 64,
+      "espera_s": 64.32,
+      "muestras": 12,
+      "ultima_diferencia_uv": 43.0,
+      "ultimo_umbral_uv": 122.5
+    },
+    {
+      "t_s": 1265.54,
+      "tipo": "tramo_abba_omitido",
+      "mensaje": "se solicito --sin-fino",
+      "pasada": 2,
+      "idac1": 64
+    },
+    {
+      "t_s": 1265.54,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=+0; comienza espera lenta",
+      "pasada": 2,
+      "idac1": 0
+    },
+    {
+      "t_s": 1329.86,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 2,
+      "idac1": 0,
+      "espera_s": 64.32,
+      "muestras": 12,
+      "ultima_diferencia_uv": 12.0,
+      "ultimo_umbral_uv": 140.0
+    },
+    {
+      "t_s": 1354.76,
+      "tipo": "tramo_abba_omitido",
+      "mensaje": "se solicito --sin-fino",
+      "pasada": 2,
+      "idac1": 0
+    },
+    {
+      "t_s": 1354.76,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=-64; comienza espera lenta",
+      "pasada": 2,
+      "idac1": -64
+    },
+    {
+      "t_s": 1419.08,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 2,
+      "idac1": -64,
+      "espera_s": 64.32,
+      "muestras": 12,
+      "ultima_diferencia_uv": 117.0,
+      "ultimo_umbral_uv": 128.0
+    },
+    {
+      "t_s": 1443.98,
+      "tipo": "tramo_abba_omitido",
+      "mensaje": "se solicito --sin-fino",
+      "pasada": 2,
+      "idac1": -64
+    },
+    {
+      "t_s": 1443.98,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=-128; comienza espera lenta",
+      "pasada": 2,
+      "idac1": -128
+    },
+    {
+      "t_s": 1508.3,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 2,
+      "idac1": -128,
+      "espera_s": 64.32,
+      "muestras": 12,
+      "ultima_diferencia_uv": 61.0,
+      "ultimo_umbral_uv": 129.0
+    },
+    {
+      "t_s": 1533.2,
+      "tipo": "tramo_abba_omitido",
+      "mensaje": "se solicito --sin-fino",
+      "pasada": 2,
+      "idac1": -128
+    },
+    {
+      "t_s": 1533.2,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=-192; comienza espera lenta",
+      "pasada": 2,
+      "idac1": -192
+    },
+    {
+      "t_s": 1597.52,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 2,
+      "idac1": -192,
+      "espera_s": 64.32,
+      "muestras": 12,
+      "ultima_diferencia_uv": 8.0,
+      "ultimo_umbral_uv": 141.0
+    },
+    {
+      "t_s": 1622.42,
+      "tipo": "tramo_abba_omitido",
+      "mensaje": "se solicito --sin-fino",
+      "pasada": 2,
+      "idac1": -192
+    },
+    {
+      "t_s": 1622.42,
+      "tipo": "idac1",
+      "mensaje": "IDAC1=-255; comienza espera lenta",
+      "pasada": 2,
+      "idac1": -255
+    },
+    {
+      "t_s": 1686.74,
+      "tipo": "asentamiento_completo",
+      "mensaje": "ch1 se considero asentado",
+      "pasada": 2,
+      "idac1": -255,
+      "espera_s": 64.32,
+      "muestras": 12,
+      "ultima_diferencia_uv": 18.0,
+      "ultimo_umbral_uv": 150.0
+    },
+    {
+      "t_s": 1711.64,
+      "tipo": "tramo_abba_omitido",
+      "mensaje": "se solicito --sin-fino",
+      "pasada": 2,
+      "idac1": -255
+    },
+    {
+      "t_s": 1711.64,
+      "tipo": "pasada",
+      "mensaje": "pasada 2 terminada; IDAC1 e IDAC2 en cero"
+    },
+    {
+      "t_s": 1711.64,
+      "tipo": "resumen",
+      "mensaje": "campana completada"
+    }
+  ],
+  "resumen": {
+    "codigo_idac0_final": 24,
+    "abba_idac0": {
+      "centro_idac0": 24,
+      "pendientes_por_delta": [
+        {
+          "delta": 2,
+          "pendiente_ch0_uv_por_codigo": 69.125,
+          "pendiente_ch2_uv_por_codigo": -488.125,
+          "pendiente_ch0_mv_fisicos_por_codigo": 1.3766727625000001,
+          "pendiente_ch2_mv_fisicos_por_codigo": -9.7213510625,
+          "motivo_ch2_sin_dato": null
+        },
+        {
+          "delta": 4,
+          "pendiente_ch0_uv_por_codigo": 63.625,
+          "pendiente_ch2_uv_por_codigo": -474.5,
+          "pendiente_ch0_mv_fisicos_por_codigo": 1.2671364125,
+          "pendiente_ch2_mv_fisicos_por_codigo": -9.44999965,
+          "motivo_ch2_sin_dato": null
+        }
+      ],
+      "pendiente_ch0_mediana_uv_por_codigo": 66.375,
+      "pendiente_ch2_mediana_uv_por_codigo": -481.3125,
+      "pendiente_ch0_mediana_mv_fisicos_por_codigo": 1.3219045875000002,
+      "pendiente_ch2_mediana_mv_fisicos_por_codigo": -9.58567535625,
+      "ganancia_sumador_desde_seo": -7.251412429378531
+    },
+    "tabla_validez_celdas": [
+      {
+        "pasada": 1,
+        "idac1": -255,
+        "idac2": -255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -255,
+        "idac2": -128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -255,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -255,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -255,
+        "idac2": 64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": -255,
+        "idac2": 128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": -255,
+        "idac2": 255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": -192,
+        "idac2": -255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -192,
+        "idac2": -128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -192,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -192,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -192,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -192,
+        "idac2": 128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": -192,
+        "idac2": 255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": -128,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": -128,
+        "idac2": -128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -128,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -128,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -128,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -128,
+        "idac2": 128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": -128,
+        "idac2": 255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": -64,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": -64,
+        "idac2": -128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -64,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -64,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -64,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": -64,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": -64,
+        "idac2": 255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 0,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 0,
+        "idac2": -128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 0,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 0,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 0,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 0,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 0,
+        "idac2": 255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 64,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 64,
+        "idac2": -128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 64,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 64,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 64,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 64,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 64,
+        "idac2": 255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 128,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 128,
+        "idac2": -128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 128,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 128,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 128,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 128,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 128,
+        "idac2": 255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 192,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 192,
+        "idac2": -128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 192,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 192,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 192,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 192,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 192,
+        "idac2": 255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 255,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 255,
+        "idac2": -128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 255,
+        "idac2": -64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 1,
+        "idac1": 255,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 255,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 255,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 1,
+        "idac1": 255,
+        "idac2": 255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -255,
+        "idac2": -255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -255,
+        "idac2": -128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -255,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -255,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -255,
+        "idac2": 64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": -255,
+        "idac2": 128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": -255,
+        "idac2": 255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": -192,
+        "idac2": -255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -192,
+        "idac2": -128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -192,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -192,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -192,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -192,
+        "idac2": 128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": -192,
+        "idac2": 255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": -128,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": -128,
+        "idac2": -128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -128,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -128,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -128,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -128,
+        "idac2": 128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": -128,
+        "idac2": 255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": -64,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": -64,
+        "idac2": -128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -64,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -64,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -64,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": -64,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": -64,
+        "idac2": 255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 0,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 0,
+        "idac2": -128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 0,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 0,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 0,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 0,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 0,
+        "idac2": 255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 64,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 64,
+        "idac2": -128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 64,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 64,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 64,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 64,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 64,
+        "idac2": 255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 128,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 128,
+        "idac2": -128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 128,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 128,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 128,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 128,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 128,
+        "idac2": 255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 192,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 192,
+        "idac2": -128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 192,
+        "idac2": -64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 192,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 192,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 192,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 192,
+        "idac2": 255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 255,
+        "idac2": -255,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 255,
+        "idac2": -128,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 255,
+        "idac2": -64,
+        "ch2_valido": false,
+        "ch3_valido": false
+      },
+      {
+        "pasada": 2,
+        "idac1": 255,
+        "idac2": 0,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 255,
+        "idac2": 64,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 255,
+        "idac2": 128,
+        "ch2_valido": true,
+        "ch3_valido": true
+      },
+      {
+        "pasada": 2,
+        "idac1": 255,
+        "idac2": 255,
+        "ch2_valido": true,
+        "ch3_valido": true
+      }
+    ],
+    "pendiente_local_idac2_sobre_ch2": [],
+    "ajuste_malla": {
+      "disponible": false,
+      "motivo": "menos de cuatro filas",
+      "n": 0
+    },
+    "filtro_region_lineal": {
+      "candidatas": 126,
+      "incluidas": 0,
+      "descartadas_total": 126,
+      "descartadas_por_motivo": {
+        "ch0_sin_lectura": 0,
+        "ch1_sin_lectura": 0,
+        "ch2_sin_lectura": 0,
+        "ch3_sin_lectura": 0,
+        "ch0_fuera_de_rango": 0,
+        "ch1_fuera_de_rango": 0,
+        "ch2_fuera_de_rango": 46,
+        "ch3_fuera_de_rango": 48,
+        "ch0_clavado": 122,
+        "ch1_clavado": 125,
+        "ch2_clavado": 124,
+        "ch3_clavado": 122,
+        "error_ch2_mayor_o_igual_1500_mv": 72
+      },
+      "nota": "los motivos pueden solaparse en una misma captura"
+    },
+    "ajuste_malla_sin_limitar": {
+      "disponible": true,
+      "n": 80,
+      "A_uv_por_codigo_idac2": 740.661365889718,
+      "B_uv_por_codigo_idac1": -359.66360202051504,
+      "C_uv_por_uv_ch0": -5.599281126888459,
+      "K_uv": 6615627.046778959,
+      "residuo_rms_uv": 208.01075684108238,
+      "ecuacion": "ch2_uv = A*idac2 + B*idac1 + C*ch0_uv + K_uv"
+    },
+    "advertencia_ajuste_global": "El ajuste historico sobre todo el mapa dio un residuo de aproximadamente 103 mV y coeficientes casi a la mitad de los ABBA. No debe interpretarse como la ganancia local del sumador.",
+    "histeresis_por_celda": [
+      {
+        "idac1": -255,
+        "idac2": -255,
+        "ch2_pasada2_menos_pasada1_uv": 13.0,
+        "ch3_pasada2_menos_pasada1_uv": -48.0
+      },
+      {
+        "idac1": -255,
+        "idac2": -128,
+        "ch2_pasada2_menos_pasada1_uv": -16.0,
+        "ch3_pasada2_menos_pasada1_uv": 100.0
+      },
+      {
+        "idac1": -255,
+        "idac2": -64,
+        "ch2_pasada2_menos_pasada1_uv": 22.0,
+        "ch3_pasada2_menos_pasada1_uv": 9.0
+      },
+      {
+        "idac1": -255,
+        "idac2": 0,
+        "ch2_pasada2_menos_pasada1_uv": 73.0,
+        "ch3_pasada2_menos_pasada1_uv": -35.0
+      },
+      {
+        "idac1": -192,
+        "idac2": -255,
+        "ch2_pasada2_menos_pasada1_uv": 487.0,
+        "ch3_pasada2_menos_pasada1_uv": 458.0
+      },
+      {
+        "idac1": -192,
+        "idac2": -128,
+        "ch2_pasada2_menos_pasada1_uv": 268.0,
+        "ch3_pasada2_menos_pasada1_uv": 395.0
+      },
+      {
+        "idac1": -192,
+        "idac2": -64,
+        "ch2_pasada2_menos_pasada1_uv": 331.0,
+        "ch3_pasada2_menos_pasada1_uv": 348.0
+      },
+      {
+        "idac1": -192,
+        "idac2": 0,
+        "ch2_pasada2_menos_pasada1_uv": 352.0,
+        "ch3_pasada2_menos_pasada1_uv": 335.0
+      },
+      {
+        "idac1": -192,
+        "idac2": 64,
+        "ch2_pasada2_menos_pasada1_uv": 299.0,
+        "ch3_pasada2_menos_pasada1_uv": 343.0
+      },
+      {
+        "idac1": -128,
+        "idac2": -128,
+        "ch2_pasada2_menos_pasada1_uv": 671.0,
+        "ch3_pasada2_menos_pasada1_uv": 753.0
+      },
+      {
+        "idac1": -128,
+        "idac2": -64,
+        "ch2_pasada2_menos_pasada1_uv": 625.0,
+        "ch3_pasada2_menos_pasada1_uv": 728.0
+      },
+      {
+        "idac1": -128,
+        "idac2": 0,
+        "ch2_pasada2_menos_pasada1_uv": 742.0,
+        "ch3_pasada2_menos_pasada1_uv": 739.0
+      },
+      {
+        "idac1": -128,
+        "idac2": 64,
+        "ch2_pasada2_menos_pasada1_uv": 672.0,
+        "ch3_pasada2_menos_pasada1_uv": 618.0
+      },
+      {
+        "idac1": -64,
+        "idac2": -128,
+        "ch2_pasada2_menos_pasada1_uv": 824.0,
+        "ch3_pasada2_menos_pasada1_uv": 873.0
+      },
+      {
+        "idac1": -64,
+        "idac2": -64,
+        "ch2_pasada2_menos_pasada1_uv": 902.0,
+        "ch3_pasada2_menos_pasada1_uv": 822.0
+      },
+      {
+        "idac1": -64,
+        "idac2": 0,
+        "ch2_pasada2_menos_pasada1_uv": 780.0,
+        "ch3_pasada2_menos_pasada1_uv": 904.0
+      },
+      {
+        "idac1": -64,
+        "idac2": 64,
+        "ch2_pasada2_menos_pasada1_uv": 987.0,
+        "ch3_pasada2_menos_pasada1_uv": 851.0
+      },
+      {
+        "idac1": -64,
+        "idac2": 128,
+        "ch2_pasada2_menos_pasada1_uv": 862.0,
+        "ch3_pasada2_menos_pasada1_uv": null
+      },
+      {
+        "idac1": 0,
+        "idac2": -128,
+        "ch2_pasada2_menos_pasada1_uv": 1002.0,
+        "ch3_pasada2_menos_pasada1_uv": 977.0
+      },
+      {
+        "idac1": 0,
+        "idac2": -64,
+        "ch2_pasada2_menos_pasada1_uv": 999.0,
+        "ch3_pasada2_menos_pasada1_uv": 963.0
+      },
+      {
+        "idac1": 0,
+        "idac2": 0,
+        "ch2_pasada2_menos_pasada1_uv": 944.0,
+        "ch3_pasada2_menos_pasada1_uv": 914.0
+      },
+      {
+        "idac1": 0,
+        "idac2": 64,
+        "ch2_pasada2_menos_pasada1_uv": 1079.0,
+        "ch3_pasada2_menos_pasada1_uv": 961.0
+      },
+      {
+        "idac1": 0,
+        "idac2": 128,
+        "ch2_pasada2_menos_pasada1_uv": 1035.0,
+        "ch3_pasada2_menos_pasada1_uv": 865.0
+      },
+      {
+        "idac1": 64,
+        "idac2": -128,
+        "ch2_pasada2_menos_pasada1_uv": 1008.0,
+        "ch3_pasada2_menos_pasada1_uv": 1013.0
+      },
+      {
+        "idac1": 64,
+        "idac2": -64,
+        "ch2_pasada2_menos_pasada1_uv": 947.0,
+        "ch3_pasada2_menos_pasada1_uv": 960.0
+      },
+      {
+        "idac1": 64,
+        "idac2": 0,
+        "ch2_pasada2_menos_pasada1_uv": 978.0,
+        "ch3_pasada2_menos_pasada1_uv": 940.0
+      },
+      {
+        "idac1": 64,
+        "idac2": 64,
+        "ch2_pasada2_menos_pasada1_uv": 995.0,
+        "ch3_pasada2_menos_pasada1_uv": 979.0
+      },
+      {
+        "idac1": 64,
+        "idac2": 128,
+        "ch2_pasada2_menos_pasada1_uv": 926.0,
+        "ch3_pasada2_menos_pasada1_uv": 881.0
+      },
+      {
+        "idac1": 128,
+        "idac2": -64,
+        "ch2_pasada2_menos_pasada1_uv": 847.0,
+        "ch3_pasada2_menos_pasada1_uv": 810.0
+      },
+      {
+        "idac1": 128,
+        "idac2": 0,
+        "ch2_pasada2_menos_pasada1_uv": 800.0,
+        "ch3_pasada2_menos_pasada1_uv": 885.0
+      },
+      {
+        "idac1": 128,
+        "idac2": 64,
+        "ch2_pasada2_menos_pasada1_uv": 782.0,
+        "ch3_pasada2_menos_pasada1_uv": 811.0
+      },
+      {
+        "idac1": 128,
+        "idac2": 128,
+        "ch2_pasada2_menos_pasada1_uv": 856.0,
+        "ch3_pasada2_menos_pasada1_uv": 747.0
+      },
+      {
+        "idac1": 192,
+        "idac2": -64,
+        "ch2_pasada2_menos_pasada1_uv": 492.0,
+        "ch3_pasada2_menos_pasada1_uv": 572.0
+      },
+      {
+        "idac1": 192,
+        "idac2": 0,
+        "ch2_pasada2_menos_pasada1_uv": 426.0,
+        "ch3_pasada2_menos_pasada1_uv": 506.0
+      },
+      {
+        "idac1": 192,
+        "idac2": 64,
+        "ch2_pasada2_menos_pasada1_uv": 464.0,
+        "ch3_pasada2_menos_pasada1_uv": 547.0
+      },
+      {
+        "idac1": 192,
+        "idac2": 128,
+        "ch2_pasada2_menos_pasada1_uv": 536.0,
+        "ch3_pasada2_menos_pasada1_uv": 585.0
+      },
+      {
+        "idac1": 255,
+        "idac2": 0,
+        "ch2_pasada2_menos_pasada1_uv": 126.0,
+        "ch3_pasada2_menos_pasada1_uv": 219.0
+      },
+      {
+        "idac1": 255,
+        "idac2": 64,
+        "ch2_pasada2_menos_pasada1_uv": 194.0,
+        "ch3_pasada2_menos_pasada1_uv": 126.0
+      },
+      {
+        "idac1": 255,
+        "idac2": 128,
+        "ch2_pasada2_menos_pasada1_uv": 192.0,
+        "ch3_pasada2_menos_pasada1_uv": 249.0
+      },
+      {
+        "idac1": 255,
+        "idac2": 255,
+        "ch2_pasada2_menos_pasada1_uv": 63.0,
+        "ch3_pasada2_menos_pasada1_uv": 202.0
+      }
+    ],
+    "histeresis_resumen": {
+      "ch2": {
+        "n": 40,
+        "media_uv": 614.625,
+        "rms_uv": 704.7502217097913,
+        "max_abs_uv": 1079.0
+      },
+      "ch3": {
+        "n": 39,
+        "media_uv": 612.9487179487179,
+        "rms_uv": 693.1164663297474,
+        "max_abs_uv": 1013.0
+      }
+    },
+    "filas": 736,
+    "filas_sin_lectura": 0,
+    "filas_saturadas": 238
+  }
+}
