@@ -188,6 +188,23 @@ def _reset_psoc_desde_esp():
 
 def _foto():
     """Una muestra de todo lo que interesa, en el instante actual."""
+    # El PSoC puede seguir controlando normalmente sin emitir un reporte
+    # espontaneo durante mas de diez segundos. No convertir ese silencio en un
+    # falso cuelgue: cuando la foto envejece, pedirla activamente por el mismo
+    # canal que ya usa la guarda de arranque. Esto deja la recuperacion de un
+    # caso predecible dentro del programa, sin despertar al operador Codex.
+    if not _ultimo_ctl or time.monotonic() - _ultimo_ctl > 5.0:
+        anterior = _ultimo_ctl
+        _cmd('ctl report', 0.2)
+        for _ in range(20):
+            if _ultimo_ctl > anterior:
+                # Dar tiempo a que termine el bloque: el primer #CTL actualiza
+                # el reloj, pero la foto usa claves que llegan mas abajo.
+                time.sleep(0.2)
+                break
+            if _lector_error:
+                raise RuntimeError(_lector_error)
+            time.sleep(0.1)
     if not _ultimo_ctl or time.monotonic() - _ultimo_ctl > 10.0:
         raise TelemetriaVencida('no llega telemetria #CTL desde hace 10 s')
     return {
@@ -200,6 +217,45 @@ def _foto():
         'tap': [_est.get(K_TAP + 4 * i) for i in range(5)],
         'valido': [_est.get(K_TAP + 4 * i + 1) for i in range(5)],
     }
+
+
+def _taps_frescos(max_edad_ms=10000):
+    """Verdadero si los cinco taps tienen una medida valida y reciente."""
+    for i in range(5):
+        base = K_TAP + 4 * i
+        if _est.get(base + 1) != 1:
+            return False
+        edad = _est.get(base + 2)
+        if edad is None or edad < 0 or edad > max_edad_ms:
+            return False
+    return True
+
+
+def _asegurar_adquisicion():
+    """Ceba y comprueba el muestreo de control cuando arranca sin IRQ.
+
+    En esta implementacion de superMaquina se observo que, tras un arranque en
+    frio, el bypass puede quedar sin publicar muestras aunque UART, I2C y el
+    ADC respondan. Una captura minima inicializa esa ruta y, al terminar, el
+    firmware vuelve solo al control. Es una recuperacion determinista: nunca
+    se acepta el cebado hasta ver los cinco taps validos y frescos.
+    """
+    _cmd('ctl report', 0.2)
+    time.sleep(0.3)
+    if _taps_frescos():
+        return True
+    for intento in range(1, 4):
+        print('    .. taps sin datos: cebando adquisicion (%d/3)' % intento,
+              flush=True)
+        _cmd('startwait 5', 1.0)
+        for _ in range(4):
+            _cmd('ctl report', 0.2)
+            time.sleep(0.5)
+            if _taps_frescos():
+                print('    .. adquisicion activa: 5/5 taps validos',
+                      flush=True)
+                return True
+    return False
 
 
 # ------------------------------------------------------------------ medicion
@@ -244,6 +300,10 @@ def _fijar_ganancia(pga, pgaout, intentos=4):
             print('    !! reset %d fallo: %r' % (reset_n, e), flush=True)
             continue
         time.sleep(30)                  # el firmware auto-calibra al arrancar
+        if not _asegurar_adquisicion():
+            print('    !! reset %d sin adquisicion valida' % reset_n,
+                  flush=True)
+            continue
         for _ in range(2):
             _est.pop(0, None); _est.pop(1, None)
             _cmd('pga %d' % pga)
@@ -267,7 +327,8 @@ def _visitar(pga, pgaout, ventana, muestreo=2.0, firmes=15, limite_mult=4):
     declararlo: esperar mas no cambia el veredicto y multiplica lo que tarda
     el barrido. Las que fallan si consumen la ventana entera, porque ahi la
     espera ES la prueba."""
-    lp0 = _est.get(K_TAP + 16)
+    lp0 = (_est.get(K_TAP + 16)
+           if _est.get(K_TAP + 17) == 1 else None)
     lp0 = lp0 / 1000.0 if lp0 is not None else None
     n_antes = _est.get(K_AUTOSAVE)
 
@@ -294,7 +355,8 @@ def _visitar(pga, pgaout, ventana, muestreo=2.0, firmes=15, limite_mult=4):
         if t_banda is None and f['banda'] == 1:
             t_banda = f['t']
         if t_banda is not None and len(serie) >= firmes:
-            ult = [x['tap'][4] for x in serie[-firmes:] if x['tap'][4] is not None]
+            ult = [x['tap'][4] for x in serie[-firmes:]
+                   if x['tap'][4] is not None and x['valido'][4] == 1]
             if (len(ult) == firmes and
                     all(abs(v) <= VENTANA_UV for v in ult) and
                     max(ult) - min(ult) < 30000):
@@ -304,7 +366,7 @@ def _visitar(pga, pgaout, ventana, muestreo=2.0, firmes=15, limite_mult=4):
         # FALLA con LPo centrado: medido x4/x8, estable a los 216 s de una
         # ventana de 240 y con LPo en -2,1 mV.  Eso no es un fallo, es un par
         # lento.  Se estira lo justo para que pueda probarlo.
-        lp = f['tap'][4]
+        lp = f['tap'][4] if f['valido'][4] == 1 else None
         if (tope == ventana and time.time() - t0 >= ventana - muestreo * 2 and
                 lp is not None and abs(lp) <= VENTANA_UV):
             tope = ventana + muestreo * (firmes + 2)
@@ -339,20 +401,23 @@ def _analizar(pga, pgaout, serie, t_banda, lp0, n_antes, ventana, confirmada):
                 out.append(v)
         return out
 
-    lp = col('tap', 4)
+    lp = [f['tap'][4] for f in serie
+          if f['tap'][4] is not None and f['valido'][4] == 1]
     # Desde cuando LPo ya NO vuelve a salir: el 't_banda' del firmware marca el
     # primer cruce, y un rescate que cruza de riel a riel lo marca al pasar.
     t_estable, ultimo_afuera = None, None
     for f in serie:
         v = f['tap'][4]
-        if v is not None and abs(v) > VENTANA_UV:
+        if f['valido'][4] != 1 or v is None or abs(v) > VENTANA_UV:
             ultimo_afuera = f['t']
     if lp:
         if ultimo_afuera is None:
             t_estable = serie[0]['t']
         else:
             for f in serie:
-                if f['t'] > ultimo_afuera:
+                if (f['t'] > ultimo_afuera and f['valido'][4] == 1 and
+                        f['tap'][4] is not None and
+                        abs(f['tap'][4]) <= VENTANA_UV):
                     t_estable = f['t']; break
 
     cola = lp[-15:] if len(lp) >= 15 else lp
@@ -672,6 +737,15 @@ def main(repeticiones=3, ventana=240, reanudar=False,
               flush=True)
         raise SystemExit(3)
 
+    # Cebar ANTES de cambiar la primera ganancia. Una captura pausa el control;
+    # hacerla durante CONTROL_LEARNING cancelaria ese aprendizaje y restauraria
+    # el perfil anterior. En este punto el firmware acaba de arrancar o sigue
+    # en su perfil guardado, por lo que el cebado es inocuo.
+    if not _asegurar_adquisicion():
+        print('SIN ADQUISICION: los cinco taps siguen invalidos despues de '
+              '3 cebados; se aborta antes de medir.', flush=True)
+        raise SystemExit(4)
+
     total = repeticiones * len(CODIGOS) * len(CODIGOS)
     t_inicio = time.time()
     hecho = len(hechas)
@@ -699,6 +773,8 @@ def main(repeticiones=3, ventana=240, reanudar=False,
                                  intento_visita), flush=True)
                         _reset_psoc_desde_esp()
                         time.sleep(30)
+                        if not _asegurar_adquisicion():
+                            raise RuntimeError('reset sin adquisicion valida')
                 r = _analizar(pga, pgaout, serie, t_banda, lp0, n0, ventana, ok)
                 r['vuelta'] = vuelta
                 r['marca'] = time.strftime('%Y-%m-%d %H:%M:%S')
