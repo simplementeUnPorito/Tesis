@@ -34,9 +34,11 @@ start() {
     port="${BARRIDO_PORT:-auto}"
     repetitions="${1:-3}"
     window="${2:-240}"
+    rm -f "$RUN_DIR/alert.json"
     nohup "$VENV_DIR/bin/python" -u "$SCRIPT_DIR/barrido_supervisor.py" \
         "$repetitions" "$window" --port "$port" \
-        --output "$SCRIPT_DIR/barrido_total" >>"$LOG_FILE" 2>&1 &
+        --output "$SCRIPT_DIR/barrido_total" --pid-file "$PID_FILE" \
+        >>"$LOG_FILE" 2>&1 &
     echo "$!" >"$PID_FILE"
     sleep 1
     if ! is_running; then

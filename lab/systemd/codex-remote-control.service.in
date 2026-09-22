@@ -1,0 +1,12 @@
+[Unit]
+Description=Codex app-server con control remoto
+After=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=@CODEX@ remote-control start --json
+ExecStop=@CODEX@ remote-control stop --json
+
+[Install]
+WantedBy=default.target

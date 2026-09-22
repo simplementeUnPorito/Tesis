@@ -1,0 +1,15 @@
+[Unit]
+Description=Barrido desatendido de ganancias PSoC/ESP32
+After=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+WorkingDirectory=@REPO@
+Environment=PYTHONUNBUFFERED=1
+ExecStart=@REPO@/.venv-barrido/bin/python -u @REPO@/lab/barrido_supervisor.py 3 240 --port auto --output @REPO@/lab/barrido_total --pid-file @REPO@/lab/barrido_total/.run/pid
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=default.target

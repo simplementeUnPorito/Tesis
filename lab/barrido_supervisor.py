@@ -5,6 +5,7 @@ solo crea ``alert.json`` cuando agota todas las recuperaciones automaticas.
 Codex puede consultar ese archivo compacto sin leer el log completo.
 """
 import argparse
+import atexit
 import collections
 import glob
 import json
@@ -48,6 +49,8 @@ def arguments(argv):
     p.add_argument('--port', default='auto')
     p.add_argument('--output', required=True)
     p.add_argument('--max-restarts', type=int, default=8)
+    p.add_argument('--pid-file', default=None,
+                   help='archivo opcional con el PID del supervisor')
     p.add_argument('--stable-reset-s', type=int, default=900,
                    help='tras este tiempo vivo, un fallo vuelve a contar desde 1')
     return p.parse_args(argv)
@@ -72,8 +75,21 @@ def main(argv=None):
     script = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                           'barrido_total.py')
     os.makedirs(run_dir, exist_ok=True)
-    if os.path.exists(alert_path):
-        os.unlink(alert_path)
+    if ns.pid_file:
+        pid_file = os.path.abspath(ns.pid_file)
+        os.makedirs(os.path.dirname(pid_file), exist_ok=True)
+        with open(pid_file, 'w', encoding='ascii') as fh:
+            fh.write('%d\n' % os.getpid())
+
+        def remove_own_pid_file():
+            try:
+                with open(pid_file, 'r', encoding='ascii') as fh:
+                    if fh.read().strip() == str(os.getpid()):
+                        os.unlink(pid_file)
+            except (FileNotFoundError, OSError):
+                pass
+
+        atexit.register(remove_own_pid_file)
 
     failures = 0
     backoffs = [15, 30, 60, 120, 300, 600]

@@ -1,0 +1,15 @@
+[Unit]
+Description=Operador Codex por excepcion para el barrido
+After=network-online.target barrido-total.service
+Wants=barrido-total.service
+
+[Service]
+Type=simple
+WorkingDirectory=@REPO@
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 -u @REPO@/lab/barrido_codex_operator.py --repo @REPO@ --codex-bin @CODEX@
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=default.target
