@@ -10,6 +10,7 @@ import collections
 import glob
 import json
 import os
+import re
 import signal
 import subprocess
 import sys
@@ -58,7 +59,14 @@ def arguments(argv):
 
 def detect_port(requested):
     if requested and requested != 'auto':
+        if os.name == 'nt' and re.fullmatch(r'COM\d+', requested,
+                                            flags=re.IGNORECASE):
+            return requested.upper()
         return requested if os.path.exists(requested) else None
+    if os.name == 'nt':
+        from serial.tools import list_ports
+        ports = sorted(port.device for port in list_ports.comports())
+        return ports[0] if ports else None
     candidates = sorted(glob.glob('/dev/serial/by-id/*'))
     candidates += sorted(glob.glob('/dev/ttyUSB*'))
     candidates += sorted(glob.glob('/dev/ttyACM*'))
