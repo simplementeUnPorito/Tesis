@@ -15,19 +15,6 @@ is_running() {
     [[ "$pid" =~ ^[0-9]+$ ]] && kill -0 "$pid" 2>/dev/null
 }
 
-find_port() {
-    if [[ -n "${BARRIDO_PORT:-}" ]]; then
-        printf '%s\n' "$BARRIDO_PORT"
-        return
-    fi
-    local candidate
-    for candidate in /dev/serial/by-id/* /dev/ttyUSB* /dev/ttyACM*; do
-        [[ -e "$candidate" ]] && { printf '%s\n' "$candidate"; return; }
-    done
-    echo "No encontre el ESP32. Defina BARRIDO_PORT=/dev/serial/by-id/..." >&2
-    exit 2
-}
-
 setup() {
     command -v python3 >/dev/null || { echo "Falta python3" >&2; exit 2; }
     if [[ ! -x "$VENV_DIR/bin/python" ]]; then
@@ -44,7 +31,7 @@ start() {
         exit 0
     fi
     local port repetitions window
-    port="$(find_port)"
+    port="${BARRIDO_PORT:-auto}"
     repetitions="${1:-3}"
     window="${2:-240}"
     nohup "$VENV_DIR/bin/python" -u "$SCRIPT_DIR/barrido_supervisor.py" \

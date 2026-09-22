@@ -48,6 +48,10 @@ del ESP32 explícitamente:
 BARRIDO_PORT=/dev/serial/by-id/usb-... ./lab/barrido_total.sh start 3 240
 ```
 
+Si la placa todavía no está conectada, el supervisor queda en
+`waiting_for_device` y la detecta cada diez segundos. Esto se considera estado
+normal: no genera alertas para Codex ni consume reinicios automáticos.
+
 El servidor no necesita PSoC Creator, KitProg ni PowerShell. Si el PSoC deja de
 confirmar una ganancia, el script manda `psocreset` al ESP32; éste pulsa GPIO19
 hacia PSoC P1[4], cuya ISR ejecuta `CySoftwareReset()`.

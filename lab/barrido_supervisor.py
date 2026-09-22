@@ -6,6 +6,7 @@ Codex puede consultar ese archivo compacto sin leer el log completo.
 """
 import argparse
 import collections
+import glob
 import json
 import os
 import signal
@@ -44,12 +45,21 @@ def arguments(argv):
     p = argparse.ArgumentParser(description='Supervisor local del barrido')
     p.add_argument('repeticiones', nargs='?', type=int, default=3)
     p.add_argument('ventana_s', nargs='?', type=int, default=240)
-    p.add_argument('--port', required=True)
+    p.add_argument('--port', default='auto')
     p.add_argument('--output', required=True)
     p.add_argument('--max-restarts', type=int, default=8)
     p.add_argument('--stable-reset-s', type=int, default=900,
                    help='tras este tiempo vivo, un fallo vuelve a contar desde 1')
     return p.parse_args(argv)
+
+
+def detect_port(requested):
+    if requested and requested != 'auto':
+        return requested if os.path.exists(requested) else None
+    candidates = sorted(glob.glob('/dev/serial/by-id/*'))
+    candidates += sorted(glob.glob('/dev/ttyUSB*'))
+    candidates += sorted(glob.glob('/dev/ttyACM*'))
+    return candidates[0] if candidates else None
 
 
 def main(argv=None):
@@ -68,16 +78,23 @@ def main(argv=None):
     failures = 0
     backoffs = [15, 30, 60, 120, 300, 600]
     tail = collections.deque(maxlen=30)
-    command = [sys.executable, '-u', script,
-               str(ns.repeticiones), str(ns.ventana_s),
-               '--reanudar', '--reintentar-invalidas',
-               '--port', ns.port, '--output', output]
-
     while not STOP:
+        port = detect_port(ns.port)
+        if port is None:
+            atomic_json(health_path, {
+                'status': 'waiting_for_device', 'updated': now_text(),
+                'restart_count': failures, 'requested_port': ns.port,
+            })
+            time.sleep(10)
+            continue
+        command = [sys.executable, '-u', script,
+                   str(ns.repeticiones), str(ns.ventana_s),
+                   '--reanudar', '--reintentar-invalidas',
+                   '--port', port, '--output', output]
         started = time.time()
         atomic_json(health_path, {
             'status': 'starting', 'updated': now_text(),
-            'restart_count': failures, 'port': ns.port,
+            'restart_count': failures, 'port': port,
         })
         CHILD = subprocess.Popen(command, stdout=subprocess.PIPE,
                                  stderr=subprocess.STDOUT, text=True,
@@ -85,7 +102,7 @@ def main(argv=None):
         atomic_json(health_path, {
             'status': 'running', 'updated': now_text(),
             'child_pid': CHILD.pid, 'restart_count': failures,
-            'port': ns.port, 'output': output,
+            'port': port, 'output': output,
         })
         assert CHILD.stdout is not None
         for line in CHILD.stdout:
