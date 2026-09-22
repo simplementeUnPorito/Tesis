@@ -646,16 +646,26 @@ def main(repeticiones=3, ventana=240, reanudar=False,
         hechas = {(r['pga_cod'], r['pgaout_cod'], r['vuelta']) for r in res}
         print('reanudando: %d visitas ya medidas' % len(res), flush=True)
 
-    # Guarda de arranque.  Si el puerto quedo tomado por la corrida anterior,
-    # serial.open() en Windows puede BLOQUEAR en vez de fallar: el 2026-09-19
-    # eso se comio 33 minutos de silencio absoluto, con el proceso vivo y el
-    # log congelado en la cabecera.  Mejor un error ruidoso a los 30 s.
-    for _ in range(60):
+    # Guarda de arranque. En Linux abrir el CP2102 reinicia el ESP32; luego el
+    # esclavo tarda unos segundos en arrancar y el PSoC no esta obligado a
+    # emitir metadata espontaneamente. Pedir `ctl report` hace que la prueba
+    # de vida sea activa y evita confundir silencio valido con puerto tomado.
+    # Se conserva el limite total de ~30 s: un nodo realmente ocupado/mudo
+    # falla ruidosamente y el supervisor aplica su backoff.
+    for intento_arranque in range(10):
         if len(_est) > 0:
             break
         if _lector_error:
             raise RuntimeError(_lector_error)
-        time.sleep(0.5)
+        _cmd('ctl report', 0.2)
+        for _ in range(6):
+            if len(_est) > 0:
+                break
+            if _lector_error:
+                raise RuntimeError(_lector_error)
+            time.sleep(0.5)
+        if len(_est) > 0:
+            break
     else:
         print('SIN TELEMETRIA en 30 s: el lector no tomo %s (otro proceso lo '
               'tiene?). Se aborta en vez de colgarse en silencio.' % PUERTO,
