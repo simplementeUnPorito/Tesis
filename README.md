@@ -37,6 +37,9 @@ Contenido gestionado directamente por el superproyecto:
 | `src/modelado_matlab/martinete_leva_multibody/` | modelo MATLAB del martinete gestionado por el superproyecto |
 | `docs/proyecto/` | arquitectura, migración, planes y notas del proyecto |
 | `docs/auditorias/` | auditorías e inventarios documentales versionados |
+| `lab/` | bitácora de banco de la cadena analógica GEO (04–16/09/2026): informes, handoffs, logs y herramientas `ctl_*`. Índice en `lab/README.md` |
+| `abrir_idacs_manual.ps1` | abre la GUI de `testbench` en modo manual contra COM8 |
+| `repetir.sh` | corre la misma calibración N veces y junta los veredictos |
 
 ## Dónde va cada cosa
 
@@ -54,6 +57,15 @@ al lado del código fuente.
 - [Firmware ESP32](./src/firmware/esp32/README.md)
 - [Firmware PSoC](./src/firmware/psoc/README.md)
 - [Software de campo en Python](./src/interfaces/python/README.md)
+- [Scripts de laboratorio de la cadena analógica](./src/interfaces/python/LABORATORIO_SCRIPTS.md)
+
+### Acondicionamiento analógico y calibración (estado al 2026-09-16)
+
+- [Bitácora de banco `lab/`](./lab/README.md): qué documento es estado y cuál es historia.
+- [Control unificado en el PSoC](./src/firmware/psoc/AcondicionamientoAnalogico.cydsn/CONTROL_UNIFICADO.md):
+  aprendizaje lento autorizado, PI permanente, comandos `ctl`, modo estable.
+- [PI del firmware: oscilación, ticks y modo estable](./lab/PI_FIRMWARE_TICKS_Y_MODO_ESTABLE_2026-09-16.md)
+- [Ganancia conjunta sostenida (PGA x4 · PGAout x24)](./lab/RESULTADO_GANANCIA_2026-09-14.md)
 - [Bitácora cronológica](./docs/investigacion/Notes/bitacora/INDICE.md)
 - [Puesta en marcha digital de la primera placa](./docs/investigacion/Notes/bitacora/2026-09-01.md)
 

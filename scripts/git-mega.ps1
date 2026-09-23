@@ -230,13 +230,22 @@ function Set-MegaCommitBranch {
     }
 }
 
+function Test-MegaPushPermissionDenied {
+    param([Parameter(Mandatory)][string]$Output)
+
+    # GitHub devuelve 403 tanto para repositorios privados sin acceso como para
+    # ramas a las que la credencial actual no puede escribir.
+    return $Output -match "(?im)(permission to .+ denied|http[s]?:.*\b403\b|the requested url returned error: 403|authentication failed)"
+}
+
 function Invoke-MegaCommitRepository {
     param(
         [Parameter(Mandatory)][string]$Repository,
         [Parameter(Mandatory)][string]$Label,
         [Parameter(Mandatory)][string]$Message,
         [switch]$DryRun,
-        [switch]$NoPush
+        [switch]$NoPush,
+        [string[]]$ExcludedSubmodulePaths = @()
     )
 
     try {
@@ -279,12 +288,45 @@ function Invoke-MegaCommitRepository {
             }
         }
 
+        # Comprobar autorización antes de crear un commit local. Si no se puede
+        # escribir, el repositorio (y su gitlink en el padre) queda intacto.
+        if (-not $NoPush -and ($dirty -or $head -ne $remoteSha)) {
+            $pushProbe = Invoke-MegaGit -Repository $Repository -Arguments @(
+                "push", "--dry-run", "origin", "$($plan.Name):$($plan.Name)"
+            )
+            if ($pushProbe.Code -ne 0) {
+                if (Test-MegaPushPermissionDenied -Output $pushProbe.Combined) {
+                    return [pscustomobject]@{
+                        Label = $Label; Status = "SKIP"
+                        Detail = "sin permiso de push; omitido"
+                        SkippedForPermission = $true
+                    }
+                }
+                throw "prevalidación de push falló: $($pushProbe.Combined)"
+            }
+        }
+
         Set-MegaCommitBranch -Repository $Repository -Plan $plan
 
         $didCommit = $false
         if ($dirty) {
             $add = Invoke-MegaGit -Repository $Repository -Arguments @("add", "-A")
             if ($add.Code -ne 0) { throw "add falló: $($add.Combined)" }
+            if ($ExcludedSubmodulePaths.Count -gt 0) {
+                $resetArguments = @("reset", "--quiet", "--") + $ExcludedSubmodulePaths
+                $unstage = Invoke-MegaGit -Repository $Repository -Arguments $resetArguments
+                if ($unstage.Code -ne 0) { throw "no se pudo omitir submódulo(s): $($unstage.Combined)" }
+            }
+            $staged = Invoke-MegaGit -Repository $Repository -Arguments @(
+                "diff", "--cached", "--quiet"
+            )
+            if ($staged.Code -eq 0) {
+                return [pscustomobject]@{
+                    Label = $Label; Status = "SKIP"
+                    Detail = "solo cambios de submódulo(s) omitido(s)"
+                }
+            }
+            if ($staged.Code -ne 1) { throw "no se pudo inspeccionar el índice: $($staged.Combined)" }
             $commit = Invoke-MegaGit -Repository $Repository -Arguments @(
                 "-c", "commit.gpgsign=false", "commit", "--no-verify",
                 "-m", $Message
@@ -385,8 +427,22 @@ function megacommit {
             }
         }
         else {
+            # Solo se excluyen hijos directos: un padre puede seguir publicando
+            # los demás hijos aunque uno de sus descendientes sea inaccesible.
+            $excludedChildren = @(
+                Get-MegaDirectSubmodulePaths -RepositoryRoot $repository |
+                ForEach-Object {
+                    $childPath = "$path/$_".Replace("\\", "/")
+                    if ($results | Where-Object {
+                        $_.SkippedForPermission -and $_.Label -eq $childPath
+                    }) {
+                        $childPath.Substring($path.Length + 1)
+                    }
+                }
+            )
             $result = Invoke-MegaCommitRepository -Repository $repository `
-                -Label $path -Message $message -DryRun:$DryRun -NoPush:$NoPush
+                -Label $path -Message $message -DryRun:$DryRun -NoPush:$NoPush `
+                -ExcludedSubmodulePaths $excludedChildren
         }
         $results.Add($result)
         Write-MegaResult -Result $result
@@ -398,9 +454,16 @@ function megacommit {
     }
 
     Write-Host ""
+    $mainExcludedChildren = @(
+        Get-MegaDirectSubmodulePaths -RepositoryRoot $root |
+        Where-Object {
+            $child = $_.Replace("\\", "/")
+            $results | Where-Object { $_.SkippedForPermission -and $_.Label -eq $child }
+        }
+    )
     $main = Invoke-MegaCommitRepository -Repository $root `
         -Label "(repo principal)" -Message $message `
-        -DryRun:$DryRun -NoPush:$NoPush
+        -DryRun:$DryRun -NoPush:$NoPush -ExcludedSubmodulePaths $mainExcludedChildren
     Write-MegaResult -Result $main
     Write-Host ""
     if ($main.Status -eq "ERROR") {
