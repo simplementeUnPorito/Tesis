@@ -220,10 +220,15 @@ def _foto():
 
 
 def _taps_frescos(max_edad_ms=10000):
-    """Verdadero si los cinco taps tienen una medida valida y reciente."""
+    """Verdadero si los cinco taps tienen una medida publicada y reciente.
+
+    ``valido=0`` significa que la tension esta fuera del rango analogico, no
+    que la adquisicion este detenida. Ese dato debe llegar al analisis para
+    producir FALLA/INVALIDA, pero no puede bloquear el arranque del barrido.
+    """
     for i in range(5):
         base = K_TAP + 4 * i
-        if _est.get(base + 1) != 1:
+        if _est.get(base) is None:
             return False
         edad = _est.get(base + 2)
         if edad is None or edad < 0 or edad > max_edad_ms:
@@ -238,7 +243,9 @@ def _asegurar_adquisicion():
     frio, el bypass puede quedar sin publicar muestras aunque UART, I2C y el
     ADC respondan. Una captura minima inicializa esa ruta y, al terminar, el
     firmware vuelve solo al control. Es una recuperacion determinista: nunca
-    se acepta el cebado hasta ver los cinco taps validos y frescos.
+    se acepta el cebado hasta ver los cinco taps publicados y frescos. El bit
+    de validez no se exige: una tension fuera de rango sigue siendo una medida
+    nueva y sera clasificada por el analisis de la visita.
     """
     _cmd('ctl report', 0.2)
     time.sleep(0.3)
@@ -247,12 +254,20 @@ def _asegurar_adquisicion():
     for intento in range(1, 4):
         print('    .. taps sin datos: cebando adquisicion (%d/3)' % intento,
               flush=True)
-        _cmd('startwait 5', 1.0)
+        # Una captura minima anterior puede haber dejado al ESP en STOPPED
+        # con el buffer lleno. En ese estado ``startwait`` se ignora. Vaciar
+        # solamente ese buffer de captura devuelve la maquina a WAIT_ARM sin
+        # tocar pines, ganancias ni el estado del controlador del PSoC.
+        _cmd('clear', 0.5)
+        # Aunque LAB_STARTWAIT termina pronto, el bloque de telemetria y el
+        # vaciado serie pueden seguir llegando. Dar el mismo margen que la
+        # utilidad diagnostica evita evaluar una foto parcial.
+        _cmd('startwait 5', 4.0)
         for _ in range(4):
             _cmd('ctl report', 0.2)
             time.sleep(0.5)
             if _taps_frescos():
-                print('    .. adquisicion activa: 5/5 taps validos',
+                print('    .. adquisicion activa: 5/5 taps recientes',
                       flush=True)
                 return True
     return False
@@ -742,7 +757,7 @@ def main(repeticiones=3, ventana=240, reanudar=False,
     # el perfil anterior. En este punto el firmware acaba de arrancar o sigue
     # en su perfil guardado, por lo que el cebado es inocuo.
     if not _asegurar_adquisicion():
-        print('SIN ADQUISICION: los cinco taps siguen invalidos despues de '
+        print('SIN ADQUISICION: los cinco taps siguen sin actualizar despues de '
               '3 cebados; se aborta antes de medir.', flush=True)
         raise SystemExit(4)
 
