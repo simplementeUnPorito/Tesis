@@ -1,7 +1,9 @@
 # Diseño de campaña experimental autónoma y acumulativa
 
-Fecha: 2026-09-23  
-Estado: propuesta para revisión  
+Fecha: 2026-09-23
+
+Estado: propuesta para revisión
+
 Banco: ESP32 en COM8 y PSoC 5LP conectado a la placa soldada
 
 ## 1. Objetivo
