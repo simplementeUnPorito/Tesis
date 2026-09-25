@@ -131,26 +131,42 @@ def _sembrar(archivo, incluir_fragiles=False):
 def _preparar(condicion, espera_s):
     """Deja el banco en la condicion de entrada pedida.
 
-    Devuelve True si la condicion quedo establecida. Si NO se puede preparar,
-    devuelve False y la visita se saltea: medir sobre una condicion que no es
-    la que dice la etiqueta es peor que no medir."""
+    Devuelve el par en el que quedo el nodo, o None si la condicion no se
+    pudo establecer -en ese caso la visita se saltea: medir sobre una
+    condicion que no es la que dice la etiqueta es peor que no medir-.
+
+    Las tres condiciones dejan el nodo en un par CONCRETO, incluida FRIO.
+    Antes FRIO solo resetaba y esperaba, y el nodo arrancaba en el par que
+    tenia guardado en el perfil: si ese par era justo el que se iba a
+    medir, no habia cambio de ganancia, el firmware no emitia el evento
+    del punto -o sea, la politica de puntos no se ejercia- y el cronometro
+    arrancaba sobre algo ya asentado.  Se vio en la primera visita:
+    PASA nota A con t_estable = 2,0 s y origen vacio.  Eso no es un pase,
+    es un no-evento.
+
+    Lo que distingue a FRIO no es entonces de donde viene, sino que viene
+    con la RAM en blanco: el reset borra el pool de candidatos y deja solo
+    lo que sobrevive en EEPROM.  Esa es justamente la diferencia que la
+    condicion existe para medir."""
     if condicion == 'FRIO':
         bt._reset_psoc_desde_esp()
         # El firmware auto-calibra al arrancar; entrar antes de que termine
         # mide el transitorio de la calibracion, no el arranque.
         time.sleep(30)
-        return bt._asegurar_adquisicion()
-
-    par = PAR_BAJO if condicion == 'DESDE_X1' else PAR_ALTO
+        if not bt._asegurar_adquisicion():
+            return None
+        par = PAR_BAJO
+    else:
+        par = PAR_BAJO if condicion == 'DESDE_X1' else PAR_ALTO
     if not bt._fijar_ganancia(par[0], par[1]):
-        return False
+        return None
     # Esperar varias constantes de tiempo del acople de 680 uF (tau ~ 30-44 s).
     # Sin esta espera la "condicion de entrada" seria un transitorio y las tres
     # condiciones terminarian pareciendose entre si.
     fin = time.time() + espera_s
     while time.time() < fin and bt._vivo:
         time.sleep(1.0)
-    return bt._vivo
+    return par if bt._vivo else None
 
 
 def _stop_pedido(salida):
@@ -308,8 +324,16 @@ def main(argv=None):
         # campana a medio hacer.  Ahora se pierde ESTA visita y sigue.
         reconex0 = bt._reconexiones
         try:
-            if not _preparar(condicion, args.espera_contexto):
+            par_previo = _preparar(condicion, args.espera_contexto)
+            if par_previo is None:
                 _log('    !! no se pudo establecer la condicion: se saltea')
+                continue
+            if par_previo == (pga, pgaout):
+                # Sin cambio de ganancia no hay nada que medir: el
+                # firmware no emite el punto y el cronometro arranca
+                # sobre una etapa ya asentada.
+                _log('    !! el par de entrada es el mismo que se va a '
+                     'medir: se saltea')
                 continue
             if not _politica(pol):
                 _log('    !! sin politica confirmada no se mide: se saltea')
@@ -351,6 +375,8 @@ def main(argv=None):
                     'ganancia': bt.CODIGOS[pga] * bt.CODIGOS[pgaout],
                     'vuelta': vuelta, 'condicion': condicion,
                     'brazo': brazo, 'politica_pedida': pol,
+                    'par_previo': '%d/%d' % (bt.CODIGOS[par_previo[0]],
+                                             bt.CODIGOS[par_previo[1]]),
                     'politica_puntos': bt._est.get(bt.K_POLITICA),
                     'veredicto': 'INMEDIBLE',
                     'veredicto_estricto': 'INMEDIBLE',
@@ -388,6 +414,8 @@ def main(argv=None):
         visita['condicion'] = condicion
         visita['brazo'] = brazo
         visita['politica_pedida'] = pol
+        visita['par_previo'] = '%d/%d' % (bt.CODIGOS[par_previo[0]],
+                                         bt.CODIGOS[par_previo[1]])
         visita['par_intermedio'] = ('%d/%d' % (bt.CODIGOS[PAR_ALTO[0]],
                                                bt.CODIGOS[PAR_ALTO[1]])
                                     if condicion == 'DESDE_ALTA' else

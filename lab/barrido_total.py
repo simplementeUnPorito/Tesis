@@ -353,30 +353,39 @@ def _foto():
     }
 
 
-def _distintas(serie, tap=4):
+def _distintas(serie, tap=4, tolerancia_s=1.0):
     """Las fotos que traen una medida NUEVA de ese tap, no una repetida.
 
-    El criterio es la edad: el firmware publica `now - ctl_stamp[i]`, asi
-    que cuando toma una muestra nueva la edad BAJA.  Mientras sube, es la
-    misma medida contada de nuevo.
+    El firmware publica la EDAD de cada tap (`now - ctl_stamp[i]`), asi que
+    el instante en que tomo la medida se reconstruye restando: `t - edad`.
+    Dos fotos con el mismo instante reconstruido son la MISMA medida
+    publicada dos veces.
 
-    Sin esto el pico a pico de una etapa asentada da 0,0 mV por
-    construccion -no porque este quieta, sino porque es un solo numero
-    repetido-, que es la forma en que este banco ya se engano una vez y
-    produjo 39 semillas falsas de 68."""
+    No alcanza con pedir que la edad BAJE -fue mi primer intento-: si el
+    barrido y el reporte van al mismo ritmo, la edad sale casi constante
+    entre medidas distintas y se perderian todas menos la primera.  El
+    instante reconstruido no tiene esa ambiguedad.
+
+    Hace falta porque el firmware repite: ya calibrado baja el barrido a
+    20 s y los reportes a 30 s (CP_SCAN_SETTLED_MS / CP_REPORT_SETTLED_MS).
+    Contar lineas en vez de medidas daba pico a pico 0,0 mV por construccion
+    justo en el caso BUENO, que es la forma en que este banco ya se engano
+    una vez y produjo 39 semillas falsas de 68."""
     fuera = []
-    edad_prev = None
+    sello_prev = None
     for f in serie:
         e = f.get('edad', [None] * 5)[tap]
-        if e is None:
+        t = f.get('t')
+        if e is None or e < 0 or t is None:
             # Sin edad no se puede deduplicar; se cuenta, que es lo
             # conservador para un banco que ya perdio datos por confiar.
             fuera.append(f)
-            edad_prev = None
+            sello_prev = None
             continue
-        if edad_prev is None or e < edad_prev:
+        sello = t - e / 1000.0
+        if sello_prev is None or abs(sello - sello_prev) > tolerancia_s:
             fuera.append(f)
-        edad_prev = e
+            sello_prev = sello
     return fuera
 
 

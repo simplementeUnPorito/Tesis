@@ -201,16 +201,29 @@ class DistintasTests(unittest.TestCase):
     """
 
     @staticmethod
-    def _f(t, valor, edad):
+    def _f(t, valor, edad_ms):
         return {'t': t, 'tap': [0, 0, 0, 0, valor],
-                'valido': [1, 1, 1, 1, 1], 'edad': [0, 0, 0, 0, edad]}
+                'valido': [1, 1, 1, 1, 1], 'edad': [0, 0, 0, 0, edad_ms]}
 
-    def test_la_edad_que_sube_es_la_misma_medida(self):
-        serie = [self._f(0, 100, 300), self._f(2, 100, 2300),
-                 self._f(4, 100, 4300), self._f(6, 140, 250),
-                 self._f(8, 140, 2250)]
-        nuevas = barrido_total._distintas(serie, 4)
-        self.assertEqual([f['t'] for f in nuevas], [0, 6])
+    def test_la_misma_medida_publicada_varias_veces_cuenta_una(self):
+        # Una sola medida tomada en t=0, reportada a los 0, 2, 4 y 6 s: la
+        # edad crece justo lo que crece el reloj.
+        serie = [self._f(0, 100, 0), self._f(2, 100, 2000),
+                 self._f(4, 100, 4000), self._f(6, 100, 6000)]
+        self.assertEqual(len(barrido_total._distintas(serie, 4)), 1)
+
+    def test_medidas_nuevas_con_edad_CONSTANTE_cuentan_todas(self):
+        # El caso que rompio el primer intento: si el barrido y el reporte van
+        # al mismo ritmo, la edad sale igual en medidas DISTINTAS.  Pedir que
+        # la edad bajara perdia siete de ocho.
+        serie = [self._f(t * 20.0, 100 + t, 300) for t in range(8)]
+        self.assertEqual(len(barrido_total._distintas(serie, 4)), 8)
+
+    def test_valor_repetido_con_medida_nueva_cuenta_dos_veces(self):
+        # Quieto de verdad: dos medidas distintas que dan el mismo numero.
+        # Tiene que distinguirse de la misma medida publicada dos veces.
+        serie = [self._f(0, 100, 300), self._f(20, 100, 280)]
+        self.assertEqual(len(barrido_total._distintas(serie, 4)), 2)
 
     def test_sin_edad_no_se_deduplica(self):
         # Conservador a proposito: antes que descartar una medida real, se
@@ -218,8 +231,3 @@ class DistintasTests(unittest.TestCase):
         # permitirse un filtro que borre en silencio.
         serie = [{'t': 0, 'tap': [0, 0, 0, 0, 5], 'valido': [1] * 5}]
         self.assertEqual(len(barrido_total._distintas(serie, 4)), 1)
-
-    def test_valor_repetido_con_medida_nueva_cuenta_dos_veces(self):
-        # Quieto de verdad: dos medidas distintas que dan el mismo numero.
-        serie = [self._f(0, 100, 300), self._f(20, 100, 280)]
-        self.assertEqual(len(barrido_total._distintas(serie, 4)), 2)
