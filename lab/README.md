@@ -100,6 +100,187 @@ instala `pyserial`. Si hay más de un adaptador, seleccione el correcto con
 `nohup`; después de un reinicio del servidor basta ejecutar nuevamente
 `./lab/barrido_total.sh start`, que reanuda desde `resultados.jsonl`.
 
+## Memoria de puntos de trabajo (2026-09-24)
+
+El firmware guarda, para **cada uno de los 81 pares de ganancia**, el punto de
+trabajo que le funcionó (los cuatro códigos de IDAC). Al volver a ese par
+arranca ahí en vez de buscarlo a ciegas. Antes la tabla tenía **ocho** lugares
+con rotación circular, así que nueve de cada diez pares perdían su punto antes
+de que se los volviera a visitar.
+
+**Por qué importa**, medido sobre las 191 visitas de las campañas del 22 y 23:
+
+| | nota A | nota B | nota C | nota D | no quieto |
+|---|---:|---:|---:|---:|---:|
+| sin aprendizaje (restauró un punto) | **2,0 s** | **2,0 s** | 85 s | 48 s | 271 s |
+| con aprendizaje (buscó a ciegas) | 57 s | 229 s | 216 s | 455 s | 959 s |
+
+Lo que aterriza rápido es lo que aterriza bien. No hay que elegir entre
+velocidad y estabilidad: son el mismo caso.
+
+### La invariante: el lazo nunca se abre
+
+El punto guardado es una **condición inicial**, nunca un reemplazo del control.
+`control_on_gain_change()` abre la ventana de forzado **antes** de restaurar, así
+que el punto entra con el PI corrigiendo a fondo. Ningún nivel de política
+congela el lazo, y siguen intactos los mecanismos que absorben lo no modelado
+(recentrado lento, despertar del modo estable, watchdogs de SUMo y LPo). Un
+punto que no reproduce se degrada y termina invalidado: **la medición le gana al
+modelo, nunca al revés.**
+
+Eso no se asume, se prueba, y la prueba es bloqueante:
+
+```powershell
+python lab\prueba_lazo_cerrado.py --port COM8
+```
+
+Perturba el punto con un escalón de IDAC y verifica que el lazo vuelva solo.
+Si falla, la memoria de puntos rompió el control: **no soltar la campaña.**
+
+### Política de selección
+
+`ctl punto policy <n>` la cambia **en caliente**, sin `apply` (un apply
+reiniciaría el lazo en medio de un experimento):
+
+| n | nivel | de dónde sale la condición inicial |
+|---|---|---|
+| 0 | OFF | como antes — es el **brazo de control** del experimento |
+| 1 | UNICO | el punto validado de la EEPROM |
+| 2 | VECINO | el candidato de contexto más parecido (pool de RAM) |
+| 3 | INTERPOLADO | recta entre dos candidatos asentados; **nunca extrapola** |
+
+El contexto es el **estado físico medido** (SUMo al entrar + códigos del par
+lento), que es el proxy de la carga del acople de 680 µF — no "de qué par
+venís", que serían 81² casos y se sobreajustaría al orden del barrido.
+
+### Comandos nuevos por USB
+
+```
+ctl punto <par> <c0> <c1> <c2> <c3>   siembra un punto (par = pga_cod*9 + pgaout_cod)
+ctl puntos                            vuelca la tabla entera
+ctl punto dump <par>                  vuelca un par
+ctl punto clear [par]                 borra uno, o todos
+ctl punto policy <0..3>               cambia la política en caliente
+```
+
+### Levantar el experimento
+
+```powershell
+# 1. generar la semilla desde lo ya medido (no toca el banco)
+python lab\semilla_puntos.py
+python lab\semilla_puntos.py --comandos | Select-Object -First 5
+
+# 2. compuerta: el lazo sigue cerrado
+python lab\prueba_lazo_cerrado.py --port COM8
+
+# 3. sembrar y medir las tres condiciones contra el brazo de control
+python lab\experimento_semilla.py --port COM8 --sembrar --reanudar
+```
+
+Se detiene sin perder nada con Ctrl-C, con SIGTERM, o creando `.run/STOP`
+dentro del directorio de salida. `--reanudar` saltea las combinaciones
+`(par, condición, brazo, vuelta)` que ya están en `resultados.jsonl`.
+
+### Qué mide, y en qué orden de prioridad
+
+1. **Cobertura** — cuántos pares quedan estables.
+2. **Reproducibilidad** — que pase en las **tres** condiciones de entrada
+   (frío tras `psocreset`, viniendo de x1/x1, viniendo de x32/x32).
+3. **Velocidad** — `t_estable` por origen del punto.
+4. **Nota** — cuánto rango libre quedó.
+
+Y en toda visita, el **residuo de corrección** = códigos finales − semilla.
+Residuo → 0 significa que la semilla acertó; su dependencia con el contexto es
+la superficie de corrección que van a consumir las campañas siguientes; y el
+mismo par en días distintos mide la deriva térmica sin instrumental extra.
+
+### Cobertura real de la semilla
+
+**42 de 81 pares** tienen un punto de nota A/B respaldado por al menos 15
+muestras válidas de LPo, y **31 de esos tienen margen de actuador**. Los otros
+11 sólo tienen puntos con IDAC3 pasado 200: están en banda pero sin autoridad
+para corregir, y sembrarlos propagaría la fragilidad.
+
+**PGA x16 y x24 son 0 de 9.** No es "a más ganancia peor" — x32 es 8 de 9. La
+causa está medida: a x24 un solo código de IDAC0 mueve SUMo 365 mV contra una
+ventana de 195 mV, o sea que **el actuador es más grueso que el blanco** y la
+búsqueda a ciegas no puede resolverlo por más tiempo que se le dé.
+
+### Trampa que costó 39 semillas falsas
+
+`LPo_pp_final_mV` se calcula sobre las últimas 15 muestras **válidas**. Si la
+visita tuvo una sola, el pico a pico da **0,0 mV** y parece quietud perfecta
+cuando es ausencia de dato. Hay 21 visitas así en el histórico, con LPo medible
+entre el 0,7 % y el 1,7 % del tiempo. Por eso toda nota exige ahora
+`muestras_validas_LPo >= 15` (`MUESTRAS_VALIDAS_MIN`): la ventana del pico a
+pico tiene que estar llena para que el número signifique algo.
+
+## Ruido de la SD y de la radio (rutinas listas, medición pendiente)
+
+Se corre **una vez congeladas las ganancias estables y sin tocar nada más**: si
+el punto de operación cambia entre dos medidas, la diferencia no se le puede
+atribuir a la SD.
+
+El firmware ya sabía parte de la respuesta — en `main.cpp` está escrito que el
+drenaje de la SD "escribe un sector cada 57,6 ms durante el muestreo y cada
+escritura mete una espiga en la señal". Lo que falta medir es **cuánto, con qué
+forma espectral, y si depende de la ganancia**.
+
+### El camino de datos era la radio
+
+Las muestras sólo salían del nodo por ESP-NOW, así que no se podía medir con la
+radio callada: leer los datos ya la encendía. Por eso se agregó `dumpusb`, que
+vuelca la captura que quedó en RAM por USB **después** de terminada. La captura
+tiene que ser limpia; la lectura puede ser sucia porque ocurre después.
+
+Y como la SD se activa sola cuando la captura no entra en RAM (y entonces las
+muestras no pasan por el ESP), la SD **no** se usa como camino de datos: entra
+como estresor controlado en paralelo, igual que la radio.
+
+```
+dumpusb [desde] [hasta]       vuelca la captura en RAM por USB
+sdstress <ms> <periodo_ms>    escrituras a SD en paralelo (58 ms = el real)
+rftest <ms> <periodo_ms> <bytes>   trafico ESP-NOW en paralelo
+```
+
+### Correr
+
+```powershell
+python lab\experimento_ruido.py --port COM8 --pares 0,0 6,6 --repeticiones 3
+python lab\analisis_ruido.py lab\ruido_<fecha>
+```
+
+Cuatro condiciones (BASE / SD / RF / SD+RF) en orden **ABBA** — ida y vuelta —
+porque medir todas las A y después todas las B mezcla la diferencia entre
+condiciones con la deriva de τ≈30-44 s.
+
+### Tres cosas que el análisis separa a propósito
+
+**Ruido y muestras perdidas no son lo mismo.** Si la SD le roba DMA o CPU al
+PSoC el daño son lotes faltantes, no ruido, y no se arregla con blindaje. Se
+informa aparte, contando huecos de `seq`.
+
+**La dependencia con la ganancia dice DÓNDE se acopla.** Si el delta referido a
+la entrada no cambia con la ganancia, el ruido entra antes del PGA; si baja al
+subir la ganancia, entra después. Eso vale mucho más que "sí depende".
+
+**La comparación dentro de la misma captura es la que detecta las espigas.** El
+firmware marca las muestras que caen durante una escritura de SD
+(`SAMPLE_FLAG_SD_WRITE`, `sync_protocol.h:106`), así que se comparan contra las
+no marcadas **sin deriva de por medio**. Verificado con datos sintéticos: una
+interferencia impulsiva que en el RMS de 10-50 Hz apenas mueve la aguja (1,01×)
+aparece como 5,2× en esta comparación, porque reparte su energía por todo el
+espectro y casi nada cae en la banda útil. Mirando sólo el RMS de banda se
+concluiría que la SD no molesta.
+
+### El piso de ruido absoluto queda escrito, sin correr
+
+`--piso` exige la entrada terminada o en corto: con el geófono conectado se
+mide el movimiento del suelo más el instrumento. Es una intervención física, y
+el script se niega a correr sin `--entrada-terminada`. Para el **delta** —
+cuánto agregan la SD y la radio — no hace falta: el par intercalado cancela lo
+que haga el geófono.
+
 ## Convenciones que costaron caro
 
 - **Unidades**: los scripts Python de banco hablan en mV físicos del tap
@@ -110,3 +291,5 @@ instala `pyserial`. Si hay más de un adaptador, seleccione el correcto con
 - **Esperar varias τ** (τ del pasabanda ~30–45 s) antes de medir una pendiente o
   afirmar histéresis.
 - Los documentos marcados SUPERADO / NO USAR se conservan como historia.
+- **Un pico a pico de 0,0 mV no es quietud**: con una sola muestra valida
+  `max-min` da cero. Exigir la ventana llena antes de creerle.

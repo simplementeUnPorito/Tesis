@@ -61,7 +61,32 @@ K_FALLO_APRENDIZAJE, K_AUTOSAVE = 0x108, 0x109
 K_OBJETIVO, K_FACTOR_LENTO = 0x10A, 0x10B
 K_IDAC = 0x110                                   # 0x110 + i, i en 0..3
 K_TAP = 0x120                                    # 0x120 + 4i valor, +1 valido
-CP_COUNT = 47                                    # los parametros llegan en 0..46
+# Memoria de puntos de trabajo (firmware v6).
+K_ORIGEN, K_ACIERTOS, K_FALLOS = 0x140, 0x141, 0x142
+K_CANDIDATOS, K_POLITICA, K_CTX_SUMO = 0x143, 0x144, 0x145
+K_PUNTOS_VALIDOS = 0x146
+K_SEMILLA = 0x148                                # 0x148 + i, i en 0..3
+K_RES_SLOW, K_RES_FAST = 0x14C, 0x14D
+CP_COUNT = 49                                    # los parametros llegan en 0..48
+
+ORIGEN = {0: 'NADA', 1: 'APRENDIZAJE', 2: 'PUNTO_EEPROM', 3: 'VECINO',
+          4: 'INTERPOLADO', 5: 'SIEMBRA_VECINO', 6: 'PERFIL'}
+
+# Umbrales de la NOTA de calidad, en mV.  El rango util de LPo es +-97 mV (la
+# ventana de validez menos el ruido), asi que la nota dice cuanto rango LIBRE
+# queda: A conserva el 75 %, B la mitad, C un cuarto.  A cae casi exacto sobre
+# CP_HOLD_UV (25 mV), la banda en la que el propio lazo se declara centrado.
+NOTA_A, NOTA_B, NOTA_C = 24.3, 48.5, 73.0
+# Pico a pico maximo para considerar que se quedo QUIETO.
+QUIETO_PP_MV = 30.0
+# Un IDAC pasado esto esta contra su tope: en banda pero sin autoridad para
+# corregir.  Un punto asi no se puede sembrar: al primer cambio se cae.
+IDAC_TOPE = 200
+# Muestras VALIDAS minimas de LPo para que el pico a pico signifique algo.  Se
+# calcula sobre las ultimas 15; con menos la ventana no esta llena y un pp de
+# 0,0 mV sobre una sola muestra parece quietud perfecta cuando es falta de
+# dato.  Medido: 21 de 191 visitas del historico caian en esa trampa.
+MUESTRAS_VALIDAS_MIN = 15
 
 # Nombres de los parametros, en el orden del enum ControlParameter.
 CP_NOMBRE = [
@@ -79,6 +104,7 @@ CP_NOMBRE = [
     'SETTLED_MS', 'SETTLED_BAND_UV', 'WAKE_COUNT',
     'SCAN_SETTLED_MS', 'REPORT_SETTLED_MS',
     'RECENTER_UV', 'RECENTER_MS',
+    'PUNTO_POLICY', 'PUNTO_ARG',
 ]
 # Los que de verdad definen el lazo en un punto de ganancia: son los que van al
 # informe. El resto queda en el JSON.
@@ -94,6 +120,11 @@ SALIDA = os.path.join(os.path.dirname(os.path.abspath(__file__)),
 # ---------------------------------------------------------------- telemetria
 
 _est = {}
+# Sumidero opcional de lineas crudas.  Sirve para que otro experimento capture
+# un volcado (`#DUMP ...`) SIN abrir el puerto por segunda vez: dos procesos
+# sobre el mismo adaptador se mezclan los comandos y el resultado no es de
+# nadie.  Es una lista a la que el hilo lector agrega; `append` es atomico.
+_sink = None
 _vivo = True
 _puerto = {}
 _serial_lock = threading.Lock()
@@ -146,7 +177,11 @@ def _leer():
     patron = re.compile(r'#CTL 0 (\d+) (-?\d+)')
     try:
         while _vivo:
-            m = patron.search(s.readline().decode('utf-8', 'replace'))
+            linea = s.readline().decode('utf-8', 'replace')
+            sumidero = _sink
+            if sumidero is not None:
+                sumidero.append(linea)
+            m = patron.search(linea)
             if m:
                 _est[int(m.group(1))] = int(m.group(2))
                 _ultimo_ctl = time.monotonic()
@@ -347,6 +382,15 @@ def _visitar(pga, pgaout, ventana, muestreo=2.0, firmes=15, limite_mult=4):
     lp0 = lp0 / 1000.0 if lp0 is not None else None
     n_antes = _est.get(K_AUTOSAVE)
 
+    # El origen y la semilla los emite el firmware como EVENTO al aplicar el
+    # punto, o sea DENTRO del cambio de ganancia.  Hay que borrarlos ANTES,
+    # nunca despues: `_est` guarda el ultimo valor de cada clave, asi que si
+    # esta visita aprende de cero (y no emite nada) la semilla de la visita
+    # ANTERIOR quedaria atribuida a esta y el residuo saldria inventado.
+    _est.pop(K_ORIGEN, None)
+    for _i in range(4):
+        _est.pop(K_SEMILLA + _i, None)
+
     confirmada = _fijar_ganancia(pga, pgaout)
     if not confirmada:
         # No tiene sentido consumir hasta 4 ventanas observando una ganancia
@@ -440,6 +484,29 @@ def _analizar(pga, pgaout, serie, t_banda, lp0, n_antes, ventana, confirmada):
     quieto = bool(cola) and (max(cola) - min(cola)) < 30000
     pasa = dentro and t_banda is not None and t_estable is not None
 
+    # ---- nota de calidad -------------------------------------------------
+    # El veredicto de arriba se conserva TAL CUAL para que las 191 visitas ya
+    # medidas sigan siendo comparables.  La nota es el criterio nuevo y va
+    # aparte: pasar exige quedarse QUIETO y no clavado contra el riel, y
+    # ademas se puntua cuanto rango libre quedo.
+    lp_final_mV = (lp[-1] / 1000.0) if lp else None
+    pp_mV = ((max(cola) - min(cola)) / 1000.0) if cola else None
+    respaldado = len(lp) >= MUESTRAS_VALIDAS_MIN
+    if lp_final_mV is None or pp_mV is None or not respaldado:
+        nota = None
+    elif pp_mV >= QUIETO_PP_MV:
+        nota = None                       # se movia: no hay punto que sembrar
+    else:
+        a = abs(lp_final_mV)
+        nota = ('A' if a <= NOTA_A else 'B' if a <= NOTA_B
+                else 'C' if a <= NOTA_C else 'D')
+    # Fragil: en banda pero con el actuador fino contra su tope.
+    _i3 = serie[-1]['idac'][3] if serie else None
+    fragil = (abs(_i3) > IDAC_TOPE) if _i3 is not None else None
+    # Estricto = quieto y con rango libre de sobra.  'D' es quieto CONTRA el
+    # riel, que es justo lo que no queremos llamar exito.
+    pasa_estricto = bool(confirmada and nota in ('A', 'B', 'C'))
+
     # Cuanto tiempo paso en cada estado, y cuantas veces volvio a aprender.
     tiempo_estado, aprendizajes, previo = {}, 0, None
     for i, f in enumerate(serie):
@@ -469,6 +536,23 @@ def _analizar(pga, pgaout, serie, t_banda, lp0, n_antes, ventana, confirmada):
                           if ok else None,
         }
 
+    # Codigos con los que arranco el par, emitidos por el firmware como evento
+    # al aplicar el punto.  El residuo es la resta contra los finales.
+    # Solo hay residuo si de verdad se partio de una semilla.  Sin esta
+    # guarda, una visita que APRENDIO de cero heredaba el origen y la semilla
+    # de la visita anterior -son globales del firmware- y se le calculaba un
+    # residuo contra un punto que nunca uso.  Medido el 2026-09-24: el brazo
+    # de CONTROL copiaba el residuo del brazo de MEMORIA anterior.
+    _CON_SEMILLA = (2, 3, 4, 5)          # EEPROM, VECINO, INTERPOLADO, SIEMBRA
+    semilla = [_est.get(K_SEMILLA + i) for i in range(4)]
+    if (_est.get(K_ORIGEN) in _CON_SEMILLA
+            and all(v is not None for v in semilla)
+            and all(v is not None for v in idac_fin)):
+        residuo = [idac_fin[i] - semilla[i] for i in range(4)]
+    else:
+        semilla = None
+        residuo = None
+
     n_post = _est.get(K_AUTOSAVE)
     return {
         'pga_cod': pga, 'pgaout_cod': pgaout,
@@ -482,6 +566,33 @@ def _analizar(pga, pgaout, serie, t_banda, lp0, n_antes, ventana, confirmada):
                        else 'FALLA')) if confirmada else 'INVALIDA',
         'ganancia_confirmada': confirmada,
         'quieto': quieto,
+        # ---- criterio nuevo, en paralelo al viejo ------------------------
+        # 'veredicto' se deja intacto para poder comparar contra las 191
+        # visitas ya medidas; el estricto es el que exige quietud y margen.
+        'veredicto_estricto': ('PASA' if pasa_estricto else
+                               ('APRENDIENDO'
+                                if (serie and serie[-1]['estado'] == 1)
+                                else 'FALLA')) if confirmada else 'INVALIDA',
+        'nota': nota,
+        'fragil': fragil,
+        'muestras_validas_LPo': len(lp),
+        # ---- memoria de puntos de trabajo --------------------------------
+        # De donde salio la condicion inicial de esta visita.  Sin esto no se
+        # puede distinguir "la semilla sirvio" de "venia bien encaminado".
+        'origen': ORIGEN.get(_est.get(K_ORIGEN), _est.get(K_ORIGEN)),
+        'origen_cod': _est.get(K_ORIGEN),
+        'politica_puntos': _est.get(K_POLITICA),
+        'punto_aciertos': _est.get(K_ACIERTOS),
+        'punto_fallos': _est.get(K_FALLOS),
+        'candidatos_ram': _est.get(K_CANDIDATOS),
+        'puntos_validos': _est.get(K_PUNTOS_VALIDOS),
+        'ctx_sumo_mV': _est.get(K_CTX_SUMO),
+        'semilla': semilla,
+        # RESIDUO DE CORRECCION: cuanto tuvo que mover el lazo desde el valor
+        # modelado.  Es la medida de calidad del modelo y el insumo de las
+        # campanas siguientes: residuo -> 0 significa que la semilla acerto.
+        'residuo': residuo,
+        'residuo_firmware': [_est.get(K_RES_SLOW), _est.get(K_RES_FAST)],
         't_banda_s': t_banda,
         't_estable_s': t_estable,
         'duracion_s': serie[-1]['t'] if serie else 0,
@@ -526,10 +637,17 @@ def _cargar(ruta):
 
 
 def _escribir_csv(res, ruta):
+    # Las columnas nuevas van al final para no reordenar las que ya existen;
+    # S0..S3 y R0..R3 se expanden igual que I0..I3 con idac_final.  Las
+    # visitas viejas no tienen estas claves: quedan vacias, no rompen nada.
     campos = ['vuelta', 'pga', 'pgaout', 'ganancia', 'veredicto', 't_banda_s',
               't_estable_s', 'LPo_inicial_mV', 'LPo_final_mV',
               'LPo_pp_final_mV', 'I0', 'I1', 'I2', 'I3', 'aprendizajes',
-              'objetivo_sumo_uV', 'factor_pendiente_lenta_x1000']
+              'objetivo_sumo_uV', 'factor_pendiente_lenta_x1000',
+              'veredicto_estricto', 'nota', 'fragil', 'muestras_validas_LPo',
+              'origen', 'politica_puntos', 'punto_aciertos', 'punto_fallos',
+              'candidatos_ram', 'ctx_sumo_mV',
+              'S0', 'S1', 'S2', 'S3', 'R0', 'R1', 'R2', 'R3']
     with open(ruta, 'w', newline='', encoding='utf-8') as fh:
         w = csv.DictWriter(fh, fieldnames=campos)
         w.writeheader()
@@ -539,7 +657,25 @@ def _escribir_csv(res, ruta):
             for i in range(4):
                 fila['I%d' % i] = (r['idac_final'][i]
                                    if r.get('idac_final') else None)
+                fila['S%d' % i] = (r['semilla'][i]
+                                   if r.get('semilla') else None)
+                fila['R%d' % i] = (r['residuo'][i]
+                                   if r.get('residuo') else None)
             w.writerow(fila)
+
+
+def _pct(xs, q):
+    """Percentil por rango mas cercano.
+
+    UNA sola convencion para todos los percentiles del informe.  Mezclarlas
+    -mediana por `len//2` y p90 por `0.9*(len-1)`- hacia que con pocas
+    muestras el p90 saliera MENOR que la mediana, que es imposible y delata
+    el bug recien cuando alguien lo mira dos veces."""
+    if not xs:
+        return None
+    xs = sorted(xs)
+    k = int(round(q * (len(xs) - 1)))
+    return xs[max(0, min(len(xs) - 1, k))]
 
 
 def _informe(res, ruta, t_inicio):
@@ -663,6 +799,63 @@ def _informe(res, ruta, t_inicio):
         L.append('| x%d | x%d | ' % (pg, po) +
                  ' | '.join(str(c.get(n, '—')) for n in CP_INTERESANTES[2:]) + ' |')
 
+    # --- velocidad por origen del punto ------------------------------------
+    # 'origen' es de donde salio la condicion inicial de la visita (memoria
+    # de puntos, vecino, interpolado, aprendizaje en frio...). Esta tabla es
+    # la que contesta si esa memoria sirve: si el origen importa, tiene que
+    # verse en el tiempo hasta estable y en la nota de calidad.
+    L.append('\n## Velocidad por origen del punto\n')
+    con_origen = [r for r in res if r.get('origen') is not None]
+    if not con_origen:
+        L.append('Todavia no hay visitas con `origen` registrado.\n')
+    else:
+        por_origen = {}
+        for r in con_origen:
+            por_origen.setdefault(r['origen'], []).append(r)
+        L.append('| origen | n | estable mediana | estable p90 | nota A | '
+                 'nota B | nota C | nota D |')
+        L.append('|---|---|---|---|---|---|---|---|')
+        for origen, rs in sorted(por_origen.items()):
+            ts = sorted(r['t_estable_s'] for r in rs
+                        if r.get('t_estable_s') is not None)
+            med = ('%.0f s' % _pct(ts, 0.5)) if ts else '—'
+            p90 = ('%.0f s' % _pct(ts, 0.9)) if ts else '—'
+            notas = {n: sum(1 for r in rs if r.get('nota') == n)
+                     for n in ('A', 'B', 'C', 'D')}
+            L.append('| %s | %d | %s | %s | %d | %d | %d | %d |'
+                     % (origen, len(rs), med, p90,
+                        notas['A'], notas['B'], notas['C'], notas['D']))
+
+    # --- residuo de correccion ----------------------------------------------
+    # 'residuo' es cuanto tuvo que mover el lazo desde la semilla aplicada al
+    # arrancar el par. APRENDIZAJE no arranca de una semilla (busca desde
+    # cero) y no tiene este dato, asi que se excluye junto con los None.
+    L.append('\n## Residuo de correccion\n')
+    con_residuo = [r for r in res
+                   if r.get('origen') not in (None, 'APRENDIZAJE')
+                   and r.get('residuo') is not None]
+    if not con_residuo:
+        L.append('Todavia no hay visitas con `residuo` registrado.\n')
+    else:
+        por_origen_r = {}
+        for r in con_residuo:
+            por_origen_r.setdefault(r['origen'], []).append(r)
+        L.append('| origen | n | I0 mediana | I0 max | I1 mediana | I1 max | '
+                 'I2 mediana | I2 max | I3 mediana | I3 max |')
+        L.append('|---|---|---|---|---|---|---|---|---|---|')
+        for origen, rs in sorted(por_origen_r.items()):
+            cols = []
+            for i in range(4):
+                vals = sorted(abs(r['residuo'][i]) for r in rs)
+                cols.append('%d' % vals[len(vals) // 2])
+                cols.append('%d' % vals[-1])
+            L.append('| %s | %d | %s |'
+                     % (origen, len(rs), ' | '.join(cols)))
+        L.append('\nResiduo cercano a cero significa que la semilla acerto: '
+                 'el lazo no tuvo que corregir casi nada desde el punto de '
+                 'partida calculado. Residuo grande es la senal de que el '
+                 'modelo (o el punto guardado) esta desactualizado.\n')
+
     # --- detalle por par
     L.append('\n## Detalle por par\n')
     for (pg, po), rs in sorted(por_par.items(),
@@ -702,30 +895,11 @@ def _informe(res, ruta, t_inicio):
 
 # ---------------------------------------------------------------------- main
 
-def main(repeticiones=3, ventana=240, reanudar=False,
-         reintentar_invalidas=False):
-    os.makedirs(SALIDA, exist_ok=True)
-    crudo = os.path.join(SALIDA, 'resultados.jsonl')
-    hechas = set()
-    res = []
-    if reanudar or reintentar_invalidas:
-        res = _cargar(crudo)
-        if reintentar_invalidas:
-            n_invalidas = sum(1 for r in res
-                              if r.get('veredicto') == 'INVALIDA')
-            res = [r for r in res if r.get('veredicto') != 'INVALIDA']
-            # Reescritura segura: una INVALIDA no es una medicion y no debe
-            # quedar duplicada cuando su reemplazo valido se agregue abajo.
-            temporal = crudo + '.tmp'
-            with open(temporal, 'w', encoding='utf-8') as fh:
-                for r in res:
-                    fh.write(json.dumps(r, ensure_ascii=False) + '\n')
-            os.replace(temporal, crudo)
-            print('se retiraron %d visitas INVALIDA para repetirlas'
-                  % n_invalidas, flush=True)
-        hechas = {(r['pga_cod'], r['pgaout_cod'], r['vuelta']) for r in res}
-        print('reanudando: %d visitas ya medidas' % len(res), flush=True)
+def arrancar_enlace():
+    """Prueba de vida ACTIVA del enlace antes de medir nada.
 
+    Se factoriza de main() para que cualquier experimento que use estas
+    primitivas arranque igual y no reimplemente el handshake."""
     # Guarda de arranque. En Linux abrir el CP2102 reinicia el ESP32; luego el
     # esclavo tarda unos segundos en arrancar y el PSoC no esta obligado a
     # emitir metadata espontaneamente. Pedir `ctl report` hace que la prueba
@@ -751,6 +925,34 @@ def main(repeticiones=3, ventana=240, reanudar=False,
               'tiene?). Se aborta en vez de colgarse en silencio.' % PUERTO,
               flush=True)
         raise SystemExit(3)
+
+
+
+def main(repeticiones=3, ventana=240, reanudar=False,
+         reintentar_invalidas=False):
+    os.makedirs(SALIDA, exist_ok=True)
+    crudo = os.path.join(SALIDA, 'resultados.jsonl')
+    hechas = set()
+    res = []
+    if reanudar or reintentar_invalidas:
+        res = _cargar(crudo)
+        if reintentar_invalidas:
+            n_invalidas = sum(1 for r in res
+                              if r.get('veredicto') == 'INVALIDA')
+            res = [r for r in res if r.get('veredicto') != 'INVALIDA']
+            # Reescritura segura: una INVALIDA no es una medicion y no debe
+            # quedar duplicada cuando su reemplazo valido se agregue abajo.
+            temporal = crudo + '.tmp'
+            with open(temporal, 'w', encoding='utf-8') as fh:
+                for r in res:
+                    fh.write(json.dumps(r, ensure_ascii=False) + '\n')
+            os.replace(temporal, crudo)
+            print('se retiraron %d visitas INVALIDA para repetirlas'
+                  % n_invalidas, flush=True)
+        hechas = {(r['pga_cod'], r['pgaout_cod'], r['vuelta']) for r in res}
+        print('reanudando: %d visitas ya medidas' % len(res), flush=True)
+
+    arrancar_enlace()
 
     # Cebar ANTES de cambiar la primera ganancia. Una captura pausa el control;
     # hacerla durante CONTROL_LEARNING cancelaria ese aprendizaje y restauraria
