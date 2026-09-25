@@ -60,6 +60,17 @@ PAR_BAJO = (0, 0)                            # codigos, = x1 / x1
 
 CONDICIONES = ('FRIO', 'DESDE_X1', 'DESDE_ALTA')
 
+# Muestras del sondeo previo, a 2 s cada una.  150 = 300 s, que cubre con
+# holgura los ~250 s que tarda x4/x16 en aterrizar.  Se corta apenas LPo
+# responde, asi que un par sano no paga esta espera.
+# Cuanto se le da a LPo para dar senales de vida ANTES de declararlo
+# inmedible, dentro de la misma ventana de medicion.  Con 60 s se
+# condenaba a x4/x16 -el unico par con ganancia 64 demostrada-, que
+# tarda ~250 s en aterrizar.  Los 23 INMEDIBLE de ganancia 100 a 200
+# del 2026-09-25 midieron mi impaciencia, no el techo del circuito.
+# El corte exige las DOS cosas: LPo sin responder Y los IDAC quietos.
+SONDEO_S = 300.0
+
 SALIDA_POR_OMISION = os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
     'experimento_semilla_%s' % time.strftime('%Y%m%d'))
@@ -148,7 +159,7 @@ def _stop_pedido(salida):
 
 # ------------------------------------------------------------------- campana
 
-def _plan(puntos, pares_extra, vueltas, politica):
+def _plan(puntos, pares_extra, vueltas, politica, explicito=False):
     """Orden explicito de las visitas.
 
     Primero lo sembrado -que es la hipotesis a validar-, y los pares sin punto
@@ -165,9 +176,16 @@ def _plan(puntos, pares_extra, vueltas, politica):
     #    y un efecto termico se leeria como efecto de ganancia.  Invirtiendo
     #    el sentido en cada vuelta, cada par cae en dos momentos distintos de
     #    la noche y la temperatura se ve como diferencia DENTRO del par.
+    # Con una lista EXPLICITA se respeta el orden dado: si alguien la escribe
+    # a mano es porque quiere medir algo primero -tipicamente el control
+    # positivo, el par que ya se sabe que anda-.  Reordenar por ganancia lo
+    # mandaba al final, que es donde no sirve si la campana se corta.
     ganancia = lambda pr: bt.CODIGOS[pr[0]] * bt.CODIGOS[pr[1]]
     for vuelta in range(1, vueltas + 1):
-        orden = sorted(sembrados, key=ganancia, reverse=(vuelta % 2 == 1))
+        if explicito:
+            orden = sembrados if vuelta % 2 == 1 else list(reversed(sembrados))
+        else:
+            orden = sorted(sembrados, key=ganancia, reverse=(vuelta % 2 == 1))
         for par in orden + pares_extra:
             for condicion in CONDICIONES:
                 for brazo, pol in (('MEMORIA', politica), ('CONTROL', 0)):
@@ -232,7 +250,8 @@ def main(argv=None):
     else:
         puntos = [p for p in datos['puntos']
                   if args.incluir_fragiles or not p.get('fragil')]
-    puntos.sort(key=lambda p: p['par'])
+    if not args.pares:
+        puntos.sort(key=lambda p: p['par'])
 
     pares_extra = []
     if args.huerfanos:
@@ -251,7 +270,8 @@ def main(argv=None):
         _politica(0)          # sembrar sin que la cascada mueva nada
         _sembrar(args.semilla, args.incluir_fragiles)
 
-    plan = _plan(puntos, pares_extra, args.vueltas, args.politica)
+    plan = _plan(puntos, pares_extra, args.vueltas, args.politica,
+                 explicito=bool(args.pares))
     _log('plan: %d visitas (%d pares sembrados, %d huerfanos, %d vueltas)'
          % (len(plan), len(puntos), len(pares_extra), args.vueltas))
 
@@ -283,48 +303,22 @@ def main(argv=None):
         # La politica se fija DESPUES de preparar: la preparacion de FRIO es un
         # psocreset, y el reset devuelve la politica a su valor de fabrica.
         # Fijarla antes era fijarla y perderla.
-        if not _preparar(condicion, args.espera_contexto):
-            _log('    !! no se pudo establecer la condicion: se saltea')
-            continue
-        if not _politica(pol):
-            _log('    !! sin politica confirmada no se mide: se saltea')
+        # Toda la preparacion va dentro de la red: si el USB se re-enumera
+        # aca -y en ocho horas se re-enumera- antes moria main() con la
+        # campana a medio hacer.  Ahora se pierde ESTA visita y sigue.
+        reconex0 = bt._reconexiones
+        try:
+            if not _preparar(condicion, args.espera_contexto):
+                _log('    !! no se pudo establecer la condicion: se saltea')
+                continue
+            if not _politica(pol):
+                _log('    !! sin politica confirmada no se mide: se saltea')
+                continue
+        except (RuntimeError, bt.TelemetriaVencida) as e:
+            _log('    !! preparando: %s; se saltea la visita' % e)
             continue
         if not bt._vivo or _stop_pedido(args.output):
             break
-
-        # ANTES de gastar la ventana entera: mirar si LPo es MEDIBLE en este
-        # par.  Medido el 2026-09-25 a x32/x48/x50: LP valido entre 0,0 % y
-        # 2,2 % en 34 visitas seguidas, cero veredictos.  No es un lazo lento,
-        # es un tap fuera de su ventana: no hay nada que medir y la visita
-        # consume hasta 960 s para no decir nada.  Se registra como INMEDIBLE
-        # -que TAMBIEN es un resultado, acota la ganancia usable- y se sigue.
-        if not bt._fijar_ganancia(pga, pgaout):
-            _log('    !! el nodo no confirma la ganancia: se saltea')
-            continue
-        validas = 0
-        for _ in range(30):
-            if bt._est.get(bt.K_TAP + 17) == 1:
-                validas += 1
-            time.sleep(2.0)
-        if validas < 6:                      # menos del 20 % de 60 s
-            _log('    INMEDIBLE: LPo valido %d/30 -> no se gasta la ventana'
-                 % validas)
-            with open(crudo, 'a', encoding='utf-8') as fh:
-                fh.write(json.dumps({
-                    'marca': time.strftime('%Y-%m-%dT%H:%M:%S'),
-                    'pga_cod': pga, 'pgaout_cod': pgaout,
-                    'pga': bt.CODIGOS[pga], 'pgaout': bt.CODIGOS[pgaout],
-                    'ganancia': bt.CODIGOS[pga] * bt.CODIGOS[pgaout],
-                    'vuelta': vuelta, 'condicion': condicion, 'brazo': brazo,
-                    'politica_pedida': pol,
-                    'veredicto': 'INMEDIBLE', 'veredicto_estricto': 'INMEDIBLE',
-                    'lpo_valido_de_30': validas,
-                    'idac_final': [bt._est.get(bt.K_IDAC + i) for i in range(4)],
-                }, ensure_ascii=False) + chr(10))
-                fh.flush()
-                os.fsync(fh.fileno())
-            hecho += 1
-            continue
 
         # `_visitar` devuelve la serie cruda; el diccionario de la visita lo
         # arma `_analizar`, igual que en barrido_total.main().
@@ -332,7 +326,7 @@ def main(argv=None):
             for intento in range(1, 4):
                 try:
                     serie, t_banda, lp0, n0, ok = bt._visitar(
-                        pga, pgaout, args.ventana)
+                        pga, pgaout, args.ventana, sondeo_s=SONDEO_S)
                     break
                 except bt.TelemetriaVencida as e:
                     if intento == 3:
@@ -343,8 +337,48 @@ def main(argv=None):
                     bt._asegurar_adquisicion()
             visita = bt._analizar(pga, pgaout, serie, t_banda, lp0, n0,
                                   args.ventana, ok)
+        except bt.Inmedible as e:
+            # Tiene que ir ANTES del except generico: Inmedible hereda de
+            # RuntimeError.  Y es un RESULTADO -acota la ganancia usable-,
+            # asi que se escribe, no se descarta.
+            _log('    INMEDIBLE: LPo valido %d veces y los IDAC no se '
+                 'movieron en %.0f s' % (e.validas, e.segundos))
+            with open(crudo, 'a', encoding='utf-8') as fh:
+                fh.write(json.dumps({
+                    'marca': time.strftime('%Y-%m-%dT%H:%M:%S'),
+                    'pga_cod': pga, 'pgaout_cod': pgaout,
+                    'pga': bt.CODIGOS[pga], 'pgaout': bt.CODIGOS[pgaout],
+                    'ganancia': bt.CODIGOS[pga] * bt.CODIGOS[pgaout],
+                    'vuelta': vuelta, 'condicion': condicion,
+                    'brazo': brazo, 'politica_pedida': pol,
+                    'politica_puntos': bt._est.get(bt.K_POLITICA),
+                    'veredicto': 'INMEDIBLE',
+                    'veredicto_estricto': 'INMEDIBLE',
+                    'sondeo_s': e.segundos,
+                    'sondeo_validas': e.validas,
+                    'movimientos_idac': e.movimientos,
+                    'origen': bt.ORIGEN.get(bt._est.get(bt.K_ORIGEN)),
+                    'idac_final': [bt._est.get(bt.K_IDAC + i)
+                                   for i in range(4)],
+                }, ensure_ascii=False) + chr(10))
+                fh.flush()
+                os.fsync(fh.fileno())
+            hecho += 1
+            continue
         except (RuntimeError, bt.TelemetriaVencida) as e:
             _log('    !! %s' % e)
+            continue
+        if bt._reconexiones != reconex0:
+            # El puerto se cayo y volvio en medio de la medicion.  El ESP
+            # arranco de cero ahi adentro: la serie mezcla dos vidas del
+            # nodo y el t_estable no significa nada.  Se descarta la
+            # visita en vez de guardar un numero sin dueno.
+            _log('    !! reconexion de %s durante la visita: se descarta'
+                 % bt.PUERTO)
+            try:
+                bt._asegurar_adquisicion()
+            except (RuntimeError, bt.TelemetriaVencida):
+                pass
             continue
         # Sin marca de tiempo no se puede cruzar la visita con la temperatura
         # ambiente ni separar la deriva termica de la ganancia, que es la

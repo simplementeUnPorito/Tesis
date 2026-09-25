@@ -72,6 +72,61 @@ def _hilo_temperatura(salida, cada_min, parar):
         parar.wait(cada_min * 60)
 
 
+# ----------------------------------------------------------------- salud
+
+def _puerto_presente(nombre):
+    """Si el adaptador USB esta enumerado por el sistema operativo.
+
+    NO abre el puerto: el experimento es su dueno exclusivo y abrirlo desde
+    otro lado le roba la sesion.  Solo pregunta si el dispositivo existe."""
+    try:
+        from serial.tools import list_ports
+        return any(x.device.upper() == nombre.upper()
+                   for x in list_ports.comports())
+    except Exception:
+        return None
+
+
+def _hilo_salud(salida, cada_s, parar):
+    """Una fila periodica con el pulso del nodo, sin tocar el puerto.
+
+    Dos cosas distintas que conviene no confundir:
+      `puerto`    el ESP esta enumerado en el USB.
+      `ctl_edad`  segundos desde el ultimo #CTL, o sea si el PSoC habla.
+    El puerto puede estar y el PSoC estar mudo: eso es un cuelgue del PSoC,
+    no una desconexion.  Sin separarlos, un diagnostico culpa al cable."""
+    ruta = os.path.join(salida, 'salud.csv')
+    nuevo = not os.path.exists(ruta)
+    while not parar.is_set():
+        try:
+            edad = (time.monotonic() - exp.bt._ultimo_ctl
+                    if exp.bt._ultimo_ctl else None)
+            fila = [
+                time.strftime('%Y-%m-%dT%H:%M:%S'),
+                _puerto_presente(exp.bt.PUERTO or ''),
+                exp.bt._reconexiones,
+                ('%.0f' % edad) if edad is not None else '',
+                exp.bt._est.get(exp.bt.K_ESTADO),
+                exp.bt._est.get(exp.bt.K_BANDA),
+                exp.bt._est.get(exp.bt.K_UPTIME),
+                exp.bt._est.get(exp.bt.K_TAP + 16),
+                exp.bt._est.get(exp.bt.K_TAP + 17),
+                '|'.join(str(exp.bt._est.get(exp.bt.K_IDAC + i))
+                         for i in range(4)),
+                _visitas(os.path.join(salida, 'resultados.jsonl')),
+            ]
+            with open(ruta, 'a', encoding='utf-8') as fh:
+                if nuevo:
+                    fh.write('marca,puerto,reconexiones,ctl_edad_s,estado,'
+                             'banda,uptime_s,LPo_uv,LPo_valido,idac,visitas\n')
+                    nuevo = False
+                fh.write(','.join('' if x is None else str(x)
+                                  for x in fila) + '\n')
+        except Exception as e:
+            _log('[salud] no se pudo anotar (%r)' % e)
+        parar.wait(cada_s)
+
+
 # -------------------------------------------------------------- vigilante
 
 def _visitas(crudo):
@@ -150,6 +205,8 @@ def main(argv=None):
                     help='minutos entre lecturas de temperatura (0 = sin temp)')
     ap.add_argument('--sin-vigia', action='store_true',
                     help='no llamar a codex ante un estancamiento')
+    ap.add_argument('--salud-cada', type=int, default=120,
+                    help='segundos entre filas de salud.csv (0 = sin)')
     a = ap.parse_args(argv)
 
     os.makedirs(os.path.join(a.output, '.run'), exist_ok=True)
@@ -158,6 +215,10 @@ def main(argv=None):
     if a.temp_cada > 0:
         hilos.append(threading.Thread(target=_hilo_temperatura,
                                       args=(a.output, a.temp_cada, parar),
+                                      daemon=True))
+    if a.salud_cada > 0:
+        hilos.append(threading.Thread(target=_hilo_salud,
+                                      args=(a.output, a.salud_cada, parar),
                                       daemon=True))
     if not a.sin_vigia:
         hilos.append(threading.Thread(target=_hilo_vigilante,

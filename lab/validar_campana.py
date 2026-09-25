@@ -26,7 +26,7 @@ import os
 import sys
 from datetime import datetime
 
-MIN_MUESTRAS = 15
+MIN_MUESTRAS = 8
 
 
 def cargar(salida):

@@ -86,7 +86,12 @@ IDAC_TOPE = 200
 # calcula sobre las ultimas 15; con menos la ventana no esta llena y un pp de
 # 0,0 mV sobre una sola muestra parece quietud perfecta cuando es falta de
 # dato.  Medido: 21 de 191 visitas del historico caian en esa trampa.
-MUESTRAS_VALIDAS_MIN = 15
+# Cuantas medidas NUEVAS -no lineas repetidas- hacen falta para dar una
+# nota, y cuanto tiempo real tienen que abarcar.  Ocho medidas a 20 s son
+# 160 s: mas de tres constantes de tiempo del acople, que es lo que hace
+# falta para que "quieto" signifique algo.
+MUESTRAS_VALIDAS_MIN = 8
+SPAN_QUIETUD_MIN_S = 120.0
 
 # Nombres de los parametros, en el orden del enum ControlParameter.
 CP_NOMBRE = [
@@ -130,10 +135,33 @@ _puerto = {}
 _serial_lock = threading.Lock()
 _lector_error = None
 _ultimo_ctl = 0.0
+# Cuantas veces se reabrio el puerto.  El USB del ESP se re-enumera solo
+# cada tanto (PermissionError 13 en ClearCommError) y eso NO es una falla
+# del nodo: es el adaptador reapareciendo.  Quien mida tiene que poder
+# enterarse, porque una reconexion en medio de una visita reinicia al ESP
+# y la visita deja de ser comparable; pero la campana no se aborta por eso.
+_reconexiones = 0
+# Tope real: si el puerto no vuelve en este tiempo, ahi si es un cuelgue.
+ESPERA_RECONEXION_S = 600.0
 
 
 class TelemetriaVencida(RuntimeError):
     pass
+
+
+class Inmedible(RuntimeError):
+    """LPo no responde Y el lazo no se mueve: no hay nada que medir.
+
+    Es un resultado, no un error: acota la ganancia usable.  Se declara
+    DENTRO de la ventana de medicion y no en una pasada aparte, porque
+    una pasada aparte obliga a un segundo cambio de ganancia y el
+    firmware emite el origen del punto UNA sola vez, en el cambio."""
+
+    def __init__(self, validas, movimientos, segundos):
+        RuntimeError.__init__(self, 'LPo valido %d veces y los IDAC quietos en %.0f s' % (validas, segundos))
+        self.validas = validas
+        self.movimientos = movimientos
+        self.segundos = segundos
 
 
 def _detectar_puerto():
@@ -155,42 +183,96 @@ def _detectar_puerto():
     return candidatos[0]
 
 
-def _leer():
-    """Hilo lector: mantiene `_est` con el ultimo valor de cada clave."""
-    global _lector_error, _ultimo_ctl
-    s = serial.Serial()
-    s.port, s.baudrate, s.timeout = PUERTO, BAUD, 0.3
-    s.dtr = s.rts = False
-    if os.name != 'nt':
-        # Evita que dos barridos abran simultaneamente el mismo adaptador.
-        s.exclusive = True
-    for intento in range(30):
+def _abrir_puerto(limite_s):
+    """Abre el puerto reintentando hasta `limite_s`.  Devuelve None si no pudo."""
+    t0 = time.monotonic()
+    while _vivo:
+        s = serial.Serial()
+        s.port, s.baudrate, s.timeout = PUERTO, BAUD, 0.3
+        s.dtr = s.rts = False
+        if os.name != 'nt':
+            # Evita que dos barridos abran simultaneamente el mismo adaptador.
+            s.exclusive = True
         try:
-            s.open(); break
-        except Exception as e:
-            if intento == 29:
-                _lector_error = 'NO ABRE %s: %s' % (PUERTO, e)
-                print(_lector_error, flush=True)
-                return
+            s.open()
+            return s
+        except Exception:
+            try:
+                s.close()
+            except Exception:
+                pass
+            if time.monotonic() - t0 >= limite_s:
+                return None
             time.sleep(2)
-    _puerto['s'] = s
+    return None
+
+
+def _esperar_puerto(limite_s=None):
+    """Bloquea mientras el puerto este caido y el lector lo este reabriendo.
+
+    Levanta RuntimeError si no vuelve.  Quien llama trata eso como lo que es:
+    esta visita se perdio, la campana sigue."""
+    limite = ESPERA_RECONEXION_S if limite_s is None else limite_s
+    t0 = time.monotonic()
+    while _lector_error or 's' not in _puerto:
+        if not _vivo:
+            raise RuntimeError('detenido')
+        if time.monotonic() - t0 >= limite:
+            raise RuntimeError(_lector_error or 'puerto %s ausente' % PUERTO)
+        time.sleep(1.0)
+
+
+def _leer():
+    """Hilo lector: mantiene `_est` con el ultimo valor de cada clave.
+
+    Reconecta.  Una campana de ocho horas ve al menos una re-enumeracion del
+    USB, y antes eso mataba la noche entera: el hilo salia, `_lector_error`
+    quedaba puesto para siempre y toda visita posterior levantaba la misma
+    excepcion aunque el puerto ya hubiera vuelto.  Ahora el error es
+    TRANSITORIO mientras el puerto este ausente y solo se vuelve definitivo
+    si no vuelve en `ESPERA_RECONEXION_S`."""
+    global _lector_error, _ultimo_ctl, _reconexiones
     patron = re.compile(r'#CTL 0 (\d+) (-?\d+)')
-    try:
-        while _vivo:
-            linea = s.readline().decode('utf-8', 'replace')
-            sumidero = _sink
-            if sumidero is not None:
-                sumidero.append(linea)
-            m = patron.search(linea)
-            if m:
-                _est[int(m.group(1))] = int(m.group(2))
-                _ultimo_ctl = time.monotonic()
-    except Exception as e:
-        if _vivo:
+    primera = True
+    while _vivo:
+        s = _abrir_puerto(60.0 if primera else ESPERA_RECONEXION_S)
+        if s is None:
+            if _vivo:
+                _lector_error = 'NO ABRE %s' % PUERTO
+                print(_lector_error, flush=True)
+            return
+        _puerto['s'] = s
+        _lector_error = None
+        if not primera:
+            _reconexiones += 1
+            # El ESP se reinicio al re-enumerarse: la telemetria vieja es de
+            # otra vida del nodo y no se mezcla con la nueva.
+            _est.clear()
+            _ultimo_ctl = 0.0
+            print('%s recuperado (reconexion %d)' % (PUERTO, _reconexiones),
+                  flush=True)
+        primera = False
+        try:
+            while _vivo:
+                linea = s.readline().decode('utf-8', 'replace')
+                sumidero = _sink
+                if sumidero is not None:
+                    sumidero.append(linea)
+                m = patron.search(linea)
+                if m:
+                    _est[int(m.group(1))] = int(m.group(2))
+                    _ultimo_ctl = time.monotonic()
+        except Exception as e:
+            if not _vivo:
+                break
             _lector_error = 'se perdio %s: %s' % (PUERTO, e)
             print(_lector_error, flush=True)
-    finally:
-        s.close()
+        finally:
+            _puerto.pop('s', None)
+            try:
+                s.close()
+            except Exception:
+                pass
 
 
 def _cmd(texto, espera=1.5):
@@ -201,11 +283,18 @@ def _cmd(texto, espera=1.5):
     if 's' not in _puerto:
         print('NO ABRE %s: el lector nunca tomo el puerto' % PUERTO, flush=True)
         raise SystemExit(2)
-    if _lector_error:
-        raise RuntimeError(_lector_error)
-    with _serial_lock:
-        _puerto['s'].write((texto + '\n').encode())
-        _puerto['s'].flush()
+    _esperar_puerto()
+    try:
+        with _serial_lock:
+            _puerto['s'].write((texto + '\n').encode())
+            _puerto['s'].flush()
+    except Exception:
+        # Se cayo justo al escribir: el lector ya esta reconectando.  Una
+        # sola oportunidad mas, y si tampoco, que lo maneje quien llamo.
+        _esperar_puerto()
+        with _serial_lock:
+            _puerto['s'].write((texto + '\n').encode())
+            _puerto['s'].flush()
     time.sleep(espera)
 
 
@@ -238,7 +327,9 @@ def _foto():
                 time.sleep(0.2)
                 break
             if _lector_error:
-                raise RuntimeError(_lector_error)
+                _esperar_puerto()
+                raise TelemetriaVencida('se reconecto %s durante la foto'
+                                        % PUERTO)
             time.sleep(0.1)
     if not _ultimo_ctl or time.monotonic() - _ultimo_ctl > 10.0:
         raise TelemetriaVencida('no llega telemetria #CTL desde hace 10 s')
@@ -251,7 +342,42 @@ def _foto():
         'idac': [_est.get(K_IDAC + i) for i in range(4)],
         'tap': [_est.get(K_TAP + 4 * i) for i in range(5)],
         'valido': [_est.get(K_TAP + 4 * i + 1) for i in range(5)],
+        # Milisegundos desde que el firmware TOMO esa medida.  Sin esto
+        # no hay como distinguir una lectura nueva de la misma linea
+        # repetida, y el firmware repite: ya calibrado baja el barrido a
+        # 20 s y los reportes a 30 s (CP_SCAN_SETTLED_MS /
+        # CP_REPORT_SETTLED_MS).  O sea que justo en el caso BUENO una
+        # ventana de 15 muestras a 2 s contiene una o dos medidas de
+        # verdad, copiadas quince veces.
+        'edad': [_est.get(K_TAP + 4 * i + 2) for i in range(5)],
     }
+
+
+def _distintas(serie, tap=4):
+    """Las fotos que traen una medida NUEVA de ese tap, no una repetida.
+
+    El criterio es la edad: el firmware publica `now - ctl_stamp[i]`, asi
+    que cuando toma una muestra nueva la edad BAJA.  Mientras sube, es la
+    misma medida contada de nuevo.
+
+    Sin esto el pico a pico de una etapa asentada da 0,0 mV por
+    construccion -no porque este quieta, sino porque es un solo numero
+    repetido-, que es la forma en que este banco ya se engano una vez y
+    produjo 39 semillas falsas de 68."""
+    fuera = []
+    edad_prev = None
+    for f in serie:
+        e = f.get('edad', [None] * 5)[tap]
+        if e is None:
+            # Sin edad no se puede deduplicar; se cuenta, que es lo
+            # conservador para un banco que ya perdio datos por confiar.
+            fuera.append(f)
+            edad_prev = None
+            continue
+        if edad_prev is None or e < edad_prev:
+            fuera.append(f)
+        edad_prev = e
+    return fuera
 
 
 def _taps_frescos(max_edad_ms=10000):
@@ -370,7 +496,9 @@ def _fijar_ganancia(pga, pgaout, intentos=4):
     return False
 
 
-def _visitar(pga, pgaout, ventana, muestreo=2.0, firmes=15, limite_mult=4):
+def _visitar(pga, pgaout, ventana, muestreo=2.0, firmes=MUESTRAS_VALIDAS_MIN,
+             limite_mult=4,
+             sondeo_s=0.0, sondeo_validas=3):
     """Cambia a ese par y lo observa hasta que el veredicto este decidido.
 
     `firmes` muestras seguidas dentro de la ventana y quietas bastan para
@@ -406,6 +534,16 @@ def _visitar(pga, pgaout, ventana, muestreo=2.0, firmes=15, limite_mult=4):
     serie, t0 = [], time.time()
     t_banda, tope = None, ventana
     limite = ventana * limite_mult
+    # Sondeo de medibilidad, integrado a la ventana.  Antes vivia en el
+    # experimento y hacia SU PROPIO cambio de ganancia: eso gastaba el
+    # evento de origen/semilla del firmware -que se emite una sola vez, al
+    # cambiar- y despues esta funcion lo borraba, asi que toda visita salia
+    # con origen None y residuo None.  Ademas el lazo llevaba ya hasta 300 s
+    # convergiendo cuando arrancaba el reloj, y el t_estable medido era una
+    # ficcion.  Un solo cambio de ganancia, un solo reloj.
+    sondeo_validas_n = 0
+    sondeo_movs = 0
+    sondeo_idac = None
     while time.time() - t0 < tope:
         time.sleep(muestreo)
         f = _foto()
@@ -413,10 +551,28 @@ def _visitar(pga, pgaout, ventana, muestreo=2.0, firmes=15, limite_mult=4):
         serie.append(f)
         if t_banda is None and f['banda'] == 1:
             t_banda = f['t']
+        if sondeo_s > 0.0:
+            if f['valido'][4] == 1:
+                sondeo_validas_n += 1
+            idac_ahora = tuple(_est.get(K_IDAC + _j) for _j in range(4))
+            if sondeo_idac is not None and idac_ahora != sondeo_idac:
+                sondeo_movs += 1
+            sondeo_idac = idac_ahora
+            if (f['t'] >= sondeo_s and t_banda is None and
+                    sondeo_validas_n < sondeo_validas and sondeo_movs == 0):
+                raise Inmedible(sondeo_validas_n, sondeo_movs, f['t'])
         if t_banda is not None and len(serie) >= firmes:
-            ult = [x['tap'][4] for x in serie[-firmes:]
+            # `firmes` medidas NUEVAS, no `firmes` lineas.  Ya calibrado el
+            # firmware barre cada 20 s y reporta cada 30, asi que quince
+            # lineas seguidas pueden ser una sola medida copiada quince
+            # veces: el corte saltaba a los 30 s con un pico a pico de 0,0
+            # mV que no probaba nada.
+            nuevas = _distintas(serie, 4)
+            ult = [x['tap'][4] for x in nuevas[-firmes:]
                    if x['tap'][4] is not None and x['valido'][4] == 1]
-            if (len(ult) == firmes and
+            span = ((nuevas[-1]['t'] - nuevas[-firmes]['t'])
+                    if len(nuevas) >= firmes else 0.0)
+            if (len(ult) == firmes and span >= SPAN_QUIETUD_MIN_S and
                     all(abs(v) <= VENTANA_UV for v in ult) and
                     max(ult) - min(ult) < 30000):
                 break
@@ -460,8 +616,12 @@ def _analizar(pga, pgaout, serie, t_banda, lp0, n_antes, ventana, confirmada):
                 out.append(v)
         return out
 
-    lp = [f['tap'][4] for f in serie
-          if f['tap'][4] is not None and f['valido'][4] == 1]
+    # Solo lecturas NUEVAS: ver `_distintas`.  Contar lineas de telemetria
+    # en vez de medidas hacia que una etapa asentada -o sea, el caso que
+    # queremos premiar- diera pico a pico 0,0 mV por repeticion.
+    lp_fotos = [f for f in _distintas(serie, 4)
+                if f['tap'][4] is not None and f['valido'][4] == 1]
+    lp = [f['tap'][4] for f in lp_fotos]
     # Desde cuando LPo ya NO vuelve a salir: el 't_banda' del firmware marca el
     # primer cruce, y un rescate que cruza de riel a riel lo marca al pasar.
     t_estable, ultimo_afuera = None, None
@@ -479,7 +639,14 @@ def _analizar(pga, pgaout, serie, t_banda, lp0, n_antes, ventana, confirmada):
                         abs(f['tap'][4]) <= VENTANA_UV):
                     t_estable = f['t']; break
 
-    cola = lp[-15:] if len(lp) >= 15 else lp
+    cola = lp[-MUESTRAS_VALIDAS_MIN:] if len(lp) >= MUESTRAS_VALIDAS_MIN else lp
+    # Cuanto tiempo real abarca esa cola.  Con el barrido en modo
+    # asentado (20 s) ocho medidas son ~160 s; con el lazo todavia
+    # buscando (2 s) son 16 s, y 16 s no prueban quietud sobre una
+    # planta de tau ~ 30-44 s.  Se exige lo uno Y lo otro.
+    span_s = ((lp_fotos[-1]['t'] - lp_fotos[-MUESTRAS_VALIDAS_MIN]['t'])
+              if len(lp_fotos) >= MUESTRAS_VALIDAS_MIN else
+              ((lp_fotos[-1]['t'] - lp_fotos[0]['t']) if len(lp_fotos) > 1 else 0.0))
     dentro = bool(cola) and all(abs(v) <= VENTANA_UV for v in cola)
     quieto = bool(cola) and (max(cola) - min(cola)) < 30000
     pasa = dentro and t_banda is not None and t_estable is not None
@@ -491,7 +658,8 @@ def _analizar(pga, pgaout, serie, t_banda, lp0, n_antes, ventana, confirmada):
     # ademas se puntua cuanto rango libre quedo.
     lp_final_mV = (lp[-1] / 1000.0) if lp else None
     pp_mV = ((max(cola) - min(cola)) / 1000.0) if cola else None
-    respaldado = len(lp) >= MUESTRAS_VALIDAS_MIN
+    respaldado = (len(lp) >= MUESTRAS_VALIDAS_MIN and
+                  span_s >= SPAN_QUIETUD_MIN_S)
     if lp_final_mV is None or pp_mV is None or not respaldado:
         nota = None
     elif pp_mV >= QUIETO_PP_MV:
@@ -576,6 +744,9 @@ def _analizar(pga, pgaout, serie, t_banda, lp0, n_antes, ventana, confirmada):
         'nota': nota,
         'fragil': fragil,
         'muestras_validas_LPo': len(lp),
+        'muestras_totales_LPo': sum(1 for f in serie
+                                    if f['tap'][4] is not None),
+        'span_quietud_s': round(span_s, 1),
         # ---- memoria de puntos de trabajo --------------------------------
         # De donde salio la condicion inicial de esta visita.  Sin esto no se
         # puede distinguir "la semilla sirvio" de "venia bien encaminado".
@@ -910,13 +1081,13 @@ def arrancar_enlace():
         if len(_est) > 0:
             break
         if _lector_error:
-            raise RuntimeError(_lector_error)
+            _esperar_puerto()
         _cmd('ctl report', 0.2)
         for _ in range(6):
             if len(_est) > 0:
                 break
             if _lector_error:
-                raise RuntimeError(_lector_error)
+                _esperar_puerto()
             time.sleep(0.5)
         if len(_est) > 0:
             break

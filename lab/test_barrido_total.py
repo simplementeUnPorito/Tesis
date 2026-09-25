@@ -44,3 +44,182 @@ class AsegurarAdquisicionTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class SondeoIntegradoTests(unittest.TestCase):
+    """El sondeo de medibilidad vive DENTRO de la ventana de medicion.
+
+    Antes era una pasada aparte en el experimento, y esa pasada hacia su
+    propio cambio de ganancia.  El firmware emite el origen y la semilla del
+    punto UNA sola vez, en el cambio; `_visitar` los borra al empezar; con dos
+    cambios el evento caia en el primero y toda visita salia con origen None y
+    residuo None -o sea, justo el dato que el experimento existe para medir-.
+    """
+
+    def setUp(self):
+        self.estado_anterior = barrido_total._est
+        barrido_total._est = {}
+
+    def tearDown(self):
+        barrido_total._est = self.estado_anterior
+
+    def _correr(self, valido, mover_idac, sondeo_s=10.0, ventana=60.0):
+        reloj = {'t': 0.0}
+        paso = 2.0
+
+        def foto():
+            reloj['t'] += paso
+            if mover_idac:
+                barrido_total._est[barrido_total.K_IDAC] = int(reloj['t'])
+            return {'t': None, 'estado': 0, 'banda': 0,
+                    'tap': [0, 0, 0, 0, 0],
+                    'valido': [1, 1, 1, 1, 1 if valido else 0]}
+
+        with mock.patch.object(barrido_total, '_fijar_ganancia',
+                               return_value=True), \
+             mock.patch.object(barrido_total, '_foto', side_effect=foto), \
+             mock.patch.object(barrido_total.time, 'sleep'), \
+             mock.patch.object(barrido_total.time, 'time',
+                               side_effect=lambda: reloj['t']):
+            return barrido_total._visitar(2, 4, ventana, muestreo=paso,
+                                          sondeo_s=sondeo_s)
+
+    def test_sin_respuesta_y_sin_movimiento_es_inmedible(self):
+        with self.assertRaises(barrido_total.Inmedible) as caja:
+            self._correr(valido=False, mover_idac=False)
+        self.assertEqual(caja.exception.validas, 0)
+        self.assertEqual(caja.exception.movimientos, 0)
+
+    def test_lazo_moviendose_merece_la_ventana_entera(self):
+        # Un lazo que mueve sus IDAC esta buscando: cortarlo mide impaciencia.
+        serie, _, _, _, ok = self._correr(valido=False, mover_idac=True)
+        self.assertTrue(ok)
+        self.assertGreater(len(serie), 10)
+
+    def test_tap_que_responde_no_se_corta(self):
+        serie, _, _, _, _ = self._correr(valido=True, mover_idac=False)
+        self.assertGreater(len(serie), 10)
+
+    def test_sin_sondeo_el_comportamiento_no_cambia(self):
+        serie, _, _, _, _ = self._correr(valido=False, mover_idac=False,
+                                         sondeo_s=0.0)
+        self.assertGreater(len(serie), 10)
+
+
+class ReconexionTests(unittest.TestCase):
+    """Una re-enumeracion del USB no puede matar una campana de ocho horas.
+
+    Ocurrio el 2026-09-25 a los 20 min de arrancar: ClearCommError devolvio
+    PermissionError 13, el hilo lector salio, `_lector_error` quedo puesto
+    para siempre y toda visita posterior levantaba esa misma excepcion aunque
+    el puerto ya hubiera vuelto -y habia vuelto-.
+    """
+
+    def setUp(self):
+        self.anterior = (barrido_total._est, barrido_total._vivo,
+                         barrido_total._lector_error,
+                         barrido_total._reconexiones, dict(barrido_total._puerto))
+        barrido_total._est = {}
+        barrido_total._vivo = True
+        barrido_total._lector_error = None
+        barrido_total._reconexiones = 0
+        barrido_total._puerto.clear()
+
+    def tearDown(self):
+        (barrido_total._est, barrido_total._vivo, barrido_total._lector_error,
+         barrido_total._reconexiones, puerto) = self.anterior
+        barrido_total._puerto.clear()
+        barrido_total._puerto.update(puerto)
+
+    def test_el_lector_reabre_y_avisa_cuantas_veces(self):
+        vidas = [
+            [b'#CTL 0 17 111\n', OSError('ClearCommError failed')],
+            [b'#CTL 0 17 222\n', OSError('fin')],
+        ]
+
+        class FalsoPuerto(object):
+            def __init__(self):
+                self.lineas = list(vidas.pop(0)) if vidas else [OSError('fin')]
+                self.cerrado = False
+
+            port = baudrate = timeout = dtr = rts = exclusive = None
+
+            def open(self):
+                pass
+
+            def readline(self):
+                if not self.lineas:
+                    barrido_total._vivo = False
+                    return b''
+                x = self.lineas.pop(0)
+                if isinstance(x, Exception):
+                    if not vidas:
+                        barrido_total._vivo = False
+                    raise x
+                return x
+
+            def close(self):
+                self.cerrado = True
+
+        falso = mock.Mock()
+        falso.Serial = FalsoPuerto
+        with mock.patch.object(barrido_total, 'serial', falso), \
+             mock.patch.object(barrido_total.time, 'sleep'):
+            barrido_total._leer()
+
+        self.assertEqual(barrido_total._reconexiones, 1)
+        # Y lo que llego antes de la caida no se mezcla con lo de despues: el
+        # ESP arranco de cero, su telemetria vieja es de otra vida del nodo.
+        self.assertEqual(barrido_total._est.get(17), 222)
+
+    def test_esperar_puerto_desbloquea_cuando_vuelve(self):
+        barrido_total._lector_error = 'se perdio COM8'
+        barrido_total._puerto['s'] = object()
+
+        def devolver():
+            barrido_total._lector_error = None
+
+        with mock.patch.object(barrido_total.time, 'sleep',
+                               side_effect=lambda _s: devolver()):
+            barrido_total._esperar_puerto(limite_s=30.0)
+
+    def test_esperar_puerto_se_rinde_si_no_vuelve(self):
+        barrido_total._lector_error = 'se perdio COM8'
+        with mock.patch.object(barrido_total.time, 'sleep'):
+            with self.assertRaises(RuntimeError):
+                barrido_total._esperar_puerto(limite_s=0.0)
+
+
+class DistintasTests(unittest.TestCase):
+    """Una lectura repetida no es una medida nueva.
+
+    El firmware publica `now - ctl_stamp[i]` como edad del tap.  Ya calibrado
+    baja el barrido a 20 s y los reportes a 30 s, asi que la misma medida sale
+    una y otra vez.  Contar lineas en vez de medidas hacia que una etapa
+    asentada -el caso que queremos premiar- diera pico a pico 0,0 mV por
+    construccion.  Es la misma trampa que ya produjo 39 semillas falsas de 68.
+    """
+
+    @staticmethod
+    def _f(t, valor, edad):
+        return {'t': t, 'tap': [0, 0, 0, 0, valor],
+                'valido': [1, 1, 1, 1, 1], 'edad': [0, 0, 0, 0, edad]}
+
+    def test_la_edad_que_sube_es_la_misma_medida(self):
+        serie = [self._f(0, 100, 300), self._f(2, 100, 2300),
+                 self._f(4, 100, 4300), self._f(6, 140, 250),
+                 self._f(8, 140, 2250)]
+        nuevas = barrido_total._distintas(serie, 4)
+        self.assertEqual([f['t'] for f in nuevas], [0, 6])
+
+    def test_sin_edad_no_se_deduplica(self):
+        # Conservador a proposito: antes que descartar una medida real, se
+        # cuenta de mas.  Un banco que ya perdio datos por confiar no puede
+        # permitirse un filtro que borre en silencio.
+        serie = [{'t': 0, 'tap': [0, 0, 0, 0, 5], 'valido': [1] * 5}]
+        self.assertEqual(len(barrido_total._distintas(serie, 4)), 1)
+
+    def test_valor_repetido_con_medida_nueva_cuenta_dos_veces(self):
+        # Quieto de verdad: dos medidas distintas que dan el mismo numero.
+        serie = [self._f(0, 100, 300), self._f(20, 100, 280)]
+        self.assertEqual(len(barrido_total._distintas(serie, 4)), 2)
