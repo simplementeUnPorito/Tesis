@@ -87,7 +87,7 @@ def _puerto_presente(nombre):
         return None
 
 
-def _hilo_salud(salida, cada_s, parar):
+def _hilo_salud(salida, cada_s, parar, puerto=None):
     """Una fila periodica con el pulso del nodo, sin tocar el puerto.
 
     Dos cosas distintas que conviene no confundir:
@@ -103,7 +103,7 @@ def _hilo_salud(salida, cada_s, parar):
                     if exp.bt._ultimo_ctl else None)
             fila = [
                 time.strftime('%Y-%m-%dT%H:%M:%S'),
-                _puerto_presente(exp.bt.PUERTO or ''),
+                _puerto_presente(exp.bt.PUERTO or puerto or ''),
                 exp.bt._reconexiones,
                 ('%.0f' % edad) if edad is not None else '',
                 exp.bt._est.get(exp.bt.K_ESTADO),
@@ -218,7 +218,8 @@ def main(argv=None):
                                       daemon=True))
     if a.salud_cada > 0:
         hilos.append(threading.Thread(target=_hilo_salud,
-                                      args=(a.output, a.salud_cada, parar),
+                                      args=(a.output, a.salud_cada, parar,
+                                            a.port),
                                       daemon=True))
     if not a.sin_vigia:
         hilos.append(threading.Thread(target=_hilo_vigilante,
