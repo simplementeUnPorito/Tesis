@@ -149,11 +149,12 @@ def _preparar(condicion, espera_s):
     lo que sobrevive en EEPROM.  Esa es justamente la diferencia que la
     condicion existe para medir."""
     if condicion == 'FRIO':
-        bt._reset_psoc_desde_esp()
-        # El firmware auto-calibra al arrancar; entrar antes de que termine
-        # mide el transitorio de la calibracion, no el arranque.
-        time.sleep(30)
-        if not bt._asegurar_adquisicion():
+        # `_reset_psoc_desde_esp` manda `stop` antes -el ESP rechaza el reset
+        # con una captura activa- y VERIFICA que el uptime volvio a empezar.
+        # Si no se pudo enfriar se saltea la visita: una visita etiquetada
+        # FRIO que no arranco en frio contamina el experimento entero, y ya
+        # paso -siete visitas con 4,6 h de uptime ininterrumpido-.
+        if not bt._reset_psoc_desde_esp():
             return None
         par = PAR_BAJO
     else:
@@ -357,8 +358,6 @@ def main(argv=None):
                         raise
                     _log('    !! %s; reintento %d/2' % (e, intento))
                     bt._reset_psoc_desde_esp()
-                    time.sleep(30)
-                    bt._asegurar_adquisicion()
             visita = bt._analizar(pga, pgaout, serie, t_banda, lp0, n0,
                                   args.ventana, ok)
         except bt.Inmedible as e:

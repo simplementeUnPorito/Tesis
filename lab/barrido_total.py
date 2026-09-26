@@ -298,16 +298,57 @@ def _cmd(texto, espera=1.5):
     time.sleep(espera)
 
 
-def _reset_psoc_desde_esp():
+def _reset_psoc_desde_esp(verificar=True):
     """Pide al ESP el pulso GPIO19 que reinicia al PSoC.
 
     No usa KitProg, PSoC Creator ni scripts del host. Por eso funciona igual
     desde Windows o desde un servidor Linux conectado al USB del ESP32.
+
+    DOS cosas que antes faltaban y que costaron media campana:
+
+    1. El ESP **rechaza** `psocreset` si hay una captura activa
+       (``[USB] psocreset rechazado: captura/transferencia activa``), y
+       `_asegurar_adquisicion` deja justamente una captura corriendo.  O sea
+       que el primer reset del programa funcionaba y todos los siguientes no.
+       Hay que mandar `stop` antes.
+
+    2. Nadie miraba si el nodo se habia reiniciado.  La campana del
+       2026-09-26 hizo siete visitas etiquetadas FRIO con el PSoC llevando
+       4,6 h de uptime ininterrumpido: un tercio del experimento decia
+       "arranque en frio" sobre algo que no lo era, y el log del esclavo lo
+       venia avisando sin que nadie lo leyera.
+
+    Devuelve True solo si el uptime del PSoC volvio a empezar.  Quien llama
+    tiene que tratar el False como "no se pudo enfriar" y saltear la visita:
+    medir sobre una condicion que no es la de la etiqueta es peor que no
+    medir.
     """
     global _ultimo_ctl
-    _cmd('psocreset', 0.2)
+    antes = None
+    if verificar:
+        _cmd('ctl report', 0.8)
+        time.sleep(1.2)
+        antes = _est.get(K_UPTIME)
+    _cmd('stop', 0.8)                  # sin esto el ESP rechaza el reset
+    _cmd('psocreset', 0.5)
     _est.clear()                       # no aceptar telemetria anterior al reset
     _ultimo_ctl = 0.0
+    if not verificar:
+        return True
+    # El firmware auto-calibra al arrancar; entrar antes de que termine mide
+    # el transitorio de la calibracion, no el arranque.
+    time.sleep(30)
+    if not _asegurar_adquisicion():
+        print('tras el psocreset no vuelve la adquisicion', flush=True)
+        return False
+    _cmd('ctl report', 0.8)
+    time.sleep(1.2)
+    despues = _est.get(K_UPTIME)
+    if despues is None or (antes is not None and despues >= antes):
+        print('el psocreset NO reinicio el nodo (uptime %s -> %s)'
+              % (antes, despues), flush=True)
+        return False
+    return True
 
 
 def _foto():

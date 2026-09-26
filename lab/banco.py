@@ -37,10 +37,13 @@ from lab import temperatura_ambiente as temp  # noqa: E402
 CODEX = os.path.expandvars(
     r'%USERPROFILE%\.codex\plugins\.plugin-appserver\codex.exe')
 
-# Techo de lo que puede tardar UNA visita: ventana de 240 s con prorroga hasta
-# 960 s, mas la preparacion (reset y arranque, o asentamiento del contexto).
-# Pasarlo no es lentitud, es un cuelgue.
-LIMITE_ESTANCADO_S = 1500
+# Techo de lo que puede tardar UNA visita.  Tiene que ser MAYOR que el peor
+# caso legitimo, si no el vigia escala sobre una visita que esta trabajando
+# bien: con la ventana en 420 s la prorroga llega a 4x420 = 1680 s, y encima
+# va la preparacion (psocreset y arranque, o asentamiento del contexto), que
+# son otros ~150 s.  Con el tope en 1500 s se escalaba a mitad de una visita
+# normal -paso el 2026-09-26 a las 07:34-.
+LIMITE_ESTANCADO_S = 2400
 
 
 def _log(msg):
