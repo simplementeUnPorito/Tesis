@@ -231,3 +231,71 @@ class DistintasTests(unittest.TestCase):
         # permitirse un filtro que borre en silencio.
         serie = [{'t': 0, 'tap': [0, 0, 0, 0, 5], 'valido': [1] * 5}]
         self.assertEqual(len(barrido_total._distintas(serie, 4)), 1)
+
+
+class VeredictoEstrictoTests(unittest.TestCase):
+    """Series degeneradas que ya enganaron a este banco.
+
+    Cada caso es un modo de falla real, no una hipotesis: la medida unica
+    repetida, la quietud demasiado corta para significar algo, el clavado
+    contra el riel y el punto en banda pero sin autoridad de actuador.  El
+    simulacro encontro tres defectos antes de que costaran una noche de banco,
+    asi que se queda.
+    """
+
+    @staticmethod
+    def _f(t, lp, valido=1, edad=300, idac3=-100):
+        return {'t': t, 'estado': 2, 'banda': 1 if valido else 0,
+                'perfil': 1, 'uptime': 1000, 'idac': [5, 2, -5, idac3],
+                'tap': [0, 0, 0, 0, lp], 'valido': [1, 1, 1, 1, valido],
+                'edad': [0, 0, 0, 0, edad]}
+
+    def _v(self, serie):
+        return barrido_total._analizar(
+            2, 4, serie, 1.0 if serie else None, None, 0, 240, True)
+
+    def test_serie_vacia_no_revienta(self):
+        self.assertEqual(self._v([])['veredicto_estricto'], 'FALLA')
+
+    def test_una_medida_repetida_no_es_quietud(self):
+        # Quince lineas de telemetria de UNA sola medida: el pico a pico da
+        # 0,0 mV por construccion.  Ya produjo 39 semillas falsas de 68.
+        serie = [self._f(t * 2.0, -3000, edad=t * 2000) for t in range(15)]
+        v = self._v(serie)
+        self.assertEqual(v['muestras_validas_LPo'], 1)
+        self.assertEqual(v['veredicto_estricto'], 'FALLA')
+
+    def test_quieto_poco_tiempo_no_alcanza(self):
+        # Quieto solo los ultimos 40 s de una visita de 260: sobre una planta
+        # de tau ~ 30-44 s eso es una constante de tiempo, no regimen.
+        serie = [self._f(t * 2.0, -3000 if t * 2 > 220 else 90000)
+                 for t in range(130)]
+        self.assertEqual(self._v(serie)['veredicto_estricto'], 'FALLA')
+
+    def test_quieto_el_tiempo_suficiente_pasa(self):
+        serie = [self._f(t * 2.0, -3000 + (t % 3) * 100) for t in range(130)]
+        v = self._v(serie)
+        self.assertEqual(v['veredicto_estricto'], 'PASA')
+        self.assertEqual(v['nota'], 'A')
+
+    def test_con_el_barrido_lento_tambien_pasa(self):
+        # Ya asentado el firmware barre cada 20 s: diez medidas son 180 s.  El
+        # criterio tiene que valer en los dos regimenes, que es justo lo que
+        # un numero fijo de muestras no puede hacer.
+        serie = [self._f(t * 20.0, -3000 + (t % 2) * 50) for t in range(10)]
+        self.assertEqual(self._v(serie)['veredicto_estricto'], 'PASA')
+
+    def test_clavado_contra_el_riel_no_pasa(self):
+        serie = [self._f(t * 2.0, 90000) for t in range(130)]
+        v = self._v(serie)
+        self.assertEqual(v['nota'], 'D')
+        self.assertEqual(v['veredicto_estricto'], 'FALLA')
+
+    def test_en_banda_pero_sin_autoridad_no_pasa(self):
+        # LPo perfecto con IDAC3 a 240 de 255: la primera deriva termica se lo
+        # lleva puesto.  Mirar donde quedo el ACTUADOR, no solo la salida.
+        serie = [self._f(t * 2.0, -3000, idac3=-240) for t in range(130)]
+        v = self._v(serie)
+        self.assertEqual(v['nota'], 'A')
+        self.assertTrue(v['fragil'])
+        self.assertEqual(v['veredicto_estricto'], 'FALLA')

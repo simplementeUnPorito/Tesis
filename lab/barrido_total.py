@@ -90,8 +90,8 @@ IDAC_TOPE = 200
 # nota, y cuanto tiempo real tienen que abarcar.  Ocho medidas a 20 s son
 # 160 s: mas de tres constantes de tiempo del acople, que es lo que hace
 # falta para que "quieto" signifique algo.
-MUESTRAS_VALIDAS_MIN = 8
-SPAN_QUIETUD_MIN_S = 120.0
+MUESTRAS_VALIDAS_MIN = 6
+SPAN_QUIETUD_MIN_S = 150.0
 
 # Nombres de los parametros, en el orden del enum ControlParameter.
 CP_NOMBRE = [
@@ -570,21 +570,23 @@ def _visitar(pga, pgaout, ventana, muestreo=2.0, firmes=MUESTRAS_VALIDAS_MIN,
             if (f['t'] >= sondeo_s and t_banda is None and
                     sondeo_validas_n < sondeo_validas and sondeo_movs == 0):
                 raise Inmedible(sondeo_validas_n, sondeo_movs, f['t'])
-        if t_banda is not None and len(serie) >= firmes:
-            # `firmes` medidas NUEVAS, no `firmes` lineas.  Ya calibrado el
-            # firmware barre cada 20 s y reporta cada 30, asi que quince
-            # lineas seguidas pueden ser una sola medida copiada quince
-            # veces: el corte saltaba a los 30 s con un pico a pico de 0,0
-            # mV que no probaba nada.
-            nuevas = _distintas(serie, 4)
-            ult = [x['tap'][4] for x in nuevas[-firmes:]
-                   if x['tap'][4] is not None and x['valido'][4] == 1]
-            span = ((nuevas[-1]['t'] - nuevas[-firmes]['t'])
-                    if len(nuevas) >= firmes else 0.0)
-            if (len(ult) == firmes and span >= SPAN_QUIETUD_MIN_S and
-                    all(abs(v) <= VENTANA_UV for v in ult) and
-                    max(ult) - min(ult) < 30000):
-                break
+        if t_banda is not None:
+            # Se corta cuando la quietud ya esta DEMOSTRADA sobre los
+            # ultimos SPAN_QUIETUD_MIN_S segundos: mismo criterio que usa
+            # el veredicto, para que no puedan discrepar.
+            nuevas = [x for x in _distintas(serie, 4)
+                      if x['tap'][4] is not None and x['valido'][4] == 1]
+            if nuevas:
+                t_fin = nuevas[-1]['t']
+                vf = [x for x in nuevas
+                      if x['t'] >= t_fin - SPAN_QUIETUD_MIN_S]
+                ult = [x['tap'][4] for x in vf]
+                span = t_fin - vf[0]['t'] if vf else 0.0
+                if (len(ult) >= firmes and
+                        span >= SPAN_QUIETUD_MIN_S * 0.9 and
+                        all(abs(v) <= VENTANA_UV for v in ult) and
+                        max(ult) - min(ult) < 30000):
+                    break
         # PRORROGA 1.  Un par que aterriza justo antes de que se acabe la
         # ventana no alcanza a demostrar que se sostiene, y quedaba marcado
         # FALLA con LPo centrado: medido x4/x8, estable a los 216 s de una
@@ -648,14 +650,21 @@ def _analizar(pga, pgaout, serie, t_banda, lp0, n_antes, ventana, confirmada):
                         abs(f['tap'][4]) <= VENTANA_UV):
                     t_estable = f['t']; break
 
-    cola = lp[-MUESTRAS_VALIDAS_MIN:] if len(lp) >= MUESTRAS_VALIDAS_MIN else lp
-    # Cuanto tiempo real abarca esa cola.  Con el barrido en modo
-    # asentado (20 s) ocho medidas son ~160 s; con el lazo todavia
-    # buscando (2 s) son 16 s, y 16 s no prueban quietud sobre una
-    # planta de tau ~ 30-44 s.  Se exige lo uno Y lo otro.
-    span_s = ((lp_fotos[-1]['t'] - lp_fotos[-MUESTRAS_VALIDAS_MIN]['t'])
-              if len(lp_fotos) >= MUESTRAS_VALIDAS_MIN else
-              ((lp_fotos[-1]['t'] - lp_fotos[0]['t']) if len(lp_fotos) > 1 else 0.0))
+    # La quietud se prueba sobre los ultimos SPAN_QUIETUD_MIN_S segundos,
+    # no sobre las ultimas N medidas.  Tomar "las ultimas 8" no sirve: con
+    # el lazo todavia buscando el barrido va a 2 s y ocho medidas abarcan
+    # 14 s, que no prueban nada sobre una planta de tau ~ 30-44 s; ya
+    # asentado el barrido va a 20 s y ocho medidas abarcan 160 s.  O sea
+    # que un numero fijo de muestras mide un tiempo distinto en cada
+    # regimen, justo al reves de lo que hace falta.  El minimo de medidas
+    # queda solo como proteccion contra un barrido detenido.
+    cola, span_s = [], 0.0
+    if lp_fotos:
+        t_fin = lp_fotos[-1]['t']
+        ventana_final = [f for f in lp_fotos
+                         if f['t'] >= t_fin - SPAN_QUIETUD_MIN_S]
+        cola = [f['tap'][4] for f in ventana_final]
+        span_s = t_fin - ventana_final[0]['t'] if ventana_final else 0.0
     dentro = bool(cola) and all(abs(v) <= VENTANA_UV for v in cola)
     quieto = bool(cola) and (max(cola) - min(cola)) < 30000
     pasa = dentro and t_banda is not None and t_estable is not None
@@ -667,8 +676,10 @@ def _analizar(pga, pgaout, serie, t_banda, lp0, n_antes, ventana, confirmada):
     # ademas se puntua cuanto rango libre quedo.
     lp_final_mV = (lp[-1] / 1000.0) if lp else None
     pp_mV = ((max(cola) - min(cola)) / 1000.0) if cola else None
-    respaldado = (len(lp) >= MUESTRAS_VALIDAS_MIN and
-                  span_s >= SPAN_QUIETUD_MIN_S)
+    # 0,9 de holgura: la ultima medida cae donde cae, y exigir el span
+    # exacto rechazaria una ventana que se quedo a un segundo.
+    respaldado = (len(cola) >= MUESTRAS_VALIDAS_MIN and
+                  span_s >= SPAN_QUIETUD_MIN_S * 0.9)
     if lp_final_mV is None or pp_mV is None or not respaldado:
         nota = None
     elif pp_mV >= QUIETO_PP_MV:
@@ -681,8 +692,12 @@ def _analizar(pga, pgaout, serie, t_banda, lp0, n_antes, ventana, confirmada):
     _i3 = serie[-1]['idac'][3] if serie else None
     fragil = (abs(_i3) > IDAC_TOPE) if _i3 is not None else None
     # Estricto = quieto y con rango libre de sobra.  'D' es quieto CONTRA el
-    # riel, que es justo lo que no queremos llamar exito.
-    pasa_estricto = bool(confirmada and nota in ('A', 'B', 'C'))
+    # riel, que es justo lo que no queremos llamar exito.  Y tampoco pasa
+    # si quedo FRAGIL: LPo perfecto con IDAC3 a 248 de 255 es un punto sin
+    # autoridad, que la primera deriva termica se lleva puesto.  Un solo
+    # numero con un solo significado; `fragil` queda como el motivo.
+    pasa_estricto = bool(confirmada and nota in ('A', 'B', 'C')
+                         and not fragil)
 
     # Cuanto tiempo paso en cada estado, y cuantas veces volvio a aprender.
     tiempo_estado, aprendizajes, previo = {}, 0, None
