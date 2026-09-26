@@ -126,7 +126,11 @@ def main(argv=None):
             if code == base:
                 continue
             bt._cmd('idac %d %d' % (args.etapa, code), 0.5)
-            time.sleep(4.0)
+            # Reporte fresco: los codigos de IDAC solo viajan en el reporte
+            # periodico, asi que leer enseguida devuelve la foto anterior.
+            time.sleep(1.5)
+            bt._cmd('ctl report', 0.8)
+            time.sleep(1.5)
             # VERIFICAR que el escalon llego.  Hasta el 2026-09-26 el comando
             # manual escribia el DAC sin avisarle al lazo, y el PI reescribia
             # su propio valor en el tick siguiente: la inyeccion se deshacia en
@@ -134,7 +138,11 @@ def main(argv=None):
             # "perturbe y el lazo volvio solo" sin haber perturbado nada, que
             # es peor que no tener prueba.
             leido = bt._est.get(bt.K_IDAC + args.etapa)
-            if leido != code:
+            # Tolerancia de 3 codigos: el recentrado lento del firmware mueve
+            # uno cada tanto y no puede hacer fallar la compuerta.  Lo que hay
+            # que atrapar es el escalon que no llega -se vio como 154 contra
+            # 255 pedidos, cien codigos de diferencia-.
+            if leido is None or abs(leido - code) > 3:
                 _log('  !! se pidio IDAC%d=%d y el nodo dice %s: el escalon NO '
                      'llego, no hay nada que probar' % (args.etapa, code, leido))
                 return 4

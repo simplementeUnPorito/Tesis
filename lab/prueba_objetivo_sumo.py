@@ -37,6 +37,7 @@ from lab import barrido_total as bt          # noqa: E402
 
 CP_FINE_MID = 37
 CP_OPA_TARGET_UV = 20
+CP_FINE_SLOPE_UV = 15
 
 
 def _leer_param(idx):
@@ -67,6 +68,12 @@ def main():
     ap.add_argument('--objetivo', type=int,
                     help='fijar CP_OPA_TARGET_UV (uV) antes de aprender; '
                          'sin esto se deja como esta')
+    ap.add_argument('--pendiente', type=int,
+                    help='fijar CP_FINE_SLOPE_UV (uV por codigo de IDAC3).  '
+                         'El valor de fabrica es 2500 y lo medido a x4/x16 el '
+                         '2026-09-26 es ~490: el PI cree que el vernier es '
+                         'cinco veces mas fuerte de lo que es y corrige cinco '
+                         'veces de menos en cada paso.')
     a = ap.parse_args()
 
     bt.PUERTO = a.port
@@ -83,6 +90,10 @@ def main():
     _set(CP_FINE_MID, a.fine_mid)
     objetivo0 = _leer_param(CP_OPA_TARGET_UV)
     print('  CP_OPA_TARGET_UV actual: %s' % objetivo0)
+    if a.pendiente is not None:
+        if not _set(CP_FINE_SLOPE_UV, a.pendiente):
+            print('FALLA: la pendiente no se pudo fijar')
+            return 6
     if a.objetivo is not None and a.objetivo != objetivo0:
         # OJO: CP_OPA_TARGET_UV esta en la lista de compatibilidad de
         # perfil, asi que cambiarlo TIRA el perfil aprendido.  Aca es lo

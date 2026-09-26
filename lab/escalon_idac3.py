@@ -39,6 +39,14 @@ from lab import barrido_total as bt          # noqa: E402
 CP_DEADBAND_UV = 8
 CP_HOLD_UV = 36
 CP_SETTLED_BAND_UV = 41
+CP_RECENTER_MS = 46
+
+# Tolerancia de la guarda de inyeccion, en codigos.  No puede ser cero: el
+# recentrado lento del firmware mueve UN codigo cada CP_RECENTER_MS, asi que
+# una guarda exacta aborta por su culpa.  Pero tiene que ser chica, porque lo
+# que tiene que atrapar es la falla real -la inyeccion que no llega, que se vio
+# como 154 contra 255 pedidos, o sea cien codigos-.
+TOLERANCIA_CODIGOS = 3
 
 # Reglas de `control_config_valid`: HOLD < DEADBAND y SETTLED_BAND >= DEADBAND.
 # Para ensanchar hay que ir SETTLED, DEADBAND, HOLD; para volver, al reves.
@@ -133,6 +141,29 @@ def main():
     # de un actuador sobre una etapa saturada da cero y se lee como "el
     # actuador no sirve", que es una conclusion falsa que este banco ya estuvo
     # a punto de sacar dos veces.
+    # OJO con el orden: primero se congela el PI, DESPUES se espera
+    # regimen.  Al reves no converge: con la configuracion de fabrica
+    # este par no se asienta -pico a pico de 60 mV y el lazo moviendo
+    # IDAC3 solo-, asi que la tasa nunca baja del umbral.  Lo que hay
+    # que dejar quieto es la PLANTA, y para eso el lazo tiene que estar
+    # afuera primero.
+    print('ensanchando la banda muerta (PI pasivo, telemetria viva)')
+    # Y apagar el recentrado lento: mueve un codigo de IDAC3 cada
+    # CP_RECENTER_MS hacia el centro, aun con el PI congelado, y durante una
+    # permanencia de 360 s eso corre el escalon por debajo.  Se restaura al
+    # final junto con las bandas.
+    recentrado = bt._est.get(CP_RECENTER_MS)
+    if recentrado:
+        poner(CP_RECENTER_MS, 0)
+    for idx, val in ANCHAS:
+        if not poner(idx, val):
+            print('FALLA: sin banda ancha el PI pelea el escalon; se aborta')
+            for i2, v2 in FABRICA:
+                poner(i2, v2)
+            return 4
+    print('  ok: DEADBAND=%s HOLD=%s SETTLED=%s'
+          % (bt._est.get(8), bt._est.get(36), bt._est.get(41)))
+
     print('esperando REGIMEN: no alcanza con que LPo este adentro, tiene que')
     print('estar QUIETO.  Un valor no dice nada sobre una tasa: la primera')
     print('corrida arranco con LPo en -26,7 mV y derivando 8 mV/min, que sobre')
@@ -163,16 +194,6 @@ def main():
     print('  en regimen: deriva %.2f mV/min, LPo %.1f mV, IDAC=%s'
           % (tasa, bt._est.get(bt.K_TAP + 16) / 1000.0,
              [bt._est.get(bt.K_IDAC + i) for i in range(4)]))
-    print('ensanchando la banda muerta (PI pasivo, telemetria viva)')
-    for idx, val in ANCHAS:
-        if not poner(idx, val):
-            print('FALLA: sin banda ancha el PI pelea el escalon; se aborta')
-            for i2, v2 in FABRICA:
-                poner(i2, v2)
-            return 4
-    print('  ok: DEADBAND=%s HOLD=%s SETTLED=%s'
-          % (bt._est.get(8), bt._est.get(36), bt._est.get(41)))
-
     base = bt._est.get(bt.K_IDAC + 3)
     alto = max(-255, min(255, base + a.escalon))
     print('\nIDAC3 base=%d, escalon a %d (%+d codigos)'
@@ -202,11 +223,19 @@ def main():
             # Verificar que la inyeccion LLEGO.  Hasta el 2026-09-26 el lazo la
             # deshacia en 3 s y la telemetria mostraba el valor viejo, asi que
             # el barrido entero medio deriva creyendo medir el actuador.
-            time.sleep(4)
+            # Pedir un reporte FRESCO antes de leer.  Los codigos de IDAC
+            # viajan solo en el reporte periodico -cada 5 s, o cada 30 con el
+            # nodo asentado-, asi que leer a los pocos segundos devuelve la
+            # foto ANTERIOR y la guarda aborta por su cuenta: se vio fallar una
+            # si y una no con el comando llegando siempre (el log del ESP lo
+            # mostraba).  `ctl report` pone el contador en cero y emite ya.
+            time.sleep(1.5)
+            bt._cmd('ctl report', 0.8)
+            time.sleep(1.5)
             leido = bt._est.get(bt.K_IDAC + 3)
-            if leido != codigo:
-                print('  !! se pidio IDAC3=%d y el nodo dice %s: se aborta'
-                      % (codigo, leido))
+            if leido is None or abs(leido - codigo) > TOLERANCIA_CODIGOS:
+                print('  !! se pidio IDAC3=%d y el nodo dice %s: la inyeccion '
+                      'no llego, se aborta' % (codigo, leido))
                 break
             s_ = observar(a.permanencia, etiqueta)
             datos['tramos'].append({'nombre': etiqueta, 'idac3': codigo,
@@ -251,6 +280,8 @@ def main():
         bt._cmd('idac 3 %d' % base, 0.4)
         for idx, val in FABRICA:
             poner(idx, val)
+        if recentrado:
+            poner(CP_RECENTER_MS, recentrado)
         print('  DEADBAND=%s HOLD=%s SETTLED=%s'
               % (bt._est.get(8), bt._est.get(36), bt._est.get(41)))
         with open(a.salida, 'w', encoding='utf-8') as fh:
