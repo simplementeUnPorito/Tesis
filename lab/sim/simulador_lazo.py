@@ -84,7 +84,7 @@ class Planta(object):
 
     def __init__(self, off_sum=0.0, off_lp=0.0,
                  b_fine=450.0, a_lp=-3.40, c_coarse=45000.0,
-                 s_idac1=-5240.0, s_idac0=-600.0, coarse_a_sum=20000.0,
+                 s_idac1=-5240.0, s_idac0=-600.0, coarse_a_sum=9850.0,
                  tau_slow=40.0, tau_lp=25.0, ruido=0.0):
         self.off_sum, self.off_lp = off_sum, off_lp
         self.b_fine, self.a_lp, self.c_coarse = b_fine, a_lp, c_coarse
@@ -217,6 +217,70 @@ def escenarios(d):
     print()
 
 
+def escenario_guarda(d):
+    """Defecto (A): la guarda de SUMo congela el lazo fino.
+
+    `control_pi_step` arranca con una guarda: si SUMo es invalido o se pasa de
+    `CP_SUM_BAND_UV`, mueve el grueso con su enfriamiento y **retorna sin
+    correr el PI fino** -solo deja pasar el rescate cuando LPo es invalido-.
+    En la placa eso se ve como x8/x8 CONTROL: LPo en +91 mV, IDAC3 en -30 y
+    SUMo valido apenas el 63 % del tiempo.  Corregir esos 91 mV pide unos 200
+    codigos de IDAC3 y le sobran: no es que no pueda, es que no lo intenta.
+    """
+    print('=' * 70)
+    print('DEFECTO (A) - la guarda de SUMo congela el lazo fino')
+    print('=' * 70)
+    print('Mismo LPo de partida, mismo vernier, lo unico que cambia es donde')
+    print('esta SUMo respecto de su banda de %d mV.'
+          % (d.sim_get(CP['SUM_BAND_UV']) // 1000))
+    print()
+    print('  %-14s %10s %9s %8s %8s %s'
+          % ('SUMo inicial', 'LPo_fin', 'IDAC3', 'IDAC2', 'pasos', 'lazo fino'))
+    for off_sum in (-20000.0, -50000.0, -70000.0, -95000.0):
+        planta = Planta(off_sum=off_sum, off_lp=90000.0)
+        filas = correr(d, planta, 0, 0, 0, 0, segundos=2400.0, forzar_s=30)
+        r = resumen(filas)
+        i3 = [f[3] for f in filas]
+        pasos = sum(1 for k in range(1, len(i3)) if i3[k] != i3[k - 1])
+        dentro = abs(off_sum) <= d.sim_get(CP['SUM_BAND_UV'])
+        print('  %-14.0f %10.1f %9d %8d %8d %s'
+              % (off_sum / 1000.0, r['LPo'], r['IDAC3'], r['IDAC2'], pasos,
+                 'corre' if dentro else 'CONGELADO por la guarda'))
+    print()
+    print('Si el lazo fino se congela, LPo se queda donde esta por mas margen')
+    print('que le sobre al vernier.  Eso no es falta de autoridad: es una')
+    print('guarda que se lleva puesto al unico actuador que podia arreglarlo.')
+    print()
+
+
+def escenario_signo(d):
+    """Si se "arregla" el signo de COARSE_SLOPE sin tocar la premisa, se rompe.
+
+    La guarda deduce la direccion del paso grueso del SIGNO de
+    COARSE_SLOPE_UV, asumiendo que el efecto sobre SUM es el opuesto al efecto
+    sobre LP.  Medido, los dos son POSITIVOS (+9,85 y +11,6 mV/codigo), asi
+    que la premisa es falsa.  Hoy el signo negativo de la config compensa esa
+    premisa falsa y la direccion sale bien por accidente."""
+    print('=' * 70)
+    print('QUE PASA SI SE "ARREGLA" EL SIGNO DE COARSE_SLOPE')
+    print('=' * 70)
+    base = d.sim_get(CP['COARSE_SLOPE_UV'])
+    print('  %-22s %10s %9s %8s' % ('COARSE_SLOPE_UV', 'SUMo_fin', 'LPo_fin', 'IDAC2'))
+    for val, etiq in ((-150000, 'config actual'), (11600, 'signo "corregido"')):
+        d.sim_set(CP['COARSE_SLOPE_UV'], ctypes.c_int32(val))
+        planta = Planta(off_sum=-80000.0, off_lp=90000.0)
+        filas = correr(d, planta, 0, 0, 0, 0, segundos=2400.0, forzar_s=30)
+        r = resumen(filas)
+        print('  %-22s %10.1f %9.1f %8d'
+              % ('%+d (%s)' % (val, etiq), filas[-1][1], r['LPo'], r['IDAC2']))
+    d.sim_set(CP['COARSE_SLOPE_UV'], ctypes.c_int32(base))
+    print()
+    print('Dos errores que se cancelan: la premisa "SUM tiene signo opuesto a')
+    print('LP" es falsa, y el signo negativo de la config la compensa.  Tocar')
+    print('uno solo de los dos rompe lo que hoy funciona.')
+    print()
+
+
 def main():
     ap = argparse.ArgumentParser(
         description=__doc__,
@@ -229,6 +293,8 @@ def main():
     validar(d)
     if a.escenarios:
         escenarios(d)
+        escenario_guarda(d)
+        escenario_signo(d)
     return 0
 
 
