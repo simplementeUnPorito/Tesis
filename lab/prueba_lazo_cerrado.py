@@ -126,10 +126,22 @@ def main(argv=None):
             if code == base:
                 continue
             bt._cmd('idac %d %d' % (args.etapa, code), 0.5)
-            time.sleep(8.0)
+            time.sleep(4.0)
+            # VERIFICAR que el escalon llego.  Hasta el 2026-09-26 el comando
+            # manual escribia el DAC sin avisarle al lazo, y el PI reescribia
+            # su propio valor en el tick siguiente: la inyeccion se deshacia en
+            # ~3 s y la telemetria nunca la mostraba.  Esta prueba reportaba
+            # "perturbe y el lazo volvio solo" sin haber perturbado nada, que
+            # es peor que no tener prueba.
+            leido = bt._est.get(bt.K_IDAC + args.etapa)
+            if leido != code:
+                _log('  !! se pidio IDAC%d=%d y el nodo dice %s: el escalon NO '
+                     'llego, no hay nada que probar' % (args.etapa, code, leido))
+                return 4
+            time.sleep(4.0)
             v = _lp()
             fuera = v is None or abs(v) > DESPIERTA_UV
-            _log('  escalon IDAC%d: %d -> %d   LPo=%s'
+            _log('  escalon IDAC%d: %d -> %d (confirmado)   LPo=%s'
                  % (args.etapa, base, code,
                     'INVALIDO' if v is None else '%.1f mV' % (v / 1000.0)))
             if fuera:
