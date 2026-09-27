@@ -47,3 +47,14 @@ lab/experimento_semilla_*/
 lab/campana_*/
 lab/barrido_reaprendizaje_*/
 lab/ruido_*/
+
+# Series crudas de medicion: 8.000+ lineas por corrida.  Se conservan en disco
+# y se versiona lab/autoridad/RESUMEN.json, que tiene las pendientes, la
+# dispersion entre estimaciones y la deriva -que es lo que se lee-.  Versionar
+# las series ahogaba el repositorio y bloqueaba cualquier revision de codigo.
+lab/autoridad/**/*.json
+!lab/autoridad/RESUMEN.json
+lab/campana_techo/
+lab/campana_vuelta2/
+lab/ruido_*/
+lab/planta/
