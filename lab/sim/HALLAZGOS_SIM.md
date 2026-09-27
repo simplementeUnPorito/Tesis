@@ -52,3 +52,32 @@ PI congelado por banda muerta ancha, escalones A-B-A-B-A, permanencias de
 360 s, deriva verificada antes de empezar, e inyeccion confirmada leyendo el
 codigo de vuelta tras un `ctl report`.  Sin eso, cualquier cambio a la guarda
 o al descargue es adivinanza.
+
+## CORRECCION 2026-09-26 (topologia): IDAC2 SI escala con PGAout
+
+Me faltaba que **IDAC2 esta multiplicado por la ganancia de PGAout**.  El
+firmware ya lo contempla -`ctl_effective_config()` escala COARSE_SLOPE por la
+ganancia de PGAout referida a x24- asi que `-150 mV/codigo` es el valor **a
+PGAout x24**, no en todos lados.  En x8/x8 el efectivo es -150*8/24 = -50.
+
+Eso invalida mi cuenta del "factor 13" y reordena la cadena:
+
+| actuador | entra en | escala con PGAout? | lo escala el firmware? |
+|---|---|---|---|
+| IDAC2 -> SUMo | el sumador | no | n/a |
+| IDAC2 -> LPo  | sumador, y pasa por PGAout | **si** | **si**, correcto |
+| IDAC3 -> LPo  | la etapa LP, despues de PGAout | **no** | **no**, correcto |
+
+**Y esto valida una medicion que no sabia que era estructural**: la pendiente
+de IDAC3 dio 0,41 mV/codigo a PGAout x1 y 0,49 a PGAout x16.  Dieciseis veces
+mas ganancia y la misma pendiente: IDAC3 inyecta DESPUES de PGAout.  O sea que
+`FINE_SLOPE` constante para los 81 pares esta justificado por la topologia y
+no solo por el ajuste.
+
+Tambien implica que **LPo/SUMo escala con PGAout**: los -3,40 medidos son a
+PGAout x16, o sea ~-5,1 referido a x24.
+
+Rehaciendo a la referencia: IDAC2 -> LPo ~ 9,85 * (-5,1) = **-50 mV/codigo**
+contra -150 configurado.  Queda un factor 3 sospechado, no 13.  Con dos fotos
+ruidosas de la campana no se resuelve: hay que medirlo en la placa, a un
+PGAout conocido, y referirlo a x24.

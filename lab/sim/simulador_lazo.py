@@ -83,11 +83,11 @@ class Planta(object):
     """
 
     def __init__(self, off_sum=0.0, off_lp=0.0,
-                 b_fine=450.0, a_lp=-3.40, c_coarse=45000.0,
+                 b_fine=450.0, a_lp_ref=-5.10, pgaout=16.0,
                  s_idac1=-5240.0, s_idac0=-600.0, coarse_a_sum=9850.0,
                  tau_slow=40.0, tau_lp=25.0, ruido=0.0):
         self.off_sum, self.off_lp = off_sum, off_lp
-        self.b_fine, self.a_lp, self.c_coarse = b_fine, a_lp, c_coarse
+        self.b_fine, self.a_lp_ref, self.pgaout = b_fine, a_lp_ref, pgaout
         self.s_idac1, self.s_idac0 = s_idac1, s_idac0
         self.coarse_a_sum = coarse_a_sum
         self.tau_slow, self.tau_lp = tau_slow, tau_lp
@@ -102,9 +102,15 @@ class Planta(object):
         return (self._sem / float(0x7FFFFFFF) - 0.5) * 2.0
 
     def objetivo(self, i0, i1, i2, i3):
+        # SUMo esta ANTES de PGAout y LPo despues, asi que la ganancia de
+        # SUMo a LPo escala con PGAout.  IDAC2 entra al sumador -no escala
+        # sobre SUMo, si sobre LPo- y IDAC3 entra en la etapa LP, despues de
+        # PGAout, asi que no escala: medido 0,41 mV/cod a PGAout x1 y 0,49 a
+        # x16, dieciseis veces mas ganancia y la misma pendiente.
         sumo = (self.off_sum + self.s_idac0 * i0 + self.s_idac1 * i1
                 + self.coarse_a_sum * i2)
-        lpo = self.off_lp + self.a_lp * sumo + self.b_fine * i3 + self.c_coarse * i2
+        a = self.a_lp_ref * (self.pgaout / 24.0)
+        lpo = self.off_lp + a * sumo + self.b_fine * i3
         return sumo, lpo
 
     def avanzar(self, dt, i0, i1, i2, i3):
