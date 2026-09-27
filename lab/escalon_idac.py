@@ -61,6 +61,8 @@ TAPS = ('SEo', 'BPo', 'OPA_SUM', 'SUM', 'LP')
 # Pasado esto la lectura ya no es de la etapa sino de su limite.
 SATURADO_UV = 105000
 TOLERANCIA_CODIGOS = 3
+# Valor de fabrica de CP_RECENTER_MS (control_config.c).
+RECENTER_FABRICA = 300000
 
 
 def poner(idx, valor, intentos=4):
@@ -89,11 +91,19 @@ def leer_taps():
     return v, ok
 
 
-def observar(segundos, etiqueta, paso=5.0):
+def observar(segundos, etiqueta, paso=5.0, paso_rapido=0.0, rapido_s=0.0):
+    """Sigue los taps.  Con `paso_rapido` muestrea fino al principio.
+
+    Hace falta para separar dinamicas que se superponen: la identificacion
+    pedia <= 0,5 s durante los primeros 30 s para distinguir la transferencia
+    de PGAout -practicamente instantanea- de la del pasabajos, que tiene su
+    propia constante de tiempo.  Muestreando cada 5 s las dos se ven como un
+    solo salto y el ajuste no puede repartirlas."""
     serie = []
     t0 = time.time()
     while time.time() - t0 < segundos and bt._vivo:
-        time.sleep(paso)
+        dt = time.time() - t0
+        time.sleep(paso_rapido if (paso_rapido and dt < rapido_s) else paso)
         v, ok = leer_taps()
         if all(x is None for x in v):
             continue
@@ -146,6 +156,12 @@ def main():
     ap.add_argument('--ventana-regimen', type=float, default=180.0)
     ap.add_argument('--deriva-max', type=float, default=1.0)
     ap.add_argument('--espera-regimen', type=float, default=1800.0)
+    ap.add_argument('--espera-aprendizaje', type=float, default=1500.0,
+                    help='el firmware rechaza `ctl apply` mientras aprende')
+    ap.add_argument('--paso-rapido', type=float, default=0.0,
+                    help='periodo de muestreo fino al inicio de cada tramo')
+    ap.add_argument('--rapido-s', type=float, default=30.0,
+                    help='cuanto dura ese muestreo fino')
     ap.add_argument('--salida', default=None)
     a = ap.parse_args()
 
@@ -161,6 +177,29 @@ def main():
     print('IDAC%d a PGA x%d / PGAout x%d'
           % (a.idac, bt.CODIGOS[a.pga], bt.CODIGOS[a.pgaout]))
 
+    # El firmware RECHAZA `ctl apply` mientras el estado es LEARNING
+    # (control_runtime.inc: `case CONTROL_APPLY: if(ctl_state==CONTROL_LEARNING
+    # ...) return 0;`).  Un cambio de ganancia lo mete en aprendizaje, asi que
+    # si se intenta ensanchar las bandas enseguida, TODA la configuracion se
+    # rechaza y la medicion aborta sin explicar por que.  Paso el 2026-09-27:
+    # los siete pasos de la matriz fallaron seguidos por esto.
+    print('esperando a que termine el aprendizaje (hasta %.0f min)'
+          % (a.espera_aprendizaje / 60.0))
+    t0 = time.time()
+    while time.time() - t0 < a.espera_aprendizaje and bt._vivo:
+        bt._cmd('ctl report', 0.8)
+        time.sleep(1.5)
+        if bt._est.get(bt.K_ESTADO) != 1:
+            break
+        time.sleep(20)
+    est = bt._est.get(bt.K_ESTADO)
+    if est == 1:
+        print('FALLA: sigue aprendiendo tras %.0f min; no se puede configurar'
+              % (a.espera_aprendizaje / 60.0))
+        return 7
+    print('  estado %s (%s) a los %.0f s'
+          % (est, bt.ESTADO.get(est), time.time() - t0))
+
     # 1. Congelar el PI PRIMERO.  Al reves no converge: con la config de
     #    fabrica hay pares que no se asientan nunca, asi que la tasa de deriva
     #    nunca baja del umbral.  Lo que tiene que quedar quieto es la PLANTA.
@@ -172,8 +211,14 @@ def main():
             for i2, v2 in FABRICA:
                 poner(i2, v2)
             return 4
-    guardados[CP_RECENTER_MS] = bt._est.get(CP_RECENTER_MS)
-    if guardados[CP_RECENTER_MS]:
+    # El recentrado se restaura al valor de FABRICA, no al que se encontro.
+    # Si una corrida anterior murio sin restaurarlo, encontrarlo en 0 y
+    # "restaurar" 0 propaga el error a todas las corridas siguientes -y a
+    # cualquier campana posterior, que se quedaria sin recentrado sin que
+    # nadie lo note-.  Paso el 2026-09-27.
+    leido = bt._est.get(CP_RECENTER_MS)
+    guardados[CP_RECENTER_MS] = leido if leido else RECENTER_FABRICA
+    if leido:
         poner(CP_RECENTER_MS, 0)
     print('  PI congelado: DEADBAND=%s HOLD=%s SETTLED=%s recentrado=%s'
           % (bt._est.get(8), bt._est.get(36), bt._est.get(41),
@@ -242,7 +287,8 @@ def main():
             if not inyectar(a.idac, codigo):
                 print('  se aborta: la inyeccion no llego')
                 break
-            s = observar(a.permanencia, etiqueta)
+            s = observar(a.permanencia, etiqueta,
+                         paso_rapido=a.paso_rapido, rapido_s=a.rapido_s)
             datos['tramos'].append({'nombre': etiqueta, 'codigo': codigo,
                                     'serie': s})
             if not bt._vivo:
@@ -286,8 +332,7 @@ def main():
             inyectar(a.idac, datos['base'])
         for idx, val in FABRICA:
             poner(idx, val)
-        if guardados.get(CP_RECENTER_MS):
-            poner(CP_RECENTER_MS, guardados[CP_RECENTER_MS])
+        poner(CP_RECENTER_MS, guardados.get(CP_RECENTER_MS, RECENTER_FABRICA))
         print('  DEADBAND=%s HOLD=%s SETTLED=%s recentrado=%s'
               % (bt._est.get(8), bt._est.get(36), bt._est.get(41),
                  bt._est.get(46)))
