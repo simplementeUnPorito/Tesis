@@ -60,6 +60,10 @@ from lab import barrido_total as bt          # noqa: E402
 # eso el firmware la manda SOLO a la SD del PSoC y entonces las muestras no
 # pasan por el ESP y `dumpusb` no las ve.  500 deja margen.
 LOTES = 500
+# Para saber cuanto dura de verdad una captura: 500 lotes de 30 muestras a
+# 2604 Hz son 5,76 s.  El host tiene que esperar eso antes de volcar.
+MUESTRAS_POR_LOTE = 30
+FS_HZ = 2604.0
 MUESTRAS_POR_LOTE = 30
 FS_NATIVA = 2604.0
 
@@ -160,7 +164,12 @@ def _una_corrida(par, condicion, rep, salida, meta_extra):
     # captura PAUSA el lazo de control por si sola (control_prepare_capture),
     # asi que las cuatro condiciones lo tienen pausado igual y esa no es una
     # variable del experimento.
-    bt._cmd('capwait %d' % LOTES, 0.5)
+    # `capwait` bloquea EN EL FIRMWARE, pero `_cmd` no espera respuesta: manda
+    # y duerme lo que se le diga.  Con 0,5 s el host volcaba cuando iban 5
+    # lotes de 500 y las veinte corridas fallaban en 30 segundos (2026-09-28).
+    # Hay que esperar lo que la captura REALMENTE tarda, mas margen.
+    _dur = LOTES * MUESTRAS_POR_LOTE / float(FS_HZ)
+    bt._cmd('capwait %d' % LOTES, _dur + 3.0)
     t_cap = time.time() - t0
     _cortar_estresores()
 
