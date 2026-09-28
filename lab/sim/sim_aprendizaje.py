@@ -24,7 +24,17 @@ def _records():
 
 def fit_authority():
     """Measured slopes only; missing gains are deliberately not interpolated."""
-    records = {(r["idac"], r["pga"], r["pgaout"]): r for _, r in _records()}
+    # Solo corridas de escalon: la carpeta tiene ademas RESUMEN.json, que es
+    # una LISTA de pendientes -no una corrida- y versionarlo fue justamente lo
+    # que permitio sacar las series crudas del repositorio.  Filtrar por
+    # estructura y no por nombre: manana puede haber otro archivo auxiliar.
+    records = {}
+    for _, r in _records():
+        if not isinstance(r, dict) or "pendiente_mV_por_codigo" not in r:
+            continue
+        if any(k not in r for k in ("idac", "pga", "pgaout")):
+            continue
+        records[(r["idac"], r["pga"], r["pgaout"])] = r
     slope = lambda key, tap: records[key]["pendiente_mV_por_codigo"][tap]["valor"]
     # Values indexed by the physical gains actually measured (or by the
     # requested comparable gain); idac0 is the PGA-scaled slow authority.

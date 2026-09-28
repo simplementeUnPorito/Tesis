@@ -636,7 +636,15 @@ def _visitar(pga, pgaout, ventana, muestreo=2.0, firmes=MUESTRAS_VALIDAS_MIN,
         lp = f['tap'][4] if f['valido'][4] == 1 else None
         if (tope == ventana and time.time() - t0 >= ventana - muestreo * 2 and
                 lp is not None and abs(lp) <= VENTANA_UV):
-            tope = ventana + muestreo * (firmes + 2)
+            # La prorroga tiene que alcanzar para DEMOSTRAR la quietud, no
+            # solo para tomar `firmes` muestras.  La cuenta vieja
+            # (muestreo*(firmes+2) = 16 s) venia de cuando el criterio era un
+            # numero de muestras; ahora la quietud exige SPAN_QUIETUD_MIN_S de
+            # tiempo real, asi que 16 s no rescatan a nadie.  Medido sobre la
+            # vuelta 1: 5 de 72 visitas quedaron en FALLA habiendo entrado en
+            # banda -dos de ellas con LPo en -0,1 y 9,3 mV-, o sea falla del
+            # instrumento y no del circuito.
+            tope = ventana + SPAN_QUIETUD_MIN_S + muestreo * 4
         # PRORROGA 2.  Si al vencerse la ventana el nodo TODAVIA esta
         # aprendiendo, no fracaso: no termino.  Medido a PGA x16, tres pares
         # seguidos pasaron los 240 s enteros en APRENDIENDO, y un aprendizaje

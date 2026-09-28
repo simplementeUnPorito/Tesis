@@ -23,10 +23,17 @@ import argparse
 import collections
 import json
 import os
+import os as _os
 import sys
 from datetime import datetime
 
-MIN_MUESTRAS = 8
+# Se IMPORTA en vez de copiarse.  Tenerlo duplicado hizo que este control
+# exigiera 8 muestras cuando el veredicto real pedia 6: una visita valida con
+# 6 o 7 aparecia como FALLA y disparaba escalamientos falsos.  Un umbral, un
+# solo lugar.
+import sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
+from lab.barrido_total import MUESTRAS_VALIDAS_MIN as MIN_MUESTRAS
 
 
 def cargar(salida):

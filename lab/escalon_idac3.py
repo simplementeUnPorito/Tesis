@@ -147,6 +147,21 @@ def main():
     # IDAC3 solo-, asi que la tasa nunca baja del umbral.  Lo que hay
     # que dejar quieto es la PLANTA, y para eso el lazo tiene que estar
     # afuera primero.
+    # El firmware RECHAZA `ctl apply` mientras aprende, y un cambio de
+    # ganancia lo mete en aprendizaje: sin esta espera los siete pasos de la
+    # matriz fallaron seguidos el 2026-09-27 con "sin banda ancha".  Su
+    # hermano escalon_idac.py ya lo contempla.
+    print('esperando a que termine el aprendizaje')
+    _t0 = time.time()
+    while time.time() - _t0 < 1500 and bt._vivo:
+        bt._cmd('ctl report', 0.8)
+        time.sleep(1.5)
+        if bt._est.get(bt.K_ESTADO) != 1:
+            break
+        time.sleep(20)
+    if bt._est.get(bt.K_ESTADO) == 1:
+        print('FALLA: sigue aprendiendo; no se puede configurar')
+        return 7
     print('ensanchando la banda muerta (PI pasivo, telemetria viva)')
     # Y apagar el recentrado lento: mueve un codigo de IDAC3 cada
     # CP_RECENTER_MS hacia el centro, aun con el PI congelado, y durante una
