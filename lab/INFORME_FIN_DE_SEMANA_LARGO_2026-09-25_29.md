@@ -176,7 +176,32 @@ oculte una perturbación pequeña.
 Datos: `lab/ruido_antena_20260928/`; resumen:
 `lab/ruido_antena_20260928/resumen.csv`.
 
-## 7. Experimento de SD
+## 7. Búsqueda de ganancias mayores
+
+Después del ensayo RF se buscaron puntos por encima de la mayor ganancia total
+estable demostrada (128). Estas pruebas se hicieron **sin RF**: primero había
+que demostrar que el lazo podía estabilizarlas antes de contaminar la prueba
+con transmisión.
+
+| Par | Ganancia total | Resultado sin RF | Alcance |
+|---|---:|---|---|
+| x4/x48 | 192 | FALLA | 0/1 visita; LPo pp final 98,3 mV |
+| x8/x24 | 192 | FALLA | 0/1 visita; sin `t_estable` tras 1260 s |
+| x8/x32 | 256 | FALLA/APRENDIENDO | 0/6 visitas en frío, desde x1 y desde alta |
+| x16/x16 | 256 | FALLA histórica | 0/6; siempre aprendiendo, LPo -266,6 mV |
+
+x8/x32 agotó la matriz completa: memoria y control en frío, desde x1/x1 y
+desde ganancia alta. Las tres visitas con memoria terminaron en FALLA y las
+tres de control siguieron APRENDIENDO hasta agotar la ventana; ninguna produjo
+un `t_estable`. Por tanto, ninguno de los puntos nuevos se habilitó para RF y
+el mayor nivel que conserva evidencia de estabilidad sigue siendo ganancia
+total 128 (x4/x32 y x8/x16).
+
+Datos: `lab/campana_altas_20260929/`,
+`lab/campana_altas_x8x24_20260929/` y
+`lab/campana_altas_x8x32_20260929/`.
+
+## 8. Experimento de SD
 
 La campaña inicial de 250 lotes no activaba el almacenamiento real del PSoC:
 la RAM admite hasta 512 lotes. Por eso `sdstress` no equivalía a medir el
@@ -201,15 +226,17 @@ Por tanto, no se ejecutó una captura larga fingiendo que la SD estaba activa.
 El pendiente es físico: insertar o reconectar una tarjeta reconocida y repetir
 con más de 512 lotes, seguido por lectura `sdread` completa.
 
-## 8. Verificaciones y commits clave
+## 9. Verificaciones y commits clave
 
 Verificaciones finales realizadas:
 
 - firmware ESP32 I2C `slave2`: compilación PlatformIO exitosa;
 - enlace ESP32–PSoC: `probe psoc=1`;
 - emisión ESP-NOW: 150 envíos, 0 fallos en la prueba corta;
-- análisis de ruido: 12/12 pruebas unitarias;
+- suite de host: 63/63 pruebas unitarias;
 - campaña RF: 60/60 archivos completos, 0 lotes faltantes.
+- ganancias mayores: x8/x32 completó 6/6 visitas, 0 estables; x4/x48 y
+  x8/x24 fallaron su primera visita y no se expusieron a RF.
 
 Commits de referencia:
 
@@ -223,14 +250,17 @@ Commits de referencia:
 - `93500f0c`: validación de lotes completos leídos desde SD;
 - `764126f` (submódulo ESP32): salida completa `sdread` en firmware I2C;
 - `4df0092f`: repositorio principal apuntando a la versión I2C corregida.
+- `8ed20435`: campaña reproducible BASE/RF y separación explícita del
+  diagnóstico SD sintético.
 
-## 9. Estado al cierre
+## 10. Estado al cierre
 
 Queda funcional y verificado el banco para campañas de control y para comparar
 BASE contra transmisión RF simultánea. El ensayo RF está terminado y sus datos
 están íntegros, aunque el ruido ambiental limita la sensibilidad de la
-comparación. El ensayo SD queda preparado de extremo a extremo en software,
-pero no puede cerrarse hasta que el hardware detecte la tarjeta.
+comparación. No se encontró un punto estable por encima de ganancia total 128.
+El ensayo SD queda preparado de extremo a extremo en software, pero no puede
+cerrarse hasta que el hardware detecte la tarjeta.
 
 El próximo paso mínimo y falsable es: conectar una SD reconocida, confirmar
 `present=1`, capturar más de 512 lotes y exigir que `sdread` reconstruya todas
