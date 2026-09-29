@@ -233,26 +233,30 @@ radio callada: leer los datos ya la encendía. Por eso se agregó `dumpusb`, que
 vuelca la captura que quedó en RAM por USB **después** de terminada. La captura
 tiene que ser limpia; la lectura puede ser sucia porque ocurre después.
 
-Y como la SD se activa sola cuando la captura no entra en RAM (y entonces las
-muestras no pasan por el ESP), la SD **no** se usa como camino de datos: entra
-como estresor controlado en paralelo, igual que la radio.
+La campaña reproducible por omisión compara BASE contra radio. La SD real sólo
+se puede medir con una captura mayor que la RAM del PSoC y `sdcap`; `sdstress`
+queda como diagnóstico sintético y se etiqueta explícitamente SDSTRESS para no
+confundir ambas cosas.
 
 ```
 dumpusb [desde] [hasta]       vuelca la captura en RAM por USB
-sdstress <ms> <periodo_ms>    escrituras a SD en paralelo (58 ms = el real)
+sdstress <ms> <periodo_ms>    diagnóstico sintético de escrituras (no SD real)
 rftest <ms> <periodo_ms> <bytes>   trafico ESP-NOW en paralelo
 ```
 
 ### Correr
 
 ```powershell
-python lab\experimento_ruido.py --port COM8 --pares 0,0 6,6 --repeticiones 3
+python lab\experimento_ruido.py --port COM8 --pares 2,4 2,5 --repeticiones 3
+python lab\experimento_ruido.py --port COM8 --condiciones BASE RF
 python lab\analisis_ruido.py lab\ruido_<fecha>
 ```
 
-Cuatro condiciones (BASE / SD / RF / SD+RF) en orden **ABBA** — ida y vuelta —
-porque medir todas las A y después todas las B mezcla la diferencia entre
-condiciones con la deriva de τ≈30-44 s.
+Las condiciones pedidas se recorren de ida y vuelta; con el modo predeterminado
+el orden es **BASE / RF / RF / BASE**. Esto evita medir todas las BASE y luego
+todas las RF, que mezclaría la diferencia con la deriva de τ≈30-44 s. Para una
+prueba eléctrica sintética puede pedirse `--condiciones BASE SDSTRESS`, pero ese
+resultado no se presenta como almacenamiento real del PSoC.
 
 ### Tres cosas que el análisis separa a propósito
 

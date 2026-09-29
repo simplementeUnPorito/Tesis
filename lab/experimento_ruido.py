@@ -22,12 +22,14 @@ y se vuelca despues por USB con `dumpusb`. Eso es deliberado: la captura tiene
 que estar libre de radio, y leer los datos por ESP-NOW la contaminaria. La
 lectura puede ser sucia porque ocurre DESPUES.
 
-La SD y la radio entran como estresores controlados en paralelo (`sdstress`,
-`rftest`), no como camino de datos. Asi las cuatro condiciones difieren en UNA
-sola cosa:
+La radio entra como estresor controlado en paralelo (`rftest`), no como camino
+de datos. La comparacion valida por omision tiene dos condiciones:
 
-    BASE     nada                      SD       escrituras a la SD
-    RF       trafico ESP-NOW           SD_RF    las dos
+    BASE     nada                      RF       trafico ESP-NOW
+
+`sdstress` queda disponible solamente como diagnostico sintetico, bajo los
+nombres SDSTRESS y SDSTRESS_RF. No equivale a una captura larga guardada por el
+PSoC y por eso nunca se etiqueta como SD.
 
 ## Por que ABBA y no A-despues-B
 
@@ -38,7 +40,8 @@ que cancela la deriva lineal.
 
 ## Uso
 
-    python lab/experimento_ruido.py --port COM8 --pares 0,0 6,6 --repeticiones 3
+    python lab/experimento_ruido.py --port COM8 --pares 2,4 2,5 --repeticiones 3
+    python lab/experimento_ruido.py --port COM8 --condiciones BASE RF
     python lab/analisis_ruido.py lab/ruido_<fecha>          (no abre el puerto)
 
 El modo `--piso` mide el piso de ruido ABSOLUTO del instrumento y EXIGE que la
@@ -80,7 +83,8 @@ SD_PERIODO_MS = 58
 RF_PERIODO_MS = 20
 RF_BYTES = 200
 
-CONDICIONES = ('BASE', 'SD', 'RF', 'SD_RF')
+CONDICIONES = ('BASE', 'RF')
+CONDICIONES_DISPONIBLES = ('BASE', 'RF', 'SDSTRESS', 'SDSTRESS_RF')
 
 SALIDA_POR_OMISION = os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
@@ -144,8 +148,12 @@ def _estresor(condicion, ms):
     """Arranca los estresores de la condicion. No bloquean: corren en el
     `loop()` del ESP mientras la captura pasa."""
     if condicion in ('SD', 'SD_RF'):
+        raise ValueError(
+            'SD/SD_RF implican almacenamiento real; use SDSTRESS para el '
+            'diagnostico sintetico o una captura larga con sdcap')
+    if condicion in ('SDSTRESS', 'SDSTRESS_RF'):
         bt._cmd('sdstress %d %d' % (ms, SD_PERIODO_MS), 0.3)
-    if condicion in ('RF', 'SD_RF'):
+    if condicion in ('RF', 'SDSTRESS_RF'):
         bt._cmd('rftest %d %d %d' % (ms, RF_PERIODO_MS, RF_BYTES), 0.3)
 
 
@@ -220,6 +228,11 @@ def main(argv=None):
     ap.add_argument('--pares', nargs='+', default=['0,0'],
                     help='codigos pga,pgaout separados por coma')
     ap.add_argument('--repeticiones', type=int, default=3)
+    ap.add_argument('--condiciones', nargs='+',
+                    choices=CONDICIONES_DISPONIBLES,
+                    default=list(CONDICIONES),
+                    help=('condiciones a intercalar; por omision BASE RF. '
+                          'SDSTRESS* es diagnostico sintetico, no SD real'))
     ap.add_argument('--asentar', type=int, default=90,
                     help='segundos de asentamiento tras cambiar de ganancia')
     ap.add_argument('--piso', action='store_true',
@@ -275,7 +288,7 @@ def main(argv=None):
             if not bt._vivo:
                 break
             # Ida y vuelta: cancela la deriva lineal dentro del bloque.
-            orden = list(CONDICIONES) + list(reversed(CONDICIONES))
+            orden = list(args.condiciones) + list(reversed(args.condiciones))
             for i, cond in enumerate(orden):
                 if not bt._vivo:
                     break
