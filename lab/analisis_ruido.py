@@ -50,6 +50,35 @@ FLAG_SD_SYNC = 0x02
 GANANCIAS = [1, 2, 4, 8, 16, 24, 32, 48, 50]
 
 
+def lote_sdread(lineas, esperado):
+    """Extrae un lote completo del volcado USB de ``sdread``.
+
+    El resumen ``[USB] SDREAD`` solo sirve como diagnóstico de transporte;
+    ``#SDREAD`` conserva las treinta muestras y por tanto es el dato que se
+    analiza.  Se rechazan respuestas de otra secuencia para no mezclar una
+    lectura tardía con el siguiente pedido.
+    """
+    prefijo = '#SDREAD %d ' % esperado
+    for linea in lineas:
+        if linea.startswith(prefijo):
+            payload = linea[len(prefijo):].strip()
+            if len(payload) == MUESTRAS_POR_LOTE * 10 * 2:
+                bytes.fromhex(payload)
+                return esperado, payload
+    return None
+
+
+def lotes_sdread(lineas, cantidad):
+    """Reconstruye una captura SD y exige que no falte ninguna secuencia."""
+    resultado = []
+    for seq in range(cantidad):
+        lote = lote_sdread(lineas, seq)
+        if lote is None:
+            return None
+        resultado.append(lote)
+    return resultado
+
+
 def cargar(ruta):
     """Devuelve (meta, seqs, digi, flags, gain).
 

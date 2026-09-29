@@ -74,6 +74,27 @@ class LotesFaltantes(unittest.TestCase):
             self.assertEqual(ar.lotes_faltantes(seqs), 0)
 
 
+class LecturaDesdeSD(unittest.TestCase):
+    def test_extrae_el_lote_completo_emitido_por_sdread(self):
+        # Una captura larga no pasa por dumpusb: cada `sdread` tiene que
+        # devolver exactamente el mismo payload de 30 SampleBytes que el
+        # volcado RAM, para que el analisis no pierda muestras intermedias.
+        payload = bytes(i % 256 for i in range(ar.MUESTRAS_POR_LOTE * 10)).hex()
+        lineas = [
+            '[USB] SDREAD seq=7 raw[0]=0 raw[29]=0 sumRaw=0',
+            '#SDREAD 7 ' + payload,
+        ]
+        self.assertEqual(ar.lote_sdread(lineas, 7), (7, payload))
+
+    def test_junta_lotes_solo_si_la_secuencia_esta_completa(self):
+        payload = bytes(i % 256 for i in range(ar.MUESTRAS_POR_LOTE * 10)).hex()
+        self.assertEqual(
+            ar.lotes_sdread(['#SDREAD 0 ' + payload, '#SDREAD 1 ' + payload], 2),
+            [(0, payload), (1, payload)],
+        )
+        self.assertIsNone(ar.lotes_sdread(['#SDREAD 0 ' + payload], 2))
+
+
 class RmsDeBanda(unittest.TestCase):
     def test_un_tono_dentro_de_la_banda_se_mide(self):
         fs = ar.FS_NATIVA
