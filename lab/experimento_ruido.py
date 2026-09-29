@@ -59,7 +59,13 @@ from lab import barrido_total as bt          # noqa: E402
 # Una captura de hasta PSOC_CAPTURE_MAX_BATCHES (512) lotes queda en RAM; pasado
 # eso el firmware la manda SOLO a la SD del PSoC y entonces las muestras no
 # pasan por el ESP y `dumpusb` no las ve.  500 deja margen.
-LOTES = 500
+# 250 y no 500: medido el 2026-09-28, el ESP agota su tope de 10,26 s con 500
+# lotes (`LAB_STARTWAIT timeout=1 ms=10261/10261`) y devuelve la captura vacia.
+# Con 250 tarda 3,36 s y sale completa.  Son 2,9 s de senal, 7.500 muestras a
+# 2604 Hz: de sobra para un RMS de ruido.
+# Y hace falta REINICIAR el nodo antes: un `clear` sobre un nodo con capturas
+# abortadas lo deja trabado y entonces falla hasta con 5 lotes, en cadena.
+LOTES = 250
 # Para saber cuanto dura de verdad una captura: 500 lotes de 30 muestras a
 # 2604 Hz son 5,76 s.  El host tiene que esperar eso antes de volcar.
 MUESTRAS_POR_LOTE = 30
@@ -169,7 +175,16 @@ def _una_corrida(par, condicion, rep, salida, meta_extra):
     # lotes de 500 y las veinte corridas fallaban en 30 segundos (2026-09-28).
     # Hay que esperar lo que la captura REALMENTE tarda, mas margen.
     _dur = LOTES * MUESTRAS_POR_LOTE / float(FS_HZ)
-    bt._cmd('capwait %d' % LOTES, _dur + 3.0)
+    # `startwait` y NO `capwait`.  Son dos caminos distintos en el ESP:
+    # `capwait` hace prestart + espera ARMED + sync desde HOT_WAIT, y en la
+    # placa nunca completa -se queda en `sync ignored ready=0` o agota el tope
+    # de 10,26 s-.  `startwait` va por `requestStartNowFromUsb` y SI completa:
+    # verificado el 2026-09-28 con 5, 60 y 250 lotes, devolviendo la cantidad
+    # pedida en los tres casos.
+    # El `clear` previo es obligatorio: sin el, el buffer de la captura
+    # anterior hace que se ignore el pedido nuevo.
+    bt._cmd('clear', 0.8)
+    bt._cmd('startwait %d' % LOTES, _dur + 5.0)
     t_cap = time.time() - t0
     _cortar_estresores()
 
