@@ -1,0 +1,553 @@
+#!/bin/bash
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+. bin/config
+
+# Parse parameters
+DO_CLEAN=false
+DO_BUILD=false
+DO_FLASH=false
+DO_MONITOR=false
+NO_RESET=false
+TARGETS=()
+OUTPUT_DIR=""
+
+# If no actions specified, default to build
+if [[ $# -eq 0 ]]; then
+    DO_BUILD=true
+fi
+
+# Parse arguments
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        clean)
+            DO_CLEAN=true
+            shift
+            ;;
+        build)
+            DO_BUILD=true
+            shift
+            ;;
+        flash)
+            DO_FLASH=true
+            shift
+            ;;
+        monitor)
+            DO_MONITOR=true
+            shift
+            ;;
+        -o|--output)
+            if [[ -z "$2" || "$2" == -* ]]; then
+                echo "Error: -o requires a directory argument"
+                exit 1
+            fi
+            OUTPUT_DIR="$2"
+            shift 2
+            ;;
+        --no-reset)
+            NO_RESET=true
+            shift
+            ;;
+        master|master2|master3|slave1|slave2|slave3|slave4|slave5|slave6|slaves|all)
+            TARGETS+=("$1")
+            shift
+            ;;
+        *)
+            echo "Unknown argument: $1"
+            echo "Usage: $0 [clean] [build] [flash] [monitor] [-o DATADIR] [--no-reset] [targets...]"
+            echo "  Actions: clean, build, flash, monitor (can specify multiple)"
+            echo "  Options:"
+            echo "    -o DATADIR  - Log monitor output to DATADIR/{slave1,slave2,slave3}.log"
+            echo "    --no-reset  - Don't reset chip when starting monitor"
+            echo "  Targets (can specify multiple):"
+            echo "    master      - Master device only"
+            echo "    master2     - Master 2 only (not included in 'all')"
+            echo "    master3     - Master 3 only (not included in 'all')"
+            echo "    slave1      - Slave 1 only"
+            echo "    slave2      - Slave 2 only"
+            echo "    slave3      - Slave 3 only (not included in 'all' or 'slaves')"
+            echo "    slave4      - Slave 4 only (not included in 'all' or 'slaves')"
+            echo "    slave5      - Slave 5 only (not included in 'all' or 'slaves')"
+            echo "    slave6      - Slave 6 only (not included in 'all' or 'slaves')"
+            echo "    slaves      - Slave 1 and 2 (not slave3-6)"
+            echo "    all         - Master + slave1 + slave2 (not master2/slave3-6) [default]"
+            echo "  If no actions specified, defaults to 'build'"
+            echo "  If no targets specified, defaults to 'all'"
+            exit 1
+            ;;
+    esac
+done
+
+# Default to 'all' if no targets specified
+if [[ ${#TARGETS[@]} -eq 0 ]]; then
+    TARGETS=("all")
+fi
+
+# Helper to check if a target is in the list
+has_target() {
+    local check="$1"
+    for t in "${TARGETS[@]}"; do
+        [[ "$t" == "$check" ]] && return 0
+    done
+    return 1
+}
+
+cd "$PROJECT_DIR"
+
+# Generate sdkconfig.local from config.local WiFi settings
+if [[ -n "$WIFI_SSID" && -n "$WIFI_PASSWORD" ]]; then
+    cat > sdkconfig.local <<EOF
+# Auto-generated from bin/config.local - DO NOT EDIT
+CONFIG_FTS_WIFI_SSID="$WIFI_SSID"
+CONFIG_FTS_WIFI_PASSWORD="$WIFI_PASSWORD"
+EOF
+    echo "Generated sdkconfig.local with WiFi: $WIFI_SSID"
+fi
+
+# Determine which firmware types are needed
+NEED_MASTER=false
+NEED_MASTER_2=false
+NEED_MASTER_3=false
+NEED_SLAVE1=false
+NEED_SLAVE2=false
+NEED_SLAVE3=false
+NEED_SLAVE4=false
+NEED_SLAVE5=false
+NEED_SLAVE6=false
+
+if has_target "all" || has_target "master"; then
+    NEED_MASTER=true
+fi
+# master2 is NOT included in 'all' - must be explicitly targeted
+if has_target "master2"; then
+    NEED_MASTER_2=true
+fi
+# master3 is NOT included in 'all' - must be explicitly targeted
+if has_target "master3"; then
+    NEED_MASTER_3=true
+fi
+if has_target "all" || has_target "slaves" || has_target "slave1"; then
+    NEED_SLAVE1=true
+fi
+if has_target "all" || has_target "slaves" || has_target "slave2"; then
+    NEED_SLAVE2=true
+fi
+# slave3 is NOT included in 'all' or 'slaves' - must be explicitly targeted
+if has_target "slave3"; then
+    NEED_SLAVE3=true
+fi
+# slave4 is NOT included in 'all' or 'slaves' - must be explicitly targeted
+if has_target "slave4"; then
+    NEED_SLAVE4=true
+fi
+# slave5 is NOT included in 'all' or 'slaves' - must be explicitly targeted
+if has_target "slave5"; then
+    NEED_SLAVE5=true
+fi
+# slave6 is NOT included in 'all' or 'slaves' - must be explicitly targeted
+if has_target "slave6"; then
+    NEED_SLAVE6=true
+fi
+
+# Function to clean/build a firmware type
+build_firmware() {
+    local fw_type=$1  # "master", "slave1", "slave2", "slave3", or "slave4"
+    local build_dir sdkconfig_defaults idf_target
+
+    case "$fw_type" in
+        master)
+            build_dir="$BUILDDIR_MASTER"
+            sdkconfig_defaults="sdkconfig.defaults;sdkconfig.defaults.fts_master"
+            idf_target="$TARGET_MASTER"
+            ;;
+        master2)
+            build_dir="$BUILDDIR_MASTER_2"
+            sdkconfig_defaults="sdkconfig.defaults;sdkconfig.defaults.fts_master2"
+            idf_target="$TARGET_MASTER_2"
+            ;;
+        master3)
+            build_dir="$BUILDDIR_MASTER_3"
+            sdkconfig_defaults="sdkconfig.defaults;sdkconfig.defaults.fts_master3"
+            idf_target="$TARGET_MASTER_3"
+            ;;
+        slave1)
+            build_dir="$BUILDDIR_SLAVE_1"
+            sdkconfig_defaults="sdkconfig.defaults;sdkconfig.defaults.fts_slave1"
+            idf_target="$TARGET_SLAVE_1"
+            ;;
+        slave2)
+            build_dir="$BUILDDIR_SLAVE_2"
+            sdkconfig_defaults="sdkconfig.defaults;sdkconfig.defaults.fts_slave2"
+            idf_target="$TARGET_SLAVE_2"
+            ;;
+        slave3)
+            build_dir="$BUILDDIR_SLAVE_3"
+            sdkconfig_defaults="sdkconfig.defaults;sdkconfig.defaults.fts_slave3"
+            idf_target="$TARGET_SLAVE_3"
+            ;;
+        slave4)
+            build_dir="$BUILDDIR_SLAVE_4"
+            sdkconfig_defaults="sdkconfig.defaults;sdkconfig.defaults.fts_slave4"
+            idf_target="$TARGET_SLAVE_4"
+            ;;
+        slave5)
+            build_dir="$BUILDDIR_SLAVE_5"
+            sdkconfig_defaults="sdkconfig.defaults;sdkconfig.defaults.fts_slave5"
+            idf_target="$TARGET_SLAVE_5"
+            ;;
+        slave6)
+            build_dir="$BUILDDIR_SLAVE_6"
+            sdkconfig_defaults="sdkconfig.defaults;sdkconfig.defaults.fts_slave6"
+            idf_target="$TARGET_SLAVE_6"
+            ;;
+    esac
+
+    # Append sdkconfig.local if it exists (WiFi credentials from config.local)
+    if [[ -f "sdkconfig.local" ]]; then
+        sdkconfig_defaults="$sdkconfig_defaults;sdkconfig.local"
+    fi
+
+    echo ""
+    echo "========== $(echo "$fw_type" | tr '[:lower:]' '[:upper:]') FIRMWARE =========="
+
+    . $ESP_IDF_EXPORT > /dev/null 2>&1
+
+    if [[ "$DO_CLEAN" == true ]]; then
+        echo "Cleaning ${fw_type} firmware..."
+        idf.py -B $build_dir fullclean
+    fi
+
+    if [[ "$DO_BUILD" == true ]]; then
+        echo "Building ${fw_type} firmware..."
+        idf.py -B $build_dir -DIDF_TARGET=$idf_target -D SDKCONFIG_DEFAULTS="$sdkconfig_defaults" build
+    fi
+}
+
+# Function to flash a device
+flash_device() {
+    local device_name=$1
+    local build_dir=$2
+    local serial_port=$3
+
+    echo ""
+    echo "---------- Flashing $device_name to $serial_port ----------"
+
+    . $ESP_IDF_EXPORT > /dev/null 2>&1
+    idf.py -B $build_dir -p "$serial_port" flash
+}
+
+# Phase 1: Clean/Build firmware (once per firmware type)
+if [[ "$DO_CLEAN" == true || "$DO_BUILD" == true ]]; then
+    if [[ "$NEED_MASTER" == true ]]; then
+        build_firmware "master"
+    fi
+    if [[ "$NEED_MASTER_2" == true ]]; then
+        build_firmware "master2"
+    fi
+    if [[ "$NEED_MASTER_3" == true ]]; then
+        build_firmware "master3"
+    fi
+    if [[ "$NEED_SLAVE1" == true ]]; then
+        build_firmware "slave1"
+    fi
+    if [[ "$NEED_SLAVE2" == true ]]; then
+        build_firmware "slave2"
+    fi
+    if [[ "$NEED_SLAVE3" == true ]]; then
+        build_firmware "slave3"
+    fi
+    if [[ "$NEED_SLAVE4" == true ]]; then
+        build_firmware "slave4"
+    fi
+    if [[ "$NEED_SLAVE5" == true ]]; then
+        build_firmware "slave5"
+    fi
+    if [[ "$NEED_SLAVE6" == true ]]; then
+        build_firmware "slave6"
+    fi
+fi
+
+# Phase 2: Flash to devices
+if [[ "$DO_FLASH" == true ]]; then
+    # Flash master
+    if has_target "all" || has_target "master"; then
+        flash_device "MASTER" "$BUILDDIR_MASTER" "$SERIAL_PORT_MASTER"
+    fi
+    # master2 is NOT included in 'all' - must be explicitly targeted
+    if has_target "master2"; then
+        flash_device "MASTER 2" "$BUILDDIR_MASTER_2" "$SERIAL_PORT_MASTER_2"
+    fi
+    # master3 is NOT included in 'all' - must be explicitly targeted
+    if has_target "master3"; then
+        flash_device "MASTER 3" "$BUILDDIR_MASTER_3" "$SERIAL_PORT_MASTER_3"
+    fi
+
+    # Flash slave devices
+    if has_target "all" || has_target "slaves" || has_target "slave1"; then
+        flash_device "SLAVE 1" "$BUILDDIR_SLAVE_1" "$SERIAL_PORT_SLAVE_1"
+    fi
+    if has_target "all" || has_target "slaves" || has_target "slave2"; then
+        flash_device "SLAVE 2" "$BUILDDIR_SLAVE_2" "$SERIAL_PORT_SLAVE_2"
+    fi
+    # slave3 is NOT included in 'all' or 'slaves' - must be explicitly targeted
+    if has_target "slave3"; then
+        flash_device "SLAVE 3" "$BUILDDIR_SLAVE_3" "$SERIAL_PORT_SLAVE_3"
+    fi
+    # slave4 is NOT included in 'all' or 'slaves' - must be explicitly targeted
+    if has_target "slave4"; then
+        flash_device "SLAVE 4" "$BUILDDIR_SLAVE_4" "$SERIAL_PORT_SLAVE_4"
+    fi
+    # slave5 is NOT included in 'all' or 'slaves' - must be explicitly targeted
+    if has_target "slave5"; then
+        flash_device "SLAVE 5" "$BUILDDIR_SLAVE_5" "$SERIAL_PORT_SLAVE_5"
+    fi
+    # slave6 is NOT included in 'all' or 'slaves' - must be explicitly targeted
+    if has_target "slave6"; then
+        flash_device "SLAVE 6" "$BUILDDIR_SLAVE_6" "$SERIAL_PORT_SLAVE_6"
+    fi
+fi
+
+# Phase 3: Monitor
+if [[ "$DO_MONITOR" == true ]]; then
+    echo ""
+    # Determine which devices to monitor
+    MON_MASTER=false
+    MON_MASTER_2=false
+    MON_MASTER_3=false
+    MON_SLAVE1=false
+    MON_SLAVE2=false
+    MON_SLAVE3=false
+    MON_SLAVE4=false
+    MON_SLAVE5=false
+    MON_SLAVE6=false
+
+    if has_target "all"; then
+        MON_MASTER=true; MON_SLAVE1=true; MON_SLAVE2=true
+        # master2/master3/slave3/slave4/slave5/slave6 are NOT included in 'all'
+    else
+        has_target "master" && MON_MASTER=true
+        has_target "master2" && MON_MASTER_2=true
+        has_target "master3" && MON_MASTER_3=true
+        if has_target "slaves"; then
+            MON_SLAVE1=true; MON_SLAVE2=true
+            # slave3/slave4/slave5/slave6 are NOT included in 'slaves'
+        else
+            has_target "slave1" && MON_SLAVE1=true
+            has_target "slave2" && MON_SLAVE2=true
+        fi
+        has_target "slave3" && MON_SLAVE3=true
+        has_target "slave4" && MON_SLAVE4=true
+        has_target "slave5" && MON_SLAVE5=true
+        has_target "slave6" && MON_SLAVE6=true
+    fi
+
+    # Count monitors needed
+    MON_COUNT=0
+    $MON_MASTER && ((MON_COUNT++)) || true
+    $MON_MASTER_2 && ((MON_COUNT++)) || true
+    $MON_MASTER_3 && ((MON_COUNT++)) || true
+    $MON_SLAVE1 && ((MON_COUNT++)) || true
+    $MON_SLAVE2 && ((MON_COUNT++)) || true
+    $MON_SLAVE3 && ((MON_COUNT++)) || true
+    $MON_SLAVE4 && ((MON_COUNT++)) || true
+    $MON_SLAVE5 && ((MON_COUNT++)) || true
+    $MON_SLAVE6 && ((MON_COUNT++)) || true
+
+    # Create output directory if specified
+    if [[ -n "$OUTPUT_DIR" ]]; then
+        mkdir -p "$OUTPUT_DIR"
+        echo "Logging to: $OUTPUT_DIR/"
+    fi
+
+    # Build monitor arguments
+    MONITOR_ARGS=""
+    [[ "$NO_RESET" == true ]] && MONITOR_ARGS="--no-reset"
+
+    if [[ $MON_COUNT -eq 0 ]]; then
+        echo "No devices selected for monitoring"
+    elif [[ $MON_COUNT -eq 1 ]]; then
+        # Single monitor - no tmux needed
+        # Use ts_us.py for microsecond timestamps instead of --timestamps (second precision)
+        if $MON_MASTER; then
+            echo "Monitoring MASTER..."
+            . $ESP_IDF_EXPORT > /dev/null 2>&1
+            TS_ARGS=""
+            [[ -n "$OUTPUT_DIR" ]] && TS_ARGS="-o $OUTPUT_DIR/master.log"
+            stdbuf -oL idf.py -B $BUILDDIR_MASTER -p $SERIAL_PORT_MASTER monitor $MONITOR_ARGS 2>&1 | "$SCRIPT_DIR/ts_us.py" $TS_ARGS
+        elif $MON_MASTER_2; then
+            echo "Monitoring MASTER 2..."
+            . $ESP_IDF_EXPORT > /dev/null 2>&1
+            TS_ARGS=""
+            [[ -n "$OUTPUT_DIR" ]] && TS_ARGS="-o $OUTPUT_DIR/master2.log"
+            stdbuf -oL idf.py -B $BUILDDIR_MASTER_2 -p $SERIAL_PORT_MASTER_2 monitor $MONITOR_ARGS 2>&1 | "$SCRIPT_DIR/ts_us.py" $TS_ARGS
+        elif $MON_MASTER_3; then
+            echo "Monitoring MASTER 3..."
+            . $ESP_IDF_EXPORT > /dev/null 2>&1
+            TS_ARGS=""
+            [[ -n "$OUTPUT_DIR" ]] && TS_ARGS="-o $OUTPUT_DIR/master3.log"
+            stdbuf -oL idf.py -B $BUILDDIR_MASTER_3 -p $SERIAL_PORT_MASTER_3 monitor $MONITOR_ARGS 2>&1 | "$SCRIPT_DIR/ts_us.py" $TS_ARGS
+        elif $MON_SLAVE1; then
+            echo "Monitoring SLAVE 1..."
+            . $ESP_IDF_EXPORT > /dev/null 2>&1
+            TS_ARGS=""
+            [[ -n "$OUTPUT_DIR" ]] && TS_ARGS="-o $OUTPUT_DIR/slave1.log"
+            stdbuf -oL idf.py -B $BUILDDIR_SLAVE_1 -p $SERIAL_PORT_SLAVE_1 monitor $MONITOR_ARGS 2>&1 | "$SCRIPT_DIR/ts_us.py" $TS_ARGS
+        elif $MON_SLAVE2; then
+            echo "Monitoring SLAVE 2..."
+            . $ESP_IDF_EXPORT > /dev/null 2>&1
+            TS_ARGS=""
+            [[ -n "$OUTPUT_DIR" ]] && TS_ARGS="-o $OUTPUT_DIR/slave2.log"
+            stdbuf -oL idf.py -B $BUILDDIR_SLAVE_2 -p $SERIAL_PORT_SLAVE_2 monitor $MONITOR_ARGS 2>&1 | "$SCRIPT_DIR/ts_us.py" $TS_ARGS
+        elif $MON_SLAVE3; then
+            echo "Monitoring SLAVE 3..."
+            . $ESP_IDF_EXPORT > /dev/null 2>&1
+            TS_ARGS=""
+            [[ -n "$OUTPUT_DIR" ]] && TS_ARGS="-o $OUTPUT_DIR/slave3.log"
+            stdbuf -oL idf.py -B $BUILDDIR_SLAVE_3 -p $SERIAL_PORT_SLAVE_3 monitor $MONITOR_ARGS 2>&1 | "$SCRIPT_DIR/ts_us.py" $TS_ARGS
+        elif $MON_SLAVE4; then
+            echo "Monitoring SLAVE 4..."
+            . $ESP_IDF_EXPORT > /dev/null 2>&1
+            TS_ARGS=""
+            [[ -n "$OUTPUT_DIR" ]] && TS_ARGS="-o $OUTPUT_DIR/slave4.log"
+            stdbuf -oL idf.py -B $BUILDDIR_SLAVE_4 -p $SERIAL_PORT_SLAVE_4 monitor $MONITOR_ARGS 2>&1 | "$SCRIPT_DIR/ts_us.py" $TS_ARGS
+        elif $MON_SLAVE5; then
+            echo "Monitoring SLAVE 5..."
+            . $ESP_IDF_EXPORT > /dev/null 2>&1
+            TS_ARGS=""
+            [[ -n "$OUTPUT_DIR" ]] && TS_ARGS="-o $OUTPUT_DIR/slave5.log"
+            stdbuf -oL idf.py -B $BUILDDIR_SLAVE_5 -p $SERIAL_PORT_SLAVE_5 monitor $MONITOR_ARGS 2>&1 | "$SCRIPT_DIR/ts_us.py" $TS_ARGS
+        elif $MON_SLAVE6; then
+            echo "Monitoring SLAVE 6..."
+            . $ESP_IDF_EXPORT > /dev/null 2>&1
+            TS_ARGS=""
+            [[ -n "$OUTPUT_DIR" ]] && TS_ARGS="-o $OUTPUT_DIR/slave6.log"
+            stdbuf -oL idf.py -B $BUILDDIR_SLAVE_6 -p $SERIAL_PORT_SLAVE_6 monitor $MONITOR_ARGS 2>&1 | "$SCRIPT_DIR/ts_us.py" $TS_ARGS
+        fi
+    else
+        # Multiple monitors - use tmux
+        echo "Opening $MON_COUNT monitors in tmux..."
+        tmux kill-session -t fts_monitor 2>/dev/null || true
+        tmux new-session -d -s fts_monitor -x 200 -y 50
+
+        FIRST_PANE=true
+
+        if $MON_MASTER; then
+            if $FIRST_PANE; then
+                FIRST_PANE=false
+            else
+                tmux split-window -t fts_monitor -v
+            fi
+            TS_ARGS=""
+            [[ -n "$OUTPUT_DIR" ]] && TS_ARGS="-o '$OUTPUT_DIR/master.log'"
+            tmux send-keys -t fts_monitor \
+                "cd '$PROJECT_DIR' && source $ESP_IDF_EXPORT && stdbuf -oL idf.py -B $BUILDDIR_MASTER -p $SERIAL_PORT_MASTER monitor $MONITOR_ARGS 2>&1 | '$SCRIPT_DIR/ts_us.py' $TS_ARGS" C-m
+        fi
+
+        if $MON_MASTER_2; then
+            if $FIRST_PANE; then
+                FIRST_PANE=false
+            else
+                tmux split-window -t fts_monitor -v
+            fi
+            TS_ARGS=""
+            [[ -n "$OUTPUT_DIR" ]] && TS_ARGS="-o '$OUTPUT_DIR/master2.log'"
+            tmux send-keys -t fts_monitor \
+                "cd '$PROJECT_DIR' && source $ESP_IDF_EXPORT && stdbuf -oL idf.py -B $BUILDDIR_MASTER_2 -p $SERIAL_PORT_MASTER_2 monitor $MONITOR_ARGS 2>&1 | '$SCRIPT_DIR/ts_us.py' $TS_ARGS" C-m
+        fi
+
+        if $MON_MASTER_3; then
+            if $FIRST_PANE; then
+                FIRST_PANE=false
+            else
+                tmux split-window -t fts_monitor -v
+            fi
+            TS_ARGS=""
+            [[ -n "$OUTPUT_DIR" ]] && TS_ARGS="-o '$OUTPUT_DIR/master3.log'"
+            tmux send-keys -t fts_monitor \
+                "cd '$PROJECT_DIR' && source $ESP_IDF_EXPORT && stdbuf -oL idf.py -B $BUILDDIR_MASTER_3 -p $SERIAL_PORT_MASTER_3 monitor $MONITOR_ARGS 2>&1 | '$SCRIPT_DIR/ts_us.py' $TS_ARGS" C-m
+        fi
+
+        if $MON_SLAVE1; then
+            if $FIRST_PANE; then
+                FIRST_PANE=false
+            else
+                tmux split-window -t fts_monitor -v
+            fi
+            TS_ARGS=""
+            [[ -n "$OUTPUT_DIR" ]] && TS_ARGS="-o '$OUTPUT_DIR/slave1.log'"
+            tmux send-keys -t fts_monitor \
+                "cd '$PROJECT_DIR' && source $ESP_IDF_EXPORT && stdbuf -oL idf.py -B $BUILDDIR_SLAVE_1 -p $SERIAL_PORT_SLAVE_1 monitor $MONITOR_ARGS 2>&1 | '$SCRIPT_DIR/ts_us.py' $TS_ARGS" C-m
+        fi
+
+        if $MON_SLAVE2; then
+            if $FIRST_PANE; then
+                FIRST_PANE=false
+            else
+                tmux split-window -t fts_monitor -v
+            fi
+            TS_ARGS=""
+            [[ -n "$OUTPUT_DIR" ]] && TS_ARGS="-o '$OUTPUT_DIR/slave2.log'"
+            tmux send-keys -t fts_monitor \
+                "cd '$PROJECT_DIR' && source $ESP_IDF_EXPORT && stdbuf -oL idf.py -B $BUILDDIR_SLAVE_2 -p $SERIAL_PORT_SLAVE_2 monitor $MONITOR_ARGS 2>&1 | '$SCRIPT_DIR/ts_us.py' $TS_ARGS" C-m
+        fi
+
+        if $MON_SLAVE3; then
+            if $FIRST_PANE; then
+                FIRST_PANE=false
+            else
+                tmux split-window -t fts_monitor -v
+            fi
+            TS_ARGS=""
+            [[ -n "$OUTPUT_DIR" ]] && TS_ARGS="-o '$OUTPUT_DIR/slave3.log'"
+            tmux send-keys -t fts_monitor \
+                "cd '$PROJECT_DIR' && source $ESP_IDF_EXPORT && stdbuf -oL idf.py -B $BUILDDIR_SLAVE_3 -p $SERIAL_PORT_SLAVE_3 monitor $MONITOR_ARGS 2>&1 | '$SCRIPT_DIR/ts_us.py' $TS_ARGS" C-m
+        fi
+
+        if $MON_SLAVE4; then
+            if $FIRST_PANE; then
+                FIRST_PANE=false
+            else
+                tmux split-window -t fts_monitor -v
+            fi
+            TS_ARGS=""
+            [[ -n "$OUTPUT_DIR" ]] && TS_ARGS="-o '$OUTPUT_DIR/slave4.log'"
+            tmux send-keys -t fts_monitor \
+                "cd '$PROJECT_DIR' && source $ESP_IDF_EXPORT && stdbuf -oL idf.py -B $BUILDDIR_SLAVE_4 -p $SERIAL_PORT_SLAVE_4 monitor $MONITOR_ARGS 2>&1 | '$SCRIPT_DIR/ts_us.py' $TS_ARGS" C-m
+        fi
+
+        if $MON_SLAVE5; then
+            if $FIRST_PANE; then
+                FIRST_PANE=false
+            else
+                tmux split-window -t fts_monitor -v
+            fi
+            TS_ARGS=""
+            [[ -n "$OUTPUT_DIR" ]] && TS_ARGS="-o '$OUTPUT_DIR/slave5.log'"
+            tmux send-keys -t fts_monitor \
+                "cd '$PROJECT_DIR' && source $ESP_IDF_EXPORT && stdbuf -oL idf.py -B $BUILDDIR_SLAVE_5 -p $SERIAL_PORT_SLAVE_5 monitor $MONITOR_ARGS 2>&1 | '$SCRIPT_DIR/ts_us.py' $TS_ARGS" C-m
+        fi
+
+        if $MON_SLAVE6; then
+            if $FIRST_PANE; then
+                FIRST_PANE=false
+            else
+                tmux split-window -t fts_monitor -v
+            fi
+            TS_ARGS=""
+            [[ -n "$OUTPUT_DIR" ]] && TS_ARGS="-o '$OUTPUT_DIR/slave6.log'"
+            tmux send-keys -t fts_monitor \
+                "cd '$PROJECT_DIR' && source $ESP_IDF_EXPORT && stdbuf -oL idf.py -B $BUILDDIR_SLAVE_6 -p $SERIAL_PORT_SLAVE_6 monitor $MONITOR_ARGS 2>&1 | '$SCRIPT_DIR/ts_us.py' $TS_ARGS" C-m
+        fi
+
+        # Balance panes and attach
+        tmux select-layout -t fts_monitor even-vertical
+        tmux select-pane -t fts_monitor:0.0
+        tmux attach-session -t fts_monitor
+    fi
+else
+    echo ""
+    echo "Done!"
+fi

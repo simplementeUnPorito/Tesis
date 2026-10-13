@@ -1,0 +1,301 @@
+A Digitally Assisted Analog Front-End for Low-Cost
+             Geophone Instrumentation
+                                  Elías D. Álvarez Martínez, Student Member, IEEE,
+                    Vicente González, Member, IEEE, and Enrique A. Vargas Cabral, Member, IEEE
+                   Facultad de Ciencias y Tecnología, Universidad Católica “Nuestra Señora de la Asunción”
+                             Asunción, Paraguay — {elias.alvarez, vgonzalez, evargas}@uc.edu.py
+
+
+   Abstract—Low-cost programmable mixed-signal platforms pro-      while leaving the acquisition signal path unchanged during
+vide an attractive foundation for scientific instrumentation, but the
+                                                                   normal operation. Although digitally assisted analog design has
+limited precision of their configurable analog building blocks often
+                                                                   primarily been investigated at the integrated-circuit level, the
+constrains analog front-end performance. This paper proposes a
+Digitally Assisted Analog Front-End architecture that temporarily  present work extends the same philosophy to low-cost scientific
+exploits the embedded mixed-signal resources of a programmable     instrumentation through a geophone acquisition platform.
+system-on-chip (PSoC) to improve the operating conditions of the       Low-cost multichannel geophone acquisition systems provide
+analog signal chain while preserving a conventional acquisition    a representative application for this architecture. Surface-wave
+path during normal operation.
+                                                                   methods such as Multichannel Analysis of Surface Waves
+   As a proof of architectural feasibility, the proposed architecture
+is demonstrated through an automatic foreground DC-offset          (MASW) estimate Rayleigh-wave dispersion to infer shear-
+calibration that sequentially recenters the programmable-gain      wave velocity profiles for geotechnical site characterization [3],
+amplifier, band-pass filter, summing stage, and low-pass filter    [4]. Low-cost embedded geophone interfaces have already been
+using the on-chip ADC, DAC, and digital filtering resources.       demonstrated [5], [6], but in multistage analog conditioning
+   The architecture was experimentally evaluated on two inde-
+pendently assembled geophone acquisition boards under eight        chains, accumulated amplifier and reference offsets progres-
+board–gain configurations. Relative to a common fixed-reference    sively reduce the available dynamic range and, at high gain,
+baseline, the calibrated low-pass output reduced the residual DC   may saturate intermediate stages before the microvolt-level
+offset from 2.9–45.8% to 0.4–3.9% of the nominal ADC input         seismic signal reaches the acquisition converter. Improving the
+span using a single controller configuration across all reported   effective operating conditions of the analog front end therefore
+conditions.
+   These results demonstrate the feasibility of the proposed
+                                                                   directly benefits the overall measurement system.
+Digitally Assisted Analog Front-End architecture as a practical        The proposed front end forms part of a low-cost re-
+approach for improving the operating conditions of low-cost        configurable Internet-of-Things (IoT) geophone acquisition
+configurable analog hardware using embedded mixed-signal           platform [7] based on SM-24 moving-coil geophones [8]. The
+resources. Statistical validation over larger hardware populations
+and broader environmental characterization remain future work.
+                                                                   PSoC 5LP integrates programmable analog blocks, voltage
+   Index Terms—Digitally assisted analog design, analog front end, DACs (VDACs), a delta-sigma ADC, programmable digital
+mixed-signal systems, geophone instrumentation, programmable       filters, DMA resources, and an Arm Cortex-M3 processor [9],
+system-on-chip (PSoC).                                             providing all resources required to implement the proposed
+                                                                   architecture. As a proof of architectural feasibility, this work
+                      I. I NTRODUCTION                             implements an automatic foreground DC-offset calibration that
+   Modern programmable mixed-signal platforms have become sequentially recenters the programmable-gain amplifier (PGA),
+an attractive foundation for low-cost scientific instrumentation band-pass filter (BP), summing stage (SUM), and low-pass
+because they integrate configurable analog resources together filter (LP) before acquisition.
+with analog-to-digital and digital-to-analog converters, pro-          Previous offset-compensation techniques generally follow
+grammable digital filters, direct memory access, and embedded three approaches: numerical estimation and digital correction
+processors within a single device. However, the configurable [10], [11], physical trimming of individual analog stages
+analog building blocks available in these platforms generally [12], or autozero and chopper stabilization techniques [13],
+provide lower precision, larger offsets, and reduced matching [14]. In contrast, the proposed architecture employs embedded
+than dedicated analog integrated circuits, limiting the achievable digital resources only during foreground calibration. Once the
+performance of the analog front end.                               desired operating points have been established, the calibration
+   Rather than addressing these limitations through higher-grade subsystem is disabled and the analog signal chain operates
+analog components, manual trimming, or additional external conventionally throughout data acquisition.
+circuitry, the proposed work follows the principles of digitally       The contributions of this work are threefold: (i) the proposal
+assisted analog design introduced by Murmann and Boser of a Digitally Assisted Analog Front-End architecture that ex-
+[1] and further developed by Murmann [2]. In this work, a ploits embedded mixed-signal resources to improve the effective
+Digitally Assisted Analog Front-End denotes an architecture operating conditions of configurable analog hardware while
+in which embedded digital resources temporarily assist the preserving hardware simplicity; (ii) its demonstration through
+analog circuitry to improve its effective operating conditions automatic foreground DC-offset calibration of a complete low-
+cost geophone conditioning chain; and (iii) an experimental converges to the desired value. After foreground calibration, the
+evaluation on two independently assembled acquisition boards digital assistance is disabled and the analog front end operates
+under multiple gain configurations using a single controller as a conventional feed-forward signal chain throughout data
+configuration across all reported conditions.                     acquisition.
+   The remainder of this paper is organized as follows. Section
+II presents the proposed architecture. Section III describes the            III. F OREGROUND C ALIBRATION M ETHOD
+foreground calibration method. Section IV reports the experi-        As introduced in Section II, the proposed Digitally Assisted
+mental validation, followed by the discussion and conclusion.     Analog Front-End architecture performs foreground calibration
+                                                                  before data acquisition. During this stage, embedded digital
+       II. D IGITALLY A SSISTED A NALOG F RONT-E ND
+                                                                  resources temporarily assist each analog stage to establish
+                        A RCHITECTURE
+                                                                  its operating point. Once calibration is completed, the digital
+   The proposed Digitally Assisted Analog Front-End architec- assistance is disabled and the analog signal chain resumes
+ture combines a conventional analog acquisition path with conventional feed-forward operation.
+temporary embedded digital assistance during foreground
+calibration. Unlike post-acquisition digital compensation, the A. Calibration Workflow
+embedded digital resources are employed only to establish the        The calibration workflow is illustrated in Fig. 2. At boot, after
+desired operating point of each analog stage. Once calibration a gain change, or on command, the firmware loads the stored
+is completed, the digital assistance is disabled and signal DAC codes and verifies whether the previously established
+acquisition proceeds entirely through the calibrated analog calibration remains valid. Since DC estimation assumes a
+signal path.                                                      stationary geophone and slowly varying internal states, a valid
+   The architecture is implemented on a PSoC 5LP pro- operating point immediately returns the system to acquisition.
+grammable mixed-signal platform. During foreground cali- Otherwise, the PGA, BP, SUM, and LP stages are calibrated
+bration, the embedded analog multiplexer, delta-sigma ADC, sequentially with filter reset and settling after each stage. A
+programmable digital filter, voltage DACs (VDACs), and watchdog timer and sample-count limits bound the process;
+embedded processor are temporarily repurposed as a mixed- during acquisition, the controller remains inactive, the LP stage
+signal feedback system that assists the analog circuitry while is selected, and the VDAC codes remain constant.
+leaving the acquisition signal path unchanged. During normal         During calibration, the programmable digital filter operates
+operation, these resources resume their conventional acquisition as a 128-tap FIR DC estimator, whereas during acquisition
+functions.                                                        it is reconfigured with coefficients matched to the geophone
+   The analog signal path, derived from the low-frequency bandwidth. After calibration, the acquisition coefficients, filter
+geophone front end proposed by Ma et al. [15], is shown in state, and routing are restored. A gain-indexed EEPROM record
+Fig. 1. The conditioning chain consists of a programmable-gain stores the valid-stage mask, four DAC codes, version, and
+instrumentation amplifier (PGA), an active band-pass filter, an cyclic-redundancy check (CRC); failed calibrations retain their
+inverting summing stage, and a second-order low-pass filter. bounded best codes without overwriting a valid record. Fig. 3
+Four independently controlled VDACs shift the operating point shows the digital hardware implementing this workflow.
+of each stage during foreground calibration.
+   The embedded digital resources sequentially measure the B. Control Law and Calibration Parameters
+output of each analog stage through the internal analog
+multiplexer and delta-sigma ADC. The filtered DC estimate            The same control framework is independently applied to
+determines the VDAC correction required to recenter each          each  analog stage. For stage i, ŷi [n] is the filtered signed ADC
+stage. Calibration proceeds from the PGA to the low-pass filter   count,  ri is the desired reference count, and ei [n] is the residual.
+because each stage inherits the residual offset propagated from   Since   the calibration target is the reference level, ri = 0 and
+the preceding stages.                                             therefore   e i [n] = ŷi [n]. The residual is first mapped to the
+
+   Assuming quasi-static offsets during calibration, negligible   8-bit  DAC    domain:
+loading between stages, and linear superposition of DC                                          
+                                                                                                        qADC
+                                                                                                             
+contributions, the residual offset at the output of stage i can                εi [n] = round ei [n]
+be expressed as                                                                                         qDAC
+                                                                                                                                  (2)
+                                                                                                  ei [n]VADC,span NDAC
+                       X                                                              = round                               ,
+                yiDC =     Aij yjDC + bi + Ki ui ,            (1)                                     NADC VDAC,span
+                       j<i
+                                                                      where qx = Vx,span /Nx is the quantization step and
+   where Aij represents the DC transfer gain from stage j to Nx the number of quantization levels. Nominal datasheet
+stage i, bi denotes the intrinsic offset generated by stage i, and values are used throughout: NADC = 218 , NDAC = 28 ,
+Ki is the DC gain relating the injected VDAC voltage ui to VADC,span = 5000 mV, and VDAC,span = 4096 mV, giving
+the output of the corresponding stage.                              qADC = 5000/218 mV/count and qDAC = 16 mV/code [9],
+   This sequential operating principle is the key characteristic of [16].
+the proposed Digitally Assisted Analog Front-End architecture.        Equation 2 produces an integer error in equivalent DAC
+Each stage is temporarily assisted until its operating point codes. To avoid oscillation between adjacent codes when the
+Fig. 1: Analog signal chain: four independent VDAC references trim the programmable-gain amplifier (PGA), band-pass filter
+(BP), summing stage (SUM), and low-pass filter (LP), with a shared ADC/multiplexer measurement path.
+
+
+
+
+                                                                              Fig. 3: Digital hardware implementing the calibration workflow
+                                                                              (top); AUX/IoT blocks (bottom) belong to the broader platform
+                                                                              [7], outside this paper’s scope.
+
+Fig. 2: Foreground calibration flow: stored-code verification,                                              "                                    #
+                                                                                                                                      n−1
+sequential trimming, and acquisition.                                                                           kP,i             kI,i X
+                                                                                   c∗i [n] = ci,base − si             ε̄i [n] +           ε̄i [q] ,   (5)
+                                                                                                                |Ki |           |Ki | q=0
+ideal operating point is not realizable, the implementation
+                                                                                 where ci,base is the baseline feedforward code and si =
+adopts the conservative one-step floor
+                                                                              sgn(Ki ). The integral term accumulates accepted residuals
+                                             
+                                              0,      |εi [n]| ≤ ∆i ,
+                                                                              and resets inside the deadband. The VDAC-to-node gains
+ ∆impl
+  i,min = max(1, ⌈|Ki |⌉), (3)
+                                 ε̄i [n] =                              (4)   |Ki | follow from the stage topology; for the two-op-amp
+                                              εi [n], otherwise,
+                                                                              instrumentation amplifier PGA [17], KPGA = 1.
+  Inside the deadband, Eq. 4 suppresses integration, while
+                                                                                 The command is clipped to the configured 0–255 DAC range.
+lock and refinement determine convergence. Table I lists the
+                                                                              At either limit, integration is suspended whenever the residual
+adopted values satisfying ∆i ≥ ∆impl
+                                i,min .                                       would drive the command farther into saturation, preventing
+   Under the assumptions of Section II, the architecture                      windup. Convergence requires a fixed number of consecutive
+requires a measurable stage output together with sufficient                   in-deadband samples, while an adjacent-code trial is retained
+trim authority and range. The controller is implemented in                    only if it reduces the filtered residual. At timeout, the best
+positional proportional-integral (PI) form,                                   code is preserved and the stage is flagged.
+TABLE I: Parameters used for the reported measurements.
+Deadbands are in equivalent DAC codes; S/L/R are set-
+tle/lock/refine samples at 2604 Hz, whereas Timeout is in
+seconds.
+ Stage |Ki | ∆impl
+              i,min ∆i kP,i      kI,i       S/L/R       Timeout (s)
+
+ PGA  1        1    18   10−3 3 × 10−4 512/512/1024        11.5       Fig. 4: Stage deviations relative to Vref during calibration at
+ BP    1       1     3   10−4 5 × 10−4 512/1024/1024       17.3       ×16 (total differential gain ×32). Dashed light-gray traces
+ SUM 7.89      8    10   10−4 5 × 10−4 512/512/1024        11.5       are oscilloscope measurements; colored curves are resampled
+ LP    6       6     8   10−4 5 × 10−4 1024/1024/2048      17.3       128-tap-FIR reconstructions, not internal logs (Section V).
+   The parameter set in Table I was selected empirically to Vref = VDDA /2, so each channel measured Vstage − Vref .
+during preliminary bench tests and subsequently kept fixed Within each restart, the fixed-reference condition was always
+for all reported measurements. No systematic optimization recorded before the calibrated condition, preserving paired
+was performed, demonstrating robust operation with a single measurements.
+controller configuration across all evaluated boards and gain     Table II reports the mean and sample standard deviation of
+settings. Section V discusses the selected value of ∆PGA = 18. the normalized residual offset over ten paired restarts. Figure 4
+Finer trim resolution could be achieved through current-output shows representative calibration trajectories reconstructed by
+DACs or buffered injection topologies [16] without modifying applying the 128-tap FIR used by the controller to oscilloscope
+the foreground calibration method.                             records resampled at the controller rate.
+                                                                  Across the eight reported board–gain configurations, the
+               IV. E XPERIMENTAL VALIDATION                    proposed Digitally Assisted Analog Front-End consistently
+   The proposed Digitally Assisted Analog Front-End archi- reduced the LP residual DC offset without requiring board-
+tecture was experimentally evaluated to verify that embedded specific or gain-specific controller retuning. Relative to the
+digital assistance improves the effective operating conditions shared fixed-reference baseline, the residual offset decreased
+of the analog signal chain while preserving a conventional from 2.9–45.8%FS to 0.4–3.9%FS. Individual calibrated obser-
+acquisition path during normal operation. The evaluation com- vations ranged from 0.1–5.2%FS (Table II). A one-sided sign
+prised foreground calibration on two independently assembled test on the paired LP measurements rejected the null hypothesis
+geophone acquisition boards under multiple gain configurations of no reduction in all eight configurations (10 of 10 paired
+and quantitative residual DC-offset measurements.              restarts, exact p ≈ 10−3 ).
+A. Prototype and Comparison Conditions                                               V. D ISCUSSION AND C ONCLUSION
+   The experimental validation comprised eight board–gain                The proposed Digitally Assisted Analog Front-End archi-
+configurations: all five PGA settings on Board A together with        tecture demonstrates that embedded mixed-signal resources
+the ×16, ×32, and ×50 settings on Board B. Each config-               can improve the effective operating conditions of configurable
+uration was evaluated through ten paired restarts (N = 10),           analog hardware without modifying the analog acquisition path
+representing repeated measurements of the same board and              during normal operation. Unlike digital post-processing, the
+gain rather than independent devices.                                 embedded resources temporarily assist the analog circuitry
+   A single fixed-reference baseline, cbase , selected empirically    during foreground calibration and are subsequently disengaged,
+on Board B at ×50, was applied unchanged to all reported              allowing the calibrated signal chain to operate as a conventional
+configurations. For each calibrated condition, the four analog        feed-forward analog front end.
+stages were processed sequentially and the resulting DAC codes           From an instrumentation perspective, the proposed architec-
+remained fixed during acquisition. Post-calibration EEPROM            ture differs from two conventional approaches. Unlike precision
+writes were disabled so that every restart began from the same        analog front ends designed to operate close to the sensor’s
+baseline.                                                             Johnson-noise limit [18], it trades analog component precision
+   Board B at ×1 and ×4 were excluded because their                   for embedded measurement and digital assistance. Likewise,
+baseline residuals already lay within the calibration deadbands,      unlike purely digital offset compensation, it physically recenters
+preventing corrective updates. A separate narrower-deadband           observable additive DC errors within the available VDAC
+diagnostic confirmed the expected behavior (Section V).               authority and range instead of correcting them numerically
+                                                                      after acquisition. The reported improvements therefore reflect
+B. Residual DC-Offset Measurement and Results                         the performance of the complete architecture using a common
+  The LP output was selected as the primary performance               fixed-reference baseline and a single controller configuration
+metric because it directly feeds the acquisition ADC. Mea-            across all evaluated board and gain combinations rather than
+surements at the PGA, BP, and SUM outputs document the                per-stage parameter optimization.
+sequential propagation of the foreground calibration through             The proposed foreground calibration strategy also differs
+the analog signal chain.                                              from continuous DC-servo architectures, which inherently
+  A four-channel Tektronix TDS 2004B recorded the mean                introduce a settling-versus-bandwidth tradeoff through perma-
+output voltage of the PGA, BP, SUM, and LP stages over                nently closed feedback loops [14]. Here, digital assistance is
+a 1-s window after settling. Probe grounds were connected             active only during foreground calibration. Once calibration is
+TABLE II: Residual DC offset (%FS of the nominal 5-V ADC span), mean ± sample standard deviation over N =10 paired
+baseline-seeded restarts per reported board/gain cell. Within each cell, the upper and lower values correspond to the shared
+fixed-reference and calibrated conditions, respectively.
+  Stage        A, ×1             A, ×4             A, ×16             B, ×16            A, ×32            B, ×32           A, ×50            B, ×50
+       3.5 ± 0.2   2.4 ± 0.1                     2.4 ± 0.1   2.1 ± 0.1   1.0 ± 0.2   1.0 ± 0.2  1.2 ± 0.3  2.5 ± 0.1
+  PGA  3.4 ± 0.3   2.1 ± 0.3                     1.9 ± 0.2   1.7 ± 0.1   0.5 ± 0.2   0.5 ± 0.2  1.0 ± 0.5  1.8 ± 0.3
+       1.5 ± 2.2   4.9 ± 0.3                     3.8 ± 0.9  0.66 ± 0.02  7.0 ± 0.4  0.66 ± 0.01 1.0 ± 0.7 0.65 ± 0.01
+  BP   1.2 ± 0.2   1.0 ± 0.2                     1.5 ± 1.5  0.66 ± 0.02  1.0 ± 0.5  0.66 ± 0.01 0.9 ± 0.5 0.65 ± 0.02
+      21.8 ± 1.1†  6.7 ± 1.0                     4.9 ± 1.5   4.5 ± 0.8   7.4 ± 0.3   8.0 ± 0.8  0.4 ± 0.2  0.9 ± 0.6
+  SUM  0.8 ± 0.2   1.0 ± 0.3                     1.4 ± 1.5   0.6 ± 0.5   0.6 ± 0.2   1.2 ± 0.3 0.8 ± 0.6‡  0.9 ± 0.6
+      45.8 ± 3.1† 42.6 ± 4.2†                   29.6 ± 6.8†  3.0 ± 0.1  12.4 ± 1.3†  2.9 ± 0.1  4.1 ± 2.1  2.9 ± 0.1
+  LP   3.2 ± 0.9   3.9 ± 0.8                     2.3 ± 1.4   0.7 ± 0.1   1.7 ± 0.7   0.4 ± 0.2  1.2 ± 0.4  0.7 ± 0.2
+  Lower is better. † Fixed reference ≥ 10%FS. ‡ The marked calibrated mean is larger than its baseline; equality after rounding is not marked (Section V).
+
+
+
+completed, the controller is disabled, the VDAC outputs remain proposed architecture is not restricted to this function and
+constant, and the acquisition path contains no continuously can be extended to other digitally assisted functions in future
+                                                                 work.
+active digital feedback.
+   The present implementation should be interpreted as a                                        R EFERENCES
+proof of architectural feasibility rather than as an optimized    [1] B. Murmann and B. E. Boser, “Digitally assisted analog integrated
+                                                                      circuits: Closing the gap between analog and digital,” ACM Queue,
+analog front end. The relatively modest PGA improvement               vol. 2, no. 1, pp. 64–71, Mar. 2004, doi: 10.1145/984458.984494.
+illustrates this point. Because |KPGA | = 1, the selected         [2] B. Murmann, “Digitally assisted analog circuits,” IEEE Micro, vol. 26,
+deadband (∆PGA = 18) accepts integer-error buckets through            no. 2, pp. 38–47, Mar.–Apr. 2006, doi: 10.1109/MM.2006.33.
+                                                                  [3] C. B. Park, R. D. Miller, and J. Xia, “Multichannel analysis of
+approximately ±288 mV (continuous edge near ±296 mV after             surface waves,” Geophysics, vol. 64, no. 3, pp. 800–808, 1999, doi:
+rounding). Consequently, the 0.24-V residual shown in Fig. 4          10.1190/1.1444590.
+                                                                  [4] S. Foti et al., Surface Wave Methods for Near-Surface Site Characteriza-
+reflects the selected stopping criterion rather than controller       tion. Boca Raton, FL, USA: CRC Press, 2014, doi: 10.1201/b17268.
+instability. A separate diagnostic experiment on Board B at       [5] O. Kafadar, “A geophone-based and low-cost data acquisition and
+×4 gain, performed outside the reported comparison, reduced           analysis system designed for microtremor measurements,” Geoscientific
+                                                                      Instrumentation, Methods and Data Systems, vol. 9, pp. 365–373, 2020,
+the LP residual from 2.98 to 0.84%FS using a narrower                 doi: 10.5194/gi-9-365-2020.
+deadband, indicating that further improvement is possible         [6] J. L. Wijayaraja et al., “Toward long range detection of elephants using
+                                                                      seismic signals: A geophone-sensor interface for embedded systems,”
+through parameter optimization. Likewise, the only increase           IEEE Access, vol. 12, pp. 72 210–72 223, 2024, doi: 10.1109/AC-
+observed at the reported precision (Board A, SUM stage, ×50           CESS.2024.3401855.
+gain, from 0.4 to 0.8%FS) results from deadband acceptance        [7] J. A. Guevara et al., “Dynamically reconfigurable WSN node based
+                                                                      on ISO/IEC/IEEE 21451 TEDS,” IEEE Sensors J., vol. 15, no. 5, pp.
+and does not propagate to the downstream LP output.                   2567–2576, 2015, doi: 10.1109/JSEN.2014.2370456.
+   The timing results also support the practical feasibility      [8] Sensor Nederland B.V., “SM-24 geophone element,” product brochure,
+                                                                      2006.
+of foreground calibration. Visible correction in Fig. 4 spans     [9] Infineon Technologies AG, “PSoC 5LP: CY8C58LP family datasheet,”
+approximately 7 s, while informal bench observations indicated        no. 001-84932, 2024.
+                                                                 [10] G. Das G and P. Sekar, “PSoC 3 and PSoC 5LP analog signal chain
+completion in about 10 s. The configured timeout windows total        calibration,” Cypress Semiconductor, Appl. Note AN68403, 2017.
+57.6 s (approximately 60.5 s including settling and refinement), [11] P. Lopin and K. V. Lopin, “PSoC-Stat: A single chip open source
+excluding stored-code verification and switching overhead. No         potentiostat based on a Programmable System on a Chip,” PLOS ONE,
+                                                                      vol. 13, no. 7, p. e0201353, 2018, doi: 10.1371/journal.pone.0201353.
+timeout occurred during the reported experiments; the only [12] C. Mohan et al., “Experimental body-input three-stage DC offset calibra-
+timeout observed in bench testing was a board powered while           tion scheme for memristive crossbar,” in Proc. IEEE Int. Symp. Circuits
+                                                                      Syst. (ISCAS), 2020, pp. 1–5, doi: 10.1109/ISCAS45731.2020.9180811.
+its geophone was moving, whose AC transient violated the [13] C. C. Enz and G. C. Temes, “Circuit techniques for reducing the effects
+quasi-static assumption required during foreground calibration.       of op-amp imperfections: autozeroing, correlated double sampling, and
+Nevertheless, the present study was intentionally limited to two      chopper stabilization,” Proc. IEEE, vol. 84, no. 11, pp. 1584–1614, Nov.
+                                                                      1996, doi: 10.1109/5.542410.
+independently assembled boards and fixed calibration ordering; [14] Y. Liu et al., “A low-noise chopper amplifier with offset and low-
+consequently, it does not establish population-level statistical      frequency noise compensation DC servo loop,” Electronics, vol. 9, no. 11,
+                                                                      p. 1797, 2020, doi: 10.3390/electronics9111797.
+performance, long-term drift behavior, or optimal controller [15] K. Ma et al., “An effective method for improving low-frequency
+tuning.                                                               response of geophone,” Sensors, vol. 23, no. 6, p. 3082, 2023, doi:
+   Overall, the experimental results demonstrate that the pro-        10.3390/s23063082.
+posed Digitally Assisted Analog Front-End architecture pro- [16] C. Keeser, “Using PSoC 3 and PSoC 5LP IDACs to build a better VDAC,”
+vides a practical means of improving the operating conditions [17] Cypress      Semiconductor, Appl. Note AN60305, 2017.
+                                                                      P. Sekar, “Instrumentation amplifier using PSoC 3,” Cypress Semicon-
+of low-cost configurable analog front ends by temporarily ex-
+ploiting the embedded mixed-signal resources already available [18] ductor,    Appl. Note AN60319, 2010.
+                                                                      R. Kirchhoff et al., “Huddle test measurement of a near Johnson noise
+in programmable systems-on-chip. Implemented on a low-                limited geophone,” Rev. Sci. Instrum., vol. 88, no. 11, p. 115008, 2017,
+cost geophone acquisition platform, the proposed foreground           doi: 10.1063/1.5000592.
+DC-offset calibration consistently reduced the residual offset
+at the analog front-end output using a single controller
+configuration across all reported boards and gain settings while
+preserving a conventional analog acquisition path. Although
+demonstrated through foreground DC-offset calibration, the
+

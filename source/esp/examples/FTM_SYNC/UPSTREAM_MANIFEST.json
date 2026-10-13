@@ -1,0 +1,556 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/abbbe/fts",
+  "branch": "main",
+  "commit": "5d6ea2bfcd516473a98f8aebe7daf690eec21b31",
+  "commitDate": "2026-01-04T13:09:52+01:00",
+  "commitUrl": "https://github.com/abbbe/fts/commit/5d6ea2bfcd516473a98f8aebe7daf690eec21b31",
+  "license": "GPL-3.0 (upstream/LICENSE intact)",
+  "retrievedOn": "2026-10-05",
+  "method": "git clone + git archive HEAD <paths> with core.autocrlf=false (LF preserved); for every file the git blob SHA-1 recomputed from disk equals the upstream blob",
+  "snapshotRoot": "upstream/",
+  "modifiedUpstreamFiles": [],
+  "note": "upstream/ is a pristine snapshot; nothing in it is modified. Local choices live in profiles/, config/ and scripts/. The build copies upstream/ to a work directory so managed_components/ and dependencies.lock never touch it.",
+  "includedFileCount": 80,
+  "includedBytes": 297434,
+  "excluded": [
+    {
+      "pattern": "CLAUDE.md",
+      "files": 1,
+      "bytes": 269,
+      "reason": "excluded on purpose: contains instructions addressed to a coding model; not needed"
+    },
+    {
+      "pattern": "Untitled*.ipynb",
+      "files": 2,
+      "bytes": 104042,
+      "reason": "scratch notebooks"
+    },
+    {
+      "pattern": "docs/**/*.gitignore",
+      "files": 1,
+      "bytes": 11,
+      "reason": "presentation/image/binary documentation (large, not needed to build or run)"
+    },
+    {
+      "pattern": "docs/**/*.odp",
+      "files": 3,
+      "bytes": 145856388,
+      "reason": "presentation/image/binary documentation (large, not needed to build or run)"
+    },
+    {
+      "pattern": "docs/**/*.pdf",
+      "files": 2,
+      "bytes": 5901506,
+      "reason": "presentation/image/binary documentation (large, not needed to build or run)"
+    },
+    {
+      "pattern": "docs/**/*.png",
+      "files": 26,
+      "bytes": 107564249,
+      "reason": "presentation/image/binary documentation (large, not needed to build or run)"
+    },
+    {
+      "pattern": "docs/**/*.pptx",
+      "files": 1,
+      "bytes": 1501078,
+      "reason": "presentation/image/binary documentation (large, not needed to build or run)"
+    },
+    {
+      "pattern": "docs/misc/mac_timer_align_analysis/*",
+      "files": 5,
+      "bytes": 20776108,
+      "reason": "raw idf.py logs (~21 MB), notebook and analysis script"
+    },
+    {
+      "pattern": "fts-platform/ (Docker/Grafana/MQTT telemetry platform)",
+      "files": 89,
+      "bytes": 9234925,
+      "reason": "telemetry/dashboard platform, irrelevant to the LED/GPIO experiment (9.3 MB)"
+    }
+  ],
+  "excludedTotalFiles": 130,
+  "excludedTotalBytes": 290938576,
+  "files": [
+    {
+      "path": ".gitignore",
+      "size": 260,
+      "sha256": "af5e7e04b11e936d09a3723a6862907653e14bbf17a42643872c8596d2efc1f8",
+      "gitBlobSha1": "d3a74deb038611a4809797fd110aa446a1894474"
+    },
+    {
+      "path": "CMakeLists.txt",
+      "size": 410,
+      "sha256": "93703ffa2af54e2a1f88fbce5f38af86a6b9e11186668daff23ad6068fc37d11",
+      "gitBlobSha1": "792b00b63192500917f32b6de95d03e014a707ea"
+    },
+    {
+      "path": "LICENSE",
+      "size": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "gitBlobSha1": "f288702d2fa16d3cdf0035b15a9fcbc552cd88e7"
+    },
+    {
+      "path": "README.md",
+      "size": 6266,
+      "sha256": "150b0ef9487d99c277caf6b4f8312855da687a16c7ae8642cebb8599e62557e5",
+      "gitBlobSha1": "6e27434cc03496aec426fa9505020728b89aecd7"
+    },
+    {
+      "path": "bin/config",
+      "size": 646,
+      "sha256": "85aca82aa0c517b1bfa53d2ea27d9b8d23273ab47668deb8c5553c85e3d7ae9d",
+      "gitBlobSha1": "b825a4dd32fdd36b1c9ad47478e35488cf72d719"
+    },
+    {
+      "path": "bin/config.local.example-linux",
+      "size": 1353,
+      "sha256": "179166be117a8bda53ea275f37b2b3427fac8b18c7e9c87312ef51e58efed797",
+      "gitBlobSha1": "19507c027dd34e693da8ce17a608326724165b5a"
+    },
+    {
+      "path": "bin/config.local.example-macos",
+      "size": 493,
+      "sha256": "7a8fcfe9090a361dc73994a3deb270046f4aba3abed5a161e4a4ba3327162543",
+      "gitBlobSha1": "189e91edbd806503c42b9666069178c17834b5f6"
+    },
+    {
+      "path": "bin/config.local.linux",
+      "size": 1023,
+      "sha256": "26fdb77dfed7de44f23d2d8980ebd3ed741c16b2abe0cd42168bfd5a231ccfdc",
+      "gitBlobSha1": "decc06cd3e008fb4bee3eca14a43097461828630"
+    },
+    {
+      "path": "bin/idf",
+      "size": 20512,
+      "sha256": "30af5699b852b1d9c80140c0d65384733906d6c9acc025338ecce689757f10f9",
+      "gitBlobSha1": "d59c9dced58746cc8f641688882bc3327071b8df"
+    },
+    {
+      "path": "bin/jupyter-lab",
+      "size": 49,
+      "sha256": "7c310ab4c5b6c0ad56c6caedd8d89198538c4220ab088430f7585013b2938291",
+      "gitBlobSha1": "770d6e3ef77b2f21f434dbcb32942db8983a67fa"
+    },
+    {
+      "path": "bin/pptx_to_markdown.py",
+      "size": 9736,
+      "sha256": "3833f658065526b058527a3354b964a7d61091faa80c5de02c32ccf179a172ac",
+      "gitBlobSha1": "2d48e4c2857f408313060e709e73968255b1a5e0"
+    },
+    {
+      "path": "bin/ts_us.py",
+      "size": 1146,
+      "sha256": "806cf68377fe722bac159a3830a39a169729a3869d328806557f08ac8c4a2175",
+      "gitBlobSha1": "c80a477cdb630604ce858bfce1b4b1c0e416fc54"
+    },
+    {
+      "path": "bin/wsl/070_usb_passthroug_1_10.bat",
+      "size": 72,
+      "sha256": "8a5571cea4431241b7523eff11f4b8881cd49b78781d25c734d1f5837119e3f7",
+      "gitBlobSha1": "ea43c734e1f6bd6957af12682a8be01a8facbadb"
+    },
+    {
+      "path": "bin/wsl/071_usb_passthroug_2_3.bat",
+      "size": 70,
+      "sha256": "3c0cf96782577746a16c43d8f5680c6c5e3d1e75a63d32a0f5c5ef1c47fc640a",
+      "gitBlobSha1": "f0a8659031df5fecb594bd060ea59db4dcfad734"
+    },
+    {
+      "path": "bin/wsl/072_usb_passthroug_1_3.bat",
+      "size": 70,
+      "sha256": "fb2126da067acbb749b477690c47c08c920b6fe92f935cf87dca8715622be909",
+      "gitBlobSha1": "c5f7b44c7a7373a577ca1c337b58f4501503d370"
+    },
+    {
+      "path": "bin/wsl/072_usb_passthroug_1_4.bat",
+      "size": 70,
+      "sha256": "91cd1be7d5d6741ae446d4e6d44d8d97ed2ed28198e8d9852bbfbf2b7d8e26a8",
+      "gitBlobSha1": "252daf7c39080efe0a4aca81c30fa4b5c6472760"
+    },
+    {
+      "path": "bin/wsl/073_usb_passthroug_1_4.bat",
+      "size": 70,
+      "sha256": "91cd1be7d5d6741ae446d4e6d44d8d97ed2ed28198e8d9852bbfbf2b7d8e26a8",
+      "gitBlobSha1": "252daf7c39080efe0a4aca81c30fa4b5c6472760"
+    },
+    {
+      "path": "bin/wsl/setup_usb_permissions.sh",
+      "size": 773,
+      "sha256": "7651990e252fb24b50ab2a400b507aa128272387b6b043f715eb9c519f6ff637",
+      "gitBlobSha1": "229026c0f2160718b3a39b0d083939508566456d"
+    },
+    {
+      "path": "components/clock/CMakeLists.txt",
+      "size": 94,
+      "sha256": "7ec06277747b661e0459b8c3032bb0a4017f613aed8c53c73a4de7ffa5efd8cc",
+      "gitBlobSha1": "a4e0b65cff61284fe4886e34630041389215cd54"
+    },
+    {
+      "path": "components/clock/clock.c",
+      "size": 4590,
+      "sha256": "44155e7e165d2cc71dc1e5600e66f29c6b77a6e3c70c4dcb2a00383a1a627e94",
+      "gitBlobSha1": "e3732cdfdf377adb2f49af43daf2a3903bc6737f"
+    },
+    {
+      "path": "components/clock/include/clock.h",
+      "size": 2606,
+      "sha256": "01438035c0fe3f3cdeb71df40d7428874fdb10f3f18cd6626306a44bc3583066",
+      "gitBlobSha1": "1c978fdb99df53f883326cef6bcef28e291ed6aa"
+    },
+    {
+      "path": "components/crm/CMakeLists.txt",
+      "size": 101,
+      "sha256": "181448498e232a7f13df20d2fc9235efc04115ebe05fb54aed56f6346e46d14c",
+      "gitBlobSha1": "1a888d87c70e61dcd6e43e486e423c2ec7d786ef"
+    },
+    {
+      "path": "components/crm/crm.c",
+      "size": 8577,
+      "sha256": "c4c6fcb115098d9922b55f0303883b2ac3a6b386e8c89a4cab07b7d337deb456",
+      "gitBlobSha1": "65937ff17dae2e9bf208e45667d545c9e56eb53f"
+    },
+    {
+      "path": "components/crm/include/crm.h",
+      "size": 2211,
+      "sha256": "fc1dd100daf0e367220ea6063b705b9813bfc8e4e5a2e98c55569aa941a434a0",
+      "gitBlobSha1": "1569a51f95ac1ae1f9d2a41623eb26e9ccfb1d58"
+    },
+    {
+      "path": "components/dtc/CMakeLists.txt",
+      "size": 118,
+      "sha256": "c7686c40ebdec9fc9087451e568b15e51c127dfa741a2dec713ffef72b9c954c",
+      "gitBlobSha1": "a8a99aa675f9c76631ea573612809787f67330d9"
+    },
+    {
+      "path": "components/dtc/dtc.c",
+      "size": 6222,
+      "sha256": "4233b62d68c768194e975429b69367296335594383f5d6c094d76472091d8a59",
+      "gitBlobSha1": "e49dab025c1d32e7b2fa03dd44522ba564ca7ab2"
+    },
+    {
+      "path": "components/dtc/include/dtc.h",
+      "size": 859,
+      "sha256": "933d34f482d3f79c6de692a7f98fd935be49bf29b2387f25bf84edd8c13da286",
+      "gitBlobSha1": "6628a71df77cc35309c29202d4abbc24941733f1"
+    },
+    {
+      "path": "components/dtr/CMakeLists.txt",
+      "size": 415,
+      "sha256": "a58643d0734f12ed32f3797c64760b39f5bb8e69a93f742c4b2efe204976e0bf",
+      "gitBlobSha1": "0f4cac42e4dfd4701ebb50f2293d5184bf63aae4"
+    },
+    {
+      "path": "components/dtr/Kconfig",
+      "size": 683,
+      "sha256": "da73c28f6bc2fa387c603572bdd35ef369e5000b8c982dcf1cbea88d0874e810",
+      "gitBlobSha1": "1f1af37a093486a6c9a867fe6c2486e74cc14813"
+    },
+    {
+      "path": "components/dtr/dtr.c",
+      "size": 20494,
+      "sha256": "75798af7946b813934b86462ed4f159c338914ccaf9f91ad63268812d7359a4c",
+      "gitBlobSha1": "b6a37e876b4cb9ae47b84c96a06ee1db10d09236"
+    },
+    {
+      "path": "components/dtr/dtr_gptimer.c",
+      "size": 6136,
+      "sha256": "152b61e9ba105f662b6a67bedad3ea3bc73b0b1ba8fb6283d9618c05dd654fd6",
+      "gitBlobSha1": "b93c2035674f53db56881e6efc77d7c51740e52b"
+    },
+    {
+      "path": "components/dtr/dtr_mcpwm.c",
+      "size": 5633,
+      "sha256": "f30f7256cf73397267e218cbafc4dc294ab42856e5a4d74a9ed48f845c382ff9",
+      "gitBlobSha1": "ee5a14aa17fc5f7e9673e0afd502e8180ef3b0ae"
+    },
+    {
+      "path": "components/dtr/include/dtr.h",
+      "size": 9410,
+      "sha256": "d4f739d6f592616a29ddabd8f498f7f7e355b4fb7b3f960b60200a43196fb99c",
+      "gitBlobSha1": "a3fcc063173ce2446e803cd543fba99e129400c1"
+    },
+    {
+      "path": "components/dtr/include/dtr_backend.h",
+      "size": 2548,
+      "sha256": "9da77671645d213d3a42cfb6a404fd6dfd76e50c8eb856c8a4a89c3274411cc7",
+      "gitBlobSha1": "a7d2e10bfee4499d769aae1908b77b0049e9c909"
+    },
+    {
+      "path": "components/ftm/CMakeLists.txt",
+      "size": 149,
+      "sha256": "ea037019dc770774cf8edea8f34f68bbc51935f954d6cc83831318b2271f84d2",
+      "gitBlobSha1": "f122c4ad1b5a71f0a8f70c58c109f1a69f2cbc3d"
+    },
+    {
+      "path": "components/ftm/ftm.c",
+      "size": 44192,
+      "sha256": "b50f56549eb6ea60e4071177c97fc1327d59cc9b020bf4bc351005642e4e1eac",
+      "gitBlobSha1": "26bdd76396526ff0f685b38aaa56990d7783cba3"
+    },
+    {
+      "path": "components/ftm/include/ftm.h",
+      "size": 3590,
+      "sha256": "59be766ee9a723cc377f24000e10c4e60332bdb88f9f0cba4abe6f4986bc0d35",
+      "gitBlobSha1": "1f8d3dd807e55319c5db51d0100f5737c8e44d4d"
+    },
+    {
+      "path": "components/fts_mqtt/CMakeLists.txt",
+      "size": 130,
+      "sha256": "dd67b90b6d150b7714916c027e0aa569c1b211ebfcec021afcc5ce8a16ff3f6a",
+      "gitBlobSha1": "6a87421d68e1d6d01f11b5e19cf52168af8a59e6"
+    },
+    {
+      "path": "components/fts_mqtt/fts_mqtt.c",
+      "size": 14615,
+      "sha256": "adf4a858857ee8f9db1ce606b5a05da892c6ac6d6036ca08de9fe487da6df6f0",
+      "gitBlobSha1": "fc63cea9ffdb59aa15fa82b69ed5b3559094ae48"
+    },
+    {
+      "path": "components/fts_mqtt/include/fts_mqtt.h",
+      "size": 4677,
+      "sha256": "05a75af22b4d0fa9a02c2707781827da152497633f1cc5bcdef7549454fa975a",
+      "gitBlobSha1": "2062f948f74b1a9d74c472d925aa4bb9606c2115"
+    },
+    {
+      "path": "components/usb_uplink/CMakeLists.txt",
+      "size": 150,
+      "sha256": "23810e0db950a62022ab9a957f46e3a401441b1065fdba92aeb9c2b7ab326593",
+      "gitBlobSha1": "20b76164b39b53580a77dbafd0d7efbfd3fff0c2"
+    },
+    {
+      "path": "components/usb_uplink/idf_component.yml",
+      "size": 63,
+      "sha256": "51ef69706b9e87dc84e827e26083c62c9760a18dd9ca3710612478be29b5c254",
+      "gitBlobSha1": "82ab4d1036928a6e4ced2aeecebe67ebaa7027fe"
+    },
+    {
+      "path": "components/usb_uplink/include/usb_uplink.h",
+      "size": 825,
+      "sha256": "484842fa430650f08bb86bd9734dc7c33e693b6b87334680a3336f28ed5511fb",
+      "gitBlobSha1": "192b0c55f196d268120f92eebb35593f81fcd184"
+    },
+    {
+      "path": "components/usb_uplink/usb_uplink.c",
+      "size": 8025,
+      "sha256": "03d06445e75825cdc0d9947410a9700bc083b47cfe51fcb4e291ebc1eac7994f",
+      "gitBlobSha1": "b3f05f1ab7527295d34b7e4c05a10f88bf8dec37"
+    },
+    {
+      "path": "components/ws2812/CMakeLists.txt",
+      "size": 128,
+      "sha256": "5badb89b1f00402e0088a7dc3c78f003bdf1eee5fbfaa682d6527102fca6866f",
+      "gitBlobSha1": "278b979c1261350dd284eb811e61854c28cf7f6d"
+    },
+    {
+      "path": "components/ws2812/include/ws2812.h",
+      "size": 726,
+      "sha256": "b8ee6212bf6005d33c4a2c805b2ab2dca2359023f15dd58ca92c37cb3af87891",
+      "gitBlobSha1": "39451f5291b643310a3d1e91c8fdd3225d4297de"
+    },
+    {
+      "path": "components/ws2812/led_strip_encoder.c",
+      "size": 5142,
+      "sha256": "32289e460cada4ff3314d1434f04d15b6ea21b946cadd949d268879a2946e18b",
+      "gitBlobSha1": "243c4273ed76dbf2b60b21d98391660a33c98e7e"
+    },
+    {
+      "path": "components/ws2812/led_strip_encoder.h",
+      "size": 906,
+      "sha256": "7c2519a37a032ab6cf0bd6336fc8e7a00fbaa4144e012d9eca8b872eeb2ded0c",
+      "gitBlobSha1": "db5ef076b3ea665c722420df8a894c2c316e3cc3"
+    },
+    {
+      "path": "components/ws2812/ws2812.c",
+      "size": 2312,
+      "sha256": "0e88746d420b78263caa74d1b2edc97b7d34ef5c673bce7ec6ff1ec3cdfafb19",
+      "gitBlobSha1": "e99aaccec47e1cdc16013d8f6136a27f76dcb616"
+    },
+    {
+      "path": "docs/_config.yml",
+      "size": 86,
+      "sha256": "7bd78729105e0cc76307ca65a9a3ab3b7c07ff6229e074161f42c07b5cdb368d",
+      "gitBlobSha1": "dae7838b601c6007fdf71fc6b637a6c7ba43cbbe"
+    },
+    {
+      "path": "docs/index.md",
+      "size": 1579,
+      "sha256": "e988f6e4b023a695ffb29a918100d402bae1b0592e7480ccf4cd3d1f3df710be",
+      "gitBlobSha1": "8b061f29488fb0b1820bc648c9761e03c720bcee"
+    },
+    {
+      "path": "docs/misc/DATAFLOW.md",
+      "size": 5404,
+      "sha256": "d9100ad123e9255c4fa76b24a1305b192e417bc81317a031f84bcc5479f831c8",
+      "gitBlobSha1": "d2f054cf180b45cb866db7d17b8d9b70c83d7a45"
+    },
+    {
+      "path": "docs/misc/EXPERIMENTS.md",
+      "size": 4196,
+      "sha256": "687d48b575182a74a982235f3d87fc05fb2c18287965ba5797f282271d34d6fa",
+      "gitBlobSha1": "cd60acd0896cfbec57825ed0d4a49fc32bed8c22"
+    },
+    {
+      "path": "docs/posts/20251220-network-operation-modes.md",
+      "size": 1762,
+      "sha256": "5a4b35ef6b845a5d6ee46d23cfa8d065d4a7c22fd592d110f2d4aad1a64fe960",
+      "gitBlobSha1": "22c06cb8305701c38e3b938ab33a500b7615aa13"
+    },
+    {
+      "path": "docs/posts/20251221-backplane.md",
+      "size": 4067,
+      "sha256": "e3bf3415eedc3e962d3362d73fbe5a7df26bfb1b5e59459bbbcba1dbac359390",
+      "gitBlobSha1": "6d15db98e0289640b58f6ef7b8f3dc65f01a9600"
+    },
+    {
+      "path": "docs/posts/20251222-performance-stress-testing.md",
+      "size": 9355,
+      "sha256": "836e10fb4bd1fa052c5063f227a85bc3753f7f749d3c8184f9aad7d6da322b33",
+      "gitBlobSha1": "a57ab9ea4ce4e4bda358480b45d6e5a99e46dd3f"
+    },
+    {
+      "path": "docs/posts/20251230-wifi-flood-setup.md",
+      "size": 3310,
+      "sha256": "314196c36f6c38377f330a9feda5d9da67e263a39526bd08d4e3a5bcf82712c8",
+      "gitBlobSha1": "5988f852a64a8531461e2fe6753adf9d87a0841b"
+    },
+    {
+      "path": "jtag/050_openocd_master.sh",
+      "size": 959,
+      "sha256": "b496ecd9c33fdb907bc53fe132cee900fc632ca7b687174b4e4443c98414fe2b",
+      "gitBlobSha1": "a00210c3fb9c6a372f08a372f9cade364257e68f"
+    },
+    {
+      "path": "jtag/050_openocd_slave.sh",
+      "size": 1548,
+      "sha256": "74c7f371341d5e7d8d9a57088302d97e71d8e9f7943f89c320c3c312883e18f0",
+      "gitBlobSha1": "cc5d5da40a67d1866c7c1d1191aa92118b344a9d"
+    },
+    {
+      "path": "jtag/051_gdb_master.sh",
+      "size": 1487,
+      "sha256": "4d2aff19983e1d9887133ec6645df17345103fd9fbc6c3d36f6892aba0edfc24",
+      "gitBlobSha1": "f5ab94c44b2aa084cfe50e80b873486c2c0e6977"
+    },
+    {
+      "path": "jtag/051_gdb_slave.sh",
+      "size": 1897,
+      "sha256": "3fd30e6333fcf650e34cf1ac8b712e88e4831cba3b170981adc63df54b3ec97e",
+      "gitBlobSha1": "7cbf062532cbb8bd060daa6b7bdda845a6260cdd"
+    },
+    {
+      "path": "jtag/052_quick_diag.sh",
+      "size": 1884,
+      "sha256": "23d7b87d73c3f115d271b3db0a3882646ee03816916abf07eb69431cd462d2e6",
+      "gitBlobSha1": "072711809a69220ee765347d6259c78e5675d938"
+    },
+    {
+      "path": "jtag/config-fixme",
+      "size": 1593,
+      "sha256": "1fe4d850b50f9260b789deafec6b9247db61d1d68588e86012e3b5cb3c2fd2e2",
+      "gitBlobSha1": "dbe656528de2243068ab5a9862a1e16415be4e02"
+    },
+    {
+      "path": "jtag/esp32s3-base.cfg",
+      "size": 539,
+      "sha256": "de36a1d74b00113ec939f405da8e2aa1c2822dc06f25d6d4c7d9a0576ed37833",
+      "gitBlobSha1": "21d761ff8e46735c84367d3b450bf3fdd40707a4"
+    },
+    {
+      "path": "main/CMakeLists.txt",
+      "size": 1010,
+      "sha256": "861369484d53277a91fbd3b0f5559a7adb8d9785bcfd618d32f20a3a8fd5623c",
+      "gitBlobSha1": "edf9254cad13ab894f78e8b96ac8d5d43d5234f3"
+    },
+    {
+      "path": "main/Kconfig.projbuild",
+      "size": 8344,
+      "sha256": "cafab133d855df5aa86f3de48bb2dff996e0393eeb3dcfb4430e1ebc5540a006",
+      "gitBlobSha1": "8be92dadbbb2ea99881c933e3c513c9d6cfb8000"
+    },
+    {
+      "path": "main/build_info.cmake",
+      "size": 1002,
+      "sha256": "daef6143469624f6f693cb697e35398711f83611c716c2b4b84dd44b787117b9",
+      "gitBlobSha1": "abee65f956eb47733e7a22effcd56cd16cf28fad"
+    },
+    {
+      "path": "main/fts_main.c",
+      "size": 9225,
+      "sha256": "683c4b90ade429af7cc6902e92ced18db6d440f702ebe86e95a5888695768df7",
+      "gitBlobSha1": "77ed6505316cdd9003e073563f4026af3d146112"
+    },
+    {
+      "path": "main/idf_component.yml",
+      "size": 277,
+      "sha256": "8195422d2c43af2828649499e0903270535fb16e6c57d49ccaf629c6683b68ab",
+      "gitBlobSha1": "aacef0f400030e5946dcdc85457f8fb9a16aafbf"
+    },
+    {
+      "path": "requirements.txt",
+      "size": 87,
+      "sha256": "c3caaadd396296ff86c47a8cabf5eea7a06b12552ed8a268c4d3432a0f974671",
+      "gitBlobSha1": "f4f7790714fc6dc2023c31135f988d7082dce507"
+    },
+    {
+      "path": "sdkconfig.defaults",
+      "size": 1045,
+      "sha256": "6b5f004df2ae3743882184af1024aa5b3fecaf84c49febf41635a6eeb2f3a25a",
+      "gitBlobSha1": "72f51d0b5eb15b385c6754d07bab79989abc30b4"
+    },
+    {
+      "path": "sdkconfig.defaults.fts_master",
+      "size": 177,
+      "sha256": "84327ff73ce90d50ae89a4f6e5809c7d1e79b8145395666f4a4008a2ddef45b5",
+      "gitBlobSha1": "519e4140ccf16846ae3cf59a3af61a3099cb3493"
+    },
+    {
+      "path": "sdkconfig.defaults.fts_master2",
+      "size": 181,
+      "sha256": "7e0d8653a1167954fcb522589b61d231a7be59519c1e1e81f6291f73b4c8e03b",
+      "gitBlobSha1": "7418276fa23e0f976c398e030fcc402548a1e4e5"
+    },
+    {
+      "path": "sdkconfig.defaults.fts_master3",
+      "size": 246,
+      "sha256": "0d92c6a34d1d46a667d149b6a030d09805549e5348c078a7c644c83d2b71a883",
+      "gitBlobSha1": "8b061e8c5a0637c63ba68e2e9107f574bccdd8fc"
+    },
+    {
+      "path": "sdkconfig.defaults.fts_slave1",
+      "size": 243,
+      "sha256": "61ac3ae9f84117665098e35295d5cb76e3de9160fb93aeb776bf36a3cb2d98fa",
+      "gitBlobSha1": "a91a10ce07ae5a1efce1d14107d281fa40a0aa23"
+    },
+    {
+      "path": "sdkconfig.defaults.fts_slave2",
+      "size": 245,
+      "sha256": "a07482d7ed117939eb6079b8d253467e54e43b8d138dc6c78ff99e8bd04ab87e",
+      "gitBlobSha1": "d8222d6d1158309169921de1f6b84b4bdecdf887"
+    },
+    {
+      "path": "sdkconfig.defaults.fts_slave3",
+      "size": 231,
+      "sha256": "ea2970bdac4fefc4627fb77f24dde62919f96391731ba85490deeca00953ad22",
+      "gitBlobSha1": "ec634339536241cd9c96ce18606eae7bd21d6b1c"
+    },
+    {
+      "path": "sdkconfig.defaults.fts_slave4",
+      "size": 252,
+      "sha256": "0e7053d145c8f9ccdf919131c1dd3f62e515f8586850c2a024fc2a86cc0a1802",
+      "gitBlobSha1": "9b6efc6b0cd068d1b7290a3ee43ab40d6381f9ab"
+    },
+    {
+      "path": "sdkconfig.defaults.fts_slave5",
+      "size": 354,
+      "sha256": "dd18a9b5b5f15d9b59cbfb44591be22239c5c41641cbad680e21c6b2d361477b",
+      "gitBlobSha1": "558b1df7b0778f447812c84a2b0c8526dc8a7228"
+    },
+    {
+      "path": "sdkconfig.defaults.fts_slave6",
+      "size": 354,
+      "sha256": "74aaf84c6b9d1e0f425f256b0a06bc91f3ff875ae5660bb9f300078b2ffd9e67",
+      "gitBlobSha1": "878c99099e761a7d7631a1c2301f93554bea4e80"
+    }
+  ]
+}

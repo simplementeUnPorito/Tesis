@@ -1,0 +1,5 @@
+# Consola por el USB nativo del ESP32-S3 (USB-Serial/JTAG). Es lo que usan
+# placas con un solo USB-C (p. ej. XIAO ESP32-S3) o el puerto "USB" de una
+# DevKitC-1. Upstream en cambio fija UART0 (sdkconfig.defaults) porque sus
+# placas de prueba lo usaban con TinyUSB.
+CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG=y

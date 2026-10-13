@@ -1,0 +1,5 @@
+# FTM_SYNC - perfil "follower": SEGUIDOR (esclavo). Se flashea la MISMA imagen
+# en F1..F4; con MQTT apagado el unico dato por-nodo de upstream
+# (CONFIG_FTS_MQTT_DEVICE_ID) no se usa, asi que no hay 4 binarios distintos.
+# La identidad F1..F4 es una etiqueta fisica (cable/cinta) + el puerto COM.
+CONFIG_FTS_ROLE_SLAVE=y

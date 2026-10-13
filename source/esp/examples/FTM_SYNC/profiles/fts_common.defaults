@@ -1,0 +1,33 @@
+# FTM_SYNC - opciones comunes a TODOS los nodos (referencia y seguidores).
+# Se pasa a idf.py via SDKCONFIG_DEFAULTS, en lugar del sdkconfig.defaults de
+# upstream (que activa USB-NCM + MQTT contra un broker 192.168.129.206 y exige
+# un host Linux). Aca se usa el modo "Internal AP": el maestro crea el AP y los
+# seguidores hacen FTM contra el.
+
+# FTM (el responder/initiator de Wi-Fi; solo ESP32-S2/S3/C2/C3/C6)
+CONFIG_ESP_WIFI_FTM_ENABLE=y
+
+# Modo de red: AP interno. FTM va por Wi-Fi hacia el AP del maestro.
+CONFIG_FTS_MODE_INTERNAL_AP=y
+
+# Sin telemetria MQTT (no hay broker en este montaje).
+CONFIG_FTS_MQTT_ENABLED=n
+
+# Sin modos de prueba de upstream.
+CONFIG_FTS_CSV_OUTPUT=n
+CONFIG_FTS_MAC_TIMER_ALIGNMENT_TEST_CYCLES=0
+CONFIG_FTS_TEST_ALIGN_ONCE=n
+
+# Temporizacion: igual que upstream (CPU y tick de FreeRTOS entran en el
+# periodo minimo y en la latencia de ISR).
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ=240
+CONFIG_FREERTOS_HZ=1000
+
+# Upstream compila siempre el componente usb_uplink (esta en PRIV_REQUIRES de
+# main) y este enlaza contra tinyusb_net_*; por eso se conservan las tres
+# opciones TinyUSB de su sdkconfig.defaults. En modo AP interno TinyUSB NO se
+# inicializa (usb_uplink_init solo se llama con FTS_MODE_USB_NCM).
+CONFIG_TINYUSB_NET_MODE_NCM=y
+CONFIG_TINYUSB_TASK_AFFINITY_CPU0=y
+CONFIG_TINYUSB_INIT_IN_DEFAULT_TASK=y
