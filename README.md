@@ -16,6 +16,7 @@ cálculo que se corre unas pocas veces.
 |---|---|---|---|
 | Firmware | `src/firmware/psoc` | [Tesis-firmware-psoc](https://github.com/simplementeUnPorito/Tesis-firmware-psoc) | adquisición, acondicionamiento y calibración PSoC 5LP |
 | Firmware | `src/firmware/esp32` | [Tesis-firmware-esp32](https://github.com/simplementeUnPorito/Tesis-firmware-esp32) | maestro, esclavos, ESP-NOW y UI web |
+| Firmware experimental | `src/firmware/ftm-test` | [FTM-test](https://github.com/simplementeUnPorito/FTM-test) | sincronización FTS, distancias FTM y captura CSI; evaluación para MASW |
 | Interfaces | `src/interfaces/python` | [Tesis-interfaces-python](https://github.com/simplementeUnPorito/Tesis-interfaces-python) | Geophone Scope: GUI, revisión de campo y MASW |
 | Interfaces | `src/interfaces/matlab` | [Tesis-interfaces-matlab](https://github.com/simplementeUnPorito/Tesis-interfaces-matlab) | scope/GUI del nodo ESP y del circuito analógico |
 | Cálculos y modelados | `src/calculos_modelados/matlab` | [Tesis-calculos-matlab](https://github.com/simplementeUnPorito/Tesis-calculos-matlab) | Simulink, modelo SM-24 y análisis de la cadena analógica |
@@ -53,6 +54,7 @@ al lado del código fuente.
 ## Dónde empezar
 
 - [Arquitectura integrada](./docs/proyecto/ARCHITECTURE.md)
+- [Investigación FTM, geometría MASW y preparación OTA](./docs/proyecto/ftm-masw/README.md)
 - [Inventario y auditoría documental del 2 de septiembre](./docs/auditorias/REPOSITORY_AUDIT_2026-09-02.md)
 - [Firmware ESP32](./src/firmware/esp32/README.md)
 - [Firmware PSoC](./src/firmware/psoc/README.md)
