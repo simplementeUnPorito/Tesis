@@ -49,7 +49,7 @@ def matriz_osciloscopio():
     arch = {'placa': 'm4_pgao_entrada_vref.csv', 'jpsoc': 'm5_jumpers_pgao_entrada_vref.csv',
             'esp': 'm6_sd_alim_esp_pgao_entrada_vref.csv', 'carg': 'm7_psoc_cargador.csv'}
     filas = [(1, 'PGAo (salida de PGAout)'), (2, 'Entrada en corto'), (3, 'VREF (P3[6])')]
-    fig, ax = plt.subplots(3, 4, figsize=(14, 8), sharex=True, sharey='row')
+    fig, ax = plt.subplots(3, 4, figsize=(15, 8.5), sharex=True)
     for j, (k, nom) in enumerate(CONF):
         t, ch = osc(arch[k])
         for i, (c, fn) in enumerate(filas):
@@ -64,9 +64,10 @@ def matriz_osciloscopio():
                 a.set_ylabel(fn + '\n[mV]', fontsize=9)
             if i == 2:
                 a.set_xlabel('ms desde que baja CS')
+    zoom(ax)
     fig.suptitle('Osciloscopio por configuración (gris: CS bajo). '
                  'Promedio de 64-128 disparos, media móvil de 0,5 ms', fontsize=11)
-    fig.tight_layout()
+    fig.tight_layout(pad=0.6, rect=(0, 0, 1, 0.95))
     fig.savefig(os.path.join(SAL, 'fig_osciloscopio_matriz.png'), dpi=130)
 
 
@@ -90,10 +91,19 @@ def cadena_placa():
         a.grid(alpha=0.25)
     for a in ax[1]:
         a.set_xlabel('ms desde que baja CS')
+    zoom(ax)
     fig.suptitle('SD en la placa: la masa se mueve y las referencias la siguen (gris: CS bajo)',
                  fontsize=11)
-    fig.tight_layout()
+    fig.tight_layout(pad=0.6, rect=(0, 0, 1, 0.95))
     fig.savefig(os.path.join(SAL, 'fig_cadena_placa.png'), dpi=130)
+
+
+def zoom(ax, x0=-3, x1=32):
+    for a in np.ravel(ax):
+        a.set_xlim(x0, x1)
+        a.relim()
+        a.autoscale_view(scalex=False)
+        a.margins(y=0.06)
 
 
 def promedio(dir_, cond):
@@ -112,7 +122,7 @@ def eje_ms(n):
 def matriz_mux():
     exps = [('placa', 'E6_slew'), ('esp', 'E10_sd_alim_esp'), ('carg', 'E12_psoc_cargador')]
     nombres = dict(CONF)
-    fig, ax = plt.subplots(1, 3, figsize=(13, 3.8), sharey=True)
+    fig, ax = plt.subplots(1, 3, figsize=(14, 4.2))
     for a, (k, d) in zip(ax, exps):
         for cond, color, lw, lab in (('BASE', '0.55', 1.2, 'control (BASE)'),
                                      ('P4', COL[k], 1.8, 'escritura real (P4)')):
@@ -125,9 +135,10 @@ def matriz_mux():
         a.grid(alpha=0.25)
     ax[0].set_ylabel('LPo [cuentas ADC]')
     ax[0].legend(fontsize=8)
+    zoom(ax, -5, 31)
     fig.suptitle('Brote promedio en LPo medido con el ADC del PSoC (PGA x8, PGAout x16)',
                  fontsize=11)
-    fig.tight_layout()
+    fig.tight_layout(pad=0.6, rect=(0, 0, 1, 0.95))
     fig.savefig(os.path.join(SAL, 'fig_mux_matriz.png'), dpi=130)
 
 
@@ -139,7 +150,7 @@ def descomposicion_placa():
                            ('P4D48', 'divisor 48')], 'E5: velocidad del reloj SPI'),
                ('E6_slew', [('P4', 'slew normal'), ('P4S1', 'slew lento'), ('P4S2', 'slew rápido')],
                 'E6: pendiente de los flancos')]
-    fig, ax = plt.subplots(1, 3, figsize=(14, 4), sharey=True)
+    fig, ax = plt.subplots(1, 3, figsize=(15, 4.4))
     for a, (d, conds, tit) in zip(ax, paneles):
         for cond, lab in conds:
             p = promedio(d, cond)
@@ -151,9 +162,10 @@ def descomposicion_placa():
         a.grid(alpha=0.25)
         a.legend(fontsize=8)
     ax[0].set_ylabel('LPo [cuentas ADC]')
+    zoom(ax, -5, 31)
     fig.suptitle('SD en la placa: el brote sigue la corriente de la tarjeta, no los flancos',
                  fontsize=11)
-    fig.tight_layout()
+    fig.tight_layout(pad=0.6, rect=(0, 0, 1, 0.95))
     fig.savefig(os.path.join(SAL, 'fig_descomposicion_placa.png'), dpi=130)
 
 
