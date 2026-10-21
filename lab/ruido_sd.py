@@ -15,6 +15,7 @@ import threading
 import time
 
 import numpy as np
+import serial
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from lab import analisis_ruido as ar       # noqa: E402
@@ -42,30 +43,48 @@ def _log(mensaje):
 
 
 def _condicion(texto):
-    """Devuelve (nombre, modo, divisor, slew, esd) de una condicion."""
+    """Interpreta una condicion de captura."""
     nombre = texto.upper()
     if nombre == 'BASE':
-        return nombre, None, None, None, False
+        return {'nombre': nombre, 'tipo': 'BASE', 'modo': None,
+                'divisor': None, 'slew': None}
     if nombre == 'REAL':
-        return nombre, 4, 0, 0, False
+        return {'nombre': nombre, 'tipo': 'PROBE', 'modo': 4,
+                'divisor': 0, 'slew': 0}
     if nombre == 'ESD':
-        return nombre, None, None, None, True
+        return {'nombre': nombre, 'tipo': 'ESD', 'modo': None,
+                'divisor': None, 'slew': None}
+    if nombre in ('RX', 'OFF', 'PING'):
+        return {'nombre': nombre, 'tipo': nombre, 'modo': None,
+                'divisor': None, 'slew': None}
+    m = re.fullmatch(r'RF(\d+)(?:P(\d+))?', nombre)
+    if m:
+        cantidad = int(m.group(1))
+        potencia = int(m.group(2)) if m.group(2) is not None else None
+        if not 1 <= cantidad <= 240 or (potencia is not None and
+                                        not 2 <= potencia <= 21):
+            raise argparse.ArgumentTypeError(
+                'condicion RF fuera de rango: bytes 1-240, dBm 2-21')
+        return {'nombre': nombre, 'tipo': 'RF', 'modo': None,
+                'divisor': None, 'slew': None, 'bytes': cantidad,
+                'potencia': potencia}
     m = re.fullmatch(r'P(\d+)(?:D(\d+))?(?:S(\d+))?', nombre)
     if not m:
         raise argparse.ArgumentTypeError(
-            'condicion invalida %r; use BASE, REAL, ESD o '
-            'P<modo>[d<div>][s<slew>]' % texto)
-    return (nombre, int(m.group(1)), int(m.group(2) or 0),
-            int(m.group(3) or 0), False)
+            'condicion invalida %r; use BASE, REAL, ESD, RF<bytes>[P<dBm>], '
+            'RX, OFF, PING o P<modo>[D<div>][S<slew>]' % texto)
+    return {'nombre': nombre, 'tipo': 'PROBE', 'modo': int(m.group(1)),
+            'divisor': int(m.group(2) or 0), 'slew': int(m.group(3) or 0)}
 
 
 def _parar_probe():
     bt._cmd('sdprobe 0 %d 0 0 0' % PERIODO_SD_MS, 0.2)
 
 
-def _esperar_posiciones_espsd(lineas, espera_s=3.0):
-    """Extrae la primera linea ``#ESPSD pos n ...`` del lector de ``bt``."""
-    patron = re.compile(r'^#ESPSD pos (\d+)(?:\s+(.*))?$')
+def _esperar_posiciones(lineas, etiqueta, espera_s=3.0):
+    """Extrae la primera linea ``#<etiqueta> pos n ...`` del lector."""
+    patron = re.compile(r'^#%s pos (\d+)(?:\s+(.*))?$' %
+                        re.escape(etiqueta))
     limite = time.monotonic() + espera_s
     vistas = 0
     while time.monotonic() < limite:
@@ -81,6 +100,74 @@ def _esperar_posiciones_espsd(lineas, espera_s=3.0):
                 return posiciones
         time.sleep(0.05)
     return None
+
+
+def _leer_tiempos(lineas, etiqueta, espera_s=3.0):
+    """Lee ``#<etiqueta> t n t1 ...`` y la ``#PING t n v:t ...`` que la sigue.
+
+    Devuelve (instantes_evento_us, [(v, t_us), ...]) o None."""
+    pat_ev = re.compile(r'^#%s t (\d+)(?:\s+(.*))?$' % re.escape(etiqueta))
+    pat_pg = re.compile(r'^#PING t (\d+)(?:\s+(.*))?$')
+    limite = time.monotonic() + espera_s
+    vistas, eventos = 0, None
+    while time.monotonic() < limite:
+        while vistas < len(lineas):
+            linea = lineas[vistas].strip()
+            vistas += 1
+            m = pat_ev.fullmatch(linea)
+            if m:
+                eventos = [int(x) for x in (m.group(2) or '').split()]
+                if len(eventos) != int(m.group(1)):
+                    eventos = None
+                continue
+            m = pat_pg.fullmatch(linea)
+            if m and eventos is not None:
+                pings = [tuple(int(y) for y in x.split(':'))
+                         for x in (m.group(2) or '').split()]
+                if len(pings) == int(m.group(1)):
+                    return eventos, pings
+        time.sleep(0.05)
+    return None
+
+
+def _muestras_desde_pings(eventos_us, pings):
+    """Convierte instantes del ESP (micros) en indices de muestra.
+
+    El PSoC (sdprobe modo 7) avisa en la muestra (v-1)*150 con v = 1..255
+    (8 bits); los instantes se desenrollan (micros da la vuelta a las 71 min,
+    v a los 256 avisos) y cada evento se interpola entre los dos avisos que lo
+    rodean: asi no importan la deriva del IMO del PSoC ni la latencia."""
+    if len(pings) < 2:
+        return []
+    vs, ts = [], []
+    v_prev = t_prev = None
+    v_off = t_off = 0
+    for v, t in pings:
+        if v_prev is not None and v + v_off < v_prev:
+            v_off += 256
+        if t_prev is not None and t + t_off < t_prev:
+            t_off += 1 << 32
+        vs.append(v + v_off)
+        ts.append(t + t_off)
+        v_prev, t_prev = vs[-1], ts[-1]
+    muestras = (np.asarray(vs, dtype=float) - 1.0) * SDPROBE_CADA
+    t_pings = np.asarray(ts, dtype=float)
+    ev = np.asarray(eventos_us, dtype=float)
+    ev = np.where(ev + (1 << 31) < t_pings[0], ev + (1 << 32), ev)
+    # Extrapolacion lineal en los bordes con la pendiente media.
+    pend = (muestras[-1] - muestras[0]) / (t_pings[-1] - t_pings[0])
+    dentro = np.interp(ev, t_pings, muestras)
+    antes = muestras[0] + (ev - t_pings[0]) * pend
+    despues = muestras[-1] + (ev - t_pings[-1]) * pend
+    out = np.where(ev < t_pings[0], antes, np.where(ev > t_pings[-1], despues, dentro))
+    return [int(round(x)) for x in out]
+
+
+def _enviar_maestro(maestro, n):
+    """Ordena al maestro RF transmitir ``n`` paquetes de prueba."""
+    lo, hi = n & 0xff, (n >> 8) & 0xff
+    maestro.write(bytes((0xab, 0xc1, lo, hi, 0xc1 ^ lo ^ hi)))
+    maestro.flush()
 
 
 def _lazo_en_banda(espera_s=180.0):
@@ -106,8 +193,12 @@ def _lazo_en_banda(espera_s=180.0):
     return None
 
 
-def _una_corrida(args, condicion, repeticion, salida):
-    nombre, modo, divisor, slew, esd = condicion
+def _una_corrida(args, condicion, repeticion, salida, maestro=None):
+    nombre = condicion['nombre']
+    tipo = condicion['tipo']
+    modo = condicion['modo']
+    divisor = condicion['divisor']
+    slew = condicion['slew']
     ruta = os.path.join(
         salida, 'p%d%d_%s_r%02d.txt' %
         (args.pga, args.pgaout, nombre, repeticion))
@@ -119,32 +210,78 @@ def _una_corrida(args, condicion, repeticion, salida):
 
     duracion = args.lotes * er.MUESTRAS_POR_LOTE / float(er.FS_HZ)
     duracion_ms = int(duracion * 1000) + 4000
-    lineas_espsd = [] if esd else None
-    if esd:
-        bt._sink = lineas_espsd
+    etiqueta = {'ESD': 'ESPSD', 'RF': 'RFTEST', 'RX': 'RFRX'}.get(tipo)
+    if tipo in ('RF', 'RX', 'PING'):
+        # Pings del PSoC por I2C en cada k*150 muestras: reloj de referencia.
+        bt._cmd('sdprobe %d %d 7 0 0' % (duracion_ms, PERIODO_SD_MS), 0.3)
+    lineas_posiciones = [] if etiqueta else None
+    if etiqueta:
+        bt._sink = lineas_posiciones
     marcas_lote = None
-    if esd:
+    marcas_muestra = None
+    eventos_t = pings_t = None
+    if etiqueta:
         try:
             try:
-                bt._cmd('espsd %d 5' % duracion_ms, 0.3)
+                if tipo == 'ESD':
+                    bt._cmd('espsd %d 5' % duracion_ms, 0.3)
+                elif tipo == 'RF':
+                    if condicion['potencia'] is not None:
+                        bt._cmd('txpower %d' % condicion['potencia'], 0.3)
+                    # periodo 0: transmite en cada ping del PSoC.
+                    bt._cmd('rftest %d 0 %d' %
+                            (duracion_ms, condicion['bytes']), 0.3)
+                else:
+                    bt._cmd('rfrx %d' % duracion_ms, 0.3)
+                    _enviar_maestro(maestro, duracion_ms // 10)
                 bt._cmd('clear', 0.8)
                 bt._cmd('startwait %d' % args.lotes, duracion + 5.0)
             finally:
-                bt._cmd('espsd 0', 0.2)
-            marcas_lote = _esperar_posiciones_espsd(lineas_espsd)
+                if tipo == 'ESD':
+                    bt._cmd('espsd 0', 0.2)
+                elif tipo == 'RF':
+                    try:
+                        bt._cmd('rftest 0', 0.2)
+                    finally:
+                        if condicion['potencia'] is not None:
+                            bt._cmd('txpower 21', 0.2)
+                else:
+                    try:
+                        _enviar_maestro(maestro, 0)
+                    finally:
+                        bt._cmd('rfrx 0', 0.2)
+                if tipo in ('RF', 'RX'):
+                    _parar_probe()
+            if tipo == 'ESD':
+                marcas_lote = _esperar_posiciones(lineas_posiciones, etiqueta)
+            else:
+                leido = _leer_tiempos(lineas_posiciones, etiqueta)
+                if leido is not None:
+                    marcas_muestra = _muestras_desde_pings(*leido)
+                    eventos_t, pings_t = leido
+                    marcas_lote = []   # no se usa: van en marcas_muestra
         finally:
             bt._sink = None
         if marcas_lote is None:
-            return 'sin posiciones ESPSD'
+            return 'sin posiciones %s' % etiqueta
+        if tipo in ('RF', 'RX') and not marcas_muestra:
+            return 'sin pings del PSoC para ubicar %s' % etiqueta
     else:
         if modo is not None:
             bt._cmd('sdprobe %d %d %d %d %d' %
                     (duracion_ms, PERIODO_SD_MS, modo, divisor, slew), 0.3)
         try:
+            if tipo == 'OFF':
+                bt._cmd('radio off', 0.3)
             bt._cmd('clear', 0.8)
             bt._cmd('startwait %d' % args.lotes, duracion + 5.0)
         finally:
-            _parar_probe()
+            try:
+                _parar_probe()
+            finally:
+                if tipo == 'OFF':
+                    bt._cmd('radio on', 0.3)
+                    time.sleep(1.0)
 
     cabecera, lotes, completo, perdidos = er._volcar()
     if perdidos:
@@ -160,14 +297,25 @@ def _una_corrida(args, condicion, repeticion, salida):
         'lazo': {'estado': lazo['estado'], 'banda': lazo['banda'],
                  'lpo_uv': lazo['tap'][4], 'idac': lazo['idac']},
     }
-    if marcas_lote is not None:
+    if tipo == 'RF':
+        meta.update({'rf_bytes': condicion['bytes'],
+                     'txpower': condicion['potencia']})
+    if marcas_muestra:
+        meta['marcas_muestra'] = marcas_muestra
+        meta['eventos_us'] = eventos_t
+        meta['pings'] = pings_t
+    elif marcas_lote:
         meta['marcas_lote'] = marcas_lote
     er._guardar(ruta, cabecera, lotes, meta)
     return None
 
 
 def correr(args):
-    salida = os.path.join(SALIDA, args.exp)
+    requiere_maestro = any(c['tipo'] == 'RX' for c in args.cond)
+    if requiere_maestro and not args.maestro:
+        _log('la condicion RX requiere --maestro COMx')
+        return 2
+    salida = os.path.join(args.raiz or SALIDA, args.exp)
     os.makedirs(salida, exist_ok=True)
     bt.PUERTO = args.port
     _log('puerto: %s' % bt.PUERTO)
@@ -211,7 +359,15 @@ def correr(args):
         bt._cmd('view %d' % args.tap, 1.5)
 
     hechas = saltadas = 0
+    maestro = None
     try:
+        if requiere_maestro:
+            try:
+                maestro = serial.Serial(args.maestro, 921600, timeout=0.3)
+            except serial.SerialException as exc:
+                _log('no se pudo abrir maestro %s: %s' %
+                     (args.maestro, exc))
+                return 3
         for rep in range(1, args.rep + 1):
             if not bt._vivo:
                 break
@@ -221,17 +377,23 @@ def correr(args):
                 if not bt._vivo:
                     break
                 numero = rep * 10 + indice
-                problema = _una_corrida(args, condicion, numero, salida)
+                problema = _una_corrida(args, condicion, numero, salida,
+                                         maestro)
                 if problema == 'ya estaba':
                     saltadas += 1
                 elif problema:
                     _log('!! %s r%02d: %s' %
-                         (condicion[0], numero, problema))
+                         (condicion['nombre'], numero, problema))
                 else:
                     hechas += 1
-                    _log('%-10s r%02d ok' % (condicion[0], numero))
+                    _log('%-10s r%02d ok' %
+                         (condicion['nombre'], numero))
     finally:
-        _parar_probe()
+        try:
+            _parar_probe()
+        finally:
+            if maestro is not None:
+                maestro.close()
     _log('terminado: %d nuevas, %d existentes, en %s' %
          (hechas, saltadas, salida))
     return 0
@@ -275,7 +437,11 @@ def no_utilizable(digi):
 
 def _marcas_desde_meta(meta, cantidad):
     marcas = np.zeros(cantidad, dtype=bool)
-    if 'marcas_lote' in meta:
+    if meta.get('marcas_muestra'):
+        posiciones = np.asarray(meta['marcas_muestra'], dtype=np.int64)
+        posiciones = posiciones[(posiciones >= 0) & (posiciones < cantidad)]
+        marcas[posiciones] = True
+    elif 'marcas_lote' in meta:
         posiciones = np.asarray(meta['marcas_lote'], dtype=np.int64) * BATCH
         posiciones = posiciones[(posiciones >= 0) & (posiciones < cantidad)]
         marcas[posiciones] = True
@@ -375,7 +541,11 @@ def resumir(args):
                _fmt(f['lotes_perdidos'])))
     _guardar_tablas(args.directorio, resumen)
 
+    # Referencia: BASE; si no hay, PING (las condiciones de radio llevan los
+    # pings I2C del PSoC, asi que su control justo es PING, no BASE).
     base = next((f for f in resumen if f['cond'] == 'BASE'), None)
+    if base is None:
+        base = next((f for f in resumen if f['cond'] == 'PING'), None)
     veredictos = []
     if base:
         media_base, std_base = base['p2p_cuentas']
@@ -482,6 +652,28 @@ def autotest(_args):
     if np.flatnonzero(marcas_esd).tolist() != [60, 210, 330]:
         print('AUTOTEST FAIL: conversion de marcas_lote')
         return 1
+    condiciones = [_condicion(x) for x in ('RF240', 'RF10P8', 'RX', 'OFF')]
+    esperadas = [
+        ('RF240', 'RF', 240, None),
+        ('RF10P8', 'RF', 10, 8),
+        ('RX', 'RX', None, None),
+        ('OFF', 'OFF', None, None),
+    ]
+    obtenidas = [(c['nombre'], c['tipo'], c.get('bytes'), c.get('potencia'))
+                 for c in condiciones]
+    if obtenidas != esperadas:
+        print('AUTOTEST FAIL: parseo de condiciones %r' % (obtenidas,))
+        return 1
+    lineas = [
+        'ruido', '#ESPSD pos 3 2 7 11', '#RFTEST pos 2 4 9',
+        '#RFRX pos 4 1 3 5 8',
+    ]
+    for etiqueta, posiciones in (
+            ('ESPSD', [2, 7, 11]), ('RFTEST', [4, 9]),
+            ('RFRX', [1, 3, 5, 8])):
+        if _esperar_posiciones(lineas, etiqueta, 0.1) != posiciones:
+            print('AUTOTEST FAIL: posiciones %s' % etiqueta)
+            return 1
     print('AUTOTEST PASS: p2p %.2f, esperado %.2f' % (obtenido, esperado))
     return 0
 
@@ -491,7 +683,9 @@ def main(argv=None):
     sub = ap.add_subparsers(dest='subcomando', required=True)
     cp = sub.add_parser('correr')
     cp.add_argument('--port', required=True)
+    cp.add_argument('--maestro', help='puerto serie del maestro RF para RX')
     cp.add_argument('--exp', required=True)
+    cp.add_argument('--raiz', default=None, help='carpeta de datos (default lab/ruido_sd_20261019)')
     cp.add_argument('--cond', nargs='+', required=True, type=_condicion)
     cp.add_argument('--rep', type=int, default=3)
     cp.add_argument('--lotes', type=int, default=250)
