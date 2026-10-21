@@ -60,6 +60,42 @@ Estado: ok
 | SIL1000 | 6 | 61.1+-10 | EFECTO |
 | SIL500 | 6 | 60.5+-8.7 | EFECTO |
 
+## W12e_silencio_500
+
+Estado: ok
+
+| cond | n | p2p cuentas | veredicto |
+|---|---:|---:|---|
+| BASE | 12 | 96.5+-21 | referencia |
+| SIL500 | 12 | 59+-5.7 | sin efecto |
+
+## W13_reposo_seo
+
+Estado: ok
+
+| cond | n | p2p cuentas | veredicto |
+|---|---:|---:|---|
+| BASE | 8 | 3.29+-0.48 | referencia |
+| OFF | 8 | 2.2+-0.27 | sin efecto |
+
+## W13b_reposo_seo_pga0
+
+Estado: ok
+
+| cond | n | p2p cuentas | veredicto |
+|---|---:|---:|---|
+| BASE | 6 | 0.878+-0.14 | referencia |
+| OFF | 6 | 0.789+-0.077 | sin efecto |
+
+## W13c_reposo_seo_pga2
+
+Estado: ok
+
+| cond | n | p2p cuentas | veredicto |
+|---|---:|---:|---|
+| BASE | 6 | 1.59+-0.42 | referencia |
+| OFF | 6 | 1.28+-0.27 | sin efecto |
+
 ## W1_radio
 
 Estado: sin estado
