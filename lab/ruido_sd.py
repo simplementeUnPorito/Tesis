@@ -5,6 +5,7 @@ corre en paralelo, de modo que el camino de lectura no contamina la medida.
 """
 import argparse
 import csv
+import faulthandler
 import glob
 import json
 import os
@@ -432,7 +433,8 @@ def correr(args):
     try:
         if requiere_maestro:
             try:
-                maestro = serial.Serial(args.maestro, 921600, timeout=0.3)
+                maestro = serial.Serial(args.maestro, 921600, timeout=0.3,
+                                        write_timeout=2.0)
             except serial.SerialException as exc:
                 _log('no se pudo abrir maestro %s: %s' %
                      (args.maestro, exc))
@@ -446,8 +448,14 @@ def correr(args):
                 if not bt._vivo:
                     break
                 numero = rep * 10 + indice
-                problema = _una_corrida(args, condicion, numero, salida,
-                                         maestro)
+                # Si una captura se cuelga (campana_ruido la mata por silencio),
+                # que quede en el log donde estaba trabada.
+                faulthandler.dump_traceback_later(240, exit=False)
+                try:
+                    problema = _una_corrida(args, condicion, numero, salida,
+                                             maestro)
+                finally:
+                    faulthandler.cancel_dump_traceback_later()
                 if problema == 'ya estaba':
                     saltadas += 1
                 elif problema:
