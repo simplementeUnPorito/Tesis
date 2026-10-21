@@ -85,6 +85,7 @@ Figuras de la radio: `python lab/figuras_informe_rf.py --raiz <carpeta>`.
 | `prueba_radiosil_maestro.py` | prueba de punta a punta: captura comandada por el maestro con `radiosil` (ARM, START, lotes completos, la radio vuelve) |
 | `analizar_e2e_radiosil.py <dir>` | ruido (RMS total, 5-50 Hz, baliza, arranque) de las capturas que recibió el maestro, con y sin radiosil |
 | `figuras_informe_rf.py` | figuras de la radio: potencia, taps, ganancia, formas, uso real, difusión |
+| `figura_silencio_rf.py` | figura del silencio de radio: transitorio de arranque y RMS 5-50 Hz por condición (BASE, OFF, SIL, SIL500, SIL1000) |
 | `piso_ruido_corto.py` | piso de ruido con la entrada en corto |
 | `ganancia_ruido_sd.py` | dependencia con la ganancia (dónde entra el ruido) |
 | `osc_ruido_sd.py <csv>` | capturas del TDS 2004B alineadas con el disparo |
