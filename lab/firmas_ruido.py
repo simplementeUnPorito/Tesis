@@ -65,14 +65,32 @@ def _nulo_p95(xs, marcas_por_cap, antes, despues, cantidad, cuentas, repeticione
         if len(filas) > 1:
             m = np.asarray(filas)
             sv = np.linalg.svd(m - m.mean(axis=0), compute_uv=False) ** 2
-            if sv.sum():
-                v = sv[:cantidad] / sv.sum()
-                f[:v.size] = v
+            # varianza ABSOLUTA por componente: la fraccion no sirve para
+            # comparar contra el evento (un brote grande y variable reparte su
+            # varianza en muchas componentes y su fraccion queda chica)
+            v = sv[:cantidad] / (m.shape[0] - 1)
+            f[:v.size] = v
         fracs.append(f)
     return np.percentile(np.asarray(fracs), 95, axis=0)
 
 
-def extraer(dirs, cond, antes_ms=10, despues_ms=None, k=3):
+def _nulo_ref_p95(matrices, cantidad, n_filas, repeticiones=20):
+    """Percentil 95 por bootstrap de segmentos de capturas de referencia."""
+    m = np.vstack(matrices)
+    fracs = []
+    for r in range(repeticiones):
+        rng = np.random.default_rng(2000 + r)
+        muestra = m[rng.choice(m.shape[0], size=n_filas, replace=True)]
+        f = np.zeros(cantidad)
+        if muestra.shape[0] > 1:
+            sv = np.linalg.svd(muestra - muestra.mean(axis=0), compute_uv=False) ** 2
+            v = sv[:cantidad] / (muestra.shape[0] - 1)
+            f[:v.size] = v
+        fracs.append(f)
+    return np.percentile(np.asarray(fracs), 95, axis=0)
+
+
+def extraer(dirs, cond, antes_ms=10, despues_ms=None, k=8, ref_cond=None, ref_dirs=None):
     """Extrae la firma de ``cond`` desde volcados en uno o mas directorios.
 
     Devuelve media, desviacion por muestra y los primeros ``k`` componentes
@@ -80,8 +98,10 @@ def extraer(dirs, cond, antes_ms=10, despues_ms=None, k=3):
     Con ``despues_ms=None`` la ventana posterior es el minimo entre 60 ms y
     0.92 veces la mediana del espaciado entre eventos menos ``antes``. Las
     componentes significativas son las primeras cuya varianza supera el p95
-    de segmentos aleatorios sin evento (``k_significativas``). Las capturas que
-    tocaron un riel se descartan; mezclar configuraciones es un error.
+    de la referencia ``ref_cond`` en las mismas posiciones de evento. Si no
+    hay referencia utilizable se usan segmentos aleatorios sin evento. Las
+    capturas que tocaron un riel se descartan; mezclar configuraciones es un
+    error.
     """
     if isinstance(dirs, (str, os.PathLike)):
         dirs = [dirs]
@@ -139,9 +159,47 @@ def extraer(dirs, cond, antes_ms=10, despues_ms=None, k=3):
     componentes = vt[:cantidad]
     energia = s ** 2
     varianza = energia[:cantidad] / energia.sum() if energia.sum() else np.zeros(cantidad)
-    nulo = _nulo_p95(xs, marcas_cap, antes, despues, cantidad, cuentas)
+    matrices_ref = []
+    if ref_cond is not None:
+        if ref_dirs is None:
+            ref_dirs = dirs
+        elif isinstance(ref_dirs, (str, os.PathLike)):
+            ref_dirs = [ref_dirs]
+        referencias = {str(c).upper() for c in
+                       (ref_cond if isinstance(ref_cond, (list, tuple, set)) else [ref_cond])}
+        for directorio in [os.fspath(d) for d in ref_dirs]:
+            rutas = ([directorio] if os.path.isfile(directorio) else
+                     sorted(glob.glob(os.path.join(directorio, '*.txt'))))
+            for ruta in rutas:
+                meta, _, digi, _, _ = ruido_sd.ar.cargar(ruta)
+                condicion = str(meta.get('cond', meta.get('condicion', ''))).upper()
+                cfg = tuple(int(meta[n]) for n in ('tap', 'pga', 'pgaout'))
+                if condicion not in referencias or cfg != configuracion or digi.size == 0:
+                    continue
+                if meta.get('marcas_muestra'):
+                    posiciones = np.asarray(meta['marcas_muestra'], dtype=np.int64)
+                elif 'marcas_lote' in meta:
+                    posiciones = np.asarray(meta['marcas_lote'], dtype=np.int64) * ruido_sd.BATCH
+                else:
+                    posiciones = np.arange(150, digi.size, 150, dtype=np.int64)
+                marcas = np.zeros(digi.size, dtype=bool)
+                posiciones = posiciones[(posiciones >= 0) & (posiciones < digi.size)]
+                marcas[posiciones] = True
+                x = _limpiar(digi, marcas)
+                if ruido_sd.no_utilizable(x):
+                    continue
+                seg = segmentos(x, posiciones, antes, despues)
+                if seg.size:
+                    matrices_ref.append(seg)
+    if matrices_ref:
+        nulo = _nulo_ref_p95(matrices_ref, cantidad, matriz.shape[0])
+        tipo_nula = 'ref:' + '/'.join(sorted(referencias))
+    else:
+        nulo = _nulo_p95(xs, marcas_cap, antes, despues, cantidad, cuentas)
+        tipo_nula = 'aleatoria'
+    varianza_abs = energia[:cantidad] / max(matriz.shape[0] - 1, 1)
     sig = 0
-    while sig < cantidad and varianza[sig] > nulo[sig]:
+    while sig < cantidad and varianza_abs[sig] > nulo[sig]:
         sig += 1
     tap, pga, pgaout = configuracion
     factor_pga, factor_pgaout = GANANCIAS[pga], GANANCIAS[pgaout]
@@ -153,7 +211,7 @@ def extraer(dirs, cond, antes_ms=10, despues_ms=None, k=3):
         'antes': antes, 'despues': despues, 'fs': FS,
         'tap': tap, 'pga': pga, 'pgaout': pgaout,
         'ganancia_total': factor_pga if tap == 0 else factor_pga * factor_pgaout,
-        'cond': '/'.join(sorted(condiciones)), 'dirs': dirs,
+        'cond': '/'.join(sorted(condiciones)), 'dirs': dirs, 'nula': tipo_nula,
     }
 
 
@@ -333,7 +391,8 @@ def evaluar(dirs, cond, ref_cond, modos=MODOS):
     tt = np.arange(ancho) / FS
     paquete = np.exp(-0.5 * ((tt - 0.15) / 0.05) ** 2) * np.sin(2 * np.pi * 20 * tt)
     for i, (_, x, pos) in enumerate(caps):
-        firma = extraer([c[0] for j, c in enumerate(caps) if j != i], cond, k=3)
+        firma = extraer([c[0] for j, c in enumerate(caps) if j != i], cond, k=8,
+                        ref_cond=ref_cond, ref_dirs=list(dirs))
         ta, ba = _rms(x) * uv, _rms_banda(x) * uv
         for nom, modo, k in modos:
             y, _ = restar(x, pos, firma, k=k, modo=modo)
@@ -437,22 +496,22 @@ def _catalogo(lab):
     sd = os.path.join(lab, 'ruido_sd_20261019')
     rf = os.path.join(lab, 'ruido_rf_20261020')
     entradas = [
-        ('sd_escritura', ('P4', 'REAL'), [os.path.join(sd, 'E3_pgaout0')]),
+        ('sd_escritura', ('P4', 'REAL'), [os.path.join(sd, 'E3_pgaout0')], 'BASE'),
     ]
-    entradas += [('sd_escritura', 'P4', [os.path.join(sd, 'E2_tap%d' % t)]) for t in range(5)]
+    entradas += [('sd_escritura', 'P4', [os.path.join(sd, 'E2_tap%d' % t)], 'BASE') for t in range(5)]
     entradas += [
-        ('rf_tx_240', 'RF240', [os.path.join(rf, 'W5_lpo_pgaout1'), os.path.join(rf, 'W5c_lpo_pgaout1')]),
+        ('rf_tx_240', 'RF240', [os.path.join(rf, 'W5_lpo_pgaout1'), os.path.join(rf, 'W5c_lpo_pgaout1')], 'PING'),
     ]
-    entradas += [('rf_tx_240', 'RF240', [os.path.join(rf, 'W5_tap%d' % t)]) for t in range(4)]
-    entradas += [('rf_tx_240', 'RF240', [os.path.join(rf, 'W9_ganancia_pga%d' % p)]) for p in (0, 2, 3, 4)]
+    entradas += [('rf_tx_240', 'RF240', [os.path.join(rf, 'W5_tap%d' % t)], 'PING') for t in range(4)]
+    entradas += [('rf_tx_240', 'RF240', [os.path.join(rf, 'W9_ganancia_pga%d' % p)], 'PING') for p in (0, 2, 3, 4)]
     entradas += [
-        ('rf_tx_10', 'RF10', [os.path.join(rf, 'W5_lpo_pgaout1'), os.path.join(rf, 'W5c_lpo_pgaout1')]),
-        ('rf_tx_10', 'RF10', [os.path.join(rf, 'W9_rf10_pga0')]),
-        ('rf_rx', 'RX', [os.path.join(rf, 'W4b_rx_pgaout1')]),
-        ('rf_rx', 'RX', [os.path.join(rf, 'W4c_rx_pgaout16')]),
-        ('i2c_ping', 'PING', [os.path.join(rf, 'W5c_lpo_pgaout1')]),
-        ('i2c_ping', 'PING', [os.path.join(rf, 'W4c_rx_pgaout16')]),
-        ('i2c_ping', 'PING', [os.path.join(rf, 'W9_ganancia_pga0')]),
+        ('rf_tx_10', 'RF10', [os.path.join(rf, 'W5_lpo_pgaout1'), os.path.join(rf, 'W5c_lpo_pgaout1')], 'PING'),
+        ('rf_tx_10', 'RF10', [os.path.join(rf, 'W9_rf10_pga0')], 'PING'),
+        ('rf_rx', 'RX', [os.path.join(rf, 'W4b_rx_pgaout1')], 'PING'),
+        ('rf_rx', 'RX', [os.path.join(rf, 'W4c_rx_pgaout16')], 'PING'),
+        ('i2c_ping', 'PING', [os.path.join(rf, 'W5c_lpo_pgaout1')], 'BASE'),
+        ('i2c_ping', 'PING', [os.path.join(rf, 'W4c_rx_pgaout16')], 'BASE'),
+        ('i2c_ping', 'PING', [os.path.join(rf, 'W9_ganancia_pga0')], 'BASE'),
     ]
     return entradas
 
@@ -505,13 +564,13 @@ def _extraer_todas(salida):
     lab = os.path.dirname(os.path.abspath(__file__))
     os.makedirs(salida, exist_ok=True)
     hechas = []
-    for fuente, cond, dirs in _catalogo(lab):
+    for fuente, cond, dirs, ref_cond in _catalogo(lab):
         faltan = [d for d in dirs if not os.path.isdir(d)]
         if faltan:
             print('AVISO: se omite %s (%s): no existe %s' % (fuente, cond, ', '.join(faltan)), file=sys.stderr)
             continue
         try:
-            firma = extraer(dirs, cond)
+            firma = extraer(dirs, cond, ref_cond=ref_cond)
         except ValueError as exc:
             print('AVISO: se omite %s (%s): %s' % (fuente, cond, exc), file=sys.stderr)
             continue
