@@ -83,6 +83,7 @@ Figuras de la radio: `python lab/figuras_informe_rf.py --raiz <carpeta>`.
 | `sustraer_brote_rf.py <dir>` | si restar la plantilla del brote (posiciones conocidas) limpia la medición; RMS y PSD 5-50 Hz antes y después |
 | `transitorio_arranque.py <dir>` | std por ventana desde el inicio de la captura y tiempo de asentamiento por condición |
 | `prueba_radiosil_maestro.py` | prueba de punta a punta: captura comandada por el maestro con `radiosil` (ARM, START, lotes completos, la radio vuelve) |
+| `analizar_e2e_radiosil.py <dir>` | ruido (RMS total, 5-50 Hz, baliza, arranque) de las capturas que recibió el maestro, con y sin radiosil |
 | `figuras_informe_rf.py` | figuras de la radio: potencia, taps, ganancia, formas, uso real, difusión |
 | `piso_ruido_corto.py` | piso de ruido con la entrada en corto |
 | `ganancia_ruido_sd.py` | dependencia con la ganancia (dónde entra el ruido) |
