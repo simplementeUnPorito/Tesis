@@ -69,7 +69,14 @@ def _plan_rf() -> list[dict[str, Any]]:
         _paso("W12c_silencio_1000", ["BASE", "SIL1000", "SIL"], rep=3,
                pga=3, pgaout=4, tap=4,
                nota="radiosil con 1 s entre el apagado y el arranque"),
+        _paso("W12e_silencio_500", ["BASE", "SIL500"], rep=6,
+               pga=3, pgaout=4, tap=4,
+               nota="radiosil 500 ms (valor recomendado) vs radio encendida"),
     ])
+    for pga in (0, 2, 4):
+        plan.append(_paso(f"W13_reposo_seo_pga{pga}", ["BASE", "OFF"], rep=3,
+                          pga=pga, pgaout=0, tap=0,
+                          nota="baliza en SEo segun la ganancia del PGA"))
     return plan
 
 
