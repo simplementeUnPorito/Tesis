@@ -1,6 +1,7 @@
 """Espectro y RMS del ruido por condicion (para efectos sin evento sincronizable).
 
 Uso: python lab/espectro_condiciones.py DIR [DIR...] [--salida DIR] [--ref BASE]
+       [--banda LO HI]
 
 Por captura: limpia los artefactos de una muestra (como ruido_sd._medir),
 descarta las que tocan un riel (ruido_sd.no_utilizable), quita la media y
@@ -60,8 +61,10 @@ def cargar(dirs):
 
 
 def potencia_banda(f, p, lo, hi):
-    m = (f >= lo - 0.65) & (f <= hi + 0.65)   # al menos una linea (df = 1,27 Hz)
-    return float(np.sum(p[m]) * (f[1] - f[0])) if m.any() else float('nan')
+    m = (f >= lo) & (f <= hi)
+    if not m.any():
+        m[np.argmin(np.abs(f - 0.5 * (lo + hi)))] = True
+    return float(np.sum(p[m]) * (f[1] - f[0]))
 
 
 def main(argv=None):
@@ -69,7 +72,14 @@ def main(argv=None):
     ap.add_argument('dirs', nargs='+')
     ap.add_argument('--salida')
     ap.add_argument('--ref', default='BASE')
+    ap.add_argument('--banda', nargs=2, type=float, metavar=('LO', 'HI'),
+                    default=(5.0, 50.0))
     a = ap.parse_args(argv)
+    if a.banda[0] >= a.banda[1]:
+        ap.error('--banda requiere LO < HI')
+    banda_lo, banda_hi = a.banda
+    banda_col = 'RMS %g-%g Hz uV' % (banda_lo, banda_hi)
+    baliza_col = 'RMS 9,77 Hz uV'
     sal = a.salida or os.path.join(a.dirs[0], 'espectro')
     os.makedirs(sal, exist_ok=True)
     por, desc = cargar(a.dirs)
@@ -80,10 +90,15 @@ def main(argv=None):
     res = {}
     for cond, xs in por.items():
         rms = np.array([x.std() for x in xs])
-        psds = [welch(x, fs=FS, nperseg=2048) for x in xs]
+        psds = [welch(x, fs=FS, nperseg=min(8192, len(x))) for x in xs]
         f = psds[0][0]
         p = np.mean([q for _, q in psds], axis=0)
-        res[cond] = dict(n=len(xs), rms=rms, f=f, p=p)
+        rms_banda = np.sqrt([potencia_banda(fi, pi, banda_lo, banda_hi)
+                             for fi, pi in psds])
+        rms_baliza = np.sqrt([potencia_banda(fi, pi, 9.5, 10.1)
+                              for fi, pi in psds])
+        res[cond] = dict(n=len(xs), rms=rms, rms_banda=rms_banda,
+                         rms_baliza=rms_baliza, f=f, p=p)
     fr, pr = res[ref]['f'], res[ref]['p']
     filas = []
     for cond, r in sorted(res.items(), key=lambda kv: (kv[0] != ref, kv[0])):
@@ -93,7 +108,11 @@ def main(argv=None):
         cociente = r['p'][m] / np.maximum(pr[m], 1e-12)
         top = np.argsort(cociente)[::-1][:6]
         lineas = ', '.join('%.1f Hz x%.1f' % (r['f'][m][i], cociente[i]) for i in top)
+        rms_banda_sd = r['rms_banda'].std(ddof=1) if r['n'] > 1 else 0.0
+        rms_baliza_sd = r['rms_baliza'].std(ddof=1) if r['n'] > 1 else 0.0
         filas.append(dict(cond=cond, n=r['n'], rms=r['rms'].mean(), rms_sd=r['rms'].std(ddof=1) if r['n'] > 1 else 0.0,
+                          **{banda_col: '%.1f +- %.1f' % (r['rms_banda'].mean(), rms_banda_sd),
+                             baliza_col: '%.1f +- %.1f' % (r['rms_baliza'].mean(), rms_baliza_sd)},
                           ratio=r['rms'].mean() / res[ref]['rms'].mean(),
                           **{('banda ' + k): bandas[k] / bref[k] for k in BANDAS}, lineas=lineas))
     with open(os.path.join(sal, 'espectro.csv'), 'w', newline='', encoding='utf-8') as fh:
@@ -102,11 +121,12 @@ def main(argv=None):
         w.writerows(filas)
     lin = ['# Espectro por condicion', '',
            'Referencia: %s. Capturas descartadas por riel: %d. RMS en uV (sin media).' % (ref, desc), '',
-           '| cond | n | RMS uV | vs %s | %s | lineas que mas crecen |' % (ref, ' | '.join(BANDAS)),
-           '|---|---|---|---|%s|---|' % '|'.join(['---'] * len(BANDAS))]
+           '| cond | n | RMS uV | %s | %s | vs %s | %s | lineas que mas crecen |' %
+           (banda_col, baliza_col, ref, ' | '.join(BANDAS)),
+           '|---|---|---|---|---|---|%s|---|' % '|'.join(['---'] * len(BANDAS))]
     for r in filas:
-        lin.append('| %s | %d | %.0f +- %.0f | x%.2f | %s | %s |' % (
-            r['cond'], r['n'], r['rms'], r['rms_sd'], r['ratio'],
+        lin.append('| %s | %d | %.0f +- %.0f | %s | %s | x%.2f | %s | %s |' % (
+            r['cond'], r['n'], r['rms'], r['rms_sd'], r[banda_col], r[baliza_col], r['ratio'],
             ' | '.join('x%.2f' % r['banda ' + k] for k in BANDAS), r['lineas']))
     open(os.path.join(sal, 'espectro.md'), 'w', encoding='utf-8').write('\n'.join(lin) + '\n')
     fig, ax = plt.subplots(figsize=(10, 5))

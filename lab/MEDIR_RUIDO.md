@@ -24,6 +24,7 @@ PSoC mide con su propio ADC a través del MUX. Bitácoras de referencia:
 | `rfrx <ms>` | registra la llegada de las ráfagas del maestro (`#RFRX t`) |
 | `txpower <dBm>` | potencia máxima (2-21; el ESP32 la limita a 19,5 dBm) |
 | `radio off` / `radio on` | apaga y prende WiFi + ESP-NOW sin reiniciar (no resetea el PSoC) |
+| `radiosil on` / `radiosil off` | silencio de radio automático durante el muestreo (desactivado por defecto) |
 | `espsd <ms> <cada_lotes>` | SD conectada al ESP (HSPI: SCK 14, MOSI 13, MISO 32, CS 25) |
 | `sddiag`..`sddiag9` | diagnóstico de bajo nivel de esa SD |
 | `sdinfo` | reinicializa la SD del PSoC (hacerlo antes de usar `sdprobe` 4-5) |
@@ -48,6 +49,7 @@ Condiciones disponibles:
 | `RF<bytes>[P<dBm>][T<ms>][B]` | transmisión ESP-NOW; sin `T`, en cada ping; `T` fija periodo de 1-10000 ms; `B` usa difusión sin ACK ni reintentos | muestra exacta (interpolada entre pings) |
 | `RX` | ráfagas del maestro (requiere `--maestro`) | muestra exacta |
 | `OFF` | captura con la radio apagada | k·150 |
+| `SIL` | `radiosil on`: el firmware calla la radio al entrar en SAMPLING y la prende al salir (modo de campo propuesto) | k·150 |
 | `ESD` | SD en el ESP escribiendo | lotes (aproximado) |
 
 El script espera que el lazo converja después de fijar la ganancia, verifica
