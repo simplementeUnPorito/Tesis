@@ -8,6 +8,7 @@ import csv
 import glob
 import json
 import os
+import queue
 import re
 import signal
 import sys
@@ -200,6 +201,49 @@ def _lazo_en_banda(espera_s=180.0):
     return None
 
 
+def _esperar_convergencia(pga, pgaout, max_s, latido_s=60.0):
+    """Ejecuta la visita con latidos y devuelve su resultado o ``None``."""
+    resultado = queue.Queue(maxsize=1)
+
+    def visitar():
+        try:
+            resultado.put((True, bt._visitar(pga, pgaout, 240)))
+        except Exception as exc:
+            resultado.put((False, exc))
+
+    threading.Thread(target=visitar, daemon=True).start()
+    inicio = time.monotonic()
+    proximo_latido = latido_s
+    while True:
+        transcurrido = time.monotonic() - inicio
+        restante = max_s - transcurrido
+        if restante <= 0:
+            _log('!! no convergio en %d s a x%d/x%d' %
+                 (max_s, bt.CODIGOS[pga], bt.CODIGOS[pgaout]))
+            return None
+        espera = min(restante, max(0.0, proximo_latido - transcurrido))
+        try:
+            ok, valor = resultado.get(timeout=espera)
+        except queue.Empty:
+            transcurrido = time.monotonic() - inicio
+            if transcurrido >= max_s:
+                continue
+            try:
+                foto = bt._foto()
+                estado = bt.ESTADO.get(foto.get('estado'), foto.get('estado'))
+                tap = foto.get('tap') or [None] * 5
+                lpo = tap[4] if len(tap) > 4 else None
+            except bt.TelemetriaVencida:
+                estado, lpo = 'SIN_TELEMETRIA', None
+            _log('esperando convergencia: t=%d s, estado=%s, LPo=%s uV' %
+                 (int(transcurrido), estado, lpo))
+            proximo_latido += latido_s
+            continue
+        if ok:
+            return valor
+        raise valor
+
+
 def _una_corrida(args, condicion, repeticion, salida, maestro=None):
     nombre = condicion['nombre']
     tipo = condicion['tipo']
@@ -347,7 +391,11 @@ def correr(args):
          (bt.CODIGOS[args.pga], bt.CODIGOS[args.pgaout]))
     for intento in range(3):
         try:
-            serie, t_banda, _, _, _ = bt._visitar(args.pga, args.pgaout, 240)
+            visita = _esperar_convergencia(
+                args.pga, args.pgaout, args.converge_max_s)
+            if visita is None:
+                return 3
+            serie, t_banda, _, _, _ = visita
             break
         except bt.TelemetriaVencida as exc:
             # Tras un volcado el #CTL tarda en volver: reintentar, no abortar.
@@ -704,6 +752,8 @@ def main(argv=None):
     cp.add_argument('--pga', type=int, default=0)
     cp.add_argument('--pgaout', type=int, default=0)
     cp.add_argument('--tap', type=int)
+    cp.add_argument('--converge-max-s', type=int, default=600,
+                    help='tope para esperar la convergencia (default: 600)')
     cp.add_argument('--nota', default='')
     cp.set_defaults(func=correr)
     rp = sub.add_parser('resumir')

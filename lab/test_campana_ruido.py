@@ -70,6 +70,32 @@ def test_subproceso_silencioso_termina_como_colgado(tmp_path):
     assert "!! colgado" in log.read_text(encoding="utf-8")
 
 
+def test_codigo_3_termina_como_no_convergio(tmp_path):
+    falso = tmp_path / "no_convergio.py"
+    falso.write_text(
+        "raise SystemExit(3)\n",
+        encoding="utf-8",
+    )
+    log = tmp_path / "campana.log"
+
+    resultado = campana_ruido.ejecutar_con_vigilancia(
+        [sys.executable, str(falso)],
+        log,
+        silencio_s=5.0,
+        limite_s=5.0,
+        intervalo_s=0.02,
+    )
+
+    assert resultado.estado == "no_convergio"
+    assert resultado.motivo == "codigo 3"
+    assert resultado.retorno == 3
+    salida = campana_ruido.escribir_campana_md(
+        tmp_path,
+        estado={"pasos": {"W_timeout": {"estado": resultado.estado}}},
+    )
+    assert "Estado: no_convergio" in salida.read_text(encoding="utf-8")
+
+
 def test_campana_md_incluye_tabla_del_ejemplo_w5_tap0(tmp_path):
     origen = Path(__file__).parent / "ruido_rf_20261020" / "W5_tap0"
     destino = tmp_path / "W5_tap0"

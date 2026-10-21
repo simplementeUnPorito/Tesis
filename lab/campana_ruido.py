@@ -189,7 +189,9 @@ def ejecutar_con_vigilancia(comando: list[str], log: Path,
                 fh.write(f"[{_marca()}] {linea}")
         retorno = proceso.returncode
         _log(fh, f"fin (codigo {retorno})")
-        return ResultadoProceso("ok" if retorno == 0 else "error",
+        estado = ("ok" if retorno == 0 else
+                  "no_convergio" if retorno == 3 else "error")
+        return ResultadoProceso(estado,
                                 "" if retorno == 0 else f"codigo {retorno}", retorno)
 
 
