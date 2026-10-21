@@ -291,9 +291,13 @@ def wait_for_network_ready(
     return False
 
 
+# Demora del SYNC al PSoC tras callar la radio (radiosil on <ms>); --sil-ms.
+SIL_MS = 0
+
+
 def send_mode(slave: object, reader: SlaveReader, enabled: bool) -> tuple[bool, bool, int]:
     checkpoint = reader.checkpoint()
-    command = b"radiosil on\n" if enabled else b"radiosil off\n"
+    command = (b"radiosil on %d\n" % SIL_MS) if enabled else b"radiosil off\n"
     slave.write(command)
     slave.flush()
     log(f"Enviado al esclavo: {command.decode().strip()}")
@@ -437,6 +441,8 @@ def parse_args() -> argparse.Namespace:
         default=Path("lab/ruido_rf_20261020/radiosil_e2e/resultado.md"),
         help="informe Markdown de salida",
     )
+    parser.add_argument("--sil-ms", type=int, default=0,
+                        help="radiosil on <ms>: demora del SYNC al PSoC (default 0)")
     args = parser.parse_args()
     if args.rep < 0:
         parser.error("--rep debe ser >= 0")
@@ -451,6 +457,8 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
+    global SIL_MS
+    SIL_MS = args.sil_ms
     try:
         import serial
     except ImportError:

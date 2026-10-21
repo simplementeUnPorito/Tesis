@@ -57,7 +57,12 @@ def _condicion(texto):
                 'divisor': None, 'slew': None}
     if nombre in ('RX', 'OFF', 'PING', 'SIL'):
         return {'nombre': nombre, 'tipo': nombre, 'modo': None,
-                'divisor': None, 'slew': None}
+                'divisor': None, 'slew': None, 'sil_ms': 0}
+    m = re.fullmatch(r'SIL(\d+)', nombre)
+    if m and int(m.group(1)) <= 1000:
+        # SIL<ms>: la radio se calla y el SYNC al PSoC sube <ms> despues
+        return {'nombre': nombre, 'tipo': 'SIL', 'modo': None,
+                'divisor': None, 'slew': None, 'sil_ms': int(m.group(1))}
     m = re.fullmatch(r'RF(\d+)(?:P(\d+))?(?:T(\d+))?(B)?', nombre)
     if m:
         cantidad = int(m.group(1))
@@ -80,7 +85,7 @@ def _condicion(texto):
         raise argparse.ArgumentTypeError(
             'condicion invalida %r; use BASE, REAL, ESD, '
             'RF<bytes>[P<dBm>][T<ms>][B], '
-            'RX, OFF, SIL, PING o P<modo>[D<div>][S<slew>]' % texto)
+            'RX, OFF, SIL[<ms>], PING o P<modo>[D<div>][S<slew>]' % texto)
     return {'nombre': nombre, 'tipo': 'PROBE', 'modo': int(m.group(1)),
             'divisor': int(m.group(2) or 0), 'slew': int(m.group(3) or 0)}
 
@@ -329,7 +334,7 @@ def _una_corrida(args, condicion, repeticion, salida, maestro=None):
             elif tipo == 'SIL':
                 # el firmware calla la radio al entrar en SAMPLING y la
                 # vuelve a prender al salir (radiosil)
-                bt._cmd('radiosil on', 0.3)
+                bt._cmd('radiosil on %d' % condicion.get('sil_ms', 0), 0.3)
             bt._cmd('clear', 0.8)
             bt._cmd('startwait %d' % args.lotes, duracion + 5.0)
         finally:
