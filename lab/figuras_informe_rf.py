@@ -1,7 +1,8 @@
 """Figuras del informe del ruido por radio (ESP-NOW) sobre el front-end.
 
 Uso: python lab/figuras_informe_rf.py [--raiz lab/ruido_rf_20261020] [--salida DIR]
-Escribe rf_potencia.png, rf_taps.png, rf_ganancia.png, rf_formas.png y rf_resumen.csv.
+Escribe rf_potencia.png, rf_taps.png, rf_ganancia.png, rf_formas.png,
+rf_uso_real.png, rf_difusion.png y rf_resumen.csv.
 Tolera directorios o condiciones ausentes: omite el panel o la serie y lo anuncia.
 """
 import argparse
@@ -18,6 +19,7 @@ import matplotlib.pyplot as plt
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from lab import ruido_sd  # noqa: E402
 from lab import figuras_informe_sd as fsd  # noqa: E402
+from lab import espectro_condiciones as ec  # noqa: E402
 
 GANANCIAS = (1, 2, 4, 8, 16, 24, 32, 48, 50)   # codigo PGA 0..8 (ganancia_ruido_sd.py)
 UV = 1e6 / 52429.0                              # uV por cuenta (analisis_ruido.UV_POR_CUENTA)
@@ -58,10 +60,21 @@ def prom(caps):
 
 def reg(fig, serie, cond, caps, ganancia=None, extra=''):
     m, s, n = ms(caps)
-    FILAS.append({'figura': fig, 'serie': serie, 'cond': cond, 'n': n,
+    FILAS.append({'figura': fig, 'serie': serie, 'cond': cond, 'metrica': 'p2p', 'n': n,
                   'p2p_cuentas': m, 'std_cuentas': s,
                   'p2p_uV_salida': m * UV, 'ganancia': ganancia or '',
                   'p2p_uV_entrada': (m * UV / ganancia) if ganancia else '', 'nota': extra})
+    return m, s
+
+
+def reg_rms(fig, serie, cond, valores, ganancia, extra=''):
+    x = np.asarray(valores, float)
+    m = float(x.mean())
+    s = float(x.std(ddof=1)) if x.size > 1 else 0.0
+    FILAS.append({'figura': fig, 'serie': serie, 'cond': cond, 'metrica': 'RMS',
+                  'n': x.size, 'rms_cuentas': m, 'std_cuentas': s,
+                  'rms_uV_salida': m * UV, 'ganancia': ganancia,
+                  'rms_uV_entrada': m * UV / ganancia, 'nota': extra})
     return m, s
 
 
@@ -274,6 +287,145 @@ def fig_formas(raiz, sal, raiz_sd):
     plt.close(fig)
 
 
+def capturas_crudas(raiz, dir_, cond):
+    """Capturas continuas utiles, limpias y sin continua, para RMS/espectro."""
+    out = []
+    patron = os.path.join(raiz, dir_, '*.txt')
+    for ruta in sorted(glob.glob(patron)):
+        try:
+            meta, _, digi, _, _ = ruido_sd.ar.cargar(ruta)
+            nombre = str(meta.get('cond', meta.get('condicion', ''))).upper()
+            if nombre != cond or (meta.get('pga'), meta.get('pgaout')) != (3, 0):
+                continue
+            x = ec.limpiar(digi)
+            motivo = ruido_sd.no_utilizable(x)
+            if motivo:
+                print('NO UTILIZABLE %s: %s' % (os.path.basename(ruta), motivo),
+                      file=sys.stderr)
+                continue
+            if x.size < 2:
+                continue
+            x -= x.mean()
+            out.append({'x': x, 'rms': float(x.std()), 'ruta': ruta})
+        except (OSError, ValueError, KeyError, TypeError):
+            continue
+    return out
+
+
+def fig_uso_real(raiz, sal):
+    d = 'W8_uso_real'
+    especificaciones = [('PING', 'PING', '0.45'),
+                        ('RF240T29', 'RF240 cada 29 ms', '#1f77b4'),
+                        ('RF240T58', 'RF240 cada 58 ms', '#d62728')]
+    datos = []
+    for cond, etiqueta, color in especificaciones:
+        xs = capturas_crudas(raiz, d, cond)
+        if xs:
+            datos.append((cond, etiqueta, color, xs))
+        else:
+            omitir('%s/%s' % (d, cond))
+    if not datos:
+        omitir('rf_uso_real.png sin datos')
+        return
+
+    fig, ax = plt.subplots(1, 2, figsize=(12, 4.8))
+    fs = float(getattr(ec, 'FS', 2604.0))
+    n2s = int(round(2.0 * fs))
+    representativas = []
+    for cond, etiqueta, color, xs in datos:
+        orden = np.argsort([c['rms'] for c in xs])
+        representativas.append((cond, etiqueta, color, xs[int(orden[len(orden) // 2])]))
+    amplitud = max(float(np.ptp(c['x'][:n2s])) for _, _, _, c in representativas)
+    paso = max(amplitud * 1.15, 1.0)
+    posiciones = []
+    for i, (_, etiqueta, color, cap) in enumerate(representativas):
+        x = cap['x'][:n2s]
+        t = np.arange(x.size) / fs
+        desplazamiento = (len(representativas) - 1 - i) * paso
+        ax[0].plot(t, x + desplazamiento, color=color, lw=0.65)
+        posiciones.append(desplazamiento)
+    ax[0].set_yticks(posiciones)
+    ax[0].set_yticklabels([x[1] for x in representativas])
+    ax[0].set_xlim(0, 2)
+    ax[0].set_xlabel('tiempo [s]')
+    ax[0].set_ylabel('cuentas ADC (trazas desplazadas)')
+    ax[0].set_title('Captura representativa (misma escala vertical)', fontsize=10)
+    ax[0].grid(alpha=0.2)
+
+    for i, (cond, etiqueta, color, xs) in enumerate(datos):
+        rms = np.asarray([c['rms'] for c in xs])
+        m, s = reg_rms('rf_uso_real', etiqueta, cond, rms, 8, d)
+        if rms.size == 1:
+            dx = np.zeros(1)
+        else:
+            dx = np.linspace(-0.08, 0.08, rms.size)
+        ax[1].scatter(i + dx, rms, s=22, color=color, alpha=0.65, zorder=2)
+        ax[1].errorbar(i, m, s, fmt='o', color=color, mec='k', mew=0.4,
+                       capsize=5, zorder=3)
+    ax[1].set_xticks(range(len(datos)))
+    ax[1].set_xticklabels([x[1] for x in datos], rotation=15, ha='right')
+    ax[1].set_ylabel('RMS [cuentas ADC]')
+    sec = ax[1].secondary_yaxis(
+        'right', functions=(lambda v: v * UV / 8, lambda v: v * 8 / UV))
+    sec.set_ylabel('RMS referido a la entrada [µV] (÷ 8)')
+    ax[1].set_title('RMS por captura (media ± desvío)', fontsize=10)
+    ax[1].grid(alpha=0.25, axis='y')
+    fig.suptitle('Uso real en LPo — PGA x8, PGAout x1', fontsize=11)
+    fig.tight_layout()
+    fig.savefig(os.path.join(sal, 'rf_uso_real.png'), dpi=150)
+    plt.close(fig)
+
+
+def fig_difusion(raiz, sal):
+    d = 'W10_difusion'
+    especificaciones = [('RF240', 'RF240 unicast', '#444444'),
+                        ('RF240B', 'RF240 difusión', '#d62728'),
+                        ('RF10B', 'RF10 difusión', '#1f77b4')]
+    datos = []
+    for cond, etiqueta, color in especificaciones:
+        xs = capturas(raiz, d, cond)
+        if xs:
+            datos.append((cond, etiqueta, color, xs))
+        else:
+            omitir('%s/%s' % (d, cond))
+    if not datos:
+        omitir('rf_difusion.png sin datos')
+        return
+
+    fig, ax = plt.subplots(1, 2, figsize=(11, 4.5))
+    medias, desvios = [], []
+    for cond, etiqueta, color, xs in datos:
+        curva = prom(xs)
+        ax[0].plot(fsd.eje_ms(curva.size), curva, color=color, lw=1.4,
+                   label='%s (n=%d)' % (etiqueta, len(xs)))
+        m, s = reg('rf_difusion', etiqueta, cond, xs, 8, d)
+        medias.append(m)
+        desvios.append(s)
+    ax[0].axvline(0, color='0.4', lw=0.8, ls='--')
+    fsd.zoom(ax[0], -5, 31)
+    ax[0].set_xlabel('ms desde la marca')
+    ax[0].set_ylabel('LPo [cuentas ADC]')
+    ax[0].set_title('Brote promedio superpuesto', fontsize=10)
+    ax[0].grid(alpha=0.25)
+    ax[0].legend(fontsize=8)
+
+    pos = np.arange(len(datos))
+    ax[1].bar(pos, medias, yerr=desvios, capsize=4,
+              color=[x[2] for x in datos], alpha=0.85)
+    ax[1].set_xticks(pos)
+    ax[1].set_xticklabels([x[1] for x in datos], rotation=15, ha='right')
+    ax[1].set_ylabel('p2p del brote [cuentas ADC]')
+    sec = ax[1].secondary_yaxis(
+        'right', functions=(lambda v: v * UV / 8, lambda v: v * 8 / UV))
+    sec.set_ylabel('p2p referido a la entrada [µV] (÷ 8)')
+    ax[1].set_title('p2p (media ± desvío)', fontsize=10)
+    ax[1].grid(alpha=0.25, axis='y')
+    fig.suptitle('Unicast vs difusión en LPo — PGA x8, PGAout x1', fontsize=11)
+    fig.tight_layout()
+    fig.savefig(os.path.join(sal, 'rf_difusion.png'), dpi=150)
+    plt.close(fig)
+
+
 def main():
     aq = os.path.dirname(os.path.abspath(__file__))
     ap = argparse.ArgumentParser()
@@ -287,8 +439,11 @@ def main():
     fig_taps(a.raiz, sal)
     fig_ganancia(a.raiz, sal)
     fig_formas(a.raiz, sal, os.path.join(aq, 'ruido_sd_20261019'))
-    campos = ['figura', 'serie', 'cond', 'n', 'p2p_cuentas', 'std_cuentas', 'p2p_uV_salida',
-              'ganancia', 'p2p_uV_entrada', 'nota']
+    fig_uso_real(a.raiz, sal)
+    fig_difusion(a.raiz, sal)
+    campos = ['figura', 'serie', 'cond', 'metrica', 'n', 'p2p_cuentas', 'rms_cuentas',
+              'std_cuentas', 'p2p_uV_salida', 'rms_uV_salida', 'ganancia',
+              'p2p_uV_entrada', 'rms_uV_entrada', 'nota']
     with open(os.path.join(sal, 'rf_resumen.csv'), 'w', newline='', encoding='utf-8') as f:
         w = csv.DictWriter(f, campos)
         w.writeheader()
