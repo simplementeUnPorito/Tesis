@@ -20,6 +20,46 @@ Estado: ok
 | OFF | 8 | 56+-8.9 | sin efecto |
 | SIL | 6 | 69.2+-9.9 | sin efecto |
 
+## W12_silencio_sync
+
+Estado: ok
+
+| cond | n | p2p cuentas | veredicto |
+|---|---:|---:|---|
+| BASE | 8 | 88.9+-45 | referencia |
+| SIL | 2 | 371+-13 | EFECTO |
+| SIL250 | 2 | 341+-28 | EFECTO |
+
+## W12b_silencio_sync
+
+Estado: ok
+
+| cond | n | p2p cuentas | veredicto |
+|---|---:|---:|---|
+| BASE | 8 | 107+-51 | referencia |
+| SIL | 8 | 81.7+-25 | sin efecto |
+| SIL250 | 8 | 102+-32 | sin efecto |
+
+## W12c_silencio_1000
+
+Estado: ok
+
+| cond | n | p2p cuentas | veredicto |
+|---|---:|---:|---|
+| BASE | 6 | 90+-17 | referencia |
+| SIL | 4 | 67.7+-5.2 | sin efecto |
+| SIL1000 | 6 | 57.9+-4 | sin efecto |
+
+## W12d_silencio_500
+
+Estado: ok
+
+| cond | n | p2p cuentas | veredicto |
+|---|---:|---:|---|
+| BASE | 6 | 84.3+-6.8 | referencia |
+| SIL1000 | 6 | 61.1+-10 | EFECTO |
+| SIL500 | 6 | 60.5+-8.7 | EFECTO |
+
 ## W1_radio
 
 Estado: sin estado
