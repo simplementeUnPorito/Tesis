@@ -81,6 +81,7 @@ Figuras de la radio: `python lab/figuras_informe_rf.py --raiz <carpeta>`.
 | `ruido_sd.py resumir <dir>` | brote promedio sincronizado por condición: p2p, energía, gráfico `bursts_conjunto.png`; descarta capturas que tocan un riel |
 | `espectro_condiciones.py <dir>` | RMS y PSD por condición, líneas espectrales (baliza 9,77 Hz, 17,36 Hz...) para efectos sin evento |
 | `sustraer_brote_rf.py <dir>` | si restar la plantilla del brote (posiciones conocidas) limpia la medición; RMS y PSD 5-50 Hz antes y después |
+| `firmas_ruido.py` (extraer, evaluar, baliza) | firmas de ruido por fuente (media + componentes significativas) y su resta por software; ver `FIRMAS_RUIDO.md` |
 | `transitorio_arranque.py <dir>` | std por ventana desde el inicio de la captura y tiempo de asentamiento por condición |
 | `prueba_radiosil_maestro.py` | prueba de punta a punta: captura comandada por el maestro con `radiosil` (ARM, START, lotes completos, la radio vuelve) |
 | `analizar_e2e_radiosil.py <dir>` | ruido (RMS total, 5-50 Hz, baliza, arranque) de las capturas que recibió el maestro, con y sin radiosil |
