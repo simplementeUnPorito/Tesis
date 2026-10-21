@@ -20,6 +20,7 @@ from typing import Any, Iterable
 LAB = Path(__file__).resolve().parent
 RUIDO_SD = LAB / "ruido_sd.py"
 ESPECTRO = LAB / "espectro_condiciones.py"
+TRANSITORIO_ARRANQUE = LAB / "transitorio_arranque.py"
 
 
 def _paso(exp: str, cond: list[str], rep: int = 3, pga: int = 3,
@@ -55,6 +56,20 @@ def _plan_rf() -> list[dict[str, Any]]:
                pga=pga, tap=0, nota=f"Comparacion de ganancia PGA {pga}")
         for pga in (0, 2, 4)
     )
+    plan.extend([
+        _paso("W1c_reposo", ["BASE", "OFF"], rep=4, pga=3,
+               pgaout=4, tap=4,
+               nota="radio en reposo encendida vs apagada (lineas de baliza)"),
+        _paso("W3c_potencia_pgaout1",
+               ["PING", "RF240P2", "RF240P8", "RF240P14", "RF240P21"],
+               rep=3, pga=3, pgaout=0, tap=4),
+        _paso("W11_silencio", ["BASE", "SIL", "OFF"], rep=4, pga=3,
+               pgaout=4, tap=4,
+               nota="radiosil inmediato (requiere firmware con radiosil)"),
+        _paso("W12c_silencio_1000", ["BASE", "SIL1000", "SIL"], rep=3,
+               pga=3, pgaout=4, tap=4,
+               nota="radiosil con 1 s entre el apagado y el arranque"),
+    ])
     return plan
 
 
@@ -346,6 +361,8 @@ def correr(args: argparse.Namespace) -> int:
         if directorio.exists():
             _ejecutar_auxiliar([sys.executable, str(RUIDO_SD), "resumir", str(directorio)], log)
             _ejecutar_auxiliar([sys.executable, str(ESPECTRO), str(directorio)], log)
+            _ejecutar_auxiliar(
+                [sys.executable, str(TRANSITORIO_ARRANQUE), str(directorio)], log)
         pasos_estado[exp] = {"estado": resultado.estado, "motivo": resultado.motivo,
                              "retorno": resultado.retorno, "fecha": _marca()}
         _guardar_estado(estado_ruta, estado)
