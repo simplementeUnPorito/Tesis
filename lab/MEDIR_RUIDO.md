@@ -20,7 +20,7 @@ PSoC mide con su propio ADC a través del MUX. Bitácoras de referencia:
 | `view <tap>` | elige el tap que digitaliza la captura: 0 SEo, 1 BP, 2 sumador, 3 SUMo, 4 LPo |
 | `pga <c>` / `pgaout <c>` | ganancias (códigos 0-8 = x1..x50) |
 | `sdprobe <ms> 58 <modo> [div] [slew]` | arma la sonda del PSoC; `sdprobe 0` desarma |
-| `rftest <ms> <periodo> <bytes>` | transmite ESP-NOW; **periodo 0 = en cada ping del PSoC**; informa `#RFTEST t` y `#PING t` (micros) |
+| `rftest <ms> <periodo> <bytes> [b]` | transmite ESP-NOW; **periodo 0 = en cada ping del PSoC**; con `b` transmite a `FF:FF:FF:FF:FF:FF` sin ACK ni reintentos; informa `#RFTEST t` y `#PING t` (micros) |
 | `rfrx <ms>` | registra la llegada de las ráfagas del maestro (`#RFRX t`) |
 | `txpower <dBm>` | potencia máxima (2-21; el ESP32 la limita a 19,5 dBm) |
 | `radio off` / `radio on` | apaga y prende WiFi + ESP-NOW sin reiniciar (no resetea el PSoC) |
@@ -45,7 +45,7 @@ Condiciones disponibles:
 | `BASE` | captura sin estresor (control) | posiciones fijas k·150 |
 | `P<modo>[D<div>][S<slew>]`, `REAL` | sonda de la SD del PSoC | k·150 |
 | `PING` | solo los pings I2C del PSoC (control de los demás) | k·150 |
-| `RF<bytes>[P<dBm>]` | transmisión ESP-NOW en cada ping | muestra exacta (interpolada entre pings) |
+| `RF<bytes>[P<dBm>][T<ms>][B]` | transmisión ESP-NOW; sin `T`, en cada ping; `T` fija periodo de 1-10000 ms; `B` usa difusión sin ACK ni reintentos | muestra exacta (interpolada entre pings) |
 | `RX` | ráfagas del maestro (requiere `--maestro`) | muestra exacta |
 | `OFF` | captura con la radio apagada | k·150 |
 | `ESD` | SD en el ESP escribiendo | lotes (aproximado) |

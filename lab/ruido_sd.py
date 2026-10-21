@@ -57,21 +57,28 @@ def _condicion(texto):
     if nombre in ('RX', 'OFF', 'PING'):
         return {'nombre': nombre, 'tipo': nombre, 'modo': None,
                 'divisor': None, 'slew': None}
-    m = re.fullmatch(r'RF(\d+)(?:P(\d+))?', nombre)
+    m = re.fullmatch(r'RF(\d+)(?:P(\d+))?(?:T(\d+))?(B)?', nombre)
     if m:
         cantidad = int(m.group(1))
         potencia = int(m.group(2)) if m.group(2) is not None else None
+        periodo = int(m.group(3)) if m.group(3) is not None else 0
+        broadcast = m.group(4) is not None
         if not 1 <= cantidad <= 240 or (potencia is not None and
-                                        not 2 <= potencia <= 21):
+                                        not 2 <= potencia <= 21) or (
+                                            m.group(3) is not None and
+                                            not 1 <= periodo <= 10000):
             raise argparse.ArgumentTypeError(
-                'condicion RF fuera de rango: bytes 1-240, dBm 2-21')
+                'condicion RF fuera de rango: bytes 1-240, dBm 2-21, '
+                'periodo T 1-10000 ms')
         return {'nombre': nombre, 'tipo': 'RF', 'modo': None,
                 'divisor': None, 'slew': None, 'bytes': cantidad,
-                'potencia': potencia}
+                'potencia': potencia, 'periodo': periodo,
+                'broadcast': broadcast}
     m = re.fullmatch(r'P(\d+)(?:D(\d+))?(?:S(\d+))?', nombre)
     if not m:
         raise argparse.ArgumentTypeError(
-            'condicion invalida %r; use BASE, REAL, ESD, RF<bytes>[P<dBm>], '
+            'condicion invalida %r; use BASE, REAL, ESD, '
+            'RF<bytes>[P<dBm>][T<ms>][B], '
             'RX, OFF, PING o P<modo>[D<div>][S<slew>]' % texto)
     return {'nombre': nombre, 'tipo': 'PROBE', 'modo': int(m.group(1)),
             'divisor': int(m.group(2) or 0), 'slew': int(m.group(3) or 0)}
@@ -228,9 +235,11 @@ def _una_corrida(args, condicion, repeticion, salida, maestro=None):
                 elif tipo == 'RF':
                     if condicion['potencia'] is not None:
                         bt._cmd('txpower %d' % condicion['potencia'], 0.3)
-                    # periodo 0: transmite en cada ping del PSoC.
-                    bt._cmd('rftest %d 0 %d' %
-                            (duracion_ms, condicion['bytes']), 0.3)
+                    # Sin T, periodo 0 transmite en cada ping del PSoC.
+                    sufijo = ' b' if condicion['broadcast'] else ''
+                    bt._cmd('rftest %d %d %d%s' %
+                            (duracion_ms, condicion['periodo'],
+                             condicion['bytes'], sufijo), 0.3)
                 else:
                     bt._cmd('rfrx %d' % duracion_ms, 0.3)
                     _enviar_maestro(maestro, duracion_ms // 10)
@@ -652,14 +661,17 @@ def autotest(_args):
     if np.flatnonzero(marcas_esd).tolist() != [60, 210, 330]:
         print('AUTOTEST FAIL: conversion de marcas_lote')
         return 1
-    condiciones = [_condicion(x) for x in ('RF240', 'RF10P8', 'RX', 'OFF')]
+    condiciones = [_condicion(x) for x in
+                   ('RF240T29', 'RF240B', 'RF10P8T29B', 'RX', 'OFF')]
     esperadas = [
-        ('RF240', 'RF', 240, None),
-        ('RF10P8', 'RF', 10, 8),
-        ('RX', 'RX', None, None),
-        ('OFF', 'OFF', None, None),
+        ('RF240T29', 'RF', 240, None, 29, False),
+        ('RF240B', 'RF', 240, None, 0, True),
+        ('RF10P8T29B', 'RF', 10, 8, 29, True),
+        ('RX', 'RX', None, None, None, None),
+        ('OFF', 'OFF', None, None, None, None),
     ]
-    obtenidas = [(c['nombre'], c['tipo'], c.get('bytes'), c.get('potencia'))
+    obtenidas = [(c['nombre'], c['tipo'], c.get('bytes'), c.get('potencia'),
+                  c.get('periodo'), c.get('broadcast'))
                  for c in condiciones]
     if obtenidas != esperadas:
         print('AUTOTEST FAIL: parseo de condiciones %r' % (obtenidas,))

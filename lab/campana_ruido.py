@@ -40,6 +40,10 @@ def _plan_rf() -> list[dict[str, Any]]:
                nota="Comparacion RF y recepcion en LPo", requiere_maestro=True),
         _paso("W3b_potencia", ["RF240P2", "RF240P8", "RF240P14", "RF240P21"],
                rep=2, nota="Barrido de potencia RF"),
+        _paso("W8_uso_real", ["PING", "RF240T29", "RF240T58"],
+               pga=3, pgaout=0, tap=4, rep=3),
+        _paso("W10_difusion", ["RF240", "RF240B", "RF10B"],
+               pga=3, pgaout=0, tap=4, rep=3),
     ]
     plan.extend(
         _paso(f"W5_tap{tap}", ["PING", "RF240"], rep=2, pgaout=4,
