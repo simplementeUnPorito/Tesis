@@ -78,6 +78,8 @@ Figuras de la radio: `python lab/figuras_informe_rf.py --raiz <carpeta>`.
 |---|---|
 | `ruido_sd.py resumir <dir>` | brote promedio sincronizado por condición: p2p, energía, gráfico `bursts_conjunto.png`; descarta capturas que tocan un riel |
 | `espectro_condiciones.py <dir>` | RMS y PSD por condición, líneas espectrales (baliza 9,77 Hz, 17,36 Hz...) para efectos sin evento |
+| `sustraer_brote_rf.py <dir>` | si restar la plantilla del brote (posiciones conocidas) limpia la medición; RMS y PSD 5-50 Hz antes y después |
+| `figuras_informe_rf.py` | figuras de la radio: potencia, taps, ganancia, formas, uso real, difusión |
 | `piso_ruido_corto.py` | piso de ruido con la entrada en corto |
 | `ganancia_ruido_sd.py` | dependencia con la ganancia (dónde entra el ruido) |
 | `osc_ruido_sd.py <csv>` | capturas del TDS 2004B alineadas con el disparo |
