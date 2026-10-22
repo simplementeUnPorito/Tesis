@@ -33,11 +33,14 @@ CONFIGS = [
     ('Cargador\naislado (PSoC)', 'ruido_rf_20261021_ferrita_fuente/W9_ganancia_pga2'),
     ('Dos\npowerbanks', 'ruido_rf_20261021_2powerbanks/R8_seo_x4'),
     ('Dos powerbanks,\nferrita en corto', 'ruido_rf_20261021_ferrita_corto/R8_seo_x4'),
+    ('Una bateria, masas\nen un punto (1a)', 'ruido_rf_20261022_bateria_unica_punto/R8_seo_x4'),
+    ('Una bateria, masas\nen un punto (2a)', 'ruido_rf_20261022_bateria_unica_punto_rep/R8_seo_x4'),
 ]
 # LPo ganancia de campo (x8 x16): BASE, ESD, RF240
 LPO = [
     ('Dos powerbanks,\nferrita entre planos', 'ruido_rf_20261021_2powerbanks/R9b_lpo_campo'),
     ('Dos powerbanks,\nferrita en corto', 'ruido_rf_20261021_ferrita_corto/R9_lpo_campo'),
+    ('Una bateria,\nmasas en un punto', 'ruido_rf_20261022_bateria_unica_punto_rep/R9_lpo_campo'),
 ]
 _CAP = {}
 
@@ -99,7 +102,7 @@ def main(argv=None):
         })
 
     # 1) barras: exceso por TX en banda (log)
-    fig, ax = plt.subplots(figsize=(10.5, 3.8))
+    fig, ax = plt.subplots(figsize=(13, 3.8))
     et = [e for e, _ in datos]
     ex = [max(exceso(dd, 'RF240', 'PING'), 1e-3) for _, dd in datos]
     col = ['#c0392b' if v > 0.1 else '#27ae60' for v in ex]
