@@ -1,7 +1,7 @@
 {
  "seo_x4": [
   {
-   "config": "Dos USB (PSoC por KitProg)",
+   "config": "Dos USB a la misma PC (PSoC por KitProg)",
    "brote_tx_mV": 6.106119802056904,
    "exceso_tx_mV": 0.5218947978312238,
    "ping_mV": 0.012814810865080918,
@@ -48,6 +48,27 @@
    "exceso_tx_mV": 0.007932337886137286,
    "ping_mV": 0.017258459231510252,
    "off_mV": 0.01853809395007308
+  },
+  {
+   "config": "Una bateria, union de masas en placa (1a)",
+   "brote_tx_mV": 0.6632876881894147,
+   "exceso_tx_mV": 0.15951842153583218,
+   "ping_mV": 0.030601574063253693,
+   "off_mV": 0.1945285035631918
+  },
+  {
+   "config": "Una bateria, union de masas en placa (2a)",
+   "brote_tx_mV": 2.1412826131044245,
+   "exceso_tx_mV": 0.2650544065501308,
+   "ping_mV": 0.029595274217152343,
+   "off_mV": 0.026207755554571242
+  },
+  {
+   "config": "Una bateria, estrella real",
+   "brote_tx_mV": 0.3495494976491724,
+   "exceso_tx_mV": 0.042666144146181,
+   "ping_mV": 0.016326631721296253,
+   "off_mV": 0.017098246957005493
   }
  ],
  "lpo_campo": [
@@ -79,6 +100,36 @@
    "RF240": {
     "rms_mV": 0.9345846949521575,
     "brote_mV": 1.967091744287019
+   }
+  },
+  {
+   "config": "Una bateria, union de masas en placa",
+   "BASE": {
+    "rms_mV": 0.8347022609488772,
+    "brote_mV": 1.086600693415925
+   },
+   "ESD": {
+    "rms_mV": 0.8591854478083651,
+    "brote_mV": 1.1056741069847513
+   },
+   "RF240": {
+    "rms_mV": 9.842199800255699,
+    "brote_mV": 108.74745671600195
+   }
+  },
+  {
+   "config": "Una bateria, estrella real",
+   "BASE": {
+    "rms_mV": 0.8471990725126233,
+    "brote_mV": 1.0677219065161356
+   },
+   "ESD": {
+    "rms_mV": 0.9037482992691548,
+    "brote_mV": 1.0227631459610746
+   },
+   "RF240": {
+    "rms_mV": 2.6247138166981534,
+    "brote_mV": 14.939932371125092
    }
   }
  ]
