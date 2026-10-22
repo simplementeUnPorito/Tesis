@@ -44,6 +44,12 @@ LPO = [
     ('Una bateria, union\nde masas en placa', 'ruido_rf_20261022_bateria_unica_punto_rep/R9_lpo_campo'),
     ('Una bateria,\nestrella real', 'ruido_rf_20261022_bateria_estrella/R9_lpo_campo'),
 ]
+# una bateria: raiz con R8_seo_x4 y R9_lpo_campo (o R9b)
+ESTRELLA = [
+    ('Una bateria, lazo de masa', 'ruido_rf_20261022_bateria_unica_punto_rep'),
+    ('Una bateria, estrella real', 'ruido_rf_20261022_bateria_estrella'),
+    ('Dos powerbanks', 'ruido_rf_20261021_2powerbanks'),
+]
 _CAP = {}
 
 
@@ -204,6 +210,45 @@ def main(argv=None):
         axs[1].legend(fontsize=7)
         fig.tight_layout()
         fig.savefig(os.path.join(args.salida, 'lpo_campo.png'), dpi=130)
+        plt.close(fig)
+
+    # 6) una bateria: lazo de masa contra estrella real (contra dos powerbanks)
+    trio = [(e, d) for e, d in ESTRELLA if os.path.isdir(os.path.join(LAB, d, 'R8_seo_x4'))]
+    if trio:
+        fig, axs = plt.subplots(1, 3, figsize=(13, 3.6))
+        colores = ['#c0392b', '#2980b9', '#27ae60']
+        for (e, d), c in zip(trio, colores):
+            for ax, exp in ((axs[0], 'R8_seo_x4'), (axs[1], 'R9_lpo_campo')):
+                ruta = os.path.join(d, exp)
+                # R9b (4 capturas por condicion) manda sobre R9 si existe
+                if exp == 'R9_lpo_campo' and os.path.isdir(os.path.join(LAB, d, 'R9b_lpo_campo')):
+                    ruta = os.path.join(d, 'R9b_lpo_campo')
+                dd = cargar(ruta)
+                if 'RF240' in dd:
+                    prom = np.mean([x['promedio'] for x in dd['RF240']], axis=0)
+                    prom = prom - np.nanmean(prom[:rs.VENTANA_ANTES])
+                    ax.plot(t_ventana(prom.size), prom, lw=1.2, color=c, label=e)
+                if exp == 'R9_lpo_campo':
+                    v = [np.mean([x['rms'] for x in dd[k]]) if k in dd else np.nan
+                         for k in ('BASE', 'ESD', 'RF240')]
+                    i = colores.index(c)
+                    axs[2].bar(np.arange(3) + i * 0.27, v, 0.27, color=c, label=e)
+        axs[0].set_title('Brote de TX en SEo (PGA x4)')
+        axs[0].set_ylabel('SEo [mV]')
+        axs[1].set_title('Brote de TX en LPo (x8 x16)')
+        axs[1].set_ylabel('LPo [mV]')
+        for ax in axs[:2]:
+            ax.set_xlabel('tiempo desde la transmision [ms]')
+            ax.grid(alpha=.3)
+        axs[0].legend(fontsize=7)
+        axs[2].set_yscale('log')
+        axs[2].set_xticks(np.arange(3) + 0.27, ['base', 'SD del ESP', 'TX'])
+        axs[2].set_ylabel('RMS 5-50 Hz')
+        axs[2].set_title('LPo x8 x16, ruido en banda')
+        valores_con_unidad(axs[2])
+        fig.suptitle('Una bateria: lazo de masa en la placa contra estrella real (y dos powerbanks)')
+        fig.tight_layout()
+        fig.savefig(os.path.join(args.salida, 'bateria_estrella.png'), dpi=130)
         plt.close(fig)
 
     with open(os.path.join(args.salida, 'resumen.json'), 'w', encoding='utf-8') as f:
