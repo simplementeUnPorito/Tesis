@@ -20,6 +20,7 @@ from scipy.signal import welch  # noqa: E402
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import analisis_ruido as ar  # noqa: E402
 import ruido_sd as rs  # noqa: E402
+from ejes_mv import valores_con_unidad  # noqa: E402
 
 FS = 2604
 LAB = os.path.dirname(os.path.abspath(__file__))
@@ -98,17 +99,18 @@ def main(argv=None):
         })
 
     # 1) barras: exceso por TX en banda (log)
-    fig, ax = plt.subplots(figsize=(7.5, 3.4))
+    fig, ax = plt.subplots(figsize=(10.5, 3.8))
     et = [e for e, _ in datos]
     ex = [max(exceso(dd, 'RF240', 'PING'), 1e-3) for _, dd in datos]
     col = ['#c0392b' if v > 0.1 else '#27ae60' for v in ex]
     ax.bar(range(len(ex)), ex, color=col)
     ax.set_yscale('log')
-    ax.set_xticks(range(len(et)), et)
-    ax.set_ylabel('exceso por TX, RMS 5-50 Hz [mV]')
+    ax.set_xticks(range(len(et)), et, fontsize=8)
+    ax.set_ylabel('exceso por TX, RMS 5-50 Hz')
     ax.set_title('Ruido que agrega cada transmision ESP-NOW (SEo, PGA x4)')
     for i, v in enumerate(ex):
-        ax.text(i, v * 1.15, '%.3f' % v if v > 1e-3 else '~0', ha='center')
+        ax.text(i, v * 1.15, ('%.3f mV' % v).replace('.', ',') if v > 1e-3 else '~0', ha='center')
+    valores_con_unidad(ax)
     fig.tight_layout()
     fig.savefig(os.path.join(args.salida, 'exceso_tx.png'), dpi=130)
     plt.close(fig)
@@ -160,6 +162,7 @@ def main(argv=None):
             ax.semilogy(dd['PING'][0]['fr'], np.sqrt(p) * 1000, lw=.8, label=e.replace('\n', ' '))
     ax.axvspan(5, 50, color='#f1c40f', alpha=.15, label='banda 5-50 Hz')
     ax.set_xlim(0, 1302)
+    valores_con_unidad(ax, unidad='µV/√Hz')
     ax.set_xlabel('frecuencia [Hz]')
     ax.set_ylabel('densidad [uV/sqrt(Hz)]')
     ax.set_title('Fondo sin transmitir (PING): el cargador agrega su tono de ~600 Hz')

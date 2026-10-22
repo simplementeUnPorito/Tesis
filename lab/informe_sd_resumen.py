@@ -23,6 +23,7 @@ from scipy.signal import welch  # noqa: E402
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import analisis_ruido as ar  # noqa: E402
 import ruido_sd as rs  # noqa: E402
+from ejes_mv import valores_con_unidad  # noqa: E402
 
 FS = 2604
 LAB = os.path.dirname(os.path.abspath(__file__))
@@ -155,7 +156,7 @@ def main(argv=None):
     esp_usb = cargar(os.path.join(LAB, 'ruido_sd_20261021_ferrita', 'E14_esd_ferrita'))
     esp_pb = cargar(os.path.join(LAB, 'ruido_rf_20261021_2powerbanks', 'R9b_lpo_campo'))
     filas = [('SD escrita por el PSoC\n(E10, 19/10)', psoc, 'P4'),
-             ('SD en el ESP, dos USB\n(E14, ferrita)', esp_usb, 'ESD'),
+             ('SD en el ESP, dos USB a\nla misma PC (E14, ferrita)', esp_usb, 'ESD'),
              ('SD en el ESP,\ndos powerbanks', esp_pb, 'ESD')]
     fig, axs = plt.subplots(1, 2, figsize=(10, 3.4))
     for i, (e, dd, c) in enumerate(filas):
@@ -163,7 +164,7 @@ def main(argv=None):
         s = media(dd, c, 'rms')
         axs[0].bar(i - .19, b[0], .38, yerr=b[1], color='#7f8c8d', label='base' if i == 0 else None)
         axs[0].bar(i + .19, s[0], .38, yerr=s[1], color='#c0392b', label='escribiendo' if i == 0 else None)
-        axs[0].text(i + .19, s[0] * 1.15, '%.2f' % s[0], ha='center', fontsize=8)
+        axs[0].text(i + .19, s[0] * 1.15, ('%.2f mV' % s[0]).replace('.', ','), ha='center', fontsize=8)
         if c in dd:
             p = prom(dd, c)
             axs[1].plot(t_ms(p.size), p, lw=1, label=e.replace('\n', ' '))
@@ -172,15 +173,52 @@ def main(argv=None):
     axs[0].set_ylabel('RMS 5-50 Hz [mV]')
     axs[0].set_title('LPo x8 x16: ruido en banda')
     axs[0].legend(fontsize=7)
+    valores_con_unidad(axs[0])
     axs[1].set_yscale('symlog', linthresh=1)
     axs[1].set_xlabel('tiempo desde la escritura [ms]')
     axs[1].set_ylabel('LPo [mV] (escala symlog)')
     axs[1].set_title('Brote promedio de la escritura')
     axs[1].grid(alpha=.3)
     axs[1].legend(fontsize=7)
+    valores_con_unidad(axs[1])
     fig.tight_layout()
     fig.savefig(os.path.join(args.salida, 'sd_psoc_vs_esp.png'), dpi=130)
     plt.close(fig)
+    # E3: amplitud del brote contra la ganancia, en mV y con ganancias x1..x16
+    import csv
+    with open(os.path.join(SD, 'ganancia', 'ganancia.csv'), encoding='utf-8') as f:
+        filas_g = list(csv.DictReader(f))
+    mv = ar.UV_POR_CUENTA / 1000.0
+    paneles = [('Salida del PGA (tap 0), PGAout x16', 'Ganancia del PGA',
+                lambda r: r['tap'] == '0', 'pga_ganancia'),
+               ('LPo (tap 4), PGA x8', 'Ganancia de PGAout',
+                lambda r: r['tap'] == '4' and r['pga_ganancia'] == '8', 'pgaout_ganancia')]
+    fig, axs = plt.subplots(1, 2, figsize=(10, 3.6))
+    for ax, (tit, xl, filtro, col) in zip(axs, paneles):
+        sel = sorted((r for r in filas_g if filtro(r)), key=lambda r: float(r[col]))
+        g = np.array([float(r[col]) for r in sel])
+        for campo, color, et in (('busy', '#c0392b', 'busy de la tarjeta'),
+                                 ('transfer', '#2980b9', 'transferencia (|valor|)')):
+            y = np.abs([float(r[campo + '_media']) for r in sel]) * mv
+            e = np.array([float(r[campo + '_std']) for r in sel]) * mv
+            ax.errorbar(g, y, yerr=e, marker='o', color=color, label=et, capsize=3)
+        ref = abs(float(sel[0]['busy_media'])) * mv
+        ax.plot(g, ref * g / g[0], '--', color='#7f8c8d', label='proporcional a la ganancia')
+        ax.set_xscale('log')
+        ax.set_yscale('log')
+        ax.set_xticks(g, ['x%g' % v for v in g])
+        ax.xaxis.set_minor_locator(plt.NullLocator())
+        ax.set_xlabel(xl)
+        ax.set_ylabel('amplitud del brote')
+        ax.set_title(tit)
+        ax.grid(alpha=.3)
+        ax.legend(fontsize=7)
+        valores_con_unidad(ax)
+    fig.suptitle('E3: brote de la SD contra la ganancia')
+    fig.tight_layout()
+    fig.savefig(os.path.join(args.salida, 'sd_ganancia.png'), dpi=130)
+    plt.close(fig)
+
     for e, dd, c in filas:
         print(e.replace('\n', ' '), 'base', media(dd, 'BASE', 'rms'), c, media(dd, c, 'rms'), 'p2p', media(dd, c, 'p2p'))
 

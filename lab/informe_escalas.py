@@ -19,6 +19,7 @@ import numpy as np  # noqa: E402
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import informe_alimentacion as ia  # noqa: E402
 import informe_sd_resumen as isd  # noqa: E402
+from ejes_mv import valores_con_unidad  # noqa: E402
 
 FS = ia.FS
 
@@ -73,6 +74,7 @@ def _tres_escalas(curvas, titulo, ylabel, zoom_filtro, zoom_lim, salida, xlabel)
         ax.grid(alpha=.3)
         ax.set_xlabel(xlabel)
         ax.set_ylabel(ylabel)
+    valores_con_unidad(axs[1])
     axs[0].legend(fontsize=6.5)
     axs[2].legend(fontsize=6.5)
     fig.suptitle(titulo)
