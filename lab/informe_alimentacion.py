@@ -25,7 +25,7 @@ FS = 2604
 LAB = os.path.dirname(os.path.abspath(__file__))
 # (etiqueta, carpeta del experimento SEo PGA x4 con PING y RF240)
 CONFIGS = [
-    ('Dos USB\n(PSoC por KitProg)', 'ruido_rf_20261021_ferrita_conSD/W9_ganancia_pga2'),
+    ('Dos USB a la misma PC\n(PSoC por KitProg)', 'ruido_rf_20261021_ferrita_conSD/W9_ganancia_pga2'),
     ('Todo desde\nel ESP', 'ruido_rf_20261021_alim_esp/P1_potencia_seo_x4'),
     ('Powerbank\nen estrella', 'ruido_rf_20261021_bateria/R8_seo_x4'),
     ('Powerbank\n+ 1 mF', 'ruido_rf_20261021_bateria_caps/R8_seo_x4'),
