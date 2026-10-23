@@ -18,3 +18,16 @@ Cadena web: offset → notch de línea → I2C → SD → TX → beacon/RX → F
 
 ---
 Proveniencia: Codex, ejecución directa sin delegados.
+
+## Validación en vivo (2026-10-23, capturas nuevas VIVO_VALIDACION, powerbank, sin lazo de masa)
+
+Mismo código de la web (`noise_clean.js`) con `firmas.json` de GEO_I2C_A, cadena offset → I2C → SD → TX → beacon/RX:
+
+| Captura | Ruido >150 Hz | Banda 10–50 Hz | Error sobre seno 20 Hz inyectado |
+|---|---:|---:|---:|
+| async_sd r1 | −20,9 % | ×1,0000 | 1,1 % (corrimiento de offset) |
+| async_sd r2 | −21,2 % | ×1,0000 | 1,4 % |
+| rt_sd r1 | −40,5 % | ×1,0006 | 1,1 % |
+| rt_sd r2 | −40,1 % | ×1,0002 | 1,7 % |
+
+Conclusión: las firmas generalizan a capturas nuevas y la limpieza saca el ruido digital de alta frecuencia sin tocar la banda útil. En batería ese ruido queda arriba de 150 Hz: el FIR de la web ya lo elimina de la banda útil.
