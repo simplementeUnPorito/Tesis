@@ -36,8 +36,8 @@ CONFIGS = [
     ('Una bateria,\nlazo de masa (1a)', 'ruido_rf_20261022_bateria_unica_punto/R8_seo_x4'),
     ('Una bateria,\nlazo de masa (2a)', 'ruido_rf_20261022_bateria_unica_punto_rep/R8_seo_x4'),
     ('Una bateria,\nestrella real', 'ruido_rf_20261022_bateria_estrella/R8_seo_x4'),
-    ('TEL 2-0511\nal ESP', 'ruido_rf_20261022_tel2_0511/R8_seo_x4'),
-    ('TEL 2-0511\nal PSoC', 'ruido_rf_20261022_tel_psoc/R8_seo_x4'),
+    ('TEL 2-0511 al\nESP (sin antena)','ruido_rf_20261022_tel2_0511/R8_seo_x4'),
+    ('TEL 2-0511\nal PSoC', 'ruido_rf_20261022_tel_psoc_antena/R8_seo_x4'),
 ]
 # LPo ganancia de campo (x8 x16): BASE, ESD, RF240
 LPO = [
@@ -45,6 +45,7 @@ LPO = [
     ('Dos powerbanks,\nferrita en corto', 'ruido_rf_20261021_ferrita_corto/R9_lpo_campo'),
     ('Una bateria, union\nde masas en placa', 'ruido_rf_20261022_bateria_unica_punto_rep/R9_lpo_campo'),
     ('Una bateria,\nestrella real', 'ruido_rf_20261022_bateria_estrella/R9_lpo_campo'),
+    ('TEL 2-0511\nal PSoC', 'ruido_rf_20261022_tel_psoc_antena/R13_lpo_sd_esp'),
 ]
 # una bateria: raiz con R8_seo_x4 y R9_lpo_campo (o R9b)
 ESTRELLA = [
@@ -55,8 +56,8 @@ ESTRELLA = [
 # convertidor aislado: raiz con R10_lpo_potencia (OFF, BASE, RF240P2/P8, RF240)
 TEL = [
     ('Una bateria, estrella real', 'ruido_rf_20261022_bateria_estrella'),
-    ('TEL alimentando al ESP', 'ruido_rf_20261022_tel2_0511'),
-    ('TEL alimentando al PSoC', 'ruido_rf_20261022_tel_psoc'),
+    ('TEL alimentando al ESP (sin antena)', 'ruido_rf_20261022_tel2_0511'),
+    ('TEL alimentando al PSoC', 'ruido_rf_20261022_tel_psoc_antena'),
 ]
 _CAP = {}
 
