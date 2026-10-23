@@ -33,7 +33,7 @@ def _captura_ambos(digi):
 
 
 ia.rs.no_utilizable = _captura_ambos
-LIMPIAS = ('Cargador', 'Dos powerbanks', 'Dos\npowerbanks')
+LIMPIAS = ('Cargador', 'Dos powerbanks', 'Dos\npowerbanks', 'al PSoC')
 
 
 def _curvas_tx():
@@ -99,8 +99,9 @@ def main(argv=None):
                   os.path.join(args.salida, 'tx_escalas.png'), 'tiempo desde la transmision [ms]')
 
     # 1b) solo las limpias contra su PING (lo que queda es el ping I2C)
-    fig, axs = plt.subplots(1, 3, figsize=(13, 3.2), sharey=True)
-    for ax, (e, p, ping, _) in zip(axs, [x for x in tx if limpias(x[0])]):
+    lim = [x for x in tx if limpias(x[0])]
+    fig, axs = plt.subplots(1, len(lim), figsize=(4.3 * len(lim), 3.2), sharey=True)
+    for ax, (e, p, ping, _) in zip(axs, lim):
         t = ia.t_ventana(p.size)
         if ping is not None:
             ax.plot(t, ping, color='#7f8c8d', lw=1, label='sin transmitir (PING)')

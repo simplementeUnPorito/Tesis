@@ -1,7 +1,7 @@
 {
  "seo_x4": [
   {
-   "config": "Dos USB a la misma PC (PSoC por KitProg)",
+   "config": "Dos USB a la misma PC",
    "brote_tx_mV": 6.106119802056904,
    "exceso_tx_mV": 0.5218947978312238,
    "ping_mV": 0.012814810865080918,
@@ -50,14 +50,14 @@
    "off_mV": 0.01853809395007308
   },
   {
-   "config": "Una bateria, union de masas en placa (1a)",
+   "config": "Una bateria, lazo de masa (1a)",
    "brote_tx_mV": 0.6632876881894147,
    "exceso_tx_mV": 0.15951842153583218,
    "ping_mV": 0.030601574063253693,
    "off_mV": 0.1945285035631918
   },
   {
-   "config": "Una bateria, union de masas en placa (2a)",
+   "config": "Una bateria, lazo de masa (2a)",
    "brote_tx_mV": 2.1412826131044245,
    "exceso_tx_mV": 0.2650544065501308,
    "ping_mV": 0.029595274217152343,
@@ -69,6 +69,20 @@
    "exceso_tx_mV": 0.042666144146181,
    "ping_mV": 0.016326631721296253,
    "off_mV": 0.017098246957005493
+  },
+  {
+   "config": "TEL 2-0511 al ESP",
+   "brote_tx_mV": 19.21549103724722,
+   "exceso_tx_mV": 2.5652622407133836,
+   "ping_mV": 0.022957063882110357,
+   "off_mV": 0.01880046049682711
+  },
+  {
+   "config": "TEL 2-0511 al PSoC",
+   "brote_tx_mV": 0.06597844081460533,
+   "exceso_tx_mV": 0.006207929943025959,
+   "ping_mV": 0.01197651587650252,
+   "off_mV": 0.01054543947947406
   }
  ],
  "lpo_campo": [
@@ -131,6 +145,32 @@
     "rms_mV": 2.6247138166981534,
     "brote_mV": 14.939932371125092
    }
+  }
+ ],
+ "tel": [
+  {
+   "config": "Una bateria, estrella real",
+   "OFF": 0.7792887100629777,
+   "BASE": 0.8495709594627301,
+   "RF240P2": 1.0370483375832882,
+   "RF240P8": 1.8687081751624026,
+   "RF240": 2.774227953023315
+  },
+  {
+   "config": "TEL alimentando al ESP",
+   "OFF": 3.8171619752462864,
+   "BASE": 3.7040967715093753,
+   "RF240P2": 35.81198479018147,
+   "RF240P8": 114.78504979693818,
+   "RF240": 148.05939439150052
+  },
+  {
+   "config": "TEL alimentando al PSoC",
+   "OFF": 0.32870463141043016,
+   "BASE": 0.3310902582608498,
+   "RF240P2": 0.3592268166622343,
+   "RF240P8": null,
+   "RF240": 0.3240716391023992
   }
  ]
 }

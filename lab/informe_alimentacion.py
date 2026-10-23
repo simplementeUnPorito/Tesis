@@ -26,16 +26,18 @@ FS = 2604
 LAB = os.path.dirname(os.path.abspath(__file__))
 # (etiqueta, carpeta del experimento SEo PGA x4 con PING y RF240)
 CONFIGS = [
-    ('Dos USB a la misma PC\n(PSoC por KitProg)', 'ruido_rf_20261021_ferrita_conSD/W9_ganancia_pga2'),
+    ('Dos USB a\nla misma PC','ruido_rf_20261021_ferrita_conSD/W9_ganancia_pga2'),
     ('Todo desde\nel ESP', 'ruido_rf_20261021_alim_esp/P1_potencia_seo_x4'),
     ('Powerbank\nen estrella', 'ruido_rf_20261021_bateria/R8_seo_x4'),
     ('Powerbank\n+ 1 mF', 'ruido_rf_20261021_bateria_caps/R8_seo_x4'),
     ('Cargador\naislado (PSoC)', 'ruido_rf_20261021_ferrita_fuente/W9_ganancia_pga2'),
     ('Dos\npowerbanks', 'ruido_rf_20261021_2powerbanks/R8_seo_x4'),
     ('Dos powerbanks,\nferrita en corto', 'ruido_rf_20261021_ferrita_corto/R8_seo_x4'),
-    ('Una bateria, union\nde masas en placa (1a)', 'ruido_rf_20261022_bateria_unica_punto/R8_seo_x4'),
-    ('Una bateria, union\nde masas en placa (2a)', 'ruido_rf_20261022_bateria_unica_punto_rep/R8_seo_x4'),
+    ('Una bateria,\nlazo de masa (1a)', 'ruido_rf_20261022_bateria_unica_punto/R8_seo_x4'),
+    ('Una bateria,\nlazo de masa (2a)', 'ruido_rf_20261022_bateria_unica_punto_rep/R8_seo_x4'),
     ('Una bateria,\nestrella real', 'ruido_rf_20261022_bateria_estrella/R8_seo_x4'),
+    ('TEL 2-0511\nal ESP', 'ruido_rf_20261022_tel2_0511/R8_seo_x4'),
+    ('TEL 2-0511\nal PSoC', 'ruido_rf_20261022_tel_psoc/R8_seo_x4'),
 ]
 # LPo ganancia de campo (x8 x16): BASE, ESD, RF240
 LPO = [
@@ -49,6 +51,12 @@ ESTRELLA = [
     ('Una bateria, lazo de masa', 'ruido_rf_20261022_bateria_unica_punto_rep'),
     ('Una bateria, estrella real', 'ruido_rf_20261022_bateria_estrella'),
     ('Dos powerbanks', 'ruido_rf_20261021_2powerbanks'),
+]
+# convertidor aislado: raiz con R10_lpo_potencia (OFF, BASE, RF240P2/P8, RF240)
+TEL = [
+    ('Una bateria, estrella real', 'ruido_rf_20261022_bateria_estrella'),
+    ('TEL alimentando al ESP', 'ruido_rf_20261022_tel2_0511'),
+    ('TEL alimentando al PSoC', 'ruido_rf_20261022_tel_psoc'),
 ]
 _CAP = {}
 
@@ -110,7 +118,7 @@ def main(argv=None):
         })
 
     # 1) barras: exceso por TX en banda (log)
-    fig, ax = plt.subplots(figsize=(13, 3.8))
+    fig, ax = plt.subplots(figsize=(1.35 * len(datos) + 1, 3.8))
     et = [e for e, _ in datos]
     ex = [max(exceso(dd, 'RF240', 'PING'), 1e-3) for _, dd in datos]
     col = ['#c0392b' if v > 0.1 else '#27ae60' for v in ex]
@@ -249,6 +257,50 @@ def main(argv=None):
         fig.suptitle('Una bateria: lazo de masa en la placa contra estrella real (y dos powerbanks)')
         fig.tight_layout()
         fig.savefig(os.path.join(args.salida, 'bateria_estrella.png'), dpi=130)
+        plt.close(fig)
+
+    # 7) TEL 2-0511: LPo con radio apagada, base y TX a varias potencias (R10)
+    tel = [(e, cargar(os.path.join(d, 'R10_lpo_potencia'))) for e, d in TEL
+           if os.path.isdir(os.path.join(LAB, d, 'R10_lpo_potencia'))]
+    if tel:
+        conds = ['OFF', 'BASE', 'RF240P2', 'RF240P8', 'RF240']
+        nombres = ['radio\napagada', 'radio en\nreposo', 'TX\n2 dBm', 'TX\n8 dBm', 'TX\n19,5 dBm']
+        colores = ['#2980b9', '#c0392b', '#27ae60']
+        fig, axs = plt.subplots(1, 3, figsize=(14, 3.8))
+        w = 0.8 / len(tel)
+        for i, ((e, dd), c) in enumerate(zip(tel, colores)):
+            v = [np.mean([x['rms'] for x in dd[k]]) if k in dd else np.nan for k in conds]
+            axs[0].bar(np.arange(len(conds)) + i * w, v, w, color=c, label=e)
+            resumen.setdefault('tel', []).append({'config': e, **{
+                k: (float(np.mean([x['rms'] for x in dd[k]])) if k in dd else None) for k in conds}})
+            if 'RF240' in dd:
+                prom = np.mean([x['promedio'] for x in dd['RF240']], axis=0)
+                prom = prom - np.nanmean(prom[:rs.VENTANA_ANTES])
+                axs[1].plot(t_ventana(prom.size), prom, lw=1.2, color=c, label=e)
+            if 'BASE' in dd:
+                p = np.mean([x['psd'] for x in dd['BASE']], axis=0)
+                axs[2].loglog(dd['BASE'][0]['fr'][1:], np.sqrt(p[1:]) * 1000, lw=.8, color=c, label=e)
+        axs[0].set_yscale('log')
+        axs[0].set_xticks(np.arange(len(conds)) + w * (len(tel) - 1) / 2, nombres, fontsize=8)
+        axs[0].set_ylabel('RMS 5-50 Hz')
+        axs[0].set_title('LPo x8 x16, ruido en banda')
+        valores_con_unidad(axs[0])
+        axs[0].legend(fontsize=7)
+        axs[1].set_yscale('symlog', linthresh=1)
+        axs[1].set_xlabel('tiempo desde la transmision [ms]')
+        axs[1].set_ylabel('LPo')
+        axs[1].set_title('Brote promedio de TX a 19,5 dBm (symlog)')
+        axs[1].grid(alpha=.3)
+        valores_con_unidad(axs[1])
+        axs[2].axvspan(5, 50, color='#f1c40f', alpha=.15)
+        axs[2].set_xlim(0.5, 1302)
+        axs[2].set_xlabel('frecuencia [Hz]')
+        axs[2].set_title('Espectro del fondo (radio en reposo)')
+        valores_con_unidad(axs[2], unidad='µV/√Hz')
+        valores_con_unidad(axs[2], eje='x', unidad='Hz')
+        fig.suptitle('Convertidor aislado TEL 2-0511: segun a quien alimenta')
+        fig.tight_layout()
+        fig.savefig(os.path.join(args.salida, 'tel_lpo.png'), dpi=130)
         plt.close(fig)
 
     with open(os.path.join(args.salida, 'resumen.json'), 'w', encoding='utf-8') as f:
