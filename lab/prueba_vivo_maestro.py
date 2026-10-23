@@ -39,6 +39,9 @@ def main(argv=None):
     ap.add_argument('--nodo', type=int, default=2)
     ap.add_argument('--timeout-s', type=float, default=180.0)
     ap.add_argument('--log', default='lab/vivo/maestro.log')
+    ap.add_argument('--solo-maestro', action='store_true',
+                    help='como la web: el modo llega solo por el PRESTART del maestro '
+                         '(sin capmode por USB; datos reales, sin rampa)')
     ap.add_argument('--slave-cmd', action='append', default=[],
                     help='comando extra al esclavo antes de capturar')
     args = ap.parse_args(argv)
@@ -58,9 +61,10 @@ def main(argv=None):
     threading.Thread(target=leer_esclavo, daemon=True).start()
     ma = serial.Serial(args.master, 921600, timeout=0.05)
     time.sleep(12.0)  # los dos se resetean al abrir el puerto
-    sl.write(('capmode %d %d %d %d\n' % (args.modo & 3, (args.modo >> 2) & 1, args.ramp,
-                                         (args.modo >> 3) & 1)).encode())
-    time.sleep(0.5)
+    if not args.solo_maestro:
+        sl.write(('capmode %d %d %d %d\n' % (args.modo & 3, (args.modo >> 2) & 1, args.ramp,
+                                             (args.modo >> 3) & 1)).encode())
+        time.sleep(0.5)
     for c in args.slave_cmd:
         sl.write((c + '\n').encode())
         time.sleep(0.3)
