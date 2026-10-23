@@ -58,7 +58,8 @@ def main(argv=None):
     threading.Thread(target=leer_esclavo, daemon=True).start()
     ma = serial.Serial(args.master, 921600, timeout=0.05)
     time.sleep(12.0)  # los dos se resetean al abrir el puerto
-    sl.write(('capmode %d %d %d\n' % (args.modo & 3, (args.modo >> 2) & 1, args.ramp)).encode())
+    sl.write(('capmode %d %d %d %d\n' % (args.modo & 3, (args.modo >> 2) & 1, args.ramp,
+                                         (args.modo >> 3) & 1)).encode())
     time.sleep(0.5)
     for c in args.slave_cmd:
         sl.write((c + '\n').encode())
