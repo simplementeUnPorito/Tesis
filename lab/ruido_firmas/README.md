@@ -39,15 +39,32 @@ Cada repetición produce un NPZ y un JSON lateral. Una captura solo se acepta si
 
 ## Resultados
 
-`firmas.py` resta la mediana y aplica el mismo ajuste LS de 50 Hz de la web. Solo aprende eventos exclusivos, refina el alineamiento por correlación y genera:
+`firmas.py` resta la mediana, aplica el mismo ajuste LS de línea de la web y estima todas las fuentes a la vez mediante una regresión FIR dispersa (deconvolución tipo rERP). Cada inicio de marca aporta una copia de su plantilla a la matriz de diseño; `SD_IO`, `RADIO_TX` e `I2C` también prueban una plantilla de fin de corrida, que solo se conserva si mejora la validación entre capturas. Los eventos pueden ser densos y superpuestos. El promedio de eventos exclusivos se guarda únicamente como diagnóstico secundario.
 
-- `firmas_<placa>.json`: plantillas, estadística y método recomendado;
+La estimación predeterminada usa `--pre 4 --largo 32 --hp 150 --damp 0.5`. El pasa-altos se usa **solo para aprender** las plantillas; no forma parte de la cadena de medición. `--hp none` permite contrastarlo. La validación par/impar separa capturas completas, el aporte por fuente se obtiene por ablación drop-one-type y un bootstrap por capturas produce el IC 95 % de cada muestra.
+
+Se generan:
+
+- `firmas_<placa>.json`: plantillas `onset`/`offset`, IC, significancia, validación y método recomendado;
 - `informe_<placa>.md`: resumen numérico en español;
 - `firma_*.png` y `piso_*.png`, si Matplotlib está disponible.
 
-`limpieza.py` compara sustracción de plantilla, alineamiento, interpolación lineal/cúbica, AR/LPC y, cuando ya está instalado, SWT `db4`. No instala PyWavelets: si falta, lo informa y omite ese método. La recomendación pondera el residual contra el piso clásico y el error sobre senos de 5/15/30/50 Hz y un chirp 10–80 Hz.
+`limpieza.py` compara A) interpolación lineal, B) cúbica, C) AR/LPC, D) SWT `db4` y E) sustracción deconvolutiva. E resta exactamente una plantilla por inicio y, si fue seleccionada, otra por fin de corrida: no alinea ni reajusta amplitud por evento. Las métricas incluyen varianza HF fuera de muestra, PSD 1–100 y 10–50 Hz frente a `base_clasico`, preservación de senos de 5/15/30/50 Hz y chirp 10–80 Hz, y la cadena web completa hasta un FIR LP de 200 Hz/101 taps. PyWavelets se usa si está instalado.
 
-En el informe, SNR alto y correlación cercana a 1 indican una firma repetible. `scales_with_length` sugiere una perturbación sostenida; `fixed_edge_transient` indica que dominan los flancos. Un residual/base cercano a 1 llega al piso del modo clásico; el error normalizado de señal debe quedar bajo.
+## Resultado GEO_I2C_A (2026-10-23)
+
+Con 13 capturas reales a 2604 Hz, el modelo con HP de 150 Hz explicó 22,65 % de la varianza HF fuera de muestra; sin HP explicó 14,50 %. El piso `base_clasico` tuvo RMS de primera diferencia de 1,50 cuentas. Solo el offset de `RADIO_TX` mejoró la validación. La cadena recomendada cambió la potencia total 1–100 Hz por un factor 0,9962 y 10–50 Hz por 1,0001.
+
+| Fuente | EV drop-one | Pico cuentas | Significativa | Recomendación | E: HF explicada | 10–50 después/antes | Error inyectado |
+|---|---:|---:|---|---|---:|---:|---:|
+| SD_IO | -0,021 % | 0,067 | sí | none | 0,003 % | 1,0000 | 0 |
+| SD_SYNC | -0,019 % | 0,254 | sí | none | -0,049 % | 1,0000 | 0 |
+| RADIO_TX | 9,971 % | 1,291 | sí | template | 16,544 % | 1,0004 | <1e-15 |
+| I2C | 13,458 % | 1,303 | sí | template | 12,571 % | 1,0000 | <1e-15 |
+| AP_BEACON | 0,010 % | 0,187 | sí | template | 0,108 % | 1,0000 | <1e-15 |
+| MASTER_RX | 0,153 % | 0,851 | sí | template | -0,149 % aislado; aporte conjunto positivo | 1,0000 | <1e-15 |
+
+`significativa` indica que al menos una muestra de la plantilla tiene IC bootstrap 95 % que excluye cero. La recomendación también exige aporte conjunto positivo; por eso SD queda en `none` aunque aparezcan muestras estadísticamente distintas de cero.
 
 ## Cargar las firmas en la web
 
@@ -69,7 +86,7 @@ Active por nodo las limpiezas I2C, SD, transmisión y beacon. La cadena de “Fi
 python lab/ruido_firmas/autotest.py
 ```
 
-Genera capturas sintéticas con seis plantillas conocidas, ejecuta aprendizaje y evaluación, exige correlación ≥ 0,85 y verifica una reducción de RMS. No abre puertos.
+Genera capturas sintéticas con seis plantillas conocidas y otro caso con eventos densos y superpuestos como los reales. En este último no hay eventos RADIO_TX exclusivos y la deconvolución debe recuperar cada plantilla con correlación > 0,95. También ejecuta la evaluación completa y verifica reducción HF fuera de muestra. No abre puertos.
 
 ---
-Proveniencia: Codex (GPT-5), ejecución directa sin delegados.
+Proveniencia: Codex, ejecución directa sin delegados.

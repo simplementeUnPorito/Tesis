@@ -178,7 +178,12 @@ def windows_from_flags(flags, bit, margin=2):
 
 
 def _template_array(spec, which="onset"):
-    value = spec.get(f"{which}_template", spec.get(which, {}).get("template", []))
+    value = spec.get(f"{which}_template")
+    if value is None:
+        direct = spec.get(which)
+        value = direct.get("template", []) if isinstance(direct, dict) else direct
+    if value is None:
+        value = []
     return np.asarray(value, dtype=np.float64)
 
 
@@ -203,9 +208,9 @@ def subtract_templates(x, flags, bit, spec, align=0, include_offset=True):
             hi = lo + templ.size
             if lo < 0 or hi > out.size:
                 continue
-            denom = float(np.dot(templ, templ))
-            amp = float(np.dot(out[lo:hi], templ) / denom) if denom > 0 else 0.0
-            out[lo:hi] -= np.clip(amp, 0.0, 2.0) * templ
+            # La regresion conjunta ya estima la amplitud poblacional. Escalar
+            # cada evento volveria a ajustar señal geofisica y rompe el modelo X@c.
+            out[lo:hi] -= templ
     return out
 
 
@@ -255,8 +260,13 @@ def ar_interpolate_windows(x, windows, order=12, context=80):
 
 
 def apply_method(x, flags, bit, spec, method=None, params=None):
+    recommendation = spec.get("recommended_method", {})
+    if params is None and isinstance(recommendation, dict):
+        params = recommendation.get("parameters", {})
     params = dict(params or {})
-    method = method or spec.get("recommended_method", {}).get("method") or spec.get("method", "interp")
+    method = method or (recommendation.get("method") if isinstance(recommendation, dict) else recommendation) or spec.get("method", "interp")
+    if method == "none":
+        return np.asarray(x, dtype=np.float64).copy()
     if method == "template":
         return subtract_templates(x, flags, bit, spec, align=0, include_offset=params.get("offset", True))
     if method == "template_xcorr":

@@ -14,9 +14,9 @@ from comun import FS_DEFAULT
 
 SCENARIOS = [
     ("base_clasico", 0, 280),
-    ("async_comp", 1, 1500),
+    ("async_comp", 1, 700),    # RAM compartida: entran ~784 lotes
     ("async_sd", 2, 1500),
-    ("rt_comp", 5, 1500),
+    ("rt_comp", 5, 700),       # sin SD: una radio trabada lo corta por memoria
     ("rt_sd", 6, 1500),
 ]
 
