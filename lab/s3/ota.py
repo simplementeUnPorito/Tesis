@@ -47,6 +47,13 @@ def main():
     ap.add_argument('--timeout', type=float, default=300)
     a = ap.parse_args()
     path = a.bin or f'C:/piobuild/slaveS3/{a.env}/firmware.bin'
+    # Un esclavo con una captura en vivo cerrada sigue "ocupado" hasta el
+    # proximo ARM: ARM + STOP lo deja libre para la OTA.
+    sys.path.insert(0, __import__('os').path.dirname(__file__))
+    from maestro_ws import Maestro
+    m = Maestro().connect()
+    m.std(0xA4); time.sleep(2.0); m.std(0xA2); time.sleep(2.0); m.std(0xA4); time.sleep(2.0)
+    m.close()
     if not upload(path):
         sys.exit(2)
     print('imagen:', status().get('image'))

@@ -156,6 +156,8 @@ def main():
     m.std(0xAF, mode_byte)
     m.std(0xB8, a.sync)
     m.std16(0xAD, 0)          # HAMMER = mismo largo
+    m.std(0xA2, 0)            # ARM: los esclavos contestan ARM_ACK
+    time.sleep(2.5)
     t0 = time.time()
     m.std16(0xA3, a.n)        # START
     print(f'START modo=0x{mode_byte:02X} sync={a.sync} n={a.n} droptest={a.droptest}')
