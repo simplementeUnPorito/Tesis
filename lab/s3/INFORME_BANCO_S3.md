@@ -157,19 +157,75 @@ Probado sin exito:
 
 El banco quedo otra vez en IDF 4.4 (`masterS3_log`, `slaveS3_2`/`slaveS3_4`) y se verifico con un tiempo real de 600 lotes completo.
 
+## IDF 5.5, FTM y START programado (2026-10-25)
+
+El banco corre ahora Arduino 3.3.12 / ESP-IDF 5.5.5 (pioarduino 55.03.312) en `masterS3*` y `slaveS3*`. Los entornos IDF 4.4 quedan como respaldo (`*_idf44`).
+
+**FTM mide** en los tres nodos. Hizo falta:
+- pedir el reporte con `esp_wifi_ftm_get_report` fuera de la seccion critica (adentro: reinicios por INT_WDT);
+- sacar el volcado de lotes del callback de ESP-NOW del maestro a `loop()`: con el trabajo pesado en la tarea WiFi el maestro perdia el lado AP (HTTP, WebSocket y responder FTM).
+
+**START programado por FTM:**
+- El maestro manda una baliza de su reloj MAC (2 Hz, `CMD_TIME_BEACON`).
+- Cada esclavo ajusta una recta reloj local / reloj del maestro con las ultimas 16 sesiones FTM.
+- Si todos los nodos armados tienen modelo valido, el START lleva un instante del reloj del maestro 400 ms en el futuro. Cada esclavo sube SYNC en ese instante.
+- **Dispersion entre nodos medida: 0-9 us.** Hay ~15 us de atraso comun a todos (sin explicar, no afecta la sincronia entre nodos).
+- La web registra en los metadatos `start_method` = `ftm_scheduled` o `broadcast_start`.
+
+**STOP perdido:** el nodo 2 perdio una vez el STOP broadcast y siguio transmitiendo. El maestro ahora repite el STOP por unicast cada 300 ms a los nodos de tiempo real que no mandaron STREAM_END.
+
+**Panico de los esclavos (nodos 3 y 4):**
+- Causa, por coredump: el ARM se atendia en el callback de ESP-NOW (tarea WiFi) y liberaba el anillo de `live_capture` mientras `loop()` retransmitia de el (`LoadProhibited` en `live::sendBatch`). Pasaba con un esclavo retransmitiendo una sesion vieja (por ejemplo tras reiniciar el maestro) cuando llegaba el ARM de la captura siguiente.
+- Arreglo: ARM y PRESTART se encolan y se atienden en `loop()`.
+- Los esclavos no tienen USB, asi que ahora informan el coredump del ultimo panico por el log remoto a los 20, 40 y 60 s del arranque. Los ELF grabados se guardan en `lab/s3/elf_20261025/` para decodificar con `xtensa-esp-elf-addr2line`.
+
+**Tiempo real en IDF 5.5: el maestro deja de transmitir (esp-idf #19269)**
+
+Sintoma: en tiempo real, a los 1-13 min, el maestro deja de transmitir todo. Se cae el AP (sin ARP ni HTTP; la PC queda en "authenticating"), se corta el WebSocket, las respuestas FTM fallan en todos los esclavos y `esp_now_send` devuelve `NO_MEM` sin fin, sin ningun aviso de envio. La recepcion sigue andando. El detector `[TXSTALL]` (maestro con log) lo marca cuando hay envios pendientes y no vuelve ningun aviso en 5 s.
+
+| Maestro (3 nodos, N=1, 14 min) | Corridas | Con cuelgue |
+|---|---:|---:|
+| IDF 5.5, cualquier variante (FTM activo o pausado, sin baliza, sin responder, AP 11b/g, lock de lwIP) | 11 | 9 |
+| IDF 4.4, mismo codigo (`masterS3_idf44_log`) | 2 | 0 |
+
+Descartado midiendo:
+- memoria (157 kB interna, 150 kB DMA en el cuelgue);
+- FTM (responder, sesiones y baliza);
+- HT/AMPDU (AP en 11b/g);
+- escaneo de la STA (canal 1, STA sin SSID);
+- tomar el core de lwIP alrededor de `esp_now_send`.
+
+**Causa: [esp-idf #19269](https://github.com/espressif/esp-idf/issues/19269)** (Arduino 3.3.12 / IDF 5.5.5, APSTA). ESP-NOW inserta en la cola de TX del WiFi sin `g_wifi_global_lock`; si choca con una trama del SoftAP, la cola queda inalcanzable. Sin respuesta de Espressif ni arreglo. Nosotros lo disparamos mucho mas seguido que el reporte porque mandamos ~30 STREAM_ACK/s.
+
+**Recuperacion probada, no sirve para campo:**
+- `esp_wifi_stop/start` no lo destraba.
+- `WiFi.mode(WIFI_OFF)` + volver a levantar AP, ESP-NOW y peers si (100-600 ms; `wifiFullReinit`). Pero:
+  - la PC tardo 67-115 s en reasociarse y el maestro abandono la captura (13 900 de 72 900 lotes);
+  - cada re-init pierde 15-25 kB de heap (180 -> 71 kB en 8 recuperaciones).
+- Un primer intento llamaba `MDNS.end()` despues del deinit: panico `LoadStoreError` (corregido).
+
+IDF 5.4 (pioarduino 54.03.21) no trae `esp_wifi_internal_get_mac_clock_time`, de la que dependen la baliza y el START programado.
+
+**START anclado a la recepcion (la sincronia sin FTM)**
+
+La dispersion del START por broadcast no viene del aire (todos reciben la misma trama a la vez) sino de cuando corre el callback en cada esclavo. Con IDF 5, `esp_now_recv_info_t` trae `rx_ctrl->timestamp` (reloj MAC local): el esclavo sube SYNC en recepcion + 20 ms con el mismo timer que el START programado. Medido con el modelo FTM como referencia (`dispersion_start.py`), 3 nodos, 10 STARTs por metodo:
+
+| START | Mediana | Max |
+|---|---:|---:|
+| Broadcast, SYNC al procesar el paquete (esclavos clasicos) | 152 us | 374 us |
+| Programado por FTM (necesita maestro IDF 5.5) | 5 us | 7 us |
+| **Broadcast anclado a la recepcion (esclavos S3)** | **5 us** | **10 us** |
+
+Una muestra a 2604 Hz dura 384 us: el broadcast comun ya era submuestra, pero a 50 Hz sus 374 us son 6,7 grados de fase; el anclado deja 0,2 grados.
+
+Como el anclado no necesita el responder FTM del maestro, el maestro puede volver a **IDF 4.4** (sin #19269). Se pierde solo la estimacion de distancia por FTM, que era indicativa. La deriva de los relojes del ESP durante la captura no importa: la frecuencia de muestreo la fija el IMO del PSoC (+-1 %), cada nodo por su cuenta.
+
+**Web (field-study-44):**
+- Durante la captura la traza filtrada se calcula con un FIR causal, compensando su retardo de grupo; al cerrar se reemplaza por filtfilt sobre la captura completa. El notch y la limpieza de marcas solo se aplican al cerrar.
+- CSS para telefono.
+- `noise_signatures.json` va en el ZIP y el servidor lo usa para limpiar las marcas.
+
 ## Pendiente
 
-- **FTM:** el responder del maestro rechaza todas las configuraciones (`FTM_STATUS_CONF_REJECTED`), tanto con el flag puesto en caliente como reiniciando el WiFi.
-  - El prototipo que si mide (ftm-test) corre ESP-IDF 5.5; aca es Arduino 2.0.17 (IDF 4.4).
-  - Probablemente requiere migrar a Arduino 3 (IDF 5). Hay que decidirlo.
-  - La distancia y la sincronizacion por FTM quedan sin probar.
-- **Nodo 3:** reprogramarlo (firmware viejo, sin simulador).
-
-## En curso (2026-10-25 madrugada)
-
-- **IDF 5.5 / FTM** (rama `feat/idf55-ftm`): el FTM mide en los 3 nodos S3. Con IDF 5.5 el maestro pierde el lado AP (HTTP, WebSocket y responder FTM) despues de la primera captura, aunque ESP-NOW sigue andando. Lo esta investigando Codex con el hardware.
-- **Arreglo de esclavos:** un esclavo que arrancaba sin ver al maestro tomaba a otro esclavo como maestro y la red quedaba muda. Ya esta corregido y desplegado en los nodos 2, 3 y 4.
-- **App de analisis** (PyQt + `server/`): se adapta al ZIP nuevo (solo crudo + metadatos, `noise_marks.csv`, `sync`, huecos NaN). Lo esta haciendo Codex.
-- **Siguiente:**
-  - web usable desde el celular (emulado en Chrome);
-  - pipeline completo captura -> web -> ZIP/Enlace -> servidor -> app de analisis (el servidor queda accesible por Tailscale).
+- **Maestro en IDF 4.4** (`masterS3_idf44` / `_idf44_log`) para campo; IDF 5.5 solo para medir distancia por FTM fuera del tiempo real, hasta que Espressif arregle #19269.
+- **Prueba de punta a punta** captura -> web -> ZIP -> servidor por Tailscale, con el telefono emulado en Chrome.

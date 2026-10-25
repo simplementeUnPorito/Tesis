@@ -26,9 +26,12 @@ def hex2(b):
 
 
 class Maestro:
-    def __init__(self, url=URL, verbose=False):
+    def __init__(self, url=URL, verbose=False, reconnect=False):
         self.url = url
         self.verbose = verbose
+        self.reconnect = reconnect     # reabrir el WS si el maestro lo corta
+        self.reconnects = 0
+        self.on_reconnect = None
         self.packets = []          # (t, nodo, tipo, b2, b1, b0)
         self.texts = []            # (t, dict|str)
         self.lock = threading.Lock()
@@ -47,6 +50,25 @@ class Maestro:
         self._th.start()
         return self
 
+    def _reopen(self, limite_s=120):
+        t0 = time.time()
+        while self._run and time.time() - t0 < limite_s:
+            time.sleep(1)
+            try:
+                self.ws = websocket.create_connection(self.url, timeout=5)
+                self.ws.settimeout(0.5)
+            except Exception:
+                continue
+            self.reconnects += 1
+            print(f'WS reabierto tras {time.time() - t0:.1f} s (vez {self.reconnects})', flush=True)
+            if self.on_reconnect:
+                try:
+                    self.on_reconnect()
+                except Exception:
+                    pass
+            return True
+        return False
+
     def close(self):
         self._run = False
         try:
@@ -63,6 +85,8 @@ class Maestro:
             except Exception as e:
                 if self._run and self.verbose:
                     print('WS cerrado:', e)
+                if self._run and self.reconnect and self._reopen():
+                    continue
                 self._run = False
                 return
             t = time.time()

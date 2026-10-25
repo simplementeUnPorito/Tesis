@@ -28,11 +28,13 @@ def main():
     ap.add_argument('--s', type=float, default=300)
     ap.add_argument('--nodos', default='2,4')
     ap.add_argument('--almacen', type=int, default=1)
+    ap.add_argument('--sync', type=int, default=0, help='0 FTM activo, 1 FTM pausado, 2 radio apagada')
     a = ap.parse_args()
     nodos = [int(x) for x in a.nodos.split(',')]
     seqs = {n: -1 for n in nodos}
     count = {n: 0 for n in nodos}
-    m = Maestro()
+    m = Maestro(reconnect=True)
+    m.on_reconnect = lambda: m.send_json({'cmd': 'ZWEB', 'on': 1})
 
     def on_z(t, n, seq, payload):
         if n in seqs:
@@ -49,7 +51,7 @@ def main():
         time.sleep(0.5)
     time.sleep(2)
     m.std(0xAF, (a.almacen & 3) | 4)
-    m.std(0xB8, 0)
+    m.std(0xB8, a.sync)
     m.std16(0xAD, 0)
     m.std(0xA2)
     time.sleep(2.5)
@@ -62,7 +64,7 @@ def main():
         time.sleep(10)
         el = time.time() - t0
         esperado = el * fs / SPB
-        fila = {'t': round(el, 1)}
+        fila = {'t': round(el, 1), 'reconex': m.reconnects}
         for n in nodos:
             fila[f'S{n}_lotes'] = count[n]
             fila[f'S{n}_atraso'] = round(esperado - count[n], 1)
@@ -88,10 +90,10 @@ def main():
         a1, a2 = filas[len(filas) // 2], filas[-1]
         for n in nodos:
             ritmo[n] = round((a2[f'S{n}_atraso'] - a1[f'S{n}_atraso']) / (a2['t'] - a1['t']), 3)
-    res = {'N': a.n, 'fs': fs, 'segundos': a.s, 'filas': filas, 'al_stop': total_stop,
+    res = {'N': a.n, 'fs': fs, 'segundos': a.s, 'filas': filas, 'al_stop': total_stop, 'reconexiones': m.reconnects,
            'final': count, 'drenaje_s': round(drenaje, 1), 'atraso_crece_lotes_por_s': ritmo}
     os.makedirs('lab/s3/duracion', exist_ok=True)
-    json.dump(res, open(f'lab/s3/duracion/N{a.n}_{int(a.s)}s.json', 'w'), indent=1)
+    json.dump(res, open(f'lab/s3/duracion/N{a.n}_{int(a.s)}s_nodos{a.nodos.replace(",", "-")}_sync{a.sync}.json', 'w'), indent=1)
     print('final', count, 'drenaje tras STOP', round(drenaje, 1), 's; atraso crece (lotes/s):', ritmo)
 
 
