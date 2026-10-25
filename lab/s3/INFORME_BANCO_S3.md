@@ -81,6 +81,24 @@ Las fuentes sin artefacto inyectado dan picos chicos: SD_SYNC 184 cuentas y MAST
 11. **Compresion maestro -> web:** registro 0x57 con el lote GeoZ (opt-in `ZWEB`). Bajo de ~270 a 63 B por lote. El USB/MATLAB sigue con paquetes de 6 bytes.
 12. **Descarga clasica comprimida:** un MsgDataZ por lote en vez de dos MsgData de 167 B (bit0 de `REQ_BATCH.flags`).
 
+## Firmas con senal realista (2000 + 1000 cuentas)
+
+Son 8 capturas en tiempo real con SD y lotes comprimidos a la web (`capturas/SIM_S3_q`).
+
+**Plantillas contra la verdad:** correlacion 1,000 y amplitud 1,00 en I2C, SD_IO, RADIO_TX y AP_BEACON, con desfase 0. SD_SYNC y MASTER_RX quedan en 72 y 16 cuentas.
+
+**Limpieza** (`limpieza.py`):
+
+| Fuente | Metodo | Alta frecuencia explicada | Error de senal |
+|---|---|---:|---:|
+| RADIO_TX | interp | 73 % | 0,037 |
+| SD_IO | interp | 36 % | 0,140 |
+| I2C | interp | 28 % | 0,061 |
+| AP_BEACON | interp | 4 % | 0,014 |
+| MASTER_RX | ninguno | 0 % | 0 |
+
+Elige interpolar y no restar la plantilla: la plantilla se aprende con pasa-altos de 150 Hz y no tiene la parte lenta de los artefactos largos (rampa de la SD, escalon de la baliza).
+
 ## Cuanto dura el tiempo real
 
 Prueba con `prueba_duracion.py`, 2 nodos, N=1 (2604 Hz, 87 lotes/s por nodo), sin limite:
