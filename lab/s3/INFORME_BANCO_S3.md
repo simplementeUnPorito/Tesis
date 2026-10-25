@@ -225,6 +225,15 @@ Como el anclado no necesita el responder FTM del maestro, el maestro puede volve
 - CSS para telefono.
 - `noise_signatures.json` va en el ZIP y el servidor lo usa para limpiar las marcas.
 
+## Prueba de punta a punta con el telefono emulado (2026-10-25, maestro IDF 4.4, web field-study-47)
+
+La app corrio en un iframe de 412 x 915 px (la ventana de Chrome no se pudo achicar).
+- **Vista de telefono:** pestanas en grilla, campos a todo el ancho, START/STOP fijos abajo.
+- **Enlace:** ahora se puede guardar solo la URL del servidor, sin red para el maestro. Antes exigia un SSID y eso hacia que el maestro intentara la STA (escaneos). La subida la hace el navegador.
+- **Captura -> ZIP -> servidor por Tailscale** (`http://100.105.239.49:8000/ingest`): 3 nodos x 261 lotes = 23 490 muestras. Subido (2,9 MB) y procesado ("listo", 1 captura, 3 nodos). La metadata trae `slave_sync_anchor` y `noise_signatures.json`.
+- **App de analisis:** carga los 3 canales (7830 muestras cada uno, sin huecos, con las firmas). Arma el dataset por disparos, asi que sin un nodo HAMMER no lo muestra (los 3 esclavos del banco simulan GEO). Ahora lee la sincronia de la metadata raiz del ZIP.
+- **Filtro en vivo, medido en el canvas** (FIR pasabajos de 10 Hz, 101 taps, tiempo real): durante la captura la traza filtrada avanza junto con la cruda (52 -> 178 px en 8 s, mismos bordes), asi que el retardo de grupo queda compensado. Al cerrar se reemplaza por filtfilt.
+
 ## Pendiente
 
 - **Maestro en IDF 4.4** (`masterS3_idf44` / `_idf44_log`) para campo; IDF 5.5 solo para medir distancia por FTM fuera del tiempo real, hasta que Espressif arregle #19269.
