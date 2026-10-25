@@ -4,8 +4,12 @@ Esto queda despues del banco S3 sin hardware (ver `INFORME_BANCO_S3.md`).
 
 ## Decisiones
 
-1. **FTM (IDF 4.4 y 5 probados, ver informe).** El responder del maestro S3 rechaza todas las sesiones (`FTM_STATUS_CONF_REJECTED`), aun habilitado antes de levantar ESP-NOW y con cinco configuraciones distintas. El prototipo `ftm-test`, que si mide, corre ESP-IDF 5.5. Opciones:
-   - a) migrar masterS3/slaveS3 a Arduino 3 (IDF 5.x) con pioarduino. Es un cambio de plataforma grande: hay que revalidar todo.
+1. **FTM (IDF 4.4 y 5 probados, ver informe).** No se logro ninguna sesion:
+   - con IDF 4.4 el maestro rechaza (`CONF_REJECTED`);
+   - con maestro y esclavo en IDF 5 (entornos `*_idf5`, que ya compilan y andan, OTA cruzada incluida) no hay respuesta (`NO_RESPONSE`).
+
+   Opciones:
+   - a) confirmar con el firmware de `ftm-test` grabado por USB en dos placas que estas S3 miden FTM, y despues alinear nuestra configuracion WiFi con la suya;
    - b) dejar FTM fuera de esta version: la sincronia sigue siendo por START broadcast y la distancia queda sin medir.
 2. **Mas de 5-6 nodos a 2604 Hz.** Por tiempo de aire estimo que entran ~5-6 nodos a N=1. Para 8 GEO + HAMMER:
    - a) decimar con N>=2;
