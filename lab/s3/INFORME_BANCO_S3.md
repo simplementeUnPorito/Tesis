@@ -225,6 +225,22 @@ Como el anclado no necesita el responder FTM del maestro, el maestro puede volve
 - CSS para telefono.
 - `noise_signatures.json` va en el ZIP y el servidor lo usa para limpiar las marcas.
 
+## IDF 5.5 con FTM, resuelto (2026-10-25 tarde)
+
+Pedido de Elias: mantener el FTM (sincronia que se sostiene en el tiempo, ya medida con osciloscopio, y distancia), o sea maestro en IDF 5.5. Codex investigo el blob (`INVESTIGACION_ESPNOW_TX_19269.md` e `INVESTIGACION_FTM_RESPONDER.md`, resumidos aca).
+
+**1. TX trabado (#19269): ESP-NOW por `esp_wifi_80211_tx`.** Verificado desensamblando `libnet80211.a`: `esp_now_send` inserta en `s_tx_cacheq` sin `g_wifi_global_lock`; `esp_wifi_80211_tx` usa la misma cola pero con el lock. El maestro arma la misma action frame que `esp_now_send` (un IE, version 2, addr2 = MAC STA, addr3 = broadcast) y la manda raw a 1 Mbps; los esclavos la reciben sin cambios por su callback. Sigue roto en IDF 5.5.6 y en esp32-wifi-lib master del 22/10. Solo vale para peers sin cifrar (los nuestros).
+
+**2. Responder FTM sin respuesta: turnos.** El responder tiene 3 plazas (una por MAC); cada sesion se libera con un timer que postea un evento y, si el post falla bajo carga, la plaza queda ocupada: esa MAC recibe `NO_RESPONSE` para siempre (pasaron los tres nodos, y despues el AP tampoco asociaba estaciones nuevas). Ahora cada esclavo mide solo en su ventana de 1 s cada 8 (hora de la baliza): nunca hay dos sesiones a la vez. El modelo de reloj vale 20 s. Vigia en el maestro: 3 `NO_RESPONSE` seguidos de un nodo -> reinicio del WiFi entre capturas (vacia las plazas).
+
+| Maestro IDF 5.5 (3 nodos, 14 min, FTM activo) | Corridas | TX trabado | FTM muerto | START por FTM |
+|---|---:|---:|---:|---|
+| `esp_now_send` (antes) | 11 | 9 | si | a veces |
+| TX raw, sin turnos | 3 | 0 | si (los 3 nodos en la 1.a) | 2 de 4 |
+| **TX raw + turnos** | 5 | **0** | **0** | **5 de 5** |
+
+Dispersion del START programado en estas corridas: 1-5 us. Los lotes llegan todos; mientras un esclavo hace su sesion FTM no transmite datos y el atraso de la vista en vivo sube a 1-3 s (90-280 lotes; sin FTM, 33-67), sin perdidas.
+
 ## Prueba de punta a punta con el telefono emulado (2026-10-25, maestro IDF 4.4, web field-study-47)
 
 La app corrio en un iframe de 412 x 915 px (la ventana de Chrome no se pudo achicar).
@@ -236,5 +252,5 @@ La app corrio en un iframe de 412 x 915 px (la ventana de Chrome no se pudo achi
 
 ## Pendiente
 
-- **Maestro en IDF 4.4** (`masterS3_idf44` / `_idf44_log`) para campo; IDF 5.5 solo para medir distancia por FTM fuera del tiempo real, hasta que Espressif arregle #19269.
+- **Maestro de campo: IDF 5.5** (`masterS3`), con ESP-NOW por TX raw y FTM por turnos. `masterS3_idf44` queda de respaldo (sin FTM; los esclavos anclan el START a la recepcion).
 - **Prueba de punta a punta** captura -> web -> ZIP -> servidor por Tailscale, con el telefono emulado en Chrome.
