@@ -126,6 +126,37 @@ Prueba con `prueba_duracion.py`, 2 nodos, N=1 (2604 Hz, 87 lotes/s por nodo), si
 - Entran ~5-6 nodos a N=1.
 - Con 8 GEO + HAMMER conviene N>=2, o subir la tasa PHY de ESP-NOW (6-11 Mbps), que reduce el aire ~6 veces a costa de alcance.
 
+## Evaluacion de Arduino 3 / IDF 5 por FTM (2026-10-24 noche)
+
+Hay entornos nuevos `masterS3_idf5`, `masterS3_idf5_log` y `slaveS3_idf5`, con pioarduino 53.03.13. El codigo compila igual en los dos SDK, con guardas `ESP_ARDUINO_VERSION_MAJOR >= 3` en tres puntos:
+- el callback de recepcion de ESP-NOW (`esp_now_recv_info_t`);
+- mbedtls 3 (sin el sufijo `_ret`);
+- el reporte FTM, que se pide con `esp_wifi_ftm_get_report` / `use_get_report_api`.
+
+Tamano: RAM igual (46 %); flash +180 KB en el esclavo.
+
+Probado en placa:
+- El maestro IDF 5 funciona: web, WebSocket, ESP-NOW y OTA.
+- La OTA cruzada funciona: un esclavo paso de IDF 4.4 a IDF 5 por radio y confirmo la imagen.
+
+FTM sigue sin medir:
+
+| Maestro | Esclavo | Resultado |
+|---|---|---|
+| IDF 4.4 | IDF 4.4 | `CONF_REJECTED` |
+| IDF 5 | IDF 4.4 | `CONF_REJECTED` |
+| IDF 5 | IDF 5 | `NO_RESPONSE` |
+
+Probado sin exito:
+- responder habilitado y reinicio del WiFi antes de ESP-NOW;
+- 5 combinaciones de tramas y periodo;
+- modo promiscuo apagado durante la sesion;
+- HT20 en el AP y en la STA.
+
+**Siguiente paso sugerido:** grabar por USB el firmware de `ftm-test` (IDF 5.5) en un maestro y un esclavo para confirmar que estas placas miden FTM. Despues comparar la configuracion WiFi completa (modo, auth, `max_connection`, AP oculto) contra la nuestra.
+
+El banco quedo otra vez en IDF 4.4 (`masterS3_log`, `slaveS3_2`/`slaveS3_4`) y se verifico con un tiempo real de 600 lotes completo.
+
 ## Pendiente
 
 - **FTM:** el responder del maestro rechaza todas las configuraciones (`FTM_STATUS_CONF_REJECTED`), tanto con el flag puesto en caliente como reiniciando el WiFi.
