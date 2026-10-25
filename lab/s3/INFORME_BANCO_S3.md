@@ -164,3 +164,12 @@ El banco quedo otra vez en IDF 4.4 (`masterS3_log`, `slaveS3_2`/`slaveS3_4`) y s
   - Probablemente requiere migrar a Arduino 3 (IDF 5). Hay que decidirlo.
   - La distancia y la sincronizacion por FTM quedan sin probar.
 - **Nodo 3:** reprogramarlo (firmware viejo, sin simulador).
+
+## En curso (2026-10-25 madrugada)
+
+- **IDF 5.5 / FTM** (rama `feat/idf55-ftm`): el FTM mide en los 3 nodos S3. Con IDF 5.5 el maestro pierde el lado AP (HTTP, WebSocket y responder FTM) despues de la primera captura, aunque ESP-NOW sigue andando. Lo esta investigando Codex con el hardware.
+- **Arreglo de esclavos:** un esclavo que arrancaba sin ver al maestro tomaba a otro esclavo como maestro y la red quedaba muda. Ya esta corregido y desplegado en los nodos 2, 3 y 4.
+- **App de analisis** (PyQt + `server/`): se adapta al ZIP nuevo (solo crudo + metadatos, `noise_marks.csv`, `sync`, huecos NaN). Lo esta haciendo Codex.
+- **Siguiente:**
+  - web usable desde el celular (emulado en Chrome);
+  - pipeline completo captura -> web -> ZIP/Enlace -> servidor -> app de analisis (el servidor queda accesible por Tailscale).
