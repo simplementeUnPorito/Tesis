@@ -99,6 +99,18 @@ Son 8 capturas en tiempo real con SD y lotes comprimidos a la web (`capturas/SIM
 
 Elige interpolar y no restar la plantilla: la plantilla se aprende con pasa-altos de 150 Hz y no tiene la parte lenta de los artefactos largos (rampa de la SD, escalon de la baliza).
 
+## Prueba desde la web real (Chrome, field-study-42)
+
+Tres capturas lanzadas con los botones de la pagina (ARM + START), con lotes comprimidos a la web:
+
+| Captura | Muestras | Esperadas |
+|---|---:|---:|
+| Tiempo real, 5 s | 26 040 | 434 lotes x 30 x 2 nodos |
+| Asincronica, 3 s | 15 660 | 261 x 30 x 2 |
+| Descarga rapida, 3 s | 15 660 | 261 x 30 x 2 |
+
+En una primera corrida un nodo quedo afuera con `motivo=2` (en vivo, el PSoC simulado no confirmo despues del `SET_RECLEN` de la web). Ahora el esclavo reintenta una vez la secuencia SD + modo en vivo + SETN antes de abortar, y registra que paso fallo.
+
 ## Cuanto dura el tiempo real
 
 Prueba con `prueba_duracion.py`, 2 nodos, N=1 (2604 Hz, 87 lotes/s por nodo), sin limite:
