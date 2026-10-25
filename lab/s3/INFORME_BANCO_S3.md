@@ -75,7 +75,31 @@ Las fuentes sin artefacto inyectado dan picos chicos: SD_SYNC 184 cuentas y MAST
 
 **Limpieza:** con la senal simulada original (+-400 000 cuentas) no se puede evaluar, porque la interpolacion sobre marcas tan densas (I2C en el 23 % de las muestras) mete mas error de alta frecuencia que el que saca. El simulador paso a una amplitud de geofono quieto (2000 + 1000 cuentas) para repetir la evaluacion.
 
+## Fallas corregidas despues del primer informe
+
+10. **Los esclavos reescaneaban canales** tras 45 s sin ESP-NOW del maestro y quedaban sordos unos segundos: se perdia el ARM/PRESTART de la captura siguiente y faltaba un nodo entero, de forma intermitente. Ahora las balizas del AP del maestro cuentan como senal de vida. Resultado: 0/3 fallas con 60 s de reposo antes de cada captura.
+11. **Compresion maestro -> web:** registro 0x57 con el lote GeoZ (opt-in `ZWEB`). Bajo de ~270 a 63 B por lote. El USB/MATLAB sigue con paquetes de 6 bytes.
+12. **Descarga clasica comprimida:** un MsgDataZ por lote en vez de dos MsgData de 167 B (bit0 de `REQ_BATCH.flags`).
+
+## Cuanto dura el tiempo real
+
+Prueba con `prueba_duracion.py`, 2 nodos, N=1 (2604 Hz, 87 lotes/s por nodo), sin limite:
+
+| Duracion | Lotes por nodo | Atraso | Crecimiento del atraso | Vaciado tras STOP |
+|---:|---:|---|---:|---:|
+| 5 min | 26 030 | ~15 lotes (0,17 s) | -0,01 lotes/s | 1 s |
+| 14 min | 72 908 | 11-29 lotes (0,1-0,3 s) | -0,004 / +0,025 lotes/s | 1 s |
+
+**Conclusion:** a tasa completa el tiempo real se sostiene indefinidamente con 2 nodos, sin decimar.
+
+**Estimacion por tiempo de aire** (no medida, hay solo 2 placas): cada nodo a N=1 ocupa ~9-10 % del canal a 1 Mbps.
+- Entran ~5-6 nodos a N=1.
+- Con 8 GEO + HAMMER conviene N>=2, o subir la tasa PHY de ESP-NOW (6-11 Mbps), que reduce el aire ~6 veces a costa de alcance.
+
 ## Pendiente
 
-- **FTM:** todas las sesiones fallan (`status=5`). El codigo de error viaja en el reporte nuevo.
-- **Nodo 3:** reprogramarlo, porque su firmware es viejo.
+- **FTM:** el responder del maestro rechaza todas las configuraciones (`FTM_STATUS_CONF_REJECTED`), tanto con el flag puesto en caliente como reiniciando el WiFi.
+  - El prototipo que si mide (ftm-test) corre ESP-IDF 5.5; aca es Arduino 2.0.17 (IDF 4.4).
+  - Probablemente requiere migrar a Arduino 3 (IDF 5). Hay que decidirlo.
+  - La distancia y la sincronizacion por FTM quedan sin probar.
+- **Nodo 3:** reprogramarlo (firmware viejo, sin simulador).

@@ -3,19 +3,25 @@
 El puerto mezcla paquetes binarios 0x56 de 6 bytes con lineas de texto: se
 quitan los paquetes y se guardan las lineas con hora en lab/s3/maestro.log.
 
-  python lab/s3/log_maestro.py [COM14]
+  python lab/s3/log_maestro.py [COM14] [--reset]
 """
 import sys
 import time
 
 import serial
 
-port = sys.argv[1] if len(sys.argv) > 1 else 'COM14'
+args = [x for x in sys.argv[1:] if not x.startswith('--')]
+port = args[0] if args else 'COM14'
+reset = '--reset' in sys.argv
 s = serial.Serial()
 s.port, s.baudrate, s.timeout = port, 921600, 0.2
 s.dtr = False
 s.rts = False
 s.open()
+if reset:   # pulso en EN por RTS (puente CH343 con auto-reset): ver el arranque
+    s.rts = True
+    time.sleep(0.15)
+    s.rts = False
 out = open('lab/s3/maestro.log', 'a', encoding='utf-8', buffering=1)
 buf = bytearray()
 while True:
