@@ -15,6 +15,7 @@ import websocket
 
 URL = 'ws://192.168.4.1/ws'
 PKT = 0x56
+ZPKT = 0x57   # lote comprimido: [0x57][nodo][seq LE24][len][GeoZ]
 PT_DATA, PT_HB, PT_ACK = 0x00, 0x01, 0x07
 PT_BATCH, PT_BATCH_END, PT_MARK = 0xFA, 0xF9, 0xFB
 PT_LAT, PT_STATUS, PT_READY = 0xFC, 0xFD, 0xFE
@@ -34,6 +35,9 @@ class Maestro:
         self.ws = None
         self.on_packet = None
         self.on_text = None
+        self.on_zbatch = None
+        self.zbytes = 0
+        self.zrecords = 0
 
     def connect(self, timeout=10):
         self.ws = websocket.create_connection(self.url, timeout=timeout)
@@ -62,6 +66,7 @@ class Maestro:
                 self._run = False
                 return
             t = time.time()
+            self.total_bytes = getattr(self, "total_bytes", 0) + len(data)
             if op == websocket.ABNF.OPCODE_TEXT:
                 s = data.decode('utf-8', 'replace')
                 try:
@@ -76,8 +81,19 @@ class Maestro:
                     print('TXT', s[:200])
                 continue
             i = 0
-            while i + 6 <= len(data):
-                if data[i] != PKT:
+            while i < len(data):
+                if data[i] == ZPKT and i + 6 <= len(data):
+                    n = data[i + 5]
+                    if i + 6 + n > len(data):
+                        break
+                    seq = data[i + 2] | (data[i + 3] << 8) | (data[i + 4] << 16)
+                    self.zbytes += 6 + n
+                    self.zrecords += 1
+                    if self.on_zbatch:
+                        self.on_zbatch(t, data[i + 1], seq, data[i + 6:i + 6 + n])
+                    i += 6 + n
+                    continue
+                if data[i] != PKT or i + 6 > len(data):
                     i += 1
                     continue
                 p = (t, data[i + 1], data[i + 2], data[i + 3], data[i + 4], data[i + 5])

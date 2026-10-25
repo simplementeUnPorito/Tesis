@@ -19,6 +19,7 @@ import time
 import numpy as np
 
 sys.path.insert(0, os.path.dirname(__file__))
+from geo_codec import decode as geoz_decode  # noqa: E402
 from maestro_ws import (Maestro, PT_DATA, PT_BATCH, PT_BATCH_END, PT_MARK, PT_HB)  # noqa: E402
 
 SPB = 30
@@ -118,6 +119,7 @@ def main():
     ap.add_argument('--timeout', type=float, default=240.0)
     ap.add_argument('--nodos', default='', help='lista de nodos esperados, ej 2,4')
     ap.add_argument('--out', default='lab/s3/capturas')
+    ap.add_argument('--zweb', action='store_true', help='pedir lotes comprimidos a la web (0x57)')
     a = ap.parse_args()
 
     mode_byte = a.almacen & 3
@@ -149,8 +151,24 @@ def main():
         elif tp == PT_MARK:
             nd.pending_mark |= b2
 
+    def on_zbatch(t, n, seq, payload):
+        nd = nodos.setdefault(n, Nodo(n))
+        try:
+            vals, flags = geoz_decode(payload)
+        except Exception as e:
+            print('lote Z invalido', n, seq, e)
+            return
+        nd.batch(seq)
+        for v, f in zip(vals, flags):
+            if f:
+                nd.pending_mark |= f
+            nd.data(v)
+
     m.on_packet = on_packet
+    m.on_zbatch = on_zbatch
     m.connect()
+    if a.zweb:
+        m.send_json({'cmd': 'ZWEB', 'on': 1})
     time.sleep(1.0)
     m.send_json({'cmd': 'DROPTEST', 'every': a.droptest})
     m.std(0xAF, mode_byte)
@@ -199,7 +217,7 @@ def main():
     stamp = time.strftime('%Y%m%d_%H%M%S')
     out = os.path.join(a.out, stamp)
     os.makedirs(out, exist_ok=True)
-    res = {'args': vars(a), 'mode_byte': mode_byte, 'duracion_s': time.time() - t0,
+    res = {'args': vars(a), 'mode_byte': mode_byte, 'ws_bytes_total': getattr(m, 'total_bytes', 0), 'ws_bytes_z': m.zbytes, 'ws_records_z': m.zrecords, 'duracion_s': time.time() - t0,
            'estados': [(round(t - t0, 2), ST_NAMES.get(s, s)) for t, s in estado['hist']],
            'textos': [o for _, o in tx if isinstance(o, dict) and o.get('type') not in ('link', 'ftm')][:50],
            'nodos': {}}
