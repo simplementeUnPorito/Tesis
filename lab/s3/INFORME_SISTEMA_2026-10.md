@@ -762,6 +762,407 @@ python main.py
 
 No se realizó grabación de placas ni prueba por COM durante la preparación de este estado integral.
 
+## 10. Referencia técnica completa del estado vigente
+
+Esta sección fija el contrato de hardware, protocolo, almacenamiento y operación que surge del código al 26/10/2026. Los valores medidos se identifican como **MEDIDO**. Los valores derivados se identifican como **CALCULADO**. Los elementos sin ensayo físico se identifican como **NO PROBADO**.
+
+### 10.1. Alimentación, niveles lógicos y asignación de pines del ESP32-S3
+
+El PSoC 5LP trabaja a 5 V. `cyfitter.h` declara `VDDA`, `VDDD` y los cuatro bancos `VDDIO0..3` en 5 V. El ESP32-S3 trabaja a 3,3 V. Las entradas digitales nuevas del PSoC deben configurarse como LVTTL. Este umbral acepta el nivel alto de 3,3 V del ESP sin elevarlo a 5 V.
+
+No debe aplicarse una salida de 5 V del PSoC a una entrada del ESP. I2C requiere resistencias de elevación a 3,3 V si el ESP recibe el nivel alto. El informe no encontró una verificación eléctrica del valor ni de la ubicación de esas resistencias. Por lo tanto, esa comprobación queda pendiente.
+
+| Función del esclavo S3 | GPIO ESP32-S3 | Dirección respecto del ESP | Parámetro vigente | Estado |
+|---|---:|---|---|---|
+| SOC del ADC | 1 | salida | período `SOC_PERIOD_NS = 500 000 ns`; pulso de 3 us | Implementado; **NO PROBADO** en PSoC real. |
+| Reloj del PSoC | 2 | salida | 8 MHz; ciclo útil de 50 % | Implementado; **NO PROBADO** en placa. |
+| SYNC | 7 | salida | habilitación de captura | Implementado; falta probar la compuerta SOC∧SYNC. |
+| I2C SDA | 8 | bidireccional | dirección PSoC `0x42` | Vigente. |
+| I2C SCL | 9 | salida | reloj del enlace de control | Vigente. |
+| UART hacia PSoC | 17 | salida TX | 115 200 bit/s | Vigente. |
+| UART desde PSoC | 18 | entrada RX | 115 200 bit/s | Vigente. |
+| Solicitud de reinicio del PSoC | 16 | salida | control por `PSOC_RESET_REQUEST_PIN` | Vigente. |
+| SD SCK | 14 | salida | SPI FSPI; 1 MHz por defecto | Vigente en `live_capture`. |
+| SD MISO | 21 | entrada | SPI FSPI | Vigente en `live_capture`. |
+| SD MOSI | 13 | salida | SPI FSPI | Vigente en `live_capture`. |
+| SD CS | 42 | salida | selección activa de tarjeta | Vigente en `live_capture`. |
+| OLED SCK | 12 | salida | SPI; 8 MHz | Vigente. |
+| OLED MOSI | 11 | salida | SPI | Vigente. |
+| OLED CS | 10 | salida | selección de pantalla | Vigente. |
+| OLED D/C | 5 | salida | datos/comando | Vigente. |
+| OLED RESET | 6 | salida | reinicio de pantalla | Vigente. |
+| Botón arriba | 38 | entrada | pull-up interno | Vigente. |
+| Botón abajo | 39 | entrada | pull-up interno | Vigente. |
+| Botón aceptar | 40 | entrada | pull-up interno | Vigente. |
+| Botón volver | 41 | entrada | pull-up interno | Vigente. |
+
+La interfaz local captura 10 lotes por defecto. La SD y el OLED usan buses separados. La SD conserva el archivo `/live.bin` durante la captura. El reloj de la SD admite ajuste entre 400 kHz y 20 MHz por USB, aunque el valor compilado es 1 MHz.
+
+El maestro S3 solamente fija GPIO 7 como salida SYNC de diagnóstico. El entorno de banco también usa GPIO 15 como marcador de START. UART0 sale por el puente CH343. El registro alternativo usa GPIO 16/17 como RX/TX de la UART de diagnóstico según las banderas de compilación.
+
+### 10.2. Pines generados del PSoC 5LP
+
+La tabla siguiente se extrajo de `AcondicionamientoAnalogico.cydsn/Generated_Source/PSoC5/cyfitter.h`. Describe el artefacto generado actual. No prueba que el esquema pendiente de Single Sample y reloj externo ya esté compilado.
+
+| Señal de PSoC Creator | Pin PSoC | Función documentada |
+|---|---|---|
+| `SYNC_IN` | P0[4] | habilitación de captura desde GPIO 7 del ESP. |
+| `soc` | P3[4] | entrada SOC desde GPIO 1 del ESP. |
+| `aclk` | P3[3] | entrada prevista para reloj externo desde GPIO 2 del ESP. |
+| `esp_reset` | P1[4] | solicitud de reinicio desde GPIO 16 del ESP. |
+| `I2Cp_SDA` | P2[1] | datos I2C. |
+| `I2Cp_SCL` | P2[3] | reloj I2C. |
+| `Rx` | P15[0] | recepción UART del PSoC. |
+| `INp` | P1[2] | entrada analógica positiva. |
+| `INn` | P1[7] | entrada analógica negativa. |
+| `SEo` | P2[7] | salida de la etapa de entrada simple. |
+| `PGAo` | P2[6] | salida de amplificador de ganancia programable. |
+| `BPm` | P3[2] | nodo inversor del pasa-banda. |
+| `BPo` | P3[7] | salida del pasa-banda. |
+| `SUMm` | P0[5] | nodo inversor del sumador. |
+| `SUMo` | P0[0] | salida del sumador. |
+| `LPm` | P0[3] | nodo inversor del pasabajos. |
+| `LPo` | P0[1] | salida del pasabajos. |
+| `Vref` | P3[6] | referencia general. |
+| `Vref_PGA` | P3[0] | referencia del PGA. |
+| `Vref_BP` | P3[1] | referencia del pasa-banda. |
+| `Vref_ADDER` | P0[6] | referencia del sumador. |
+| `Vref_LP` | P0[7] | referencia del pasabajos. |
+| `AMuxCapacitor` | P15[3] | conexión del multiplexor/capacitor analógico. |
+
+El artefacto generado declara bus a 24 MHz y ADC de 18 bits. Sin embargo, todavía declara 2604 muestras/s y modo de conversión 2, que corresponde al modo continuo del componente. Por eso el cambio a Single Sample, Hardware SOC y 2000 Hz sigue pendiente en PSoC Creator.
+
+### 10.3. Formato del protocolo ESP-NOW
+
+Todos los `struct` se transmiten empaquetados, sin relleno. El payload público se limita a 250 B. Cada mensaje del sistema agrega al final `E0 46`, derivado de FNV-1a de `GeoNetwork`. El receptor descarta una trama sin esa marca antes de interpretar el comando.
+
+| Código | Nombre | Dirección | Contenido relevante |
+|---:|---|---|---|
+| `0x10` | `CMD_ARM` | maestro→esclavo | arma la captura. |
+| `0x11` | `CMD_ARM_ACK` | esclavo→maestro | nodo y estado. |
+| `0x12` | `CMD_START` | maestro→esclavo | `t_start_us`, nodo, `sched` y `start_mac_us`. |
+| `0x13` | `CMD_STOP` | maestro→esclavo | detiene la captura. |
+| `0x15` | `CMD_START_ACK` | esclavo→maestro | estado, token y timestamp RX. |
+| `0x20` | `CMD_DATA` | esclavo→maestro | lote clásico en dos partes de 15 muestras. |
+| `0x21/0x22` | `CMD_SET_CONFIG/CMD_CFG_ACK` | ambos | subcomando, parámetros y resultado. |
+| `0x30` | `CMD_STATUS` | esclavo→maestro | lotes, TX y presencia del PSoC. |
+| `0x40` | `CMD_HELLO` | esclavo→maestro | hardware, enlace, SD, ganancias, capacidades, reinicio, uptime y tasas. |
+| `0x50` | `CMD_SET_RECLEN` | maestro→esclavo | cantidad de lotes clásica. |
+| `0x51` | `CMD_REQ_BATCH` | maestro→esclavo | nodo, secuencia y opción comprimida. |
+| `0x61` | `CMD_PRESTART` | maestro→esclavo | lotes, almacenamiento, tiempo real y modo de sincronismo. |
+| `0x62/0x63` | `CMD_HOTWAIT_QUERY/ACK` | ambos | disponibilidad, estado y motivo de rechazo. |
+| `0x72` | `CMD_SELECT_STREAM` | maestro→esclavo | ADC crudo o FIR del PSoC. |
+| `0x73` | `CMD_STREAM_ACK` | maestro→esclavo | `next_expected` y SACK de 32 bits. |
+| `0x74` | `CMD_STREAM_END` | esclavo→maestro | total y causa de cierre. |
+| `0x76/0x77` | `CMD_FIR_COEFFS/COMMIT` | maestro→esclavo | 128 taps Q1.23 en dos bloques y suma de control. |
+| `0x78` | `CMD_TIME_MARK` | esclavo→maestro | ancla muestra↔reloj maestro. |
+| `0x79` | `CMD_FTM_REPORT` | esclavo→maestro | estado, RTT, RSSI, distancia, deriva, residuo y edad. |
+| `0x7A..0x7C` | comandos OTA | ambos | oferta, estado, control, tamaño y SHA-256. |
+| `0x7D` | `CMD_TIME_BEACON` | maestro→todos | `run_id` y reloj MAC del maestro. |
+| `0x7E` | `CMD_SLAVE_LOG` | esclavo→maestro | hasta 200 caracteres sin terminador. |
+| `0xBC/0xBD` | marcadores de datos | esclavo→maestro | secuencia de 16/32 bits y muestras sin comprimir. |
+| `0xBE` | `MsgDataZ` | esclavo→maestro | lote GeoZ comprimido y CRC XOR. |
+
+`SampleBytes` ocupa 10 B. Incluye ADC crudo de 16 bits, dos valores analógicos de 24 bits, ganancia y banderas. Las banderas identifican SD_IO, SD_SYNC, RADIO_TX, I2C, AP_BEACON y MASTER_RX.
+
+`MsgData` usa dos partes de 15 muestras, secuencia de 16 bits, timestamp de 64 bits y CRC. `MsgData32` cambia la secuencia a 32 bits para capturas sin límite. `MsgDataZ` usa cabecera de 8 B y hasta 160 B comprimidos. El código vigente envía 30 muestras por lote.
+
+`MsgTimeMark` ocupa 18 B antes de la marca de red. Sus campos son comando, nodo, token, índice de muestra, reloj MAC maestro, incertidumbre, clase y banderas. Las clases distinguen marca periódica, START FTM, START RX y START broadcast. `TIME_MARK_MODEL_OK` indica que el modelo era válido.
+
+La máscara de `MsgPrestart.mode` reserva bits 0–1 para almacenamiento, bit 2 para tiempo real y bit 3 para descarga por flujo. Los almacenamientos son RAM del PSoC, RAM compartida y RAM+SD. Los modos de sincronismo son FTM activo, FTM pausado y radio apagada.
+
+### 10.4. Almacenamiento RAM+SD del modo en vivo
+
+La SD del ESP en `live_capture` sigue vigente. Solo se eliminó la implementación antigua sin llamadores. El modo `CAPMODE_STORAGE_SD` combina el anillo del PSoC, RAM/PSRAM del ESP y `/live.bin` en la SD del ESP.
+
+La RAM se divide en páginas de 32 lotes. El máximo compilado del S3 es de 2048 páginas, equivalente a 65 536 lotes y 5,90 MiB. Se reservan 36 KiB de heap para radio y FatFs. Con SD se conserva un anillo de 512 lotes para absorber atraso del maestro. Las lecturas desde SD se agrupan en 32 lotes.
+
+El PSoC conserva un anillo de 512 lotes y una ventana viva de 16. El ESP mantiene una ventana de 64 lotes hacia el maestro y hasta seis tramas de radio en vuelo. La SD amplía la duración recuperable, pero no elimina la contrapresión ni los límites de radio.
+
+Los contadores `recv`, `tail`, `sdw`, `txNext` y `mack` son de 32 bits. `STREAM_END` distingue cierre completo, STOP, memoria agotada, SD llena y error. Una captura sin límite solo se acepta en tiempo real.
+
+### 10.5. Contrato del ZIP
+
+El esquema raíz es `geophone_scope_web_zip_v4`. El payload se declara `raw_metadata_only`: se exporta la señal cruda y se reconstruyen las derivaciones filtradas. Los archivos binarios `raw_f32le.bin` contienen `float32` little-endian.
+
+| Ruta | Presencia | Contenido |
+|---|---|---|
+| `metadata.json` | obligatoria | metadata raíz completa. |
+| `maestro/metadata.json` | obligatoria | copia compatible de la metadata raíz. |
+| `maestro/config.json` | obligatoria | configuración resumida del maestro. |
+| `noise_signatures.json` | condicional | firmas por tipo; la metadata debe declararlo. |
+| `combined/nodes.csv` | obligatoria | resumen de nodos. |
+| `combined/captures.csv` | con capturas preservadas | resumen de capturas. |
+| `combined/capture_nodes.csv` | con capturas preservadas | relación captura–nodo. |
+| `captures/NNN_nombre/metadata.json` | por captura | metadata congelada al cierre. |
+| `captures/NNN_nombre/<placa>/raw_f32le.bin` | por nodo con datos | señal cruda. |
+| `captures/NNN_nombre/<placa>/noise_marks.csv` | por nodo | índice, máscara hexadecimal y nombres. |
+| `captures/NNN_nombre/<placa>/time_marks.csv` | por nodo | anclas temporales. |
+| `<placa>/raw_f32le.bin` y archivos asociados | captura activa no preservada | layout de compatibilidad del estado actual. |
+
+La metadata conserva frecuencia efectiva y nativa, N, archivos, conteos, rol, MAC, inicio, sincronismo, almacenamiento, FIR, antialias, fase, retardos y firmas. También conserva `first_retained_input_sample = 0` y la secuencia 0, N, 2N. Los CSV crudo y filtrado no se exportan. La señal filtrada tampoco se exporta.
+
+El servidor exige `metadata.json` y esquema v4. Valida nombres, duplicados, límites, razón de compresión y referencias declaradas. Si se declara `noise_signatures_file`, la ruta debe ser exactamente `noise_signatures.json` en la raíz.
+
+### 10.6. Parámetros temporales, ventanas y límites
+
+| Parámetro | Valor vigente | Origen o estado |
+|---|---:|---|
+| `SOC_PERIOD_NS` | 500 000 ns | Código; 2000 Hz nominales. |
+| Pulso SOC | 3 us | Código MCPWM. |
+| Resolución MCPWM | 6,25 ns | **CALCULADO** desde 160 MHz. |
+| Reloj externo | 8 MHz | Código LEDC; **NO PROBADO** en placa. |
+| Adelanto del START FTM | 400 ms | Código del maestro. |
+| Respaldo START RX | recepción + 20 ms | Código y banco. |
+| Baliza de reloj | 500 ms | Código; 2 Hz. |
+| Turno FTM | 1 s de cada 8 s | Código. |
+| Timeout de sesión FTM | 4 s | Código del iniciador. |
+| Modelo FTM | 16 sesiones; mínimo 4 | Código. |
+| Datos recientes del ajuste | 30 s | Código del esclavo. |
+| Edad admitida por el maestro | 20 s | Código del maestro. |
+| Criterio del modelo | |deriva| < 100 ppm; residuo < 500 ns | Código. |
+| Ventana estadística FTM | 128 tramas | Código. |
+| Máximo por sesión FTM | 64 tramas | Código. |
+| Ventana de flujo maestro | 64 lotes | Código. |
+| `STREAM_ACK` | 8 lotes o 50 ms | Código vigente. |
+| RTO de datos | 150 ms | Código vigente. |
+| Tramas de esclavo en vuelo | 6 | Código. |
+| Timeout de callback TX | 50 ms | Código. |
+| Reenvío PSoC | 20 ms; cola de 16 | Código. |
+| Reintento `REQ_BATCH` | 2 ms | Banco y código. |
+| STOP unicast | cada 300 ms | Código y banco. |
+| Anillo de marcas temporales | 2048 | Código; unos 36 KiB. |
+| Wrap del reloj MAC | 2^32 us = 71,58 min | **CALCULADO**; el ajuste usa aritmética modular. |
+
+La capacidad de 5–6 nodos a N=1 surge de una estimación de tiempo de aire de 9–10 % por nodo a 1 Mbit/s. No se midió con más de tres placas. Debe tratarse como **CALCULADO/NO PROBADO**.
+
+### 10.7. Entornos PlatformIO y grabación
+
+| Proyecto | Entorno | Uso |
+|---|---|---|
+| `masterS3` | `masterS3` | maestro de campo, Arduino 3.3.12/ESP-IDF 5.5.5. |
+| `masterS3` | `masterS3_log` | banco con texto por UART0; no usar junto con MATLAB. |
+| `masterS3` | `masterS3_idf44` | respaldo ESP-IDF 4.4 sin FTM. |
+| `masterS3` | `masterS3_idf44_log` | respaldo 4.4 con registro. |
+| `slaveS3` | `slaveS3`, `slaveS3_2..4` | nodo genérico o NODE_ID 2, 3 y 4. |
+| `slaveS3` | `slaveS3_idf44` | respaldo sin FTM. |
+| maestro clásico | `esp32dev` | maestro WROOM legado. |
+| esclavo clásico | `slave1`, `slave2`, `slave3` | HAMMER, GEO completa y GEO pequeña. |
+| esclavo clásico | `slaveTest` | banco. |
+
+Los S3 usan placa N16R8, flash de 16 MB, PSRAM OPI y particiones OTA. La compilación usa rutas ASCII bajo `C:/piobuild/` porque el enlazador falla al escribir el mapa en una ruta con acento.
+
+```powershell
+# Maestro S3: firmware y LittleFS
+cd "src/firmware/esp32/Nodo comunicación/masterS3"
+pio run -e masterS3 -t upload --upload-port COM14
+pio run -e masterS3 -t uploadfs --upload-port COM14
+
+# Esclavo S3, ejemplo nodo 2
+cd "../slaveS3"
+pio run -e slaveS3_2 -t upload --upload-port COMx
+
+# Monitor de banco
+pio device monitor --port COMx --baud 115200
+```
+
+Para placa física se debe compilar sin `SIM_SIN_HW=1`. El estado de referencia todavía lo define en `slaves3_flags`; por eso los entornos S3 actuales son de banco simulado hasta cambiar esa bandera. La OTA se ejecuta después de liberar el nodo con ARM+STOP.
+
+### 10.8. Comandos USB de diagnóstico del esclavo S3
+
+Los comandos no distinguen mayúsculas de minúsculas. Las funciones de laboratorio dependen de `SLAVE_LAB_TOOLS_ENABLE=1`.
+
+| Comando | Efecto |
+|---|---|
+| `status` o `s` | informa estado general. |
+| `probe` | consulta el PSoC. |
+| `resetlow`, `resethigh`, `resetstate`, `psocreset` | diagnostica o solicita reinicio del PSoC. |
+| `pre N`, `sync`, `startnow N`, `cap N`, `capwait N` | ejercita PRESTART, START y captura. |
+| `capmode S RT RAMPA DUMP` | fija almacén, tiempo real, rampa y descarga por flujo. |
+| `livecap N SEG`, `livestat`, `livedump [hex]` | captura y vuelca el almacenamiento vivo. |
+| `stream N`, `rawcap N`, `fircap N` | prueba el flujo o la selección crudo/FIR. |
+| `clear`, `stop` | limpia o detiene. |
+| `pga N`, `pgaout N`, `pgavdac N`, `range N`, `decim N` | configura ganancias, rango o N. |
+| `view 0..4|255` | selecciona el punto analógico digitalizado. |
+| `idac ETAPA CODIGO` | mueve una referencia, etapa 0–3 y código −255..255. |
+| `adc`, `snapshot`, `cal`, `blink` | toma instantánea, calibra o identifica el nodo. |
+| `sdinfo`, `sdtest`, `sdcap N`, `sdhz HZ` | diagnostica SD del PSoC o del ESP. |
+| `sdread N`, `dumpusb [DESDE] [HASTA]` | lee lotes y los vuelca por USB. |
+| `ftm`, `ftm raw`, `ftm periodo MS` | informa o ajusta FTM. |
+| `syncmode 0|1|2` | FTM activo, pausado o radio apagada. |
+| `marcas`, `marcas beacon on|off` | informa o cambia marcas de baliza. |
+| `radio on|off`, `radiosil on [MS]|off` | controla radio y silencio durante captura. |
+| `rfrx MS`, `rftest MS PERIODO BYTES [b]`, `txpower DBM` | pruebas de radio. |
+| `sdstress MS PERIODO`, `sddiag`, `sddiag2`, `sddiag3` | estrés y diagnóstico de SD. |
+| `diag`, `pins`, `quiet INICIO FIN` | diagnóstico integrado, pines y ventana silenciosa. |
+
+Los límites de línea son los que valida el parser: `rfrx` y `rftest` admiten hasta 600 000 ms; `rftest` admite 1–240 B; `txpower` admite 2–21 dBm; `radiosil` admite 0–1000 ms; `sdstress` exige períodos de 5–10 000 ms.
+
+### 10.9. Límites conocidos y alcance de la validación
+
+- **MEDIDO:** tres nodos, cinco corridas de 14 min, TX raw y FTM por turnos sin bloqueo final.
+- **MEDIDO:** atraso de la vista de 1–3 s durante la sesión FTM de un nodo, sin pérdida final.
+- **MEDIDO:** START FTM entre 1 us y 7 us; respaldo RX con mediana/máximo de 5/10 us; clásico con 152/374 us.
+- **CALCULADO/NO PROBADO:** 5–6 nodos sostenibles a N=1 y 1 Mbit/s.
+- **LÍMITE:** 2048 marcas temporales en RAM del S3. Se transmiten dos veces y no tienen ACK individual.
+- **LÍMITE:** reloj MAC de 32 bits con vuelta cada 71,58 min. El código contempla el wrap; falta un ensayo físico que lo cruce.
+- **LÍMITE:** el modelo FTM se actualiza aproximadamente cada 8 s y vence a los 20 s.
+- **LÍMITE:** TX raw solo admite peers sin cifrar. No reproduce ESP-NOW con LMK.
+- **LÍMITE:** `esp_wifi_80211_tx()` puede retornar `ESP_OK` aunque falle el post interno. Se conserva un frame en vuelo, callback y vigía.
+- **LÍMITE:** el responder FTM tiene tres plazas internas. El vigía reinicia Wi-Fi entre capturas después de tres `NO_RESPONSE` consecutivos.
+- **LÍMITE:** el artefacto PSoC generado sigue en modo continuo a 2604 muestras/s. Single Sample a 2000 Hz no está compilado ni medido.
+- **LÍMITE:** el FIR y el antialias están verificados contra modelos de host. No se midieron ruido, alias ni timing sobre la placa definitiva.
+
+## 11. Registro de decisiones
+
+Cada registro usa el formato de una Architecture Decision Record (ADR). “Probado” se reserva para una prueba ejecutada. “Vigente” indica que la decisión gobierna el diseño. “Pendiente de medir” identifica una implementación o cálculo sin validación física.
+
+### ADR-001 — Maestro principal sobre ESP-IDF 5.5
+
+- **Contexto/problema:** FTM de sincronía y distancia no funcionó con el maestro S3 sobre ESP-IDF 4.4. El sistema requiere FTM para el modelo de reloj y el START programado.
+- **Alternativas consideradas:** conservar 4.4; migrar a 5.5; mantener ambas imágenes.
+- **Criterio y datos:** FTM quedó operativo con Arduino 3.3.12/ESP-IDF 5.5.5. IDF 5.4 no expone `esp_wifi_internal_get_mac_clock_time()`. La migración expuso el defecto #19269.
+- **Decisión:** `masterS3` sobre 5.5 es el maestro principal. `masterS3_idf44` queda como respaldo sin FTM.
+- **Consecuencias/costos:** se debe sostener la mitigación TX raw y validar cada actualización del blob Wi-Fi. El respaldo usa START RX o broadcast.
+- **Estado:** **vigente y probado** en banco; FTM no probado en campo.
+
+### ADR-002 — TX raw para ESP-NOW originado en el maestro
+
+- **Contexto/problema:** `esp_now_send()` se trabó bajo tráfico concurrente del SoftAP. Hubo 9 bloqueos en 11 corridas de 14 min.
+- **Alternativas consideradas:** lock de lwIP; AP 11b/g; quitar FTM; quitar baliza; reinicializar Wi-Fi; bajar a IDF 5.4; esperar arreglo upstream.
+- **Criterio y datos:** el binario inserta en `s_tx_cacheq` sin `g_wifi_global_lock`. `esp_wifi_80211_tx()` usa la misma cola con el lock. Las variantes de lwIP, PHY, FTM y baliza no evitaron el fallo. La reinicialización recuperó en 100–600 ms, pero la PC tardó 67–115 s y se perdieron 15–25 KiB de heap por ciclo. IDF 5.5.6 y `esp32-wifi-lib` master del 22/10 conservaban la ruta defectuosa.
+- **Decisión:** el maestro construye la action frame ESP-NOW v2 y la transmite con `esp_wifi_80211_tx()`.
+- **Consecuencias/costos:** solo se admiten peers sin cifrar. Se mantienen callback, un frame en vuelo y detector de TX trabado.
+- **Estado:** **vigente y probado** en cinco corridas finales de 14 min.
+
+### ADR-003 — FTM por turnos y vigía del responder
+
+- **Contexto/problema:** el responder tiene tres plazas. Bajo carga, una limpieza perdida deja una plaza ocupada y produce `NO_RESPONSE` permanente.
+- **Alternativas consideradas:** sesiones libres por nodo; reintentos agresivos; limpieza privada; reinicio de Wi-Fi; turnos exclusivos.
+- **Criterio y datos:** el binario confirma tres plazas y una liberación dependiente de un evento sin reintento. Sin turnos, el responder murió. Con turnos, cinco corridas finales no registraron muerte.
+- **Decisión:** cada nodo usa una ventana de 1 s en una rueda de 8 s, derivada de la baliza. Tres `NO_RESPONSE` consecutivos programan un reinicio Wi-Fi entre capturas.
+- **Consecuencias/costos:** el modelo se actualiza cada 8 s y vale 20 s. La vista en vivo puede atrasarse 1–3 s cuando un nodo mide.
+- **Estado:** **vigente y probado** con tres nodos.
+
+### ADR-004 — Cadencia de `STREAM_ACK` en 8 lotes o 50 ms
+
+- **Contexto/problema:** se evaluó si reducir la frecuencia de ACK mitigaba el atraso de la vista.
+- **Alternativas consideradas:** 16 lotes/120 ms; 8 lotes/50 ms.
+- **Criterio y datos:** la mitad de ACK no eliminó el atraso. El aumento transitorio coincidió con las sesiones FTM, no con la cadencia de confirmación.
+- **Decisión:** se volvió a 8 lotes o 50 ms, con RTO de 150 ms.
+- **Consecuencias/costos:** aumenta el número de tramas respecto de 16/120, pero reduce la ventana de confirmación y mantiene la recuperación probada.
+- **Estado:** **vigente y probado**.
+
+### ADR-005 — Jerarquía de métodos START
+
+- **Contexto/problema:** el START por callback depende del planificador y dispersa el inicio entre nodos.
+- **Alternativas consideradas:** START común inmediato; anclaje a `rx_ctrl->timestamp`; programación con modelo FTM.
+- **Criterio y datos:** broadcast clásico midió 152 us de mediana y 374 us de máximo. El anclaje RX midió 5/10 us. FTM midió entre 1 us y 7 us.
+- **Decisión:** FTM programado es el método principal. El respaldo S3 usa timestamp RX + 20 ms. El broadcast inmediato queda solo para clásicos.
+- **Consecuencias/costos:** FTM exige modelo vigente en todos los nodos. El respaldo RX no corrige deriva durante la captura.
+- **Estado:** **vigente y probado** entre ESP32; pendiente medir primera muestra del ADC.
+
+### ADR-006 — SOC disciplinado y reloj externo durante toda la captura
+
+- **Contexto/problema:** el reloj de muestras era el IMO del PSoC, especificado en ±1 %. Un START común no corrige esa deriva.
+- **Alternativas consideradas:** A) ADC continuo con reloj ESP de 8 MHz y marcas de software; B) ADC Single Sample con SOC disciplinado; C) Si5351 disciplinable; D) reloj de MHz ajustado por el ESP.
+- **Criterio y datos:** se rechazó C por prohibición de agregar chips. D no alcanza resolución: LEDC ajusta aproximadamente 200–800 ppm, RMT en bucle cerca de 500 ppm y el S3 no tiene APLL. A conserva ambigüedad del instante efectivo dentro del flujo continuo. B fija cada conversión sobre la grilla del maestro.
+- **Decisión:** se eligió B. El ESP genera cada SOC disciplinado y entrega 8 MHz al PSoC. SYNC solo habilita la compuerta SOC∧SYNC. Las marcas FTM verifican y respaldan el ajuste de software.
+- **Consecuencias/costos:** requiere modificar PSoC Creator y cablear SOC, reloj y SYNC. Un glitch de SYNC no se usa como reloj, para evitar confundirlo con STOP. La demora SOC→muestra debe ser común.
+- **Estado:** **vigente, implementado en ESP y NO PROBADO** en placa. La parte PSoC está pendiente.
+
+### ADR-007 — ADC Delta-Sigma frente a SAR
+
+- **Contexto/problema:** se comparó preservar el Delta-Sigma o migrar a un SAR para simplificar el disparo.
+- **Alternativas consideradas:** SAR de 12 bits; Delta-Sigma de 18 bits configurados.
+- **Criterio y datos:** la documentación comparada asigna al SAR SINAD de 68 dB, unos 10,9 bits efectivos, e INL de +2/−1,5 LSB sin filtro. El Delta-Sigma alcanza 81–84 dB a 16 bits y se configura a 18 bits. Promediar SAR reduce ruido aleatorio, pero no corrige INL.
+- **Decisión:** se conserva el Delta-Sigma.
+- **Consecuencias/costos:** la conversión exige más tiempo y limita la tasa. Se debe respetar el llenado del decimador.
+- **Estado:** **vigente**; cifras de hoja de datos, pendiente medir SNR en el montaje nuevo.
+
+### ADR-008 — Frecuencia nominal de 2000 Hz
+
+- **Contexto/problema:** Single Sample de 18 bits debe terminar antes del siguiente SOC, incluso con tolerancia del reloj.
+- **Alternativas consideradas:** conservar 2604 Hz; usar el máximo nominal de 2475 muestras/s; bajar a 2000 Hz; reducir a 15 bits para tasas mayores.
+- **Criterio y datos:** Creator informó 2417 muestras/s con reloj ADC de 3,071 MHz, por encima del máximo de 3,027 MHz para 16–20 bits. A 2000 Hz, 500 us deja cerca de 17 % de margen frente a unos 414 us. Los 1024 ciclos de sobremuestreo permanecen ligados a la resolución.
+- **Decisión:** se fija `SOC_PERIOD_NS = 500 000`, equivalente a 2000 Hz. El reloj de 8 MHz alimenta un PLL a 24 MHz para conservar el bus actual.
+- **Consecuencias/costos:** baja la tasa respecto de 2604 Hz. Por encima de unos 2956 Hz en continuo se debería bajar a 15 bits o menos.
+- **Estado:** **vigente y calculado; pendiente de medir** SOC→EOC.
+
+### ADR-009 — Single Sample y ausencia de arrastre recuperable
+
+- **Contexto/problema:** existía la duda de que vaciar el decimador entre muestras redujera el sobremuestreo o eliminara información útil.
+- **Alternativas consideradas:** continuo con arrastre; Single Sample con vaciado; compensación posterior por software.
+- **Criterio y datos:** los registros indican sinc4/64 y promedio de 16. Se estiman unos 256 ciclos de llenado y 1024 de promedio, unos 1271 ciclos totales. Esto concuerda con 2417 muestras/s a 3,071 MHz. El continuo solo arrastra unos 256 ciclos internos que nunca salen del ADC.
+- **Decisión:** se usa Single Sample. No se intenta reconstruir por software el estado interno del modulador.
+- **Consecuencias/costos:** la ventana estimada es de 414 us y deja unos 86 us cada 500 us.
+- **Estado:** **vigente y CALCULADO/NO PROBADO**. Faltan osciloscopio, entrada en corto y alias cerca de Nyquist.
+
+### ADR-010 — FIR lineales y fase común en todos los nodos
+
+- **Contexto/problema:** el picking de arribos requiere que los retardos deterministas se cancelen entre canales.
+- **Alternativas consideradas:** promedio móvil; FIR distintos por rol; FIR común y fase común.
+- **Criterio y datos:** el promedio móvil tiene lóbulos cercanos a 13 dB y no cumple el rechazo. El FIR de adquisición Kaiser usa 127 taps útiles Q1.23 y alcanza 66,491 dB calculados desde 250 Hz. El antialias Kaiser mantiene fase lineal y cerca de 90 dB.
+- **Decisión:** todos los nodos, incluido HAMMER, usan los mismos coeficientes y la fase 0, N, 2N desde START. La web activa FIR común por defecto.
+- **Consecuencias/costos:** separar filtros introduce retardos distintos. La web advierte y la metadata registra la separación.
+- **Estado:** **vigente y probado en host; pendiente de medir** en PSoC.
+
+### ADR-011 — Coeficientes antialias Q1.23
+
+- **Contexto/problema:** Q15 limitaba el rechazo de filtros largos.
+- **Alternativas consideradas:** mantener Q15; aumentar a Q1.23.
+- **Criterio y datos:** N=16 quedó cerca de 64,6 dB con Q15. Q1.23 ubica el piso teórico por debajo de −120 dB. El objetivo es 90 dB. La cota del acumulador queda bajo 2^55.
+- **Decisión:** se usan coeficientes `int32` Q1.23 y acumulador `int64`.
+- **Consecuencias/costos:** coeficientes e historial consumen aproximadamente 1 KiB adicional respecto de Q15 cada uno; el incremento neto indicado para coeficientes es cerca de 1 KiB.
+- **Estado:** **vigente y probado bit a bit en host; pendiente de medir** en placa.
+
+### ADR-012 — Latencia del ADC como constante de análisis
+
+- **Contexto/problema:** se debe ubicar el instante físico de la muestra sin inflar cada mensaje de radio.
+- **Alternativas consideradas:** transmitir latencia por muestra; guardar una constante de configuración; ignorarla.
+- **Criterio y datos:** para una configuración fija, SOC→muestra es constante y común a todos los nodos. Solo desplaza el tiempo absoluto.
+- **Decisión:** la aplicación resta `ADC_SOC_LATENCY_S`. La constante no viaja por muestra.
+- **Consecuencias/costos:** un cambio de ADC o reloj exige actualizar metadata/análisis. Un error común no altera tiempos relativos, pero sí el origen absoluto.
+- **Estado:** **vigente y CALCULADO; pendiente de medir**.
+
+### ADR-013 — Marcas FTM para reconstrucción temporal
+
+- **Contexto/problema:** se necesita verificar la grilla durante capturas largas y reconstruirla si existe un hueco del modelo.
+- **Alternativas consideradas:** confiar solo en START; timestamp por lote; anclas índice de muestra↔maestro.
+- **Criterio y datos:** el PSoC entrega un ancla de índice por I2C. El esclavo puede convertirla al reloj maestro y retener 2048 marcas. El servidor ya ajusta una recta por mínimos cuadrados.
+- **Decisión:** se registra una marca en START y luego aproximadamente cada 1 s. El servidor ajusta muestra→reloj maestro e interpola todos los canales a una grilla común.
+- **Consecuencias/costos:** las marcas se envían dos veces, consumen RAM y radio, y no tienen ACK individual. Los ZIP viejos usan la frecuencia heredada.
+- **Estado:** **vigente, probado en host y NO PROBADO** con PSoC real.
+
+### ADR-014 — Correcciones operativas integradas durante la sesión
+
+- **Contexto/problema:** la integración reveló pánicos, pérdida de STOP, filtrado incompleto, límites móviles y falta de trazabilidad remota.
+- **Alternativas consideradas:** resolver cada síntoma fuera del flujo; integrar recuperación y metadata en la cadena normal.
+- **Criterio y datos:** el coredump ubicó el pánico en ARM dentro del callback. STOP broadcast se perdió. El teléfono completó ZIP→Tailscale→servidor→aplicación. El FIR causal avanzó en vivo y `filtfilt` reemplazó el resultado al cerrar.
+- **Decisión:** ARM/PRESTART se difieren a `loop()`. Se informa coredump por radio. STOP se reenvía por unicast. La web es móvil. Enlace guarda solo la URL. El ZIP incluye crudo, metadata y firmas. El servidor se expone por Tailscale.
+- **Consecuencias/costos:** aumenta la cantidad de estados y metadata. El log remoto consume radio, pero se puede conservar para campo.
+- **Estado:** **vigente y probado** en banco simulado y navegador; no probado con toda la electrónica real.
+
+### ADR-015 — Reparto del trabajo entre asistentes
+
+- **Contexto/problema:** la investigación del blob, la implementación y el informe demandaron trabajo sostenido. La prueba física y la decisión final requieren control humano.
+- **Alternativas consideradas:** un solo asistente; reparto por especialidad; pausa al alcanzar límites de cuota.
+- **Criterio y datos:** el historial y los informes atribuyen a Codex la investigación técnica, implementación y redacción. Claude conserva decisión, revisión y prueba. Se registraron pausas cuando Codex agotó cuota.
+- **Decisión:** Codex ejecuta el trabajo pesado basado en repositorio. Claude decide, revisa y coordina las pruebas. Se pausa al agotarse la cuota.
+- **Consecuencias/costos:** los traspasos requieren informes autosuficientes y pueden introducir demoras. Ningún resultado de IA reemplaza la medición física.
+- **Estado:** **vigente como proceso**; no es una decisión técnica del producto.
+
+### 11.1. Dudas y discrepancias abiertas
+
+1. `cyfitter.h` confirma `aclk` en P3[3] y `soc` en P3[4], pero el artefacto ADC generado aún declara modo continuo a 2604 muestras/s. La intención de diseño y el binario PSoC actual no coinciden todavía.
+2. La afirmación de 2475 muestras/s máximas en Single Sample y los valores SINAD/INL provienen de hojas de datos revisadas durante la sesión. No se encontró una copia citada dentro de `lab/s3`; conviene agregar la referencia primaria al documento final de tesis.
+3. La descomposición de 1271 ciclos en unos 256 de llenado y 1024 de promedio es coherente con registros y tasa. Sigue siendo una interpretación técnica hasta medir SOC→EOC.
+4. El GPIO 2 del esclavo también figura como pin de identificación LED en banderas heredadas. En S3, `board_pins_s3.h` lo asigna al reloj de 8 MHz. Debe verificarse que ninguna ruta de identificación lo accione en campo.
+5. La alimentación a 5 V de todos los VDDIO está confirmada por el artefacto generado. Falta verificar en esquema y placa que SDA/SCL queden elevados a 3,3 V y que ninguna salida de 5 V alcance el ESP.
+6. La capacidad de 5–6 nodos es una estimación. No existe una corrida de radio con esa cantidad de placas.
+7. El cruce real del wrap del reloj MAC de 71,58 min no se probó. Las corridas máximas documentadas duraron 14 min.
+8. El reinicio del responder FTM con `esp_wifi_stop/start` se conserva como vigía acotado entre capturas. No debe confundirse con la reinicialización completa eliminada, que reconstruía AP, ESP-NOW y peers y perdía heap.
+
 ---
 
 Proveniencia: IA principal Codex (modelo no reportado); delegados: ninguno; fallbacks: búsqueda PowerShell porque `rg` no estaba disponible.
