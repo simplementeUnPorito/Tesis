@@ -18,7 +18,8 @@ def main():
     ap.add_argument('capturas', nargs='+')
     ap.add_argument('--placa', default='SIM_S3')
     ap.add_argument('--escenario', default='rt_sd')
-    ap.add_argument('--fs', type=float, default=2604.0)
+    ap.add_argument('--fs', type=float, default=2000.0,
+                    help='Fs de la captura; usar la informada por HELLO (2000 en modo SOC)')
     ap.add_argument('--out', default='lab/ruido_firmas/capturas')
     a = ap.parse_args()
     out = Path(a.out) / a.placa

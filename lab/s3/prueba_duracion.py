@@ -2,7 +2,7 @@
 
 Fija N (decimacion) en los nodos, arranca tiempo real sin limite (lotes
 comprimidos a la web) y cada 10 s compara los lotes recibidos con los que
-deberian haber salido a la Fs efectiva (2604/N). Si el atraso no crece, el
+deberian haber salido a la Fs efectiva informada por HELLO. Si el atraso no crece, el
 enlace sostiene esa Fs indefinidamente; si crece, se informa a que ritmo y
 cuanto tardaria en llenarse el respaldo del esclavo. Al final STOP y mide
 cuanto tarda en vaciarse.
@@ -18,7 +18,7 @@ import time
 sys.path.insert(0, os.path.dirname(__file__))
 from maestro_ws import Maestro  # noqa: E402
 
-FS = 2604.0
+FS_LEGACY = 2604.0
 SPB = 30
 
 
@@ -34,7 +34,15 @@ def main():
     seqs = {n: -1 for n in nodos}
     count = {n: 0 for n in nodos}
     m = Maestro(reconnect=True)
+    sample_rates = {}
     m.on_reconnect = lambda: m.send_json({'cmd': 'ZWEB', 'on': 1})
+
+    def on_text(_t, message):
+        if isinstance(message, dict) and message.get('type') == 'sample_rate':
+            node = int(message.get('node', 0))
+            mhz = float(message.get('mhz', 0))
+            if node > 0 and mhz > 0:
+                sample_rates[node] = mhz / 1000.0
 
     def on_z(t, n, seq, payload):
         if n in seqs:
@@ -42,6 +50,7 @@ def main():
             count[n] += 1
 
     m.on_zbatch = on_z
+    m.on_text = on_text
     m.connect()
     m.send_json({'cmd': 'ZWEB', 'on': 1})
     m.std(0xA4)
@@ -57,7 +66,8 @@ def main():
     time.sleep(2.5)
     t0 = time.time()
     m.std16(0xA3, 0)
-    fs = FS / a.n
+    reported = [sample_rates[n] for n in nodos if n in sample_rates]
+    fs = min(reported) if reported else FS_LEGACY / a.n
     filas = []
     print(f'N={a.n} Fs={fs:.1f} Hz -> {fs / SPB:.1f} lotes/s por nodo; {a.s:.0f} s')
     while time.time() - t0 < a.s:
@@ -90,7 +100,8 @@ def main():
         a1, a2 = filas[len(filas) // 2], filas[-1]
         for n in nodos:
             ritmo[n] = round((a2[f'S{n}_atraso'] - a1[f'S{n}_atraso']) / (a2['t'] - a1['t']), 3)
-    res = {'N': a.n, 'fs': fs, 'segundos': a.s, 'filas': filas, 'al_stop': total_stop, 'reconexiones': m.reconnects,
+    res = {'N': a.n, 'fs': fs, 'fs_por_nodo': sample_rates, 'fs_fallback_legacy': not bool(reported),
+           'segundos': a.s, 'filas': filas, 'al_stop': total_stop, 'reconexiones': m.reconnects,
            'final': count, 'drenaje_s': round(drenaje, 1), 'atraso_crece_lotes_por_s': ritmo}
     os.makedirs('lab/s3/duracion', exist_ok=True)
     json.dump(res, open(f'lab/s3/duracion/N{a.n}_{int(a.s)}s_nodos{a.nodos.replace(",", "-")}_sync{a.sync}.json', 'w'), indent=1)

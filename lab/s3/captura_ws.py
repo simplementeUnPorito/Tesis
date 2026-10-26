@@ -129,6 +129,8 @@ def main():
         mode_byte |= 8
     nodos = {}
     estado = {'master': None, 'hist': []}
+    sample_rates = {}
+    time_marks = {}
     m = Maestro()
 
     def on_packet(p):
@@ -166,6 +168,20 @@ def main():
 
     m.on_packet = on_packet
     m.on_zbatch = on_zbatch
+    def on_text(_t, message):
+        if not isinstance(message, dict):
+            return
+        if message.get('type') == 'sample_rate':
+            node = int(message.get('node', 0))
+            mhz = float(message.get('mhz', 0))
+            if node > 0 and mhz > 0:
+                sample_rates[node] = mhz / 1000.0
+        elif message.get('type') == 'timemark':
+            node = int(message.get('node', 0))
+            if node > 0:
+                key = (int(message.get('token', 0)), int(message.get('sample', 0)))
+                time_marks.setdefault(node, {})[key] = message
+    m.on_text = on_text
     m.connect()
     if a.zweb:
         m.send_json({'cmd': 'ZWEB', 'on': 1})
@@ -220,6 +236,8 @@ def main():
     res = {'args': vars(a), 'mode_byte': mode_byte, 'ws_bytes_total': getattr(m, 'total_bytes', 0), 'ws_bytes_z': m.zbytes, 'ws_records_z': m.zrecords, 'duracion_s': time.time() - t0,
            'estados': [(round(t - t0, 2), ST_NAMES.get(s, s)) for t, s in estado['hist']],
            'textos': [o for _, o in tx if isinstance(o, dict) and o.get('type') not in ('link', 'ftm')][:50],
+           'sample_rates_hz': sample_rates,
+           'time_marks': {str(n): list(marks.values()) for n, marks in time_marks.items()},
            'nodos': {}}
     for n, nd in sorted(nodos.items()):
         x, mk = nd.arrays()
